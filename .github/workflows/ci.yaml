@@ -16,6 +16,6 @@ jobs:
     secrets:
         token: ${{ secrets.GITHUB_TOKEN }}
     with:
-        prepare-command: echo "Preparing...!!!"
+        prepare-command: echo "Preparing...!!!!"
         build-command: echo "Building...!!!"
         test-command: echo "Testing...!!!"
