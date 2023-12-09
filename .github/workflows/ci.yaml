@@ -5,7 +5,7 @@ on:
       - master
 jobs:
   ci:
-    uses: f-pms/devops/.github/workflows/ci.yaml@feature/lint-pr
+    uses: f-pms/Devops/.github/workflows/ci.yaml@feature/lint-pr
     with:
       prepare-command: echo "Preparing...!!"
       build-command: echo "Building...!!"
