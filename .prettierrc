@@ -2,6 +2,5 @@
   "singleQuote": true,
   "trailingComma": "all",
   "jsxSingleQuote": true,
-  "endOfLine": "auto",
-  "tabWidth": 2,
+  "endOfLine": "auto"
 }
