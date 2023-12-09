@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   ci:
-    uses: f-pms/Devops/.github/workflows/ci.yaml@feature/lint-pr
+    uses: f-pms/Devops/.github/workflows/ci.yaml@master
     with:
         prepare-command: echo "Preparing...!!!!"
         build-command: echo "Building...!!!!"
