@@ -9,4 +9,4 @@ jobs:
     with:
       prepare-command: echo "Preparing...!!"
       build-command: echo "Building...!!"
-      test-command: echo "Testing...!!"
+      test-command: echo "Testing...!!!"
