@@ -1,0 +1,12 @@
+name: CI
+on:
+  pull_request:
+    branches:
+      - master
+jobs:
+  ci:
+    uses: f-pms/devops/.github/workflows/ci.yaml@feature/lint-pr
+    with:
+      prepare-command: echo "Preparing...!!"
+      build-command: echo "Building...!!"
+      test-command: echo "Testing...!!"
