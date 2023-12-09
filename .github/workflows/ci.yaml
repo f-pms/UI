@@ -4,13 +4,14 @@ on:
     branches:
       - master
 
+permissions:
+    contents: read
+    pull-requests: write
+    issues: write
+    checks: write
+
 jobs:
   ci:
-    permissions:
-        contents: read
-        pull-requests: write
-        issues: write
-        checks: write
     uses: f-pms/Devops/.github/workflows/ci.yaml@feature/lint-pr
     secrets:
         token: ${{ secrets.GITHUB_TOKEN }}
