@@ -3,6 +3,13 @@ on:
   pull_request:
     branches:
       - master
+
+permissions:
+    contents: read
+    pull-requests: write
+    issues: write
+    checks: write
+
 jobs:
   ci:
     uses: f-pms/Devops/.github/workflows/ci.yaml@feature/lint-pr

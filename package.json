@@ -10,7 +10,6 @@
     "preview": "vite preview",
     "format": "prettier . --write",
     "prepare": "husky install",
-    "cz": "git-cz",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -65,7 +64,6 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-sonarjs": "^0.23.0",
     "eslint-plugin-storybook": "^0.6.15",
-    "git-cz": "^4.9.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
     "msw": "^2.0.10",
