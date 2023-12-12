@@ -17,15 +17,12 @@ export function DashboardPage() {
     brokerURL: 'ws://localhost:8080/websocket',
     onConnect: () => {
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      subscriptionRef.current = client.subscribe(
-        '/topic/sample-station',
-        (message) => {
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-          const body = JSON.parse(message.body);
-          // console.log(`Received: ${message.body}`);
-          setData(body);
-        },
-      );
+      subscriptionRef.current = client.subscribe('/topic/tr30', (message) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+        const body = JSON.parse(message.body);
+        // console.log(`Received: ${message.body}`);
+        setData(body);
+      });
 
       // client.publish({ destination: '/topic/test01', body: 'First Message' });
     },
@@ -55,6 +52,7 @@ export function DashboardPage() {
         Disconnect
       </Button>
 
+      <h2>TR30 Station Data</h2>
       {data && (
         <div>
           <p>Temperature: {data.temperature}</p>
