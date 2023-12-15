@@ -1,55 +1,44 @@
-import { useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Button } from '@mui/material';
-import { Client, StompSubscription } from '@stomp/stompjs';
+
+import { useWebSocketStore } from '~/stores/useWebSocket';
 
 export function DashboardPage() {
-  const [data, setData] = useState({
-    temperature: null,
-    isConnected: null,
-    voltage: null,
-  });
+  const ws = useWebSocketStore((state) => state);
+  const [data, setData] = useState<{
+    temperature: number;
+    isConnected: boolean;
+    voltage: number;
+  }>();
 
-  const subscriptionRef = useRef<StompSubscription | null>(null);
-
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const client = new Client({
-    brokerURL: 'ws://localhost:8080/websocket',
-    onConnect: () => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      subscriptionRef.current = client.subscribe('/topic/tr30', (message) => {
-        // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-        const body = JSON.parse(message.body);
-        // console.log(`Received: ${message.body}`);
-        setData(body);
-      });
-
-      // client.publish({ destination: '/topic/test01', body: 'First Message' });
-    },
-  });
-
-  const unsubscribe = () => {
-    if (subscriptionRef.current) {
-      subscriptionRef.current.unsubscribe();
-      subscriptionRef.current = null;
+  useEffect(() => {
+    if (!ws.isConnected) {
+      ws.connect();
     }
-    client.deactivate();
-  };
+    ws.subscribe('/topic/tr30', (message) => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      const body = JSON.parse(message.body);
+      setData(body);
+    });
+
+    return () => {
+      ws.unsubscribe('/topic/tr30');
+    };
+  }, []);
 
   return (
     <div>
       <h1>Dashboard Page</h1>
-      <Button variant='contained' onClick={() => client.activate()}>
-        Connect
+      <Button variant='contained' onClick={() => {}}>
+        Subscribe
       </Button>
       <Button
         sx={{ marginLeft: '20px' }}
         variant='contained'
-        onClick={() => {
-          unsubscribe();
-        }}
+        onClick={() => {}}
       >
-        Disconnect
+        Unsubscribe
       </Button>
 
       <h2>TR30 Station Data</h2>
