@@ -5,4 +5,5 @@ export * from './Checkbox';
 export * from './CustomBorderButton';
 export * from './ElevatedButton';
 export * from './RouteLink';
+export * from './SectionHeading';
 export * from './TextField';

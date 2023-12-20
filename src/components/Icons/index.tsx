@@ -5,9 +5,12 @@ export { default as CottageOutlinedIcon } from '@mui/icons-material/CottageOutli
 export { default as DashboardOutlinedIcon } from '@mui/icons-material/DashboardOutlined';
 export { default as ExitToAppOutlinedIcon } from '@mui/icons-material/ExitToAppOutlined';
 export { default as ExpandMoreOutlinedIcon } from '@mui/icons-material/ExpandMoreOutlined';
+export { default as FileDownloadOutlinedIcon } from '@mui/icons-material/FileDownloadOutlined';
 export { default as FormatColorFillOutlinedIcon } from '@mui/icons-material/FormatColorFillOutlined';
 export { default as FormatIndentDecreaseOutlinedIcon } from '@mui/icons-material/FormatIndentDecreaseOutlined';
 export { default as FormatIndentIncreaseOutlinedIcon } from '@mui/icons-material/FormatIndentIncreaseOutlined';
+export { default as FullscreenExitOutlinedIcon } from '@mui/icons-material/FullscreenExitOutlined';
+export { default as FullscreenOutlinedIcon } from '@mui/icons-material/FullscreenOutlined';
 export { default as GoogleIcon } from '@mui/icons-material/Google';
 export { default as HandymanOutlinedIcon } from '@mui/icons-material/HandymanOutlined';
 export { default as HighlightOffOutlinedIcon } from '@mui/icons-material/HighlightOffOutlined';

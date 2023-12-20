@@ -27,14 +27,14 @@ export function DefaultLayout({
       <Container
         disableGutters
         maxWidth={false}
-        sx={{ height: 'calc(100vh)', position: 'relative' }}
+        sx={{
+          height: 'calc(100vh)',
+          position: 'relative',
+          backgroundColor: '#FAFAFB',
+        }}
       >
         <Loading />
-        <Stack
-          direction='row'
-          sx={{ height: '100%' }}
-          // sx={{ height: 'calc(100% - 73.5px)', marginTop: '5px' }}
-        >
+        <Stack direction='row' sx={{ height: '100%' }}>
           {!isSideBarDisabled && (
             <SideBar
               broken={broken}
@@ -44,7 +44,7 @@ export function DefaultLayout({
               toggled={toggled}
             />
           )}
-          <Box
+          <Stack
             component='main'
             sx={{ height: 'auto', overflow: 'auto', flex: 1 }}
           >
@@ -54,11 +54,9 @@ export function DefaultLayout({
               onCollapsed={() => setCollapsed(!collapsed)}
               onToggled={() => setToggled(!toggled)}
             />
-            <Box sx={{ p: '24px', minHeight: 'calc(100% - 130px)' }}>
-              {children}
-            </Box>
+            <Box sx={{ p: '24px', flex: 1 }}>{children}</Box>
             <Footer />
-          </Box>
+          </Stack>
         </Stack>
       </Container>
     </>

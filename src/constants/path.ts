@@ -17,6 +17,10 @@ export enum Path {
   USER_LIST = '/user-list',
   USER_PROFILE = '/user-profile',
 
+  // Production
+  PRODUCTION = '/production',
+  PRODUCTION_MONITORING = '/production/monitoring',
+
   // Errors
   NOT_FOUND = '/not-found',
   FORBIDDEN = '/forbidden',
@@ -37,4 +41,6 @@ export const PATH_LABEL: Record<Path, string> = {
   [Path.FORBIDDEN]: 'Forbidden',
   [Path.USER_LIST]: 'User List',
   [Path.USER_PROFILE]: 'User Profile',
+  [Path.PRODUCTION]: 'Quản lý sản xuất',
+  [Path.PRODUCTION_MONITORING]: 'Giám sát',
 };

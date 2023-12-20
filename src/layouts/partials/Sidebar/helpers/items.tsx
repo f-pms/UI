@@ -9,6 +9,17 @@ import {
 
 export const SIDEBAR_ITEMS: SidebarItem[] = [
   {
+    name: PATH_LABEL[Path.PRODUCTION],
+    icon: <HandymanOutlinedIcon sx={{ fontSize: '22px' }} />,
+    path: Path.PRODUCTION,
+    children: [
+      {
+        name: PATH_LABEL[Path.PRODUCTION_MONITORING],
+        path: Path.PRODUCTION_MONITORING,
+      },
+    ],
+  },
+  {
     name: PATH_LABEL[Path.DASHBOARD],
     icon: <CottageOutlinedIcon sx={{ fontSize: '22px' }} />,
     path: Path.DASHBOARD,
