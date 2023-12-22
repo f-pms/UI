@@ -1,8 +1,9 @@
 import { Box, ButtonBase, ButtonProps, useTheme } from '~/libs/mui';
+import { Color } from '~/types';
 
 interface ICustomBorderButtonProps extends Omit<ButtonProps, 'color'> {
   disableBorder?: boolean;
-  color?: 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
+  color?: Color;
 }
 
 export function CustomBorderButton(props: ICustomBorderButtonProps) {

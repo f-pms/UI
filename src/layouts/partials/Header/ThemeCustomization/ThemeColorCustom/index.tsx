@@ -1,26 +1,26 @@
+import { COLOR_SCHEME } from '~/constants';
 import { ColorSchemeOption } from '~/layouts/partials/Header/helpers/colorSchemeOptions';
 import { alpha, useTheme } from '~/libs/mui';
-import { COLOR_SCHEME, COLOR_SHADE } from '~/libs/mui/theme/palette';
 
 import useCustomizeTheme from '~/pages/App/hooks/useCustomizeTheme';
 
 import { WebOutlinedIcon } from '~/components/Icons';
 import { Box, Paper, Stack, Typography } from '~/components/MuiComponents';
 
-export interface IColorSchemeCustomProps {
+export interface IThemeColorCustomProps {
   option: ColorSchemeOption;
 }
 
-export function ColorSchemeCustom({ option }: IColorSchemeCustomProps) {
+export function ThemeColorCustom({ option }: IThemeColorCustomProps) {
   const theme = useTheme();
-  const { colorScheme, onColorSchemeChange } = useCustomizeTheme();
+  const { themeColor, onThemeColorChange } = useCustomizeTheme();
 
-  const color = COLOR_SCHEME[option.value][COLOR_SHADE];
+  const color = COLOR_SCHEME[option.value].primary;
   const bgColor = alpha(color, theme.palette.action.focusOpacity);
-  const isColorActive = option.value === colorScheme;
+  const isColorActive = option.value === themeColor;
 
   const onColorSchemeClick = () => {
-    onColorSchemeChange(option.value);
+    onThemeColorChange(option.value);
   };
 
   return (

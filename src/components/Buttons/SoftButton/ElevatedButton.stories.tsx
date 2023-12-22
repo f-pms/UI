@@ -1,11 +1,11 @@
 // Button.stories.ts|tsx
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ElevatedButton } from './';
+import { SoftButton } from '.';
 
-const meta: Meta<typeof ElevatedButton> = {
-  title: 'Button/Elevated',
-  component: ElevatedButton,
+const meta: Meta<typeof SoftButton> = {
+  title: 'Buttons/Elevated',
+  component: SoftButton,
   tags: ['autodocs'],
   args: {
     children: 'Elevated Button',
@@ -20,7 +20,7 @@ const meta: Meta<typeof ElevatedButton> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof ElevatedButton>;
+type Story = StoryObj<typeof SoftButton>;
 
 /*
  *👇 Render functions are a framework specific feature to allow you control on how the component renders.
@@ -28,5 +28,5 @@ type Story = StoryObj<typeof ElevatedButton>;
  * to learn how to use render functions.
  */
 export const Primary: Story = {
-  render: (args) => <ElevatedButton {...args} />,
+  render: (args) => <SoftButton {...args} />,
 };

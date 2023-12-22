@@ -1,5 +1,6 @@
+import { useSoftColor } from '~/hooks';
 import { SIDEBAR_ITEMS } from '~/layouts/partials/Sidebar/helpers/items';
-import { alpha, useTheme } from '~/libs/mui';
+import { useTheme } from '~/libs/mui';
 import { Menu, MenuItem, SubMenu } from '~/libs/react-pro-sidebar';
 import { Link, useLocation } from '~/libs/react-router-dom';
 
@@ -10,16 +11,7 @@ export interface ISidebarMenuProps {
 export default function SidebarMenu({ collapsed }: ISidebarMenuProps) {
   const theme = useTheme();
   const location = useLocation();
-
-  const itemBackgroundColor = alpha(
-    theme.palette.primary.light,
-    theme.palette.action.focusOpacity,
-  );
-
-  const itemBackgroundHover = alpha(
-    theme.palette.primary.light,
-    theme.palette.action.hoverOpacity,
-  );
+  const { bgrColor, bgrHoverColor } = useSoftColor('primary');
 
   return (
     <Menu
@@ -31,18 +23,16 @@ export default function SidebarMenu({ collapsed }: ISidebarMenuProps) {
             color: theme.palette.text.primary,
             fontSize: theme.typography.body2.fontSize,
             [`&.ps-active`]: {
-              backgroundColor: isHighlighted ? itemBackgroundColor : '#fff',
+              backgroundColor: isHighlighted ? bgrColor : '#fff',
               color: isHighlighted ? theme.palette.primary.main : 'unset',
               fontWeight: isHighlighted ? 700 : 400,
               borderRight: isHighlighted ? '2px solid' : 'none',
             },
             [`&.ps-menu-button:hover`]: {
-              backgroundColor: itemBackgroundHover,
+              backgroundColor: bgrHoverColor,
             },
             [`&.ps-active:hover`]: {
-              backgroundColor: isHighlighted
-                ? itemBackgroundColor
-                : itemBackgroundHover,
+              backgroundColor: isHighlighted ? bgrColor : bgrHoverColor,
             },
           };
         },
