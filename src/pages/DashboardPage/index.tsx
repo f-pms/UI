@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { Button } from '@mui/material';
 
 import { Station } from '~/constants/station';
-import { useWebSocketStore } from '~/stores/useWebSocket';
+import { useWebSocketStore } from '~/stores/useWebSocketStore';
 
 export function DashboardPage() {
   const ws = useWebSocketStore((state) => state);
