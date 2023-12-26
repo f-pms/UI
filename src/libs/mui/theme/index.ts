@@ -8,13 +8,8 @@ export const getCustomizeTheme = (
   color: ColorScheme,
   fontFamily: FontFamily,
 ) => {
-  const theme = createTheme({
-    // Theme customization goes here as usual, including tonalOffset and/or
-    // contrastThreshold as the augmentColor() function relies on these
-  });
-
-  return createTheme(theme, {
-    palette: getPaletteColor(color, theme),
+  return createTheme({
+    palette: getPaletteColor(color),
     typography: getFontFamily(fontFamily),
     components: {
       MuiButton: {

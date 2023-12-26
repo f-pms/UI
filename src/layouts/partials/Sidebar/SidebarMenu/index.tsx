@@ -20,16 +20,26 @@ export default function SidebarMenu({ collapsed }: ISidebarMenuProps) {
         button: ({ isSubmenu, open }) => {
           const isHighlighted = !isSubmenu || (isSubmenu && !open) || collapsed;
           return {
-            color: theme.palette.text.primary,
+            color: theme.palette.text.strong,
             fontSize: theme.typography.body2.fontSize,
             [`&.ps-active`]: {
               backgroundColor: isHighlighted ? bgrColor : '#fff',
               color: isHighlighted ? theme.palette.primary.main : 'unset',
-              fontWeight: isHighlighted ? 700 : 400,
+              fontWeight: isHighlighted ? 700 : 500,
               borderRight: isHighlighted ? '2px solid' : 'none',
+            },
+            [`&>.ps-menu-icon`]: {
+              color: theme.palette.text.primary,
+            },
+            [`&>.ps-menu-icon.ps-active`]: {
+              color: isHighlighted ? theme.palette.primary.main : 'unset',
             },
             [`&.ps-menu-button:hover`]: {
               backgroundColor: bgrHoverColor,
+              color: theme.palette.primary.main,
+              [`&>.ps-menu-icon`]: {
+                color: theme.palette.primary.main,
+              },
             },
             [`&.ps-active:hover`]: {
               backgroundColor: isHighlighted ? bgrColor : bgrHoverColor,

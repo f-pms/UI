@@ -1,8 +1,13 @@
-import { PaletteOptions, Theme } from '@mui/material';
+import { createTheme, PaletteOptions } from '@mui/material';
 
 import { COLOR_SCHEME, ColorScheme } from '~/constants';
 
-export const getPaletteColor = (color: ColorScheme, theme: Theme) => {
+const theme = createTheme({
+  // Theme customization goes here as usual, including tonalOffset and/or
+  // contrastThreshold as the augmentColor() function relies on these
+});
+
+export const getPaletteColor = (color: ColorScheme) => {
   const palette: PaletteOptions = {
     primary: theme.palette.augmentColor({
       color: {
@@ -16,6 +21,10 @@ export const getPaletteColor = (color: ColorScheme, theme: Theme) => {
       },
       name: 'secondary',
     }),
+    text: {
+      primary: '#52525b',
+      strong: '#09090b',
+    },
     blue: theme.palette.augmentColor({
       color: {
         main: COLOR_SCHEME.blue.primary,
