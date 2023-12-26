@@ -1,6 +1,5 @@
 import { ReactNode, useState } from 'react';
 
-import { Footer } from '~/layouts/partials/Footer';
 import { Header } from '~/layouts/partials/Header';
 import Loading from '~/layouts/partials/Loading';
 import { SideBar } from '~/layouts/partials/Sidebar';
@@ -20,7 +19,7 @@ export function DefaultLayout({
   const [broken, setBroken] = useState(
     window.matchMedia('(max-width: 900px)').matches,
   );
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
 
   return (
     <>
@@ -55,7 +54,7 @@ export function DefaultLayout({
               onToggled={() => setToggled(!toggled)}
             />
             <Box sx={{ p: '24px', flex: 1 }}>{children}</Box>
-            <Footer />
+            {/* <Footer /> */}
           </Stack>
         </Stack>
       </Container>

@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
 import {
+  AllMeterDiagram,
   MainDiagram,
   TR11Diagram,
   TR12Diagram,
@@ -81,5 +82,10 @@ export const DIAGRAMS: TabItem[] = [
     value: 11,
     label: 'Trạm TR82',
     panel: <TR82Diagram />,
+  },
+  {
+    value: 12,
+    label: 'All Meter',
+    panel: <AllMeterDiagram />,
   },
 ];

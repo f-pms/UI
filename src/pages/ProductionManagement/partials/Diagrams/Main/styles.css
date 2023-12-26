@@ -1,9 +1,11 @@
-.main__cls-1,
-.main__cls-2 {
-  stroke: #231f20;
+.main__cls-1 {
+  letter-spacing: 0.02em;
 }
 
-.main__cls-1,
+.main__cls-2 {
+  fill: gray;
+}
+
 .main__cls-2,
 .main__cls-3,
 .main__cls-4,
@@ -13,218 +15,189 @@
 .main__cls-8,
 .main__cls-9,
 .main__cls-10,
-.main__cls-11,
-.main__cls-12,
-.main__cls-13 {
+.main__cls-11 {
   stroke-miterlimit: 10;
 }
 
-.main__cls-1,
-.main__cls-3,
-.main__cls-4,
-.main__cls-8,
-.main__cls-9 {
-  fill: none;
-}
-
 .main__cls-2,
-.main__cls-4,
-.main__cls-9,
-.main__cls-11,
-.main__cls-12 {
-  stroke-linecap: round;
-}
-
-.main__cls-2,
-.main__cls-7,
-.main__cls-10,
-.main__cls-11,
-.main__cls-12,
-.main__cls-14 {
-  fill: #fff;
-}
-
-.main__cls-15 {
-  letter-spacing: 0em;
-}
-
-.main__cls-16 {
-  letter-spacing: 0em;
-}
-
-.main__cls-17,
-.main__cls-18,
-.main__cls-19,
-.main__cls-20,
-.main__cls-21 {
-  font-size: 10px;
-}
-
-.main__cls-17,
-.main__cls-22 {
-  letter-spacing: 0em;
-}
-
-.main__cls-23 {
-  letter-spacing: 0em;
-}
-
-.main__cls-24 {
-  fill: #00e5ff;
-}
-
-.main__cls-24,
-.main__cls-25,
-.main__cls-26,
-.main__cls-27,
-.main__cls-28,
-.main__cls-19,
-.main__cls-29,
-.main__cls-21,
-.main__cls-14 {
-  font-family: Inter;
-}
-
-.main__cls-24,
-.main__cls-25,
-.main__cls-26,
-.main__cls-27,
-.main__cls-28,
-.main__cls-30,
-.main__cls-14 {
-  font-size: 12px;
-}
-
-.main__cls-31 {
-  letter-spacing: 0em;
-}
-
-.main__cls-32 {
-  letter-spacing: 0em;
-}
-
 .main__cls-3,
 .main__cls-4,
 .main__cls-5,
 .main__cls-6,
+.main__cls-7,
+.main__cls-8,
 .main__cls-10,
-.main__cls-12,
-.main__cls-13 {
+.main__cls-11 {
+  stroke-width: 2px;
+}
+
+.main__cls-2,
+.main__cls-3,
+.main__cls-7,
+.main__cls-10,
+.main__cls-11 {
   stroke: #000;
+}
+
+.main__cls-12 {
+  letter-spacing: 0em;
+}
+
+.main__cls-13 {
+  letter-spacing: 0.01em;
+}
+
+.main__cls-14 {
+  letter-spacing: -0.03em;
+}
+
+.main__cls-15 {
+  letter-spacing: 0.03em;
+}
+
+.main__cls-16 {
+  letter-spacing: -0.01em;
+}
+
+.main__cls-17 {
+  letter-spacing: 0.01em;
+}
+
+.main__cls-18,
+.main__cls-19,
+.main__cls-20,
+.main__cls-21,
+.main__cls-22,
+.main__cls-23,
+.main__cls-24,
+.main__cls-25,
+.main__cls-26,
+.main__cls-27 {
+  font-family: MyriadPro-Regular, 'Myriad Pro';
+}
+
+.main__cls-18,
+.main__cls-19,
+.main__cls-27 {
+  font-size: 15.12px;
+}
+
+.main__cls-18,
+.main__cls-20,
+.main__cls-28,
+.main__cls-25 {
+  fill: #2e3192;
+}
+
+.main__cls-29 {
+  letter-spacing: -0.01em;
+}
+
+.main__cls-30 {
+  letter-spacing: -0.05em;
+}
+
+.main__cls-3 {
+  fill: #e6e6e6;
+}
+
+.main__cls-20,
+.main__cls-31,
+.main__cls-32 {
+  font-size: 12.96px;
 }
 
 .main__cls-33 {
   letter-spacing: 0em;
 }
 
+.main__cls-4,
+.main__cls-5,
+.main__cls-8,
+.main__cls-9 {
+  stroke: #66bb6a;
+}
+
+.main__cls-4,
+.main__cls-6,
+.main__cls-7 {
+  fill: none;
+}
+
 .main__cls-34 {
   letter-spacing: 0em;
 }
 
-.main__cls-25,
 .main__cls-35 {
-  fill: #d4145a;
-}
-
-.main__cls-5 {
-  fill: gray;
+  letter-spacing: 0em;
 }
 
 .main__cls-36 {
   letter-spacing: 0em;
 }
 
-.main__cls-6 {
-  fill: #e6e6e6;
+.main__cls-21 {
+  fill: #00e5ff;
+}
+
+.main__cls-21,
+.main__cls-22,
+.main__cls-23,
+.main__cls-24,
+.main__cls-25,
+.main__cls-26 {
+  font-size: 17.28px;
 }
 
 .main__cls-37 {
-  letter-spacing: 0em;
+  letter-spacing: -0.04em;
 }
 
+.main__cls-22,
 .main__cls-38 {
-  letter-spacing: 0em;
-}
-
-.main__cls-39 {
-  letter-spacing: 0em;
-}
-
-.main__cls-40 {
-  letter-spacing: 0em;
-}
-
-.main__cls-41 {
-  letter-spacing: 0em;
-}
-
-.main__cls-42 {
-  letter-spacing: 0.02em;
-}
-
-.main__cls-7,
-.main__cls-8,
-.main__cls-9,
-.main__cls-11 {
-  stroke: #66bb6a;
-}
-
-.main__cls-43,
-.main__cls-27,
-.main__cls-19 {
-  fill: #2e3192;
-}
-
-.main__cls-44 {
-  letter-spacing: 0.03em;
-}
-
-.main__cls-45 {
-  letter-spacing: 0em;
-}
-
-.main__cls-46 {
-  letter-spacing: 0em;
-}
-
-.main__cls-47 {
-  letter-spacing: 0em;
-}
-
-.main__cls-28,
-.main__cls-48 {
   fill: #fbc02d;
 }
 
-.main__cls-49 {
+.main__cls-39 {
+  letter-spacing: -0.02em;
+}
+
+.main__cls-40 {
+  letter-spacing: 0.01em;
+}
+
+.main__cls-5,
+.main__cls-8,
+.main__cls-9,
+.main__cls-10,
+.main__cls-11,
+.main__cls-26,
+.main__cls-27 {
+  fill: #fff;
+}
+
+.main__cls-5,
+.main__cls-9,
+.main__cls-10 {
+  stroke-linecap: round;
+}
+
+.main__cls-41 {
+  letter-spacing: -0.04em;
+}
+
+.main__cls-42 {
   letter-spacing: 0em;
 }
 
-.main__cls-50,
-.main__cls-51 {
+.main__cls-31,
+.main__cls-43 {
   fill: #66bb6a;
 }
 
-.main__cls-52 {
-  letter-spacing: 0em;
-}
-
-.main__cls-53 {
-  letter-spacing: 0em;
-}
-
-.main__cls-54 {
-  letter-spacing: 0em;
-}
-
-.main__cls-55 {
-  letter-spacing: 0.02em;
-}
-
-.main__cls-56,
-.main__cls-51 {
-  font-family: Inter;
-  font-size: 8.34px;
+.main__cls-31,
+.main__cls-32 {
+  font-family: AcuminConcept-Semibold, 'Acumin Variable Concept';
   font-variation-settings:
     'wght' 600,
     'wdth' 100,
@@ -232,13 +205,69 @@
   font-weight: 600;
 }
 
+.main__cls-24,
+.main__cls-44 {
+  fill: #d4145a;
+}
+
+.main__cls-45 {
+  letter-spacing: 0em;
+}
+
+.main__cls-6 {
+  stroke: #231f20;
+}
+
+.main__cls-46 {
+  letter-spacing: -0.02em;
+}
+
+.main__cls-47 {
+  letter-spacing: -0.06em;
+}
+
+.main__cls-48 {
+  letter-spacing: 0em;
+}
+
+.main__cls-49 {
+  letter-spacing: -0.06em;
+}
+
+.main__cls-50 {
+  fill: #212121;
+}
+
+.main__cls-51 {
+  letter-spacing: 0em;
+}
+
+.main__cls-52 {
+  letter-spacing: 0em;
+}
+
+.main__cls-53 {
+  letter-spacing: 0.01em;
+}
+
+.main__cls-54 {
+  letter-spacing: -0.06em;
+}
+
+.main__cls-55 {
+  letter-spacing: 0em;
+}
+
+.main__cls-56 {
+  letter-spacing: 0em;
+}
+
 .main__cls-57 {
   letter-spacing: 0em;
 }
 
-.main__cls-58,
-.main__cls-13 {
-  fill: #212121;
+.main__cls-58 {
+  letter-spacing: 0em;
 }
 
 .main__cls-59 {
@@ -246,66 +275,9 @@
 }
 
 .main__cls-60 {
-  letter-spacing: 0em;
+  letter-spacing: -0.03em;
 }
 
 .main__cls-61 {
-  letter-spacing: 0em;
-}
-
-.main__cls-62 {
-  letter-spacing: 0em;
-}
-
-.main__cls-20,
-.main__cls-63 {
-  letter-spacing: 0em;
-}
-
-.main__cls-64 {
-  letter-spacing: 0em;
-}
-
-.main__cls-65 {
   letter-spacing: 0.01em;
-}
-
-.main__cls-66 {
-  letter-spacing: 0em;
-}
-
-.main__cls-67 {
-  letter-spacing: 0em;
-}
-
-.main__cls-68 {
-  letter-spacing: 0em;
-}
-
-.main__cls-69 {
-  letter-spacing: 0.01em;
-}
-
-.main__cls-70 {
-  letter-spacing: 0.01em;
-}
-
-.main__cls-71 {
-  letter-spacing: 0.01em;
-}
-
-.main__cls-72 {
-  letter-spacing: 0em;
-}
-
-.main__cls-73 {
-  letter-spacing: 0em;
-}
-
-.main__cls-74 {
-  letter-spacing: 0em;
-}
-
-.main__cls-75 {
-  letter-spacing: 0em;
 }

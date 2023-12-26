@@ -18,7 +18,7 @@ export function StationTabPanel({ value }: IStationTabPanelProps) {
   const [expanded, setExpanded] = React.useState(false);
   const paperStyles = {
     position: expanded ? 'absolute' : 'relative',
-    width: expanded ? '100vw' : 'auto',
+    width: expanded ? '100vw' : '100%',
     height: expanded ? '100vh' : '100%',
 
     display: 'flex',
@@ -52,15 +52,13 @@ export function StationTabPanel({ value }: IStationTabPanelProps) {
         justifyContent='center'
         sx={{
           flex: 1,
-          px: 4,
-          py: 2,
         }}
       >
         {DIAGRAMS.map((tab) => (
           <CustomTabPanel
             key={tab.value}
             index={tab.value}
-            style={{ width: '100%' }}
+            style={{ height: '100%', width: '100%' }}
             value={value}
           >
             {tab.panel}
