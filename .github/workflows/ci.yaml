@@ -15,7 +15,4 @@ jobs:
         prepare-command: echo "Preparing...!"
         build-command: echo "Building...!"
         test-command: echo "Testing...!"
-        args: >
-                -Dsonar.organization=f-pms
-                -Dsonar.projectKey=f-pms_UI
         
