@@ -42,5 +42,5 @@ export const PATH_LABEL: Record<Path, string> = {
   [Path.USER_LIST]: 'User List',
   [Path.USER_PROFILE]: 'User Profile',
   [Path.PRODUCTION]: 'Quản lý sản xuất',
-  [Path.PRODUCTION_MONITORING]: 'Giám sát',
+  [Path.PRODUCTION_MONITORING]: 'Giám Sát',
 };

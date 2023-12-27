@@ -4,6 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import {
   ArrowDropDownIcon,
   ArrowDropUpIcon,
+  CenterFocusStrongOutlinedIcon,
   CloudUploadIcon,
   CottageOutlinedIcon,
   DashboardOutlinedIcon,
@@ -76,6 +77,7 @@ export const Primary: Story = {
       <SettingsSuggestOutlinedIcon />
       <TextFormatOutlinedIcon />
       <WebOutlinedIcon />
+      <CenterFocusStrongOutlinedIcon />
     </Stack>
   ),
 };

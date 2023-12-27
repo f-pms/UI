@@ -4,7 +4,7 @@ import { Path, PATH_LABEL } from '~/constants';
 import { Outlet, useLocation, useNavigate } from '~/libs/react-router-dom';
 
 import { SectionHeading } from '~/components';
-import { Stack } from '~/components/MuiComponents';
+import { Divider, Stack } from '~/components/MuiComponents';
 
 export default function Layout() {
   const location = useLocation();
@@ -24,12 +24,5 @@ export default function Layout() {
     };
   }, [location.pathname]);
 
-  return (
-    <Stack sx={{ width: '100%', height: '100%' }}>
-      <SectionHeading {...headings} />
-      <Stack sx={{ flex: 1 }}>
-        <Outlet />
-      </Stack>
-    </Stack>
-  );
+  return <Outlet />;
 }

@@ -29,7 +29,6 @@ export function DefaultLayout({
         sx={{
           height: 'calc(100vh)',
           position: 'relative',
-          backgroundColor: '#FAFAFB',
         }}
       >
         <Loading />
@@ -53,7 +52,7 @@ export function DefaultLayout({
               onCollapsed={() => setCollapsed(!collapsed)}
               onToggled={() => setToggled(!toggled)}
             />
-            <Box sx={{ p: '24px', flex: 1 }}>{children}</Box>
+            <Box sx={{ px: 4, py: 2, flex: 1 }}>{children}</Box>
             {/* <Footer /> */}
           </Stack>
         </Stack>

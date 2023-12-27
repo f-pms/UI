@@ -4,6 +4,7 @@ export function TR12Diagram() {
     <svg
       data-name='Layer 1'
       id='Layer_1'
+      style={{ width: '100%', height: '100%' }}
       viewBox='0 0 2873.22 1349'
       xmlns='http://www.w3.org/2000/svg'
     >

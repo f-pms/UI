@@ -14,17 +14,19 @@ export interface IStationTabPanelProps {
   value: number;
 }
 
-export function StationTabPanel({ value }: IStationTabPanelProps) {
+export const StationTabPanel = React.forwardRef<
+  HTMLDivElement,
+  IStationTabPanelProps
+>(function StationTabPanel({ value }: IStationTabPanelProps, ref) {
   const [expanded, setExpanded] = React.useState(false);
   const paperStyles = {
     position: expanded ? 'absolute' : 'relative',
     width: expanded ? '100vw' : '100%',
-    height: expanded ? '100vh' : '100%',
+    height: expanded ? '100vh' : 'calc(100vh - 64px)',
+    maxHeight: expanded ? '100vh' : '1024px',
 
     display: 'flex',
     flexDirection: 'column',
-    my: expanded ? 0 : 2,
-    p: 1,
 
     top: 0,
     left: 0,
@@ -34,7 +36,7 @@ export function StationTabPanel({ value }: IStationTabPanelProps) {
   };
 
   return (
-    <Paper sx={paperStyles} variant='outlined'>
+    <Paper ref={ref} elevation={0} sx={paperStyles} variant='elevation'>
       <Stack direction='row' justifyContent='flex-end'>
         <IconButton>
           <FileDownloadOutlinedIcon />
@@ -58,7 +60,7 @@ export function StationTabPanel({ value }: IStationTabPanelProps) {
           <CustomTabPanel
             key={tab.value}
             index={tab.value}
-            style={{ height: '100%', width: '100%' }}
+            style={{ height: '100%', width: 'auto' }}
             value={value}
           >
             {tab.panel}
@@ -67,4 +69,4 @@ export function StationTabPanel({ value }: IStationTabPanelProps) {
       </Stack>
     </Paper>
   );
-}
+});
