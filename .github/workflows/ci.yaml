@@ -5,13 +5,14 @@ on:
       - master
 
 permissions:
-    contents: read
-    pull-requests: read
+  contents: read
+  pull-requests: read
 
 jobs:
   ci:
     uses: f-pms/Devops/.github/workflows/ci.yaml@master
+    secrets: inherit
     with:
-        prepare-command: echo "Preparing...!"
-        build-command: echo "Building...!"
-        test-command: echo "Testing...!"
+      prepare-command: echo "Preparing...!"
+      build-command: echo "Building...!"
+      test-command: echo "Testing...!"
