@@ -1,12 +1,7 @@
 import { ReactNode, useContext, useState } from 'react';
 import { vi } from 'date-fns/locale';
 
-import {
-  LocalizationProvider,
-  MonthCalendar,
-  YearCalendar,
-} from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { MonthCalendar, YearCalendar } from '@mui/x-date-pickers';
 
 import { format, setMonth } from '~/libs/date-fns';
 import { Menu, Stack, Typography, TypographyProps } from '~/libs/mui';
@@ -106,17 +101,15 @@ export function CalendarPickers(props: ICalendarPickersProps) {
         open={open}
         onClose={handleClose}
       >
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          {pickerType === PickerType.Month ? (
-            <MonthCalendar
-              onChange={(date: Date) => onChange(date, PickerType.Month)}
-            />
-          ) : (
-            <YearCalendar
-              onChange={(date: Date) => onChange(date, PickerType.Year)}
-            />
-          )}
-        </LocalizationProvider>
+        {pickerType === PickerType.Month ? (
+          <MonthCalendar
+            onChange={(date: Date) => onChange(date, PickerType.Month)}
+          />
+        ) : (
+          <YearCalendar
+            onChange={(date: Date) => onChange(date, PickerType.Year)}
+          />
+        )}
       </Menu>
     </>
   );
