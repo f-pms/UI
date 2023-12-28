@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { Path } from '~/constants';
 import { CssBaseline } from '~/libs/mui';
 import { Outlet, useLocation, useNavigate } from '~/libs/react-router-dom';
-import { useWebSocketStore } from '~/stores/useWebSocket';
+import { useWebSocketStore } from '~/stores/useWebSocketStore';
 
 import { CustomizeThemeProvider } from '~/pages/App/context/CustomizeThemeContext';
 

@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { Button } from '@mui/material';
 
-import { useWebSocketStore } from '~/stores/useWebSocket';
+import { Station } from '~/constants/station';
+import { useWebSocketStore } from '~/stores/useWebSocketStore';
 
 export function DashboardPage() {
   const ws = useWebSocketStore((state) => state);
@@ -12,31 +13,37 @@ export function DashboardPage() {
     voltage: number;
   }>();
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (!ws.isConnected) {
       ws.connect();
     }
-    ws.subscribe('/topic/tr30', (message) => {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      const body = JSON.parse(message.body);
-      setData(body);
-    });
-
+    
     return () => {
       ws.unsubscribe('/topic/tr30');
     };
-  }, []);
+  }, []); */
 
   return (
     <div>
       <h1>Dashboard Page</h1>
-      <Button variant='contained' onClick={() => {}}>
+      <Button
+        variant='contained'
+        onClick={() => {
+          ws.subscribe(Station.TR30, (message) => {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+            const body = JSON.parse(message.body);
+            setData(body);
+          });
+        }}
+      >
         Subscribe
       </Button>
       <Button
         sx={{ marginLeft: '20px' }}
         variant='contained'
-        onClick={() => {}}
+        onClick={() => {
+          ws.unsubscribe(Station.TR30);
+        }}
       >
         Unsubscribe
       </Button>
