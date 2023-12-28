@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { Portal } from '@mui/base';
+
 import { DIAGRAMS } from '~/pages/ProductionManagement/helpers/diagrams';
 
 import { CustomTabPanel } from '~/components/CustomTabPanel';
@@ -60,7 +62,10 @@ export const StationTabPanel = React.forwardRef<
           <CustomTabPanel
             key={tab.value}
             index={tab.value}
-            style={{ height: '100%', width: 'auto' }}
+            style={{
+              height: '100%',
+              width: 'auto',
+            }}
             value={value}
           >
             {tab.panel}
