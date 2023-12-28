@@ -5,7 +5,21 @@ import {
   useMaterialReactTable,
 } from 'material-react-table';
 
+import {
+  Button,
+  Divider,
+  IconButton,
+  Stack,
+  Tooltip,
+  Typography,
+} from '@mui/material';
+
 import { useLoadingStore } from '~/stores';
+
+import {
+  AddCircleOutlineOutlinedIcon,
+  NavigateNextIcon,
+} from '~/components/Icons';
 
 //If using TypeScript, define the shape of your data (optional, but recommended)
 interface Person {
@@ -33,15 +47,12 @@ export function TablePage() {
     () => [
       {
         accessorKey: 'name', //simple recommended way to define a column
-        header: 'Name',
-        muiTableHeadCellProps: { style: { color: 'green' } }, //custom props
-        enableHiding: false, //disable a feature for this column
+        header: 'Tên',
       },
       {
         accessorFn: (originalRow) => originalRow.age, //alternate way
         id: 'age', //id required if you use accessorFn instead of accessorKey
-        header: 'Age',
-        Header: <i style={{ color: 'red' }}>Age</i>, //optional custom markup
+        header: 'Tuổi',
       },
     ],
     [],
@@ -52,17 +63,56 @@ export function TablePage() {
     columns,
     data: persons, //must be memoized or stable (useState, useMemo, defined outside of this component, etc.)
     enableRowSelection: true, //enable some features
-    enableColumnOrdering: false, //enable a feature for all columns
-    enableGlobalFilter: false, //turn off a feature
+    enableColumnFilters: false,
+    enableFilterMatchHighlighting: false,
+    enableColumnOrdering: false,
+    enableHiding: true,
+    localization: {
+      and: 'và',
+      cancel: 'Đóng',
+      clearFilter: 'Xóa',
+      clearSearch: 'Xóa',
+      toggleFullScreen: 'Toàn mành hình',
+      toggleDensity: 'Tăng/Giảm dãn cách dòng',
+      showHideColumns: 'Ẩn/Hiện cột',
+      sortByColumnAsc: 'Sắp xếp tăng dần theo {column}',
+      sortByColumnDesc: 'Sắp xếp giảm dần theo {column}',
+      sortedByColumnAsc: 'Đã sắp xếp tăng dần theo {column}',
+      sortedByColumnDesc: 'Đã sắp xếp giảm dần theo {column}',
+      clearSort: 'Không sắp xếp',
+      rowsPerPage: 'Số dòng mỗi trang',
+      hideAll: 'Ẩn tất cả',
+      hideColumn: 'Ẩn cột {column}',
+      showAll: 'Hiện tất cả',
+      showAllColumns: 'Hiện tất cả cột',
+      select: 'Lựa chọn',
+      save: 'Lưu',
+      search: 'Tìm kiếm',
+      toggleSelectAll: 'Chọn/Hủy tất cả',
+      toggleSelectRow: 'Chọn/Hủy dòng này',
+    },
+    renderTopToolbarCustomActions: () => {
+      return (
+        <div>
+          <Tooltip title='Lọc theo tên'>
+            <Button
+              color='zinc'
+              size='small'
+              startIcon={<AddCircleOutlineOutlinedIcon />}
+              sx={{ borderStyle: 'dashed' }}
+              variant='outlined'
+            >
+              <Stack direction='row' spacing={1}>
+                <Typography variant='caption'>Tên</Typography>
+                <Divider flexItem orientation='vertical' />
+                <Typography variant='caption'>Huy</Typography>
+              </Stack>
+            </Button>
+          </Tooltip>
+        </div>
+      );
+    },
   });
-
-  const setLoading = useLoadingStore((state) => state.setLoading);
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, [setLoading]);
 
   //note: you can also pass table options as props directly to <MaterialReactTable /> instead of using useMaterialReactTable
   //but the useMaterialReactTable hook will be the most recommended way to define table options
