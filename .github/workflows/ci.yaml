@@ -11,7 +11,6 @@ permissions:
 jobs:
   ci:
     uses: f-pms/Devops/.github/workflows/ci.yaml@master
-    secrets: inherit
     with:
       prepare-command: echo "Preparing...!"
       build-command: echo "Building...!"
