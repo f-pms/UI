@@ -1,4 +1,41 @@
-export default function TuyenNguonDt477Pb01090028955Table() {
+import { useMonitoringStore } from '~/stores/useMonitoringStore';
+
+import { useExtractFigureCoordinate } from '~/pages/ProductionManagement/helpers/diagrams';
+import { FiguresCoordinateType } from '~/pages/ProductionManagement/MonitoringPage';
+
+enum FigureId {
+  Figure47 = 'figure47',
+  Figure48 = 'figure48',
+  Figure49 = 'figure49',
+  Figure50 = 'figure50',
+  Figure51 = 'figure51',
+  Figure52 = 'figure52',
+  Figure53 = 'figure53',
+  Figure54 = 'figure54',
+  Figure55 = 'figure55',
+  Figure56 = 'figure56',
+}
+
+export interface TuyenNguonDt477Pb01090028955TableProps {
+  figuresCoordinate: FiguresCoordinateType;
+}
+
+export default function TuyenNguonDt477Pb01090028955Table({
+  figuresCoordinate,
+}: TuyenNguonDt477Pb01090028955TableProps) {
+  const extractFigureCoordinate = useExtractFigureCoordinate(figuresCoordinate);
+  const figure47Coordinate = extractFigureCoordinate(FigureId.Figure47);
+  const figure48Coordinate = extractFigureCoordinate(FigureId.Figure48);
+  const figure49Coordinate = extractFigureCoordinate(FigureId.Figure49);
+  const figure50Coordinate = extractFigureCoordinate(FigureId.Figure50);
+  const figure51Coordinate = extractFigureCoordinate(FigureId.Figure51);
+  const figure52Coordinate = extractFigureCoordinate(FigureId.Figure52);
+  const figure53Coordinate = extractFigureCoordinate(FigureId.Figure53);
+  const figure54Coordinate = extractFigureCoordinate(FigureId.Figure54);
+  const figure55Coordinate = extractFigureCoordinate(FigureId.Figure55);
+  const figure56Coordinate = extractFigureCoordinate(FigureId.Figure56);
+  const figureValues = useMonitoringStore((state) => state.figureValues);
+
   return (
     <g>
       <g>
@@ -230,12 +267,9 @@ export default function TuyenNguonDt477Pb01090028955Table() {
               x='1184.71'
               y='1146.34'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(1191.96 1165.06)'
-            >
+            <text className='main__cls-25' transform={figure47Coordinate}>
               <tspan x='0' y='0'>
-                11.11
+                {figureValues[FigureId.Figure47]}
               </tspan>
             </text>
           </g>
@@ -247,12 +281,9 @@ export default function TuyenNguonDt477Pb01090028955Table() {
               x='1237.21'
               y='1146.34'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(1244.46 1165.06)'
-            >
+            <text className='main__cls-25' transform={figure48Coordinate}>
               <tspan x='0' y='0'>
-                11.11
+                {figureValues[FigureId.Figure48]}
               </tspan>
             </text>
           </g>
@@ -264,12 +295,9 @@ export default function TuyenNguonDt477Pb01090028955Table() {
               x='1289.7'
               y='1146.34'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(1296.95 1165.06)'
-            >
+            <text className='main__cls-25' transform={figure49Coordinate}>
               <tspan x='0' y='0'>
-                11.11
+                {figureValues[FigureId.Figure49]}
               </tspan>
             </text>
           </g>
@@ -281,12 +309,9 @@ export default function TuyenNguonDt477Pb01090028955Table() {
               x='1184.71'
               y='1172.59'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(1191.96 1191.3)'
-            >
+            <text className='main__cls-25' transform={figure50Coordinate}>
               <tspan x='0' y='0'>
-                11.11
+                {figureValues[FigureId.Figure50]}
               </tspan>
             </text>
           </g>
@@ -298,12 +323,9 @@ export default function TuyenNguonDt477Pb01090028955Table() {
               x='1237.21'
               y='1172.59'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(1244.46 1191.3)'
-            >
+            <text className='main__cls-25' transform={figure51Coordinate}>
               <tspan x='0' y='0'>
-                11.11
+                {figureValues[FigureId.Figure51]}
               </tspan>
             </text>
           </g>
@@ -315,12 +337,9 @@ export default function TuyenNguonDt477Pb01090028955Table() {
               x='1289.7'
               y='1172.59'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(1296.95 1191.3)'
-            >
+            <text className='main__cls-25' transform={figure52Coordinate}>
               <tspan x='0' y='0'>
-                11.11
+                {figureValues[FigureId.Figure52]}
               </tspan>
             </text>
           </g>
@@ -332,12 +351,9 @@ export default function TuyenNguonDt477Pb01090028955Table() {
               x='1184.71'
               y='1198.84'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(1246.27 1217.65)'
-            >
+            <text className='main__cls-25' transform={figure53Coordinate}>
               <tspan x='0' y='0'>
-                1111
+                {figureValues[FigureId.Figure53]}
               </tspan>
             </text>
           </g>
@@ -349,12 +365,9 @@ export default function TuyenNguonDt477Pb01090028955Table() {
               x='1184.71'
               y='1225.09'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(1246.27 1243.89)'
-            >
+            <text className='main__cls-25' transform={figure54Coordinate}>
               <tspan x='0' y='0'>
-                1111
+                {figureValues[FigureId.Figure54]}
               </tspan>
             </text>
           </g>
@@ -366,12 +379,9 @@ export default function TuyenNguonDt477Pb01090028955Table() {
               x='1184.71'
               y='1251.33'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(1246.27 1270.14)'
-            >
+            <text className='main__cls-25' transform={figure55Coordinate}>
               <tspan x='0' y='0'>
-                1111
+                {figureValues[FigureId.Figure55]}
               </tspan>
             </text>
           </g>
@@ -383,12 +393,9 @@ export default function TuyenNguonDt477Pb01090028955Table() {
               x='1184.71'
               y='1277.58'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(1246.27 1296.39)'
-            >
+            <text className='main__cls-25' transform={figure56Coordinate}>
               <tspan x='0' y='0'>
-                1111
+                {figureValues[FigureId.Figure56]}
               </tspan>
             </text>
           </g>

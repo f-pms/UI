@@ -1,6 +1,9 @@
+import { useMonitoringStore } from '~/stores/useMonitoringStore';
+
+import { useExtractFigureCoordinate } from '~/pages/ProductionManagement/helpers/diagrams';
 import { FiguresCoordinateType } from '~/pages/ProductionManagement/MonitoringPage';
 
-export enum FigureId {
+enum FigureId {
   Figure0 = 'figure0',
   Figure1 = 'figure1',
   Figure2 = 'figure2',
@@ -14,13 +17,6 @@ export interface TuBuTr30TableProps {
   figuresCoordinate: FiguresCoordinateType;
 }
 
-const useExtractFigureCoordinate = (
-  figuresCoordinate: FiguresCoordinateType,
-): ((figureId: FigureId) => string) => {
-  return (figureId: FigureId) =>
-    `translate (${figuresCoordinate[figureId].x} ${figuresCoordinate[figureId].y})`;
-};
-
 export default function TuBuTr30Table({
   figuresCoordinate,
 }: TuBuTr30TableProps) {
@@ -32,6 +28,7 @@ export default function TuBuTr30Table({
   const figure4Coordinate = extractFigureCoordinate(FigureId.Figure4);
   const figure5Coordinate = extractFigureCoordinate(FigureId.Figure5);
   const figure6Coordinate = extractFigureCoordinate(FigureId.Figure6);
+  const figureValues = useMonitoringStore((state) => state.figureValues);
 
   return (
     <g>
@@ -156,7 +153,7 @@ export default function TuBuTr30Table({
             />
             <text className='main__cls-25' transform={figure0Coordinate}>
               <tspan x='0' y='0'>
-                11.11
+                {figureValues[FigureId.Figure0]}
               </tspan>
             </text>
           </g>
@@ -170,7 +167,7 @@ export default function TuBuTr30Table({
             />
             <text className='main__cls-25' transform={figure1Coordinate}>
               <tspan x='0' y='0'>
-                11.11
+                {figureValues[FigureId.Figure1]}
               </tspan>
             </text>
           </g>
@@ -184,7 +181,7 @@ export default function TuBuTr30Table({
             />
             <text className='main__cls-25' transform={figure2Coordinate}>
               <tspan x='0' y='0'>
-                11.11
+                {figureValues[FigureId.Figure2]}
               </tspan>
             </text>
           </g>
@@ -198,7 +195,7 @@ export default function TuBuTr30Table({
             />
             <text className='main__cls-25' transform={figure3Coordinate}>
               <tspan x='0' y='0'>
-                11.11
+                {figureValues[FigureId.Figure3]}
               </tspan>
             </text>
           </g>
@@ -212,7 +209,7 @@ export default function TuBuTr30Table({
             />
             <text className='main__cls-25' transform={figure4Coordinate}>
               <tspan x='0' y='0'>
-                11.11
+                {figureValues[FigureId.Figure4]}
               </tspan>
             </text>
           </g>
@@ -226,7 +223,7 @@ export default function TuBuTr30Table({
             />
             <text className='main__cls-25' transform={figure5Coordinate}>
               <tspan x='0' y='0'>
-                11.11
+                {figureValues[FigureId.Figure5]}
               </tspan>
             </text>
           </g>
@@ -240,7 +237,7 @@ export default function TuBuTr30Table({
             />
             <text className='main__cls-25' transform={figure6Coordinate}>
               <tspan x='0' y='0'>
-                1111
+                {figureValues[FigureId.Figure6]}
               </tspan>
             </text>
           </g>

@@ -12,10 +12,12 @@ import {
   IBlueprint,
   useQueryBlueprintById,
 } from '~/services/blueprint/queries/useQueryBlueprintById';
+import { useMonitoringStore } from '~/stores/useMonitoringStore';
+import { useWebSocketStore } from '~/stores/useWebSocketStore';
 
 import {
   DIAGRAMS,
-  getBlueprintByTabValue,
+  getTabItemByValue,
 } from '~/pages/ProductionManagement/helpers/diagrams';
 import PageHeading from '~/pages/ProductionManagement/partials/PageHeading';
 import { StationNavigationTabs } from '~/pages/ProductionManagement/partials/StationNavigationTabs';
@@ -56,16 +58,64 @@ export interface IMonitoringPageProps {}
 
 export default function MonitoringPage() {
   const [value, setValue] = useState(DIAGRAMS[0].value);
+  const tabInfo = useMemo(() => getTabItemByValue(value), [value]);
+
   const [figuresCoordinateContext, setFiguresCoordinateContext] =
     useState<FiguresCoordinateContextType>();
-  const blueprint = useMemo(() => getBlueprintByTabValue(value), [value]);
   const {
     data,
-    isLoading,
+    isLoading: isFetchingBlueprint,
     refetch: refetchBlueprint,
-  } = useQueryBlueprintById(blueprint);
-  const ref = useRef<HTMLDivElement>(null);
+  } = useQueryBlueprintById(tabInfo.blueprint);
 
+  useEffect(() => {
+    refetchBlueprint();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value]);
+
+  useEffect(() => {
+    if (data != undefined) {
+      setFiguresCoordinateContext(getUpdatedFiguresCoordinateContext(data));
+    }
+  }, [data]);
+
+  const { isConnected: isWebsocketConnected, ...ws } = useWebSocketStore(
+    (state) => state,
+  );
+
+  useEffect(() => {
+    if (isWebsocketConnected) {
+      ws.subscribeOnly(tabInfo.channel);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isWebsocketConnected, value]);
+
+  useEffect(() => {
+    ws.connect();
+
+    return () => {
+      ws.disconnect();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const figureValues = useMonitoringStore((state) => state.figureValues);
+  const isReady = useMemo(() => {
+    return (
+      !isFetchingBlueprint &&
+      figuresCoordinateContext != undefined &&
+      ws.isSubscribed(tabInfo.channel) &&
+      figureValues != undefined
+    );
+  }, [
+    figuresCoordinateContext,
+    isFetchingBlueprint,
+    tabInfo.channel,
+    ws,
+    figureValues,
+  ]);
+
+  const ref = useRef<HTMLDivElement>(null);
   const scrollIntoView = useCallback(() => {
     ref.current?.scrollIntoView({
       behavior: 'smooth',
@@ -73,16 +123,6 @@ export default function MonitoringPage() {
       inline: 'nearest',
     });
   }, []);
-
-  useEffect(() => {
-    refetchBlueprint();
-  }, [refetchBlueprint, value]);
-
-  useEffect(() => {
-    if (data != undefined) {
-      setFiguresCoordinateContext(getUpdatedFiguresCoordinateContext(data));
-    }
-  }, [data]);
 
   useEffect(() => {
     scrollIntoView();
@@ -99,7 +139,7 @@ export default function MonitoringPage() {
         <PageHeading scrollIntoView={scrollIntoView} />
         <Stack sx={{ flex: 1 }}>
           <StationNavigationTabs handleChange={handleChange} value={value} />
-          {!isLoading && figuresCoordinateContext != undefined ? (
+          {isReady ? (
             <StationTabPanel ref={ref} value={value} />
           ) : (
             <Box

@@ -1,4 +1,39 @@
-export default function Lv34_2Table() {
+import { useMonitoringStore } from '~/stores/useMonitoringStore';
+
+import { useExtractFigureCoordinate } from '~/pages/ProductionManagement/helpers/diagrams';
+import { FiguresCoordinateType } from '~/pages/ProductionManagement/MonitoringPage';
+
+enum FigureId {
+  Figure107 = 'figure107',
+  Figure108 = 'figure108',
+  Figure109 = 'figure109',
+  Figure110 = 'figure110',
+  Figure111 = 'figure111',
+  Figure112 = 'figure112',
+  Figure113 = 'figure113',
+  Figure114 = 'figure114',
+  Figure115 = 'figure115',
+  Figure116 = 'figure116',
+}
+
+export interface Lv34_2TableProps {
+  figuresCoordinate: FiguresCoordinateType;
+}
+
+export default function Lv34_2Table({ figuresCoordinate }: Lv34_2TableProps) {
+  const extractFigureCoordinate = useExtractFigureCoordinate(figuresCoordinate);
+  const figure107Coordinate = extractFigureCoordinate(FigureId.Figure107);
+  const figure108Coordinate = extractFigureCoordinate(FigureId.Figure108);
+  const figure109Coordinate = extractFigureCoordinate(FigureId.Figure109);
+  const figure110Coordinate = extractFigureCoordinate(FigureId.Figure110);
+  const figure111Coordinate = extractFigureCoordinate(FigureId.Figure111);
+  const figure112Coordinate = extractFigureCoordinate(FigureId.Figure112);
+  const figure113Coordinate = extractFigureCoordinate(FigureId.Figure113);
+  const figure114Coordinate = extractFigureCoordinate(FigureId.Figure114);
+  const figure115Coordinate = extractFigureCoordinate(FigureId.Figure115);
+  const figure116Coordinate = extractFigureCoordinate(FigureId.Figure116);
+  const figureValues = useMonitoringStore((state) => state.figureValues);
+
   return (
     <g>
       <g>
@@ -165,9 +200,9 @@ export default function Lv34_2Table() {
             x='2404.49'
             y='1147.73'
           />
-          <text className='main__cls-25' transform='translate(2411.74 1166.44)'>
+          <text className='main__cls-25' transform={figure107Coordinate}>
             <tspan x='0' y='0'>
-              11.11
+              {figureValues[FigureId.Figure107]}
             </tspan>
           </text>
         </g>
@@ -179,9 +214,9 @@ export default function Lv34_2Table() {
             x='2456.98'
             y='1147.73'
           />
-          <text className='main__cls-25' transform='translate(2464.24 1166.44)'>
+          <text className='main__cls-25' transform={figure108Coordinate}>
             <tspan x='0' y='0'>
-              11.11
+              {figureValues[FigureId.Figure108]}
             </tspan>
           </text>
         </g>
@@ -193,9 +228,9 @@ export default function Lv34_2Table() {
             x='2509.48'
             y='1147.73'
           />
-          <text className='main__cls-25' transform='translate(2516.73 1166.44)'>
+          <text className='main__cls-25' transform={figure109Coordinate}>
             <tspan x='0' y='0'>
-              11.11
+              {figureValues[FigureId.Figure109]}
             </tspan>
           </text>
         </g>
@@ -207,9 +242,9 @@ export default function Lv34_2Table() {
             x='2404.49'
             y='1173.97'
           />
-          <text className='main__cls-25' transform='translate(2411.74 1192.69)'>
+          <text className='main__cls-25' transform={figure110Coordinate}>
             <tspan x='0' y='0'>
-              11.11
+              {figureValues[FigureId.Figure110]}
             </tspan>
           </text>
         </g>
@@ -221,9 +256,9 @@ export default function Lv34_2Table() {
             x='2456.98'
             y='1173.97'
           />
-          <text className='main__cls-25' transform='translate(2464.24 1192.69)'>
+          <text className='main__cls-25' transform={figure111Coordinate}>
             <tspan x='0' y='0'>
-              11.11
+              {figureValues[FigureId.Figure111]}
             </tspan>
           </text>
         </g>
@@ -235,9 +270,9 @@ export default function Lv34_2Table() {
             x='2509.48'
             y='1173.97'
           />
-          <text className='main__cls-25' transform='translate(2516.73 1192.69)'>
+          <text className='main__cls-25' transform={figure112Coordinate}>
             <tspan x='0' y='0'>
-              11.11
+              {figureValues[FigureId.Figure112]}
             </tspan>
           </text>
         </g>
@@ -249,9 +284,9 @@ export default function Lv34_2Table() {
             x='2404.49'
             y='1200.22'
           />
-          <text className='main__cls-25' transform='translate(2466.05 1219.03)'>
+          <text className='main__cls-25' transform={figure113Coordinate}>
             <tspan x='0' y='0'>
-              1111
+              {figureValues[FigureId.Figure113]}
             </tspan>
           </text>
         </g>
@@ -263,9 +298,9 @@ export default function Lv34_2Table() {
             x='2404.49'
             y='1226.47'
           />
-          <text className='main__cls-25' transform='translate(2466.05 1245.28)'>
+          <text className='main__cls-25' transform={figure114Coordinate}>
             <tspan x='0' y='0'>
-              1111
+              {figureValues[FigureId.Figure114]}
             </tspan>
           </text>
         </g>
@@ -277,9 +312,9 @@ export default function Lv34_2Table() {
             x='2404.49'
             y='1252.71'
           />
-          <text className='main__cls-25' transform='translate(2466.05 1271.52)'>
+          <text className='main__cls-25' transform={figure115Coordinate}>
             <tspan x='0' y='0'>
-              1111
+              {figureValues[FigureId.Figure115]}
             </tspan>
           </text>
         </g>
@@ -291,9 +326,9 @@ export default function Lv34_2Table() {
             x='2404.49'
             y='1278.96'
           />
-          <text className='main__cls-25' transform='translate(2466.05 1297.77)'>
+          <text className='main__cls-25' transform={figure116Coordinate}>
             <tspan x='0' y='0'>
-              1111
+              {figureValues[FigureId.Figure116]}
             </tspan>
           </text>
         </g>

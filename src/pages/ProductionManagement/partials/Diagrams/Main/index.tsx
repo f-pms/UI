@@ -1,9 +1,7 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 
 import { FiguresCoordinateContext } from '~/pages/ProductionManagement/MonitoringPage';
 
-import Lv30Table, { FigureId } from './partials/Tr30Table';
-import blueprint from './blueprint';
 import {
   Lv11Table,
   Lv12Table,
@@ -61,40 +59,8 @@ export type DisplayCoordinate = {
   y: number;
 };
 
-const extractFigures = (
-  sensorConfigurations: Configuration[],
-  groupId: GroupId,
-): Figure[] => {
-  return sensorConfigurations.find((configuration) => {
-    return configuration.groupId === groupId.toString();
-  })!.figures;
-};
-
 export function MainDiagram() {
   const figuresCoordinateContext = useContext(FiguresCoordinateContext);
-
-  // useEffect(() => {
-  //   const fetchingFigures = setInterval(() => {
-  //     const min = 0;
-  //     const max = 50;
-  //     setFigures({
-  //       [GroupId.Lv30Table]: {
-  //         [FigureId.Figure1]: generateRandomNum(max, min),
-  //         [FigureId.Figure2]: generateRandomNum(max, min),
-  //         [FigureId.Figure3]: generateRandomNum(max, min),
-  //         [FigureId.Figure4]: generateRandomNum(max, min),
-  //         [FigureId.Figure5]: generateRandomNum(max, min),
-  //         [FigureId.Figure6]: generateRandomNum(max, min),
-  //         [FigureId.Figure7]: generateRandomNum(max, min),
-  //         [FigureId.Figure8]: generateRandomNum(max, min),
-  //         [FigureId.Figure9]: generateRandomNum(max, min),
-  //         [FigureId.Figure10]: generateRandomNum(max, min),
-  //       },
-  //     });
-  //   }, 1000);
-
-  //   return () => clearInterval(fetchingFigures);
-  // });
 
   return (
     <svg
@@ -8614,20 +8580,54 @@ export function MainDiagram() {
       <TuBuTr30Table
         figuresCoordinate={figuresCoordinateContext![GroupId.TubuTR30Table]}
       />
-      <Lv12Table />
-      <Lv42Table />
-      <Lv72Table />
-      <Lv52Table />
-      <Lv31Table />
-      <Lv32Table />
-      <Lv33Table />
-      <Lv34_2Table />
-      <Lv34_1Table />
-      <TuyenNguonNhaKeoTr82Table />
-      <TuyenNguonDt477Pb01090028955Table />
-      <TuyenNguonDt475Pb01090028954Table />
-      <Lv11Table />
-      <Tr30Table />
+      <Lv12Table
+        figuresCoordinate={figuresCoordinateContext![GroupId.Lv12Table]}
+      />
+      <Lv42Table
+        figuresCoordinate={figuresCoordinateContext![GroupId.Lv42Table]}
+      />
+      <Lv72Table
+        figuresCoordinate={figuresCoordinateContext![GroupId.Lv72Table]}
+      />
+      <Lv52Table
+        figuresCoordinate={figuresCoordinateContext![GroupId.Lv52Table]}
+      />
+      <Lv31Table
+        figuresCoordinate={figuresCoordinateContext![GroupId.Lv31Table]}
+      />
+      <Lv32Table
+        figuresCoordinate={figuresCoordinateContext![GroupId.Lv32Table]}
+      />
+      <Lv33Table
+        figuresCoordinate={figuresCoordinateContext![GroupId.Lv33Table]}
+      />
+      <Lv34_2Table
+        figuresCoordinate={figuresCoordinateContext![GroupId.Lv34_2Table]}
+      />
+      <Lv34_1Table
+        figuresCoordinate={figuresCoordinateContext![GroupId.Lv34_1Table]}
+      />
+      <TuyenNguonNhaKeoTr82Table
+        figuresCoordinate={
+          figuresCoordinateContext![GroupId.TuyenNguonNhaKeoTr82Table]
+        }
+      />
+      <TuyenNguonDt477Pb01090028955Table
+        figuresCoordinate={
+          figuresCoordinateContext![GroupId.TuyenNguonDt477Pb01090028955Table]
+        }
+      />
+      <TuyenNguonDt475Pb01090028954Table
+        figuresCoordinate={
+          figuresCoordinateContext![GroupId.TuyenNguonDt475Pb01090028954Table]
+        }
+      />
+      <Lv11Table
+        figuresCoordinate={figuresCoordinateContext![GroupId.Lv11Table]}
+      />
+      <Tr30Table
+        figuresCoordinate={figuresCoordinateContext![GroupId.Tr30Table]}
+      />
       <NhietDoCacPhongDienTable />
       <g>
         <rect

@@ -1,36 +1,38 @@
-import { useContext } from 'react';
+import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
-import { Figure, GroupId } from '..';
+import { useExtractFigureCoordinate } from '~/pages/ProductionManagement/helpers/diagrams';
+import { FiguresCoordinateType } from '~/pages/ProductionManagement/MonitoringPage';
 
-export enum FigureId {
-  Figure1 = 'figure1',
-  Figure2 = 'figure2',
-  Figure3 = 'figure3',
-  Figure4 = 'figure4',
-  Figure5 = 'figure5',
-  Figure6 = 'figure6',
+enum FigureId {
   Figure7 = 'figure7',
   Figure8 = 'figure8',
   Figure9 = 'figure9',
   Figure10 = 'figure10',
+  Figure11 = 'figure11',
+  Figure12 = 'figure12',
+  Figure13 = 'figure13',
+  Figure14 = 'figure14',
+  Figure15 = 'figure15',
+  Figure16 = 'figure16',
 }
 
-interface Lv30TableProps {
-  initialCoordinates: Figure[];
+interface Tr30TableProps {
+  figuresCoordinate: FiguresCoordinateType;
 }
 
-const extractDisplayCoordinate = (
-  figures: Figure[],
-  figureId: FigureId,
-): string => {
-  const coordinate = figures.find((figure) => {
-    return figure.id === figureId.toString();
-  })!.displayCoordinate;
-  return `translate (${coordinate.x} ${coordinate.y})`;
-};
-
-export default function Tr30Table() {
-  // const figureValues = useContext(MainDiagramContext)?.[GroupId.Lv30Table];
+export default function Tr30Table({ figuresCoordinate }: Tr30TableProps) {
+  const extractFigureCoordinate = useExtractFigureCoordinate(figuresCoordinate);
+  const figure7Coordinate = extractFigureCoordinate(FigureId.Figure7);
+  const figure8Coordinate = extractFigureCoordinate(FigureId.Figure8);
+  const figure9Coordinate = extractFigureCoordinate(FigureId.Figure9);
+  const figure10Coordinate = extractFigureCoordinate(FigureId.Figure10);
+  const figure11Coordinate = extractFigureCoordinate(FigureId.Figure11);
+  const figure12Coordinate = extractFigureCoordinate(FigureId.Figure12);
+  const figure13Coordinate = extractFigureCoordinate(FigureId.Figure13);
+  const figure14Coordinate = extractFigureCoordinate(FigureId.Figure14);
+  const figure15Coordinate = extractFigureCoordinate(FigureId.Figure15);
+  const figure16Coordinate = extractFigureCoordinate(FigureId.Figure16);
+  const figureValues = useMonitoringStore((state) => state.figureValues);
 
   return (
     <g>
@@ -198,9 +200,9 @@ export default function Tr30Table() {
             x='520.71'
             y='897.48'
           />
-          <text className='main__cls-25' transform='translate(527.96 916.19)'>
+          <text className='main__cls-25' transform={figure7Coordinate}>
             <tspan x='0' y='0'>
-              11.11
+              {figureValues[FigureId.Figure7]}
             </tspan>
           </text>
         </g>
@@ -212,9 +214,9 @@ export default function Tr30Table() {
             x='573.2'
             y='897.48'
           />
-          <text className='main__cls-25' transform='translate(580.45 916.19)'>
+          <text className='main__cls-25' transform={figure8Coordinate}>
             <tspan x='0' y='0'>
-              11.11
+              {figureValues[FigureId.Figure8]}
             </tspan>
           </text>
         </g>
@@ -226,9 +228,9 @@ export default function Tr30Table() {
             x='625.7'
             y='897.48'
           />
-          <text className='main__cls-25' transform='translate(632.95 916.19)'>
+          <text className='main__cls-25' transform={figure9Coordinate}>
             <tspan x='0' y='0'>
-              11.11
+              {figureValues[FigureId.Figure9]}
             </tspan>
           </text>
         </g>
@@ -240,9 +242,9 @@ export default function Tr30Table() {
             x='520.71'
             y='923.73'
           />
-          <text className='main__cls-25' transform='translate(527.96 942.44)'>
+          <text className='main__cls-25' transform={figure10Coordinate}>
             <tspan x='0' y='0'>
-              11.11
+              {figureValues[FigureId.Figure10]}
             </tspan>
           </text>
         </g>
@@ -254,9 +256,9 @@ export default function Tr30Table() {
             x='573.2'
             y='923.73'
           />
-          <text className='main__cls-25' transform='translate(580.45 942.44)'>
+          <text className='main__cls-25' transform={figure11Coordinate}>
             <tspan x='0' y='0'>
-              11.11
+              {figureValues[FigureId.Figure11]}
             </tspan>
           </text>
         </g>
@@ -268,9 +270,9 @@ export default function Tr30Table() {
             x='625.7'
             y='923.73'
           />
-          <text className='main__cls-25' transform='translate(632.95 942.44)'>
+          <text className='main__cls-25' transform={figure12Coordinate}>
             <tspan x='0' y='0'>
-              11.11
+              {figureValues[FigureId.Figure12]}
             </tspan>
           </text>
         </g>
@@ -282,9 +284,9 @@ export default function Tr30Table() {
             x='520.71'
             y='949.97'
           />
-          <text className='main__cls-25' transform='translate(582.27 968.78)'>
+          <text className='main__cls-25' transform={figure13Coordinate}>
             <tspan x='0' y='0'>
-              1111
+              {figureValues[FigureId.Figure13]}
             </tspan>
           </text>
         </g>
@@ -296,9 +298,9 @@ export default function Tr30Table() {
             x='520.71'
             y='976.22'
           />
-          <text className='main__cls-25' transform='translate(582.27 995.03)'>
+          <text className='main__cls-25' transform={figure14Coordinate}>
             <tspan x='0' y='0'>
-              1111
+              {figureValues[FigureId.Figure14]}
             </tspan>
           </text>
         </g>
@@ -310,9 +312,9 @@ export default function Tr30Table() {
             x='520.71'
             y='1002.47'
           />
-          <text className='main__cls-25' transform='translate(582.27 1021.28)'>
+          <text className='main__cls-25' transform={figure15Coordinate}>
             <tspan x='0' y='0'>
-              1111
+              {figureValues[FigureId.Figure15]}
             </tspan>
           </text>
         </g>
@@ -324,9 +326,9 @@ export default function Tr30Table() {
             x='520.71'
             y='1028.71'
           />
-          <text className='main__cls-25' transform='translate(582.27 1047.52)'>
+          <text className='main__cls-25' transform={figure16Coordinate}>
             <tspan x='0' y='0'>
-              1111
+              {figureValues[FigureId.Figure16]}
             </tspan>
           </text>
         </g>
