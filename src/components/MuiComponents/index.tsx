@@ -7,6 +7,7 @@ export { default as Avatar } from '@mui/material/Avatar';
 export { default as Box } from '@mui/material/Box';
 export { default as Breadcrumbs } from '@mui/material/Breadcrumbs';
 export { default as Button } from '@mui/material/Button';
+export { default as CircularProgress } from '@mui/material/CircularProgress';
 export { default as Container } from '@mui/material/Container';
 export { default as Divider } from '@mui/material/Divider';
 export { default as Drawer } from '@mui/material/Drawer';
