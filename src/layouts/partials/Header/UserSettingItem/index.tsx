@@ -12,7 +12,7 @@ export interface IUserSettingItemProps {
   handleCloseUserMenu: (path: string) => void;
 }
 
-export function UserSettingItem(props: IUserSettingItemProps) {
+export function UserSettingItem(props: Readonly<IUserSettingItemProps>) {
   const { setting, handleCloseUserMenu } = props;
 
   return (

@@ -40,7 +40,7 @@ enum PickerType {
   Year,
 }
 
-export function CalendarPickers(props: ICalendarPickersProps) {
+export function CalendarPickers(props: Readonly<ICalendarPickersProps>) {
   const { selected } = useDayPicker();
   const { goToMonth, currentMonth } = useNavigation();
   const { goToWeek } = useContext(CalendarContext);
