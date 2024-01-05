@@ -6,12 +6,12 @@ export interface IPaletteOptionProps {
   color: Color;
 }
 
-export function PaletteOption({ color }: IPaletteOptionProps) {
+export function PaletteOption({ color }: Readonly<IPaletteOptionProps>) {
   return (
     <Stack direction='row' spacing={2}>
       <Box
         sx={(theme) => ({
-          backgroundColor: theme.palette[color].light,
+          backgroundColor: theme.palette[color]!.light,
           width: 100,
           height: 100,
           borderRadius: '4px',
@@ -20,7 +20,7 @@ export function PaletteOption({ color }: IPaletteOptionProps) {
         <Typography
           sx={(theme) => ({
             lineHeight: '100px',
-            color: theme.palette[color].contrastText,
+            color: theme.palette[color]!.contrastText,
           })}
           variant='caption'
         >
@@ -29,7 +29,7 @@ export function PaletteOption({ color }: IPaletteOptionProps) {
       </Box>
       <Box
         sx={(theme) => ({
-          backgroundColor: theme.palette[color].main,
+          backgroundColor: theme.palette[color]!.main,
           width: 100,
           height: 100,
           borderRadius: '4px',
@@ -38,7 +38,7 @@ export function PaletteOption({ color }: IPaletteOptionProps) {
         <Typography
           sx={(theme) => ({
             lineHeight: '100px',
-            color: theme.palette[color].contrastText,
+            color: theme.palette[color]!.contrastText,
           })}
           variant='caption'
         >
@@ -47,7 +47,7 @@ export function PaletteOption({ color }: IPaletteOptionProps) {
       </Box>
       <Box
         sx={(theme) => ({
-          backgroundColor: theme.palette[color].dark,
+          backgroundColor: theme.palette[color]!.dark,
           width: 100,
           height: 100,
           borderRadius: '4px',
@@ -56,7 +56,7 @@ export function PaletteOption({ color }: IPaletteOptionProps) {
         <Typography
           sx={(theme) => ({
             lineHeight: '100px',
-            color: theme.palette[color].contrastText,
+            color: theme.palette[color]!.contrastText,
           })}
           variant='caption'
         >

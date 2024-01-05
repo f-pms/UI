@@ -32,22 +32,22 @@ Make sure you have the following installed on your local machine:
 
 ### Installation
 
-   ```bash
-   git clone https://github.com/f-pms/UI.git
-   cd UI
-   yarn
-   yarn dev
-   ```
+```bash
+git clone https://github.com/f-pms/UI.git
+cd UI
+yarn
+yarn dev
+```
 
-   Visit <http://localhost:5173> in your browser to view the application.
+Visit <http://localhost:5173> in your browser to view the application.
 
 ### Storybook
 
-  ```bash
-   yarn storybook
-   ```
+```bash
+ yarn storybook
+```
 
-   Visit <http://localhost:6006> in your browser to view the application.
+Visit <http://localhost:6006> in your browser to view the application.
 
 ## Features
 
@@ -79,4 +79,3 @@ Production parameter tables should contain changeable-color cell to reflect data
 - UI components docs: [Storybook](https://storybook.js.org/)
 - [axios](https://axios-http.com/)
 - [lodash](https://lodash.com/)
-  

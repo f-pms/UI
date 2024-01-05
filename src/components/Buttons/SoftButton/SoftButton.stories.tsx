@@ -4,11 +4,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { SoftButton } from '.';
 
 const meta: Meta<typeof SoftButton> = {
-  title: 'Buttons/Elevated',
+  title: 'Buttons/Soft',
   component: SoftButton,
   tags: ['autodocs'],
   args: {
-    children: 'Elevated Button',
+    children: 'Soft Button',
   },
   decorators: [
     (Story) => (

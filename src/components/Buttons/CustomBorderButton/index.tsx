@@ -25,7 +25,7 @@ export function CustomBorderButton(props: ICustomBorderButtonProps) {
         boxSizing: 'border-box',
         boxShadow: disableBorder
           ? 'unset'
-          : `inset 0 0 0 2px ${theme.palette[props.color || 'primary'].main}`,
+          : `inset 0 0 0 2px ${theme.palette[props.color ?? 'primary']!.main}`,
 
         '&:before, &:after': {
           display: disableBorder ? 'none' : 'block',

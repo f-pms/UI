@@ -25,11 +25,6 @@ module.exports = {
     ],
     '@typescript-eslint/naming-convention': [
       'error',
-      // {
-      //   selector: 'variable',
-      //   format: ['camelCase', 'PascalCase', 'UPPER_CASE'],
-      //   leadingUnderscore: 'allow',
-      // },
       {
         selector: 'variable',
         types: ['boolean'],

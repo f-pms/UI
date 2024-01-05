@@ -8,7 +8,7 @@ export interface ISoftChipProps extends Omit<ChipProps, 'variant' | 'color'> {
   shape?: 'square' | 'rounded';
 }
 
-export function SoftChip(props: ISoftChipProps) {
+export function SoftChip(props: Readonly<ISoftChipProps>) {
   const { color = 'primary', shape = 'rounded' } = props;
   const { bgrColor } = useSoftColor(color);
 
@@ -19,12 +19,12 @@ export function SoftChip(props: ISoftChipProps) {
         minHeight: props.label ? 'unset' : '48px',
         borderRadius: shape === 'square' ? '4px' : '16px',
         backgroundColor: bgrColor,
-        color: theme.palette[color].main,
+        color: theme.palette[color]!.main,
         '& .MuiChip-label': {
           padding: props.label ? '0 12px' : '0',
         },
         '& .MuiChip-icon': {
-          color: theme.palette[color].main,
+          color: theme.palette[color]!.main,
           marginLeft: props.label ? '6px' : '0',
           marginRight: props.label ? '-5px' : '0',
         },

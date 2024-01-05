@@ -33,7 +33,9 @@ interface CalendarProviderProps {
   children: ReactNode;
 }
 
-export function CalendarProvider({ children }: CalendarProviderProps) {
+export function CalendarProvider({
+  children,
+}: Readonly<CalendarProviderProps>) {
   const { locale, weekStartsOn, ISOWeek } = OPTION_DATE_PICKER;
   const [viewBy, setViewBy] = useState<ViewTypes>(ViewTypes.Month);
   const [week, setWeek] = useState<Date>(new Date());
@@ -42,8 +44,8 @@ export function CalendarProvider({ children }: CalendarProviderProps) {
   const goToWeek = useCallback(
     (date?: Date) => {
       const start = ISOWeek
-        ? startOfISOWeek(date || new Date())
-        : startOfWeek(date || new Date(), { locale, weekStartsOn });
+        ? startOfISOWeek(date ?? new Date())
+        : startOfWeek(date ?? new Date(), { locale, weekStartsOn });
       setWeek(start);
     },
     [ISOWeek, locale, weekStartsOn],

@@ -1,25 +1,13 @@
-import { useEffect, useMemo } from 'react';
+import { useMemo } from 'react';
 import {
   MaterialReactTable,
   type MRT_ColumnDef, //if using TypeScript (optional, but recommended)
   useMaterialReactTable,
 } from 'material-react-table';
 
-import {
-  Button,
-  Divider,
-  IconButton,
-  Stack,
-  Tooltip,
-  Typography,
-} from '@mui/material';
+import { Button, Divider, Stack, Tooltip, Typography } from '@mui/material';
 
-import { useLoadingStore } from '~/stores';
-
-import {
-  AddCircleOutlineOutlinedIcon,
-  NavigateNextIcon,
-} from '~/components/Icons';
+import { AddCircleOutlineOutlinedIcon } from '~/components/Icons';
 
 //If using TypeScript, define the shape of your data (optional, but recommended)
 interface Person {
