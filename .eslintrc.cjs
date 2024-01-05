@@ -8,9 +8,16 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:react/jsx-runtime',
     'plugin:storybook/recommended',
+    'plugin:sonarjs/recommended',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', 'public'],
-  plugins: ['simple-import-sort', '@typescript-eslint', 'react', 'react-hooks'],
+  plugins: [
+    'simple-import-sort',
+    '@typescript-eslint',
+    'react',
+    'react-hooks',
+    'sonarjs',
+  ],
   rules: {
     'react/display-name': 'off',
     'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
@@ -85,7 +92,8 @@ module.exports = {
         reservedFirst: true,
       },
     ],
-    'react/prefer-read-only-props': 0,
+    'react/prefer-read-only-props': 'off',
+    'sonarjs/no-duplicate-string': 'off',
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
