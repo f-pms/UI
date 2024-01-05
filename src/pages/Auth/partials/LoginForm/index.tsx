@@ -20,7 +20,7 @@ interface ILoginFormProps {
   onCallbackUrl: (url: string) => void;
 }
 
-export function LoginForm(props: ILoginFormProps) {
+export function LoginForm(props: Readonly<ILoginFormProps>) {
   const { onCallbackUrl } = props;
   const { login, register } = useContext(AuthContext);
 

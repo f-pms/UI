@@ -12,7 +12,9 @@ export interface IToggleSidebarButtonProps {
   onCollapsed: () => void;
 }
 
-export default function ToggleSidebarButton(props: IToggleSidebarButtonProps) {
+export default function ToggleSidebarButton(
+  props: Readonly<IToggleSidebarButtonProps>,
+) {
   const { broken, onToggled, collapsed, onCollapsed } = props;
   const handleSidebar = () => {
     if (broken) {

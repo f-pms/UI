@@ -24,7 +24,9 @@ interface TextFieldProps<T extends FieldValues>
 // This component renders a TextField with Material UI styling.
 // It can be used with or without the React Hook Form library.
 // If used with React Hook Form, it will be wrapped in a Controller component.
-export function TextField<T extends FieldValues>(props: TextFieldProps<T>) {
+export function TextField<T extends FieldValues>(
+  props: Readonly<TextFieldProps<T>>,
+) {
   const { name, control, defaultValue, rules, shouldUnregister, ...rest } =
     props;
 

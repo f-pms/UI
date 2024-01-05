@@ -1,12 +1,15 @@
 // Button.stories.ts|tsx
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Calendar } from '.';
+import { SoftChip } from '.';
 
-const meta: Meta<typeof Calendar> = {
-  title: 'Utils/Calendar',
-  component: Calendar,
+const meta: Meta<typeof SoftChip> = {
+  title: 'Data Display/SoftChip',
+  component: SoftChip,
   tags: ['autodocs'],
+  args: {
+    label: 'chip',
+  },
   decorators: [
     (Story) => (
       <center>
@@ -17,7 +20,7 @@ const meta: Meta<typeof Calendar> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof Calendar>;
+type Story = StoryObj<typeof SoftChip>;
 
 /*
  *👇 Render functions are a framework specific feature to allow you control on how the component renders.
@@ -25,5 +28,5 @@ type Story = StoryObj<typeof Calendar>;
  * to learn how to use render functions.
  */
 export const Primary: Story = {
-  render: () => <Calendar />,
+  render: (args) => <SoftChip {...args} />,
 };

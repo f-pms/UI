@@ -3,10 +3,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Stack, Typography } from '~/components/MuiComponents';
 
-import { CustomBorderButton } from './';
+import { CustomBorderButton } from '.';
 
 const meta: Meta<typeof CustomBorderButton> = {
-  title: 'Button/CustomBorder',
+  title: 'Buttons/CustomBorder',
   component: CustomBorderButton,
   tags: ['autodocs'],
   args: {

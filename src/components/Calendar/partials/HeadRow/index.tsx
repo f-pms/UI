@@ -8,7 +8,7 @@ import { getWeekdays } from '~/components/Calendar/helpers/getWeekdays';
 import MonthHeadRowCell from '~/components/Calendar/partials/HeadRow/MonthHeadRowCell';
 import WeekHeadRowCell from '~/components/Calendar/partials/HeadRow/WeekHeadRowCell';
 
-export function HeadRow(): JSX.Element {
+export function HeadRow() {
   const { week } = useContext(CalendarContext);
   const { viewBy } = useContext(CalendarContext);
   const {

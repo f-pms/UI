@@ -17,7 +17,7 @@ interface IHeaderProps {
   collapsed: boolean;
   onCollapsed: () => void;
 }
-export function Header(props: IHeaderProps) {
+export function Header(props: Readonly<IHeaderProps>) {
   return (
     <AppBar position='sticky' sx={{ zIndex: 999 }}>
       <Container disableGutters maxWidth={false}>

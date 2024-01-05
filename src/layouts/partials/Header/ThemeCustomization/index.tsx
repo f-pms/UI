@@ -3,11 +3,11 @@ import { Dispatch, useState } from 'react';
 import { COLOR_SCHEME_OPTIONS } from '~/layouts/partials/Header/helpers/colorSchemeOptions';
 import { FONT_FAMILY_OPTIONS } from '~/layouts/partials/Header/helpers/fontFamilyOptions';
 import { SETTING_ITEMS } from '~/layouts/partials/Header/helpers/settingItems';
-import { ColorSchemeCustom } from '~/layouts/partials/Header/ThemeCustomization/ColorSchemeCustom';
 import { FontFamilyCustom } from '~/layouts/partials/Header/ThemeCustomization/FontFamilyCustom';
+import { ThemeColorCustom } from '~/layouts/partials/Header/ThemeCustomization/ThemeColorCustom';
 import { UserSettingItem } from '~/layouts/partials/Header/UserSettingItem';
 
-import { ElevatedButton } from '~/components';
+import { SoftButton } from '~/components';
 import {
   ExpandMoreOutlinedIcon,
   FormatColorFillOutlinedIcon,
@@ -82,9 +82,9 @@ export function ThemeCustomization({
               id='panel1a-header'
             >
               <Stack alignItems='center' direction='row'>
-                <ElevatedButton color='primary'>
+                <SoftButton color='primary'>
                   <FormatColorFillOutlinedIcon fontSize='small' />
-                </ElevatedButton>
+                </SoftButton>
                 <Box sx={{ ml: 2 }}>
                   <Typography sx={{ fontWeight: 'bold' }} variant='body2'>
                     Color Scheme
@@ -104,7 +104,7 @@ export function ThemeCustomization({
               >
                 {COLOR_SCHEME_OPTIONS.map((option) => (
                   <Grid key={option.value} item>
-                    <ColorSchemeCustom option={option} />
+                    <ThemeColorCustom option={option} />
                   </Grid>
                 ))}
               </Grid>
@@ -118,9 +118,9 @@ export function ThemeCustomization({
               id='panel2a-header'
             >
               <Stack alignItems='center' direction='row'>
-                <ElevatedButton color='primary'>
+                <SoftButton color='primary'>
                   <TextFormatOutlinedIcon fontSize='small' />
-                </ElevatedButton>
+                </SoftButton>
                 <Box sx={{ ml: 2 }}>
                   <Typography sx={{ fontWeight: 'bold' }} variant='body2'>
                     Font Family

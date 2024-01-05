@@ -19,7 +19,7 @@ import withCallbackUrl, { ICallbackProps } from '~/hocs/withCallbackUrl';
 
 import { AuthContext } from '~/pages/Auth/context/AuthContext';
 
-function Copyright<T>(props: T) {
+function Copyright<T>(props: Readonly<T>) {
   return (
     <Typography
       align='center'
@@ -40,7 +40,7 @@ const defaultTheme = createTheme();
 
 type ISignUpProps = ICallbackProps;
 
-function SignUp(props: ISignUpProps) {
+function SignUp(props: Readonly<ISignUpProps>) {
   const { login, register } = React.useContext(AuthContext);
   const { handleCallback = () => {} } = props;
   const handleSubmitUser = () => {

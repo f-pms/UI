@@ -8,11 +8,11 @@ import { useNavigate } from '~/libs/react-router-dom';
 
 import { AuthContext } from '~/pages/Auth/context/AuthContext';
 
+import { SoftButton } from '~/components';
 import { ExitToAppOutlinedIcon } from '~/components/Icons';
 import {
   Avatar,
   Box,
-  IconButton,
   Menu,
   Stack,
   Typography,
@@ -23,7 +23,7 @@ export interface IUserSettingMenuProps {
   setAnchorElUser: Dispatch<React.SetStateAction<HTMLElement | null>>;
 }
 
-export function UserSettingMenu(props: IUserSettingMenuProps) {
+export function UserSettingMenu(props: Readonly<IUserSettingMenuProps>) {
   const { anchorElUser, setAnchorElUser } = props;
   const navigate = useNavigate();
   const { logout } = useContext(AuthContext);
@@ -63,9 +63,9 @@ export function UserSettingMenu(props: IUserSettingMenuProps) {
             <Typography variant='caption'>Quản lý</Typography>
           </Box>
         </Stack>
-        <IconButton color={'primary'}>
+        <SoftButton color={'primary'}>
           <ExitToAppOutlinedIcon fontSize='small' />
-        </IconButton>
+        </SoftButton>
       </Stack>
       <UserSettingItem
         key={SETTING_ITEMS[0].label}

@@ -5,7 +5,9 @@ export interface IMonthHeadRowCellProps {
   weekday: Date;
 }
 
-export default function MonthHeadRowCell({ weekday }: IMonthHeadRowCellProps) {
+export default function MonthHeadRowCell({
+  weekday,
+}: Readonly<IMonthHeadRowCellProps>) {
   const {
     locale,
     formatters: { formatWeekdayName },

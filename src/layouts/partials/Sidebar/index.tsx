@@ -12,7 +12,7 @@ interface ISideBarProps {
   setToggled: (toggled: boolean) => void;
 }
 
-export function SideBar(props: ISideBarProps) {
+export function SideBar(props: Readonly<ISideBarProps>) {
   const theme = useTheme();
   const { broken, toggled, collapsed, setBroken, setToggled } = props;
   return (
