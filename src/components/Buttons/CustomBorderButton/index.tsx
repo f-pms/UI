@@ -6,7 +6,7 @@ interface ICustomBorderButtonProps extends Omit<ButtonProps, 'color'> {
   color?: Color;
 }
 
-export function CustomBorderButton(props: Readonly<ICustomBorderButtonProps>) {
+export function CustomBorderButton(props: ICustomBorderButtonProps) {
   const { disableBorder = false, children, ...rest } = props;
   const theme = useTheme();
   return (

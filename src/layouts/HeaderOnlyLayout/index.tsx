@@ -4,9 +4,7 @@ export interface IHeaderOnlyLayoutProps {
   children?: ReactNode;
 }
 
-export function HeaderOnlyLayout({
-  children,
-}: Readonly<IHeaderOnlyLayoutProps>) {
+export function HeaderOnlyLayout({ children }: IHeaderOnlyLayoutProps) {
   return (
     <div>
       <h1>Header</h1>
