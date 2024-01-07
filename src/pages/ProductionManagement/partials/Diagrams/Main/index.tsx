@@ -8578,38 +8578,32 @@ export function MainDiagram() {
         </g>
       </g>
       <TuBuTr30Table
-        figuresCoordinate={figuresCoordinate![GroupId.TubuTR30Table]}
+        figuresCoordinate={figuresCoordinate[GroupId.TubuTR30Table]}
       />
-      <Lv12Table figuresCoordinate={figuresCoordinate![GroupId.Lv12Table]} />
-      <Lv42Table figuresCoordinate={figuresCoordinate![GroupId.Lv42Table]} />
-      <Lv72Table figuresCoordinate={figuresCoordinate![GroupId.Lv72Table]} />
-      <Lv52Table figuresCoordinate={figuresCoordinate![GroupId.Lv52Table]} />
-      <Lv31Table figuresCoordinate={figuresCoordinate![GroupId.Lv31Table]} />
-      <Lv32Table figuresCoordinate={figuresCoordinate![GroupId.Lv32Table]} />
-      <Lv33Table figuresCoordinate={figuresCoordinate![GroupId.Lv33Table]} />
-      <Lv34_2Table
-        figuresCoordinate={figuresCoordinate![GroupId.Lv34_2Table]}
-      />
-      <Lv34_1Table
-        figuresCoordinate={figuresCoordinate![GroupId.Lv34_1Table]}
-      />
+      <Lv12Table figuresCoordinate={figuresCoordinate[GroupId.Lv12Table]} />
+      <Lv42Table figuresCoordinate={figuresCoordinate[GroupId.Lv42Table]} />
+      <Lv72Table figuresCoordinate={figuresCoordinate[GroupId.Lv72Table]} />
+      <Lv52Table figuresCoordinate={figuresCoordinate[GroupId.Lv52Table]} />
+      <Lv31Table figuresCoordinate={figuresCoordinate[GroupId.Lv31Table]} />
+      <Lv32Table figuresCoordinate={figuresCoordinate[GroupId.Lv32Table]} />
+      <Lv33Table figuresCoordinate={figuresCoordinate[GroupId.Lv33Table]} />
+      <Lv34_2Table figuresCoordinate={figuresCoordinate[GroupId.Lv34_2Table]} />
+      <Lv34_1Table figuresCoordinate={figuresCoordinate[GroupId.Lv34_1Table]} />
       <TuyenNguonNhaKeoTr82Table
-        figuresCoordinate={
-          figuresCoordinate![GroupId.TuyenNguonNhaKeoTr82Table]
-        }
+        figuresCoordinate={figuresCoordinate[GroupId.TuyenNguonNhaKeoTr82Table]}
       />
       <TuyenNguonDt477Pb01090028955Table
         figuresCoordinate={
-          figuresCoordinate![GroupId.TuyenNguonDt477Pb01090028955Table]
+          figuresCoordinate[GroupId.TuyenNguonDt477Pb01090028955Table]
         }
       />
       <TuyenNguonDt475Pb01090028954Table
         figuresCoordinate={
-          figuresCoordinate![GroupId.TuyenNguonDt475Pb01090028954Table]
+          figuresCoordinate[GroupId.TuyenNguonDt475Pb01090028954Table]
         }
       />
-      <Lv11Table figuresCoordinate={figuresCoordinate![GroupId.Lv11Table]} />
-      <Tr30Table figuresCoordinate={figuresCoordinate![GroupId.Tr30Table]} />
+      <Lv11Table figuresCoordinate={figuresCoordinate[GroupId.Lv11Table]} />
+      <Tr30Table figuresCoordinate={figuresCoordinate[GroupId.Tr30Table]} />
       <NhietDoCacPhongDienTable />
       <g>
         <rect
