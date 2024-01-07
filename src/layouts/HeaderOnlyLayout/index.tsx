@@ -6,7 +6,7 @@ export interface IHeaderOnlyLayoutProps {
 
 export function HeaderOnlyLayout({
   children,
-}: IHeaderOnlyLayoutProps): JSX.Element {
+}: Readonly<IHeaderOnlyLayoutProps>) {
   return (
     <div>
       <h1>Header</h1>

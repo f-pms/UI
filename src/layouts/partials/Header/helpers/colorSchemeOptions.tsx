@@ -1,4 +1,4 @@
-import { ColorScheme } from '~/libs/mui/theme/palette';
+import { ColorScheme } from '~/constants';
 
 export type ColorSchemeOption = {
   label: string;
@@ -12,14 +12,23 @@ export const COLOR_SCHEME_OPTIONS: ColorSchemeOption[] = [
   },
   {
     label: 'Theme 1',
-    value: 'purple',
+    value: 'zinc',
   },
   {
     label: 'Theme 2',
-    value: 'green',
+    value: 'red',
   },
   {
     label: 'Theme 3',
+    value: 'green',
+  },
+  {
+    label: 'Theme 4',
     value: 'orange',
+  },
+
+  {
+    label: 'Theme 5',
+    value: 'violet',
   },
 ];

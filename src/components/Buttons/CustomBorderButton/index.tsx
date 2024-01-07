@@ -1,11 +1,12 @@
 import { Box, ButtonBase, ButtonProps, useTheme } from '~/libs/mui';
+import { Color } from '~/types';
 
 interface ICustomBorderButtonProps extends Omit<ButtonProps, 'color'> {
   disableBorder?: boolean;
-  color?: 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
+  color?: Color;
 }
 
-export function CustomBorderButton(props: ICustomBorderButtonProps) {
+export function CustomBorderButton(props: Readonly<ICustomBorderButtonProps>) {
   const { disableBorder = false, children, ...rest } = props;
   const theme = useTheme();
   return (
@@ -24,7 +25,7 @@ export function CustomBorderButton(props: ICustomBorderButtonProps) {
         boxSizing: 'border-box',
         boxShadow: disableBorder
           ? 'unset'
-          : `inset 0 0 0 2px ${theme.palette[props.color || 'primary'].main}`,
+          : `inset 0 0 0 2px ${theme.palette[props.color ?? 'primary']!.main}`,
 
         '&:before, &:after': {
           display: disableBorder ? 'none' : 'block',

@@ -3,9 +3,6 @@ import { useEffect } from 'react';
 import { useQueryPokemonById } from '~/services/pokemon';
 import { useLoadingStore } from '~/stores';
 
-import { ElevatedButton } from '~/components';
-import { GoogleIcon } from '~/components/Icons';
-
 export function HomePage() {
   const setLoading = useLoadingStore((state) => state.setLoading);
   const { data, status, error } = useQueryPokemonById(1);
@@ -26,9 +23,6 @@ export function HomePage() {
     <div>
       <h1>Home Page</h1>
       <h2>Pokemon: {data?.name}</h2>
-      <ElevatedButton color='primary'>
-        <GoogleIcon />
-      </ElevatedButton>
     </div>
   );
 }

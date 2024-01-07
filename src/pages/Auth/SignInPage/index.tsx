@@ -4,7 +4,7 @@ import { LoginForm } from '~/pages/Auth/partials/LoginForm';
 
 type ISignInProps = ICallbackProps;
 
-function SignIn(props: ISignInProps) {
+function SignIn(props: Readonly<ISignInProps>) {
   const { handleCallback = () => {} } = props;
   return <LoginForm onCallbackUrl={handleCallback} />;
 }
