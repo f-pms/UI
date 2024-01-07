@@ -1,7 +1,7 @@
 import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
+import { FiguresCoordinateType } from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
 import { useExtractFigureCoordinate } from '~/pages/ProductionManagement/helpers/diagrams';
-import { FiguresCoordinateType } from '~/pages/ProductionManagement/MonitoringPage';
 
 enum FigureId {
   Figure17 = 'figure17',
@@ -47,10 +47,7 @@ export default function Lv11Table({ figuresCoordinate }: Lv11TableProps) {
           />
           <text className='main__cls-20' transform='translate(760.37 888.13)'>
             <tspan className='main__cls-38' x='0' y='0'>
-              A
-            </tspan>
-            <tspan x='9.32' y='0'>
-              -B
+              A-B
             </tspan>
           </text>
         </g>
@@ -64,13 +61,7 @@ export default function Lv11Table({ figuresCoordinate }: Lv11TableProps) {
           />
           <text className='main__cls-20' transform='translate(812.48 888.14)'>
             <tspan className='main__cls-30' x='0' y='0'>
-              B
-            </tspan>
-            <tspan className='main__cls-51' x='8.38' y='0'>
-              -
-            </tspan>
-            <tspan x='13.29' y='0'>
-              C
+              B-C
             </tspan>
           </text>
         </g>
@@ -84,13 +75,7 @@ export default function Lv11Table({ figuresCoordinate }: Lv11TableProps) {
           />
           <text className='main__cls-28' transform='translate(863.25 888.88)'>
             <tspan className='main__cls-57' x='0' y='0'>
-              A
-            </tspan>
-            <tspan className='main__cls-61' x='10.66' y='0'>
-              -
-            </tspan>
-            <tspan x='16.27' y='0'>
-              C
+              A-C
             </tspan>
           </text>
         </g>
@@ -131,10 +116,7 @@ export default function Lv11Table({ figuresCoordinate }: Lv11TableProps) {
         />
         <text className='main__cls-28' transform='translate(911.15 967.61)'>
           <tspan className='main__cls-37' x='0' y='0'>
-            c
-          </tspan>
-          <tspan x='7.73' y='0'>
-            osφ
+            cosφ
           </tspan>
         </text>
         <g>
@@ -147,10 +129,7 @@ export default function Lv11Table({ figuresCoordinate }: Lv11TableProps) {
           />
           <text className='main__cls-28' transform='translate(916.02 993.86)'>
             <tspan className='main__cls-62' x='0' y='0'>
-              K
-            </tspan>
-            <tspan className='main__cls-17' x='9.75' y='0'>
-              W
+              KW
             </tspan>
           </text>
         </g>
@@ -164,13 +143,7 @@ export default function Lv11Table({ figuresCoordinate }: Lv11TableProps) {
           />
           <text className='main__cls-28' transform='translate(914.62 1020.42)'>
             <tspan x='0' y='0'>
-              k
-            </tspan>
-            <tspan className='main__cls-53' x='8.21' y='0'>
-              V
-            </tspan>
-            <tspan x='16.97' y='0'>
-              A
+              kVA
             </tspan>
           </text>
         </g>
@@ -183,13 +156,7 @@ export default function Lv11Table({ figuresCoordinate }: Lv11TableProps) {
         />
         <text className='main__cls-28' transform='translate(911.33 1046.61)'>
           <tspan x='0' y='0'>
-            G
-          </tspan>
-          <tspan className='main__cls-31' x='11.3' y='0'>
-            W
-          </tspan>
-          <tspan x='26.02' y='0'>
-            h
+            GWh
           </tspan>
         </text>
         <g>
@@ -352,18 +319,12 @@ export default function Lv11Table({ figuresCoordinate }: Lv11TableProps) {
       <text className='main__cls-25' transform='translate(835.39 841.43)'>
         <tspan className='main__cls-47'>
           <tspan className='main__cls-54' x='0' y='0'>
-            L
-          </tspan>
-          <tspan x='7.23' y='0'>
-            V11
+            LV11
           </tspan>
         </tspan>
         <tspan className='main__cls-41'>
           <tspan className='main__cls-45' x='-13.92' y='21'>
-            P
-          </tspan>
-          <tspan x='-4.82' y='21'>
-            M 5310
+            PM 5310
           </tspan>
         </tspan>
       </text>

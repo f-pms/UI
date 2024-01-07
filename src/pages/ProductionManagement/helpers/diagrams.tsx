@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-import { FiguresCoordinateType } from '~/pages/ProductionManagement/MonitoringPage';
+import { FiguresCoordinateType } from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
 import {
   AllMeterDiagram,
   MainDiagram,

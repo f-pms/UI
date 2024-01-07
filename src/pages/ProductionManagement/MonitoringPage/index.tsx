@@ -1,20 +1,20 @@
 import {
-  createContext,
   useCallback,
+  useContext,
   useEffect,
   useMemo,
   useRef,
   useState,
 } from 'react';
+import _ from 'lodash';
 
-import {
-  DisplayCoordinate,
-  IBlueprint,
-  useQueryBlueprintById,
-} from '~/services/blueprint/queries/useQueryBlueprintById';
+import { useQueryBlueprintById } from '~/services/blueprint/queries/useQueryBlueprintById';
 import { useMonitoringStore } from '~/stores/useMonitoringStore';
 import { useWebSocketStore } from '~/stores/useWebSocketStore';
 
+import FiguresCoordinateProvider, {
+  FiguresCoordinateContext,
+} from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
 import {
   DIAGRAMS,
   getTabItemByValue,
@@ -25,43 +25,15 @@ import { StationTabPanel } from '~/pages/ProductionManagement/partials/StationTa
 
 import { Box, CircularProgress, Stack } from '~/components/MuiComponents';
 
-export type FiguresCoordinateContextType = {
-  [key: string]: FiguresCoordinateType;
-};
-
-export type FiguresCoordinateType = {
-  [key: string]: DisplayCoordinate;
-};
-
-export const FiguresCoordinateContext = createContext<
-  FiguresCoordinateContextType | undefined
->(undefined);
-
-export const getUpdatedFiguresCoordinateContext = (
-  blueprint: IBlueprint,
-): FiguresCoordinateContextType => {
-  const newContext: FiguresCoordinateContextType = {};
-  const groups = blueprint.sensorConfigurations;
-
-  for (const group of groups) {
-    const figuresCoordinate: { [key: string]: DisplayCoordinate } = {};
-    for (const figure of group.figures) {
-      figuresCoordinate[figure.id] = figure.displayCoordinate;
-    }
-    newContext[group.groupId] = figuresCoordinate;
-  }
-
-  return newContext;
-};
-
 export interface IMonitoringPageProps {}
 
-export default function MonitoringPage() {
+function MonitoringPage() {
   const [value, setValue] = useState(DIAGRAMS[0].value);
   const tabInfo = useMemo(() => getTabItemByValue(value), [value]);
+  const { figuresCoordinate, updateContextByBlueprint } = useContext(
+    FiguresCoordinateContext,
+  );
 
-  const [figuresCoordinateContext, setFiguresCoordinateContext] =
-    useState<FiguresCoordinateContextType>();
   const {
     data,
     isLoading: isFetchingBlueprint,
@@ -75,8 +47,9 @@ export default function MonitoringPage() {
 
   useEffect(() => {
     if (data != undefined) {
-      setFiguresCoordinateContext(getUpdatedFiguresCoordinateContext(data));
+      updateContextByBlueprint(data);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
   const { isConnected: isWebsocketConnected, ...ws } = useWebSocketStore(
@@ -100,20 +73,14 @@ export default function MonitoringPage() {
   }, []);
 
   const figureValues = useMonitoringStore((state) => state.figureValues);
-  const isReady = useMemo(() => {
-    return (
+  const isReady = useMemo(
+    () =>
       !isFetchingBlueprint &&
-      figuresCoordinateContext != undefined &&
+      !_.isEmpty(figuresCoordinate) &&
       ws.isSubscribed(tabInfo.channel) &&
-      figureValues != undefined
-    );
-  }, [
-    figuresCoordinateContext,
-    isFetchingBlueprint,
-    tabInfo.channel,
-    ws,
-    figureValues,
-  ]);
+      figureValues != undefined,
+    [isFetchingBlueprint, figuresCoordinate, ws, tabInfo.channel, figureValues],
+  );
 
   const ref = useRef<HTMLDivElement>(null);
   const scrollIntoView = useCallback(() => {
@@ -134,29 +101,35 @@ export default function MonitoringPage() {
   };
 
   return (
-    <FiguresCoordinateContext.Provider value={figuresCoordinateContext}>
-      <Stack sx={{ width: '100%', height: '100%' }}>
-        <PageHeading scrollIntoView={scrollIntoView} />
-        <Stack sx={{ flex: 1 }}>
-          <StationNavigationTabs handleChange={handleChange} value={value} />
-          {isReady ? (
-            <StationTabPanel ref={ref} value={value} />
-          ) : (
-            <Box
-              sx={{
-                width: '100%',
-                height: '100%',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginBottom: 10,
-              }}
-            >
-              <CircularProgress />
-            </Box>
-          )}
-        </Stack>
+    <Stack sx={{ width: '100%', height: '100%' }}>
+      <PageHeading scrollIntoView={scrollIntoView} />
+      <Stack sx={{ flex: 1 }}>
+        <StationNavigationTabs handleChange={handleChange} value={value} />
+        {isReady ? (
+          <StationTabPanel ref={ref} value={value} />
+        ) : (
+          <Box
+            sx={{
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginBottom: 10,
+            }}
+          >
+            <CircularProgress />
+          </Box>
+        )}
       </Stack>
-    </FiguresCoordinateContext.Provider>
+    </Stack>
+  );
+}
+
+export default function MonitorPageWithContext() {
+  return (
+    <FiguresCoordinateProvider>
+      <MonitoringPage />
+    </FiguresCoordinateProvider>
   );
 }

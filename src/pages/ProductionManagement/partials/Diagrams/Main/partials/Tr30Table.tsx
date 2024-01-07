@@ -1,7 +1,7 @@
 import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
+import { FiguresCoordinateType } from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
 import { useExtractFigureCoordinate } from '~/pages/ProductionManagement/helpers/diagrams';
-import { FiguresCoordinateType } from '~/pages/ProductionManagement/MonitoringPage';
 
 enum FigureId {
   Figure7 = 'figure7',

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { FiguresCoordinateContext } from '~/pages/ProductionManagement/MonitoringPage';
+import { FiguresCoordinateContext } from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
 
 import {
   Lv11Table,
@@ -60,7 +60,7 @@ export type DisplayCoordinate = {
 };
 
 export function MainDiagram() {
-  const figuresCoordinateContext = useContext(FiguresCoordinateContext);
+  const { figuresCoordinate } = useContext(FiguresCoordinateContext);
 
   return (
     <svg
@@ -8578,56 +8578,38 @@ export function MainDiagram() {
         </g>
       </g>
       <TuBuTr30Table
-        figuresCoordinate={figuresCoordinateContext![GroupId.TubuTR30Table]}
+        figuresCoordinate={figuresCoordinate![GroupId.TubuTR30Table]}
       />
-      <Lv12Table
-        figuresCoordinate={figuresCoordinateContext![GroupId.Lv12Table]}
-      />
-      <Lv42Table
-        figuresCoordinate={figuresCoordinateContext![GroupId.Lv42Table]}
-      />
-      <Lv72Table
-        figuresCoordinate={figuresCoordinateContext![GroupId.Lv72Table]}
-      />
-      <Lv52Table
-        figuresCoordinate={figuresCoordinateContext![GroupId.Lv52Table]}
-      />
-      <Lv31Table
-        figuresCoordinate={figuresCoordinateContext![GroupId.Lv31Table]}
-      />
-      <Lv32Table
-        figuresCoordinate={figuresCoordinateContext![GroupId.Lv32Table]}
-      />
-      <Lv33Table
-        figuresCoordinate={figuresCoordinateContext![GroupId.Lv33Table]}
-      />
+      <Lv12Table figuresCoordinate={figuresCoordinate![GroupId.Lv12Table]} />
+      <Lv42Table figuresCoordinate={figuresCoordinate![GroupId.Lv42Table]} />
+      <Lv72Table figuresCoordinate={figuresCoordinate![GroupId.Lv72Table]} />
+      <Lv52Table figuresCoordinate={figuresCoordinate![GroupId.Lv52Table]} />
+      <Lv31Table figuresCoordinate={figuresCoordinate![GroupId.Lv31Table]} />
+      <Lv32Table figuresCoordinate={figuresCoordinate![GroupId.Lv32Table]} />
+      <Lv33Table figuresCoordinate={figuresCoordinate![GroupId.Lv33Table]} />
       <Lv34_2Table
-        figuresCoordinate={figuresCoordinateContext![GroupId.Lv34_2Table]}
+        figuresCoordinate={figuresCoordinate![GroupId.Lv34_2Table]}
       />
       <Lv34_1Table
-        figuresCoordinate={figuresCoordinateContext![GroupId.Lv34_1Table]}
+        figuresCoordinate={figuresCoordinate![GroupId.Lv34_1Table]}
       />
       <TuyenNguonNhaKeoTr82Table
         figuresCoordinate={
-          figuresCoordinateContext![GroupId.TuyenNguonNhaKeoTr82Table]
+          figuresCoordinate![GroupId.TuyenNguonNhaKeoTr82Table]
         }
       />
       <TuyenNguonDt477Pb01090028955Table
         figuresCoordinate={
-          figuresCoordinateContext![GroupId.TuyenNguonDt477Pb01090028955Table]
+          figuresCoordinate![GroupId.TuyenNguonDt477Pb01090028955Table]
         }
       />
       <TuyenNguonDt475Pb01090028954Table
         figuresCoordinate={
-          figuresCoordinateContext![GroupId.TuyenNguonDt475Pb01090028954Table]
+          figuresCoordinate![GroupId.TuyenNguonDt475Pb01090028954Table]
         }
       />
-      <Lv11Table
-        figuresCoordinate={figuresCoordinateContext![GroupId.Lv11Table]}
-      />
-      <Tr30Table
-        figuresCoordinate={figuresCoordinateContext![GroupId.Tr30Table]}
-      />
+      <Lv11Table figuresCoordinate={figuresCoordinate![GroupId.Lv11Table]} />
+      <Tr30Table figuresCoordinate={figuresCoordinate![GroupId.Tr30Table]} />
       <NhietDoCacPhongDienTable />
       <g>
         <rect
