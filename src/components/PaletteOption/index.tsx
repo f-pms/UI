@@ -6,7 +6,7 @@ export interface IPaletteOptionProps {
   color: Color;
 }
 
-export function PaletteOption({ color }: Readonly<IPaletteOptionProps>) {
+export function PaletteOption({ color }: IPaletteOptionProps) {
   return (
     <Stack direction='row' spacing={2}>
       <Box

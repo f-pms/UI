@@ -22,9 +22,7 @@ interface CheckboxProps<T extends FieldValues>
 // This component renders a checkbox input field with Material UI styling.
 // It can be used with or without the React Hook Form library.
 // If used with React Hook Form, it will be wrapped in a Controller component.
-export function Checkbox<T extends FieldValues>(
-  props: Readonly<CheckboxProps<T>>,
-) {
+export function Checkbox<T extends FieldValues>(props: CheckboxProps<T>) {
   const { name, control, defaultValue, rules, shouldUnregister, ...rest } =
     props;
 

@@ -7,7 +7,7 @@ interface ISoftButtonProps extends Omit<ButtonProps, 'variant' | 'color'> {
   color?: Color;
 }
 
-export function SoftButton(props: Readonly<ISoftButtonProps>) {
+export function SoftButton(props: ISoftButtonProps) {
   const { color = 'primary' } = props;
   const { bgrColor, bgrHoverColor } = useSoftColor(color);
 

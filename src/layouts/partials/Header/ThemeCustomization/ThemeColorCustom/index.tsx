@@ -11,7 +11,7 @@ export interface IThemeColorCustomProps {
   option: ColorSchemeOption;
 }
 
-export function ThemeColorCustom({ option }: Readonly<IThemeColorCustomProps>) {
+export function ThemeColorCustom({ option }: IThemeColorCustomProps) {
   const theme = useTheme();
   const { themeColor, onThemeColorChange } = useCustomizeTheme();
 
