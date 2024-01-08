@@ -4,7 +4,7 @@ import PageHeading from '~/pages/ProductionManagement/partials/PageHeading';
 import { StationNavigationTabs } from '~/pages/ProductionManagement/partials/StationNavigationTabs';
 import { StationTabPanel } from '~/pages/ProductionManagement/partials/StationTabPanel';
 
-import { Divider, Stack } from '~/components/MuiComponents';
+import { Stack } from '~/components/MuiComponents';
 
 export interface IMonitoringPageProps {}
 

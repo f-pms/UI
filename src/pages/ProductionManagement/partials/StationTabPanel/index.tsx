@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-import { Portal } from '@mui/base';
-
 import { DIAGRAMS } from '~/pages/ProductionManagement/helpers/diagrams';
 
 import { CustomTabPanel } from '~/components/CustomTabPanel';
