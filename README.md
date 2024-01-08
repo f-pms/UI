@@ -1,6 +1,6 @@
 # PMS - Power Management System
 
-[PMS].
+[PMS]
 
 ## Table of Contents
 
