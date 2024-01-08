@@ -1,6 +1,4 @@
-import { useContext } from 'react';
-
-import { FiguresCoordinateContext } from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
+import { useFiguresCoordinateContext } from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
 
 import {
   Lv11Table,
@@ -60,7 +58,7 @@ export type DisplayCoordinate = {
 };
 
 export function MainDiagram() {
-  const { figuresCoordinate } = useContext(FiguresCoordinateContext);
+  const figuresCoordinate = useFiguresCoordinateContext();
 
   return (
     <svg
@@ -895,10 +893,17 @@ export function MainDiagram() {
           />
           <rect
             className='main__cls-49'
-            height='235.06'
+            height='177.71'
             width='2.19'
             x='852.9'
             y='572.91'
+          />
+          <rect
+            className='main__cls-49'
+            height='35.71'
+            width='2.19'
+            x='852.9'
+            y='780.64'
           />
           <rect
             className='main__cls-55'
@@ -917,14 +922,14 @@ export function MainDiagram() {
           />
           <g>
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='853.35'
               cy='760.88'
               rx='9.84'
               ry='9.8'
             />
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='853.35'
               cy='770.68'
               rx='9.84'
@@ -1184,10 +1189,17 @@ export function MainDiagram() {
             />
             <rect
               className='main__cls-49'
-              height='226.81'
+              height='178.16'
               width='2.19'
               x='980.86'
               y='572.91'
+            />
+            <rect
+              className='main__cls-49'
+              height='19.24'
+              width='2.19'
+              x='980.86'
+              y='780.49'
             />
             <rect
               className='main__cls-55'
@@ -1206,14 +1218,14 @@ export function MainDiagram() {
             />
             <g>
               <ellipse
-                className='main__cls-8'
+                className='main__cls-4'
                 cx='981.31'
                 cy='760.88'
                 rx='9.84'
                 ry='9.8'
               />
               <ellipse
-                className='main__cls-8'
+                className='main__cls-4'
                 cx='981.31'
                 cy='770.68'
                 rx='9.84'
@@ -1468,10 +1480,17 @@ export function MainDiagram() {
           />
           <rect
             className='main__cls-49'
-            height='235.06'
+            height='178.16'
             width='2.19'
             x='1306.55'
             y='572.91'
+          />
+          <rect
+            className='main__cls-49'
+            height='29.17'
+            width='2.19'
+            x='1306.55'
+            y='780.64'
           />
           <rect
             className='main__cls-55'
@@ -1490,14 +1509,14 @@ export function MainDiagram() {
           />
           <g>
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='1307'
               cy='760.88'
               rx='9.84'
               ry='9.8'
             />
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='1307'
               cy='770.68'
               rx='9.84'
@@ -1909,10 +1928,17 @@ export function MainDiagram() {
           />
           <rect
             className='main__cls-49'
-            height='229.15'
+            height='177.14'
             width='2.19'
             x='1697.6'
             y='570.57'
+          />
+          <rect
+            className='main__cls-49'
+            height='21.58'
+            width='2.19'
+            x='1697.6'
+            y='778.15'
           />
           <rect
             className='main__cls-55'
@@ -1931,14 +1957,14 @@ export function MainDiagram() {
           />
           <g>
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='1698.05'
               cy='758.54'
               rx='9.84'
               ry='9.8'
             />
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='1698.05'
               cy='768.34'
               rx='9.84'
@@ -2346,10 +2372,17 @@ export function MainDiagram() {
           />
           <rect
             className='main__cls-49'
-            height='229.84'
+            height='177.48'
             width='2.19'
             x='2151.69'
             y='570.57'
+          />
+          <rect
+            className='main__cls-49'
+            height='22.22'
+            width='2.19'
+            x='2151.69'
+            y='777.55'
           />
           <rect
             className='main__cls-55'
@@ -2368,14 +2401,14 @@ export function MainDiagram() {
           />
           <g>
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='2152.14'
               cy='758.54'
               rx='9.84'
               ry='9.8'
             />
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='2152.14'
               cy='768.34'
               rx='9.84'
@@ -2638,10 +2671,17 @@ export function MainDiagram() {
           />
           <rect
             className='main__cls-49'
-            height='235.06'
+            height='177.48'
             width='2.19'
             x='2280.73'
             y='570.57'
+          />
+          <rect
+            className='main__cls-49'
+            height='29.15'
+            width='2.19'
+            x='2280.45'
+            y='778.15'
           />
           <rect
             className='main__cls-55'
@@ -2660,14 +2700,14 @@ export function MainDiagram() {
           />
           <g>
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='2281.18'
               cy='758.54'
               rx='9.84'
               ry='9.8'
             />
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='2281.18'
               cy='768.34'
               rx='9.84'
@@ -2937,10 +2977,17 @@ export function MainDiagram() {
           />
           <rect
             className='main__cls-49'
-            height='229.84'
+            height='178.16'
             width='2.19'
             x='2408.01'
             y='570.57'
+          />
+          <rect
+            className='main__cls-49'
+            height='22.27'
+            width='2.19'
+            x='2408.01'
+            y='778.15'
           />
           <rect
             className='main__cls-55'
@@ -2959,14 +3006,14 @@ export function MainDiagram() {
           />
           <g>
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='2408.46'
               cy='758.54'
               rx='9.84'
               ry='9.8'
             />
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='2408.46'
               cy='768.34'
               rx='9.84'
@@ -3370,21 +3417,27 @@ export function MainDiagram() {
             <tspan x='77.22' y='0'>
               TR30
             </tspan>
-            <tspan className='main__cls-39' x='16.25' y='21'>
+            <tspan className='main__cls-39' x='16.58' y='21'>
               S
             </tspan>
-            <tspan x='24.99' y='21'>
-              epam S87
+            <tspan x='25.31' y='21'>
+              epam
+            </tspan>
+            <tspan className='main__cls-18' x='67.06' y='21'>
+              {' '}
+            </tspan>
+            <tspan x='70.05' y='21'>
+              T87
             </tspan>
           </text>
         </g>
         <g>
           <rect
             className='main__cls-49'
-            height='60.26'
+            height='116.79'
             width='2.19'
             x='384.28'
-            y='371.08'
+            y='314.55'
           />
           <g>
             <rect
@@ -3545,10 +3598,10 @@ export function MainDiagram() {
           />
           <rect
             className='main__cls-49'
-            height='209.48'
+            height='122.64'
             width='2.19'
             x='384.28'
-            y='161.61'
+            y='161.6'
           />
           <rect
             className='main__cls-55'
@@ -3650,14 +3703,14 @@ export function MainDiagram() {
           </g>
           <g>
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='384.73'
               cy='294.94'
               rx='9.84'
               ry='9.8'
             />
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='384.73'
               cy='304.74'
               rx='9.84'
@@ -5545,23 +5598,17 @@ export function MainDiagram() {
               </tspan>
             </text>
           </g>
-          <text className='main__cls-26' transform='translate(748.16 25.29)'>
+          <text className='main__cls-26' transform='translate(756.86 25.29)'>
             <tspan className='main__cls-15' x='0' y='0'>
               O
             </tspan>
             <tspan x='12.11' y='0'>
-              ut going
+              ut going 42
             </tspan>
-            <tspan className='main__cls-18' x='74.23' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='77.22' y='0'>
-              TR42
-            </tspan>
-            <tspan className='main__cls-39' x='16.25' y='21'>
+            <tspan className='main__cls-39' x='7.56' y='21'>
               S
             </tspan>
-            <tspan x='24.99' y='21'>
+            <tspan x='16.29' y='21'>
               epam S20
             </tspan>
           </text>
@@ -7001,10 +7048,17 @@ export function MainDiagram() {
           />
           <rect
             className='main__cls-49'
-            height='92.92'
+            height='41.63'
             width='2.19'
             x='1199.1'
             y='139.68'
+          />
+          <rect
+            className='main__cls-49'
+            height='20.98'
+            width='2.19'
+            x='1199.11'
+            y='211.57'
           />
           <rect
             className='main__cls-55'
@@ -7029,7 +7083,7 @@ export function MainDiagram() {
               ry='9.8'
             />
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='1200.2'
               cy='201.76'
               rx='9.84'
@@ -7172,10 +7226,17 @@ export function MainDiagram() {
           />
           <rect
             className='main__cls-49'
-            height='92.92'
+            height='41.75'
             width='2.19'
             x='303.24'
             y='583.75'
+          />
+          <rect
+            className='main__cls-49'
+            height='20.52'
+            width='2.19'
+            x='303.24'
+            y='656.14'
           />
           <rect
             className='main__cls-55'
@@ -7193,14 +7254,14 @@ export function MainDiagram() {
           />
           <g>
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='304.34'
               cy='636.03'
               rx='9.84'
               ry='9.8'
             />
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='304.34'
               cy='645.83'
               rx='9.84'
@@ -7324,10 +7385,17 @@ export function MainDiagram() {
           />
           <rect
             className='main__cls-49'
-            height='92.92'
+            height='41.67'
             width='2.19'
             x='1569.75'
             y='133.6'
+          />
+          <rect
+            className='main__cls-49'
+            height='21.03'
+            width='2.19'
+            x='1569.75'
+            y='205.49'
           />
           <rect
             className='main__cls-55'
@@ -7345,14 +7413,14 @@ export function MainDiagram() {
           />
           <g>
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='1570.85'
               cy='185.89'
               rx='9.84'
               ry='9.8'
             />
             <ellipse
-              className='main__cls-8'
+              className='main__cls-4'
               cx='1570.85'
               cy='195.69'
               rx='9.84'

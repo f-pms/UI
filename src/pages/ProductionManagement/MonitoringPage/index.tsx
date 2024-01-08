@@ -1,24 +1,12 @@
-import {
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
 import _ from 'lodash';
 
-import { useQueryBlueprintById } from '~/services/blueprint/queries/useQueryBlueprintById';
 import { useMonitoringStore } from '~/stores/useMonitoringStore';
 import { useWebSocketStore } from '~/stores/useWebSocketStore';
 
-import FiguresCoordinateProvider, {
-  FiguresCoordinateContext,
-} from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
-import {
-  DIAGRAMS,
-  getTabItemByValue,
-} from '~/pages/ProductionManagement/helpers/diagrams';
+import FiguresCoordinateProvider from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
+import useBlueprint from '~/pages/ProductionManagement/hooks/useBlueprint';
+import useWebSocket from '~/pages/ProductionManagement/hooks/useWebSocket';
 import PageHeading from '~/pages/ProductionManagement/partials/PageHeading';
 import { StationNavigationTabs } from '~/pages/ProductionManagement/partials/StationNavigationTabs';
 import { StationTabPanel } from '~/pages/ProductionManagement/partials/StationTabPanel';
@@ -28,49 +16,18 @@ import { Box, CircularProgress, Stack } from '~/components/MuiComponents';
 export interface IMonitoringPageProps {}
 
 function MonitoringPage() {
-  const [value, setValue] = useState(DIAGRAMS[0].value);
-  const tabInfo = useMemo(() => getTabItemByValue(value), [value]);
-  const { figuresCoordinate, updateContextByBlueprint } = useContext(
-    FiguresCoordinateContext,
-  );
-
   const {
-    data,
-    isLoading: isFetchingBlueprint,
-    refetch: refetchBlueprint,
-  } = useQueryBlueprintById(tabInfo.blueprint);
+    tabValue,
+    setTabValue,
+    tabInfo,
+    figuresCoordinate,
+    isFetchingBlueprint,
+  } = useBlueprint();
 
-  useEffect(() => {
-    refetchBlueprint();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value]);
-
-  useEffect(() => {
-    if (data != undefined) {
-      updateContextByBlueprint(data);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
-
-  const { isConnected: isWebsocketConnected, ...ws } = useWebSocketStore(
-    (state) => state,
+  const { isWebsocketConnected, ...ws } = useWebSocket(
+    tabValue,
+    tabInfo.channel,
   );
-
-  useEffect(() => {
-    if (isWebsocketConnected) {
-      ws.subscribeOnly(tabInfo.channel);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isWebsocketConnected, value]);
-
-  useEffect(() => {
-    ws.connect();
-
-    return () => {
-      ws.disconnect();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const figureValues = useMonitoringStore((state) => state.figureValues);
   const isReady = useMemo(
@@ -96,7 +53,7 @@ function MonitoringPage() {
   }, [scrollIntoView]);
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
+    setTabValue(newValue);
     scrollIntoView();
   };
 
@@ -104,9 +61,9 @@ function MonitoringPage() {
     <Stack sx={{ width: '100%', height: '100%' }}>
       <PageHeading scrollIntoView={scrollIntoView} />
       <Stack sx={{ flex: 1 }}>
-        <StationNavigationTabs handleChange={handleChange} value={value} />
+        <StationNavigationTabs handleChange={handleChange} value={tabValue} />
         {isReady ? (
-          <StationTabPanel ref={ref} value={value} />
+          <StationTabPanel ref={ref} value={tabValue} />
         ) : (
           <Box
             sx={{

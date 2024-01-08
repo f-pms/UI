@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useMemo, useState } from 'react';
+import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
 
 import {
   DisplayCoordinate,
@@ -74,3 +74,8 @@ export default function FiguresCoordinateProvider({
     </FiguresCoordinateContext.Provider>
   );
 }
+
+export const useFiguresCoordinateContext = () => {
+  const { figuresCoordinate } = useContext(FiguresCoordinateContext);
+  return figuresCoordinate;
+};

@@ -47,10 +47,7 @@ export default function Lv12Table({ figuresCoordinate }: Lv12TableProps) {
           />
           <text className='main__cls-20' transform='translate(984.83 888.13)'>
             <tspan className='main__cls-38' x='0' y='0'>
-              A
-            </tspan>
-            <tspan x='9.32' y='0'>
-              -B
+              A-B
             </tspan>
           </text>
         </g>
@@ -64,13 +61,7 @@ export default function Lv12Table({ figuresCoordinate }: Lv12TableProps) {
           />
           <text className='main__cls-20' transform='translate(1036.94 888.14)'>
             <tspan className='main__cls-30' x='0' y='0'>
-              B
-            </tspan>
-            <tspan className='main__cls-51' x='8.38' y='0'>
-              -
-            </tspan>
-            <tspan x='13.29' y='0'>
-              C
+              B-C
             </tspan>
           </text>
         </g>
@@ -84,13 +75,7 @@ export default function Lv12Table({ figuresCoordinate }: Lv12TableProps) {
           />
           <text className='main__cls-28' transform='translate(1087.71 888.88)'>
             <tspan className='main__cls-57' x='0' y='0'>
-              A
-            </tspan>
-            <tspan className='main__cls-61' x='10.66' y='0'>
-              -
-            </tspan>
-            <tspan x='16.27' y='0'>
-              C
+              A-C
             </tspan>
           </text>
         </g>
@@ -131,10 +116,7 @@ export default function Lv12Table({ figuresCoordinate }: Lv12TableProps) {
         />
         <text className='main__cls-28' transform='translate(1135.61 967.61)'>
           <tspan className='main__cls-37' x='0' y='0'>
-            c
-          </tspan>
-          <tspan x='7.73' y='0'>
-            osφ
+            cosφ
           </tspan>
         </text>
         <g>
@@ -147,10 +129,7 @@ export default function Lv12Table({ figuresCoordinate }: Lv12TableProps) {
           />
           <text className='main__cls-28' transform='translate(1140.48 993.86)'>
             <tspan className='main__cls-62' x='0' y='0'>
-              K
-            </tspan>
-            <tspan className='main__cls-17' x='9.75' y='0'>
-              W
+              KW
             </tspan>
           </text>
         </g>
@@ -164,13 +143,7 @@ export default function Lv12Table({ figuresCoordinate }: Lv12TableProps) {
           />
           <text className='main__cls-28' transform='translate(1139.07 1020.42)'>
             <tspan x='0' y='0'>
-              k
-            </tspan>
-            <tspan className='main__cls-53' x='8.21' y='0'>
-              V
-            </tspan>
-            <tspan x='16.97' y='0'>
-              A
+              kVA
             </tspan>
           </text>
         </g>
@@ -183,13 +156,7 @@ export default function Lv12Table({ figuresCoordinate }: Lv12TableProps) {
         />
         <text className='main__cls-28' transform='translate(1135.78 1046.61)'>
           <tspan x='0' y='0'>
-            G
-          </tspan>
-          <tspan className='main__cls-31' x='11.3' y='0'>
-            W
-          </tspan>
-          <tspan x='26.02' y='0'>
-            h
+            GWh
           </tspan>
         </text>
         <g>
@@ -352,18 +319,12 @@ export default function Lv12Table({ figuresCoordinate }: Lv12TableProps) {
       <text className='main__cls-25' transform='translate(1054.65 840.28)'>
         <tspan className='main__cls-47'>
           <tspan className='main__cls-54' x='0' y='0'>
-            L
-          </tspan>
-          <tspan x='7.23' y='0'>
-            V12
+            LV12
           </tspan>
         </tspan>
         <tspan className='main__cls-41'>
           <tspan className='main__cls-45' x='-13.92' y='21'>
-            P
-          </tspan>
-          <tspan x='-4.82' y='21'>
-            M 5310
+            PM 5310
           </tspan>
         </tspan>
       </text>
