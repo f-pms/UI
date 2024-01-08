@@ -23,7 +23,7 @@ export interface IUserSettingMenuProps {
   setAnchorElUser: Dispatch<React.SetStateAction<HTMLElement | null>>;
 }
 
-export function UserSettingMenu(props: Readonly<IUserSettingMenuProps>) {
+export function UserSettingMenu(props: IUserSettingMenuProps) {
   const { anchorElUser, setAnchorElUser } = props;
   const navigate = useNavigate();
   const { logout } = useContext(AuthContext);

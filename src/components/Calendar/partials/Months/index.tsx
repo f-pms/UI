@@ -8,7 +8,7 @@ import Week from '~/components/Calendar/partials/Week';
 
 export type MonthsProps = { children: ReactNode };
 
-export function Months({ children }: Readonly<MonthsProps>) {
+export function Months({ children }: MonthsProps) {
   const { viewBy } = useContext(CalendarContext);
   const { classNames, styles } = useDayPicker();
 
