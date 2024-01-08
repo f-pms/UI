@@ -3,7 +3,7 @@ import axios from 'axios';
 import { storage } from '~/utils';
 
 const accessToken = storage.get('ACCESS_TOKEN');
-const baseURL = import.meta.env.VITE_BASE_URL as string;
+const baseURL = import.meta.env.VITE_API_URL as string;
 
 const axiosClient = axios.create({
   baseURL: baseURL,

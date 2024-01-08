@@ -12,7 +12,7 @@ export function App() {
 
   useEffect(() => {
     if (location.pathname == Path.ROOT) {
-      navigate(Path.HOME);
+      navigate(Path.PRODUCTION_MONITORING);
     }
   }, [location.pathname, navigate]);
 
