@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useRef } from 'react';
 import _ from 'lodash';
 
 import { useMonitoringStore } from '~/stores/useMonitoringStore';
-import { useWebSocketStore } from '~/stores/useWebSocketStore';
 
 import FiguresCoordinateProvider from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
 import useBlueprint from '~/pages/ProductionManagement/hooks/useBlueprint';

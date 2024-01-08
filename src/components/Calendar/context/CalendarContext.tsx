@@ -42,8 +42,8 @@ export function CalendarProvider({ children }: CalendarProviderProps) {
   const goToWeek = useCallback(
     (date?: Date) => {
       const start = ISOWeek
-        ? startOfISOWeek(date || new Date())
-        : startOfWeek(date || new Date(), { locale, weekStartsOn });
+        ? startOfISOWeek(date ?? new Date())
+        : startOfWeek(date ?? new Date(), { locale, weekStartsOn });
       setWeek(start);
     },
     [ISOWeek, locale, weekStartsOn],

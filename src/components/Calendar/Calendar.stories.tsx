@@ -1,7 +1,7 @@
 // Button.stories.ts|tsx
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Calendar } from './';
+import { Calendar } from '.';
 
 const meta: Meta<typeof Calendar> = {
   title: 'Utils/Calendar',

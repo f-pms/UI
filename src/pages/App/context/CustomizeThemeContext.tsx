@@ -1,20 +1,20 @@
 import { createContext, ReactNode, useMemo, useState } from 'react';
 
+import { ColorScheme } from '~/constants';
 import { getCustomizeTheme, ThemeProvider } from '~/libs/mui';
-import { ColorScheme } from '~/libs/mui/theme/palette';
 import { FontFamily } from '~/libs/mui/theme/typography';
 import { storage } from '~/utils';
 
 export type CustomizeThemeContextType = {
-  colorScheme: ColorScheme;
-  onColorSchemeChange: (colorScheme: ColorScheme) => void;
+  themeColor: ColorScheme;
+  onThemeColorChange: (colorScheme: ColorScheme) => void;
   fontFamily: FontFamily;
   onFontFamilyChange: (fontFamily: FontFamily) => void;
 };
 
 export const CustomizeThemeContext = createContext<CustomizeThemeContextType>({
-  colorScheme: 'blue',
-  onColorSchemeChange: () => {},
+  themeColor: 'blue',
+  onThemeColorChange: () => {},
   fontFamily: 'inter',
   onFontFamilyChange: () => {},
 });
@@ -26,16 +26,16 @@ export interface ICustomizeThemeProviderProps {
 export function CustomizeThemeProvider({
   children,
 }: ICustomizeThemeProviderProps) {
-  const [colorScheme, setColorScheme] = useState<ColorScheme>(() => {
+  const [themeColor, setThemeColor] = useState<ColorScheme>(() => {
     return (storage.get('COLOR_SCHEME') || 'blue') as ColorScheme;
   });
   const [fontFamily, setFontFamily] = useState<FontFamily>(() => {
-    return (storage.get('FONT_FAMILY') || 'roboto') as FontFamily;
+    return (storage.get('FONT_FAMILY') || 'inter') as FontFamily;
   });
 
-  const onColorSchemeChange = (colorScheme: ColorScheme) => {
+  const onThemeColorChange = (colorScheme: ColorScheme) => {
     storage.set('COLOR_SCHEME', colorScheme);
-    setColorScheme(colorScheme);
+    setThemeColor(colorScheme);
   };
 
   const onFontFamilyChange = (fontFamily: FontFamily) => {
@@ -45,16 +45,16 @@ export function CustomizeThemeProvider({
 
   const value = useMemo(
     () => ({
-      colorScheme,
-      onColorSchemeChange,
+      themeColor,
+      onThemeColorChange,
       fontFamily,
       onFontFamilyChange,
     }),
-    [colorScheme, fontFamily],
+    [themeColor, fontFamily],
   );
   const theme = useMemo(
-    () => getCustomizeTheme(colorScheme, fontFamily),
-    [colorScheme, fontFamily],
+    () => getCustomizeTheme(themeColor, fontFamily),
+    [themeColor, fontFamily],
   );
 
   return (

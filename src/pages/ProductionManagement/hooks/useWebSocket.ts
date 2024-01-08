@@ -24,7 +24,6 @@ export default (tabValue: number, channel: string) => {
   }, []);
 
   return {
-    isWebsocketConnected,
     ...ws,
   };
 };

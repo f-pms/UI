@@ -82,8 +82,7 @@ export const useWebSocketStore = create<State>(
         },
         isSubscribed: (topic: string) => {
           const subscription = get().topics.get(topic);
-          if (!subscription) return false;
-          return true;
+          return !!subscription;
         },
         unsubscribe: (topic: string) => {
           const subscription = get().topics.get(topic);

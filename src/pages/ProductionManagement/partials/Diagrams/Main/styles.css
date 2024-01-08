@@ -82,9 +82,33 @@
 .main__cls-24,
 .main__cls-25,
 .main__cls-26,
-.main__cls-27,
-.main__cls-28 {
-  font-family: MyriadPro-Regular, 'Myriad Pro';
+.main__cls-27 {
+  font-family: 'Inter', sans-serif;
+}
+
+.main__cls-18,
+.main__cls-19,
+.main__cls-27 {
+  font-size: 15.12px;
+}
+
+.main__cls-18,
+.main__cls-20,
+.main__cls-28,
+.main__cls-25 {
+  fill: #2e3192;
+}
+
+.main__cls-29 {
+  letter-spacing: -0.01em;
+}
+
+.main__cls-30 {
+  letter-spacing: -0.05em;
+}
+
+.main__cls-3 {
+  fill: #e6e6e6;
 }
 
 .main__cls-20,
@@ -227,14 +251,9 @@
   fill: #66bb6a;
 }
 
-.main__cls-51 {
-  letter-spacing: 0.01em;
-}
-
-.main__cls-52,
-.main__cls-50 {
-  font-family: AcuminConcept-Semibold, 'Acumin Variable Concept';
-  font-size: 13.12px;
+.main__cls-31,
+.main__cls-32 {
+  font-family: 'Inter', sans-serif;
   font-variation-settings:
     'wght' 600,
     'wdth' 100,

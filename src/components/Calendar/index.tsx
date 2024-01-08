@@ -17,22 +17,20 @@ export function Calendar() {
   const { locale, mode } = OPTION_DATE_PICKER;
 
   return (
-    <>
-      <CalendarProvider>
-        <DayPicker
-          showOutsideDays
-          components={{
-            Caption: Caption,
-            HeadRow: HeadRow,
-            Months: Months,
-            Day: Day,
-          }}
-          locale={locale}
-          mode={mode}
-          selected={selected}
-          onDayClick={setSelected}
-        />
-      </CalendarProvider>
-    </>
+    <CalendarProvider>
+      <DayPicker
+        showOutsideDays
+        components={{
+          Caption: Caption,
+          HeadRow: HeadRow,
+          Months: Months,
+          Day: Day,
+        }}
+        locale={locale}
+        mode={mode}
+        selected={selected}
+        onDayClick={setSelected}
+      />
+    </CalendarProvider>
   );
 }

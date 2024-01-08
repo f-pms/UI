@@ -29,8 +29,7 @@ export type DisplayCoordinate = {
 };
 
 const getBlueprintById = async (id: string) => {
-  const result: IBlueprint = (await axiosClient.get(`blueprints/${id}`)).data;
-  return result;
+  return (await axiosClient.get(`blueprints/${id}`)).data as IBlueprint;
 };
 
 export const useQueryBlueprintById = (id: string) => {

@@ -1,2647 +1,3073 @@
 import './styles.css';
-
 export function TR11Diagram() {
   return (
     <svg
       data-name='Layer 1'
       id='Layer_1'
-      style={{
-        width: '100%',
-        height: '100%',
-      }}
+      style={{ width: '100%', height: '100%' }}
       viewBox='0 0 2871.87 1345.36'
       xmlns='http://www.w3.org/2000/svg'
     >
-      <path
-        className='station-11__cls-9'
-        d='M1574.38,843.13c10.13,0,18.34,8.21,18.34,18.34,0,10.13-8.21,18.34-18.34,18.34'
-      />
+      <text className='station-11__cls-25' transform='translate(839.35 27.77)'>
+        <tspan className='station-11__cls-41'>
+          <tspan className='station-11__cls-35' x='0' y='0'>
+            T
+          </tspan>
+          <tspan className='station-11__cls-61' x='11.19' y='0'>
+            r
+          </tspan>
+          <tspan className='station-11__cls-74' x='19.16' y='0'>
+            ans
+          </tspan>
+          <tspan className='station-11__cls-45' x='54.64' y='0'>
+            f
+          </tspan>
+          <tspan className='station-11__cls-67' x='61.55' y='0'>
+            o
+          </tspan>
+          <tspan className='station-11__cls-71' x='75.14' y='0'>
+            r
+          </tspan>
+          <tspan x='83.33' y='0'>
+            mer{' '}
+          </tspan>
+          <tspan className='station-11__cls-64' x='129.73' y='0'>
+            (
+          </tspan>
+          <tspan x='137.95' y='0'>
+            TR#11)
+          </tspan>
+        </tspan>
+        <tspan className='station-11__cls-3'>
+          <tspan x='-31.59' y='29.71'>
+            1000k
+          </tspan>
+          <tspan className='station-11__cls-76' x='30.82' y='29.71'>
+            V
+          </tspan>
+          <tspan className='station-11__cls-74' x='43.23' y='29.71'>
+            A 22kV 690/3/50
+          </tspan>
+          <tspan className='station-11__cls-40' x='212.89' y='29.71'>
+            H
+          </tspan>
+          <tspan x='229.3' y='29.71'>
+            z
+          </tspan>
+        </tspan>
+      </text>
       <g>
-        <rect
-          className='station-11__cls-41'
-          height='36.67'
-          transform='translate(40.55 1423.86) rotate(-75)'
-          width='3.06'
-          x='946.56'
-          y='667.17'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='36.67'
-          transform='translate(21.93 1438.16) rotate(-75)'
-          width='3.06'
-          x='946.56'
-          y='686.45'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          transform='translate(-147.72 269.08) rotate(-15)'
-          width='36.67'
-          x='929.75'
-          y='694.05'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          transform='translate(-142.65 268.42) rotate(-15)'
-          width='36.67'
-          x='929.75'
-          y='674.46'
-        />
-      </g>
-      <rect
-        className='station-11__cls-50'
-        height='2.5'
-        width='109.36'
-        x='1994.97'
-        y='1000.51'
-      />
-      <rect
-        className='station-11__cls-41'
-        height='3.06'
-        width='39.83'
-        x='987.4'
-        y='590.85'
-      />
-      <rect
-        className='station-11__cls-41'
-        height='3.06'
-        width='461.9'
-        x='718.79'
-        y='995.77'
-      />
-      <rect
-        className='station-11__cls-41'
-        height='16.67'
-        width='3.06'
-        x='948.08'
-        y='979.1'
-      />
-      <rect
-        className='station-11__cls-41'
-        height='21.39'
-        width='3.06'
-        x='718.78'
-        y='998.83'
-      />
-      <rect
-        className='station-11__cls-41'
-        height='21.76'
-        width='3.06'
-        x='948.24'
-        y='1003.64'
-      />
-      <rect
-        className='station-11__cls-41'
-        height='21.76'
-        width='3.06'
-        x='1177.64'
-        y='998.46'
-      />
-      <rect
-        className='station-11__cls-41'
-        height='3.06'
-        width='704.04'
-        x='965.43'
-        y='707.96'
-      />
-      <rect
-        className='station-11__cls-41'
-        height='3.06'
-        width='1409.12'
-        x='644.71'
-        y='858.41'
-      />
-      <rect height='3.06' width='607.39' x='968.53' y='763.03' />
-      <rect
-        className='station-11__cls-41'
-        height='266.43'
-        width='3.06'
-        x='948.08'
-        y='623.79'
-      />
-      <rect
-        className='station-11__cls-41'
-        height='118.63'
-        width='3.06'
-        x='1187.15'
-        y='592.38'
-      />
-      <rect
-        className='station-11__cls-41'
-        height='3.06'
-        width='51.79'
-        x='1138.42'
-        y='592.38'
-      />
-      <rect
-        className='station-11__cls-41'
-        height='3.06'
-        width='76.92'
-        x='853.39'
-        y='210.89'
-      />
-      <rect
-        className='station-11__cls-41'
-        height='135.52'
-        width='3.06'
-        x='1777.8'
-        y='978.35'
-      />
-      <rect
-        className='station-11__cls-50'
-        height='32.43'
-        width='3.06'
-        x='2101.27'
-        y='1000.51'
-      />
-      <rect
-        className='station-11__cls-50'
-        height='39.19'
-        width='3.06'
-        x='1994.97'
-        y='1001.88'
-      />
-      <rect
-        className='station-11__cls-50'
-        height='2.5'
-        width='109.36'
-        x='1994.97'
-        y='1130.38'
-      />
-      <rect
-        className='station-11__cls-50'
-        height='32.43'
-        width='3.06'
-        x='2101.27'
-        y='1100.45'
-      />
-      <rect
-        className='station-11__cls-50'
-        height='93.14'
-        width='3.06'
-        x='1994.97'
-        y='1038.38'
-      />
-      <rect
-        className='station-11__cls-41'
-        height='37.14'
-        width='3.06'
-        x='948.11'
-        y='116.13'
-      />
-      <g>
-        <rect
-          className='station-11__cls-41'
-          height='14.75'
-          width='3.06'
-          x='948.09'
-          y='609.04'
-        />
-        <g>
-          <path
-            className='station-11__cls-41'
-            d='M978.78,581.62h-2.12s0,9.97,0,9.97h2.33v-9.94c-.07-.01-.14-.01-.2-.03Z'
-          />
-          <polyline
-            className='station-11__cls-41'
-            points='939.52 590.85 991.09 590.85 991.09 593.91 939.14 593.91 939.14 590.96'
-          />
-          <polyline
-            className='station-11__cls-41'
-            points='978.48 581.62 978.96 583.4 939.74 593.91 939.14 591.66 976.65 581.61'
-          />
-        </g>
-        <rect
-          className='station-11__cls-41'
-          height='42.79'
-          transform='translate(-169.92 548.81) rotate(-30)'
-          width='3.06'
-          x='937.61'
-          y='570.09'
-        />
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-41'
-          height='14.75'
-          width='3.06'
-          x='1777.82'
-          y='965.34'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='42.79'
-          transform='translate(-236.91 1011.41) rotate(-30)'
-          width='3.06'
-          x='1767.34'
-          y='926.4'
-        />
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-50'
-          height='35.17'
-          width='3.06'
-          x='2050.76'
-          y='965.34'
+        <path
+          className='station-11__cls-13'
+          d='M1576.13,845.29c10.26,0,18.57,8.31,18.57,18.57,0,10.26-8.31,18.57-18.57,18.57'
         />
         <rect
           className='station-11__cls-50'
-          height='42.79'
-          transform='translate(-200.34 1147.88) rotate(-30)'
-          width='3.06'
-          x='2040.28'
-          y='926.4'
-        />
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-41'
-          height='14.75'
-          width='3.06'
-          x='948.08'
-          y='964.35'
+          height='3.09'
+          width='467.74'
+          x='709.73'
+          y='999.86'
         />
         <rect
-          className='station-11__cls-41'
-          height='42.79'
-          transform='translate(-347.58 596.41) rotate(-30)'
-          width='3.06'
-          x='937.6'
-          y='925.41'
+          className='station-11__cls-50'
+          height='16.88'
+          width='3.09'
+          x='941.92'
+          y='982.97'
         />
-      </g>
-      <g>
+        <rect
+          className='station-11__cls-50'
+          height='21.66'
+          width='3.09'
+          x='709.73'
+          y='1002.95'
+        />
+        <rect
+          className='station-11__cls-50'
+          height='22.03'
+          width='3.09'
+          x='942.08'
+          y='1007.82'
+        />
+        <rect
+          className='station-11__cls-50'
+          height='22.03'
+          width='3.09'
+          x='1174.37'
+          y='1002.58'
+        />
+        <rect
+          className='station-11__cls-50'
+          height='269.8'
+          width='3.09'
+          x='941.92'
+          y='623.17'
+        />
         <g>
           <rect
-            className='station-11__cls-41'
-            height='3.06'
-            width='26.25'
-            x='978.61'
-            y='241.85'
+            className='station-11__cls-50'
+            height='14.94'
+            width='3.09'
+            x='941.92'
+            y='968.04'
           />
           <rect
-            className='station-11__cls-41'
-            height='44.3'
-            width='3.06'
-            x='975.56'
-            y='241.85'
+            className='station-11__cls-50'
+            height='43.33'
+            transform='translate(-350.15 593.74) rotate(-30)'
+            width='3.09'
+            x='931.31'
+            y='928.6'
           />
         </g>
         <g>
           <rect
-            className='station-11__cls-41'
-            height='3.06'
-            width='26.25'
-            x='891.47'
-            y='241.85'
+            className='station-11__cls-50'
+            height='3.09'
+            width='15.69'
+            x='935.71'
+            y='572.42'
           />
           <rect
-            className='station-11__cls-41'
-            height='44.3'
-            width='3.06'
-            x='917.72'
-            y='241.85'
+            className='station-11__cls-50'
+            height='37.76'
+            width='3.09'
+            x='942.02'
+            y='534.66'
+          />
+          <rect
+            className='station-11__cls-50'
+            height='18.57'
+            transform='translate(-119.69 831.3) rotate(-45)'
+            width='3.09'
+            x='942.02'
+            y='550.83'
+          />
+          <rect
+            className='station-11__cls-50'
+            height='3.09'
+            transform='translate(-119.71 831.21) rotate(-45)'
+            width='18.57'
+            x='934.28'
+            y='558.57'
           />
         </g>
         <g>
           <rect
-            className='station-11__cls-41'
-            height='3.06'
-            width='26.25'
-            x='978.2'
-            y='357.49'
+            className='station-11__cls-50'
+            height='3.09'
+            width='15.69'
+            x='935.62'
+            y='930.73'
           />
           <rect
-            className='station-11__cls-41'
-            height='44.3'
-            width='3.06'
-            x='975.15'
-            y='316.25'
+            className='station-11__cls-50'
+            height='37.76'
+            width='3.09'
+            x='941.93'
+            y='892.97'
+          />
+          <rect
+            className='station-11__cls-50'
+            height='18.57'
+            transform='translate(-373.09 936.2) rotate(-45)'
+            width='3.09'
+            x='941.93'
+            y='909.14'
+          />
+          <rect
+            className='station-11__cls-50'
+            height='3.09'
+            transform='translate(-373.09 936.08) rotate(-45)'
+            width='18.57'
+            x='934.2'
+            y='916.88'
           />
         </g>
         <g>
           <rect
-            className='station-11__cls-41'
-            height='3.06'
-            width='26.25'
-            x='891.47'
-            y='357.49'
+            className='station-11__cls-50'
+            height='3.09'
+            width='15.69'
+            x='703.42'
+            y='1062.37'
           />
           <rect
-            className='station-11__cls-41'
-            height='44.3'
-            width='3.06'
-            x='917.72'
-            y='316.25'
+            className='station-11__cls-50'
+            height='37.76'
+            width='3.09'
+            x='709.73'
+            y='1024.61'
           />
-        </g>
-        <rect
-          className='station-11__cls-7'
-          height='27.51'
-          width='95.93'
-          x='899.65'
-          y='287.44'
-        />
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          width='15.49'
-          x='1771.59'
-          y='926.97'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='68.56'
-          width='3.06'
-          x='1777.82'
-          y='861.47'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='18.34'
-          transform='translate(-125.69 1526.22) rotate(-45)'
-          width='3.06'
-          x='1777.82'
-          y='905.65'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          transform='translate(-125.75 1526.05) rotate(-45)'
-          width='18.34'
-          x='1770.18'
-          y='913.29'
-        />
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          width='15.49'
-          x='2044.54'
-          y='926.97'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='65.5'
-          width='3.06'
-          x='2050.77'
-          y='861.47'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='18.34'
-          transform='translate(-45.73 1719.24) rotate(-45)'
-          width='3.06'
-          x='2050.78'
-          y='905.65'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          transform='translate(-45.81 1719.05) rotate(-45)'
-          width='18.34'
-          x='2043.13'
-          y='913.29'
-        />
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          width='15.49'
-          x='941.95'
-          y='573.67'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='37.29'
-          width='3.06'
-          x='948.18'
-          y='536.38'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='18.34'
-          transform='translate(-118.88 836.06) rotate(-45)'
-          width='3.06'
-          x='948.18'
-          y='552.35'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          transform='translate(-118.9 835.96) rotate(-45)'
-          width='18.34'
-          x='940.54'
-          y='559.99'
-        />
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          width='15.49'
-          x='941.86'
-          y='927.51'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='37.29'
-          width='3.06'
-          x='948.09'
-          y='890.22'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='18.34'
-          transform='translate(-369.12 939.65) rotate(-45)'
-          width='3.06'
-          x='948.1'
-          y='906.19'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          transform='translate(-369.12 939.53) rotate(-45)'
-          width='18.34'
-          x='940.45'
-          y='913.83'
-        />
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          width='15.49'
-          x='712.56'
-          y='1057.51'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='37.29'
-          width='3.06'
-          x='718.79'
-          y='1020.22'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='18.34'
-          transform='translate(-528.22 815.58) rotate(-45)'
-          width='3.06'
-          x='718.79'
-          y='1036.2'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          transform='translate(-528.2 815.46) rotate(-45)'
-          width='18.34'
-          x='711.15'
-          y='1043.84'
-        />
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          width='15.49'
-          x='1171.41'
-          y='1057.51'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='37.29'
-          width='3.06'
-          x='1177.64'
-          y='1020.22'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='18.34'
-          transform='translate(-393.81 1140.05) rotate(-45)'
-          width='3.06'
-          x='1177.64'
-          y='1036.2'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          transform='translate(-393.82 1139.9) rotate(-45)'
-          width='18.34'
-          x='1170'
-          y='1043.84'
-        />
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          width='15.49'
-          x='941.98'
-          y='1057.51'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='37.29'
-          width='3.06'
-          x='948.21'
-          y='1020.22'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='18.34'
-          transform='translate(-461.02 977.81) rotate(-45)'
-          width='3.06'
-          x='948.21'
-          y='1036.2'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          transform='translate(-461.01 977.68) rotate(-45)'
-          width='18.34'
-          x='940.57'
-          y='1043.84'
-        />
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-9'
-          height='36.67'
-          width='252.77'
-          x='1652.97'
-          y='1111.26'
-        />
-        <text
-          className='station-11__cls-19'
-          transform='translate(1749.89 1137.7)'
-        >
-          <tspan x='0' y='0'>
-            MV17
-          </tspan>
-        </text>
-        <rect
-          className='station-11__cls-9'
-          height='36.67'
-          width='252.77'
-          x='1652.97'
-          y='1147.93'
-        />
-        <text
-          className='station-11__cls-20'
-          transform='translate(1754.34 1174.51)'
-        >
-          <tspan x='0' y='0'>
-            SR01
-          </tspan>
-        </text>
-        <g>
           <rect
-            className='station-11__cls-9'
-            height='36.67'
-            width='252.77'
-            x='1652.97'
-            y='1293.34'
+            className='station-11__cls-50'
+            height='18.57'
+            transform='translate(-534.2 810.57) rotate(-45)'
+            width='3.09'
+            x='709.73'
+            y='1040.79'
           />
-          <text
-            className='station-11__cls-18'
-            transform='translate(1743.04 1319.78)'
-          >
-            <tspan x='0' y='0'>
-              800KW
-            </tspan>
-          </text>
+          <rect
+            className='station-11__cls-50'
+            height='3.09'
+            transform='translate(-534.17 810.45) rotate(-45)'
+            width='18.57'
+            x='701.99'
+            y='1048.53'
+          />
         </g>
         <g>
           <rect
-            className='station-11__cls-9'
-            height='36.67'
-            width='252.77'
-            x='1652.97'
-            y='1183.31'
+            className='station-11__cls-50'
+            height='3.09'
+            width='15.69'
+            x='1168.06'
+            y='1062.37'
           />
-          <text
-            className='station-11__cls-21'
-            transform='translate(1720.79 1210.72)'
-          >
-            <tspan x='0' y='0'>
-              1220MC01
-            </tspan>
-          </text>
+          <rect
+            className='station-11__cls-50'
+            height='37.76'
+            width='3.09'
+            x='1174.37'
+            y='1024.61'
+          />
+          <rect
+            className='station-11__cls-50'
+            height='18.57'
+            transform='translate(-398.09 1139.13) rotate(-45)'
+            width='3.09'
+            x='1174.37'
+            y='1040.79'
+          />
+          <rect
+            className='station-11__cls-50'
+            height='3.09'
+            transform='translate(-398.1 1138.99) rotate(-45)'
+            width='18.57'
+            x='1166.64'
+            y='1048.53'
+          />
         </g>
         <g>
           <rect
-            className='station-11__cls-9'
-            height='73.35'
-            width='252.77'
-            x='1652.97'
-            y='1219.99'
+            className='station-11__cls-50'
+            height='3.09'
+            width='15.69'
+            x='935.74'
+            y='1062.37'
           />
-          <text
-            className='station-11__cls-21'
-            transform='translate(1660 1248.1)'
-          >
-            <tspan x='0' y='0'>
-              Chipper - main drive
-            </tspan>
-            <tspan className='station-11__cls-45' x='3.46' y='29.34'>
-              Động cơ băm chính
-            </tspan>
-          </text>
-        </g>
-      </g>
-      <g>
-        <g>
           <rect
-            className='station-11__cls-6'
-            height='36.67'
-            width='111.39'
-            x='988.35'
-            y='111.22'
+            className='station-11__cls-50'
+            height='37.76'
+            width='3.09'
+            x='942.05'
+            y='1024.61'
           />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1026.66 136.51)'
-          >
-            <tspan x='0' y='0'>
-              +40
-            </tspan>
-          </text>
-          <text
-            className='station-11__cls-23'
-            transform='translate(1104.29 138.49)'
-          >
-            <tspan x='0' y='0'>
-              °C
-            </tspan>
-          </text>
-        </g>
-        <g>
           <rect
-            className='station-11__cls-6'
-            height='36.67'
-            width='111.39'
-            x='988.35'
-            y='147.89'
+            className='station-11__cls-50'
+            height='18.57'
+            transform='translate(-466.14 974.85) rotate(-45)'
+            width='3.09'
+            x='942.05'
+            y='1040.79'
           />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1026.66 173.18)'
-          >
-            <tspan x='0' y='0'>
-              +40
-            </tspan>
-          </text>
-          <text
-            className='station-11__cls-23'
-            transform='translate(1104.29 175.16)'
-          >
-            <tspan x='0' y='0'>
-              °C
-            </tspan>
-          </text>
-        </g>
-        <g>
           <rect
-            className='station-11__cls-6'
-            height='36.67'
-            width='111.39'
-            x='988.35'
-            y='184.56'
+            className='station-11__cls-50'
+            height='3.09'
+            transform='translate(-466.14 974.72) rotate(-45)'
+            width='18.57'
+            x='934.31'
+            y='1048.53'
           />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1026.66 209.85)'
-          >
-            <tspan x='0' y='0'>
-              +40
-            </tspan>
-          </text>
-          <text
-            className='station-11__cls-23'
-            transform='translate(1104.29 211.84)'
-          >
-            <tspan x='0' y='0'>
-              °C
-            </tspan>
-          </text>
         </g>
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-6'
-          height='36.67'
-          width='402.86'
-          x='1157.96'
-          y='111.22'
-        />
-        <text
-          className='station-11__cls-24'
-          transform='translate(1168.9 135.19)'
-        >
-          <tspan className='station-11__cls-25' x='0' y='0'>
-            Bộ ĐK nhiệt độ TBA TR11 - Fault
-          </tspan>
-        </text>
-        <rect
-          className='station-11__cls-6'
-          height='36.67'
-          width='402.86'
-          x='1157.96'
-          y='147.89'
-        />
-        <text
-          className='station-11__cls-24'
-          transform='translate(1168.9 171.87)'
-        >
-          <tspan className='station-11__cls-25' x='0' y='0'>
-            Bộ ĐK nhiệt độ TBA TR11 - Over temp
-          </tspan>
-        </text>
-        <rect
-          className='station-11__cls-6'
-          height='36.67'
-          width='402.86'
-          x='1157.96'
-          y='184.56'
-        />
-        <text
-          className='station-11__cls-24'
-          transform='translate(1168.9 208.54)'
-        >
-          <tspan className='station-11__cls-25' x='0' y='0'>
-            Bộ ĐK nhiệt độ TBA TR11 - Power cut
-          </tspan>
-        </text>
-      </g>
-      <g>
-        <rect height='3.06' width='24.45' x='2040.05' y='1153.93' />
-        <rect height='3.06' width='15.28' x='2044.64' y='1158.93' />
-        <rect height='3.06' width='9.17' x='2047.7' y='1163.94' />
-        <rect height='21.04' width='3.06' x='2050.75' y='1132.89' />
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          width='24.45'
-          x='843.1'
-          y='232.31'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          width='15.28'
-          x='847.68'
-          y='237.31'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          width='9.17'
-          x='850.74'
-          y='242.32'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='21.04'
-          width='3.06'
-          x='853.39'
-          y='211.23'
-        />
-      </g>
-      <g>
         <g>
+          <g>
+            <g>
+              <rect
+                className='station-11__cls-10'
+                height='37.14'
+                width='112.8'
+                x='982.7'
+                y='104.12'
+              />
+              <text
+                className='station-11__cls-25'
+                transform='translate(1021.49 129.73)'
+              >
+                <tspan x='0' y='0'>
+                  +40
+                </tspan>
+              </text>
+              <text
+                className='station-11__cls-25'
+                transform='translate(1100.11 131.74)'
+              >
+                <tspan x='0' y='0'>
+                  °C
+                </tspan>
+              </text>
+            </g>
+            <g>
+              <rect
+                className='station-11__cls-10'
+                height='37.14'
+                width='112.8'
+                x='982.7'
+                y='141.26'
+              />
+              <text
+                className='station-11__cls-25'
+                transform='translate(1021.49 166.87)'
+              >
+                <tspan x='0' y='0'>
+                  +40
+                </tspan>
+              </text>
+              <text
+                className='station-11__cls-25'
+                transform='translate(1100.11 168.88)'
+              >
+                <tspan x='0' y='0'>
+                  °C
+                </tspan>
+              </text>
+            </g>
+            <g>
+              <rect
+                className='station-11__cls-10'
+                height='37.14'
+                width='112.8'
+                x='982.7'
+                y='178.4'
+              />
+              <text
+                className='station-11__cls-25'
+                transform='translate(1021.49 204.01)'
+              >
+                <tspan x='0' y='0'>
+                  +40
+                </tspan>
+              </text>
+              <text
+                className='station-11__cls-25'
+                transform='translate(1100.11 206.01)'
+              >
+                <tspan x='0' y='0'>
+                  °C
+                </tspan>
+              </text>
+            </g>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-10'
+              height='37.14'
+              width='407.95'
+              x='1154.45'
+              y='104.12'
+            />
+            <text
+              className='station-11__cls-18'
+              transform='translate(1165.52 128.4)'
+            >
+              <tspan className='station-11__cls-16' x='0' y='0'>
+                B
+              </tspan>
+              <tspan x='11.83' y='0'>
+                ộ ĐK nhiệt độ
+              </tspan>
+              <tspan className='station-11__cls-63' x='135.02' y='0'>
+                {' '}
+              </tspan>
+              <tspan x='138.73' y='0'>
+                TBA
+              </tspan>
+              <tspan className='station-11__cls-63' x='174.5' y='0'>
+                {' '}
+              </tspan>
+              <tspan className='station-11__cls-69' x='178.2' y='0'>
+                TR11 -{' '}
+              </tspan>
+              <tspan className='station-11__cls-1' x='238.68' y='0'>
+                F
+              </tspan>
+              <tspan className='station-11__cls-53' x='248.26' y='0'>
+                ault
+              </tspan>
+            </text>
+            <rect
+              className='station-11__cls-10'
+              height='37.14'
+              width='407.95'
+              x='1154.45'
+              y='141.26'
+            />
+            <text
+              className='station-11__cls-18'
+              transform='translate(1165.52 165.54)'
+            >
+              <tspan className='station-11__cls-16' x='0' y='0'>
+                B
+              </tspan>
+              <tspan x='11.83' y='0'>
+                ộ ĐK nhiệt độ
+              </tspan>
+              <tspan className='station-11__cls-63' x='135.02' y='0'>
+                {' '}
+              </tspan>
+              <tspan x='138.73' y='0'>
+                TBA
+              </tspan>
+              <tspan className='station-11__cls-63' x='174.5' y='0'>
+                {' '}
+              </tspan>
+              <tspan className='station-11__cls-69' x='178.2' y='0'>
+                TR11 -{' '}
+              </tspan>
+              <tspan className='station-11__cls-42' x='238.68' y='0'>
+                O
+              </tspan>
+              <tspan className='station-11__cls-57' x='253.91' y='0'>
+                v
+              </tspan>
+              <tspan x='264.11' y='0'>
+                er{' '}
+              </tspan>
+              <tspan className='station-11__cls-39' x='286.64' y='0'>
+                t
+              </tspan>
+              <tspan className='station-11__cls-69' x='293.68' y='0'>
+                emp
+              </tspan>
+            </text>
+            <rect
+              className='station-11__cls-10'
+              height='37.14'
+              width='407.95'
+              x='1154.45'
+              y='178.4'
+            />
+            <text
+              className='station-11__cls-18'
+              transform='translate(1165.52 202.67)'
+            >
+              <tspan className='station-11__cls-16' x='0' y='0'>
+                B
+              </tspan>
+              <tspan x='11.83' y='0'>
+                ộ ĐK nhiệt độ
+              </tspan>
+              <tspan className='station-11__cls-63' x='135.02' y='0'>
+                {' '}
+              </tspan>
+              <tspan x='138.73' y='0'>
+                TBA
+              </tspan>
+              <tspan className='station-11__cls-63' x='174.5' y='0'>
+                {' '}
+              </tspan>
+              <tspan className='station-11__cls-69' x='178.2' y='0'>
+                TR11 -{' '}
+              </tspan>
+              <tspan className='station-11__cls-43' x='238.68' y='0'>
+                P
+              </tspan>
+              <tspan className='station-11__cls-51' x='249.67' y='0'>
+                o
+              </tspan>
+              <tspan className='station-11__cls-57' x='261.41' y='0'>
+                w
+              </tspan>
+              <tspan className='station-11__cls-69' x='277.13' y='0'>
+                er cut
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <rect
+          className='station-11__cls-50'
+          height='173.27'
+          width='3.09'
+          x='942'
+          y='361.39'
+        />
+        <circle
+          className='station-11__cls-50'
+          cx='943.55'
+          cy='356.6'
+          r='7.74'
+        />
+        <circle
+          className='station-11__cls-50'
+          cx='943.63'
+          cy='1001.4'
+          r='7.74'
+        />
+        <circle
+          className='station-11__cls-50'
+          cx='943.47'
+          cy='862.31'
+          r='7.74'
+        />
+        <circle
+          className='station-11__cls-50'
+          cx='1175.92'
+          cy='1001.4'
+          r='7.74'
+        />
+        <circle
+          className='station-11__cls-50'
+          cx='711.28'
+          cy='1001.4'
+          r='7.74'
+        />
+        <g>
+          <g>
+            <rect
+              className='station-11__cls-50'
+              height='3.09'
+              transform='translate(23.18 899.5) rotate(-45)'
+              width='55.71'
+              x='1069.52'
+              y='420.22'
+            />
+            <rect
+              className='station-11__cls-50'
+              height='55.71'
+              transform='translate(23.18 899.5) rotate(-45)'
+              width='3.09'
+              x='1095.83'
+              y='393.91'
+            />
+            <g>
+              <circle
+                className='station-11__cls-11'
+                cx='1097.38'
+                cy='421.77'
+                r='12.38'
+              />
+              <text
+                className='station-11__cls-18'
+                transform='translate(1090.97 429.12)'
+              >
+                <tspan x='0' y='0'>
+                  R
+                </tspan>
+              </text>
+            </g>
+          </g>
+          <rect
+            className='station-11__cls-50'
+            height='3.09'
+            width='44.99'
+            x='942.01'
+            y='420.22'
+          />
+          <rect
+            className='station-11__cls-50'
+            height='3.09'
+            width='45.64'
+            x='1037.66'
+            y='420.22'
+          />
+          <rect
+            className='station-11__cls-50'
+            height='3.09'
+            width='45.64'
+            x='1110.48'
+            y='420.22'
+          />
+          <rect
+            className='station-11__cls-50'
+            height='3.09'
+            width='45.64'
+            x='1183.61'
+            y='420.22'
+          />
           <circle
-            className='station-11__cls-7'
-            cx='949.64'
-            cy='172.81'
-            r='18.34'
-          />
-          <polygon
-            className='station-11__cls-5'
-            points='949.64 166.23 942.05 179.38 957.24 179.38 949.64 166.23'
-          />
-        </g>
-        <g>
-          <circle
-            className='station-11__cls-7'
-            cx='949.64'
-            cy='211.23'
-            r='18.34'
+            className='station-11__cls-50'
+            cx='943.55'
+            cy='421.77'
+            r='7.74'
           />
           <g>
             <rect
-              className='station-11__cls-41'
-              height='15.09'
-              width='3.06'
-              x='948.17'
-              y='200.3'
+              className='station-11__cls-11'
+              height='15.64'
+              width='47.63'
+              x='988.61'
+              y='413.95'
+            />
+            <text
+              className='station-11__cls-23'
+              transform='translate(985.71 406.28)'
+            >
+              <tspan x='0' y='0'>
+                FUSE
+              </tspan>
+            </text>
+            <line
+              className='station-11__cls-8'
+              x1='988.61'
+              x2='1036.24'
+              y1='429.58'
+              y2='413.95'
+            />
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-50'
+              height='3.09'
+              transform='translate(44.42 950.77) rotate(-45)'
+              width='55.71'
+              x='1142.04'
+              y='420.22'
             />
             <rect
-              className='station-11__cls-41'
-              height='3.06'
-              transform='translate(123.37 732.84) rotate(-45)'
-              width='11.32'
-              x='940.65'
-              y='215.98'
+              className='station-11__cls-50'
+              height='55.71'
+              transform='translate(44.42 950.77) rotate(-45)'
+              width='3.09'
+              x='1168.34'
+              y='393.91'
+            />
+            <g>
+              <circle
+                className='station-11__cls-11'
+                cx='1169.89'
+                cy='421.77'
+                r='12.38'
+              />
+              <text
+                className='station-11__cls-18'
+                transform='translate(1163.48 429.12)'
+              >
+                <tspan x='0' y='0'>
+                  Y
+                </tspan>
+              </text>
+            </g>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-50'
+              height='3.09'
+              transform='translate(65.87 1002.55) rotate(-45)'
+              width='55.71'
+              x='1215.27'
+              y='420.22'
             />
             <rect
-              className='station-11__cls-41'
-              height='11.32'
-              transform='translate(125.32 737.56) rotate(-45)'
-              width='3.06'
-              x='951.45'
-              y='211.85'
+              className='station-11__cls-50'
+              height='55.71'
+              transform='translate(65.87 1002.55) rotate(-45)'
+              width='3.09'
+              x='1241.57'
+              y='393.91'
+            />
+            <g>
+              <circle
+                className='station-11__cls-11'
+                cx='1243.12'
+                cy='421.77'
+                r='12.38'
+              />
+              <text
+                className='station-11__cls-18'
+                transform='translate(1236.71 429.12)'
+              >
+                <tspan x='0' y='0'>
+                  B
+                </tspan>
+              </text>
+            </g>
+          </g>
+        </g>
+        <g>
+          <text
+            className='station-11__cls-23'
+            transform='translate(1719.11 375.8)'
+          >
+            <tspan x='0' y='0'>
+              Di
+            </tspan>
+            <tspan className='station-11__cls-5' x='22.28' y='0'>
+              g
+            </tspan>
+            <tspan x='35.97' y='0'>
+              ital{' '}
+            </tspan>
+            <tspan className='station-11__cls-68' x='72.99' y='0'>
+              M
+            </tspan>
+            <tspan x='92.96' y='0'>
+              ulti{' '}
+            </tspan>
+            <tspan className='station-11__cls-79' x='131.68' y='0'>
+              M
+            </tspan>
+            <tspan x='151.74' y='0'>
+              et
+            </tspan>
+            <tspan className='station-11__cls-5' x='172.34' y='0'>
+              t
+            </tspan>
+            <tspan className='station-11__cls-67' x='180.38' y='0'>
+              er
+            </tspan>
+            <tspan className='station-11__cls-78' x='58.65' y='29.71'>
+              P
+            </tspan>
+            <tspan x='71.52' y='29.71'>
+              M5310
+            </tspan>
+          </text>
+          <g>
+            <rect
+              className='station-11__cls-6'
+              height='37.14'
+              width='74.27'
+              x='1671.01'
+              y='421.5'
+            />
+            <text
+              className='station-11__cls-21'
+              transform='translate(1692.53 447.35)'
+            >
+              <tspan className='station-11__cls-32' x='0' y='0'>
+                A
+              </tspan>
+              <tspan x='13.19' y='0'>
+                -B
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-6'
+              height='37.14'
+              width='74.27'
+              x='1745.28'
+              y='421.5'
+            />
+            <text
+              className='station-11__cls-21'
+              transform='translate(1766.26 447.38)'
+            >
+              <tspan className='station-11__cls-65' x='0' y='0'>
+                B
+              </tspan>
+              <tspan className='station-11__cls-62' x='11.85' y='0'>
+                -
+              </tspan>
+              <tspan x='18.8' y='0'>
+                C
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-6'
+              height='37.14'
+              width='74.27'
+              x='1819.56'
+              y='421.5'
+            />
+            <text
+              className='station-11__cls-22'
+              transform='translate(1838.09 448.42)'
+            >
+              <tspan className='station-11__cls-52' x='0' y='0'>
+                A
+              </tspan>
+              <tspan className='station-11__cls-2' x='15.08' y='0'>
+                -
+              </tspan>
+              <tspan x='23.02' y='0'>
+                C
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-6'
+              height='37.14'
+              width='74.27'
+              x='1893.83'
+              y='458.63'
+            />
+            <text
+              className='station-11__cls-22'
+              transform='translate(1923.97 485.55)'
+            >
+              <tspan x='0' y='0'>
+                V
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-6'
+              height='37.14'
+              width='74.27'
+              x='1893.83'
+              y='495.77'
+            />
+            <text
+              className='station-11__cls-22'
+              transform='translate(1923.97 522.68)'
+            >
+              <tspan x='0' y='0'>
+                A
+              </tspan>
+            </text>
+          </g>
+          <rect
+            className='station-11__cls-6'
+            height='37.14'
+            width='74.27'
+            x='1893.83'
+            y='532.91'
+          />
+          <text
+            className='station-11__cls-22'
+            transform='translate(1905.86 559.82)'
+          >
+            <tspan className='station-11__cls-5' x='0' y='0'>
+              c
+            </tspan>
+            <tspan x='10.94' y='0'>
+              osφ
+            </tspan>
+          </text>
+          <g>
+            <rect
+              className='station-11__cls-6'
+              height='37.14'
+              width='74.27'
+              x='1893.83'
+              y='570.04'
+            />
+            <text
+              className='station-11__cls-22'
+              transform='translate(1912.76 596.96)'
+            >
+              <tspan className='station-11__cls-37' x='0' y='0'>
+                K
+              </tspan>
+              <tspan x='13.79' y='0'>
+                W
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-6'
+              height='37.14'
+              width='74.27'
+              x='1893.83'
+              y='607.18'
+            />
+            <text
+              className='station-11__cls-22'
+              transform='translate(1910.77 634.54)'
+            >
+              <tspan x='0' y='0'>
+                k
+              </tspan>
+              <tspan className='station-11__cls-34' x='11.61' y='0'>
+                V
+              </tspan>
+              <tspan className='station-11__cls-74' x='24.02' y='0'>
+                A
+              </tspan>
+            </text>
+          </g>
+          <rect
+            className='station-11__cls-6'
+            height='37.14'
+            width='74.27'
+            x='1893.83'
+            y='644.32'
+          />
+          <text
+            className='station-11__cls-22'
+            transform='translate(1906.11 671.59)'
+          >
+            <tspan x='0' y='0'>
+              G
+            </tspan>
+            <tspan className='station-11__cls-61' x='15.99' y='0'>
+              W
+            </tspan>
+            <tspan x='36.82' y='0'>
+              h
+            </tspan>
+          </text>
+          <g>
+            <rect
+              className='station-11__cls-7'
+              height='37.14'
+              width='74.27'
+              x='1671.01'
+              y='458.63'
+            />
+            <text
+              className='station-11__cls-25'
+              transform='translate(1681.27 485.11)'
+            >
+              <tspan x='0' y='0'>
+                11.11
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-7'
+              height='37.14'
+              width='74.27'
+              x='1745.28'
+              y='458.63'
+            />
+            <text
+              className='station-11__cls-25'
+              transform='translate(1755.55 485.11)'
+            >
+              <tspan x='0' y='0'>
+                11.11
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-7'
+              height='37.14'
+              width='74.27'
+              x='1819.56'
+              y='458.63'
+            />
+            <text
+              className='station-11__cls-25'
+              transform='translate(1829.82 485.11)'
+            >
+              <tspan x='0' y='0'>
+                11.11
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-7'
+              height='37.14'
+              width='74.27'
+              x='1671.01'
+              y='495.77'
+            />
+            <text
+              className='station-11__cls-25'
+              transform='translate(1681.27 522.25)'
+            >
+              <tspan x='0' y='0'>
+                11.11
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-7'
+              height='37.14'
+              width='74.27'
+              x='1745.28'
+              y='495.77'
+            />
+            <text
+              className='station-11__cls-25'
+              transform='translate(1755.55 522.25)'
+            >
+              <tspan x='0' y='0'>
+                11.11
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-7'
+              height='37.14'
+              width='74.27'
+              x='1819.56'
+              y='495.77'
+            />
+            <text
+              className='station-11__cls-25'
+              transform='translate(1829.82 522.25)'
+            >
+              <tspan x='0' y='0'>
+                11.11
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-6'
+              height='37.14'
+              width='74.27'
+              x='1893.83'
+              y='681.46'
+            />
+            <text
+              className='station-11__cls-22'
+              transform='translate(1901.57 708.35)'
+            >
+              <tspan x='0' y='0'>
+                THDV
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-6'
+              height='37.14'
+              width='74.27'
+              x='1893.83'
+              y='718.59'
+            />
+            <text
+              className='station-11__cls-22'
+              transform='translate(1906.49 745.49)'
+            >
+              <tspan x='0' y='0'>
+                THDI
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-7'
+              height='37.14'
+              width='74.27'
+              x='1671.01'
+              y='681.46'
+            />
+            <text
+              className='station-11__cls-25'
+              transform='translate(1681.27 707.93)'
+            >
+              <tspan x='0' y='0'>
+                11.11
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-7'
+              height='37.14'
+              width='74.27'
+              x='1745.28'
+              y='681.46'
+            />
+            <text
+              className='station-11__cls-25'
+              transform='translate(1755.55 707.93)'
+            >
+              <tspan x='0' y='0'>
+                11.11
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-7'
+              height='37.14'
+              width='74.27'
+              x='1819.56'
+              y='681.46'
+            />
+            <text
+              className='station-11__cls-25'
+              transform='translate(1829.82 707.93)'
+            >
+              <tspan x='0' y='0'>
+                11.11
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-7'
+              height='37.14'
+              width='74.27'
+              x='1671.01'
+              y='718.59'
+            />
+            <text
+              className='station-11__cls-25'
+              transform='translate(1681.27 745.07)'
+            >
+              <tspan x='0' y='0'>
+                11.11
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-7'
+              height='37.14'
+              width='74.27'
+              x='1745.28'
+              y='718.59'
+            />
+            <text
+              className='station-11__cls-25'
+              transform='translate(1755.55 745.07)'
+            >
+              <tspan x='0' y='0'>
+                11.11
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-7'
+              height='37.14'
+              width='74.27'
+              x='1819.56'
+              y='718.59'
+            />
+            <text
+              className='station-11__cls-25'
+              transform='translate(1829.82 745.07)'
+            >
+              <tspan x='0' y='0'>
+                11.11
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-7'
+              height='37.14'
+              width='222.82'
+              x='1671.01'
+              y='532.91'
+            />
+            <text
+              className='station-11__cls-25'
+              transform='translate(1758.11 559.52)'
+            >
+              <tspan x='0' y='0'>
+                1111
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-7'
+              height='37.14'
+              width='222.82'
+              x='1671.01'
+              y='570.04'
+            />
+            <text
+              className='station-11__cls-25'
+              transform='translate(1758.11 596.66)'
+            >
+              <tspan x='0' y='0'>
+                1111
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-7'
+              height='37.14'
+              width='222.82'
+              x='1671.01'
+              y='607.18'
+            />
+            <text
+              className='station-11__cls-25'
+              transform='translate(1758.11 633.8)'
+            >
+              <tspan x='0' y='0'>
+                1111
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-7'
+              height='37.14'
+              width='222.82'
+              x='1671.01'
+              y='644.32'
+            />
+            <text
+              className='station-11__cls-25'
+              transform='translate(1758.11 670.93)'
+            >
+              <tspan x='0' y='0'>
+                1111
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-6'
+              height='37.14'
+              width='74.27'
+              x='1893.83'
+              y='421.5'
+            />
+            <line
+              className='station-11__cls-10'
+              x1='1893.83'
+              x2='1968.1'
+              y1='458.63'
+              y2='423.03'
             />
           </g>
         </g>
-      </g>
-      <g>
-        <circle
-          className='station-11__cls-9'
-          cx='1996.49'
-          cy='1060.45'
-          r='18.34'
-        />
-        <polygon
-          className='station-11__cls-10'
-          points='1996.49 1056.54 1991.91 1047.37 2001.08 1047.37 1996.49 1056.54'
-        />
-        <polygon
-          className='station-11__cls-10'
-          points='1996.49 1064.24 1991.91 1073.41 2001.08 1073.41 1996.49 1064.24'
-        />
-      </g>
-      <rect
-        className='station-11__cls-41'
-        height='171.1'
-        width='3.06'
-        x='948.17'
-        y='365.27'
-      />
-      <circle className='station-11__cls-41' cx='949.7' cy='360.55' r='7.64' />
-      <circle className='station-11__cls-41' cx='949.77' cy='997.3' r='7.64' />
-      <circle className='station-11__cls-41' cx='949.61' cy='859.94' r='7.64' />
-      <circle className='station-11__cls-41' cx='1179.16' cy='997.3' r='7.64' />
-      <circle className='station-11__cls-41' cx='720.32' cy='997.3' r='7.64' />
-      <g>
-        <g>
-          <rect
-            className='station-11__cls-41'
-            height='3.06'
-            transform='translate(-93.62 302.91) rotate(-15)'
-            width='36.67'
-            x='1085.27'
-            y='505.5'
-          />
-          <rect
-            className='station-11__cls-41'
-            height='3.06'
-            transform='translate(-98.62 303.57) rotate(-15)'
-            width='36.67'
-            x='1085.27'
-            y='524.78'
-          />
-          <rect
-            className='station-11__cls-41'
-            height='36.67'
-            transform='translate(318.49 1449.26) rotate(-75)'
-            width='3.06'
-            x='1102.07'
-            y='498.76'
-          />
-          <rect
-            className='station-11__cls-41'
-            height='36.67'
-            transform='translate(337.41 1434.75) rotate(-75)'
-            width='3.06'
-            x='1102.07'
-            y='479.18'
-          />
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-41'
-            height='36.67'
-            transform='translate(361.97 1485.79) rotate(-75)'
-            width='3.06'
-            x='1147.62'
-            y='488.69'
-          />
-          <rect
-            className='station-11__cls-41'
-            height='36.67'
-            transform='translate(343.35 1500.08) rotate(-75)'
-            width='3.06'
-            x='1147.62'
-            y='507.98'
-          />
-          <rect
-            className='station-11__cls-41'
-            height='3.06'
-            transform='translate(-94.68 315.04) rotate(-15)'
-            width='36.67'
-            x='1130.81'
-            y='515.57'
-          />
-          <rect
-            className='station-11__cls-41'
-            height='3.06'
-            transform='translate(-89.61 314.37) rotate(-15)'
-            width='36.67'
-            x='1130.81'
-            y='495.99'
-          />
-        </g>
-        <circle
-          className='station-11__cls-41'
-          cx='949.77'
-          cy='512.16'
-          r='7.64'
+        <rect
+          className='station-11__cls-58'
+          height='81.08'
+          width='3.09'
+          x='1574.59'
+          y='765.72'
         />
         <rect
-          className='station-11__cls-41'
-          height='3.06'
-          width='44.43'
-          x='949.04'
-          y='510.57'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          width='44.43'
-          x='1042.95'
-          y='510.57'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          width='505.49'
-          x='1163.98'
-          y='510.57'
+          className='station-11__cls-58'
+          height='345.88'
+          width='3.09'
+          x='1574.58'
+          y='880.91'
         />
         <g>
           <rect
-            className='station-11__cls-7'
-            height='15.44'
-            width='47.04'
-            x='995.07'
-            y='504.37'
+            className='station-11__cls-13'
+            height='37.14'
+            width='72.9'
+            x='1539.68'
+            y='918.35'
           />
           <text
-            className='station-11__cls-18'
-            transform='translate(992.2 496.8)'
+            className='station-11__cls-23'
+            transform='translate(1548.85 945.27)'
           >
             <tspan x='0' y='0'>
-              FUSE
-            </tspan>
-          </text>
-          <line
-            className='station-11__cls-4'
-            x1='995.07'
-            x2='1042.1'
-            y1='519.82'
-            y2='504.37'
-          />
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-7'
-            height='15.44'
-            width='47.04'
-            x='1213.77'
-            y='504.37'
-          />
-          <text
-            className='station-11__cls-18'
-            transform='translate(1210.9 496.8)'
-          >
-            <tspan x='0' y='0'>
-              FUSE
-            </tspan>
-          </text>
-          <line
-            className='station-11__cls-4'
-            x1='1213.77'
-            x2='1260.81'
-            y1='519.82'
-            y2='504.37'
-          />
-        </g>
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          transform='translate(22.21 903.4) rotate(-45)'
-          width='55.01'
-          x='1074.09'
-          y='423.37'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='55.01'
-          transform='translate(22.21 903.4) rotate(-45)'
-          width='3.06'
-          x='1100.07'
-          y='397.39'
-        />
-        <g>
-          <circle
-            className='station-11__cls-7'
-            cx='1101.6'
-            cy='424.89'
-            r='12.22'
-          />
-          <text className='station-11__cls-24' transform='translate(1094 433)'>
-            <tspan x='0' y='0'>
-              R
-            </tspan>
-          </text>
-        </g>
-      </g>
-      <rect
-        className='station-11__cls-41'
-        height='3.06'
-        width='44.43'
-        x='948.17'
-        y='423.37'
-      />
-      <rect
-        className='station-11__cls-41'
-        height='3.06'
-        width='45.07'
-        x='1042.63'
-        y='423.37'
-      />
-      <rect
-        className='station-11__cls-41'
-        height='3.06'
-        width='45.07'
-        x='1114.54'
-        y='423.37'
-      />
-      <rect
-        className='station-11__cls-41'
-        height='3.06'
-        width='45.07'
-        x='1186.76'
-        y='423.37'
-      />
-      <circle className='station-11__cls-41' cx='949.7' cy='424.89' r='7.64' />
-      <g>
-        <rect
-          className='station-11__cls-7'
-          height='15.44'
-          width='47.04'
-          x='994.19'
-          y='417.17'
-        />
-        <text
-          className='station-11__cls-18'
-          transform='translate(991.33 409.6)'
-        >
-          <tspan x='0' y='0'>
-            FUSE
-          </tspan>
-        </text>
-        <line
-          className='station-11__cls-4'
-          x1='994.19'
-          x2='1041.23'
-          y1='432.62'
-          y2='417.17'
-        />
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          transform='translate(43.18 954.03) rotate(-45)'
-          width='55.01'
-          x='1145.7'
-          y='423.37'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='55.01'
-          transform='translate(43.18 954.03) rotate(-45)'
-          width='3.06'
-          x='1171.68'
-          y='397.39'
-        />
-        <g>
-          <circle
-            className='station-11__cls-7'
-            cx='1173.21'
-            cy='424.89'
-            r='12.22'
-          />
-          <text className='station-11__cls-24' transform='translate(1165 433)'>
-            <tspan x='0' y='0'>
-              Y
-            </tspan>
-          </text>
-        </g>
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          transform='translate(64.36 1005.17) rotate(-45)'
-          width='55.01'
-          x='1218.02'
-          y='423.37'
-        />
-        <rect
-          className='station-11__cls-41'
-          height='55.01'
-          transform='translate(64.36 1005.17) rotate(-45)'
-          width='3.06'
-          x='1243.99'
-          y='397.39'
-        />
-        <g>
-          <circle
-            className='station-11__cls-7'
-            cx='1245.52'
-            cy='424.89'
-            r='12.22'
-          />
-          <text
-            className='station-11__cls-24'
-            transform='translate(1238 432.5)'
-          >
-            <tspan x='0' y='0'>
-              B
-            </tspan>
-          </text>
-        </g>
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-50'
-          height='18.34'
-          width='3.06'
-          x='2075.36'
-          y='1074.42'
-        />
-        <rect
-          className='station-11__cls-50'
-          height='18.34'
-          width='3.06'
-          x='2127.18'
-          y='1042.11'
-        />
-        <rect
-          className='station-11__cls-9'
-          height='15.44'
-          transform='translate(1035.64 3169.96) rotate(-90)'
-          width='65.53'
-          x='2070.03'
-          y='1059.44'
-        />
-        <line
-          className='station-11__cls-6'
-          x1='2075.83'
-          x2='2129.83'
-          y1='1075.87'
-          y2='1059'
-        />
-      </g>
-      <polygon
-        className='station-11__cls-5'
-        points='949.64 117.36 936.43 95.97 962.86 95.97 949.64 117.36'
-      />
-      <g>
-        <text
-          className='station-11__cls-18'
-          transform='translate(1715.58 379.5)'
-        >
-          <tspan x='0' y='0'>
-            Digital Multi Metter
-          </tspan>
-          <tspan className='station-11__cls-47' x='57.92' y='29.34'>
-            PM5310
-          </tspan>
-        </text>
-        <g>
-          <rect
-            className='station-11__cls-2'
-            height='36.67'
-            width='73.35'
-            x='1668.07'
-            y='424.63'
-          />
-          <text
-            className='station-11__cls-15'
-            transform='translate(1689.32 450.16)'
-          >
-            <tspan className='station-11__cls-46' x='0' y='0'>
-              A-B
+              APFC
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='station-11__cls-2'
-            height='36.67'
-            width='73.35'
-            x='1741.42'
-            y='424.63'
+            className='station-11__cls-50'
+            height='3.09'
+            width='40.34'
+            x='981.73'
+            y='589.82'
           />
-          <text
-            className='station-11__cls-15'
-            transform='translate(1762.14 450.19)'
-          >
-            <tspan className='station-11__cls-32' x='0' y='0'>
-              B-C
-            </tspan>
-          </text>
+          <rect
+            className='station-11__cls-50'
+            height='120.13'
+            width='3.09'
+            x='1184.01'
+            y='591.37'
+          />
+          <rect
+            className='station-11__cls-50'
+            height='3.09'
+            width='52.44'
+            x='1134.66'
+            y='591.37'
+          />
+          <g>
+            <rect
+              className='station-11__cls-50'
+              height='14.94'
+              width='3.09'
+              x='941.92'
+              y='608.23'
+            />
+            <g>
+              <path
+                className='station-11__cls-50'
+                d='M973,580.47h-2.15s0,10.09,0,10.09h2.36v-10.06c-.07-.01-.14-.01-.2-.03Z'
+              />
+              <polyline
+                className='station-11__cls-50'
+                points='933.25 589.82 985.47 589.82 985.47 592.91 932.86 592.91 932.86 589.92'
+              />
+              <polyline
+                className='station-11__cls-50'
+                points='972.7 580.47 973.19 582.27 933.47 592.91 932.86 590.64 970.85 580.46'
+              />
+            </g>
+            <rect
+              className='station-11__cls-50'
+              height='43.33'
+              transform='translate(-170.25 545.54) rotate(-30)'
+              width='3.09'
+              x='931.32'
+              y='568.79'
+            />
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-11'
+              height='37.14'
+              width='111.23'
+              x='1022.07'
+              y='572.8'
+            />
+            <text
+              className='station-11__cls-24'
+              transform='translate(1032.61 596.91)'
+            >
+              <tspan x='0' y='0'>
+                Shu
+              </tspan>
+              <tspan className='station-11__cls-30' x='34.64' y='0'>
+                n
+              </tspan>
+              <tspan className='station-11__cls-53' x='46.58' y='0'>
+                t t
+              </tspan>
+              <tspan className='station-11__cls-72' x='65.51' y='0'>
+                r
+              </tspan>
+              <tspan x='72.68' y='0'>
+                ip
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-11__cls-11'
+              height='64.99'
+              width='123.79'
+              x='1123.66'
+              y='617.78'
+            />
+            <text
+              className='station-11__cls-24'
+              transform='translate(1174.48 642.28)'
+            >
+              <tspan x='0' y='0'>
+                46
+              </tspan>
+              <tspan className='station-11__cls-4' x='-26.11' y='26'>
+                M
+              </tspan>
+              <tspan className='station-11__cls-15' x='-8.57' y='26'>
+                ấ
+              </tspan>
+              <tspan className='station-11__cls-53' x='1.79' y='26'>
+                t pha
+              </tspan>
+            </text>
+          </g>
         </g>
         <g>
-          <rect
-            className='station-11__cls-2'
-            height='36.67'
-            width='73.35'
-            x='1814.77'
-            y='424.63'
-          />
-          <text
-            className='station-11__cls-14'
-            transform='translate(1833.07 451.22)'
-          >
-            <tspan className='station-11__cls-61' x='0' y='0'>
-              A-C
-            </tspan>
-          </text>
+          <rect height='3.09' width='615.06' x='962.62' y='764.17' />
+          <g>
+            <rect
+              height='37.14'
+              transform='translate(-53.03 1491.11) rotate(-75)'
+              width='3.09'
+              x='943.56'
+              y='761.54'
+            />
+            <rect
+              height='37.14'
+              transform='translate(-71.89 1505.58) rotate(-75)'
+              width='3.09'
+              x='943.56'
+              y='781.07'
+            />
+            <rect
+              height='3.09'
+              transform='translate(-172.34 271.54) rotate(-15)'
+              width='37.14'
+              x='926.54'
+              y='788.76'
+            />
+            <rect
+              height='3.09'
+              transform='translate(-167.21 270.87) rotate(-15)'
+              width='37.14'
+              x='926.54'
+              y='768.93'
+            />
+          </g>
         </g>
         <g>
+          <polygon points='750.68 1233.34 704.26 1225.6 750.68 1217.87 750.68 1233.34' />
           <rect
-            className='station-11__cls-2'
-            height='36.67'
-            width='73.35'
-            x='1888.12'
-            y='461.3'
+            className='station-11__cls-58'
+            height='3.09'
+            width='202.23'
+            x='741.39'
+            y='1224.06'
           />
+          <rect
+            className='station-11__cls-58'
+            height='45.04'
+            width='3.09'
+            x='709.37'
+            y='1225.6'
+          />
+          <rect
+            className='station-11__cls-58'
+            height='54.67'
+            width='3.09'
+            x='709.37'
+            y='1114.62'
+          />
+          <g>
+            <rect
+              className='station-11__cls-58'
+              height='14.94'
+              width='3.09'
+              x='709.37'
+              y='1099.69'
+            />
+            <rect
+              className='station-11__cls-58'
+              height='43.33'
+              transform='translate(-447.13 495.1) rotate(-30)'
+              width='3.09'
+              x='698.76'
+              y='1060.25'
+            />
+          </g>
+          <g>
+            <polygon
+              className='station-11__cls-12'
+              points='710.92 1270.65 678.42 1323.26 743.41 1323.26 710.92 1270.65'
+            />
+            <g>
+              <rect
+                className='station-11__cls-12'
+                height='6.68'
+                transform='translate(-551.04 537.4) rotate(-30)'
+                width='17.44'
+                x='718.55'
+                y='1293.61'
+              />
+              <rect
+                className='station-11__cls-28'
+                height='3.59'
+                transform='translate(-551.05 537.39) rotate(-30)'
+                width='21.37'
+                x='716.57'
+                y='1295.17'
+              />
+            </g>
+            <g>
+              <rect
+                className='station-11__cls-12'
+                height='6.68'
+                transform='translate(741.54 -173.11) rotate(30)'
+                width='17.44'
+                x='685.07'
+                y='1293.84'
+              />
+              <rect
+                className='station-11__cls-28'
+                height='3.59'
+                transform='translate(741.53 -173.1) rotate(30)'
+                width='21.37'
+                x='683.09'
+                y='1295.38'
+              />
+            </g>
+            <g>
+              <rect
+                className='station-11__cls-12'
+                height='6.68'
+                transform='translate(-612.41 2034.25) rotate(-90)'
+                width='17.44'
+                x='702.2'
+                y='1319.99'
+              />
+              <rect
+                className='station-11__cls-28'
+                height='3.59'
+                transform='translate(-612.34 2034.17) rotate(-90)'
+                width='21.44'
+                x='700.19'
+                y='1321.46'
+              />
+            </g>
+          </g>
+          <g>
+            <path
+              className='station-11__cls-12'
+              d='M712.08,1190.11c3.42,0,6.19,2.77,6.19,6.19s-2.77,6.19-6.19,6.19'
+            />
+            <rect
+              className='station-11__cls-58'
+              height='34.7'
+              width='3.09'
+              x='709.37'
+              y='1169.29'
+            />
+          </g>
+          <g>
+            <path
+              className='station-11__cls-12'
+              d='M697.47,1211.1c2.42-2.42,2.42-6.34,0-8.75-2.42-2.42-6.34-2.42-8.75,0'
+            />
+            <rect
+              className='station-11__cls-58'
+              height='34.7'
+              transform='translate(-653.93 850.02) rotate(-45)'
+              width='3.09'
+              x='697.55'
+              y='1197.03'
+            />
+          </g>
           <text
-            className='station-11__cls-14'
-            transform='translate(1917.89 487.88)'
+            className='station-11__cls-23'
+            transform='translate(740.9 1186.64)'
+          >
+            <tspan className='station-11__cls-47' x='0' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-74' x='13.84' y='0'>
+              ON
+            </tspan>
+            <tspan className='station-11__cls-56' x='47.19' y='0'>
+              T
+            </tspan>
+            <tspan className='station-11__cls-54' x='57.64' y='0'>
+              A
+            </tspan>
+            <tspan className='station-11__cls-55' x='72.42' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-80' x='87.47' y='0'>
+              T
+            </tspan>
+            <tspan x='99.11' y='0'>
+              OR
+            </tspan>
+            <tspan x='22.55' y='29.71'>
+              3P 110A
+            </tspan>
+          </text>
+          <text
+            className='station-11__cls-23'
+            transform='translate(781.78 1280.57)'
           >
             <tspan x='0' y='0'>
+              C1
+            </tspan>
+            <tspan x='-32.98' y='29.71'>
+              2*25k
+            </tspan>
+            <tspan className='station-11__cls-38' x='27.01' y='29.71'>
               V
             </tspan>
+            <tspan x='40.01' y='29.71'>
+              ar
+            </tspan>
           </text>
         </g>
         <g>
+          <polygon points='983.99 1233.16 937.57 1225.42 983.99 1217.69 983.99 1233.16' />
           <rect
-            className='station-11__cls-2'
-            height='36.67'
-            width='73.35'
-            x='1888.12'
-            y='497.98'
+            className='station-11__cls-58'
+            height='3.09'
+            width='202.23'
+            x='974.71'
+            y='1223.88'
           />
+          <rect
+            className='station-11__cls-58'
+            height='45.04'
+            width='3.09'
+            x='942.68'
+            y='1225.42'
+          />
+          <rect
+            className='station-11__cls-58'
+            height='54.67'
+            width='3.09'
+            x='942.68'
+            y='1114.44'
+          />
+          <g>
+            <rect
+              className='station-11__cls-58'
+              height='14.94'
+              width='3.09'
+              x='942.68'
+              y='1099.5'
+            />
+            <rect
+              className='station-11__cls-58'
+              height='43.33'
+              transform='translate(-415.78 611.73) rotate(-30)'
+              width='3.09'
+              x='932.07'
+              y='1060.06'
+            />
+          </g>
+          <g>
+            <polygon
+              className='station-11__cls-12'
+              points='944.23 1270.46 911.73 1323.08 976.72 1323.08 944.23 1270.46'
+            />
+            <g>
+              <rect
+                className='station-11__cls-12'
+                height='6.68'
+                transform='translate(-519.69 654.03) rotate(-30)'
+                width='17.44'
+                x='951.87'
+                y='1293.43'
+              />
+              <rect
+                className='station-11__cls-28'
+                height='3.59'
+                transform='translate(-519.7 654.02) rotate(-30)'
+                width='21.37'
+                x='949.88'
+                y='1294.99'
+              />
+            </g>
+            <g>
+              <rect
+                className='station-11__cls-12'
+                height='6.68'
+                transform='translate(772.71 -289.79) rotate(30)'
+                width='17.44'
+                x='918.38'
+                y='1293.66'
+              />
+              <rect
+                className='station-11__cls-28'
+                height='3.59'
+                transform='translate(772.7 -289.78) rotate(30)'
+                width='21.37'
+                x='916.4'
+                y='1295.2'
+              />
+            </g>
+            <g>
+              <rect
+                className='station-11__cls-12'
+                height='6.68'
+                transform='translate(-378.92 2267.38) rotate(-90)'
+                width='17.44'
+                x='935.51'
+                y='1319.81'
+              />
+              <rect
+                className='station-11__cls-28'
+                height='3.59'
+                transform='translate(-378.85 2267.3) rotate(-90)'
+                width='21.44'
+                x='933.51'
+                y='1321.28'
+              />
+            </g>
+          </g>
+          <g>
+            <path
+              className='station-11__cls-12'
+              d='M945.39,1189.93c3.42,0,6.19,2.77,6.19,6.19s-2.77,6.19-6.19,6.19'
+            />
+            <rect
+              className='station-11__cls-58'
+              height='34.7'
+              width='3.09'
+              x='942.68'
+              y='1169.11'
+            />
+          </g>
+          <g>
+            <path
+              className='station-11__cls-12'
+              d='M930.78,1210.92c2.42-2.42,2.42-6.34,0-8.75-2.42-2.42-6.34-2.42-8.75,0'
+            />
+            <rect
+              className='station-11__cls-58'
+              height='34.7'
+              transform='translate(-585.47 1014.94) rotate(-45)'
+              width='3.09'
+              x='930.87'
+              y='1196.84'
+            />
+          </g>
           <text
-            className='station-11__cls-14'
-            transform='translate(1917.89 524.55)'
+            className='station-11__cls-23'
+            transform='translate(974.21 1186.46)'
+          >
+            <tspan className='station-11__cls-47' x='0' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-74' x='13.84' y='0'>
+              ON
+            </tspan>
+            <tspan className='station-11__cls-56' x='47.19' y='0'>
+              T
+            </tspan>
+            <tspan className='station-11__cls-54' x='57.64' y='0'>
+              A
+            </tspan>
+            <tspan className='station-11__cls-55' x='72.42' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-80' x='87.47' y='0'>
+              T
+            </tspan>
+            <tspan x='99.11' y='0'>
+              OR
+            </tspan>
+            <tspan x='22.55' y='29.71'>
+              3P 110A
+            </tspan>
+          </text>
+          <text
+            className='station-11__cls-23'
+            transform='translate(1015.1 1280.39)'
           >
             <tspan x='0' y='0'>
+              C2
+            </tspan>
+            <tspan x='-32.98' y='29.71'>
+              2*25k
+            </tspan>
+            <tspan className='station-11__cls-46' x='27.01' y='29.71'>
+              V
+            </tspan>
+            <tspan x='40.01' y='29.71'>
+              ar
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <polygon points='1215.69 1232.98 1169.27 1225.24 1215.69 1217.51 1215.69 1232.98' />
+          <rect
+            className='station-11__cls-58'
+            height='3.09'
+            width='369.73'
+            x='1206.4'
+            y='1223.69'
+          />
+          <rect
+            className='station-11__cls-58'
+            height='45.04'
+            width='3.09'
+            x='1174.38'
+            y='1225.24'
+          />
+          <rect
+            className='station-11__cls-58'
+            height='54.67'
+            width='3.09'
+            x='1174.38'
+            y='1114.26'
+          />
+          <g>
+            <rect
+              className='station-11__cls-58'
+              height='14.94'
+              width='3.09'
+              x='1174.38'
+              y='1099.32'
+            />
+            <rect
+              className='station-11__cls-58'
+              height='43.33'
+              transform='translate(-384.65 727.56) rotate(-30)'
+              width='3.09'
+              x='1163.77'
+              y='1059.88'
+            />
+          </g>
+          <g>
+            <polygon
+              className='station-11__cls-12'
+              points='1175.93 1270.28 1143.43 1322.89 1208.42 1322.89 1175.93 1270.28'
+            />
+            <g>
+              <rect
+                className='station-11__cls-12'
+                height='6.68'
+                transform='translate(-488.56 769.85) rotate(-30)'
+                width='17.44'
+                x='1183.56'
+                y='1293.25'
+              />
+              <rect
+                className='station-11__cls-28'
+                height='3.59'
+                transform='translate(-488.57 769.84) rotate(-30)'
+                width='21.37'
+                x='1181.58'
+                y='1294.81'
+              />
+            </g>
+            <g>
+              <rect
+                className='station-11__cls-12'
+                height='6.68'
+                transform='translate(803.66 -405.66) rotate(30)'
+                width='17.44'
+                x='1150.08'
+                y='1293.48'
+              />
+              <rect
+                className='station-11__cls-28'
+                height='3.59'
+                transform='translate(803.65 -405.65) rotate(30)'
+                width='21.37'
+                x='1148.1'
+                y='1295.02'
+              />
+            </g>
+            <g>
+              <rect
+                className='station-11__cls-12'
+                height='6.68'
+                transform='translate(-147.04 2498.9) rotate(-90)'
+                width='17.44'
+                x='1167.21'
+                y='1319.63'
+              />
+              <rect
+                className='station-11__cls-28'
+                height='3.59'
+                transform='translate(-146.97 2498.82) rotate(-90)'
+                width='21.44'
+                x='1165.2'
+                y='1321.1'
+              />
+            </g>
+          </g>
+          <g>
+            <path
+              className='station-11__cls-12'
+              d='M1177.09,1189.75c3.42,0,6.19,2.77,6.19,6.19s-2.77,6.19-6.19,6.19'
+            />
+            <rect
+              className='station-11__cls-58'
+              height='34.7'
+              width='3.09'
+              x='1174.38'
+              y='1168.93'
+            />
+          </g>
+          <g>
+            <path
+              className='station-11__cls-12'
+              d='M1162.48,1210.74c2.42-2.42,2.42-6.34,0-8.75-2.42-2.42-6.34-2.42-8.75,0'
+            />
+            <rect
+              className='station-11__cls-58'
+              height='34.7'
+              transform='translate(-517.48 1178.73) rotate(-45)'
+              width='3.09'
+              x='1162.56'
+              y='1196.66'
+            />
+          </g>
+          <text
+            className='station-11__cls-23'
+            transform='translate(1205.91 1186.28)'
+          >
+            <tspan className='station-11__cls-47' x='0' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-74' x='13.84' y='0'>
+              ON
+            </tspan>
+            <tspan className='station-11__cls-56' x='47.19' y='0'>
+              T
+            </tspan>
+            <tspan className='station-11__cls-54' x='57.64' y='0'>
+              A
+            </tspan>
+            <tspan className='station-11__cls-55' x='72.42' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-80' x='87.47' y='0'>
+              T
+            </tspan>
+            <tspan x='99.11' y='0'>
+              OR
+            </tspan>
+            <tspan x='22.55' y='29.71'>
+              3P 110A
+            </tspan>
+          </text>
+          <text
+            className='station-11__cls-23'
+            transform='translate(1246.79 1280.21)'
+          >
+            <tspan x='0' y='0'>
+              C8
+            </tspan>
+            <tspan x='-32.98' y='29.71'>
+              2*25k
+            </tspan>
+            <tspan className='station-11__cls-46' x='27.01' y='29.71'>
+              V
+            </tspan>
+            <tspan x='40.01' y='29.71'>
+              ar
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <g>
+            <rect
+              className='station-11__cls-50'
+              height='137.23'
+              width='3.09'
+              x='1782.12'
+              y='982.21'
+            />
+            <g>
+              <rect
+                className='station-11__cls-50'
+                height='14.94'
+                width='3.09'
+                x='1782.14'
+                y='969.04'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='43.33'
+                transform='translate(-238.08 1013.98) rotate(-30)'
+                width='3.09'
+                x='1771.53'
+                y='929.6'
+              />
+            </g>
+            <g>
+              <rect
+                className='station-11__cls-50'
+                height='3.09'
+                width='15.69'
+                x='1775.83'
+                y='930.18'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='69.42'
+                width='3.09'
+                x='1782.13'
+                y='863.85'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='18.57'
+                transform='translate(-126.58 1530.18) rotate(-45)'
+                width='3.09'
+                x='1782.14'
+                y='908.6'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='3.09'
+                transform='translate(-126.64 1530.01) rotate(-45)'
+                width='18.57'
+                x='1774.4'
+                y='916.33'
+              />
+            </g>
+            <g>
+              <rect
+                className='station-11__cls-13'
+                height='37.14'
+                width='255.96'
+                x='1655.71'
+                y='1116.8'
+              />
+              <text
+                className='station-11__cls-20'
+                transform='translate(1753.86 1143.58)'
+              >
+                <tspan x='0' y='0'>
+                  MV11
+                </tspan>
+              </text>
+              <rect
+                className='station-11__cls-13'
+                height='37.14'
+                width='255.96'
+                x='1655.71'
+                y='1153.94'
+              />
+              <text
+                className='station-11__cls-17'
+                transform='translate(1758.37 1180.85)'
+              >
+                <tspan x='0' y='0'>
+                  SR01
+                </tspan>
+              </text>
+              <g>
+                <rect
+                  className='station-11__cls-13'
+                  height='37.14'
+                  width='255.96'
+                  x='1655.71'
+                  y='1301.18'
+                />
+                <text
+                  className='station-11__cls-23'
+                  transform='translate(1746.92 1327.95)'
+                >
+                  <tspan x='0' y='0'>
+                    800
+                  </tspan>
+                  <tspan className='station-11__cls-37' x='38.1' y='0'>
+                    K
+                  </tspan>
+                  <tspan x='51.89' y='0'>
+                    W
+                  </tspan>
+                </text>
+              </g>
+              <g>
+                <rect
+                  className='station-11__cls-13'
+                  height='37.14'
+                  width='255.96'
+                  x='1655.71'
+                  y='1189.77'
+                />
+                <text
+                  className='station-11__cls-19'
+                  transform='translate(1724.39 1217.52)'
+                >
+                  <tspan x='0' y='0'>
+                    1220MC01
+                  </tspan>
+                </text>
+              </g>
+              <g>
+                <rect
+                  className='station-11__cls-13'
+                  height='74.27'
+                  width='255.96'
+                  x='1655.71'
+                  y='1226.9'
+                />
+                <text
+                  className='station-11__cls-19'
+                  transform='translate(1679.56 1255.37)'
+                >
+                  <tspan x='0' y='0'>
+                    Chipper - main d
+                  </tspan>
+                  <tspan className='station-11__cls-71' x='171.99' y='0'>
+                    r
+                  </tspan>
+                  <tspan x='180.19' y='0'>
+                    i
+                  </tspan>
+                  <tspan className='station-11__cls-48' x='185.98' y='0'>
+                    v
+                  </tspan>
+                  <tspan x='197.64' y='0'>
+                    e
+                  </tspan>
+                  <tspan className='station-11__cls-71' x='3.5' y='29.71'>
+                    Đ
+                  </tspan>
+                  <tspan className='station-11__cls-67' x='20.21' y='29.71'>
+                    ộng{' '}
+                  </tspan>
+                  <tspan className='station-11__cls-5' x='66.63' y='29.71'>
+                    c
+                  </tspan>
+                  <tspan className='station-11__cls-74' x='77.58' y='29.71'>
+                    ơ băm chính
+                  </tspan>
+                </text>
+              </g>
+            </g>
+          </g>
+          <text
+            className='station-11__cls-23'
+            transform='translate(1799.28 933.28)'
+          >
+            <tspan className='station-11__cls-70' x='0' y='0'>
+              A
+            </tspan>
+            <tspan x='14.78' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-49' x='29.14' y='0'>
+              B
+            </tspan>
+            <tspan x='42.68' y='0'>
+              -5
+            </tspan>
+            <tspan className='station-11__cls-27' x='62.98' y='0'>
+              P
+            </tspan>
+            <tspan x='75.73' y='0'>
+              -1250A
+            </tspan>
+            <tspan x='47.53' y='29.71'>
+              40
+            </tspan>
+            <tspan className='station-11__cls-36' x='72.94' y='29.71'>
+              K
+            </tspan>
+            <tspan className='station-11__cls-74' x='86.6' y='29.71'>
               A
             </tspan>
           </text>
         </g>
-        <rect
-          className='station-11__cls-2'
-          height='36.67'
-          width='73.35'
-          x='1888.12'
-          y='534.65'
-        />
-        <text className='station-11__cls-14' transform='translate(1895 561.23)'>
-          <tspan className='station-11__cls-68' x='0' y='0'>
-            cosφ
-          </tspan>
-        </text>
         <g>
-          <rect
-            className='station-11__cls-2'
-            height='36.67'
-            width='73.35'
-            x='1888.12'
-            y='571.32'
-          />
-          <text
-            className='station-11__cls-14'
-            transform='translate(1906.81 597.9)'
-          >
-            <tspan className='station-11__cls-39' x='0' y='0'>
-              KW
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-2'
-            height='36.67'
-            width='73.35'
-            x='1888.12'
-            y='608'
-          />
-          <text
-            className='station-11__cls-14'
-            transform='translate(1904.84 635.01)'
-          >
-            <tspan x='0' y='0'>
-              kVA
-            </tspan>
-          </text>
-        </g>
-        <rect
-          className='station-11__cls-2'
-          height='36.67'
-          width='73.35'
-          x='1888.12'
-          y='644.67'
-        />
-        <text className='station-11__cls-14' transform='translate(1895 671.6)'>
-          <tspan x='0' y='0'>
-            GWh
-          </tspan>
-        </text>
-        <g>
-          <rect
-            className='station-11__cls-3'
-            height='36.67'
-            width='73.35'
-            x='1668.07'
-            y='461.3'
-          />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1678.21 487.45)'
-          >
-            <tspan x='0' y='0'>
-              11.11
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-3'
-            height='36.67'
-            width='73.35'
-            x='1741.42'
-            y='461.3'
-          />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1751.56 487.45)'
-          >
-            <tspan x='0' y='0'>
-              11.11
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-3'
-            height='36.67'
-            width='73.35'
-            x='1814.77'
-            y='461.3'
-          />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1824.91 487.45)'
-          >
-            <tspan x='0' y='0'>
-              11.11
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-3'
-            height='36.67'
-            width='73.35'
-            x='1668.07'
-            y='497.98'
-          />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1678.21 524.12)'
-          >
-            <tspan x='0' y='0'>
-              11.11
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-3'
-            height='36.67'
-            width='73.35'
-            x='1741.42'
-            y='497.98'
-          />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1751.56 524.12)'
-          >
-            <tspan x='0' y='0'>
-              11.11
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-3'
-            height='36.67'
-            width='73.35'
-            x='1814.77'
-            y='497.98'
-          />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1824.91 524.12)'
-          >
-            <tspan x='0' y='0'>
-              11.11
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-2'
-            height='36.67'
-            width='73.35'
-            x='1888.12'
-            y='681.35'
-          />
-          <text
-            className='station-11__cls-14'
-            transform='translate(1892 707.91)'
-          >
-            <tspan x='0' y='0'>
-              THDV
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-2'
-            height='36.67'
-            width='73.35'
-            x='1888.12'
-            y='718.02'
-          />
-          <text
-            className='station-11__cls-14'
-            transform='translate(1895 744.58)'
-          >
-            <tspan x='0' y='0'>
-              THDI
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-3'
-            height='36.67'
-            width='73.35'
-            x='1668.07'
-            y='681.35'
-          />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1678.21 707.49)'
-          >
-            <tspan x='0' y='0'>
-              11.11
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-3'
-            height='36.67'
-            width='73.35'
-            x='1741.42'
-            y='681.35'
-          />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1751.56 707.49)'
-          >
-            <tspan x='0' y='0'>
-              11.11
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-3'
-            height='36.67'
-            width='73.35'
-            x='1814.77'
-            y='681.35'
-          />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1824.91 707.49)'
-          >
-            <tspan x='0' y='0'>
-              11.11
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-3'
-            height='36.67'
-            width='73.35'
-            x='1668.07'
-            y='718.02'
-          />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1678.21 744.17)'
-          >
-            <tspan x='0' y='0'>
-              11.11
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-3'
-            height='36.67'
-            width='73.35'
-            x='1741.42'
-            y='718.02'
-          />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1751.56 744.17)'
-          >
-            <tspan x='0' y='0'>
-              11.11
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-3'
-            height='36.67'
-            width='73.35'
-            x='1814.77'
-            y='718.02'
-          />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1824.91 744.17)'
-          >
-            <tspan x='0' y='0'>
-              11.11
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-3'
-            height='36.67'
-            width='220.04'
-            x='1668.07'
-            y='534.65'
-          />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1754.09 560.93)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-3'
-            height='36.67'
-            width='220.04'
-            x='1668.07'
-            y='571.32'
-          />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1754.09 597.61)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-3'
-            height='36.67'
-            width='220.04'
-            x='1668.07'
-            y='608'
-          />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1754.09 634.28)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-3'
-            height='36.67'
-            width='220.04'
-            x='1668.07'
-            y='644.67'
-          />
-          <text
-            className='station-11__cls-23'
-            transform='translate(1754.09 670.95)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-11__cls-2'
-            height='36.67'
-            width='73.35'
-            x='1888.12'
-            y='424.63'
-          />
-          <line
-            className='station-11__cls-6'
-            x1='1888.12'
-            x2='1961.46'
-            y1='461.3'
-            y2='426.14'
-          />
-        </g>
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-7'
-          height='36.67'
-          width='109.85'
-          x='1027.23'
-          y='574.04'
-        />
-        <text className='station-11__cls-22' transform='translate(1032 597.86)'>
-          <tspan x='0' y='0'>
-            Shunt trip
-          </tspan>
-        </text>
-      </g>
-      <rect
-        className='station-11__cls-50'
-        height='80.07'
-        width='3.06'
-        x='1572.86'
-        y='764.56'
-      />
-      <rect
-        className='station-11__cls-50'
-        height='341.56'
-        width='3.06'
-        x='1572.85'
-        y='878.31'
-      />
-      <g>
-        <rect
-          className='station-11__cls-9'
-          height='36.67'
-          width='71.99'
-          x='1538.39'
-          y='915.28'
-        />
-        <text className='station-11__cls-18' transform='translate(1542 941.87)'>
-          <tspan x='0' y='0'>
-            APFC
-          </tspan>
-        </text>
-      </g>
-      <g>
-        <rect
-          className='station-11__cls-7'
-          height='64.18'
-          width='122.25'
-          x='1127.56'
-          y='618.46'
-        />
-        <text
-          className='station-11__cls-22'
-          transform='translate(1177.74 642.66)'
-        >
-          <tspan x='0' y='0'>
-            46
-          </tspan>
-          <tspan className='station-11__cls-71' x='-25.79' y='25.67'>
-            Mất pha
-          </tspan>
-        </text>
-      </g>
-      <g>
-        <rect
-          height='36.67'
-          transform='translate(-47.2 1496.03) rotate(-75)'
-          width='3.06'
-          x='949.71'
-          y='760.43'
-        />
-        <rect
-          height='36.67'
-          transform='translate(-65.82 1510.32) rotate(-75)'
-          width='3.06'
-          x='949.71'
-          y='779.72'
-        />
-        <rect
-          height='3.06'
-          transform='translate(-171.75 273.08) rotate(-15)'
-          width='36.67'
-          x='932.9'
-          y='787.31'
-        />
-        <rect
-          height='3.06'
-          transform='translate(-166.69 272.41) rotate(-15)'
-          width='36.67'
-          x='932.9'
-          y='767.73'
-        />
-      </g>
-      <text
-        className='station-11__cls-18'
-        transform='translate(969.52 1031.27)'
-      >
-        <tspan x='0' y='0'>
-          MCCB-3P-125A
-        </tspan>
-        <tspan x='1.16' y='29.34'>
-          NSX100L-20KA
-        </tspan>
-      </text>
-      <text
-        className='station-11__cls-18'
-        transform='translate(1198.47 1031.27)'
-      >
-        <tspan x='0' y='0'>
-          MCCB-3P-125A
-        </tspan>
-        <tspan x='1.16' y='29.34'>
-          NSX100L-20KA
-        </tspan>
-      </text>
-      <text
-        className='station-11__cls-18'
-        transform='translate(735.14 1031.27)'
-      >
-        <tspan x='0' y='0'>
-          MCCB-3P-125A
-        </tspan>
-        <tspan x='1.16' y='29.34'>
-          NSX100L-20KA
-        </tspan>
-      </text>
-      <g>
-        <polygon points='759.23 1226.35 713.38 1218.71 759.23 1211.07 759.23 1226.35' />
-        <rect
-          className='station-11__cls-50'
-          height='3.06'
-          width='199.71'
-          x='750.06'
-          y='1217.18'
-        />
-        <rect
-          className='station-11__cls-50'
-          height='44.48'
-          width='3.06'
-          x='718.43'
-          y='1218.71'
-        />
-        <rect
-          className='station-11__cls-50'
-          height='53.99'
-          width='3.06'
-          x='718.43'
-          y='1109.11'
-        />
-        <g>
-          <rect
-            className='station-11__cls-50'
-            height='14.75'
-            width='3.06'
-            x='718.43'
-            y='1094.36'
-          />
-          <rect
-            className='station-11__cls-50'
-            height='42.79'
-            transform='translate(-443.35 499.01) rotate(-30)'
-            width='3.06'
-            x='707.96'
-            y='1055.41'
-          />
-        </g>
-        <g>
-          <polygon
-            className='station-11__cls-8'
-            points='719.96 1263.19 687.87 1315.14 752.05 1315.14 719.96 1263.19'
-          />
           <g>
             <rect
-              className='station-11__cls-8'
-              height='6.6'
-              transform='translate(-545.96 540.77) rotate(-30)'
-              width='17.22'
-              x='727.5'
-              y='1285.86'
+              className='station-11__cls-50'
+              height='3.09'
+              width='77.89'
+              x='846.04'
+              y='205.06'
             />
             <rect
-              className='station-11__cls-13'
-              height='3.54'
-              transform='translate(-545.97 540.76) rotate(-30)'
-              width='21.1'
-              x='725.55'
-              y='1287.4'
+              className='station-11__cls-50'
+              height='37.61'
+              width='3.09'
+              x='941.95'
+              y='109.1'
+            />
+            <g>
+              <rect
+                className='station-11__cls-50'
+                height='3.09'
+                width='24.76'
+                x='835.61'
+                y='226.75'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='3.09'
+                width='15.47'
+                x='840.25'
+                y='231.82'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='3.09'
+                width='9.28'
+                x='843.35'
+                y='236.88'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='21.31'
+                width='3.09'
+                x='846.04'
+                y='205.41'
+              />
+            </g>
+            <g>
+              <g>
+                <circle
+                  className='station-11__cls-11'
+                  cx='943.5'
+                  cy='166.49'
+                  r='18.57'
+                />
+                <polygon
+                  className='station-11__cls-9'
+                  points='943.5 159.83 935.81 173.15 951.19 173.15 943.5 159.83'
+                />
+              </g>
+              <g>
+                <circle
+                  className='station-11__cls-11'
+                  cx='943.5'
+                  cy='205.41'
+                  r='18.57'
+                />
+                <g>
+                  <rect
+                    className='station-11__cls-50'
+                    height='15.28'
+                    width='3.09'
+                    x='942.01'
+                    y='194.33'
+                  />
+                  <rect
+                    className='station-11__cls-50'
+                    height='3.09'
+                    transform='translate(125.62 726.79) rotate(-45)'
+                    width='11.46'
+                    x='934.39'
+                    y='210.21'
+                  />
+                  <rect
+                    className='station-11__cls-50'
+                    height='11.46'
+                    transform='translate(127.6 731.57) rotate(-45)'
+                    width='3.09'
+                    x='945.33'
+                    y='206.03'
+                  />
+                </g>
+              </g>
+            </g>
+            <polygon
+              className='station-11__cls-9'
+              points='943.5 110.35 930.12 88.68 956.88 88.68 943.5 110.35'
+            />
+          </g>
+          <g>
+            <text
+              className='station-11__cls-23'
+              transform='translate(805.49 145.3)'
+            >
+              <tspan x='0' y='0'>
+                22
+              </tspan>
+              <tspan className='station-11__cls-37' x='25.4' y='0'>
+                K
+              </tspan>
+              <tspan className='station-11__cls-74' x='39.19' y='0'>
+                V//690V
+              </tspan>
+              <tspan x='15.97' y='29.71'>
+                1000k
+              </tspan>
+              <tspan className='station-11__cls-76' x='78.38' y='29.71'>
+                V
+              </tspan>
+              <tspan className='station-11__cls-74' x='90.79' y='29.71'>
+                A
+              </tspan>
+            </text>
+            <text
+              className='station-11__cls-23'
+              transform='translate(700.33 236.88)'
+            >
+              <tspan className='station-11__cls-59' x='0' y='0'>
+                R
+              </tspan>
+              <tspan x='13.42' y='0'>
+                el ≤ 4 Ohm
+              </tspan>
+            </text>
+          </g>
+        </g>
+        <g>
+          <g>
+            <g>
+              <rect
+                className='station-11__cls-50'
+                height='3.09'
+                width='26.58'
+                x='972.84'
+                y='236.41'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='44.85'
+                width='3.09'
+                x='969.74'
+                y='236.41'
+              />
+            </g>
+            <g>
+              <rect
+                className='station-11__cls-50'
+                height='3.09'
+                width='26.58'
+                x='884.6'
+                y='236.41'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='44.85'
+                width='3.09'
+                x='911.18'
+                y='236.41'
+              />
+            </g>
+            <g>
+              <rect
+                className='station-11__cls-50'
+                height='3.09'
+                width='26.58'
+                x='972.42'
+                y='353.51'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='44.85'
+                width='3.09'
+                x='969.33'
+                y='311.75'
+              />
+            </g>
+            <g>
+              <rect
+                className='station-11__cls-50'
+                height='3.09'
+                width='26.58'
+                x='884.6'
+                y='353.51'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='44.85'
+                width='3.09'
+                x='911.18'
+                y='311.75'
+              />
+            </g>
+            <rect
+              className='station-11__cls-11'
+              height='27.85'
+              width='97.14'
+              x='892.87'
+              y='282.58'
             />
           </g>
           <g>
             <rect
-              className='station-11__cls-8'
-              height='6.6'
-              transform='translate(738.89 -178.78) rotate(30)'
-              width='17.22'
-              x='694.44'
-              y='1286.09'
+              className='station-11__cls-50'
+              height='3.09'
+              width='149.78'
+              x='991.38'
+              y='294.96'
             />
-            <rect
-              className='station-11__cls-13'
-              height='3.54'
-              transform='translate(738.88 -178.77) rotate(30)'
-              width='21.1'
-              x='692.48'
-              y='1287.61'
-            />
+            <text
+              className='station-11__cls-23'
+              transform='translate(1036.34 291.84)'
+            >
+              <tspan className='station-11__cls-75' x='0' y='0'>
+                T
+              </tspan>
+              <tspan x='12.13' y='0'>
+                hanh cái
+              </tspan>
+            </text>
           </g>
+        </g>
+        <g>
           <g>
-            <rect
-              className='station-11__cls-8'
-              height='6.6'
-              transform='translate(-595.25 2035.17) rotate(-90)'
-              width='17.22'
-              x='711.35'
-              y='1311.92'
+            <g>
+              <rect
+                className='station-11__cls-50'
+                height='3.09'
+                transform='translate(-93.23 301.75) rotate(-15)'
+                width='37.14'
+                x='1080.84'
+                y='503.39'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='3.09'
+                transform='translate(-98.28 302.42) rotate(-15)'
+                width='37.14'
+                x='1080.84'
+                y='522.92'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='37.14'
+                transform='translate(317.28 1443.75) rotate(-75)'
+                width='3.09'
+                x='1097.86'
+                y='496.56'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='37.14'
+                transform='translate(336.43 1429.05) rotate(-75)'
+                width='3.09'
+                x='1097.86'
+                y='476.73'
+              />
+            </g>
+            <g>
+              <rect
+                className='station-11__cls-50'
+                height='37.14'
+                transform='translate(361.31 1480.74) rotate(-75)'
+                width='3.09'
+                x='1143.98'
+                y='486.37'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='37.14'
+                transform='translate(342.45 1495.21) rotate(-75)'
+                width='3.09'
+                x='1143.98'
+                y='505.9'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='3.09'
+                transform='translate(-94.29 314.04) rotate(-15)'
+                width='37.14'
+                x='1126.96'
+                y='513.58'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='3.09'
+                transform='translate(-89.16 313.36) rotate(-15)'
+                width='37.14'
+                x='1126.96'
+                y='493.75'
+              />
+            </g>
+            <circle
+              className='station-11__cls-50'
+              cx='943.63'
+              cy='510.14'
+              r='7.74'
             />
             <rect
-              className='station-11__cls-13'
-              height='3.54'
-              transform='translate(-595.18 2035.1) rotate(-90)'
-              width='21.18'
-              x='709.37'
-              y='1313.37'
+              className='station-11__cls-50'
+              height='3.09'
+              width='44.99'
+              x='942.89'
+              y='508.52'
             />
+            <rect
+              className='station-11__cls-50'
+              height='3.09'
+              width='44.99'
+              x='1037.99'
+              y='508.52'
+            />
+            <rect
+              className='station-11__cls-50'
+              height='3.09'
+              width='511.88'
+              x='1160.54'
+              y='508.52'
+            />
+            <g>
+              <rect
+                className='station-11__cls-11'
+                height='15.64'
+                width='47.63'
+                x='989.5'
+                y='502.25'
+              />
+              <text
+                className='station-11__cls-23'
+                transform='translate(986.6 494.58)'
+              >
+                <tspan x='0' y='0'>
+                  FUSE
+                </tspan>
+              </text>
+              <line
+                className='station-11__cls-8'
+                x1='989.5'
+                x2='1037.13'
+                y1='517.89'
+                y2='502.25'
+              />
+            </g>
+            <g>
+              <rect
+                className='station-11__cls-11'
+                height='15.64'
+                width='47.63'
+                x='1210.96'
+                y='502.25'
+              />
+              <text
+                className='station-11__cls-23'
+                transform='translate(1208.06 494.58)'
+              >
+                <tspan x='0' y='0'>
+                  FUSE
+                </tspan>
+              </text>
+              <line
+                className='station-11__cls-8'
+                x1='1210.96'
+                x2='1258.6'
+                y1='517.89'
+                y2='502.25'
+              />
+            </g>
           </g>
+          <text
+            className='station-11__cls-23'
+            transform='translate(1068.36 483.04)'
+          >
+            <tspan x='0' y='0'>
+              690//220V
+            </tspan>
+          </text>
         </g>
         <g>
-          <path
-            className='station-11__cls-8'
-            d='M721.11,1183.65c3.38,0,6.11,2.74,6.11,6.11s-2.74,6.11-6.11,6.11'
-          />
-          <rect
-            className='station-11__cls-50'
-            height='34.27'
-            width='3.06'
-            x='718.43'
-            y='1163.1'
-          />
+          <text
+            className='station-11__cls-23'
+            transform='translate(756.15 573.96)'
+          >
+            <tspan className='station-11__cls-70' x='0' y='0'>
+              A
+            </tspan>
+            <tspan x='14.78' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-49' x='29.14' y='0'>
+              B
+            </tspan>
+            <tspan x='42.68' y='0'>
+              -3
+            </tspan>
+            <tspan className='station-11__cls-27' x='62.98' y='0'>
+              P
+            </tspan>
+            <tspan x='75.73' y='0'>
+              -1250A
+            </tspan>
+            <tspan x='13.55' y='29.71'>
+              50kA - 690V
+            </tspan>
+          </text>
+          <text
+            className='station-11__cls-23'
+            transform='translate(834.71 676.03)'
+          >
+            <tspan className='station-11__cls-60' x='0' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-26' x='15.05' y='0'>
+              T
+            </tspan>
+            <tspan x='26.52' y='0'>
+              x3
+            </tspan>
+            <tspan x='-18.23' y='29.71'>
+              1200/5A
+            </tspan>
+          </text>
+          <text
+            className='station-11__cls-23'
+            transform='translate(837.21 767.27)'
+          >
+            <tspan className='station-11__cls-60' x='0' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-26' x='15.05' y='0'>
+              T
+            </tspan>
+            <tspan x='26.52' y='0'>
+              x1
+            </tspan>
+            <tspan x='-18.23' y='29.71'>
+              2000/5A
+            </tspan>
+          </text>
         </g>
         <g>
-          <path
-            className='station-11__cls-8'
-            d='M706.68,1204.39c2.39-2.39,2.39-6.26,0-8.64-2.39-2.39-6.26-2.39-8.64,0'
-          />
           <rect
             className='station-11__cls-50'
-            height='34.27'
-            transform='translate(-646.46 854.54) rotate(-45)'
-            width='3.06'
-            x='706.77'
-            y='1190.48'
+            height='3.09'
+            width='1426.92'
+            x='634.72'
+            y='860.76'
           />
+          <text
+            className='station-11__cls-23'
+            transform='translate(633.99 855.31)'
+          >
+            <tspan className='station-11__cls-75' x='0' y='0'>
+              T
+            </tspan>
+            <tspan x='12.13' y='0'>
+              hanh cái
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <text
+            className='station-11__cls-23'
+            transform='translate(963.63 1035.8)'
+          >
+            <tspan x='0' y='0'>
+              M
+            </tspan>
+            <tspan className='station-11__cls-31' x='19.91' y='0'>
+              C
+            </tspan>
+            <tspan x='33.74' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-73' x='48.1' y='0'>
+              B
+            </tspan>
+            <tspan x='61.65' y='0'>
+              -3
+            </tspan>
+            <tspan className='station-11__cls-27' x='81.95' y='0'>
+              P
+            </tspan>
+            <tspan x='94.7' y='0'>
+              -125A
+            </tspan>
+            <tspan x='1.18' y='29.71'>
+              NSX100
+            </tspan>
+            <tspan className='station-11__cls-29' x='81.91' y='29.71'>
+              L
+            </tspan>
+            <tspan x='92.56' y='29.71'>
+              -20
+            </tspan>
+            <tspan className='station-11__cls-36' x='125.56' y='29.71'>
+              K
+            </tspan>
+            <tspan x='139.22' y='29.71'>
+              A
+            </tspan>
+          </text>
+          <text
+            className='station-11__cls-23'
+            transform='translate(1195.47 1035.8)'
+          >
+            <tspan x='0' y='0'>
+              M
+            </tspan>
+            <tspan className='station-11__cls-31' x='19.91' y='0'>
+              C
+            </tspan>
+            <tspan x='33.74' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-73' x='48.1' y='0'>
+              B
+            </tspan>
+            <tspan x='61.65' y='0'>
+              -3
+            </tspan>
+            <tspan className='station-11__cls-27' x='81.95' y='0'>
+              P
+            </tspan>
+            <tspan x='94.7' y='0'>
+              -125A
+            </tspan>
+            <tspan x='1.18' y='29.71'>
+              NSX100
+            </tspan>
+            <tspan className='station-11__cls-29' x='81.91' y='29.71'>
+              L
+            </tspan>
+            <tspan x='92.56' y='29.71'>
+              -20
+            </tspan>
+            <tspan className='station-11__cls-36' x='125.56' y='29.71'>
+              K
+            </tspan>
+            <tspan x='139.22' y='29.71'>
+              A
+            </tspan>
+          </text>
+          <text
+            className='station-11__cls-23'
+            transform='translate(726.28 1035.8)'
+          >
+            <tspan x='0' y='0'>
+              M
+            </tspan>
+            <tspan className='station-11__cls-31' x='19.91' y='0'>
+              C
+            </tspan>
+            <tspan x='33.74' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-73' x='48.1' y='0'>
+              B
+            </tspan>
+            <tspan x='61.65' y='0'>
+              -3
+            </tspan>
+            <tspan className='station-11__cls-27' x='81.95' y='0'>
+              P
+            </tspan>
+            <tspan x='94.7' y='0'>
+              -125A
+            </tspan>
+            <tspan x='1.18' y='29.71'>
+              NSX100
+            </tspan>
+            <tspan className='station-11__cls-29' x='81.91' y='29.71'>
+              L
+            </tspan>
+            <tspan x='92.56' y='29.71'>
+              -20
+            </tspan>
+            <tspan className='station-11__cls-36' x='125.56' y='29.71'>
+              K
+            </tspan>
+            <tspan x='139.22' y='29.71'>
+              A
+            </tspan>
+          </text>
+          <text
+            className='station-11__cls-23'
+            transform='translate(977.96 932.28)'
+          >
+            <tspan x='0' y='0'>
+              M
+            </tspan>
+            <tspan className='station-11__cls-31' x='19.91' y='0'>
+              C
+            </tspan>
+            <tspan x='33.74' y='0'>
+              CB - 3P - 630A
+            </tspan>
+            <tspan x='61.31' y='29.71'>
+              20
+            </tspan>
+            <tspan className='station-11__cls-36' x='86.71' y='29.71'>
+              K
+            </tspan>
+            <tspan className='station-11__cls-74' x='100.38' y='29.71'>
+              A
+            </tspan>
+          </text>
         </g>
         <text
-          className='station-11__cls-18'
-          transform='translate(749.57 1180.23)'
+          className='station-11__cls-23'
+          transform='translate(1403.11 889.96)'
         >
-          <tspan className='station-11__cls-52' x='0' y='0'>
-            CONTACTOR
+          <tspan className='station-11__cls-34' x='0' y='0'>
+            V
           </tspan>
-          <tspan x='22.27' y='29.34'>
-            3P 110A
+          <tspan className='station-11__cls-74' x='12.4' y='0'>
+            AR
           </tspan>
-        </text>
-        <text className='station-11__cls-18' transform='translate(800 1272.99)'>
-          <tspan x='0' y='0'>
-            C1
+          <tspan className='station-11__cls-33' x='40.88' y='0'>
+            L
           </tspan>
-          <tspan x='-32.57' y='29.34'>
-            2*25kVar
+          <tspan x='51.6' y='0'>
+            OGIC
           </tspan>
         </text>
-      </g>
-      <g>
-        <polygon points='989.63 1226.17 943.79 1218.53 989.63 1210.89 989.63 1226.17' />
-        <rect
-          className='station-11__cls-50'
-          height='3.06'
-          width='199.71'
-          x='980.46'
-          y='1217'
-        />
-        <rect
-          className='station-11__cls-50'
-          height='44.48'
-          width='3.06'
-          x='948.83'
-          y='1218.53'
-        />
-        <rect
-          className='station-11__cls-50'
-          height='53.99'
-          width='3.06'
-          x='948.83'
-          y='1108.93'
-        />
         <g>
-          <rect
-            className='station-11__cls-50'
-            height='14.75'
-            width='3.06'
-            x='948.83'
-            y='1094.18'
-          />
-          <rect
-            className='station-11__cls-50'
-            height='42.79'
-            transform='translate(-412.39 614.18) rotate(-30)'
-            width='3.06'
-            x='938.36'
-            y='1055.23'
-          />
+          <g>
+            <g>
+              <rect
+                className='station-11__cls-58'
+                height='2.54'
+                width='110.74'
+                x='2002.03'
+                y='1004.65'
+              />
+              <rect
+                className='station-11__cls-58'
+                height='32.84'
+                width='3.09'
+                x='2109.68'
+                y='1004.65'
+              />
+              <rect
+                className='station-11__cls-58'
+                height='39.68'
+                width='3.09'
+                x='2002.03'
+                y='1006.04'
+              />
+              <rect
+                className='station-11__cls-58'
+                height='2.54'
+                width='110.74'
+                x='2002.03'
+                y='1136.17'
+              />
+              <rect
+                className='station-11__cls-58'
+                height='32.84'
+                width='3.09'
+                x='2109.68'
+                y='1105.86'
+              />
+              <rect
+                className='station-11__cls-58'
+                height='94.32'
+                width='3.09'
+                x='2002.03'
+                y='1043'
+              />
+              <g>
+                <rect
+                  className='station-11__cls-58'
+                  height='35.61'
+                  width='3.09'
+                  x='2058.52'
+                  y='969.04'
+                />
+                <rect
+                  className='station-11__cls-58'
+                  height='43.33'
+                  transform='translate(-201.06 1152.18) rotate(-30)'
+                  width='3.09'
+                  x='2047.92'
+                  y='929.6'
+                />
+              </g>
+              <g>
+                <rect
+                  className='station-11__cls-50'
+                  height='3.09'
+                  width='15.69'
+                  x='2052.23'
+                  y='930.18'
+                />
+                <rect
+                  className='station-11__cls-50'
+                  height='66.33'
+                  width='3.09'
+                  x='2058.54'
+                  y='863.85'
+                />
+                <rect
+                  className='station-11__cls-50'
+                  height='18.57'
+                  transform='translate(-45.62 1725.64) rotate(-45)'
+                  width='3.09'
+                  x='2058.54'
+                  y='908.6'
+                />
+                <rect
+                  className='station-11__cls-50'
+                  height='3.09'
+                  transform='translate(-45.69 1725.45) rotate(-45)'
+                  width='18.57'
+                  x='2050.81'
+                  y='916.33'
+                />
+              </g>
+              <g>
+                <rect height='3.09' width='24.76' x='2047.69' y='1160.01' />
+                <rect height='3.09' width='15.47' x='2052.33' y='1165.08' />
+                <rect height='3.09' width='9.28' x='2055.42' y='1170.14' />
+                <rect height='21.31' width='3.09' x='2058.52' y='1138.7' />
+              </g>
+              <g>
+                <circle
+                  className='station-11__cls-13'
+                  cx='2003.58'
+                  cy='1065.35'
+                  r='18.57'
+                />
+                <polygon
+                  className='station-11__cls-14'
+                  points='2003.58 1061.39 1998.93 1052.11 2008.22 1052.11 2003.58 1061.39'
+                />
+                <polygon
+                  className='station-11__cls-14'
+                  points='2003.58 1069.19 1998.93 1078.47 2008.22 1078.47 2003.58 1069.19'
+                />
+              </g>
+              <g>
+                <rect
+                  className='station-11__cls-58'
+                  height='18.57'
+                  width='3.09'
+                  x='2083.44'
+                  y='1079.49'
+                />
+                <rect
+                  className='station-11__cls-58'
+                  height='18.57'
+                  width='3.09'
+                  x='2135.91'
+                  y='1046.78'
+                />
+                <rect
+                  className='station-11__cls-13'
+                  height='15.64'
+                  transform='translate(1039.08 3183.37) rotate(-90)'
+                  width='66.35'
+                  x='2078.05'
+                  y='1064.33'
+                />
+                <line
+                  className='station-11__cls-10'
+                  x1='2083.91'
+                  x2='2138.59'
+                  y1='1080.97'
+                  y2='1063.88'
+                />
+              </g>
+            </g>
+            <text
+              className='station-11__cls-23'
+              transform='translate(2082.35 932)'
+            >
+              <tspan x='0' y='0'>
+                M
+              </tspan>
+              <tspan className='station-11__cls-31' x='19.91' y='0'>
+                C
+              </tspan>
+              <tspan x='33.74' y='0'>
+                C
+              </tspan>
+              <tspan className='station-11__cls-73' x='48.1' y='0'>
+                B
+              </tspan>
+              <tspan x='61.65' y='0'>
+                -4
+              </tspan>
+              <tspan className='station-11__cls-27' x='81.95' y='0'>
+                P
+              </tspan>
+              <tspan x='94.7' y='0'>
+                -160A
+              </tspan>
+              <tspan x='1.18' y='29.71'>
+                NSX160
+              </tspan>
+              <tspan className='station-11__cls-29' x='81.91' y='29.71'>
+                L
+              </tspan>
+              <tspan x='92.56' y='29.71'>
+                -20
+              </tspan>
+              <tspan className='station-11__cls-36' x='125.56' y='29.71'>
+                K
+              </tspan>
+              <tspan x='139.22' y='29.71'>
+                A
+              </tspan>
+            </text>
+          </g>
+          <text
+            className='station-11__cls-23'
+            transform='translate(2039.14 1206.54)'
+          >
+            <tspan x='0' y='0'>
+              SPD
+            </tspan>
+            <tspan x='-90.03' y='29.71'>
+              iPRF1,{' '}
+            </tspan>
+            <tspan className='station-11__cls-44' x='-22.62' y='29.71'>
+              t
+            </tspan>
+            <tspan x='-14.2' y='29.71'>
+              ype 1+2, 50kA
+            </tspan>
+            <tspan className='station-11__cls-66' x='-101.79' y='59.42'>
+              T
+            </tspan>
+            <tspan x='-90.48' y='59.42'>
+              ype 10/350us + 8/20us
+            </tspan>
+          </text>
         </g>
         <g>
-          <polygon
-            className='station-11__cls-8'
-            points='950.36 1263.01 918.27 1314.96 982.45 1314.96 950.36 1263.01'
+          <g>
+            <rect
+              className='station-11__cls-50'
+              height='37.14'
+              transform='translate(35.83 1418.03) rotate(-75)'
+              width='3.09'
+              x='940.37'
+              y='667.1'
+            />
+            <rect
+              className='station-11__cls-50'
+              height='37.14'
+              transform='translate(16.97 1432.5) rotate(-75)'
+              width='3.09'
+              x='940.37'
+              y='686.63'
+            />
+            <rect
+              className='station-11__cls-50'
+              height='3.09'
+              transform='translate(-148.01 267.5) rotate(-15)'
+              width='37.14'
+              x='923.35'
+              y='694.32'
+            />
+            <rect
+              className='station-11__cls-50'
+              height='3.09'
+              transform='translate(-142.88 266.82) rotate(-15)'
+              width='37.14'
+              x='923.35'
+              y='674.49'
+            />
+          </g>
+          <rect
+            className='station-11__cls-50'
+            height='3.09'
+            width='712.93'
+            x='959.49'
+            y='708.4'
           />
           <g>
             <rect
-              className='station-11__cls-8'
-              height='6.6'
-              transform='translate(-515 655.95) rotate(-30)'
-              width='17.22'
-              x='957.9'
-              y='1285.69'
+              className='station-11__cls-28'
+              height='17.83'
+              width='57.3'
+              x='1006.19'
+              y='701.04'
             />
-            <rect
-              className='station-11__cls-13'
-              height='3.54'
-              transform='translate(-515.01 655.94) rotate(-30)'
-              width='21.1'
-              x='955.95'
-              y='1287.22'
-            />
+            <g>
+              <rect
+                className='station-11__cls-50'
+                height='3.09'
+                width='42.26'
+                x='1013.74'
+                y='702.21'
+              />
+              <rect
+                className='station-11__cls-50'
+                height='3.09'
+                width='42.26'
+                x='1013.74'
+                y='714.59'
+              />
+              <circle
+                className='station-11__cls-11'
+                cx='1013.74'
+                cy='709.95'
+                r='6.19'
+              />
+              <circle
+                className='station-11__cls-11'
+                cx='1056'
+                cy='709.95'
+                r='6.19'
+              />
+            </g>
           </g>
-          <g>
-            <rect
-              className='station-11__cls-8'
-              height='6.6'
-              transform='translate(769.67 -294) rotate(30)'
-              width='17.22'
-              x='924.84'
-              y='1285.91'
-            />
-            <rect
-              className='station-11__cls-13'
-              height='3.54'
-              transform='translate(769.66 -294) rotate(30)'
-              width='21.1'
-              x='922.88'
-              y='1287.43'
-            />
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-8'
-              height='6.6'
-              transform='translate(-364.67 2265.4) rotate(-90)'
-              width='17.22'
-              x='941.75'
-              y='1311.74'
-            />
-            <rect
-              className='station-11__cls-13'
-              height='3.54'
-              transform='translate(-364.6 2265.32) rotate(-90)'
-              width='21.18'
-              x='939.77'
-              y='1313.19'
-            />
-          </g>
-        </g>
-        <g>
-          <path
-            className='station-11__cls-8'
-            d='M951.51,1183.47c3.38,0,6.11,2.74,6.11,6.11s-2.74,6.11-6.11,6.11'
-          />
-          <rect
-            className='station-11__cls-50'
-            height='34.27'
-            width='3.06'
-            x='948.83'
-            y='1162.92'
-          />
-        </g>
-        <g>
-          <path
-            className='station-11__cls-8'
-            d='M937.09,1204.21c2.39-2.39,2.39-6.26,0-8.64s-6.26-2.39-8.64,0'
-          />
-          <rect
-            className='station-11__cls-50'
-            height='34.27'
-            transform='translate(-578.85 1017.41) rotate(-45)'
-            width='3.06'
-            x='937.17'
-            y='1190.31'
-          />
-        </g>
-        <text
-          className='station-11__cls-18'
-          transform='translate(979.97 1180.05)'
-        >
-          <tspan className='station-11__cls-52' x='0' y='0'>
-            CONTACTOR
-          </tspan>
-          <tspan x='22.27' y='29.34'>
-            3P 110A
-          </tspan>
-        </text>
-        <text
-          className='station-11__cls-18'
-          transform='translate(1020.35 1272.81)'
-        >
-          <tspan x='0' y='0'>
-            C2
-          </tspan>
-          <tspan x='-32.57' y='29.34'>
-            2*25kVar
-          </tspan>
-        </text>
-      </g>
-      <g>
-        <polygon points='1218.44 1225.99 1172.59 1218.35 1218.44 1210.71 1218.44 1225.99' />
-        <rect
-          className='station-11__cls-50'
-          height='3.06'
-          width='365.12'
-          x='1209.27'
-          y='1216.82'
-        />
-        <rect
-          className='station-11__cls-50'
-          height='44.48'
-          width='3.06'
-          x='1177.64'
-          y='1218.35'
-        />
-        <rect
-          className='station-11__cls-50'
-          height='53.99'
-          width='3.06'
-          x='1177.64'
-          y='1108.75'
-        />
-        <g>
-          <rect
-            className='station-11__cls-50'
-            height='14.75'
-            width='3.06'
-            x='1177.64'
-            y='1094'
-          />
-          <rect
-            className='station-11__cls-50'
-            height='42.79'
-            transform='translate(-381.65 728.56) rotate(-30)'
-            width='3.06'
-            x='1167.17'
-            y='1055.05'
-          />
-        </g>
-        <g>
-          <polygon
-            className='station-11__cls-8'
-            points='1179.17 1262.83 1147.08 1314.78 1211.26 1314.78 1179.17 1262.83'
-          />
-          <g>
-            <rect
-              className='station-11__cls-8'
-              height='6.6'
-              transform='translate(-484.26 770.33) rotate(-30)'
-              width='17.22'
-              x='1186.71'
-              y='1285.51'
-            />
-            <rect
-              className='station-11__cls-13'
-              height='3.54'
-              transform='translate(-484.27 770.32) rotate(-30)'
-              width='21.1'
-              x='1184.75'
-              y='1287.04'
-            />
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-8'
-              height='6.6'
-              transform='translate(800.23 -408.43) rotate(30)'
-              width='17.22'
-              x='1153.65'
-              y='1285.74'
-            />
-            <rect
-              className='station-11__cls-13'
-              height='3.54'
-              transform='translate(800.22 -408.42) rotate(30)'
-              width='21.1'
-              x='1151.69'
-              y='1287.25'
-            />
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-8'
-              height='6.6'
-              transform='translate(-135.69 2494.02) rotate(-90)'
-              width='17.22'
-              x='1170.56'
-              y='1311.56'
-            />
-            <rect
-              className='station-11__cls-13'
-              height='3.54'
-              transform='translate(-135.61 2493.95) rotate(-90)'
-              width='21.18'
-              x='1168.58'
-              y='1313.01'
-            />
-          </g>
-        </g>
-        <g>
-          <path
-            className='station-11__cls-8'
-            d='M1180.32,1183.3c3.38,0,6.11,2.74,6.11,6.11s-2.74,6.11-6.11,6.11'
-          />
-          <rect
-            className='station-11__cls-50'
-            height='34.27'
-            width='3.06'
-            x='1177.64'
-            y='1162.74'
-          />
-        </g>
-        <g>
-          <path
-            className='station-11__cls-8'
-            d='M1165.89,1204.03c2.39-2.39,2.39-6.26,0-8.64-2.39-2.39-6.26-2.39-8.64,0'
-          />
-          <rect
-            className='station-11__cls-50'
-            height='34.27'
-            transform='translate(-511.71 1179.15) rotate(-45)'
-            width='3.06'
-            x='1165.97'
-            y='1190.13'
-          />
-        </g>
-        <text
-          className='station-11__cls-18'
-          transform='translate(1208.78 1179.87)'
-        >
-          <tspan className='station-11__cls-52' x='0' y='0'>
-            CONTACTOR
-          </tspan>
-          <tspan x='22.27' y='29.34'>
-            3P 110A
-          </tspan>
-        </text>
-        <text
-          className='station-11__cls-18'
-          transform='translate(1260 1272.63)'
-        >
-          <tspan x='0' y='0'>
-            C8
-          </tspan>
-          <tspan x='-32.57' y='29.34'>
-            2*25kVar
-          </tspan>
-        </text>
-      </g>
-      <g>
-        <path
-          className='station-11__cls-26'
-          d='M1799.27,924.84l-1.71,5.18h-2.2l5.6-16.48h2.57l5.62,16.48h-2.27l-1.76-5.18h-5.84Zm5.4-1.66l-1.61-4.74c-.37-1.08-.61-2.05-.86-3.01h-.05c-.24,.98-.51,1.98-.83,2.98l-1.61,4.77h4.96Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M1822.71,929.49c-.78,.39-2.35,.78-4.35,.78-4.64,0-8.14-2.93-8.14-8.33s3.5-8.65,8.6-8.65c2.05,0,3.35,.44,3.91,.73l-.51,1.74c-.81-.39-1.96-.68-3.32-.68-3.86,0-6.43,2.47-6.43,6.8,0,4.03,2.32,6.62,6.33,6.62,1.3,0,2.62-.27,3.47-.68l.44,1.69Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M1825.38,913.77c.93-.2,2.4-.34,3.89-.34,2.13,0,3.5,.37,4.52,1.2,.86,.64,1.37,1.61,1.37,2.91,0,1.59-1.05,2.98-2.79,3.62v.05c1.56,.39,3.4,1.69,3.4,4.13,0,1.42-.56,2.49-1.39,3.3-1.15,1.05-3.01,1.54-5.7,1.54-1.47,0-2.59-.1-3.3-.2v-16.21Zm2.13,6.75h1.93c2.25,0,3.57-1.17,3.57-2.76,0-1.93-1.47-2.69-3.62-2.69-.98,0-1.54,.07-1.88,.15v5.3Zm0,7.9c.42,.07,1.03,.1,1.78,.1,2.2,0,4.23-.81,4.23-3.2,0-2.25-1.93-3.18-4.25-3.18h-1.76v6.28Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M1843.66,922.62v1.59h-6.04v-1.59h6.04Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M1854.98,915.94h-6.06l-.61,4.08c.37-.05,.71-.1,1.3-.1,1.22,0,2.44,.27,3.42,.86,1.25,.71,2.27,2.08,2.27,4.08,0,3.1-2.47,5.43-5.92,5.43-1.74,0-3.2-.49-3.96-.98l.54-1.64c.66,.39,1.96,.88,3.4,.88,2.03,0,3.76-1.32,3.76-3.45-.02-2.05-1.39-3.52-4.57-3.52-.9,0-1.61,.1-2.2,.17l1.03-7.63h7.6v1.81Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M1858.8,913.74c1.03-.17,2.37-.32,4.08-.32,2.1,0,3.64,.49,4.62,1.37,.91,.78,1.44,1.98,1.44,3.45s-.44,2.66-1.27,3.52c-1.12,1.2-2.96,1.81-5.04,1.81-.64,0-1.22-.02-1.71-.15v6.6h-2.13v-16.28Zm2.13,7.94c.46,.12,1.05,.17,1.76,.17,2.57,0,4.13-1.25,4.13-3.52s-1.54-3.23-3.89-3.23c-.93,0-1.64,.07-2,.17v6.4Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M1876.3,922.62v1.59h-6.04v-1.59h6.04Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M1882.81,916.14h-.05l-2.76,1.49-.42-1.64,3.47-1.86h1.83v15.89h-2.08v-13.88Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M1890.68,930.03v-1.32l1.69-1.64c4.06-3.86,5.89-5.92,5.92-8.31,0-1.61-.78-3.1-3.15-3.1-1.44,0-2.64,.73-3.37,1.34l-.68-1.52c1.1-.93,2.66-1.61,4.5-1.61,3.42,0,4.86,2.35,4.86,4.62,0,2.93-2.13,5.3-5.48,8.53l-1.27,1.17v.05h7.14v1.78h-10.14Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M1912.71,915.94h-6.06l-.61,4.08c.37-.05,.71-.1,1.3-.1,1.22,0,2.44,.27,3.42,.86,1.25,.71,2.27,2.08,2.27,4.08,0,3.1-2.47,5.43-5.92,5.43-1.74,0-3.2-.49-3.96-.98l.54-1.64c.66,.39,1.96,.88,3.4,.88,2.03,0,3.76-1.32,3.76-3.45-.02-2.05-1.39-3.52-4.57-3.52-.9,0-1.61,.1-2.2,.17l1.03-7.63h7.6v1.81Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M1926.33,921.91c0,5.4-2,8.38-5.52,8.38-3.1,0-5.21-2.91-5.26-8.16,0-5.33,2.3-8.26,5.52-8.26s5.26,2.98,5.26,8.04Zm-8.63,.24c0,4.13,1.27,6.48,3.23,6.48,2.2,0,3.25-2.57,3.25-6.62s-1-6.48-3.23-6.48c-1.88,0-3.25,2.3-3.25,6.62Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M1931.73,924.84l-1.71,5.18h-2.2l5.6-16.48h2.57l5.62,16.48h-2.27l-1.76-5.18h-5.84Zm5.4-1.66l-1.61-4.74c-.37-1.08-.61-2.05-.86-3.01h-.05c-.24,.98-.51,1.98-.83,2.98l-1.61,4.77h4.96Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M1849.43,959.36v-4.33h-7.38v-1.42l7.09-10.14h2.32v9.88h2.22v1.69h-2.22v4.33h-2.03Zm0-6.01v-5.3c0-.83,.02-1.66,.07-2.49h-.07c-.49,.93-.88,1.61-1.32,2.35l-3.89,5.4v.05h5.21Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M1865.89,951.25c0,5.4-2,8.38-5.52,8.38-3.1,0-5.21-2.91-5.26-8.16,0-5.33,2.3-8.26,5.52-8.26s5.26,2.98,5.26,8.04Zm-8.63,.24c0,4.13,1.27,6.48,3.23,6.48,2.2,0,3.25-2.57,3.25-6.62s-1-6.48-3.23-6.48c-1.88,0-3.25,2.3-3.25,6.62Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M1868.63,942.89h2.13v7.94h.07c.44-.64,.88-1.22,1.3-1.76l5.04-6.18h2.64l-5.96,6.99,6.43,9.48h-2.52l-5.43-8.09-1.56,1.81v6.28h-2.13v-16.48Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M1884.79,954.18l-1.71,5.18h-2.2l5.6-16.48h2.57l5.62,16.48h-2.27l-1.76-5.18h-5.84Zm5.4-1.66l-1.61-4.74c-.37-1.08-.61-2.05-.86-3.01h-.05c-.24,.98-.51,1.98-.83,2.98l-1.61,4.77h4.96Z'
-        />
-      </g>
-      <g>
-        <path
-          className='station-11__cls-26'
-          d='M2090.03,921.53c-.12-2.3-.27-5.06-.24-7.11h-.07c-.56,1.93-1.25,3.98-2.08,6.26l-2.91,7.99h-1.61l-2.66-7.85c-.78-2.32-1.44-4.45-1.91-6.4h-.05c-.05,2.05-.17,4.82-.32,7.28l-.44,7.06h-2.03l1.15-16.48h2.71l2.81,7.97c.68,2.03,1.25,3.84,1.66,5.55h.07c.42-1.66,1-3.47,1.74-5.55l2.93-7.97h2.71l1.03,16.48h-2.08l-.42-7.24Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2107.31,928.23c-.78,.39-2.35,.78-4.35,.78-4.64,0-8.14-2.93-8.14-8.33s3.5-8.65,8.6-8.65c2.05,0,3.35,.44,3.91,.73l-.51,1.74c-.81-.39-1.96-.68-3.32-.68-3.86,0-6.43,2.47-6.43,6.8,0,4.03,2.32,6.62,6.33,6.62,1.3,0,2.62-.27,3.47-.68l.44,1.69Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2120.98,928.23c-.78,.39-2.35,.78-4.35,.78-4.64,0-8.14-2.93-8.14-8.33s3.5-8.65,8.6-8.65c2.05,0,3.35,.44,3.91,.73l-.51,1.74c-.81-.39-1.96-.68-3.32-.68-3.86,0-6.43,2.47-6.43,6.8,0,4.03,2.32,6.62,6.33,6.62,1.3,0,2.62-.27,3.47-.68l.44,1.69Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2123.65,912.51c.93-.2,2.4-.34,3.89-.34,2.13,0,3.5,.37,4.52,1.2,.86,.64,1.37,1.61,1.37,2.91,0,1.59-1.05,2.98-2.79,3.62v.05c1.56,.39,3.4,1.69,3.4,4.13,0,1.42-.56,2.49-1.39,3.3-1.15,1.05-3.01,1.54-5.7,1.54-1.47,0-2.59-.1-3.3-.2v-16.21Zm2.13,6.75h1.93c2.25,0,3.57-1.17,3.57-2.76,0-1.93-1.47-2.69-3.62-2.69-.98,0-1.54,.07-1.88,.15v5.3Zm0,7.9c.42,.07,1.03,.1,1.78,.1,2.2,0,4.23-.81,4.23-3.2,0-2.25-1.93-3.18-4.25-3.18h-1.76v6.28Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2141.93,921.36v1.59h-6.04v-1.59h6.04Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2150.42,928.77v-4.33h-7.38v-1.42l7.09-10.14h2.32v9.88h2.22v1.69h-2.22v4.33h-2.03Zm0-6.01v-5.3c0-.83,.02-1.66,.07-2.49h-.07c-.49,.93-.88,1.61-1.32,2.35l-3.89,5.4v.05h5.21Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2157.07,912.48c1.03-.17,2.37-.32,4.08-.32,2.1,0,3.64,.49,4.62,1.37,.91,.78,1.44,1.98,1.44,3.45s-.44,2.66-1.27,3.52c-1.12,1.2-2.96,1.81-5.04,1.81-.64,0-1.22-.02-1.71-.15v6.6h-2.13v-16.28Zm2.13,7.94c.46,.12,1.05,.17,1.76,.17,2.57,0,4.13-1.25,4.13-3.52s-1.54-3.23-3.89-3.23c-.93,0-1.64,.07-2,.17v6.4Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2174.57,921.36v1.59h-6.04v-1.59h6.04Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2181.08,914.88h-.05l-2.76,1.49-.42-1.64,3.47-1.86h1.83v15.89h-2.08v-13.88Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2198.02,914.39c-.44-.02-1,0-1.61,.1-3.37,.56-5.16,3.03-5.52,5.65h.07c.76-1,2.08-1.83,3.84-1.83,2.81,0,4.79,2.03,4.79,5.13,0,2.91-1.98,5.6-5.28,5.6s-5.62-2.64-5.62-6.77c0-3.13,1.12-5.6,2.69-7.16,1.32-1.3,3.08-2.1,5.08-2.35,.64-.1,1.17-.12,1.56-.12v1.76Zm-.61,9.17c0-2.27-1.29-3.64-3.28-3.64-1.3,0-2.49,.81-3.08,1.96-.15,.25-.24,.56-.24,.95,.05,2.62,1.25,4.55,3.5,4.55,1.86,0,3.1-1.54,3.1-3.81Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2212.05,920.65c0,5.4-2,8.38-5.52,8.38-3.1,0-5.21-2.91-5.26-8.16,0-5.33,2.3-8.26,5.52-8.26s5.26,2.98,5.26,8.04Zm-8.63,.24c0,4.13,1.27,6.48,3.23,6.48,2.2,0,3.25-2.57,3.25-6.62s-1-6.48-3.23-6.48c-1.88,0-3.25,2.3-3.25,6.62Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2217.46,923.58l-1.71,5.18h-2.2l5.6-16.48h2.57l5.62,16.48h-2.27l-1.76-5.18h-5.84Zm5.4-1.66l-1.61-4.74c-.37-1.08-.61-2.05-.86-3.01h-.05c-.24,.98-.51,1.98-.83,2.98l-1.61,4.77h4.96Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2077.3,958.1v-16.48h2.32l5.28,8.34c1.22,1.93,2.18,3.67,2.96,5.35l.05-.02c-.2-2.2-.24-4.2-.24-6.77v-6.89h2v16.48h-2.15l-5.23-8.36c-1.15-1.83-2.25-3.71-3.08-5.5l-.07,.02c.12,2.08,.17,4.06,.17,6.8v7.04h-2Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2093.1,955.51c.95,.59,2.35,1.08,3.81,1.08,2.18,0,3.45-1.15,3.45-2.81,0-1.54-.88-2.42-3.1-3.28-2.69-.95-4.35-2.35-4.35-4.67,0-2.57,2.13-4.47,5.33-4.47,1.69,0,2.91,.39,3.64,.81l-.59,1.74c-.54-.29-1.64-.78-3.13-.78-2.25,0-3.1,1.34-3.1,2.47,0,1.54,1,2.3,3.28,3.18,2.79,1.08,4.2,2.42,4.2,4.84,0,2.54-1.88,4.74-5.77,4.74-1.59,0-3.33-.46-4.21-1.05l.54-1.78Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2114.47,958.1l-2.1-3.64c-.86-1.39-1.39-2.3-1.91-3.25h-.05c-.46,.95-.93,1.83-1.79,3.28l-1.98,3.62h-2.44l5.04-8.34-4.84-8.14h2.47l2.18,3.86c.61,1.08,1.08,1.91,1.52,2.79h.07c.46-.98,.88-1.74,1.49-2.79l2.25-3.86h2.44l-5.01,8.02,5.13,8.46h-2.47Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2123.32,944.22h-.05l-2.76,1.49-.42-1.64,3.47-1.86h1.83v15.89h-2.08v-13.88Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2140.26,943.73c-.44-.02-1,0-1.61,.1-3.37,.56-5.16,3.03-5.52,5.65h.07c.76-1,2.08-1.83,3.84-1.83,2.81,0,4.79,2.03,4.79,5.13,0,2.91-1.98,5.6-5.28,5.6s-5.62-2.64-5.62-6.77c0-3.13,1.12-5.6,2.69-7.16,1.32-1.3,3.08-2.1,5.08-2.35,.64-.1,1.17-.12,1.56-.12v1.76Zm-.61,9.17c0-2.27-1.29-3.64-3.28-3.64-1.3,0-2.49,.81-3.08,1.96-.15,.24-.24,.56-.24,.95,.05,2.62,1.25,4.55,3.5,4.55,1.86,0,3.1-1.54,3.1-3.81Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2154.29,949.99c0,5.4-2,8.38-5.52,8.38-3.1,0-5.21-2.91-5.26-8.16,0-5.33,2.3-8.26,5.52-8.26s5.26,2.98,5.26,8.04Zm-8.63,.24c0,4.13,1.27,6.48,3.23,6.48,2.2,0,3.25-2.57,3.25-6.62s-1-6.48-3.23-6.48c-1.88,0-3.25,2.3-3.25,6.62Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2157.03,941.63h2.13v14.69h7.04v1.78h-9.17v-16.48Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2172.46,950.7v1.59h-6.04v-1.59h6.04Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2174.29,958.1v-1.32l1.69-1.64c4.06-3.86,5.89-5.92,5.92-8.31,0-1.61-.78-3.1-3.15-3.1-1.44,0-2.64,.73-3.37,1.34l-.68-1.52c1.1-.93,2.66-1.61,4.5-1.61,3.42,0,4.86,2.35,4.86,4.62,0,2.93-2.13,5.3-5.48,8.53l-1.27,1.17v.05h7.14v1.78h-10.14Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2197.4,949.99c0,5.4-2,8.38-5.52,8.38-3.1,0-5.21-2.91-5.26-8.16,0-5.33,2.3-8.26,5.52-8.26s5.26,2.98,5.26,8.04Zm-8.63,.24c0,4.13,1.27,6.48,3.23,6.48,2.2,0,3.25-2.57,3.25-6.62s-1-6.48-3.23-6.48c-1.88,0-3.25,2.3-3.25,6.62Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2200.13,941.63h2.13v7.94h.07c.44-.64,.88-1.22,1.3-1.76l5.04-6.18h2.64l-5.96,6.99,6.43,9.48h-2.52l-5.43-8.09-1.56,1.81v6.28h-2.13v-16.48Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M2216.3,952.92l-1.71,5.18h-2.2l5.6-16.48h2.57l5.62,16.48h-2.27l-1.76-5.18h-5.84Zm5.4-1.66l-1.61-4.74c-.37-1.08-.61-2.05-.86-3.01h-.05c-.24,.98-.51,1.98-.83,2.98l-1.61,4.77h4.96Z'
-        />
-      </g>
-      <text className='station-11__cls-23' transform='translate(846.79 35.82)'>
-        <tspan className='station-11__cls-40'>
-          <tspan className='station-11__cls-42' x='0' y='0'>
-            Transformer (TR#11)
-          </tspan>
-        </tspan>
-        <tspan className='station-11__cls-1'>
-          <tspan x='-31.2' y='29.34'>
-            1000kVA 22kV 690/3/50
-          </tspan>
-        </tspan>
-      </text>
-      <g>
-        <path
-          className='station-11__cls-26'
-          d='M814.45,151.88v-1.32l1.69-1.64c4.06-3.86,5.89-5.92,5.92-8.31,0-1.61-.78-3.1-3.15-3.1-1.44,0-2.64,.73-3.37,1.34l-.68-1.52c1.1-.93,2.66-1.61,4.5-1.61,3.42,0,4.86,2.35,4.86,4.62,0,2.93-2.13,5.3-5.48,8.53l-1.27,1.17v.05h7.14v1.78h-10.14Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M826.99,151.88v-1.32l1.69-1.64c4.06-3.86,5.89-5.92,5.92-8.31,0-1.61-.78-3.1-3.15-3.1-1.44,0-2.64,.73-3.37,1.34l-.68-1.52c1.1-.93,2.66-1.61,4.5-1.61,3.42,0,4.86,2.35,4.86,4.62,0,2.93-2.13,5.3-5.48,8.53l-1.27,1.17v.05h7.14v1.78h-10.14Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M840.29,135.4h2.13v7.94h.07c.44-.64,.88-1.22,1.3-1.76l5.04-6.18h2.64l-5.96,6.99,6.43,9.48h-2.52l-5.43-8.09-1.56,1.81v6.28h-2.13v-16.48Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M857.53,151.88l-5.38-16.48h2.3l2.57,8.12c.71,2.22,1.32,4.23,1.76,6.16h.05c.46-1.91,1.15-3.98,1.88-6.14l2.79-8.14h2.27l-5.89,16.48h-2.35Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M865.67,152.86l6.82-17.72h1.66l-6.84,17.72h-1.64Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M874.06,152.86l6.82-17.72h1.66l-6.84,17.72h-1.64Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M892.64,137.5c-.44-.02-1,0-1.61,.1-3.37,.56-5.16,3.03-5.52,5.65h.07c.76-1,2.08-1.83,3.84-1.83,2.81,0,4.79,2.03,4.79,5.13,0,2.91-1.98,5.6-5.28,5.6s-5.62-2.64-5.62-6.77c0-3.13,1.12-5.6,2.69-7.16,1.32-1.3,3.08-2.1,5.08-2.35,.64-.1,1.17-.12,1.56-.12v1.76Zm-.61,9.17c0-2.27-1.29-3.64-3.28-3.64-1.3,0-2.49,.81-3.08,1.96-.15,.24-.24,.56-.24,.95,.05,2.62,1.25,4.55,3.5,4.55,1.86,0,3.1-1.54,3.1-3.81Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M897.36,150.36c.46,.05,1,0,1.74-.07,1.25-.17,2.42-.68,3.32-1.54,1.05-.95,1.81-2.35,2.1-4.23h-.07c-.88,1.08-2.15,1.71-3.74,1.71-2.86,0-4.69-2.15-4.69-4.86,0-3.01,2.18-5.65,5.43-5.65s5.26,2.64,5.26,6.7c0,3.5-1.17,5.94-2.74,7.46-1.22,1.2-2.91,1.93-4.62,2.13-.78,.12-1.47,.15-1.98,.12v-1.76Zm.78-9.14c0,1.98,1.2,3.37,3.06,3.37,1.44,0,2.57-.71,3.13-1.66,.12-.2,.2-.44,.2-.78,0-2.71-1-4.79-3.25-4.79-1.83,0-3.13,1.61-3.13,3.86Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M919.21,143.76c0,5.4-2,8.38-5.52,8.38-3.1,0-5.21-2.91-5.26-8.16,0-5.33,2.3-8.26,5.52-8.26s5.26,2.98,5.26,8.04Zm-8.63,.24c0,4.13,1.27,6.48,3.23,6.48,2.2,0,3.25-2.57,3.25-6.62s-1-6.48-3.23-6.48c-1.88,0-3.25,2.3-3.25,6.62Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M925.57,151.88l-5.38-16.48h2.3l2.57,8.12c.71,2.22,1.32,4.23,1.76,6.16h.05c.46-1.91,1.15-3.98,1.88-6.14l2.79-8.14h2.27l-5.89,16.48h-2.35Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M834.89,167.33h-.05l-2.76,1.49-.42-1.64,3.47-1.86h1.83v15.89h-2.08v-13.88Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M853.32,173.1c0,5.4-2,8.38-5.52,8.38-3.1,0-5.21-2.91-5.26-8.16,0-5.33,2.3-8.26,5.52-8.26s5.26,2.98,5.26,8.04Zm-8.63,.24c0,4.13,1.27,6.48,3.23,6.48,2.2,0,3.25-2.57,3.25-6.62s-1-6.48-3.23-6.48c-1.88,0-3.25,2.3-3.25,6.62Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M865.86,173.1c0,5.4-2,8.38-5.52,8.38-3.1,0-5.21-2.91-5.26-8.16,0-5.33,2.3-8.26,5.52-8.26s5.26,2.98,5.26,8.04Zm-8.63,.24c0,4.13,1.27,6.48,3.23,6.48,2.2,0,3.25-2.57,3.25-6.62s-1-6.48-3.23-6.48c-1.88,0-3.25,2.3-3.25,6.62Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M878.41,173.1c0,5.4-2,8.38-5.52,8.38-3.1,0-5.21-2.91-5.26-8.16,0-5.33,2.3-8.26,5.52-8.26s5.26,2.98,5.26,8.04Zm-8.63,.24c0,4.13,1.27,6.48,3.23,6.48,2.2,0,3.25-2.57,3.25-6.62s-1-6.48-3.23-6.48c-1.88,0-3.25,2.3-3.25,6.62Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M883.2,174.81h.05c.29-.42,.71-.93,1.05-1.34l3.47-4.08h2.59l-4.57,4.86,5.21,6.97h-2.62l-4.08-5.67-1.1,1.22v4.45h-2.13v-17.36h2.13v10.95Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M896.23,181.22l-5.38-16.48h2.3l2.57,8.12c.71,2.22,1.32,4.23,1.76,6.16h.05c.46-1.91,1.15-3.98,1.88-6.14l2.79-8.14h2.27l-5.89,16.48h-2.35Z'
-        />
-        <path
-          className='station-11__cls-26'
-          d='M907.53,176.04l-1.71,5.18h-2.2l5.6-16.48h2.57l5.62,16.48h-2.27l-1.76-5.18h-5.84Zm5.4-1.66l-1.61-4.74c-.37-1.08-.61-2.05-.86-3.01h-.05c-.24,.98-.51,1.98-.83,2.98l-1.61,4.77h4.96Z'
-        />
-      </g>
-      <text className='station-11__cls-18' transform='translate(690 242.32)'>
-        <tspan className='station-11__cls-45' x='0' y='0'>
-          Rel ≤ 4 Ohm
-        </tspan>
-      </text>
-      <g>
-        <rect
-          className='station-11__cls-41'
-          height='3.06'
-          width='147.91'
-          x='996.93'
-          y='299.67'
-        />
-        <text className='station-11__cls-18' transform='translate(1030 296.59)'>
-          <tspan className='station-11__cls-27' x='0' y='0'>
-            Thanh cái
-          </tspan>
-        </text>
-      </g>
-      <text className='station-11__cls-18' transform='translate(1072.94 485.4)'>
-        <tspan x='0' y='0'>
-          690//220V
-        </tspan>
-      </text>
-      <text className='station-11__cls-18' transform='translate(750 575.2)'>
-        <tspan className='station-11__cls-59' x='0' y='0'>
-          ACB-3P-1250A
-        </tspan>
-        <tspan x='13.39' y='29.34'>
-          50kA - 690V
-        </tspan>
-      </text>
-      <text className='station-11__cls-18' transform='translate(842.21 675.99)'>
-        <tspan className='station-11__cls-56' x='0' y='0'>
-          CTx3
-        </tspan>
-        <tspan x='-18.01' y='29.34'>
-          1200/5A
-        </tspan>
-      </text>
-      <text className='station-11__cls-18' transform='translate(840 766.09)'>
-        <tspan className='station-11__cls-56' x='0' y='0'>
-          CTx1
-        </tspan>
-        <tspan x='-18.01' y='29.34'>
-          2000/5A
-        </tspan>
-      </text>
-      <text className='station-11__cls-18' transform='translate(643.99 853.03)'>
-        <tspan className='station-11__cls-27' x='0' y='0'>
-          Thanh cái
-        </tspan>
-      </text>
-      <text className='station-11__cls-18' transform='translate(983.67 929.04)'>
-        <tspan x='0' y='0'>
-          MCCB-3P-630A
-        </tspan>
-        <tspan x='60.55' y='29.34'>
-          20KA
-        </tspan>
-      </text>
-      <text
-        className='station-11__cls-18'
-        transform='translate(1403.52 887.25)'
-      >
-        <tspan className='station-11__cls-62' x='0' y='0'>
-          VARLOGIC
-        </tspan>
-      </text>
-      <text
-        className='station-11__cls-18'
-        transform='translate(2031.61 1199.88)'
-      >
-        <tspan x='0' y='0'>
-          SPD
-        </tspan>
-        <tspan x='-88.91' y='29.34'>
-          iPRF1,type 1+2, 50kA
-        </tspan>
-        <tspan className='station-11__cls-29' x='-100.52' y='58.68'>
-          Type 10/350us + 8/20us
-        </tspan>
-      </text>
-      <g>
-        <rect
-          className='station-11__cls-13'
-          height='17.61'
-          width='56.58'
-          x='1011.55'
-          y='700.68'
-        />
-        <g>
-          <rect
-            className='station-11__cls-41'
-            height='3.06'
-            width='41.73'
-            x='1019'
-            y='701.84'
-          />
-          <rect
-            className='station-11__cls-41'
-            height='3.06'
-            width='41.73'
-            x='1019'
-            y='714.07'
-          />
-          <circle
-            className='station-11__cls-7'
-            cx='1019'
-            cy='709.48'
-            r='6.11'
-          />
-          <circle
-            className='station-11__cls-7'
-            cx='1060.74'
-            cy='709.48'
-            r='6.11'
-          />
+          <text
+            className='station-11__cls-23'
+            transform='translate(1014.57 698.9)'
+          >
+            <tspan className='station-11__cls-60' x='0' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-77' x='15.05' y='0'>
+              T
+            </tspan>
+            <tspan x='28.3' y='0'>
+              T
+            </tspan>
+          </text>
         </g>
       </g>
-      <text
-        className='station-11__cls-18'
-        transform='translate(1019.82 698.57)'
-      >
-        CTT
-      </text>
     </svg>
   );
 }

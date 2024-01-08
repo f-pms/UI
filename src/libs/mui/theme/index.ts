@@ -1,6 +1,7 @@
 import { createTheme } from '@mui/material';
 
-import { ColorScheme, getPaletteColor } from '~/libs/mui/theme/palette';
+import { ColorScheme } from '~/constants';
+import { getPaletteColor } from '~/libs/mui/theme/palette';
 import { FontFamily, getFontFamily } from '~/libs/mui/theme/typography';
 
 export const getCustomizeTheme = (
@@ -15,6 +16,29 @@ export const getCustomizeTheme = (
         styleOverrides: {
           root: {
             textTransform: 'none',
+            fontWeight: 600,
+            minWidth: 0,
+          },
+        },
+      },
+      MuiModal: {
+        styleOverrides: {
+          root: {
+            '& .MuiBackdrop-root': {
+              backgroundColor: 'rgba(255, 255, 255, 0.8)',
+              backdropFilter: 'blur(4px)',
+            },
+            '& .MuiBackdrop-invisible': {
+              backgroundColor: 'transparent',
+              backdropFilter: 'none',
+            },
+          },
+        },
+      },
+      MuiChip: {
+        styleOverrides: {
+          root: {
+            fontWeight: 600,
           },
         },
       },

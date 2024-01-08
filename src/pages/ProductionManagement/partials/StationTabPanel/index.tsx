@@ -20,14 +20,12 @@ export const StationTabPanel = React.forwardRef<
 >(function StationTabPanel({ value }: IStationTabPanelProps, ref) {
   const [expanded, setExpanded] = React.useState(false);
   const paperStyles = {
-    position: expanded ? 'absolute' : 'relative',
-    width: expanded ? '100vw' : '100%',
+    display: 'flex',
+    flexDirection: 'column',
     height: expanded ? '100vh' : 'calc(100vh - 64px)',
     maxHeight: expanded ? '100vh' : '1024px',
 
-    display: 'flex',
-    flexDirection: 'column',
-
+    position: expanded ? 'absolute' : 'relative',
     top: 0,
     left: 0,
     right: 0,
@@ -62,7 +60,7 @@ export const StationTabPanel = React.forwardRef<
             index={tab.value}
             style={{
               height: '100%',
-              width: 'auto',
+              paddingBottom: '8px',
             }}
             value={value}
           >

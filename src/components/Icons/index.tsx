@@ -1,3 +1,4 @@
+export { default as AddCircleOutlineOutlinedIcon } from '@mui/icons-material/AddCircleOutlineOutlined';
 export { default as ArrowDropDownIcon } from '@mui/icons-material/ArrowDropDown';
 export { default as ArrowDropUpIcon } from '@mui/icons-material/ArrowDropUp';
 export { default as CenterFocusStrongOutlinedIcon } from '@mui/icons-material/CenterFocusStrongOutlined';

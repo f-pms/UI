@@ -15,8 +15,7 @@ export interface DayProps {
   date: Date;
 }
 
-export function Day(props: DayProps): JSX.Element {
-  const { date, displayMonth } = props;
+export function Day({ date, displayMonth }: DayProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dayRender = useDayRender(date, displayMonth, buttonRef);
   const { selected, classNames, locale } = useDayPicker();
