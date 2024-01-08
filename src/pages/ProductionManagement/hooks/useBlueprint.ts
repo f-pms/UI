@@ -14,14 +14,14 @@ export default () => {
   const { figuresCoordinate, updateContextByBlueprint } = useContext(
     FiguresCoordinateContext,
   );
+  const [isBlueprintReady, setIsBlueprintReady] = useState<boolean>(false);
 
-  const {
-    data,
-    isLoading: isFetchingBlueprint,
-    refetch: refetchBlueprint,
-  } = useQueryBlueprintById(tabInfo.blueprint);
+  const { data, refetch: refetchBlueprint } = useQueryBlueprintById(
+    tabInfo.blueprint,
+  );
 
   useEffect(() => {
+    setIsBlueprintReady(false);
     refetchBlueprint();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [tabValue]);
@@ -29,6 +29,7 @@ export default () => {
   useEffect(() => {
     if (data != undefined) {
       updateContextByBlueprint(data);
+      setIsBlueprintReady(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
@@ -38,6 +39,6 @@ export default () => {
     setTabValue,
     tabInfo,
     figuresCoordinate,
-    isFetchingBlueprint,
+    isBlueprintReady,
   };
 };

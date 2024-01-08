@@ -36,8 +36,8 @@ export const DIAGRAMS: TabItem[] = [
   {
     value: 1,
     label: 'Trạm TR11',
-    blueprint: 'main',
-    channel: 'main',
+    blueprint: 'tr11',
+    channel: 'tr11',
     panel: <TR11Diagram />,
   },
   {
@@ -130,6 +130,9 @@ export const getTabItemByValue = (tabValue: number): TabItem => {
 export const useExtractFigureCoordinate = (
   figuresCoordinate: FiguresCoordinateType,
 ): ((figureId: string) => string) => {
-  return (figureId) =>
-    `translate (${figuresCoordinate[figureId].x} ${figuresCoordinate[figureId].y})`;
+  return (figureId) => {
+    if (!figuresCoordinate || figuresCoordinate[figureId] == null)
+      return 'translate(0 0)';
+    return `translate(${figuresCoordinate[figureId].x} ${figuresCoordinate[figureId].y})`;
+  };
 };

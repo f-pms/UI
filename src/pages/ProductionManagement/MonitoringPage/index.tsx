@@ -20,22 +20,19 @@ function MonitoringPage() {
     setTabValue,
     tabInfo,
     figuresCoordinate,
-    isFetchingBlueprint,
+    isBlueprintReady,
   } = useBlueprint();
 
-  const { isWebsocketConnected, ...ws } = useWebSocket(
-    tabValue,
-    tabInfo.channel,
-  );
+  const ws = useWebSocket(tabValue, tabInfo.channel);
 
   const figureValues = useMonitoringStore((state) => state.figureValues);
   const isReady = useMemo(
     () =>
-      !isFetchingBlueprint &&
+      isBlueprintReady &&
       !_.isEmpty(figuresCoordinate) &&
       ws.isSubscribed(tabInfo.channel) &&
       figureValues != undefined,
-    [isFetchingBlueprint, figuresCoordinate, ws, tabInfo.channel, figureValues],
+    [isBlueprintReady, figuresCoordinate, ws, tabInfo.channel, figureValues],
   );
 
   const ref = useRef<HTMLDivElement>(null);
