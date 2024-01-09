@@ -11,6 +11,9 @@ import {
 } from '~/pages/Components';
 import { DashboardPage } from '~/pages/DashboardPage';
 import { HomePage } from '~/pages/HomePage';
+import MonitoringPage, {
+  ProductionPageLayout,
+} from '~/pages/ProductionManagement';
 import { UserListPage, UserProfilePage } from '~/pages/Users';
 
 export const privateRoutes: (PrivateRouteObject & RouteObject)[] = [
@@ -38,6 +41,18 @@ export const privateRoutes: (PrivateRouteObject & RouteObject)[] = [
       {
         path: 'table',
         element: <TablePage />,
+      },
+    ],
+  },
+  {
+    path: Path.PRODUCTION,
+    element: <ProductionPageLayout />,
+    layout: <DefaultLayout />,
+    roles: [Role.ADMIN, Role.USER],
+    children: [
+      {
+        path: 'monitoring',
+        element: <MonitoringPage />,
       },
     ],
   },

@@ -18,8 +18,9 @@ export default function HeaderBreadcrumbs() {
     navigate(path);
   }
 
-  const breadcrumbs = matches.map((match, index) => {
-    return index != matches.length - 1 ? (
+  const breadcrumbs = matches.slice(1).map((match, index) => {
+    const isLast = index === matches.slice(1).length - 1;
+    return !isLast ? (
       <Link
         key={match.pathname}
         color='inherit'
