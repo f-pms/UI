@@ -6,8 +6,8 @@ import {
   Lv31Table,
   Lv32Table,
   Lv33Table,
-  Lv34_1Table,
-  Lv34_2Table,
+  Lv34T1Table,
+  Lv34T2Table,
   Lv42Table,
   Lv52Table,
   Lv72Table,
@@ -28,8 +28,8 @@ export enum GroupId {
   Lv32Table = 'Lv32Table',
   Lv33Table = 'Lv33Table',
   /* eslint-disable @typescript-eslint/naming-convention */
-  Lv34_1Table = 'Lv34_1Table',
-  Lv34_2Table = 'Lv34_2Table',
+  Lv34T1Table = 'Lv34_1Table',
+  Lv34T2Table = 'Lv34_2Table',
   Lv42Table = 'Lv42Table',
   Lv52Table = 'Lv52Table',
   Lv72Table = 'Lv72Table',
@@ -8655,8 +8655,8 @@ export function MainDiagram() {
       <Lv31Table figuresCoordinate={figuresCoordinate[GroupId.Lv31Table]} />
       <Lv32Table figuresCoordinate={figuresCoordinate[GroupId.Lv32Table]} />
       <Lv33Table figuresCoordinate={figuresCoordinate[GroupId.Lv33Table]} />
-      <Lv34_2Table figuresCoordinate={figuresCoordinate[GroupId.Lv34_2Table]} />
-      <Lv34_1Table figuresCoordinate={figuresCoordinate[GroupId.Lv34_1Table]} />
+      <Lv34T2Table figuresCoordinate={figuresCoordinate[GroupId.Lv34T2Table]} />
+      <Lv34T1Table figuresCoordinate={figuresCoordinate[GroupId.Lv34T1Table]} />
       <TuyenNguonNhaKeoTr82Table
         figuresCoordinate={figuresCoordinate[GroupId.TuyenNguonNhaKeoTr82Table]}
       />
