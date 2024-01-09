@@ -11,48 +11,12 @@ export function TR30Diagram() {
       <text className='station-30__cls-5' transform='translate(1361.21 24.56)'>
         <tspan className='station-30__cls-44'>
           <tspan className='station-30__cls-66' x='0' y='0'>
-            T
-          </tspan>
-          <tspan className='station-30__cls-53' x='9.67' y='0'>
-            r
-          </tspan>
-          <tspan className='station-30__cls-67' x='16.56' y='0'>
-            ans
-          </tspan>
-          <tspan className='station-30__cls-63' x='47.22' y='0'>
-            f
-          </tspan>
-          <tspan x='53.19' y='0'>
-            o
-          </tspan>
-          <tspan className='station-30__cls-24' x='64.93' y='0'>
-            r
-          </tspan>
-          <tspan x='72.01' y='0'>
-            mer{' '}
-          </tspan>
-          <tspan className='station-30__cls-32' x='112.1' y='0'>
-            (
-          </tspan>
-          <tspan className='station-30__cls-48' x='119.21' y='0'>
-            TR#30)
+            Transformer (TR#30)
           </tspan>
         </tspan>
         <tspan className='station-30__cls-1'>
           <tspan x='-51.38' y='25.67'>
-            7000k
-          </tspan>
-          <tspan className='station-30__cls-37' x='2.56' y='25.67'>
-            V
-          </tspan>
-          <tspan className='station-30__cls-67' x='13.28' y='25.67'>
-            A 22kV/11kV/3pha/50
-          </tspan>
-          <tspan className='station-30__cls-2' x='208.04' y='25.67'>
-            H
-          </tspan>
-          <tspan className='station-30__cls-67' x='222.23' y='25.67'>
-            z
+            7000kVA 22kV/11kV/3pha/50Hz
           </tspan>
         </tspan>
       </text>
@@ -202,24 +166,12 @@ export function TR30Diagram() {
         >
           <tspan className='station-30__cls-44'>
             <tspan className='station-30__cls-66' x='0' y='0'>
-              T
-            </tspan>
-            <tspan x='9.67' y='0'>
-              ụ bù
-            </tspan>
-            <tspan className='station-30__cls-64' x='49.95' y='0'>
-              {' '}
-            </tspan>
-            <tspan className='station-30__cls-48' x='53.61' y='0'>
-              TR30
+              Tụ bù TR30
             </tspan>
           </tspan>
           <tspan className='station-30__cls-43'>
             <tspan className='station-30__cls-58' x='10.47' y='25.67'>
-              P
-            </tspan>
-            <tspan x='21.6' y='25.67'>
-              M 5310
+              PM 5310
             </tspan>
           </tspan>
         </text>
@@ -236,10 +188,7 @@ export function TR30Diagram() {
             transform='translate(673.61 1149.66)'
           >
             <tspan className='station-30__cls-57' x='0' y='0'>
-              A
-            </tspan>
-            <tspan x='11.4' y='0'>
-              -B
+              A-B
             </tspan>
           </text>
         </g>
@@ -256,13 +205,7 @@ export function TR30Diagram() {
             transform='translate(737.33 1149.68)'
           >
             <tspan className='station-30__cls-56' x='0' y='0'>
-              B
-            </tspan>
-            <tspan className='station-30__cls-46' x='10.24' y='0'>
-              -
-            </tspan>
-            <tspan x='16.25' y='0'>
-              C
+              B-C
             </tspan>
           </text>
         </g>
@@ -279,13 +222,7 @@ export function TR30Diagram() {
             transform='translate(799.4 1150.58)'
           >
             <tspan className='station-30__cls-36' x='0' y='0'>
-              A
-            </tspan>
-            <tspan className='station-30__cls-68' x='13.03' y='0'>
-              -
-            </tspan>
-            <tspan x='19.9' y='0'>
-              C
+              A-C
             </tspan>
           </text>
         </g>
@@ -302,10 +239,7 @@ export function TR30Diagram() {
             transform='translate(866.88 1182.67)'
           >
             <tspan className='station-30__cls-49' x='0' y='0'>
-              K
-            </tspan>
-            <tspan className='station-30__cls-67' x='11.92' y='0'>
-              V
+              KV
             </tspan>
           </text>
         </g>
@@ -338,10 +272,7 @@ export function TR30Diagram() {
           transform='translate(857.96 1246.85)'
         >
           <tspan className='station-30__cls-50' x='0' y='0'>
-            c
-          </tspan>
-          <tspan x='9.46' y='0'>
-            osφ
+            cosφ
           </tspan>
         </text>
         <g>
@@ -374,7 +305,7 @@ export function TR30Diagram() {
             transform='translate(728.07 1182.29)'
           >
             <tspan x='0' y='0'>
-              11.11
+              99.99
             </tspan>
           </text>
         </g>
@@ -492,31 +423,7 @@ export function TR30Diagram() {
           transform='translate(1883.68 249.39)'
         >
           <tspan x='0' y='0'>
-            Di
-          </tspan>
-          <tspan className='station-30__cls-30' x='19.25' y='0'>
-            g
-          </tspan>
-          <tspan x='31.08' y='0'>
-            ital{' '}
-          </tspan>
-          <tspan className='station-30__cls-51' x='63.07' y='0'>
-            M
-          </tspan>
-          <tspan x='80.33' y='0'>
-            ulti{' '}
-          </tspan>
-          <tspan className='station-30__cls-28' x='113.79' y='0'>
-            M
-          </tspan>
-          <tspan className='station-30__cls-67' x='131.12' y='0'>
-            et
-          </tspan>
-          <tspan className='station-30__cls-30' x='148.92' y='0'>
-            t
-          </tspan>
-          <tspan x='155.87' y='0'>
-            er
+            Digital Multi Meter
           </tspan>
           <tspan className='station-30__cls-58' x='50.68' y='25.67'>
             P
@@ -538,10 +445,7 @@ export function TR30Diagram() {
             transform='translate(1860.71 308.63)'
           >
             <tspan className='station-30__cls-57' x='0' y='0'>
-              A
-            </tspan>
-            <tspan x='11.4' y='0'>
-              -B
+              A-B
             </tspan>
           </text>
         </g>
@@ -558,13 +462,7 @@ export function TR30Diagram() {
             transform='translate(1924.43 308.65)'
           >
             <tspan className='station-30__cls-56' x='0' y='0'>
-              B
-            </tspan>
-            <tspan className='station-30__cls-46' x='10.24' y='0'>
-              -
-            </tspan>
-            <tspan x='16.25' y='0'>
-              C
+              B-C
             </tspan>
           </text>
         </g>
@@ -581,13 +479,7 @@ export function TR30Diagram() {
             transform='translate(1986.49 309.55)'
           >
             <tspan className='station-30__cls-36' x='0' y='0'>
-              A
-            </tspan>
-            <tspan className='station-30__cls-68' x='13.03' y='0'>
-              -
-            </tspan>
-            <tspan x='19.9' y='0'>
-              C
+              A-C
             </tspan>
           </text>
         </g>
@@ -604,10 +496,7 @@ export function TR30Diagram() {
             transform='translate(2053.98 341.64)'
           >
             <tspan className='station-30__cls-49' x='0' y='0'>
-              K
-            </tspan>
-            <tspan className='station-30__cls-67' x='11.92' y='0'>
-              V
+              KV
             </tspan>
           </text>
         </g>
@@ -640,10 +529,7 @@ export function TR30Diagram() {
           transform='translate(2045.06 405.82)'
         >
           <tspan className='station-30__cls-50' x='0' y='0'>
-            c
-          </tspan>
-          <tspan x='9.46' y='0'>
-            osφ
+            cosφ
           </tspan>
         </text>
         <g>
@@ -659,10 +545,7 @@ export function TR30Diagram() {
             transform='translate(2051.02 437.91)'
           >
             <tspan className='station-30__cls-49' x='0' y='0'>
-              K
-            </tspan>
-            <tspan x='11.92' y='0'>
-              W
+              KW
             </tspan>
           </text>
         </g>
@@ -679,13 +562,7 @@ export function TR30Diagram() {
             transform='translate(2049.3 470.38)'
           >
             <tspan x='0' y='0'>
-              k
-            </tspan>
-            <tspan className='station-30__cls-37' x='10.03' y='0'>
-              V
-            </tspan>
-            <tspan className='station-30__cls-67' x='20.75' y='0'>
-              A
+              kVA
             </tspan>
           </text>
         </g>
@@ -701,13 +578,7 @@ export function TR30Diagram() {
           transform='translate(2045.27 502.4)'
         >
           <tspan x='0' y='0'>
-            G
-          </tspan>
-          <tspan className='station-30__cls-53' x='13.82' y='0'>
-            W
-          </tspan>
-          <tspan x='31.81' y='0'>
-            h
+            GWh
           </tspan>
         </text>
         <g>
@@ -1109,46 +980,13 @@ export function TR30Diagram() {
           transform='translate(1012.87 1031.44)'
         >
           <tspan x='0' y='0'>
-            (L
-          </tspan>
-          <tspan className='station-30__cls-61' x='16.17' y='0'>
-            A
-          </tspan>
-          <tspan className='station-30__cls-19' x='27.62' y='0'>
-            T
-          </tspan>
-          <tspan x='37.67' y='0'>
-            CH
-          </tspan>
-          <tspan className='station-30__cls-64' x='64.03' y='0'>
-            {' '}
-          </tspan>
-          <tspan className='station-30__cls-38' x='67.69' y='0'>
-            T
-          </tspan>
-          <tspan className='station-30__cls-20' x='78.92' y='0'>
-            Y
-          </tspan>
-          <tspan className='station-30__cls-48' x='91.69' y='0'>
-            )
+            (LATCH TY)
           </tspan>
           <tspan x='-15.04' y='25.67'>
-            VC
-          </tspan>
-          <tspan className='station-30__cls-70' x='9.31' y='25.67'>
-            S
-          </tspan>
-          <tspan x='19.96' y='25.67'>
-            -630/150A
+            VCS-630/150A
           </tspan>
           <tspan x='25.98' y='51.35'>
-            12
-          </tspan>
-          <tspan className='station-30__cls-26' x='47.93' y='51.35'>
-            K
-          </tspan>
-          <tspan x='59.85' y='51.35'>
-            V
+            12KV
           </tspan>
         </text>
         <polygon points='1021.23 1135.55 981.11 1128.86 1021.23 1122.18 1021.23 1135.55' />
@@ -1248,13 +1086,7 @@ export function TR30Diagram() {
           transform='translate(945.89 1300.21)'
         >
           <tspan x='0' y='0'>
-            500k
-          </tspan>
-          <tspan className='station-30__cls-65' x='42.96' y='0'>
-            V
-          </tspan>
-          <tspan x='54.19' y='0'>
-            ar
+            500kVar
           </tspan>
         </text>
       </g>
@@ -1334,46 +1166,13 @@ export function TR30Diagram() {
           transform='translate(1214.14 1031.1)'
         >
           <tspan x='0' y='0'>
-            (L
-          </tspan>
-          <tspan className='station-30__cls-61' x='16.17' y='0'>
-            A
-          </tspan>
-          <tspan className='station-30__cls-19' x='27.62' y='0'>
-            T
-          </tspan>
-          <tspan x='37.67' y='0'>
-            CH
-          </tspan>
-          <tspan className='station-30__cls-64' x='64.03' y='0'>
-            {' '}
-          </tspan>
-          <tspan className='station-30__cls-38' x='67.69' y='0'>
-            T
-          </tspan>
-          <tspan className='station-30__cls-20' x='78.92' y='0'>
-            Y
-          </tspan>
-          <tspan className='station-30__cls-48' x='91.69' y='0'>
-            )
+            (LATCH TY)
           </tspan>
           <tspan x='-15.04' y='25.67'>
-            VC
-          </tspan>
-          <tspan className='station-30__cls-70' x='9.31' y='25.67'>
-            S
-          </tspan>
-          <tspan x='19.96' y='25.67'>
-            -630/150A
+            VCS-630/150A
           </tspan>
           <tspan x='25.98' y='51.35'>
-            12
-          </tspan>
-          <tspan className='station-30__cls-26' x='47.93' y='51.35'>
-            K
-          </tspan>
-          <tspan x='59.85' y='51.35'>
-            V
+            12KV
           </tspan>
         </text>
         <polygon points='1222.5 1135.22 1182.38 1128.53 1222.5 1121.85 1222.5 1135.22' />
@@ -1473,13 +1272,7 @@ export function TR30Diagram() {
           transform='translate(1147.16 1299.88)'
         >
           <tspan x='0' y='0'>
-            500k
-          </tspan>
-          <tspan className='station-30__cls-65' x='42.96' y='0'>
-            V
-          </tspan>
-          <tspan x='54.19' y='0'>
-            ar
+            500kVar
           </tspan>
         </text>
       </g>
@@ -1559,46 +1352,13 @@ export function TR30Diagram() {
           transform='translate(1417.84 1031.1)'
         >
           <tspan x='0' y='0'>
-            (L
-          </tspan>
-          <tspan className='station-30__cls-61' x='16.17' y='0'>
-            A
-          </tspan>
-          <tspan className='station-30__cls-19' x='27.62' y='0'>
-            T
-          </tspan>
-          <tspan x='37.67' y='0'>
-            CH
-          </tspan>
-          <tspan className='station-30__cls-64' x='64.03' y='0'>
-            {' '}
-          </tspan>
-          <tspan className='station-30__cls-38' x='67.69' y='0'>
-            T
-          </tspan>
-          <tspan className='station-30__cls-20' x='78.92' y='0'>
-            Y
-          </tspan>
-          <tspan className='station-30__cls-48' x='91.69' y='0'>
-            )
+            (LATCH TY)
           </tspan>
           <tspan x='-15.04' y='25.67'>
-            VC
-          </tspan>
-          <tspan className='station-30__cls-70' x='9.31' y='25.67'>
-            S
-          </tspan>
-          <tspan x='19.96' y='25.67'>
-            -630/150A
+            VCS-630/150A
           </tspan>
           <tspan x='25.98' y='51.35'>
-            12
-          </tspan>
-          <tspan className='station-30__cls-26' x='47.93' y='51.35'>
-            K
-          </tspan>
-          <tspan x='59.85' y='51.35'>
-            V
+            12KV
           </tspan>
         </text>
         <polygon points='1426.2 1135.22 1386.09 1128.53 1426.2 1121.85 1426.2 1135.22' />
@@ -1698,13 +1458,7 @@ export function TR30Diagram() {
           transform='translate(1350.86 1299.88)'
         >
           <tspan x='0' y='0'>
-            500k
-          </tspan>
-          <tspan className='station-30__cls-65' x='42.96' y='0'>
-            V
-          </tspan>
-          <tspan x='54.19' y='0'>
-            ar
+            500kVar
           </tspan>
         </text>
       </g>
@@ -1777,46 +1531,13 @@ export function TR30Diagram() {
           transform='translate(1618.68 1031.1)'
         >
           <tspan x='0' y='0'>
-            (L
-          </tspan>
-          <tspan className='station-30__cls-61' x='16.17' y='0'>
-            A
-          </tspan>
-          <tspan className='station-30__cls-19' x='27.62' y='0'>
-            T
-          </tspan>
-          <tspan x='37.67' y='0'>
-            CH
-          </tspan>
-          <tspan className='station-30__cls-64' x='64.03' y='0'>
-            {' '}
-          </tspan>
-          <tspan className='station-30__cls-38' x='67.69' y='0'>
-            T
-          </tspan>
-          <tspan className='station-30__cls-20' x='78.92' y='0'>
-            Y
-          </tspan>
-          <tspan className='station-30__cls-48' x='91.69' y='0'>
-            )
+            (LATCH TY)
           </tspan>
           <tspan x='-15.04' y='25.67'>
-            VC
-          </tspan>
-          <tspan className='station-30__cls-70' x='9.31' y='25.67'>
-            S
-          </tspan>
-          <tspan x='19.96' y='25.67'>
-            -630/150A
+            VCS-630/150A
           </tspan>
           <tspan x='25.98' y='51.35'>
-            12
-          </tspan>
-          <tspan className='station-30__cls-26' x='47.93' y='51.35'>
-            K
-          </tspan>
-          <tspan x='59.85' y='51.35'>
-            V
+            12KV
           </tspan>
         </text>
         <polygon points='1627.04 1135.22 1586.92 1128.53 1627.04 1121.85 1627.04 1135.22' />
@@ -1916,13 +1637,7 @@ export function TR30Diagram() {
           transform='translate(1551.7 1299.88)'
         >
           <tspan x='0' y='0'>
-            500k
-          </tspan>
-          <tspan className='station-30__cls-65' x='42.96' y='0'>
-            V
-          </tspan>
-          <tspan x='54.19' y='0'>
-            ar
+            500kVar
           </tspan>
         </text>
       </g>
@@ -2097,28 +1812,7 @@ export function TR30Diagram() {
             transform='translate(1643.07 111.52)'
           >
             <tspan className='station-30__cls-34' x='0' y='0'>
-              B
-            </tspan>
-            <tspan x='10.22' y='0'>
-              ộ ĐK nhiệt độ
-            </tspan>
-            <tspan className='station-30__cls-41' x='116.68' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='119.88' y='0'>
-              TBA
-            </tspan>
-            <tspan className='station-30__cls-41' x='150.79' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='153.99' y='0'>
-              TR30 -{' '}
-            </tspan>
-            <tspan className='station-30__cls-62' x='206.25' y='0'>
-              F
-            </tspan>
-            <tspan className='station-30__cls-35' x='214.53' y='0'>
-              ault
+              Bộ ĐK nhiệt độ TBA TR30 - Fault
             </tspan>
           </text>
           <rect
@@ -2133,37 +1827,7 @@ export function TR30Diagram() {
             transform='translate(1643.07 143.61)'
           >
             <tspan className='station-30__cls-34' x='0' y='0'>
-              B
-            </tspan>
-            <tspan x='10.22' y='0'>
-              ộ ĐK nhiệt độ
-            </tspan>
-            <tspan className='station-30__cls-41' x='116.68' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='119.88' y='0'>
-              TBA
-            </tspan>
-            <tspan className='station-30__cls-41' x='150.79' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='153.99' y='0'>
-              TR30 -{' '}
-            </tspan>
-            <tspan className='station-30__cls-29' x='206.25' y='0'>
-              O
-            </tspan>
-            <tspan className='station-30__cls-55' x='219.41' y='0'>
-              v
-            </tspan>
-            <tspan className='station-30__cls-40' x='228.23' y='0'>
-              er{' '}
-            </tspan>
-            <tspan className='station-30__cls-22' x='247.7' y='0'>
-              t
-            </tspan>
-            <tspan className='station-30__cls-40' x='253.78' y='0'>
-              emp
+              Bộ ĐK nhiệt độ TBA TR30 - Over temp
             </tspan>
           </text>
           <rect
@@ -2178,34 +1842,7 @@ export function TR30Diagram() {
             transform='translate(1643.07 175.7)'
           >
             <tspan className='station-30__cls-34' x='0' y='0'>
-              B
-            </tspan>
-            <tspan x='10.22' y='0'>
-              ộ ĐK nhiệt độ
-            </tspan>
-            <tspan className='station-30__cls-41' x='116.68' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='119.88' y='0'>
-              TBA
-            </tspan>
-            <tspan className='station-30__cls-41' x='150.79' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='153.99' y='0'>
-              TR30 -{' '}
-            </tspan>
-            <tspan className='station-30__cls-42' x='206.25' y='0'>
-              P
-            </tspan>
-            <tspan className='station-30__cls-23' x='215.74' y='0'>
-              o
-            </tspan>
-            <tspan className='station-30__cls-55' x='225.89' y='0'>
-              w
-            </tspan>
-            <tspan className='station-30__cls-40' x='239.48' y='0'>
-              er cut
+              Bộ ĐK nhiệt độ TBA TR30 - Power cut
             </tspan>
           </text>
         </g>
@@ -2214,28 +1851,10 @@ export function TR30Diagram() {
           transform='translate(1331.48 126.12)'
         >
           <tspan x='0' y='0'>
-            22
-          </tspan>
-          <tspan className='station-30__cls-26' x='21.95' y='0'>
-            K
-          </tspan>
-          <tspan x='33.87' y='0'>
-            V//11
-          </tspan>
-          <tspan className='station-30__cls-49' x='82.43' y='0'>
-            K
-          </tspan>
-          <tspan x='94.35' y='0'>
-            V
+            22KV//11KV
           </tspan>
           <tspan x='14.27' y='25.67'>
-            7000k
-          </tspan>
-          <tspan className='station-30__cls-37' x='68.2' y='25.67'>
-            V
-          </tspan>
-          <tspan className='station-30__cls-67' x='78.92' y='25.67'>
-            A
+            7000kVA
           </tspan>
         </text>
         <text
@@ -2243,10 +1862,7 @@ export function TR30Diagram() {
           transform='translate(1241.08 205.26)'
         >
           <tspan className='station-30__cls-47' x='0' y='0'>
-            R
-          </tspan>
-          <tspan x='11.6' y='0'>
-            el ≤ 4 Ohm
+            Rel ≤ 4 Ohm
           </tspan>
         </text>
       </g>
@@ -2425,13 +2041,7 @@ export function TR30Diagram() {
           transform='translate(886.44 931.04)'
         >
           <tspan className='station-30__cls-38' x='0' y='0'>
-            C
-          </tspan>
-          <tspan className='station-30__cls-33' x='13.01' y='0'>
-            T
-          </tspan>
-          <tspan x='22.91' y='0'>
-            x3
+            CTx3
           </tspan>
           <tspan x='-10.27' y='25.67'>
             100/5A
@@ -2498,25 +2108,10 @@ export function TR30Diagram() {
             BC-SF6
           </tspan>
           <tspan x='-37.92' y='25.67'>
-            12
-          </tspan>
-          <tspan className='station-30__cls-26' x='-15.97' y='25.67'>
-            K
-          </tspan>
-          <tspan className='station-30__cls-25' x='-4.05' y='25.67'>
-            V
-          </tspan>
-          <tspan x='7.58' y='25.67'>
-            -630/380A
+            12KV-630/380A
           </tspan>
           <tspan x='-6.6' y='51.35'>
-            25
-          </tspan>
-          <tspan className='station-30__cls-54' x='15.35' y='51.35'>
-            K
-          </tspan>
-          <tspan className='station-30__cls-67' x='27.16' y='51.35'>
-            A/1S
+            25KA/1S
           </tspan>
         </text>
       </g>
@@ -2600,16 +2195,7 @@ export function TR30Diagram() {
             transform='translate(1564.34 627.68)'
           >
             <tspan className='station-30__cls-38' x='0' y='0'>
-              C
-            </tspan>
-            <tspan className='station-30__cls-27' x='13.01' y='0'>
-              T
-            </tspan>
-            <tspan className='station-30__cls-39' x='24.45' y='0'>
-              T
-            </tspan>
-            <tspan x='34.36' y='0'>
-              x3
+              CTTx3
             </tspan>
           </text>
         </g>
@@ -2645,16 +2231,7 @@ export function TR30Diagram() {
           transform='translate(1097.14 919.05)'
         >
           <tspan className='station-30__cls-38' x='0' y='0'>
-            C
-          </tspan>
-          <tspan className='station-30__cls-27' x='13.01' y='0'>
-            T
-          </tspan>
-          <tspan className='station-30__cls-39' x='24.45' y='0'>
-            T
-          </tspan>
-          <tspan x='34.36' y='0'>
-            x3
+            CTTx3
           </tspan>
         </text>
       </g>
@@ -2672,10 +2249,7 @@ export function TR30Diagram() {
             transform='translate(979.42 741.63)'
           >
             <tspan className='station-30__cls-69' x='0' y='0'>
-              T
-            </tspan>
-            <tspan className='station-30__cls-48' x='10.48' y='0'>
-              hanh cái
+              Thanh cái
             </tspan>
           </text>
         </g>
@@ -2760,13 +2334,7 @@ export function TR30Diagram() {
               transform='translate(2014.27 1212.74)'
             >
               <tspan x='0' y='0'>
-                6200
-              </tspan>
-              <tspan className='station-30__cls-49' x='43.9' y='0'>
-                K
-              </tspan>
-              <tspan x='55.82' y='0'>
-                W
+                6200KW
               </tspan>
             </text>
           </g>
