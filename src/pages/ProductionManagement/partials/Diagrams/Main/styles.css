@@ -100,15 +100,11 @@
 }
 
 .main__cls-29 {
-  letter-spacing: -0.01em;
+  letter-spacing: 0.01em;
 }
 
 .main__cls-30 {
-  letter-spacing: -0.05em;
-}
-
-.main__cls-3 {
-  fill: #e6e6e6;
+  letter-spacing: 0em;
 }
 
 .main__cls-20,
@@ -138,14 +134,6 @@
 .main__cls-6,
 .main__cls-7 {
   fill: none;
-}
-
-.main__cls-29 {
-  letter-spacing: 0.01em;
-}
-
-.main__cls-30 {
-  letter-spacing: 0em;
 }
 
 .main__cls-31 {
