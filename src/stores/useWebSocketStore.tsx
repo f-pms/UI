@@ -11,8 +11,9 @@ import {
 const websocketUrl = import.meta.env.VITE_WEBSOCKET_URL as string;
 
 type State = {
-  isConnected: boolean;
+  connectingStateTrigger: boolean;
   topics: Map<string, StompSubscription>;
+  isConnected: () => boolean;
   connect: () => void;
   disconnect: () => void;
   subscribe: (topic: string) => void;
@@ -24,18 +25,18 @@ type State = {
 export const useWebSocketStore = create<State>(
   combine(
     {
-      isConnected: false,
+      connectingStateTrigger: false,
       topics: new Map<string, StompSubscription>(),
     },
     (set, get) => {
       const client = new Client({
         brokerURL: websocketUrl,
         onConnect: () => {
-          set({ isConnected: true });
+          set({ connectingStateTrigger: true });
         },
         onDisconnect: () => {
           set({
-            isConnected: false,
+            connectingStateTrigger: false,
             topics: new Map<string, StompSubscription>(),
           });
         },
@@ -48,6 +49,9 @@ export const useWebSocketStore = create<State>(
       };
 
       return {
+        isConnected: () => {
+          return client.connected;
+        },
         connect: () => {
           client.activate();
         },
