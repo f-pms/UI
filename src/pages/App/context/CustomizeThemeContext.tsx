@@ -30,7 +30,7 @@ export function CustomizeThemeProvider({
     return (storage.get('COLOR_SCHEME') || 'blue') as ColorScheme;
   });
   const [fontFamily, setFontFamily] = useState<FontFamily>(() => {
-    return (storage.get('FONT_FAMILY') || 'roboto') as FontFamily;
+    return (storage.get('FONT_FAMILY') || 'inter') as FontFamily;
   });
 
   const onThemeColorChange = (colorScheme: ColorScheme) => {
