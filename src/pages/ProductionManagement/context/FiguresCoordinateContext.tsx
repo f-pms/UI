@@ -5,26 +5,19 @@ import {
   IBlueprint,
 } from '~/services/blueprint/queries/useQueryBlueprintById';
 
-export type FiguresCoordinateTypeByGroup = {
-  [key: string]: FiguresCoordinateType;
-};
-
-export type FiguresCoordinateType = {
-  [key: string]: DisplayCoordinate;
+export type FigureCoordinateType = {
+  address: string;
+  displayCoordinate: DisplayCoordinate;
 };
 
 export type FiguresCoordinateContextType = {
-  figuresCoordinate: FiguresCoordinateTypeByGroup;
-  onFiguresCoordinateChange: (
-    figuresCoordinate: FiguresCoordinateTypeByGroup,
-  ) => void;
+  figuresCoordinateList: FigureCoordinateType[];
   updateContextByBlueprint: (blueprint: IBlueprint) => void;
 };
 
 export const FiguresCoordinateContext =
   createContext<FiguresCoordinateContextType>({
-    figuresCoordinate: {},
-    onFiguresCoordinateChange: () => {},
+    figuresCoordinateList: [],
     updateContextByBlueprint: () => {},
   });
 
@@ -35,37 +28,39 @@ export interface IFiguresCoordinateProviderProps {
 export default function FiguresCoordinateProvider({
   children,
 }: IFiguresCoordinateProviderProps) {
-  const [figuresCoordinate, setFiguresCoordinate] =
-    useState<FiguresCoordinateTypeByGroup>({});
+  const [figuresCoordinateList, setFiguresCoordinateList] = useState<
+    FigureCoordinateType[]
+  >([]);
 
   const onFiguresCoordinateChange = (
-    figuresCoordinate: FiguresCoordinateTypeByGroup,
+    figuresCoordinate: FigureCoordinateType[],
   ) => {
-    setFiguresCoordinate(figuresCoordinate);
+    setFiguresCoordinateList(figuresCoordinate);
   };
 
   const updateContextByBlueprint = (blueprint: IBlueprint) => {
-    const figuresCoordinateByGroup: FiguresCoordinateTypeByGroup = {};
+    const figuresCoordinateList = [];
     const groups = blueprint.sensorConfigurations;
 
     for (const group of groups) {
-      const figuresCoordinate: { [key: string]: DisplayCoordinate } = {};
       for (const figure of group.figures) {
-        figuresCoordinate[figure.id] = figure.displayCoordinate;
+        figuresCoordinateList.push({
+          address: figure.address,
+          displayCoordinate: figure.displayCoordinate,
+        });
       }
-      figuresCoordinateByGroup[group.groupId] = figuresCoordinate;
     }
 
-    setFiguresCoordinate(figuresCoordinateByGroup);
+    setFiguresCoordinateList(figuresCoordinateList);
   };
 
   const value = useMemo(
     () => ({
-      figuresCoordinate,
+      figuresCoordinateList,
       onFiguresCoordinateChange,
       updateContextByBlueprint,
     }),
-    [figuresCoordinate],
+    [figuresCoordinateList],
   );
 
   return (
@@ -76,6 +71,6 @@ export default function FiguresCoordinateProvider({
 }
 
 export const useFiguresCoordinateContext = () => {
-  const { figuresCoordinate } = useContext(FiguresCoordinateContext);
-  return figuresCoordinate;
+  const { figuresCoordinateList } = useContext(FiguresCoordinateContext);
+  return figuresCoordinateList;
 };

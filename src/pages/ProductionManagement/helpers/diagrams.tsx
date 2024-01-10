@@ -1,6 +1,8 @@
 import { ReactNode } from 'react';
 
-import { FiguresCoordinateType } from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
+import { FigureValuesType } from '~/stores/useMonitoringStore';
+
+import { FigureCoordinateType } from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
 import {
   AllMeterDiagram,
   MainDiagram,
@@ -127,12 +129,21 @@ export const getTabItemByValue = (tabValue: number): TabItem => {
   return diagram!;
 };
 
-export const useExtractFigureCoordinate = (
-  figuresCoordinate: FiguresCoordinateType,
-): ((figureId: string) => string) => {
-  return (figureId) => {
-    if (!figuresCoordinate || figuresCoordinate[figureId] == null)
-      return 'translate(0 0)';
-    return `translate(${figuresCoordinate[figureId].x} ${figuresCoordinate[figureId].y})`;
-  };
-};
+export interface FiguresProps {
+  figuresCoordinateList: FigureCoordinateType[];
+  figureValues: FigureValuesType;
+}
+
+export function Figures({ figuresCoordinateList, figureValues }: FiguresProps) {
+  return figuresCoordinateList.map(({ displayCoordinate, address }, index) => (
+    <text
+      key={index}
+      className='main__cls-25'
+      transform={`translate(${displayCoordinate.x} ${displayCoordinate.y})`}
+    >
+      <tspan x='0' y='0'>
+        {figureValues[address]}
+      </tspan>
+    </text>
+  ));
+}
