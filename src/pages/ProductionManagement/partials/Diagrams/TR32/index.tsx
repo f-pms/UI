@@ -1159,7 +1159,7 @@ export function TR32Diagram() {
           />
         </g>
         <g>
-          <g>
+          <g className='temperature-table' id='bodknhietdotbatr32'>
             <g>
               <rect
                 className='station-32__cls-7'
@@ -2822,7 +2822,7 @@ export function TR32Diagram() {
             />
           </g>
         </g>
-        <g>
+        <g className='data-table' id='digitalmultimetterpm5310'>
           <text
             className='station-32__cls-15'
             transform='translate(895.39 375.12)'
@@ -3087,35 +3087,69 @@ export function TR32Diagram() {
           </g>
           <g>
             <rect
-              className='station-32__cls-3'
+              className='station-32__cls-4'
               height='27.57'
-              width='55.14'
-              x='1025.1'
-              y='602.05'
+              width='165.43'
+              x='859.67'
+              y='491.76'
             />
             <text
-              className='station-32__cls-19'
-              transform='translate(1030.84 622.02)'
+              className='station-32__cls-17'
+              transform='translate(924.34 511.52)'
             >
               <tspan x='0' y='0'>
-                THDV
+                1111
               </tspan>
             </text>
           </g>
           <g>
             <rect
-              className='station-32__cls-3'
+              className='station-32__cls-4'
               height='27.57'
-              width='55.14'
-              x='1025.1'
-              y='629.62'
+              width='165.43'
+              x='859.67'
+              y='519.33'
             />
             <text
-              className='station-32__cls-19'
-              transform='translate(1034.5 649.59)'
+              className='station-32__cls-17'
+              transform='translate(924.34 539.09)'
             >
               <tspan x='0' y='0'>
-                THDI
+                1111
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-32__cls-4'
+              height='27.57'
+              width='165.43'
+              x='859.67'
+              y='546.9'
+            />
+            <text
+              className='station-32__cls-17'
+              transform='translate(924.34 566.66)'
+            >
+              <tspan x='0' y='0'>
+                1111
+              </tspan>
+            </text>
+          </g>
+          <g>
+            <rect
+              className='station-32__cls-4'
+              height='27.57'
+              width='165.43'
+              x='859.67'
+              y='574.48'
+            />
+            <text
+              className='station-32__cls-17'
+              transform='translate(924.34 594.23)'
+            >
+              <tspan x='0' y='0'>
+                1111
               </tspan>
             </text>
           </g>
@@ -3223,69 +3257,35 @@ export function TR32Diagram() {
           </g>
           <g>
             <rect
-              className='station-32__cls-4'
+              className='station-32__cls-3'
               height='27.57'
-              width='165.43'
-              x='859.67'
-              y='491.76'
+              width='55.14'
+              x='1025.1'
+              y='602.05'
             />
             <text
-              className='station-32__cls-17'
-              transform='translate(924.34 511.52)'
+              className='station-32__cls-19'
+              transform='translate(1030.84 622.02)'
             >
               <tspan x='0' y='0'>
-                1111
+                THDV
               </tspan>
             </text>
           </g>
           <g>
             <rect
-              className='station-32__cls-4'
+              className='station-32__cls-3'
               height='27.57'
-              width='165.43'
-              x='859.67'
-              y='519.33'
+              width='55.14'
+              x='1025.1'
+              y='629.62'
             />
             <text
-              className='station-32__cls-17'
-              transform='translate(924.34 539.09)'
+              className='station-32__cls-19'
+              transform='translate(1034.5 649.59)'
             >
               <tspan x='0' y='0'>
-                1111
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-32__cls-4'
-              height='27.57'
-              width='165.43'
-              x='859.67'
-              y='546.9'
-            />
-            <text
-              className='station-32__cls-17'
-              transform='translate(924.34 566.66)'
-            >
-              <tspan x='0' y='0'>
-                1111
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-32__cls-4'
-              height='27.57'
-              width='165.43'
-              x='859.67'
-              y='574.48'
-            />
-            <text
-              className='station-32__cls-17'
-              transform='translate(924.34 594.23)'
-            >
-              <tspan x='0' y='0'>
-                1111
+                THDI
               </tspan>
             </text>
           </g>
