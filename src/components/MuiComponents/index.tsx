@@ -8,6 +8,7 @@ export {
   Breadcrumbs,
   Button,
   Chip,
+  CircularProgress,
   Container,
   Dialog,
   DialogActions,

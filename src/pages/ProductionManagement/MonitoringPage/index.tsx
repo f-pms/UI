@@ -1,17 +1,41 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef } from 'react';
+import _ from 'lodash';
 
+import { useMonitoringStore } from '~/stores/useMonitoringStore';
+
+import FiguresCoordinateProvider from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
+import useBlueprint from '~/pages/ProductionManagement/hooks/useBlueprint';
+import useWebSocket from '~/pages/ProductionManagement/hooks/useWebSocket';
 import PageHeading from '~/pages/ProductionManagement/partials/PageHeading';
 import { StationNavigationTabs } from '~/pages/ProductionManagement/partials/StationNavigationTabs';
 import { StationTabPanel } from '~/pages/ProductionManagement/partials/StationTabPanel';
 
-import { Stack } from '~/components/MuiComponents';
+import { Box, CircularProgress, Stack } from '~/components/MuiComponents';
 
 export interface IMonitoringPageProps {}
 
-export default function MonitoringPage() {
-  const [value, setValue] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
+function MonitoringPage() {
+  const {
+    tabValue,
+    setTabValue,
+    tabInfo,
+    figuresCoordinate,
+    isBlueprintReady,
+  } = useBlueprint();
 
+  const ws = useWebSocket(tabValue, tabInfo.channel);
+
+  const figureValues = useMonitoringStore((state) => state.figureValues);
+  const isReady = useMemo(
+    () =>
+      isBlueprintReady &&
+      !_.isEmpty(figuresCoordinate) &&
+      ws.isSubscribed(tabInfo.channel) &&
+      figureValues != undefined,
+    [isBlueprintReady, figuresCoordinate, ws, tabInfo.channel, figureValues],
+  );
+
+  const ref = useRef<HTMLDivElement>(null);
   const scrollIntoView = useCallback(() => {
     ref.current?.scrollIntoView({
       behavior: 'smooth',
@@ -25,7 +49,7 @@ export default function MonitoringPage() {
   }, [scrollIntoView]);
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
+    setTabValue(newValue);
     scrollIntoView();
   };
 
@@ -33,9 +57,32 @@ export default function MonitoringPage() {
     <Stack sx={{ width: '100%', height: '100%' }}>
       <PageHeading scrollIntoView={scrollIntoView} />
       <Stack sx={{ flex: 1 }}>
-        <StationNavigationTabs handleChange={handleChange} value={value} />
-        <StationTabPanel ref={ref} value={value} />
+        <StationNavigationTabs handleChange={handleChange} value={tabValue} />
+        {isReady ? (
+          <StationTabPanel ref={ref} value={tabValue} />
+        ) : (
+          <Box
+            sx={{
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginBottom: 10,
+            }}
+          >
+            <CircularProgress />
+          </Box>
+        )}
       </Stack>
     </Stack>
+  );
+}
+
+export default function MonitorPageWithContext() {
+  return (
+    <FiguresCoordinateProvider>
+      <MonitoringPage />
+    </FiguresCoordinateProvider>
   );
 }

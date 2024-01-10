@@ -1,5 +1,17 @@
+import { useFiguresCoordinateContext } from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
+import DigitalMultiMetterPM5310Table from '~/pages/ProductionManagement/partials/Diagrams/TR11/partials/DigitalMultiMetterPM5310Table';
+import DKnhietdoCircuit from '~/pages/ProductionManagement/partials/Diagrams/TR11/partials/DKnhietdoCircuit';
+
 import './styles.css';
+
+export enum GroupId {
+  DKnhietdoCircuit = 'DKnhietdoCircuit',
+  DigitalMultiMetterPM5310Table = 'DigitalMultiMetterPM5310Table',
+}
+
 export function TR11Diagram() {
+  const figuresCoordinate = useFiguresCoordinateContext();
+
   return (
     <svg
       data-name='Layer 1'
@@ -11,12 +23,48 @@ export function TR11Diagram() {
       <text className='station-11__cls-25' transform='translate(839.35 27.77)'>
         <tspan className='station-11__cls-41'>
           <tspan className='station-11__cls-35' x='0' y='0'>
-            Transformer (TR#11)
+            T
+          </tspan>
+          <tspan className='station-11__cls-61' x='11.19' y='0'>
+            r
+          </tspan>
+          <tspan className='station-11__cls-74' x='19.16' y='0'>
+            ans
+          </tspan>
+          <tspan className='station-11__cls-45' x='54.64' y='0'>
+            f
+          </tspan>
+          <tspan className='station-11__cls-67' x='61.55' y='0'>
+            o
+          </tspan>
+          <tspan className='station-11__cls-71' x='75.14' y='0'>
+            r
+          </tspan>
+          <tspan x='83.33' y='0'>
+            mer{' '}
+          </tspan>
+          <tspan className='station-11__cls-64' x='129.73' y='0'>
+            (
+          </tspan>
+          <tspan x='137.95' y='0'>
+            TR#11)
           </tspan>
         </tspan>
         <tspan className='station-11__cls-3'>
           <tspan x='-31.59' y='29.71'>
-            1000kVA 22kV 690/3/50Hz
+            1000k
+          </tspan>
+          <tspan className='station-11__cls-76' x='30.82' y='29.71'>
+            V
+          </tspan>
+          <tspan className='station-11__cls-74' x='43.23' y='29.71'>
+            A 22kV 690/3/50
+          </tspan>
+          <tspan className='station-11__cls-40' x='212.89' y='29.71'>
+            H
+          </tspan>
+          <tspan x='229.3' y='29.71'>
+            z
           </tspan>
         </tspan>
       </text>
@@ -244,132 +292,9 @@ export function TR11Diagram() {
             y='1048.53'
           />
         </g>
-        <g>
-          <g>
-            <g>
-              <rect
-                className='station-11__cls-10'
-                height='37.14'
-                width='112.8'
-                x='982.7'
-                y='104.12'
-              />
-              <text
-                className='station-11__cls-25'
-                transform='translate(1021.49 129.73)'
-              >
-                <tspan x='0' y='0'>
-                  +40
-                </tspan>
-              </text>
-              <text
-                className='station-11__cls-25'
-                transform='translate(1100.11 131.74)'
-              >
-                <tspan x='0' y='0'>
-                  °C
-                </tspan>
-              </text>
-            </g>
-            <g>
-              <rect
-                className='station-11__cls-10'
-                height='37.14'
-                width='112.8'
-                x='982.7'
-                y='141.26'
-              />
-              <text
-                className='station-11__cls-25'
-                transform='translate(1021.49 166.87)'
-              >
-                <tspan x='0' y='0'>
-                  +40
-                </tspan>
-              </text>
-              <text
-                className='station-11__cls-25'
-                transform='translate(1100.11 168.88)'
-              >
-                <tspan x='0' y='0'>
-                  °C
-                </tspan>
-              </text>
-            </g>
-            <g>
-              <rect
-                className='station-11__cls-10'
-                height='37.14'
-                width='112.8'
-                x='982.7'
-                y='178.4'
-              />
-              <text
-                className='station-11__cls-25'
-                transform='translate(1021.49 204.01)'
-              >
-                <tspan x='0' y='0'>
-                  +40
-                </tspan>
-              </text>
-              <text
-                className='station-11__cls-25'
-                transform='translate(1100.11 206.01)'
-              >
-                <tspan x='0' y='0'>
-                  °C
-                </tspan>
-              </text>
-            </g>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-10'
-              height='37.14'
-              width='407.95'
-              x='1154.45'
-              y='104.12'
-            />
-            <text
-              className='station-11__cls-18'
-              transform='translate(1165.52 128.4)'
-            >
-              <tspan className='station-11__cls-16' x='0' y='0'>
-                Bộ ĐK nhiệt độ TBA TR11 - Fault
-              </tspan>
-            </text>
-            <rect
-              className='station-11__cls-10'
-              height='37.14'
-              width='407.95'
-              x='1154.45'
-              y='141.26'
-            />
-            <text
-              className='station-11__cls-18'
-              transform='translate(1165.52 165.54)'
-            >
-              <tspan className='station-11__cls-16' x='0' y='0'>
-                Bộ ĐK nhiệt độ TBA TR11 - Over temp
-              </tspan>
-            </text>
-            <rect
-              className='station-11__cls-10'
-              height='37.14'
-              width='407.95'
-              x='1154.45'
-              y='178.4'
-            />
-            <text
-              className='station-11__cls-18'
-              transform='translate(1165.52 202.67)'
-            >
-              <tspan className='station-11__cls-16' x='0' y='0'>
-                Bộ ĐK nhiệt độ TBA TR11 - Power cut
-              </tspan>
-            </text>
-          </g>
-        </g>
+        <DKnhietdoCircuit
+          figuresCoordinate={figuresCoordinate[GroupId.DKnhietdoCircuit]}
+        />
         <rect
           className='station-11__cls-50'
           height='173.27'
@@ -526,7 +451,7 @@ export function TR11Diagram() {
               />
               <text
                 className='station-11__cls-18'
-                transform='translate(1163 430)'
+                transform='translate(1163.48 429.12)'
               >
                 <tspan x='0' y='0'>
                   Y
@@ -560,7 +485,7 @@ export function TR11Diagram() {
               />
               <text
                 className='station-11__cls-18'
-                transform='translate(1236 429.12)'
+                transform='translate(1236.71 429.12)'
               >
                 <tspan x='0' y='0'>
                   B
@@ -569,499 +494,11 @@ export function TR11Diagram() {
             </g>
           </g>
         </g>
-        <g>
-          <text
-            className='station-11__cls-23'
-            transform='translate(1719.11 375.8)'
-          >
-            <tspan x='0' y='0'>
-              Digital Multi Meter
-            </tspan>
-            <tspan className='station-11__cls-78' x='58.65' y='29.71'>
-              PM5310
-            </tspan>
-          </text>
-          <g>
-            <rect
-              className='station-11__cls-6'
-              height='37.14'
-              width='74.27'
-              x='1671.01'
-              y='421.5'
-            />
-            <text
-              className='station-11__cls-21'
-              transform='translate(1692.53 447.35)'
-            >
-              <tspan className='station-11__cls-32' x='0' y='0'>
-                A-B
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-6'
-              height='37.14'
-              width='74.27'
-              x='1745.28'
-              y='421.5'
-            />
-            <text
-              className='station-11__cls-21'
-              transform='translate(1766.26 447.38)'
-            >
-              <tspan className='station-11__cls-65' x='0' y='0'>
-                B
-              </tspan>
-              <tspan className='station-11__cls-62' x='11.85' y='0'>
-                -
-              </tspan>
-              <tspan x='18.8' y='0'>
-                C
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-6'
-              height='37.14'
-              width='74.27'
-              x='1819.56'
-              y='421.5'
-            />
-            <text
-              className='station-11__cls-22'
-              transform='translate(1838.09 448.42)'
-            >
-              <tspan className='station-11__cls-52' x='0' y='0'>
-                A-C
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-6'
-              height='37.14'
-              width='74.27'
-              x='1893.83'
-              y='458.63'
-            />
-            <text
-              className='station-11__cls-22'
-              transform='translate(1923.97 485.55)'
-            >
-              <tspan x='0' y='0'>
-                V
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-6'
-              height='37.14'
-              width='74.27'
-              x='1893.83'
-              y='495.77'
-            />
-            <text
-              className='station-11__cls-22'
-              transform='translate(1923.97 522.68)'
-            >
-              <tspan x='0' y='0'>
-                A
-              </tspan>
-            </text>
-          </g>
-          <rect
-            className='station-11__cls-6'
-            height='37.14'
-            width='74.27'
-            x='1893.83'
-            y='532.91'
-          />
-          <text
-            className='station-11__cls-22'
-            transform='translate(1905.86 559.82)'
-          >
-            <tspan className='station-11__cls-5' x='0' y='0'>
-              c
-            </tspan>
-            <tspan x='10.94' y='0'>
-              osφ
-            </tspan>
-          </text>
-          <g>
-            <rect
-              className='station-11__cls-6'
-              height='37.14'
-              width='74.27'
-              x='1893.83'
-              y='570.04'
-            />
-            <text
-              className='station-11__cls-22'
-              transform='translate(1912.76 596.96)'
-            >
-              <tspan className='station-11__cls-37' x='0' y='0'>
-                KW
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-6'
-              height='37.14'
-              width='74.27'
-              x='1893.83'
-              y='607.18'
-            />
-            <text
-              className='station-11__cls-22'
-              transform='translate(1910.77 634.54)'
-            >
-              <tspan x='0' y='0'>
-                kVA
-              </tspan>
-            </text>
-          </g>
-          <rect
-            className='station-11__cls-6'
-            height='37.14'
-            width='74.27'
-            x='1893.83'
-            y='644.32'
-          />
-          <text
-            className='station-11__cls-22'
-            transform='translate(1906.11 671.59)'
-          >
-            <tspan x='0' y='0'>
-              GWh
-            </tspan>
-          </text>
-          <g>
-            <rect
-              className='station-11__cls-7'
-              height='37.14'
-              width='74.27'
-              x='1671.01'
-              y='458.63'
-            />
-            <text
-              className='station-11__cls-25'
-              transform='translate(1681.27 485.11)'
-            >
-              <tspan x='0' y='0'>
-                11.11
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-7'
-              height='37.14'
-              width='74.27'
-              x='1745.28'
-              y='458.63'
-            />
-            <text
-              className='station-11__cls-25'
-              transform='translate(1755.55 485.11)'
-            >
-              <tspan x='0' y='0'>
-                11.11
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-7'
-              height='37.14'
-              width='74.27'
-              x='1819.56'
-              y='458.63'
-            />
-            <text
-              className='station-11__cls-25'
-              transform='translate(1829.82 485.11)'
-            >
-              <tspan x='0' y='0'>
-                11.11
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-7'
-              height='37.14'
-              width='74.27'
-              x='1671.01'
-              y='495.77'
-            />
-            <text
-              className='station-11__cls-25'
-              transform='translate(1681.27 522.25)'
-            >
-              <tspan x='0' y='0'>
-                11.11
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-7'
-              height='37.14'
-              width='74.27'
-              x='1745.28'
-              y='495.77'
-            />
-            <text
-              className='station-11__cls-25'
-              transform='translate(1755.55 522.25)'
-            >
-              <tspan x='0' y='0'>
-                11.11
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-7'
-              height='37.14'
-              width='74.27'
-              x='1819.56'
-              y='495.77'
-            />
-            <text
-              className='station-11__cls-25'
-              transform='translate(1829.82 522.25)'
-            >
-              <tspan x='0' y='0'>
-                11.11
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-6'
-              height='37.14'
-              width='74.27'
-              x='1893.83'
-              y='681.46'
-            />
-            <text
-              className='station-11__cls-22'
-              transform='translate(1901.57 708.35)'
-            >
-              <tspan x='0' y='0'>
-                THDV
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-6'
-              height='37.14'
-              width='74.27'
-              x='1893.83'
-              y='718.59'
-            />
-            <text
-              className='station-11__cls-22'
-              transform='translate(1906.49 745.49)'
-            >
-              <tspan x='0' y='0'>
-                THDI
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-7'
-              height='37.14'
-              width='74.27'
-              x='1671.01'
-              y='681.46'
-            />
-            <text
-              className='station-11__cls-25'
-              transform='translate(1681.27 707.93)'
-            >
-              <tspan x='0' y='0'>
-                11.11
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-7'
-              height='37.14'
-              width='74.27'
-              x='1745.28'
-              y='681.46'
-            />
-            <text
-              className='station-11__cls-25'
-              transform='translate(1755.55 707.93)'
-            >
-              <tspan x='0' y='0'>
-                11.11
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-7'
-              height='37.14'
-              width='74.27'
-              x='1819.56'
-              y='681.46'
-            />
-            <text
-              className='station-11__cls-25'
-              transform='translate(1829.82 707.93)'
-            >
-              <tspan x='0' y='0'>
-                11.11
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-7'
-              height='37.14'
-              width='74.27'
-              x='1671.01'
-              y='718.59'
-            />
-            <text
-              className='station-11__cls-25'
-              transform='translate(1681.27 745.07)'
-            >
-              <tspan x='0' y='0'>
-                11.11
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-7'
-              height='37.14'
-              width='74.27'
-              x='1745.28'
-              y='718.59'
-            />
-            <text
-              className='station-11__cls-25'
-              transform='translate(1755.55 745.07)'
-            >
-              <tspan x='0' y='0'>
-                11.11
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-7'
-              height='37.14'
-              width='74.27'
-              x='1819.56'
-              y='718.59'
-            />
-            <text
-              className='station-11__cls-25'
-              transform='translate(1829.82 745.07)'
-            >
-              <tspan x='0' y='0'>
-                11.11
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-7'
-              height='37.14'
-              width='222.82'
-              x='1671.01'
-              y='532.91'
-            />
-            <text
-              className='station-11__cls-25'
-              transform='translate(1758.11 559.52)'
-            >
-              <tspan x='0' y='0'>
-                1111
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-7'
-              height='37.14'
-              width='222.82'
-              x='1671.01'
-              y='570.04'
-            />
-            <text
-              className='station-11__cls-25'
-              transform='translate(1758.11 596.66)'
-            >
-              <tspan x='0' y='0'>
-                1111
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-7'
-              height='37.14'
-              width='222.82'
-              x='1671.01'
-              y='607.18'
-            />
-            <text
-              className='station-11__cls-25'
-              transform='translate(1758.11 633.8)'
-            >
-              <tspan x='0' y='0'>
-                1111
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-7'
-              height='37.14'
-              width='222.82'
-              x='1671.01'
-              y='644.32'
-            />
-            <text
-              className='station-11__cls-25'
-              transform='translate(1758.11 670.93)'
-            >
-              <tspan x='0' y='0'>
-                1111
-              </tspan>
-            </text>
-          </g>
-          <g>
-            <rect
-              className='station-11__cls-6'
-              height='37.14'
-              width='74.27'
-              x='1893.83'
-              y='421.5'
-            />
-            <line
-              className='station-11__cls-10'
-              x1='1893.83'
-              x2='1968.1'
-              y1='458.63'
-              y2='423.03'
-            />
-          </g>
-        </g>
+        <DigitalMultiMetterPM5310Table
+          figuresCoordinate={
+            figuresCoordinate[GroupId.DigitalMultiMetterPM5310Table]
+          }
+        />
         <rect
           className='station-11__cls-58'
           height='81.08'
@@ -1159,7 +596,19 @@ export function TR11Diagram() {
               transform='translate(1032.61 596.91)'
             >
               <tspan x='0' y='0'>
-                Shunt trip
+                Shu
+              </tspan>
+              <tspan className='station-11__cls-30' x='34.64' y='0'>
+                n
+              </tspan>
+              <tspan className='station-11__cls-53' x='46.58' y='0'>
+                t t
+              </tspan>
+              <tspan className='station-11__cls-72' x='65.51' y='0'>
+                r
+              </tspan>
+              <tspan x='72.68' y='0'>
+                ip
               </tspan>
             </text>
           </g>
@@ -1355,7 +804,25 @@ export function TR11Diagram() {
             transform='translate(740.9 1186.64)'
           >
             <tspan className='station-11__cls-47' x='0' y='0'>
-              CONTACTOR
+              C
+            </tspan>
+            <tspan className='station-11__cls-74' x='13.84' y='0'>
+              ON
+            </tspan>
+            <tspan className='station-11__cls-56' x='47.19' y='0'>
+              T
+            </tspan>
+            <tspan className='station-11__cls-54' x='57.64' y='0'>
+              A
+            </tspan>
+            <tspan className='station-11__cls-55' x='72.42' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-80' x='87.47' y='0'>
+              T
+            </tspan>
+            <tspan x='99.11' y='0'>
+              OR
             </tspan>
             <tspan x='22.55' y='29.71'>
               3P 110A
@@ -1369,7 +836,13 @@ export function TR11Diagram() {
               C1
             </tspan>
             <tspan x='-32.98' y='29.71'>
-              2*25kVar
+              2*25k
+            </tspan>
+            <tspan className='station-11__cls-38' x='27.01' y='29.71'>
+              V
+            </tspan>
+            <tspan x='40.01' y='29.71'>
+              ar
             </tspan>
           </text>
         </g>
@@ -1505,7 +978,25 @@ export function TR11Diagram() {
             transform='translate(974.21 1186.46)'
           >
             <tspan className='station-11__cls-47' x='0' y='0'>
-              CONTACTOR
+              C
+            </tspan>
+            <tspan className='station-11__cls-74' x='13.84' y='0'>
+              ON
+            </tspan>
+            <tspan className='station-11__cls-56' x='47.19' y='0'>
+              T
+            </tspan>
+            <tspan className='station-11__cls-54' x='57.64' y='0'>
+              A
+            </tspan>
+            <tspan className='station-11__cls-55' x='72.42' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-80' x='87.47' y='0'>
+              T
+            </tspan>
+            <tspan x='99.11' y='0'>
+              OR
             </tspan>
             <tspan x='22.55' y='29.71'>
               3P 110A
@@ -1519,7 +1010,13 @@ export function TR11Diagram() {
               C2
             </tspan>
             <tspan x='-32.98' y='29.71'>
-              2*25kVar
+              2*25k
+            </tspan>
+            <tspan className='station-11__cls-46' x='27.01' y='29.71'>
+              V
+            </tspan>
+            <tspan x='40.01' y='29.71'>
+              ar
             </tspan>
           </text>
         </g>
@@ -1655,7 +1152,25 @@ export function TR11Diagram() {
             transform='translate(1205.91 1186.28)'
           >
             <tspan className='station-11__cls-47' x='0' y='0'>
-              CONTACTOR
+              C
+            </tspan>
+            <tspan className='station-11__cls-74' x='13.84' y='0'>
+              ON
+            </tspan>
+            <tspan className='station-11__cls-56' x='47.19' y='0'>
+              T
+            </tspan>
+            <tspan className='station-11__cls-54' x='57.64' y='0'>
+              A
+            </tspan>
+            <tspan className='station-11__cls-55' x='72.42' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-80' x='87.47' y='0'>
+              T
+            </tspan>
+            <tspan x='99.11' y='0'>
+              OR
             </tspan>
             <tspan x='22.55' y='29.71'>
               3P 110A
@@ -1669,7 +1184,13 @@ export function TR11Diagram() {
               C8
             </tspan>
             <tspan x='-32.98' y='29.71'>
-              2*25kVar
+              2*25k
+            </tspan>
+            <tspan className='station-11__cls-46' x='27.01' y='29.71'>
+              V
+            </tspan>
+            <tspan x='40.01' y='29.71'>
+              ar
             </tspan>
           </text>
         </g>
@@ -1775,7 +1296,13 @@ export function TR11Diagram() {
                   transform='translate(1746.92 1327.95)'
                 >
                   <tspan x='0' y='0'>
-                    800KW
+                    800
+                  </tspan>
+                  <tspan className='station-11__cls-37' x='38.1' y='0'>
+                    K
+                  </tspan>
+                  <tspan x='51.89' y='0'>
+                    W
                   </tspan>
                 </text>
               </g>
@@ -1809,10 +1336,31 @@ export function TR11Diagram() {
                   transform='translate(1679.56 1255.37)'
                 >
                   <tspan x='0' y='0'>
-                    Chipper - main drive
+                    Chipper - main d
+                  </tspan>
+                  <tspan className='station-11__cls-71' x='171.99' y='0'>
+                    r
+                  </tspan>
+                  <tspan x='180.19' y='0'>
+                    i
+                  </tspan>
+                  <tspan className='station-11__cls-48' x='185.98' y='0'>
+                    v
+                  </tspan>
+                  <tspan x='197.64' y='0'>
+                    e
                   </tspan>
                   <tspan className='station-11__cls-71' x='3.5' y='29.71'>
-                    Động cơ băm chính
+                    Đ
+                  </tspan>
+                  <tspan className='station-11__cls-67' x='20.21' y='29.71'>
+                    ộng{' '}
+                  </tspan>
+                  <tspan className='station-11__cls-5' x='66.63' y='29.71'>
+                    c
+                  </tspan>
+                  <tspan className='station-11__cls-74' x='77.58' y='29.71'>
+                    ơ băm chính
                   </tspan>
                 </text>
               </g>
@@ -1823,10 +1371,31 @@ export function TR11Diagram() {
             transform='translate(1799.28 933.28)'
           >
             <tspan className='station-11__cls-70' x='0' y='0'>
-              ACB-5P-1250A
+              A
+            </tspan>
+            <tspan x='14.78' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-49' x='29.14' y='0'>
+              B
+            </tspan>
+            <tspan x='42.68' y='0'>
+              -5
+            </tspan>
+            <tspan className='station-11__cls-27' x='62.98' y='0'>
+              P
+            </tspan>
+            <tspan x='75.73' y='0'>
+              -1250A
             </tspan>
             <tspan x='47.53' y='29.71'>
-              40KA
+              40
+            </tspan>
+            <tspan className='station-11__cls-36' x='72.94' y='29.71'>
+              K
+            </tspan>
+            <tspan className='station-11__cls-74' x='86.6' y='29.71'>
+              A
             </tspan>
           </text>
         </g>
@@ -1934,10 +1503,22 @@ export function TR11Diagram() {
               transform='translate(805.49 145.3)'
             >
               <tspan x='0' y='0'>
-                22KV//690V
+                22
+              </tspan>
+              <tspan className='station-11__cls-37' x='25.4' y='0'>
+                K
+              </tspan>
+              <tspan className='station-11__cls-74' x='39.19' y='0'>
+                V//690V
               </tspan>
               <tspan x='15.97' y='29.71'>
-                1000kVA
+                1000k
+              </tspan>
+              <tspan className='station-11__cls-76' x='78.38' y='29.71'>
+                V
+              </tspan>
+              <tspan className='station-11__cls-74' x='90.79' y='29.71'>
+                A
               </tspan>
             </text>
             <text
@@ -2040,7 +1621,10 @@ export function TR11Diagram() {
               transform='translate(1036.34 291.84)'
             >
               <tspan className='station-11__cls-75' x='0' y='0'>
-                Thanh cái
+                T
+              </tspan>
+              <tspan x='12.13' y='0'>
+                hanh cái
               </tspan>
             </text>
           </g>
@@ -2206,7 +1790,22 @@ export function TR11Diagram() {
             transform='translate(756.15 573.96)'
           >
             <tspan className='station-11__cls-70' x='0' y='0'>
-              ACB-3P-1250A
+              A
+            </tspan>
+            <tspan x='14.78' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-49' x='29.14' y='0'>
+              B
+            </tspan>
+            <tspan x='42.68' y='0'>
+              -3
+            </tspan>
+            <tspan className='station-11__cls-27' x='62.98' y='0'>
+              P
+            </tspan>
+            <tspan x='75.73' y='0'>
+              -1250A
             </tspan>
             <tspan x='13.55' y='29.71'>
               50kA - 690V
@@ -2217,7 +1816,13 @@ export function TR11Diagram() {
             transform='translate(834.71 676.03)'
           >
             <tspan className='station-11__cls-60' x='0' y='0'>
-              CTx3
+              C
+            </tspan>
+            <tspan className='station-11__cls-26' x='15.05' y='0'>
+              T
+            </tspan>
+            <tspan x='26.52' y='0'>
+              x3
             </tspan>
             <tspan x='-18.23' y='29.71'>
               1200/5A
@@ -2228,9 +1833,14 @@ export function TR11Diagram() {
             transform='translate(837.21 767.27)'
           >
             <tspan className='station-11__cls-60' x='0' y='0'>
-              CTx1
+              C
             </tspan>
-
+            <tspan className='station-11__cls-26' x='15.05' y='0'>
+              T
+            </tspan>
+            <tspan x='26.52' y='0'>
+              x1
+            </tspan>
             <tspan x='-18.23' y='29.71'>
               2000/5A
             </tspan>
@@ -2249,7 +1859,10 @@ export function TR11Diagram() {
             transform='translate(633.99 855.31)'
           >
             <tspan className='station-11__cls-75' x='0' y='0'>
-              Thanh cái
+              T
+            </tspan>
+            <tspan x='12.13' y='0'>
+              hanh cái
             </tspan>
           </text>
         </g>
@@ -2300,10 +1913,40 @@ export function TR11Diagram() {
             transform='translate(1195.47 1035.8)'
           >
             <tspan x='0' y='0'>
-              MCCB-3P-125A
+              M
+            </tspan>
+            <tspan className='station-11__cls-31' x='19.91' y='0'>
+              C
+            </tspan>
+            <tspan x='33.74' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-73' x='48.1' y='0'>
+              B
+            </tspan>
+            <tspan x='61.65' y='0'>
+              -3
+            </tspan>
+            <tspan className='station-11__cls-27' x='81.95' y='0'>
+              P
+            </tspan>
+            <tspan x='94.7' y='0'>
+              -125A
             </tspan>
             <tspan x='1.18' y='29.71'>
-              NSX100L-20KA
+              NSX100
+            </tspan>
+            <tspan className='station-11__cls-29' x='81.91' y='29.71'>
+              L
+            </tspan>
+            <tspan x='92.56' y='29.71'>
+              -20
+            </tspan>
+            <tspan className='station-11__cls-36' x='125.56' y='29.71'>
+              K
+            </tspan>
+            <tspan x='139.22' y='29.71'>
+              A
             </tspan>
           </text>
           <text
@@ -2311,10 +1954,40 @@ export function TR11Diagram() {
             transform='translate(726.28 1035.8)'
           >
             <tspan x='0' y='0'>
-              MCCB-3P-125A
+              M
+            </tspan>
+            <tspan className='station-11__cls-31' x='19.91' y='0'>
+              C
+            </tspan>
+            <tspan x='33.74' y='0'>
+              C
+            </tspan>
+            <tspan className='station-11__cls-73' x='48.1' y='0'>
+              B
+            </tspan>
+            <tspan x='61.65' y='0'>
+              -3
+            </tspan>
+            <tspan className='station-11__cls-27' x='81.95' y='0'>
+              P
+            </tspan>
+            <tspan x='94.7' y='0'>
+              -125A
             </tspan>
             <tspan x='1.18' y='29.71'>
-              NSX100L-20KA
+              NSX100
+            </tspan>
+            <tspan className='station-11__cls-29' x='81.91' y='29.71'>
+              L
+            </tspan>
+            <tspan x='92.56' y='29.71'>
+              -20
+            </tspan>
+            <tspan className='station-11__cls-36' x='125.56' y='29.71'>
+              K
+            </tspan>
+            <tspan x='139.22' y='29.71'>
+              A
             </tspan>
           </text>
           <text
@@ -2322,10 +1995,22 @@ export function TR11Diagram() {
             transform='translate(977.96 932.28)'
           >
             <tspan x='0' y='0'>
-              MCCB - 3P - 630A
+              M
+            </tspan>
+            <tspan className='station-11__cls-31' x='19.91' y='0'>
+              C
+            </tspan>
+            <tspan x='33.74' y='0'>
+              CB - 3P - 630A
             </tspan>
             <tspan x='61.31' y='29.71'>
-              20KA
+              20
+            </tspan>
+            <tspan className='station-11__cls-36' x='86.71' y='29.71'>
+              K
+            </tspan>
+            <tspan className='station-11__cls-74' x='100.38' y='29.71'>
+              A
             </tspan>
           </text>
         </g>
@@ -2334,7 +2019,16 @@ export function TR11Diagram() {
           transform='translate(1403.11 889.96)'
         >
           <tspan className='station-11__cls-34' x='0' y='0'>
-            VARLOGIC
+            V
+          </tspan>
+          <tspan className='station-11__cls-74' x='12.4' y='0'>
+            AR
+          </tspan>
+          <tspan className='station-11__cls-33' x='40.88' y='0'>
+            L
+          </tspan>
+          <tspan x='51.6' y='0'>
+            OGIC
           </tspan>
         </text>
         <g>
@@ -2490,10 +2184,40 @@ export function TR11Diagram() {
               transform='translate(2082.35 932)'
             >
               <tspan x='0' y='0'>
-                MCCB-4P-160A
+                M
+              </tspan>
+              <tspan className='station-11__cls-31' x='19.91' y='0'>
+                C
+              </tspan>
+              <tspan x='33.74' y='0'>
+                C
+              </tspan>
+              <tspan className='station-11__cls-73' x='48.1' y='0'>
+                B
+              </tspan>
+              <tspan x='61.65' y='0'>
+                -4
+              </tspan>
+              <tspan className='station-11__cls-27' x='81.95' y='0'>
+                P
+              </tspan>
+              <tspan x='94.7' y='0'>
+                -160A
               </tspan>
               <tspan x='1.18' y='29.71'>
-                NSX160L-20KA
+                NSX160
+              </tspan>
+              <tspan className='station-11__cls-29' x='81.91' y='29.71'>
+                L
+              </tspan>
+              <tspan x='92.56' y='29.71'>
+                -20
+              </tspan>
+              <tspan className='station-11__cls-36' x='125.56' y='29.71'>
+                K
+              </tspan>
+              <tspan x='139.22' y='29.71'>
+                A
               </tspan>
             </text>
           </g>
@@ -2505,10 +2229,19 @@ export function TR11Diagram() {
               SPD
             </tspan>
             <tspan x='-90.03' y='29.71'>
-              iPRF1, type 1+2, 50kA
+              iPRF1,{' '}
+            </tspan>
+            <tspan className='station-11__cls-44' x='-22.62' y='29.71'>
+              t
+            </tspan>
+            <tspan x='-14.2' y='29.71'>
+              ype 1+2, 50kA
             </tspan>
             <tspan className='station-11__cls-66' x='-101.79' y='59.42'>
-              Type 10/350us + 8/20us
+              T
+            </tspan>
+            <tspan x='-90.48' y='59.42'>
+              ype 10/350us + 8/20us
             </tspan>
           </text>
         </g>
