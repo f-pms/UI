@@ -2978,7 +2978,7 @@ export function TR42Diagram() {
         </text>
       </g>
       <g>
-        <g>
+        <g className='temperature-table' id='bodknhietdotbatr42'>
           <g>
             <rect
               className='station-42__cls-7'
@@ -3774,7 +3774,7 @@ export function TR42Diagram() {
         x='1059.28'
         y='600.46'
       />
-      <g>
+      <g className='data-table' id='digitalmultimetterpm5310'>
         <text
           className='station-42__cls-26'
           transform='translate(864.71 274.16) scale(.95 1)'
@@ -4039,35 +4039,69 @@ export function TR42Diagram() {
         </g>
         <g>
           <rect
-            className='station-42__cls-3'
+            className='station-42__cls-4'
             height='27.05'
-            width='51.52'
-            x='985.9'
-            y='496.79'
+            width='154.55'
+            x='831.34'
+            y='388.59'
           />
           <text
-            className='station-42__cls-17'
-            transform='translate(991.26 516.39) scale(.95 1)'
+            className='station-42__cls-20'
+            transform='translate(891.76 407.98) scale(.95 1)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='station-42__cls-3'
+            className='station-42__cls-4'
             height='27.05'
-            width='51.52'
-            x='985.9'
-            y='523.84'
+            width='154.55'
+            x='831.34'
+            y='415.64'
           />
           <text
-            className='station-42__cls-17'
-            transform='translate(994.68 543.44) scale(.95 1)'
+            className='station-42__cls-20'
+            transform='translate(891.76 435.03) scale(.95 1)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='station-42__cls-4'
+            height='27.05'
+            width='154.55'
+            x='831.34'
+            y='442.69'
+          />
+          <text
+            className='station-42__cls-20'
+            transform='translate(891.76 462.08) scale(.95 1)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='station-42__cls-4'
+            height='27.05'
+            width='154.55'
+            x='831.34'
+            y='469.74'
+          />
+          <text
+            className='station-42__cls-20'
+            transform='translate(891.76 489.13) scale(.95 1)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -4175,72 +4209,39 @@ export function TR42Diagram() {
         </g>
         <g>
           <rect
-            className='station-42__cls-4'
+            className='station-42__cls-3'
             height='27.05'
-            width='154.55'
-            x='831.34'
-            y='388.59'
+            width='51.52'
+            x='985.9'
+            y='496.79'
           />
           <text
-            className='station-42__cls-20'
-            transform='translate(891.76 407.98) scale(.95 1)'
+            className='station-42__cls-17'
+            transform='translate(991.26 516.39) scale(.95 1)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='station-42__cls-4'
+            className='station-42__cls-3'
             height='27.05'
-            width='154.55'
-            x='831.34'
-            y='415.64'
+            width='51.52'
+            x='985.9'
+            y='523.84'
           />
           <text
-            className='station-42__cls-20'
-            transform='translate(891.76 435.03) scale(.95 1)'
+            className='station-42__cls-17'
+            transform='translate(994.68 543.44) scale(.95 1)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
-        <g>
-          <rect
-            className='station-42__cls-4'
-            height='27.05'
-            width='154.55'
-            x='831.34'
-            y='442.69'
-          />
-          <text
-            className='station-42__cls-20'
-            transform='translate(891.76 462.08) scale(.95 1)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-42__cls-4'
-            height='27.05'
-            width='154.55'
-            x='831.34'
-            y='469.74'
-          />
-          <text
-            className='station-42__cls-20'
-            transform='translate(891.76 489.13) scale(.95 1)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
+
         <g>
           <rect
             className='station-42__cls-3'
@@ -4258,7 +4259,7 @@ export function TR42Diagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lv42nangluongxanhkimtin01'>
         <text
           className='station-42__cls-20'
           transform='translate(1154.3 253.12) scale(.95 1)'
@@ -4532,35 +4533,69 @@ export function TR42Diagram() {
         </g>
         <g>
           <rect
-            className='station-42__cls-3'
+            className='station-42__cls-4'
             height='27.05'
-            width='51.52'
-            x='1222.97'
-            y='496.79'
+            width='154.55'
+            x='1068.42'
+            y='388.59'
           />
           <text
-            className='station-42__cls-17'
-            transform='translate(1228.34 516.39) scale(.95 1)'
+            className='station-42__cls-20'
+            transform='translate(1128.83 407.98) scale(.95 1)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='station-42__cls-3'
+            className='station-42__cls-4'
             height='27.05'
-            width='51.52'
-            x='1222.97'
-            y='523.84'
+            width='154.55'
+            x='1068.42'
+            y='415.64'
           />
           <text
-            className='station-42__cls-17'
-            transform='translate(1231.75 543.44) scale(.95 1)'
+            className='station-42__cls-20'
+            transform='translate(1128.83 435.03) scale(.95 1)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='station-42__cls-4'
+            height='27.05'
+            width='154.55'
+            x='1068.42'
+            y='442.69'
+          />
+          <text
+            className='station-42__cls-20'
+            transform='translate(1128.83 462.08) scale(.95 1)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='station-42__cls-4'
+            height='27.05'
+            width='154.55'
+            x='1068.42'
+            y='469.74'
+          />
+          <text
+            className='station-42__cls-20'
+            transform='translate(1128.83 489.13) scale(.95 1)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -4668,69 +4703,35 @@ export function TR42Diagram() {
         </g>
         <g>
           <rect
-            className='station-42__cls-4'
+            className='station-42__cls-3'
             height='27.05'
-            width='154.55'
-            x='1068.42'
-            y='388.59'
+            width='51.52'
+            x='1222.97'
+            y='496.79'
           />
           <text
-            className='station-42__cls-20'
-            transform='translate(1128.83 407.98) scale(.95 1)'
+            className='station-42__cls-17'
+            transform='translate(1228.34 516.39) scale(.95 1)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='station-42__cls-4'
+            className='station-42__cls-3'
             height='27.05'
-            width='154.55'
-            x='1068.42'
-            y='415.64'
+            width='51.52'
+            x='1222.97'
+            y='523.84'
           />
           <text
-            className='station-42__cls-20'
-            transform='translate(1128.83 435.03) scale(.95 1)'
+            className='station-42__cls-17'
+            transform='translate(1231.75 543.44) scale(.95 1)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-42__cls-4'
-            height='27.05'
-            width='154.55'
-            x='1068.42'
-            y='442.69'
-          />
-          <text
-            className='station-42__cls-20'
-            transform='translate(1128.83 462.08) scale(.95 1)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-42__cls-4'
-            height='27.05'
-            width='154.55'
-            x='1068.42'
-            y='469.74'
-          />
-          <text
-            className='station-42__cls-20'
-            transform='translate(1128.83 489.13) scale(.95 1)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -4973,7 +4974,7 @@ export function TR42Diagram() {
             </text>
           </g>
         </g>
-        <g>
+        <g className='data-table' id='pneumaticsgrp5900hethonghutbui'>
           <g>
             <rect
               className='station-42__cls-3'
