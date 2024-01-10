@@ -2,10 +2,6 @@
   fill: #009245;
 }
 
-.station-30__cls-2 {
-  letter-spacing: 0.01em;
-}
-
 .station-30__cls-3 {
   fill: #00e5ff;
 }
@@ -19,6 +15,7 @@
 .station-30__cls-9,
 .station-30__cls-10 {
   font-family: 'Inter', sans-serif;
+  font-size: 18px;
 }
 
 .station-30__cls-3,
@@ -27,7 +24,7 @@
 .station-30__cls-8,
 .station-30__cls-9,
 .station-30__cls-10 {
-  font-size: 21.39px;
+  font-size: 18px;
 }
 
 .station-30__cls-11 {
@@ -54,14 +51,6 @@
   stroke: #000;
 }
 
-.station-30__cls-19 {
-  letter-spacing: -0.03em;
-}
-
-.station-30__cls-20 {
-  letter-spacing: 0.06em;
-}
-
 .station-30__cls-21,
 .station-30__cls-14,
 .station-30__cls-16,
@@ -72,36 +61,8 @@
   fill: #fff;
 }
 
-.station-30__cls-22 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-23 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-24 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-25 {
-  letter-spacing: -0.01em;
-}
-
-.station-30__cls-26 {
-  letter-spacing: 0.02em;
-}
-
 .station-30__cls-12 {
   fill: #e6e6e6;
-}
-
-.station-30__cls-27 {
-  letter-spacing: 0.04em;
-}
-
-.station-30__cls-28 {
-  letter-spacing: 0em;
 }
 
 .station-30__cls-13,
@@ -115,70 +76,14 @@
   fill: none;
 }
 
-.station-30__cls-29 {
-  letter-spacing: 0.01em;
-}
-
-.station-30__cls-30 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-31 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-32 {
-  letter-spacing: 0.05em;
-}
-
-.station-30__cls-33 {
-  letter-spacing: -0.03em;
-}
-
-.station-30__cls-34 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-35 {
-  letter-spacing: 0em;
-}
-
 .station-30__cls-14,
 .station-30__cls-17 {
   stroke-linecap: round;
 }
 
-.station-30__cls-36 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-37 {
-  letter-spacing: -0.06em;
-}
-
 .station-30__cls-4,
 .station-30__cls-7 {
   font-size: 18.72px;
-}
-
-.station-30__cls-38 {
-  letter-spacing: 0.03em;
-}
-
-.station-30__cls-39 {
-  letter-spacing: -0.03em;
-}
-
-.station-30__cls-40 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-41 {
-  letter-spacing: -0.04em;
-}
-
-.station-30__cls-42 {
-  letter-spacing: -0.02em;
 }
 
 .station-30__cls-43,
@@ -195,106 +100,10 @@
   fill: #66bb6a;
 }
 
-.station-30__cls-46 {
-  letter-spacing: 0.01em;
-}
-
-.station-30__cls-47 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-48 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-49 {
-  letter-spacing: 0.01em;
-}
-
-.station-30__cls-50 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-51 {
-  letter-spacing: 0em;
-}
-
 .station-30__cls-52 {
   fill: #212121;
 }
 
-.station-30__cls-53 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-54 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-55 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-56 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-57 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-58 {
-  letter-spacing: -0.01em;
-}
-
-.station-30__cls-59 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-60 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-61 {
-  letter-spacing: -0.08em;
-}
-
-.station-30__cls-62 {
-  letter-spacing: -0.04em;
-}
-
-.station-30__cls-63 {
-  letter-spacing: -0.01em;
-}
-
-.station-30__cls-64 {
-  letter-spacing: -0.04em;
-}
-
-.station-30__cls-65 {
-  letter-spacing: -0.03em;
-}
-
-.station-30__cls-66 {
-  letter-spacing: -0.05em;
-}
-
-.station-30__cls-67 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-68 {
-  letter-spacing: 0.01em;
-}
-
 .station-30__cls-8 {
   fill: #d4145a;
-}
-
-.station-30__cls-69 {
-  letter-spacing: 0em;
-}
-
-.station-30__cls-70 {
-  letter-spacing: 0em;
 }
