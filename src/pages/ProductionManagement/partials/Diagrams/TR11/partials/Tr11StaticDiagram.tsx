@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 
-export default function StaticDiagram() {
+export default function Tr11StaticDiagram() {
   return (
     <Fragment>
       <text className='station-11__cls-25' transform='translate(839.35 27.77)'>

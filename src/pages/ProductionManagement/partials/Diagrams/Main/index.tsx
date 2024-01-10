@@ -2,7 +2,7 @@ import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
 import { useFiguresCoordinateContext } from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
 import { Figures } from '~/pages/ProductionManagement/helpers/diagrams';
-import StaticDiagram from '~/pages/ProductionManagement/partials/Diagrams/Main/partials/StaticDiagram';
+import MainStaticDiagram from '~/pages/ProductionManagement/partials/Diagrams/Main/partials/MainStaticDiagram';
 
 import './styles.css';
 
@@ -34,7 +34,7 @@ export function MainDiagram() {
       viewBox='0 0 2871.34 1349'
       xmlns='http://www.w3.org/2000/svg'
     >
-      <StaticDiagram />
+      <MainStaticDiagram />
       <Figures
         figureValues={figureValues}
         figuresCoordinateList={figuresCoordinateList}

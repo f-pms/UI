@@ -2,7 +2,7 @@ import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
 import { useFiguresCoordinateContext } from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
 import { Figures } from '~/pages/ProductionManagement/helpers/diagrams';
-import StaticDiagram from '~/pages/ProductionManagement/partials/Diagrams/TR11/partials/StaticDiagram';
+import Tr11StaticDiagram from '~/pages/ProductionManagement/partials/Diagrams/TR11/partials/Tr11StaticDiagram';
 
 import './styles.css';
 
@@ -18,7 +18,7 @@ export function TR11Diagram() {
       viewBox='0 0 2871.87 1345.36'
       xmlns='http://www.w3.org/2000/svg'
     >
-      <StaticDiagram />
+      <Tr11StaticDiagram />
       <Figures
         figureValues={figureValues}
         figuresCoordinateList={figuresCoordinateList}

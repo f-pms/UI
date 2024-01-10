@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 
-export default function StaticDiagram() {
+export default function MainStaticDiagram() {
   return (
     <Fragment>
       <rect
