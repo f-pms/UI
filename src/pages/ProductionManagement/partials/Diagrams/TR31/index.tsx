@@ -580,7 +580,7 @@ export function TR31Diagram() {
           points='752.94 108.01 740.27 87.51 765.6 87.51 752.94 108.01'
         />
       </g>
-      <g>
+      <g className='data-table' id='digitalmultimetterpm5310'>
         <text
           className='station-31__cls-23'
           transform='translate(1486.85 359.2)'
@@ -854,35 +854,69 @@ export function TR31Diagram() {
         </g>
         <g>
           <rect
-            className='station-31__cls-3'
+            className='station-31__cls-4'
             height='35.14'
-            width='70.28'
-            x='1652.17'
-            y='648.42'
+            width='210.84'
+            x='1441.33'
+            y='507.85'
           />
           <text
-            className='station-31__cls-16'
-            transform='translate(1659.49 673.87)'
+            className='station-31__cls-25'
+            transform='translate(1523.75 533.04)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='station-31__cls-3'
+            className='station-31__cls-4'
             height='35.14'
-            width='70.28'
-            x='1652.17'
-            y='683.56'
+            width='210.84'
+            x='1441.33'
+            y='542.99'
           />
           <text
-            className='station-31__cls-16'
-            transform='translate(1664.15 709.01)'
+            className='station-31__cls-25'
+            transform='translate(1523.75 568.18)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='station-31__cls-4'
+            height='35.14'
+            width='210.84'
+            x='1441.33'
+            y='578.13'
+          />
+          <text
+            className='station-31__cls-25'
+            transform='translate(1523.75 603.32)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='station-31__cls-4'
+            height='35.14'
+            width='210.84'
+            x='1441.33'
+            y='613.28'
+          />
+          <text
+            className='station-31__cls-25'
+            transform='translate(1523.75 638.46)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -990,69 +1024,35 @@ export function TR31Diagram() {
         </g>
         <g>
           <rect
-            className='station-31__cls-4'
+            className='station-31__cls-3'
             height='35.14'
-            width='210.84'
-            x='1441.33'
-            y='507.85'
+            width='70.28'
+            x='1652.17'
+            y='648.42'
           />
           <text
-            className='station-31__cls-25'
-            transform='translate(1523.75 533.04)'
+            className='station-31__cls-16'
+            transform='translate(1659.49 673.87)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='station-31__cls-4'
+            className='station-31__cls-3'
             height='35.14'
-            width='210.84'
-            x='1441.33'
-            y='542.99'
+            width='70.28'
+            x='1652.17'
+            y='683.56'
           />
           <text
-            className='station-31__cls-25'
-            transform='translate(1523.75 568.18)'
+            className='station-31__cls-16'
+            transform='translate(1664.15 709.01)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-31__cls-4'
-            height='35.14'
-            width='210.84'
-            x='1441.33'
-            y='578.13'
-          />
-          <text
-            className='station-31__cls-25'
-            transform='translate(1523.75 603.32)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-31__cls-4'
-            height='35.14'
-            width='210.84'
-            x='1441.33'
-            y='613.28'
-          />
-          <text
-            className='station-31__cls-25'
-            transform='translate(1523.75 638.46)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -1229,7 +1229,7 @@ export function TR31Diagram() {
         </g>
       </g>
       <g>
-        <g>
+        <g className='temperature-table' id='bodknhietdotbatr31'>
           <g>
             <rect
               className='station-31__cls-7'
