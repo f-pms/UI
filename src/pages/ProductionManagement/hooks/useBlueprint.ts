@@ -11,7 +11,7 @@ import {
 export default () => {
   const [tabValue, setTabValue] = useState(DIAGRAMS[0].value);
   const tabInfo = useMemo(() => getTabItemByValue(tabValue), [tabValue]);
-  const { figuresCoordinate, updateContextByBlueprint } = useContext(
+  const { figuresCoordinateList, updateContextByBlueprint } = useContext(
     FiguresCoordinateContext,
   );
   const [isBlueprintReady, setIsBlueprintReady] = useState<boolean>(false);
@@ -38,7 +38,7 @@ export default () => {
     tabValue,
     setTabValue,
     tabInfo,
-    figuresCoordinate,
+    figuresCoordinateList,
     isBlueprintReady,
   };
 };

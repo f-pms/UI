@@ -19,7 +19,7 @@ function MonitoringPage() {
     tabValue,
     setTabValue,
     tabInfo,
-    figuresCoordinate,
+    figuresCoordinateList,
     isBlueprintReady,
   } = useBlueprint();
 
@@ -29,10 +29,16 @@ function MonitoringPage() {
   const isReady = useMemo(
     () =>
       isBlueprintReady &&
-      !_.isEmpty(figuresCoordinate) &&
+      !_.isEmpty(figuresCoordinateList) &&
       ws.isSubscribed(tabInfo.channel) &&
       figureValues != undefined,
-    [isBlueprintReady, figuresCoordinate, ws, tabInfo.channel, figureValues],
+    [
+      isBlueprintReady,
+      figuresCoordinateList,
+      ws,
+      tabInfo.channel,
+      figureValues,
+    ],
   );
 
   const ref = useRef<HTMLDivElement>(null);
