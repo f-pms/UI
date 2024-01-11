@@ -336,46 +336,10 @@ export default function MainStaticDiagram() {
         />
         <text className='main__cls-27' transform='translate(327.86 945.16)'>
           <tspan className='main__cls-36' x='0' y='0'>
-            R
-          </tspan>
-          <tspan x='9.48' y='0'>
-            efine
-          </tspan>
-          <tspan className='main__cls-31' x='45.88' y='0'>
-            r
-          </tspan>
-          <tspan x='51.51' y='0'>
-            -main d
-          </tspan>
-          <tspan className='main__cls-35' x='107.3' y='0'>
-            r
-          </tspan>
-          <tspan x='113.09' y='0'>
-            i
-          </tspan>
-          <tspan className='main__cls-33' x='117.18' y='0'>
-            v
-          </tspan>
-          <tspan x='125.42' y='0'>
-            e
+            Refiner-main drive
           </tspan>
           <tspan className='main__cls-36' x='-9.08' y='21'>
-            Đ
-          </tspan>
-          <tspan x='2.73' y='21'>
-            ộng{' '}
-          </tspan>
-          <tspan className='main__cls-37' x='35.54' y='21'>
-            c
-          </tspan>
-          <tspan className='main__cls-44' x='43.27' y='21'>
-            ơ m
-          </tspan>
-          <tspan className='main__cls-16' x='71.25' y='21'>
-            á
-          </tspan>
-          <tspan className='main__cls-17' x='79.54' y='21'>
-            y nghiền
+            Động cơ máy nghiền
           </tspan>
         </text>
       </g>
@@ -655,22 +619,10 @@ export default function MainStaticDiagram() {
       <g>
         <text className='main__cls-24' transform='translate(870.23 761.11)'>
           <tspan x='0' y='0'>
-            22
-          </tspan>
-          <tspan className='main__cls-63' x='15.71' y='0'>
-            K
-          </tspan>
-          <tspan x='24.24' y='0'>
-            V//690V
+            22KV//690V
           </tspan>
           <tspan x='9.88' y='18.37'>
-            1000k
-          </tspan>
-          <tspan className='main__cls-48' x='48.47' y='18.37'>
-            V
-          </tspan>
-          <tspan x='56.14' y='18.37'>
-            A
+            1000kVA
           </tspan>
         </text>
         <g>
@@ -696,10 +648,7 @@ export default function MainStaticDiagram() {
               TR11
             </tspan>
             <tspan className='main__cls-39' x='-22.78' y='21'>
-              S
-            </tspan>
-            <tspan x='-14.05' y='21'>
-              epam 10B
+              Sepam 10B
             </tspan>
           </text>
         </g>
@@ -936,22 +885,10 @@ export default function MainStaticDiagram() {
       <g>
         <text className='main__cls-24' transform='translate(998.96 761.11)'>
           <tspan x='0' y='0'>
-            22
-          </tspan>
-          <tspan className='main__cls-63' x='15.71' y='0'>
-            K
-          </tspan>
-          <tspan x='24.24' y='0'>
-            V//400V
+            22KV//400V
           </tspan>
           <tspan x='9.88' y='18.37'>
-            2000k
-          </tspan>
-          <tspan className='main__cls-48' x='48.47' y='18.37'>
-            V
-          </tspan>
-          <tspan x='56.14' y='18.37'>
-            A
+            2000kVA
           </tspan>
         </text>
         <g>
@@ -977,10 +914,7 @@ export default function MainStaticDiagram() {
               TR12
             </tspan>
             <tspan className='main__cls-39' x='-22.78' y='21'>
-              S
-            </tspan>
-            <tspan x='-14.05' y='21'>
-              epam 10B
+              Sepam 10B
             </tspan>
           </text>
         </g>
@@ -1283,10 +1217,7 @@ export default function MainStaticDiagram() {
               TR42
             </tspan>
             <tspan className='main__cls-39' x='-26.49' y='21'>
-              S
-            </tspan>
-            <tspan x='-17.76' xmlSpace='preserve' y='21'>
-              epam 10B{' '}
+              Sepam 10B
             </tspan>
           </text>
         </g>
@@ -1548,22 +1479,10 @@ export default function MainStaticDiagram() {
         />
         <text className='main__cls-24' transform='translate(1718.04 760.53)'>
           <tspan x='0' y='0'>
-            22
-          </tspan>
-          <tspan className='main__cls-63' x='15.71' y='0'>
-            K
-          </tspan>
-          <tspan x='24.24' y='0'>
-            V//400V
+            22KV//400V
           </tspan>
           <tspan x='9.88' y='18.37'>
-            1600k
-          </tspan>
-          <tspan className='main__cls-48' x='48.47' y='18.37'>
-            V
-          </tspan>
-          <tspan x='56.14' y='18.37'>
-            A
+            1600kVA
           </tspan>
         </text>
         <g>
@@ -1589,10 +1508,7 @@ export default function MainStaticDiagram() {
               TR72
             </tspan>
             <tspan className='main__cls-39' x='-22.78' y='21'>
-              S
-            </tspan>
-            <tspan x='-14.05' y='21'>
-              epam 10B
+              Sepam 10B
             </tspan>
           </text>
         </g>
@@ -1996,22 +1912,10 @@ export default function MainStaticDiagram() {
       <g>
         <text className='main__cls-24' transform='translate(2170.2 760.87)'>
           <tspan x='0' y='0'>
-            22
-          </tspan>
-          <tspan className='main__cls-63' x='15.71' y='0'>
-            K
-          </tspan>
-          <tspan x='24.24' y='0'>
-            V//690V
+            22KV//690V
           </tspan>
           <tspan x='0' y='18.37'>
-            2000k
-          </tspan>
-          <tspan className='main__cls-48' x='38.6' y='18.37'>
-            V
-          </tspan>
-          <tspan x='46.27' y='18.37'>
-            A
+            2000kVA
           </tspan>
         </text>
         <g>
@@ -2037,10 +1941,7 @@ export default function MainStaticDiagram() {
               TR31
             </tspan>
             <tspan className='main__cls-39' x='-22.78' y='21'>
-              S
-            </tspan>
-            <tspan x='-14.05' y='21'>
-              epam 10B
+              Sepam 10B
             </tspan>
           </text>
         </g>
@@ -2433,22 +2334,10 @@ export default function MainStaticDiagram() {
       <g>
         <text className='main__cls-24' transform='translate(2300.53 760.87)'>
           <tspan x='0' y='0'>
-            22
-          </tspan>
-          <tspan className='main__cls-63' x='15.71' y='0'>
-            K
-          </tspan>
-          <tspan x='24.24' y='0'>
-            V//400V
+            22KV//400V
           </tspan>
           <tspan x='9.88' y='18.37'>
-            2000k
-          </tspan>
-          <tspan className='main__cls-48' x='48.47' y='18.37'>
-            V
-          </tspan>
-          <tspan x='56.14' y='18.37'>
-            A
+            2000kVA
           </tspan>
         </text>
         <g>
@@ -2474,10 +2363,7 @@ export default function MainStaticDiagram() {
               TR32
             </tspan>
             <tspan className='main__cls-39' x='-22.78' y='21'>
-              S
-            </tspan>
-            <tspan x='-14.05' y='21'>
-              epam 10B
+              Sepam 10B
             </tspan>
           </text>
         </g>
@@ -2723,22 +2609,10 @@ export default function MainStaticDiagram() {
       <g>
         <text className='main__cls-24' transform='translate(2426.37 760.87)'>
           <tspan x='0' y='0'>
-            22
-          </tspan>
-          <tspan className='main__cls-63' x='15.71' y='0'>
-            K
-          </tspan>
-          <tspan x='24.24' y='0'>
-            V//400V
+            22KV//400V
           </tspan>
           <tspan x='9.88' y='18.37'>
-            2000k
-          </tspan>
-          <tspan className='main__cls-48' x='48.47' y='18.37'>
-            V
-          </tspan>
-          <tspan x='56.14' y='18.37'>
-            A
+            2000kVA
           </tspan>
         </text>
         <g>
@@ -2764,10 +2638,7 @@ export default function MainStaticDiagram() {
               TR33
             </tspan>
             <tspan className='main__cls-39' x='-22.78' y='21'>
-              S
-            </tspan>
-            <tspan x='-14.05' y='21'>
-              epam 10B
+              Sepam 10B
             </tspan>
           </text>
         </g>
@@ -3056,19 +2927,10 @@ export default function MainStaticDiagram() {
           </g>
           <text className='main__cls-26' transform='translate(1931.42 467.02)'>
             <tspan x='0' y='0'>
-              Spa
-            </tspan>
-            <tspan className='main__cls-33' x='27.02' y='0'>
-              r
-            </tspan>
-            <tspan x='32.56' y='0'>
-              e
+              Spare
             </tspan>
             <tspan className='main__cls-39' x='-20.15' y='21'>
-              S
-            </tspan>
-            <tspan x='-11.42' y='21'>
-              epam 10B
+              Sepam 10B
             </tspan>
           </text>
         </g>
@@ -3290,28 +3152,10 @@ export default function MainStaticDiagram() {
       <g>
         <text className='main__cls-24' transform='translate(289.49 323.18)'>
           <tspan x='0' y='0'>
-            22
-          </tspan>
-          <tspan className='main__cls-63' x='15.71' y='0'>
-            K
-          </tspan>
-          <tspan x='24.24' y='0'>
-            V//11
-          </tspan>
-          <tspan className='main__cls-63' x='58.99' y='0'>
-            K
-          </tspan>
-          <tspan x='67.52' y='0'>
-            W
+            22KV//11KW
           </tspan>
           <tspan x='12.42' y='18.37'>
-            7000k
-          </tspan>
-          <tspan className='main__cls-48' x='51.02' y='18.37'>
-            V
-          </tspan>
-          <tspan x='58.69' y='18.37'>
-            A
+            7000kVA
           </tspan>
         </text>
         <g>
@@ -3341,28 +3185,10 @@ export default function MainStaticDiagram() {
           </g>
           <text className='main__cls-26' transform='translate(329.09 25.29)'>
             <tspan className='main__cls-15' x='0' y='0'>
-              O
-            </tspan>
-            <tspan x='12.11' y='0'>
-              ut going
-            </tspan>
-            <tspan className='main__cls-18' x='74.23' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='77.22' y='0'>
-              TR30
+              Out goingTR30
             </tspan>
             <tspan className='main__cls-39' x='16.58' y='21'>
-              S
-            </tspan>
-            <tspan x='25.31' y='21'>
-              epam
-            </tspan>
-            <tspan className='main__cls-18' x='67.06' y='21'>
-              {' '}
-            </tspan>
-            <tspan x='70.05' y='21'>
-              T87
+              Sepam T87
             </tspan>
           </text>
         </g>
@@ -3742,25 +3568,10 @@ export default function MainStaticDiagram() {
           </g>
           <text className='main__cls-26' transform='translate(629.92 469.36)'>
             <tspan x='0' y='0'>
-              IN
-            </tspan>
-            <tspan className='main__cls-14' x='15.7' y='0'>
-              C
-            </tspan>
-            <tspan className='main__cls-17' x='25.48' y='0'>
-              OMING
-            </tspan>
-            <tspan className='main__cls-18' x='78.6' y='0'>
-              {' '}
-            </tspan>
-            <tspan className='main__cls-17' x='81.59' y='0'>
-              TR30
+              INCOMING TR30
             </tspan>
             <tspan className='main__cls-39' x='18.44' y='21'>
-              S
-            </tspan>
-            <tspan x='27.17' y='21'>
-              epam S20
+              Sepam S20
             </tspan>
           </text>
         </g>
@@ -4057,10 +3868,7 @@ export default function MainStaticDiagram() {
               OUT GOING 2
             </tspan>
             <tspan className='main__cls-39' x='9.03' y='21'>
-              S
-            </tspan>
-            <tspan x='17.76' y='21'>
-              epam S20
+              Sepam S20
             </tspan>
           </text>
         </g>
@@ -4354,22 +4162,10 @@ export default function MainStaticDiagram() {
           </g>
           <text className='main__cls-26' transform='translate(524.93 25.29)'>
             <tspan className='main__cls-15' x='0' y='0'>
-              O
-            </tspan>
-            <tspan x='12.11' y='0'>
-              ut going
-            </tspan>
-            <tspan className='main__cls-18' x='74.23' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='77.22' y='0'>
-              TR11 &amp; 12
+              Out going TR11 & 12
             </tspan>
             <tspan className='main__cls-39' x='34.23' y='21'>
-              S
-            </tspan>
-            <tspan x='42.97' y='21'>
-              epam S20
+              Sepam S20
             </tspan>
           </text>
         </g>
@@ -4662,22 +4458,10 @@ export default function MainStaticDiagram() {
           </g>
           <text className='main__cls-26' transform='translate(1960.85 25.29)'>
             <tspan className='main__cls-15' x='0' y='0'>
-              O
-            </tspan>
-            <tspan x='12.11' y='0'>
-              ut going
-            </tspan>
-            <tspan className='main__cls-18' x='74.23' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='77.22' y='0'>
-              TR72
+              Out going TR72
             </tspan>
             <tspan className='main__cls-39' x='16.25' y='21'>
-              S
-            </tspan>
-            <tspan x='24.99' y='21'>
-              epam S20
+              Sepam S20
             </tspan>
           </text>
         </g>
@@ -4963,22 +4747,10 @@ export default function MainStaticDiagram() {
           </g>
           <text className='main__cls-26' transform='translate(2361.77 25.29)'>
             <tspan className='main__cls-15' x='0' y='0'>
-              O
-            </tspan>
-            <tspan x='12.11' y='0'>
-              ut going
-            </tspan>
-            <tspan className='main__cls-18' x='74.23' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='77.22' y='0'>
-              TR31-34
+              Out going TR31-34
             </tspan>
             <tspan className='main__cls-39' x='27.92' y='21'>
-              S
-            </tspan>
-            <tspan x='36.65' y='21'>
-              epam S20
+              Sepam S20
             </tspan>
           </text>
         </g>
@@ -5264,22 +5036,10 @@ export default function MainStaticDiagram() {
           </g>
           <text className='main__cls-26' transform='translate(2170.38 25.29)'>
             <tspan className='main__cls-15' x='0' y='0'>
-              O
-            </tspan>
-            <tspan x='12.11' y='0'>
-              ut going Spa
-            </tspan>
-            <tspan className='main__cls-33' x='104.95' y='0'>
-              r
-            </tspan>
-            <tspan x='110.5' y='0'>
-              e
+              Out going Spare
             </tspan>
             <tspan className='main__cls-39' x='19.25' y='21'>
-              S
-            </tspan>
-            <tspan x='27.98' y='21'>
-              epam S20
+              Sepam S20
             </tspan>
           </text>
         </g>
@@ -5535,16 +5295,10 @@ export default function MainStaticDiagram() {
           </g>
           <text className='main__cls-26' transform='translate(756.86 25.29)'>
             <tspan className='main__cls-15' x='0' y='0'>
-              O
-            </tspan>
-            <tspan x='12.11' y='0'>
-              ut going 42
+              Out going 42
             </tspan>
             <tspan className='main__cls-39' x='7.56' y='21'>
-              S
-            </tspan>
-            <tspan x='16.29' y='21'>
-              epam S20
+              Sepam S20
             </tspan>
           </text>
         </g>
@@ -5844,19 +5598,10 @@ export default function MainStaticDiagram() {
           </g>
           <text className='main__cls-26' transform='translate(952.5 25.29)'>
             <tspan x='0' y='0'>
-              IN
-            </tspan>
-            <tspan className='main__cls-14' x='15.7' y='0'>
-              C
-            </tspan>
-            <tspan className='main__cls-17' x='25.48' y='0'>
-              OMING 2
+              INCOMING 2
             </tspan>
             <tspan className='main__cls-39' x='5.26' y='21'>
-              S
-            </tspan>
-            <tspan x='13.99' y='21'>
-              epam S20
+              Sepam S20
             </tspan>
           </text>
         </g>
@@ -5899,13 +5644,7 @@ export default function MainStaticDiagram() {
               transform='translate(1025.61 331.93)'
             >
               <tspan x='0' y='0'>
-                Nguồn{' '}
-              </tspan>
-              <tspan className='main__cls-58' x='53.96' y='0'>
-                v
-              </tspan>
-              <tspan x='62.31' y='0'>
-                ào 2
+                Nguồn vào 2
               </tspan>
             </text>
           </g>
@@ -6259,19 +5998,10 @@ export default function MainStaticDiagram() {
           </g>
           <text className='main__cls-26' transform='translate(1764.32 25.29)'>
             <tspan x='0' y='0'>
-              IN
-            </tspan>
-            <tspan className='main__cls-14' x='15.7' y='0'>
-              C
-            </tspan>
-            <tspan className='main__cls-17' x='25.48' y='0'>
-              OMING 1
+              INCOMING 1
             </tspan>
             <tspan className='main__cls-39' x='5.26' y='21'>
-              S
-            </tspan>
-            <tspan x='13.99' y='21'>
-              epam S20
+              Sepam S20
             </tspan>
           </text>
         </g>
@@ -6314,13 +6044,7 @@ export default function MainStaticDiagram() {
               transform='translate(1841.69 329.58)'
             >
               <tspan x='0' y='0'>
-                Nguồn{' '}
-              </tspan>
-              <tspan className='main__cls-58' x='53.96' y='0'>
-                v
-              </tspan>
-              <tspan x='62.31' y='0'>
-                ào 1
+                Nguồn vào 1
               </tspan>
             </text>
           </g>
@@ -6719,16 +6443,10 @@ export default function MainStaticDiagram() {
           </g>
           <text className='main__cls-26' transform='translate(1296.54 25.29)'>
             <tspan className='main__cls-14' x='0' y='0'>
-              C
-            </tspan>
-            <tspan x='9.78' y='0'>
-              OUPLER
+              COUPLER
             </tspan>
             <tspan className='main__cls-39' x='-6.01' y='21'>
-              S
-            </tspan>
-            <tspan x='2.72' y='21'>
-              epam S20
+              Sepam S20
             </tspan>
           </text>
         </g>
@@ -6889,19 +6607,10 @@ export default function MainStaticDiagram() {
           </g>
           <text className='main__cls-26' transform='translate(1148.79 25.29)'>
             <tspan x='0' y='0'>
-              MV M
-            </tspan>
-            <tspan className='main__cls-32' x='41.61' y='0'>
-              E
-            </tspan>
-            <tspan x='50.5' y='0'>
-              TERING
+              MV METERING
             </tspan>
             <tspan className='main__cls-39' x='11.06' y='21'>
-              S
-            </tspan>
-            <tspan x='19.79' y='21'>
-              epam b21
+              Sepam b21
             </tspan>
           </text>
         </g>
@@ -7055,31 +6764,10 @@ export default function MainStaticDiagram() {
           </g>
           <text className='main__cls-26' transform='translate(252.93 469.36)'>
             <tspan x='0' y='0'>
-              MV M
-            </tspan>
-            <tspan className='main__cls-32' x='41.61' y='0'>
-              E
-            </tspan>
-            <tspan x='50.5' y='0'>
-              TERING
+              MV METERING
             </tspan>
             <tspan className='main__cls-46' x='6.89' y='21'>
-              V
-            </tspan>
-            <tspan x='16.07' y='21'>
-              a
-            </tspan>
-            <tspan className='main__cls-35' x='24.51' y='21'>
-              r
-            </tspan>
-            <tspan x='30.3' y='21'>
-              lo
-            </tspan>
-            <tspan className='main__cls-43' x='44.03' y='21'>
-              g
-            </tspan>
-            <tspan x='53.71' y='21'>
-              ic PFC
+              Varlogic PFC
             </tspan>
           </text>
         </g>
@@ -7226,19 +6914,10 @@ export default function MainStaticDiagram() {
           </g>
           <text className='main__cls-26' transform='translate(1519.44 25.29)'>
             <tspan x='0' y='0'>
-              MV M
-            </tspan>
-            <tspan className='main__cls-32' x='41.61' y='0'>
-              E
-            </tspan>
-            <tspan x='50.5' y='0'>
-              TERING
+              MV METERING
             </tspan>
             <tspan className='main__cls-39' x='11.06' y='21'>
-              S
-            </tspan>
-            <tspan x='19.79' y='21'>
-              epam b21
+              Sepam b21
             </tspan>
           </text>
         </g>
@@ -7367,22 +7046,10 @@ export default function MainStaticDiagram() {
       <g>
         <text className='main__cls-24' transform='translate(2561.06 758.68)'>
           <tspan x='0' y='0'>
-            22
-          </tspan>
-          <tspan className='main__cls-63' x='15.71' y='0'>
-            K
-          </tspan>
-          <tspan x='24.24' y='0'>
-            V//690V
+            22KV//690V
           </tspan>
           <tspan x='9.88' y='18.37'>
-            1600k
-          </tspan>
-          <tspan className='main__cls-48' x='48.47' y='18.37'>
-            V
-          </tspan>
-          <tspan x='56.14' y='18.37'>
-            A
+            1600kVA
           </tspan>
         </text>
         <g>
@@ -7408,10 +7075,7 @@ export default function MainStaticDiagram() {
               TR34
             </tspan>
             <tspan className='main__cls-39' x='-22.78' y='21'>
-              S
-            </tspan>
-            <tspan x='-14.05' y='21'>
-              epam 10B
+              Sepam 10B
             </tspan>
           </text>
         </g>
@@ -7887,22 +7551,10 @@ export default function MainStaticDiagram() {
           transform='translate(1884.11 1201.44) rotate(90)'
         >
           <tspan x='0' y='0'>
-            22
-          </tspan>
-          <tspan className='main__cls-63' x='15.71' y='0'>
-            K
-          </tspan>
-          <tspan x='24.24' y='0'>
-            V//400V
+            22KV//400V
           </tspan>
           <tspan x='9.88' y='18.37'>
-            3000k
-          </tspan>
-          <tspan className='main__cls-34' x='48.47' y='18.37'>
-            V
-          </tspan>
-          <tspan x='56.14' y='18.37'>
-            A
+            3000kVA
           </tspan>
         </text>
         <g>
@@ -8001,10 +7653,7 @@ export default function MainStaticDiagram() {
               TR52
             </tspan>
             <tspan className='main__cls-39' x='-22.78' y='21'>
-              S
-            </tspan>
-            <tspan x='-14.05' y='21'>
-              epam 10B
+              Sepam 10B
             </tspan>
           </text>
         </g>
@@ -8175,34 +7824,7 @@ export default function MainStaticDiagram() {
         </g>
         <text className='main__cls-25' transform='translate(1176.8 317.93)'>
           <tspan className='main__cls-39' x='0' y='0'>
-            S
-          </tspan>
-          <tspan x='8.73' y='0'>
-            end{' '}
-          </tspan>
-          <tspan className='main__cls-43' x='40.79' y='0'>
-            t
-          </tspan>
-          <tspan x='46.47' y='0'>
-            o
-          </tspan>
-          <tspan className='main__cls-18' x='56.08' y='0'>
-            {' '}
-          </tspan>
-          <tspan className='main__cls-60' x='59.07' y='0'>
-            T
-          </tspan>
-          <tspan className='main__cls-35' x='66.98' y='0'>
-            r
-          </tspan>
-          <tspan className='main__cls-44' x='72.77' y='0'>
-            ip CB
-          </tspan>
-          <tspan className='main__cls-1' x='110.17' y='0'>
-            {' '}
-          </tspan>
-          <tspan x='113.16' y='0'>
-            TR11&amp;TR30
+            Send to Trip CB TR11&TR30
           </tspan>
         </text>
         <text></text>
@@ -8211,13 +7833,7 @@ export default function MainStaticDiagram() {
           transform='translate(1432.25 292.37) rotate(-90)'
         >
           <tspan x='0' y='0'>
-            Ct
-          </tspan>
-          <tspan className='main__cls-40' x='15.94' y='0'>
-            r
-          </tspan>
-          <tspan x='21.73' y='0'>
-            l CB1
+            Ctrl CB1
           </tspan>
         </text>
         <text></text>
@@ -8226,13 +7842,7 @@ export default function MainStaticDiagram() {
           transform='translate(1469.48 293.54) rotate(-90)'
         >
           <tspan x='0' y='0'>
-            Ct
-          </tspan>
-          <tspan className='main__cls-40' x='15.94' y='0'>
-            r
-          </tspan>
-          <tspan x='21.73' y='0'>
-            l CB2
+            Ctrl CB2
           </tspan>
         </text>
         <text></text>
@@ -8241,13 +7851,7 @@ export default function MainStaticDiagram() {
           transform='translate(1503.17 292.37) rotate(-90)'
         >
           <tspan x='0' y='0'>
-            Ct
-          </tspan>
-          <tspan className='main__cls-40' x='15.94' y='0'>
-            r
-          </tspan>
-          <tspan x='21.73' y='0'>
-            l CB3
+            Ctrl CB3
           </tspan>
         </text>
       </g>
@@ -8282,10 +7886,7 @@ export default function MainStaticDiagram() {
               OUT GOING 1
             </tspan>
             <tspan className='main__cls-39' x='9.03' y='21'>
-              S
-            </tspan>
-            <tspan x='17.76' y='21'>
-              epam S20
+              Sepam S20
             </tspan>
           </text>
         </g>
@@ -8559,22 +8160,7 @@ export default function MainStaticDiagram() {
             />
             <text className='main__cls-25' transform='translate(319.55 752.54)'>
               <tspan className='main__cls-19' x='0' y='0'>
-                C
-              </tspan>
-              <tspan x='10.03' y='0'>
-                apaci
-              </tspan>
-              <tspan className='main__cls-43' x='48.78' y='0'>
-                t
-              </tspan>
-              <tspan x='54.47' y='0'>
-                or 500k
-              </tspan>
-              <tspan className='main__cls-46' x='108.64' y='0'>
-                V
-              </tspan>
-              <tspan x='117.83' y='0'>
-                ar
+                Capacitor 500kVar
               </tspan>
             </text>
           </g>
@@ -8823,10 +8409,7 @@ export default function MainStaticDiagram() {
                 transform='translate(310.1 1131.45)'
               >
                 <tspan className='main__cls-38' x='0' y='0'>
-                  A
-                </tspan>
-                <tspan x='9.32' y='0'>
-                  -B
+                  A-B
                 </tspan>
               </text>
             </g>
@@ -8843,13 +8426,7 @@ export default function MainStaticDiagram() {
                 transform='translate(362.21 1131.47)'
               >
                 <tspan className='main__cls-30' x='0' y='0'>
-                  B
-                </tspan>
-                <tspan className='main__cls-51' x='8.38' y='0'>
-                  -
-                </tspan>
-                <tspan x='13.29' y='0'>
-                  C
+                  B-C
                 </tspan>
               </text>
             </g>
@@ -8866,13 +8443,7 @@ export default function MainStaticDiagram() {
                 transform='translate(412.98 1132.2)'
               >
                 <tspan className='main__cls-57' x='0' y='0'>
-                  A
-                </tspan>
-                <tspan className='main__cls-61' x='10.66' y='0'>
-                  -
-                </tspan>
-                <tspan x='16.27' y='0'>
-                  C
+                  A-C
                 </tspan>
               </text>
             </g>
@@ -8922,10 +8493,7 @@ export default function MainStaticDiagram() {
               transform='translate(460.87 1210.94)'
             >
               <tspan className='main__cls-37' x='0' y='0'>
-                c
-              </tspan>
-              <tspan x='7.73' y='0'>
-                osφ
+                cosφ
               </tspan>
             </text>
             <g>
@@ -9299,10 +8867,7 @@ export default function MainStaticDiagram() {
               transform='translate(1211.44 888.13)'
             >
               <tspan className='main__cls-38' x='0' y='0'>
-                A
-              </tspan>
-              <tspan x='9.32' y='0'>
-                -B
+                A-B
               </tspan>
             </text>
           </g>
@@ -9319,13 +8884,7 @@ export default function MainStaticDiagram() {
               transform='translate(1263.55 888.14)'
             >
               <tspan className='main__cls-30' x='0' y='0'>
-                B
-              </tspan>
-              <tspan className='main__cls-51' x='8.38' y='0'>
-                -
-              </tspan>
-              <tspan x='13.29' y='0'>
-                C
+                B-C
               </tspan>
             </text>
           </g>
@@ -9342,13 +8901,7 @@ export default function MainStaticDiagram() {
               transform='translate(1314.32 888.88)'
             >
               <tspan className='main__cls-57' x='0' y='0'>
-                A
-              </tspan>
-              <tspan className='main__cls-61' x='10.66' y='0'>
-                -
-              </tspan>
-              <tspan x='16.27' y='0'>
-                C
+                A-C
               </tspan>
             </text>
           </g>
@@ -9395,10 +8948,7 @@ export default function MainStaticDiagram() {
           />
           <text className='main__cls-28' transform='translate(1362.22 967.61)'>
             <tspan className='main__cls-37' x='0' y='0'>
-              c
-            </tspan>
-            <tspan x='7.73' y='0'>
-              osφ
+              cosφ
             </tspan>
           </text>
           <g>
@@ -9414,10 +8964,7 @@ export default function MainStaticDiagram() {
               transform='translate(1367.09 993.86)'
             >
               <tspan className='main__cls-62' x='0' y='0'>
-                K
-              </tspan>
-              <tspan className='main__cls-17' x='9.75' y='0'>
-                W
+                KW
               </tspan>
             </text>
           </g>
@@ -9434,13 +8981,7 @@ export default function MainStaticDiagram() {
               transform='translate(1365.68 1020.42)'
             >
               <tspan x='0' y='0'>
-                k
-              </tspan>
-              <tspan className='main__cls-53' x='8.21' y='0'>
-                V
-              </tspan>
-              <tspan x='16.97' y='0'>
-                A
+                kVA
               </tspan>
             </text>
           </g>
@@ -9453,13 +8994,7 @@ export default function MainStaticDiagram() {
           />
           <text className='main__cls-28' transform='translate(1362.39 1046.61)'>
             <tspan x='0' y='0'>
-              G
-            </tspan>
-            <tspan className='main__cls-31' x='11.3' y='0'>
-              W
-            </tspan>
-            <tspan x='26.02' y='0'>
-              h
+              GWh
             </tspan>
           </text>
           <g>
@@ -9594,10 +9129,7 @@ export default function MainStaticDiagram() {
             />
             <text className='main__cls-20' transform='translate(1513.5 888.33)'>
               <tspan className='main__cls-38' x='0' y='0'>
-                A
-              </tspan>
-              <tspan x='9.32' y='0'>
-                -B
+                A-B
               </tspan>
             </text>
           </g>
@@ -9614,13 +9146,7 @@ export default function MainStaticDiagram() {
               transform='translate(1565.61 888.34)'
             >
               <tspan className='main__cls-30' x='0' y='0'>
-                B
-              </tspan>
-              <tspan className='main__cls-51' x='8.38' y='0'>
-                -
-              </tspan>
-              <tspan x='13.29' y='0'>
-                C
+                B-C
               </tspan>
             </text>
           </g>
@@ -9637,13 +9163,7 @@ export default function MainStaticDiagram() {
               transform='translate(1616.38 889.08)'
             >
               <tspan className='main__cls-57' x='0' y='0'>
-                A
-              </tspan>
-              <tspan className='main__cls-61' x='10.66' y='0'>
-                -
-              </tspan>
-              <tspan x='16.27' y='0'>
-                C
+                A-C
               </tspan>
             </text>
           </g>
@@ -9690,10 +9210,7 @@ export default function MainStaticDiagram() {
           />
           <text className='main__cls-28' transform='translate(1664.28 967.81)'>
             <tspan className='main__cls-37' x='0' y='0'>
-              c
-            </tspan>
-            <tspan x='7.73' y='0'>
-              osφ
+              cosφ
             </tspan>
           </text>
           <g>
@@ -9709,10 +9226,7 @@ export default function MainStaticDiagram() {
               transform='translate(1669.15 994.06)'
             >
               <tspan className='main__cls-62' x='0' y='0'>
-                K
-              </tspan>
-              <tspan className='main__cls-17' x='9.75' y='0'>
-                W
+                KW
               </tspan>
             </text>
           </g>
@@ -9729,13 +9243,7 @@ export default function MainStaticDiagram() {
               transform='translate(1667.74 1020.62)'
             >
               <tspan x='0' y='0'>
-                k
-              </tspan>
-              <tspan className='main__cls-53' x='8.21' y='0'>
-                V
-              </tspan>
-              <tspan x='16.97' y='0'>
-                A
+                kVA
               </tspan>
             </text>
           </g>
@@ -9748,13 +9256,7 @@ export default function MainStaticDiagram() {
           />
           <text className='main__cls-28' transform='translate(1664.45 1046.81)'>
             <tspan x='0' y='0'>
-              G
-            </tspan>
-            <tspan className='main__cls-31' x='11.3' y='0'>
-              W
-            </tspan>
-            <tspan x='26.02' y='0'>
-              h
+              GWh
             </tspan>
           </text>
           <g>
@@ -9954,10 +9456,7 @@ export default function MainStaticDiagram() {
                 transform='translate(1740.66 887.68)'
               >
                 <tspan className='main__cls-38' x='0' y='0'>
-                  A
-                </tspan>
-                <tspan x='9.32' y='0'>
-                  -B
+                  A-B
                 </tspan>
               </text>
             </g>
@@ -9974,7 +9473,7 @@ export default function MainStaticDiagram() {
                 transform='translate(1792.77 887.7)'
               >
                 <tspan className='main__cls-30' x='0' y='0'>
-                  B
+                  B-C
                 </tspan>
                 <tspan className='main__cls-51' x='8.38' y='0'>
                   -
@@ -9997,13 +9496,7 @@ export default function MainStaticDiagram() {
                 transform='translate(1843.54 888.44)'
               >
                 <tspan className='main__cls-57' x='0' y='0'>
-                  A
-                </tspan>
-                <tspan className='main__cls-61' x='10.66' y='0'>
-                  -
-                </tspan>
-                <tspan x='16.27' y='0'>
-                  C
+                  A-C
                 </tspan>
               </text>
             </g>
@@ -10053,10 +9546,7 @@ export default function MainStaticDiagram() {
               transform='translate(1891.44 967.17)'
             >
               <tspan className='main__cls-37' x='0' y='0'>
-                c
-              </tspan>
-              <tspan x='7.73' y='0'>
-                osφ
+                cosφ
               </tspan>
             </text>
             <g>
@@ -10072,10 +9562,7 @@ export default function MainStaticDiagram() {
                 transform='translate(1896.31 993.42)'
               >
                 <tspan className='main__cls-62' x='0' y='0'>
-                  K
-                </tspan>
-                <tspan className='main__cls-17' x='9.75' y='0'>
-                  W
+                  KW
                 </tspan>
               </text>
             </g>
@@ -10092,13 +9579,7 @@ export default function MainStaticDiagram() {
                 transform='translate(1894.9 1019.98)'
               >
                 <tspan x='0' y='0'>
-                  k
-                </tspan>
-                <tspan className='main__cls-53' x='8.21' y='0'>
-                  V
-                </tspan>
-                <tspan x='16.97' y='0'>
-                  A
+                  kVA
                 </tspan>
               </text>
             </g>
@@ -10114,13 +9595,7 @@ export default function MainStaticDiagram() {
               transform='translate(1891.61 1046.17)'
             >
               <tspan x='0' y='0'>
-                G
-              </tspan>
-              <tspan className='main__cls-31' x='11.3' y='0'>
-                W
-              </tspan>
-              <tspan x='26.02' y='0'>
-                h
+                GWh
               </tspan>
             </text>
             <g>
@@ -10259,10 +9734,7 @@ export default function MainStaticDiagram() {
               transform='translate(1968.31 887.42)'
             >
               <tspan className='main__cls-38' x='0' y='0'>
-                A
-              </tspan>
-              <tspan x='9.32' y='0'>
-                -B
+                A-B
               </tspan>
             </text>
           </g>
@@ -10279,13 +9751,7 @@ export default function MainStaticDiagram() {
               transform='translate(2020.42 887.43)'
             >
               <tspan className='main__cls-30' x='0' y='0'>
-                B
-              </tspan>
-              <tspan className='main__cls-51' x='8.38' y='0'>
-                -
-              </tspan>
-              <tspan x='13.29' y='0'>
-                C
+                B-C
               </tspan>
             </text>
           </g>
@@ -10302,13 +9768,7 @@ export default function MainStaticDiagram() {
               transform='translate(2071.19 888.17)'
             >
               <tspan className='main__cls-57' x='0' y='0'>
-                A
-              </tspan>
-              <tspan className='main__cls-61' x='10.66' y='0'>
-                -
-              </tspan>
-              <tspan x='16.27' y='0'>
-                C
+                A-C
               </tspan>
             </text>
           </g>
@@ -10355,10 +9815,7 @@ export default function MainStaticDiagram() {
           />
           <text className='main__cls-28' transform='translate(2119.09 966.9)'>
             <tspan className='main__cls-37' x='0' y='0'>
-              c
-            </tspan>
-            <tspan x='7.73' y='0'>
-              osφ
+              cosφ
             </tspan>
           </text>
           <g>
@@ -10374,10 +9831,7 @@ export default function MainStaticDiagram() {
               transform='translate(2123.96 993.15)'
             >
               <tspan className='main__cls-62' x='0' y='0'>
-                K
-              </tspan>
-              <tspan className='main__cls-17' x='9.75' y='0'>
-                W
+                KW
               </tspan>
             </text>
           </g>
@@ -10394,13 +9848,7 @@ export default function MainStaticDiagram() {
               transform='translate(2122.55 1019.71)'
             >
               <tspan x='0' y='0'>
-                k
-              </tspan>
-              <tspan className='main__cls-53' x='8.21' y='0'>
-                V
-              </tspan>
-              <tspan x='16.97' y='0'>
-                A
+                kVA
               </tspan>
             </text>
           </g>
@@ -10413,13 +9861,7 @@ export default function MainStaticDiagram() {
           />
           <text className='main__cls-28' transform='translate(2119.26 1045.9)'>
             <tspan x='0' y='0'>
-              G
-            </tspan>
-            <tspan className='main__cls-31' x='11.3' y='0'>
-              W
-            </tspan>
-            <tspan x='26.02' y='0'>
-              h
+              GWh
             </tspan>
           </text>
           <g>
@@ -10557,10 +9999,7 @@ export default function MainStaticDiagram() {
               transform='translate(2192.77 887.42)'
             >
               <tspan className='main__cls-38' x='0' y='0'>
-                A
-              </tspan>
-              <tspan x='9.32' y='0'>
-                -B
+                A-B
               </tspan>
             </text>
           </g>
@@ -10577,13 +10016,7 @@ export default function MainStaticDiagram() {
               transform='translate(2244.88 887.43)'
             >
               <tspan className='main__cls-30' x='0' y='0'>
-                B
-              </tspan>
-              <tspan className='main__cls-51' x='8.38' y='0'>
-                -
-              </tspan>
-              <tspan x='13.29' y='0'>
-                C
+                B-C
               </tspan>
             </text>
           </g>
@@ -10600,13 +10033,7 @@ export default function MainStaticDiagram() {
               transform='translate(2295.65 888.17)'
             >
               <tspan className='main__cls-57' x='0' y='0'>
-                A
-              </tspan>
-              <tspan className='main__cls-61' x='10.66' y='0'>
-                -
-              </tspan>
-              <tspan x='16.27' y='0'>
-                C
+                A-C
               </tspan>
             </text>
           </g>
@@ -10653,10 +10080,7 @@ export default function MainStaticDiagram() {
           />
           <text className='main__cls-28' transform='translate(2343.55 966.9)'>
             <tspan className='main__cls-37' x='0' y='0'>
-              c
-            </tspan>
-            <tspan x='7.73' y='0'>
-              osφ
+              cosφ
             </tspan>
           </text>
           <g>
@@ -10672,10 +10096,7 @@ export default function MainStaticDiagram() {
               transform='translate(2348.42 993.15)'
             >
               <tspan className='main__cls-62' x='0' y='0'>
-                K
-              </tspan>
-              <tspan className='main__cls-17' x='9.75' y='0'>
-                W
+                KW
               </tspan>
             </text>
           </g>
@@ -10692,13 +10113,7 @@ export default function MainStaticDiagram() {
               transform='translate(2347.01 1019.71)'
             >
               <tspan x='0' y='0'>
-                k
-              </tspan>
-              <tspan className='main__cls-53' x='8.21' y='0'>
-                V
-              </tspan>
-              <tspan x='16.97' y='0'>
-                A
+                kVA
               </tspan>
             </text>
           </g>
@@ -10711,13 +10126,7 @@ export default function MainStaticDiagram() {
           />
           <text className='main__cls-28' transform='translate(2343.72 1045.9)'>
             <tspan x='0' y='0'>
-              G
-            </tspan>
-            <tspan className='main__cls-31' x='11.3' y='0'>
-              W
-            </tspan>
-            <tspan x='26.02' y='0'>
-              h
+              GWh
             </tspan>
           </text>
           <g>
@@ -10855,10 +10264,7 @@ export default function MainStaticDiagram() {
               transform='translate(2419.38 887.42)'
             >
               <tspan className='main__cls-38' x='0' y='0'>
-                A
-              </tspan>
-              <tspan x='9.32' y='0'>
-                -B
+                A-B
               </tspan>
             </text>
           </g>
@@ -10875,13 +10281,7 @@ export default function MainStaticDiagram() {
               transform='translate(2471.49 887.43)'
             >
               <tspan className='main__cls-30' x='0' y='0'>
-                B
-              </tspan>
-              <tspan className='main__cls-51' x='8.38' y='0'>
-                -
-              </tspan>
-              <tspan x='13.29' y='0'>
-                C
+                B-C
               </tspan>
             </text>
           </g>
@@ -10898,13 +10298,7 @@ export default function MainStaticDiagram() {
               transform='translate(2522.25 888.17)'
             >
               <tspan className='main__cls-57' x='0' y='0'>
-                A
-              </tspan>
-              <tspan className='main__cls-61' x='10.66' y='0'>
-                -
-              </tspan>
-              <tspan x='16.27' y='0'>
-                C
+                A-C
               </tspan>
             </text>
           </g>
@@ -10951,10 +10345,7 @@ export default function MainStaticDiagram() {
           />
           <text className='main__cls-28' transform='translate(2570.15 966.9)'>
             <tspan className='main__cls-37' x='0' y='0'>
-              c
-            </tspan>
-            <tspan x='7.73' y='0'>
-              osφ
+              cosφ
             </tspan>
           </text>
           <g>
@@ -10970,10 +10361,7 @@ export default function MainStaticDiagram() {
               transform='translate(2575.03 993.15)'
             >
               <tspan className='main__cls-62' x='0' y='0'>
-                K
-              </tspan>
-              <tspan className='main__cls-17' x='9.75' y='0'>
-                W
+                KW
               </tspan>
             </text>
           </g>
@@ -10990,13 +10378,7 @@ export default function MainStaticDiagram() {
               transform='translate(2573.62 1019.71)'
             >
               <tspan x='0' y='0'>
-                k
-              </tspan>
-              <tspan className='main__cls-53' x='8.21' y='0'>
-                V
-              </tspan>
-              <tspan x='16.97' y='0'>
-                A
+                kVA
               </tspan>
             </text>
           </g>
@@ -11009,13 +10391,7 @@ export default function MainStaticDiagram() {
           />
           <text className='main__cls-28' transform='translate(2570.33 1045.9)'>
             <tspan x='0' y='0'>
-              G
-            </tspan>
-            <tspan className='main__cls-31' x='11.3' y='0'>
-              W
-            </tspan>
-            <tspan x='26.02' y='0'>
-              h
+              GWh
             </tspan>
           </text>
           <g>
@@ -11153,10 +10529,7 @@ export default function MainStaticDiagram() {
               transform='translate(2419.7 1139.75)'
             >
               <tspan className='main__cls-38' x='0' y='0'>
-                A
-              </tspan>
-              <tspan x='9.32' y='0'>
-                -B
+                A-B
               </tspan>
             </text>
           </g>
@@ -11173,13 +10546,7 @@ export default function MainStaticDiagram() {
               transform='translate(2471.81 1139.77)'
             >
               <tspan className='main__cls-30' x='0' y='0'>
-                B
-              </tspan>
-              <tspan className='main__cls-51' x='8.38' y='0'>
-                -
-              </tspan>
-              <tspan x='13.29' y='0'>
-                C
+                B-C
               </tspan>
             </text>
           </g>
@@ -11196,13 +10563,7 @@ export default function MainStaticDiagram() {
               transform='translate(2522.58 1140.51)'
             >
               <tspan className='main__cls-57' x='0' y='0'>
-                A
-              </tspan>
-              <tspan className='main__cls-61' x='10.66' y='0'>
-                -
-              </tspan>
-              <tspan x='16.27' y='0'>
-                C
+                A-C
               </tspan>
             </text>
           </g>
@@ -11249,10 +10610,7 @@ export default function MainStaticDiagram() {
           />
           <text className='main__cls-28' transform='translate(2570.47 1219.24)'>
             <tspan className='main__cls-37' x='0' y='0'>
-              c
-            </tspan>
-            <tspan x='7.73' y='0'>
-              osφ
+              cosφ
             </tspan>
           </text>
           <g>
@@ -11268,10 +10626,7 @@ export default function MainStaticDiagram() {
               transform='translate(2575.35 1245.49)'
             >
               <tspan className='main__cls-62' x='0' y='0'>
-                K
-              </tspan>
-              <tspan className='main__cls-17' x='9.75' y='0'>
-                W
+                KW
               </tspan>
             </text>
           </g>
@@ -11288,13 +10643,7 @@ export default function MainStaticDiagram() {
               transform='translate(2573.94 1272.05)'
             >
               <tspan x='0' y='0'>
-                k
-              </tspan>
-              <tspan className='main__cls-53' x='8.21' y='0'>
-                V
-              </tspan>
-              <tspan x='16.97' y='0'>
-                A
+                kVA
               </tspan>
             </text>
           </g>
@@ -11307,13 +10656,7 @@ export default function MainStaticDiagram() {
           />
           <text className='main__cls-28' transform='translate(2570.65 1298.23)'>
             <tspan x='0' y='0'>
-              G
-            </tspan>
-            <tspan className='main__cls-31' x='11.3' y='0'>
-              W
-            </tspan>
-            <tspan x='26.02' y='0'>
-              h
+              GWh
             </tspan>
           </text>
           <g>
@@ -11451,10 +10794,7 @@ export default function MainStaticDiagram() {
               transform='translate(2193.09 1139.75)'
             >
               <tspan className='main__cls-38' x='0' y='0'>
-                A
-              </tspan>
-              <tspan x='9.32' y='0'>
-                -B
+                A-B
               </tspan>
             </text>
           </g>
@@ -11471,13 +10811,7 @@ export default function MainStaticDiagram() {
               transform='translate(2245.2 1139.77)'
             >
               <tspan className='main__cls-30' x='0' y='0'>
-                B
-              </tspan>
-              <tspan className='main__cls-51' x='8.38' y='0'>
-                -
-              </tspan>
-              <tspan x='13.29' y='0'>
-                C
+                B-C
               </tspan>
             </text>
           </g>
@@ -11494,13 +10828,7 @@ export default function MainStaticDiagram() {
               transform='translate(2295.97 1140.51)'
             >
               <tspan className='main__cls-57' x='0' y='0'>
-                A
-              </tspan>
-              <tspan className='main__cls-61' x='10.66' y='0'>
-                -
-              </tspan>
-              <tspan x='16.27' y='0'>
-                C
+                A-C
               </tspan>
             </text>
           </g>
@@ -11547,10 +10875,7 @@ export default function MainStaticDiagram() {
           />
           <text className='main__cls-28' transform='translate(2343.87 1219.24)'>
             <tspan className='main__cls-37' x='0' y='0'>
-              c
-            </tspan>
-            <tspan x='7.73' y='0'>
-              osφ
+              cosφ
             </tspan>
           </text>
           <g>
@@ -11566,10 +10891,7 @@ export default function MainStaticDiagram() {
               transform='translate(2348.74 1245.49)'
             >
               <tspan className='main__cls-62' x='0' y='0'>
-                K
-              </tspan>
-              <tspan className='main__cls-17' x='9.75' y='0'>
-                W
+                KW
               </tspan>
             </text>
           </g>
@@ -11586,13 +10908,7 @@ export default function MainStaticDiagram() {
               transform='translate(2347.33 1272.05)'
             >
               <tspan x='0' y='0'>
-                k
-              </tspan>
-              <tspan className='main__cls-53' x='8.21' y='0'>
-                V
-              </tspan>
-              <tspan x='16.97' y='0'>
-                A
+                kVA
               </tspan>
             </text>
           </g>
@@ -11605,13 +10921,7 @@ export default function MainStaticDiagram() {
           />
           <text className='main__cls-28' transform='translate(2344.04 1298.23)'>
             <tspan x='0' y='0'>
-              G
-            </tspan>
-            <tspan className='main__cls-31' x='11.3' y='0'>
-              W
-            </tspan>
-            <tspan x='26.02' y='0'>
-              h
+              GWh
             </tspan>
           </text>
           <g>
@@ -11769,13 +11079,7 @@ export default function MainStaticDiagram() {
               transform='translate(1935.08 1333.86) scale(.99 1)'
             >
               <tspan x='0' y='0'>
-                750k
-              </tspan>
-              <tspan className='main__cls-59' x='30.74' y='0'>
-                V
-              </tspan>
-              <tspan x='38.41' y='0'>
-                A
+                750kVA
               </tspan>
             </text>
           </g>
@@ -11793,10 +11097,7 @@ export default function MainStaticDiagram() {
                 transform='translate(1968.63 1139.75)'
               >
                 <tspan className='main__cls-38' x='0' y='0'>
-                  A
-                </tspan>
-                <tspan x='9.32' y='0'>
-                  -B
+                  A_B
                 </tspan>
               </text>
             </g>
@@ -11813,13 +11114,7 @@ export default function MainStaticDiagram() {
                 transform='translate(2020.74 1139.77)'
               >
                 <tspan className='main__cls-30' x='0' y='0'>
-                  B
-                </tspan>
-                <tspan className='main__cls-51' x='8.38' y='0'>
-                  -
-                </tspan>
-                <tspan x='13.29' y='0'>
-                  C
+                  B-C
                 </tspan>
               </text>
             </g>
@@ -11836,13 +11131,7 @@ export default function MainStaticDiagram() {
                 transform='translate(2071.51 1140.51)'
               >
                 <tspan className='main__cls-57' x='0' y='0'>
-                  A
-                </tspan>
-                <tspan className='main__cls-61' x='10.66' y='0'>
-                  -
-                </tspan>
-                <tspan x='16.27' y='0'>
-                  C
+                  A-C
                 </tspan>
               </text>
             </g>
@@ -11892,10 +11181,7 @@ export default function MainStaticDiagram() {
               transform='translate(2119.41 1219.24)'
             >
               <tspan className='main__cls-37' x='0' y='0'>
-                c
-              </tspan>
-              <tspan x='7.73' y='0'>
-                osφ
+                cosφ
               </tspan>
             </text>
             <g>
@@ -11911,10 +11197,7 @@ export default function MainStaticDiagram() {
                 transform='translate(2124.28 1245.49)'
               >
                 <tspan className='main__cls-62' x='0' y='0'>
-                  K
-                </tspan>
-                <tspan className='main__cls-17' x='9.75' y='0'>
-                  W
+                  KW
                 </tspan>
               </text>
             </g>
@@ -11931,13 +11214,7 @@ export default function MainStaticDiagram() {
                 transform='translate(2122.87 1272.05)'
               >
                 <tspan x='0' y='0'>
-                  k
-                </tspan>
-                <tspan className='main__cls-53' x='8.21' y='0'>
-                  V
-                </tspan>
-                <tspan x='16.97' y='0'>
-                  A
+                  kVA
                 </tspan>
               </text>
             </g>
@@ -11953,13 +11230,7 @@ export default function MainStaticDiagram() {
               transform='translate(2119.58 1298.23)'
             >
               <tspan x='0' y='0'>
-                G
-              </tspan>
-              <tspan className='main__cls-31' x='11.3' y='0'>
-                W
-              </tspan>
-              <tspan x='26.02' y='0'>
-                h
+                GWh
               </tspan>
             </text>
             <g>
@@ -12123,13 +11394,7 @@ export default function MainStaticDiagram() {
               transform='translate(1322.95 1328.63) scale(.99 1)'
             >
               <tspan x='0' y='0'>
-                13000k
-              </tspan>
-              <tspan className='main__cls-59' x='46.45' y='0'>
-                V
-              </tspan>
-              <tspan x='54.12' y='0'>
-                A
+                13000kVA
               </tspan>
             </text>
           </g>
@@ -12147,10 +11412,7 @@ export default function MainStaticDiagram() {
                 transform='translate(1199.92 1138.37)'
               >
                 <tspan className='main__cls-38' x='0' y='0'>
-                  A
-                </tspan>
-                <tspan x='9.32' y='0'>
-                  -B
+                  A-B
                 </tspan>
               </text>
             </g>
@@ -12167,13 +11429,7 @@ export default function MainStaticDiagram() {
                 transform='translate(1252.03 1138.39)'
               >
                 <tspan className='main__cls-30' x='0' y='0'>
-                  B
-                </tspan>
-                <tspan className='main__cls-51' x='8.38' y='0'>
-                  -
-                </tspan>
-                <tspan x='13.29' y='0'>
-                  C
+                  B-C
                 </tspan>
               </text>
             </g>
@@ -12190,13 +11446,7 @@ export default function MainStaticDiagram() {
                 transform='translate(1302.8 1139.13)'
               >
                 <tspan className='main__cls-57' x='0' y='0'>
-                  A
-                </tspan>
-                <tspan className='main__cls-61' x='10.66' y='0'>
-                  -
-                </tspan>
-                <tspan x='16.27' y='0'>
-                  C
+                  A-C
                 </tspan>
               </text>
             </g>
@@ -12246,10 +11496,7 @@ export default function MainStaticDiagram() {
               transform='translate(1350.7 1217.86)'
             >
               <tspan className='main__cls-37' x='0' y='0'>
-                c
-              </tspan>
-              <tspan x='7.73' y='0'>
-                osφ
+                cosφ
               </tspan>
             </text>
             <g>
@@ -12285,13 +11532,7 @@ export default function MainStaticDiagram() {
                 transform='translate(1354.16 1270.67)'
               >
                 <tspan x='0' y='0'>
-                  k
-                </tspan>
-                <tspan className='main__cls-53' x='8.21' y='0'>
-                  V
-                </tspan>
-                <tspan x='16.97' y='0'>
-                  A
+                  kVA
                 </tspan>
               </text>
             </g>
@@ -12307,13 +11548,7 @@ export default function MainStaticDiagram() {
               transform='translate(1350.87 1296.85)'
             >
               <tspan x='0' y='0'>
-                G
-              </tspan>
-              <tspan className='main__cls-31' x='11.3' y='0'>
-                W
-              </tspan>
-              <tspan x='26.02' y='0'>
-                h
+                GWh
               </tspan>
             </text>
             <g>
@@ -12477,13 +11712,7 @@ export default function MainStaticDiagram() {
               transform='translate(1508.32 1332.68) scale(.99 1)'
             >
               <tspan x='0' y='0'>
-                12700k
-              </tspan>
-              <tspan className='main__cls-59' x='46.45' y='0'>
-                V
-              </tspan>
-              <tspan className='main__cls-56' x='54.12' y='0'>
-                A
+                12700kVA
               </tspan>
             </text>
           </g>
@@ -12501,10 +11730,7 @@ export default function MainStaticDiagram() {
                 transform='translate(1513.15 1138.37)'
               >
                 <tspan className='main__cls-38' x='0' y='0'>
-                  A
-                </tspan>
-                <tspan x='9.32' y='0'>
-                  -B
+                  A-B
                 </tspan>
               </text>
             </g>
@@ -12521,13 +11747,7 @@ export default function MainStaticDiagram() {
                 transform='translate(1565.26 1138.39)'
               >
                 <tspan className='main__cls-30' x='0' y='0'>
-                  B
-                </tspan>
-                <tspan className='main__cls-51' x='8.38' y='0'>
-                  -
-                </tspan>
-                <tspan x='13.29' y='0'>
-                  C
+                  B-C
                 </tspan>
               </text>
             </g>
@@ -12544,13 +11764,7 @@ export default function MainStaticDiagram() {
                 transform='translate(1616.02 1139.13)'
               >
                 <tspan className='main__cls-57' x='0' y='0'>
-                  A
-                </tspan>
-                <tspan className='main__cls-61' x='10.66' y='0'>
-                  -
-                </tspan>
-                <tspan x='16.27' y='0'>
-                  C
+                  A-C
                 </tspan>
               </text>
             </g>
@@ -12600,10 +11814,7 @@ export default function MainStaticDiagram() {
               transform='translate(1663.92 1217.86)'
             >
               <tspan className='main__cls-37' x='0' y='0'>
-                c
-              </tspan>
-              <tspan x='7.73' y='0'>
-                osφ
+                cosφ
               </tspan>
             </text>
             <g>
@@ -12619,10 +11830,7 @@ export default function MainStaticDiagram() {
                 transform='translate(1668.8 1244.1)'
               >
                 <tspan className='main__cls-62' x='0' y='0'>
-                  K
-                </tspan>
-                <tspan className='main__cls-17' x='9.75' y='0'>
-                  W
+                  KW
                 </tspan>
               </text>
             </g>
@@ -12639,13 +11847,7 @@ export default function MainStaticDiagram() {
                 transform='translate(1667.39 1270.67)'
               >
                 <tspan x='0' y='0'>
-                  k
-                </tspan>
-                <tspan className='main__cls-53' x='8.21' y='0'>
-                  V
-                </tspan>
-                <tspan x='16.97' y='0'>
-                  A
+                  kVA
                 </tspan>
               </text>
             </g>
@@ -12661,13 +11863,7 @@ export default function MainStaticDiagram() {
               transform='translate(1664.1 1296.85)'
             >
               <tspan x='0' y='0'>
-                G
-              </tspan>
-              <tspan className='main__cls-31' x='11.3' y='0'>
-                W
-              </tspan>
-              <tspan x='26.02' y='0'>
-                h
+                GWh
               </tspan>
             </text>
             <g>
@@ -12808,10 +12004,7 @@ export default function MainStaticDiagram() {
             />
             <text className='main__cls-20' transform='translate(535.91 889.51)'>
               <tspan className='main__cls-38' x='0' y='0'>
-                A
-              </tspan>
-              <tspan x='9.32' y='0'>
-                -B
+                A-B
               </tspan>
             </text>
           </g>
@@ -12825,13 +12018,7 @@ export default function MainStaticDiagram() {
             />
             <text className='main__cls-20' transform='translate(588.03 889.52)'>
               <tspan className='main__cls-30' x='0' y='0'>
-                B
-              </tspan>
-              <tspan className='main__cls-51' x='8.38' y='0'>
-                -
-              </tspan>
-              <tspan x='13.29' y='0'>
-                C
+                B-C
               </tspan>
             </text>
           </g>
@@ -12845,13 +12032,7 @@ export default function MainStaticDiagram() {
             />
             <text className='main__cls-28' transform='translate(638.79 890.26)'>
               <tspan className='main__cls-57' x='0' y='0'>
-                A
-              </tspan>
-              <tspan className='main__cls-61' x='10.66' y='0'>
-                -
-              </tspan>
-              <tspan x='16.27' y='0'>
-                C
+                A-C
               </tspan>
             </text>
           </g>
@@ -12892,10 +12073,7 @@ export default function MainStaticDiagram() {
           />
           <text className='main__cls-28' transform='translate(686.69 968.99)'>
             <tspan className='main__cls-37' x='0' y='0'>
-              c
-            </tspan>
-            <tspan x='7.73' y='0'>
-              osφ
+              cosφ
             </tspan>
           </text>
           <g>
@@ -12908,10 +12086,7 @@ export default function MainStaticDiagram() {
             />
             <text className='main__cls-28' transform='translate(691.57 995.24)'>
               <tspan className='main__cls-62' x='0' y='0'>
-                K
-              </tspan>
-              <tspan className='main__cls-17' x='9.75' y='0'>
-                W
+                KW
               </tspan>
             </text>
           </g>
@@ -12925,13 +12100,7 @@ export default function MainStaticDiagram() {
             />
             <text className='main__cls-28' transform='translate(690.16 1021.8)'>
               <tspan x='0' y='0'>
-                k
-              </tspan>
-              <tspan className='main__cls-53' x='8.21' y='0'>
-                V
-              </tspan>
-              <tspan x='16.97' y='0'>
-                A
+                kVA
               </tspan>
             </text>
           </g>
@@ -12944,13 +12113,7 @@ export default function MainStaticDiagram() {
           />
           <text className='main__cls-28' transform='translate(686.87 1047.99)'>
             <tspan x='0' y='0'>
-              G
-            </tspan>
-            <tspan className='main__cls-31' x='11.3' y='0'>
-              W
-            </tspan>
-            <tspan x='26.02' y='0'>
-              h
+              GWh
             </tspan>
           </text>
           <g>
@@ -13093,10 +12256,7 @@ export default function MainStaticDiagram() {
             />
             <text className='main__cls-28' transform='translate(793.38 1132.5)'>
               <tspan className='main__cls-31' x='0' y='0'>
-                P
-              </tspan>
-              <tspan x='9.22' y='0'>
-                hòng SR01&amp;02
+                Phòng SR01&02
               </tspan>
             </text>
             <g>
@@ -13141,10 +12301,7 @@ export default function MainStaticDiagram() {
               transform='translate(793.41 1158.75)'
             >
               <tspan className='main__cls-31' x='0' y='0'>
-                P
-              </tspan>
-              <tspan x='9.22' y='0'>
-                hòng SR03-1
+                Phòng SR03-1
               </tspan>
             </text>
             <g>
@@ -13189,10 +12346,7 @@ export default function MainStaticDiagram() {
               transform='translate(793.38 1186.39)'
             >
               <tspan className='main__cls-31' x='0' y='0'>
-                P
-              </tspan>
-              <tspan x='9.22' y='0'>
-                hòng SR03-2
+                Phòng SR03-2
               </tspan>
             </text>
             <g>
@@ -13237,10 +12391,7 @@ export default function MainStaticDiagram() {
               transform='translate(793.38 1214.02)'
             >
               <tspan className='main__cls-31' x='0' y='0'>
-                P
-              </tspan>
-              <tspan x='9.22' y='0'>
-                hòng SR04
+                Phòng SR04
               </tspan>
             </text>
             <g>
@@ -13285,10 +12436,7 @@ export default function MainStaticDiagram() {
               transform='translate(793.41 1240.79)'
             >
               <tspan className='main__cls-31' x='0' y='0'>
-                P
-              </tspan>
-              <tspan x='9.22' y='0'>
-                hòng SR05
+                Phòng SR05
               </tspan>
             </text>
             <g>
@@ -13326,19 +12474,7 @@ export default function MainStaticDiagram() {
           />
           <text className='main__cls-28' transform='translate(793.38 1267.03)'>
             <tspan className='main__cls-31' x='0' y='0'>
-              P
-            </tspan>
-            <tspan x='9.22' y='0'>
-              hòng{' '}
-            </tspan>
-            <tspan className='main__cls-64' x='51.74' y='0'>
-              C
-            </tspan>
-            <tspan className='main__cls-43' x='62.38' y='0'>
-              T
-            </tspan>
-            <tspan className='main__cls-17' x='70.97' y='0'>
-              S
+              Phòng CTS
             </tspan>
           </text>
           <rect
@@ -13369,10 +12505,7 @@ export default function MainStaticDiagram() {
               transform='translate(793.38 1293.38)'
             >
               <tspan className='main__cls-31' x='0' y='0'>
-                P
-              </tspan>
-              <tspan x='9.22' y='0'>
-                hòng SR07
+                Phòng SR07
               </tspan>
             </text>
             <g>

@@ -1,7 +1,3 @@
-.main__cls-1 {
-  letter-spacing: -0.04em;
-}
-
 .main__cls-2 {
   fill: gray;
 }
@@ -39,40 +35,8 @@
   stroke: #000;
 }
 
-.main__cls-12 {
-  letter-spacing: -0.02em;
-}
-
-.main__cls-13 {
-  letter-spacing: 0.02em;
-}
-
-.main__cls-14 {
-  letter-spacing: -0.02em;
-}
-
-.main__cls-15 {
-  letter-spacing: 0em;
-}
-
-.main__cls-16 {
-  letter-spacing: 0em;
-}
-
-.main__cls-17 {
-  letter-spacing: 0em;
-}
-
 .main__cls-3 {
   fill: #e6e6e6;
-}
-
-.main__cls-18 {
-  letter-spacing: -0.04em;
-}
-
-.main__cls-19 {
-  letter-spacing: 0em;
 }
 
 .main__cls-20,
@@ -84,12 +48,13 @@
 .main__cls-26,
 .main__cls-27 {
   font-family: 'Inter', sans-serif;
+  font-size: 15px;
 }
 
 .main__cls-18,
 .main__cls-19,
 .main__cls-27 {
-  font-size: 15.12px;
+  font-size: 15px;
 }
 
 .main__cls-18,
@@ -97,14 +62,6 @@
 .main__cls-28,
 .main__cls-25 {
   fill: #2e3192;
-}
-
-.main__cls-29 {
-  letter-spacing: 0.01em;
-}
-
-.main__cls-30 {
-  letter-spacing: 0em;
 }
 
 .main__cls-20,
@@ -120,7 +77,7 @@
 .main__cls-20,
 .main__cls-22,
 .main__cls-24 {
-  font-size: 15.31px;
+  font-size: 15px;
 }
 
 .main__cls-4,
@@ -136,18 +93,6 @@
   fill: none;
 }
 
-.main__cls-31 {
-  letter-spacing: 0em;
-}
-
-.main__cls-32 {
-  letter-spacing: 0.02em;
-}
-
-.main__cls-33 {
-  letter-spacing: 0em;
-}
-
 .main__cls-21 {
   fill: #00e5ff;
 }
@@ -158,15 +103,7 @@
 .main__cls-26,
 .main__cls-27,
 .main__cls-28 {
-  font-size: 17.5px;
-}
-
-.main__cls-34 {
-  letter-spacing: -0.06em;
-}
-
-.main__cls-35 {
-  letter-spacing: 0em;
+  font-size: 15px;
 }
 
 .main__cls-5,
@@ -175,50 +112,10 @@
   stroke-linecap: round;
 }
 
-.main__cls-36 {
-  letter-spacing: 0em;
-}
-
-.main__cls-37 {
-  letter-spacing: 0em;
-}
-
-.main__cls-38 {
-  letter-spacing: 0em;
-}
-
-.main__cls-39 {
-  letter-spacing: 0em;
-}
-
-.main__cls-40 {
-  letter-spacing: 0em;
-}
-
 .main__cls-41,
 .main__cls-24,
 .main__cls-26 {
   fill: #2e3192;
-}
-
-.main__cls-42 {
-  letter-spacing: -0.03em;
-}
-
-.main__cls-43 {
-  letter-spacing: 0em;
-}
-
-.main__cls-44 {
-  letter-spacing: 0em;
-}
-
-.main__cls-45 {
-  letter-spacing: -0.01em;
-}
-
-.main__cls-46 {
-  letter-spacing: -0.03em;
 }
 
 .main__cls-6 {
@@ -230,10 +127,6 @@
   fill: #fbc02d;
 }
 
-.main__cls-48 {
-  letter-spacing: -0.06em;
-}
-
 .main__cls-49,
 .main__cls-50 {
   fill: #66bb6a;
@@ -242,19 +135,7 @@
 .main__cls-31,
 .main__cls-32 {
   font-family: 'Inter', sans-serif;
-  font-variation-settings:
-    'wght' 600,
-    'wdth' 100,
-    'slnt' 0;
   font-weight: 600;
-}
-
-.main__cls-53 {
-  letter-spacing: -0.06em;
-}
-
-.main__cls-54 {
-  letter-spacing: -0.06em;
 }
 
 .main__cls-55 {
@@ -263,40 +144,4 @@
 
 .main__cls-27 {
   fill: #d4145a;
-}
-
-.main__cls-56 {
-  letter-spacing: 0em;
-}
-
-.main__cls-57 {
-  letter-spacing: 0em;
-}
-
-.main__cls-58 {
-  letter-spacing: 0em;
-}
-
-.main__cls-59 {
-  letter-spacing: -0.06em;
-}
-
-.main__cls-60 {
-  letter-spacing: -0.04em;
-}
-
-.main__cls-61 {
-  letter-spacing: 0.01em;
-}
-
-.main__cls-62 {
-  letter-spacing: 0.02em;
-}
-
-.main__cls-63 {
-  letter-spacing: 0.01em;
-}
-
-.main__cls-64 {
-  letter-spacing: 0.03em;
 }
