@@ -2,7 +2,7 @@ import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
 import { useFiguresCoordinateContext } from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
 import { Figures } from '~/pages/ProductionManagement/helpers/diagrams';
-import MainStaticDiagram from '~/pages/ProductionManagement/partials/Diagrams/Main/partials/MainStaticDiagram';
+import MainStaticDiagram from '~/pages/ProductionManagement/partials/Diagrams/Main/MainStaticDiagram';
 
 import './styles.css';
 
