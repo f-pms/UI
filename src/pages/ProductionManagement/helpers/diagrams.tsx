@@ -135,15 +135,19 @@ export interface FiguresProps {
 }
 
 export function Figures({ figuresCoordinateList, figureValues }: FiguresProps) {
-  return figuresCoordinateList.map(({ displayCoordinate, address }, index) => (
-    <text
-      key={index}
-      className='main__cls-25'
-      transform={`translate(${displayCoordinate.x} ${displayCoordinate.y})`}
-    >
-      <tspan x='0' y='0'>
-        {figureValues[address]}
-      </tspan>
-    </text>
-  ));
+  return figuresCoordinateList.map(({ displayCoordinate, address }) => {
+    const xCoordinate = displayCoordinate.x;
+    const yCoordinate = displayCoordinate.y;
+    return (
+      <text
+        key={address + xCoordinate + yCoordinate}
+        className='main__cls-25'
+        transform={`translate(${xCoordinate} ${yCoordinate})`}
+      >
+        <tspan x='0' y='0'>
+          {figureValues[address]}
+        </tspan>
+      </text>
+    );
+  });
 }

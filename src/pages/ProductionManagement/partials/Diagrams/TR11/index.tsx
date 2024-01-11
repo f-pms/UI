@@ -2,7 +2,7 @@ import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
 import { useFiguresCoordinateContext } from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
 import { Figures } from '~/pages/ProductionManagement/helpers/diagrams';
-import Tr11StaticDiagram from '~/pages/ProductionManagement/partials/Diagrams/TR11/partials/Tr11StaticDiagram';
+import Tr11StaticDiagram from '~/pages/ProductionManagement/partials/Diagrams/TR11/Tr11StaticDiagram';
 
 import './styles.css';
 
