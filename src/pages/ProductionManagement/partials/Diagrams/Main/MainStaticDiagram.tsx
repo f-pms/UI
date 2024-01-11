@@ -822,7 +822,7 @@ export default function MainStaticDiagram() {
           </g>
           <circle className='main__cls-55' cx='855.62' cy='567.28' r='3.28' />
         </g>
-        <g>
+        <g className='temperature-table' id='lv11circuit'>
           <g>
             <rect
               className='main__cls-7'
@@ -1104,7 +1104,7 @@ export default function MainStaticDiagram() {
             <circle className='main__cls-55' cx='983.58' cy='567.28' r='3.28' />
           </g>
         </g>
-        <g>
+        <g className='temperature-table' id='lv12circuit'>
           <g>
             <rect
               className='main__cls-7'
@@ -1391,7 +1391,7 @@ export default function MainStaticDiagram() {
           </g>
           <circle className='main__cls-55' cx='1309.27' cy='567.28' r='3.28' />
         </g>
-        <g>
+        <g className='temperature-table' id='lv42circuit'>
           <g>
             <rect
               className='main__cls-7'
@@ -1824,7 +1824,7 @@ export default function MainStaticDiagram() {
           </g>
           <circle className='main__cls-55' cx='1700.32' cy='564.94' r='3.28' />
         </g>
-        <g>
+        <g className='temperature-table' id='lv72circuit'>
           <g>
             <rect
               className='main__cls-7'
@@ -2253,7 +2253,7 @@ export default function MainStaticDiagram() {
           </g>
           <circle className='main__cls-55' cx='2154.41' cy='564.94' r='3.28' />
         </g>
-        <g>
+        <g className='temperature-table' id='lv31circuit'>
           <g>
             <rect
               className='main__cls-7'
@@ -2537,7 +2537,7 @@ export default function MainStaticDiagram() {
           </g>
           <circle className='main__cls-55' cx='2283.45' cy='564.94' r='3.28' />
         </g>
-        <g>
+        <g className='temperature-table' id='lv32circuit'>
           <g>
             <rect
               className='main__cls-7'
@@ -2828,7 +2828,7 @@ export default function MainStaticDiagram() {
           </g>
           <circle className='main__cls-55' cx='2410.73' cy='564.94' r='3.28' />
         </g>
-        <g>
+        <g className='temperature-table' id='lv33circuit'>
           <g>
             <rect
               className='main__cls-7'
@@ -3480,7 +3480,7 @@ export default function MainStaticDiagram() {
           </g>
           <circle className='main__cls-55' cx='387' cy='156.02' r='3.28' />
         </g>
-        <g>
+        <g className='temperature-table' id='tr30circuit'>
           <g>
             <rect
               className='main__cls-7'
@@ -7278,7 +7278,7 @@ export default function MainStaticDiagram() {
             </g>
           </g>
         </g>
-        <g>
+        <g className='temperature-table' id='lv341342circuit'>
           <g>
             <rect
               className='main__cls-7'
@@ -9381,7 +9381,7 @@ export default function MainStaticDiagram() {
       </g>
       <g>
         <g>
-          <g>
+          <g className='temperature-table' id='lv52circuit'>
             <g>
               <rect
                 className='main__cls-7'
