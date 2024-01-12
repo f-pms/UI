@@ -6,10 +6,10 @@ import { CenterFocusStrongOutlinedIcon } from '~/components/Icons';
 import { Button } from '~/components/MuiComponents';
 
 export interface IPageHeadingProps {
-  scrollIntoView: () => void;
+  scrollToDiagram: () => void;
 }
 
-export default function PageHeading({ scrollIntoView }: IPageHeadingProps) {
+export default function PageHeading({ scrollToDiagram }: IPageHeadingProps) {
   const location = useLocation();
   return (
     <SectionHeading
@@ -17,7 +17,7 @@ export default function PageHeading({ scrollIntoView }: IPageHeadingProps) {
         <Button
           startIcon={<CenterFocusStrongOutlinedIcon />}
           variant='contained'
-          onClick={scrollIntoView}
+          onClick={scrollToDiagram}
         >
           Theo dõi mạch điện
         </Button>

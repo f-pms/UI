@@ -62,6 +62,7 @@ export default function SidebarMenu({ collapsed }: ISidebarMenuProps) {
                   key={child.path}
                   active={location.pathname == child.path}
                   component={<Link to={child.path} />}
+                  icon={child.icon}
                 >
                   {child.name}
                 </MenuItem>
