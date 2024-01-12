@@ -94,29 +94,29 @@ export const DIAGRAMS: TabItem[] = [
   {
     value: 9,
     label: 'Trạm TR52',
-    blueprint: 'main',
-    channel: 'main',
+    blueprint: 'tr52',
+    channel: 'tr52',
     panel: <TR52Diagram />,
   },
   {
     value: 10,
     label: 'Trạm TR72',
-    blueprint: 'main',
-    channel: 'main',
+    blueprint: 'tr72',
+    channel: 'tr72',
     panel: <TR72Diagram />,
   },
   {
     value: 11,
     label: 'Trạm TR82',
-    blueprint: 'main',
-    channel: 'main',
+    blueprint: 'tr82',
+    channel: 'tr82',
     panel: <TR82Diagram />,
   },
   {
     value: 12,
     label: 'All Meter',
-    blueprint: 'main',
-    channel: 'main',
+    blueprint: 'all-meter',
+    channel: 'all-meter',
     panel: <AllMeterDiagram />,
   },
 ];
@@ -138,6 +138,7 @@ export function Figures({ figuresCoordinateList, figureValues }: FiguresProps) {
   return figuresCoordinateList.map(({ displayCoordinate, address }) => {
     const xCoordinate = displayCoordinate.x;
     const yCoordinate = displayCoordinate.y;
+
     return (
       <text
         key={address + xCoordinate + yCoordinate}
