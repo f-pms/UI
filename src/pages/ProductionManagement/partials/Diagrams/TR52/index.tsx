@@ -8,7 +8,7 @@ export function TR52Diagram() {
       viewBox='0 0 2873.84 1312.21'
       xmlns='http://www.w3.org/2000/svg'
     >
-      <rect height='385.99' width='2.71' x='884.71' y='714.35' />
+      <rect height='445.99' width='2.71' x='884.71' y='652.35' />
       <rect height='2.71' width='182.49' x='704.87' y='1097.63' />
       <rect
         className='station-52__cls-55'
@@ -1173,13 +1173,7 @@ export function TR52Diagram() {
               transform='translate(1930.82 1289.54)'
             >
               <tspan x='0' y='0'>
-                15k
-              </tspan>
-              <tspan className='station-52__cls-91' x='32.45' y='0'>
-                V
-              </tspan>
-              <tspan x='43.33' y='0'>
-                A
+                15kVA
               </tspan>
             </text>
           </g>
@@ -2129,34 +2123,10 @@ export function TR52Diagram() {
           transform='translate(94.05 940.78)'
         >
           <tspan x='0' y='0'>
-            M
-          </tspan>
-          <tspan className='station-52__cls-94' x='17.45' y='0'>
-            C
-          </tspan>
-          <tspan x='29.59' y='0'>
-            C
-          </tspan>
-          <tspan className='station-52__cls-44' x='42.18' y='0'>
-            B
-          </tspan>
-          <tspan x='54.05' y='0'>
-            -3
-          </tspan>
-          <tspan className='station-52__cls-85' x='71.85' y='0'>
-            P
-          </tspan>
-          <tspan x='83.03' y='0'>
-            -250A
+            MCCB-3P-250A
           </tspan>
           <tspan x='-1.44' y='26.05'>
-            NSX200N-50
-          </tspan>
-          <tspan className='station-52__cls-35' x='112.56' y='26.05'>
-            K
-          </tspan>
-          <tspan x='124.55' y='26.05'>
-            A
+            NSX200N-50KA
           </tspan>
         </text>
         <polygon points='117.3 1105.12 76.59 1098.34 117.3 1091.55 117.3 1105.12' />
@@ -2383,34 +2353,10 @@ export function TR52Diagram() {
           transform='translate(298.49 941.5)'
         >
           <tspan x='0' y='0'>
-            M
-          </tspan>
-          <tspan className='station-52__cls-94' x='17.45' y='0'>
-            C
-          </tspan>
-          <tspan x='29.59' y='0'>
-            C
-          </tspan>
-          <tspan className='station-52__cls-44' x='42.18' y='0'>
-            B
-          </tspan>
-          <tspan x='54.05' y='0'>
-            -3
-          </tspan>
-          <tspan className='station-52__cls-85' x='71.85' y='0'>
-            P
-          </tspan>
-          <tspan x='83.03' y='0'>
-            -250A
+            MCCB-3P-250A
           </tspan>
           <tspan x='-1.44' y='26.05'>
-            NSX200N-50
-          </tspan>
-          <tspan className='station-52__cls-35' x='112.56' y='26.05'>
-            K
-          </tspan>
-          <tspan x='124.55' y='26.05'>
-            A
+            NSX200N-50KA
           </tspan>
         </text>
         <polygon points='321.73 1105.85 281.03 1099.06 321.73 1092.28 321.73 1105.85' />
@@ -2637,34 +2583,10 @@ export function TR52Diagram() {
           transform='translate(500.77 941.5)'
         >
           <tspan x='0' y='0'>
-            M
-          </tspan>
-          <tspan className='station-52__cls-94' x='17.45' y='0'>
-            C
-          </tspan>
-          <tspan x='29.59' y='0'>
-            C
-          </tspan>
-          <tspan className='station-52__cls-44' x='42.18' y='0'>
-            B
-          </tspan>
-          <tspan x='54.05' y='0'>
-            -3
-          </tspan>
-          <tspan className='station-52__cls-85' x='71.85' y='0'>
-            P
-          </tspan>
-          <tspan x='83.03' y='0'>
-            -250A
+            MCCB-3P-250A
           </tspan>
           <tspan x='-1.44' y='26.05'>
-            NSX200N-50
-          </tspan>
-          <tspan className='station-52__cls-35' x='112.56' y='26.05'>
-            K
-          </tspan>
-          <tspan x='124.55' y='26.05'>
-            A
+            NSX200N-50KA
           </tspan>
         </text>
         <polygon points='524.02 1105.85 483.32 1099.06 524.02 1092.28 524.02 1105.85' />
@@ -2884,34 +2806,10 @@ export function TR52Diagram() {
           transform='translate(705.24 941.5)'
         >
           <tspan x='0' y='0'>
-            M
-          </tspan>
-          <tspan className='station-52__cls-94' x='17.45' y='0'>
-            C
-          </tspan>
-          <tspan className='station-52__cls-51' x='29.59' y='0'>
-            C
-          </tspan>
-          <tspan className='station-52__cls-65' x='42.18' y='0'>
-            B
-          </tspan>
-          <tspan x='54.05' y='0'>
-            -3
-          </tspan>
-          <tspan className='station-52__cls-95' x='71.85' y='0'>
-            P
-          </tspan>
-          <tspan x='83.03' y='0'>
-            -250A
+            MCCB-3P-250A
           </tspan>
           <tspan x='-1.44' y='26.05'>
-            NSX200N-50
-          </tspan>
-          <tspan className='station-52__cls-84' x='112.56' y='26.05'>
-            K
-          </tspan>
-          <tspan x='124.55' y='26.05'>
-            A
+            NSX200N-50KA
           </tspan>
         </text>
         <polygon points='728.49 1105.85 687.78 1099.06 728.49 1092.28 728.49 1105.85' />
@@ -3270,28 +3168,7 @@ export function TR52Diagram() {
             transform='translate(679.68 119.98)'
           >
             <tspan className='station-52__cls-63' x='0' y='0'>
-              B
-            </tspan>
-            <tspan className='station-52__cls-34' x='10.37' y='0'>
-              ộ ĐK nhiệt độ
-            </tspan>
-            <tspan className='station-52__cls-46' x='118.39' y='0'>
-              {' '}
-            </tspan>
-            <tspan className='station-52__cls-57' x='121.64' y='0'>
-              TBA
-            </tspan>
-            <tspan className='station-52__cls-46' x='153' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='156.25' y='0'>
-              TR52 -{' '}
-            </tspan>
-            <tspan className='station-52__cls-56' x='209.28' y='0'>
-              F
-            </tspan>
-            <tspan x='217.67' y='0'>
-              ault
+              Bộ ĐK nhiệt độ TBA TR52 - Fault
             </tspan>
           </text>
           <rect
@@ -3306,37 +3183,7 @@ export function TR52Diagram() {
             transform='translate(679.68 152.55)'
           >
             <tspan className='station-52__cls-63' x='0' y='0'>
-              B
-            </tspan>
-            <tspan className='station-52__cls-34' x='10.37' y='0'>
-              ộ ĐK nhiệt độ
-            </tspan>
-            <tspan className='station-52__cls-46' x='118.39' y='0'>
-              {' '}
-            </tspan>
-            <tspan className='station-52__cls-57' x='121.64' y='0'>
-              TBA
-            </tspan>
-            <tspan className='station-52__cls-46' x='153' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='156.25' y='0'>
-              TR52 -{' '}
-            </tspan>
-            <tspan className='station-52__cls-58' x='209.28' y='0'>
-              O
-            </tspan>
-            <tspan className='station-52__cls-77' x='222.63' y='0'>
-              v
-            </tspan>
-            <tspan x='231.58' y='0'>
-              er{' '}
-            </tspan>
-            <tspan className='station-52__cls-26' x='251.33' y='0'>
-              t
-            </tspan>
-            <tspan x='257.5' y='0'>
-              emp
+              Bộ ĐK nhiệt độ TBA TR52 - Over temp
             </tspan>
           </text>
           <rect
@@ -3351,34 +3198,7 @@ export function TR52Diagram() {
             transform='translate(679.68 185.11)'
           >
             <tspan className='station-52__cls-63' x='0' y='0'>
-              B
-            </tspan>
-            <tspan className='station-52__cls-34' x='10.37' y='0'>
-              ộ ĐK nhiệt độ
-            </tspan>
-            <tspan className='station-52__cls-46' x='118.39' y='0'>
-              {' '}
-            </tspan>
-            <tspan className='station-52__cls-57' x='121.64' y='0'>
-              TBA
-            </tspan>
-            <tspan className='station-52__cls-46' x='153' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='156.25' y='0'>
-              TR52 -{' '}
-            </tspan>
-            <tspan className='station-52__cls-74' x='209.28' y='0'>
-              P
-            </tspan>
-            <tspan className='station-52__cls-76' x='218.91' y='0'>
-              o
-            </tspan>
-            <tspan className='station-52__cls-87' x='229.2' y='0'>
-              w
-            </tspan>
-            <tspan x='242.99' y='0'>
-              er cut
+              Bộ ĐK nhiệt độ TBA TR52 - Power cut
             </tspan>
           </text>
         </g>
@@ -3816,19 +3636,7 @@ export function TR52Diagram() {
             transform='translate(562.73 442.32)'
           >
             <tspan x='0' y='0'>
-              Shu
-            </tspan>
-            <tspan className='station-52__cls-50' x='30.37' y='0'>
-              n
-            </tspan>
-            <tspan x='40.84' y='0'>
-              t t
-            </tspan>
-            <tspan className='station-52__cls-73' x='57.44' y='0'>
-              r
-            </tspan>
-            <tspan x='63.73' y='0'>
-              ip
+              Shunt trip
             </tspan>
           </text>
         </g>
@@ -3863,22 +3671,7 @@ export function TR52Diagram() {
           transform='translate(320.33 422.2)'
         >
           <tspan className='station-52__cls-31' x='0' y='0'>
-            A
-          </tspan>
-          <tspan x='12.96' y='0'>
-            C
-          </tspan>
-          <tspan className='station-52__cls-44' x='25.55' y='0'>
-            B
-          </tspan>
-          <tspan className='station-52__cls-60' x='37.42' y='0'>
-            -3
-          </tspan>
-          <tspan className='station-52__cls-85' x='55.22' y='0'>
-            P
-          </tspan>
-          <tspan x='66.4' y='0'>
-            -5000A
+            ACB-3P-5000A
           </tspan>
           <tspan x='6.32' y='26.05'>
             100kA - 400V
@@ -4544,7 +4337,7 @@ export function TR52Diagram() {
             transform='translate(988.22 336.73)'
           >
             <tspan x='0' y='0'>
-              11.11
+              99.99
             </tspan>
           </text>
         </g>

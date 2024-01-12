@@ -15,12 +15,19 @@ export function SectionHeading(props: ISectionHeadingProps) {
         alignItems='flex-end'
         direction='row'
         justifyContent='space-between'
+        sx={{ mb: 1 }}
       >
         <Box>
-          <Typography sx={{ fontWeight: 'bold', mb: 1 }} variant='h5'>
+          <Typography
+            color='text.strong'
+            sx={{ fontWeight: 'bold' }}
+            variant='h5'
+          >
             {header}
           </Typography>
-          <Typography variant='body2'>{description}</Typography>
+          <Typography color='text.primary' variant='body2'>
+            {description}
+          </Typography>
         </Box>
         <Box>{actions}</Box>
       </Stack>

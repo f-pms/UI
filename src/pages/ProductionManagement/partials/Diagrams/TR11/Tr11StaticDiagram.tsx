@@ -342,28 +342,7 @@ export default function Tr11StaticDiagram() {
               transform='translate(1165.52 128.4)'
             >
               <tspan className='station-11__cls-16' x='0' y='0'>
-                B
-              </tspan>
-              <tspan x='11.83' y='0'>
-                ộ ĐK nhiệt độ
-              </tspan>
-              <tspan className='station-11__cls-63' x='135.02' y='0'>
-                {' '}
-              </tspan>
-              <tspan x='138.73' y='0'>
-                TBA
-              </tspan>
-              <tspan className='station-11__cls-63' x='174.5' y='0'>
-                {' '}
-              </tspan>
-              <tspan className='station-11__cls-69' x='178.2' y='0'>
-                TR11 -{' '}
-              </tspan>
-              <tspan className='station-11__cls-1' x='238.68' y='0'>
-                F
-              </tspan>
-              <tspan className='station-11__cls-53' x='248.26' y='0'>
-                ault
+                Bộ ĐK nhiệt độ TBA TR11 - Fault
               </tspan>
             </text>
             <rect
@@ -378,37 +357,7 @@ export default function Tr11StaticDiagram() {
               transform='translate(1165.52 165.54)'
             >
               <tspan className='station-11__cls-16' x='0' y='0'>
-                B
-              </tspan>
-              <tspan x='11.83' y='0'>
-                ộ ĐK nhiệt độ
-              </tspan>
-              <tspan className='station-11__cls-63' x='135.02' y='0'>
-                {' '}
-              </tspan>
-              <tspan x='138.73' y='0'>
-                TBA
-              </tspan>
-              <tspan className='station-11__cls-63' x='174.5' y='0'>
-                {' '}
-              </tspan>
-              <tspan className='station-11__cls-69' x='178.2' y='0'>
-                TR11 -{' '}
-              </tspan>
-              <tspan className='station-11__cls-42' x='238.68' y='0'>
-                O
-              </tspan>
-              <tspan className='station-11__cls-57' x='253.91' y='0'>
-                v
-              </tspan>
-              <tspan x='264.11' y='0'>
-                er{' '}
-              </tspan>
-              <tspan className='station-11__cls-39' x='286.64' y='0'>
-                t
-              </tspan>
-              <tspan className='station-11__cls-69' x='293.68' y='0'>
-                emp
+                Bộ ĐK nhiệt độ TBA TR11 - Over temp
               </tspan>
             </text>
             <rect
@@ -423,34 +372,7 @@ export default function Tr11StaticDiagram() {
               transform='translate(1165.52 202.67)'
             >
               <tspan className='station-11__cls-16' x='0' y='0'>
-                B
-              </tspan>
-              <tspan x='11.83' y='0'>
-                ộ ĐK nhiệt độ
-              </tspan>
-              <tspan className='station-11__cls-63' x='135.02' y='0'>
-                {' '}
-              </tspan>
-              <tspan x='138.73' y='0'>
-                TBA
-              </tspan>
-              <tspan className='station-11__cls-63' x='174.5' y='0'>
-                {' '}
-              </tspan>
-              <tspan className='station-11__cls-69' x='178.2' y='0'>
-                TR11 -{' '}
-              </tspan>
-              <tspan className='station-11__cls-43' x='238.68' y='0'>
-                P
-              </tspan>
-              <tspan className='station-11__cls-51' x='249.67' y='0'>
-                o
-              </tspan>
-              <tspan className='station-11__cls-57' x='261.41' y='0'>
-                w
-              </tspan>
-              <tspan className='station-11__cls-69' x='277.13' y='0'>
-                er cut
+                Bộ ĐK nhiệt độ TBA TR11 - Power cut
               </tspan>
             </text>
           </g>
@@ -660,37 +582,10 @@ export default function Tr11StaticDiagram() {
             transform='translate(1719.11 375.8)'
           >
             <tspan x='0' y='0'>
-              Di
-            </tspan>
-            <tspan className='station-11__cls-5' x='22.28' y='0'>
-              g
-            </tspan>
-            <tspan x='35.97' y='0'>
-              ital{' '}
-            </tspan>
-            <tspan className='station-11__cls-68' x='72.99' y='0'>
-              M
-            </tspan>
-            <tspan x='92.96' y='0'>
-              ulti{' '}
-            </tspan>
-            <tspan className='station-11__cls-79' x='131.68' y='0'>
-              M
-            </tspan>
-            <tspan x='151.74' y='0'>
-              et
-            </tspan>
-            <tspan className='station-11__cls-5' x='172.34' y='0'>
-              t
-            </tspan>
-            <tspan className='station-11__cls-67' x='180.38' y='0'>
-              er
+              Digital Multi Meter
             </tspan>
             <tspan className='station-11__cls-78' x='58.65' y='29.71'>
-              P
-            </tspan>
-            <tspan x='71.52' y='29.71'>
-              M5310
+              PM5310
             </tspan>
           </text>
           <g>
@@ -1907,31 +1802,10 @@ export default function Tr11StaticDiagram() {
                   transform='translate(1679.56 1255.37)'
                 >
                   <tspan x='0' y='0'>
-                    Chipper - main d
-                  </tspan>
-                  <tspan className='station-11__cls-71' x='171.99' y='0'>
-                    r
-                  </tspan>
-                  <tspan x='180.19' y='0'>
-                    i
-                  </tspan>
-                  <tspan className='station-11__cls-48' x='185.98' y='0'>
-                    v
-                  </tspan>
-                  <tspan x='197.64' y='0'>
-                    e
+                    Chipper - main drive
                   </tspan>
                   <tspan className='station-11__cls-71' x='3.5' y='29.71'>
-                    Đ
-                  </tspan>
-                  <tspan className='station-11__cls-67' x='20.21' y='29.71'>
-                    ộng{' '}
-                  </tspan>
-                  <tspan className='station-11__cls-5' x='66.63' y='29.71'>
-                    c
-                  </tspan>
-                  <tspan className='station-11__cls-74' x='77.58' y='29.71'>
-                    ơ băm chính
+                    Động cơ băm chính
                   </tspan>
                 </text>
               </g>

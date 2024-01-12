@@ -296,7 +296,7 @@ export function AllMeterDiagram() {
               transform='translate(1666.58 445.91)'
             >
               <tspan x='0' y='0'>
-                11.11
+                99.99
               </tspan>
             </text>
           </g>

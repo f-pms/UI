@@ -1,17 +1,18 @@
 import { Path, PATH_LABEL } from '~/constants';
 import { SidebarItem } from '~/types/sidebar';
 
-import { HandymanOutlinedIcon } from '~/components/Icons';
+import { FactoryOutlinedIcon, MonitorOutlinedIcon } from '~/components/Icons';
 
 export const SIDEBAR_ITEMS: SidebarItem[] = [
   {
     name: PATH_LABEL[Path.PRODUCTION],
-    icon: <HandymanOutlinedIcon sx={{ fontSize: '22px' }} />,
+    icon: <FactoryOutlinedIcon sx={{ fontSize: '22px' }} />,
     path: Path.PRODUCTION,
     children: [
       {
         name: PATH_LABEL[Path.PRODUCTION_MONITORING],
         path: Path.PRODUCTION_MONITORING,
+        icon: <MonitorOutlinedIcon sx={{ fontSize: '22px' }} />,
       },
     ],
   },

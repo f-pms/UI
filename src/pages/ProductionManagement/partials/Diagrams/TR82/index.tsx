@@ -54,37 +54,13 @@ export function TR82Diagram() {
       <g>
         <text
           className='station-82__cls-14'
-          transform='translate(1073.37 1002.97)'
+          transform='translate(1068.37 1002.97)'
         >
           <tspan x='0' y='0'>
-            M
-          </tspan>
-          <tspan className='station-82__cls-48' x='16.51' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-93' x='27.99' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-86' x='39.89' y='0'>
-            B
-          </tspan>
-          <tspan x='51.12' y='0'>
-            -3P
+            MCCB-3P
           </tspan>
           <tspan x='-2.98' y='24.64'>
-            50
-          </tspan>
-          <tspan className='station-82__cls-74' x='18.09' y='24.64'>
-            A
-          </tspan>
-          <tspan className='station-82__cls-104' x='30.59' y='24.64'>
-            -36
-          </tspan>
-          <tspan className='station-82__cls-71' x='57.96' y='24.64'>
-            K
-          </tspan>
-          <tspan x='69.29' y='24.64'>
-            A
+            50A-36KA
           </tspan>
         </text>
         <rect
@@ -263,37 +239,13 @@ export function TR82Diagram() {
       <g>
         <text
           className='station-82__cls-14'
-          transform='translate(1253.02 1002.97)'
+          transform='translate(1248.02 1002.97)'
         >
           <tspan x='0' y='0'>
-            M
-          </tspan>
-          <tspan className='station-82__cls-48' x='16.51' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-93' x='27.99' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-86' x='39.89' y='0'>
-            B
-          </tspan>
-          <tspan x='51.12' y='0'>
-            -3P
+            MCCB-3P
           </tspan>
           <tspan x='-2.98' y='24.64'>
-            50
-          </tspan>
-          <tspan className='station-82__cls-87' x='18.09' y='24.64'>
-            A
-          </tspan>
-          <tspan x='30.59' y='24.64'>
-            -36
-          </tspan>
-          <tspan className='station-82__cls-71' x='57.96' y='24.64'>
-            K
-          </tspan>
-          <tspan x='69.29' y='24.64'>
-            A
+            50A-36KA
           </tspan>
         </text>
         <rect
@@ -475,37 +427,13 @@ export function TR82Diagram() {
       <g>
         <text
           className='station-82__cls-14'
-          transform='translate(1432.68 1002.97)'
+          transform='translate(1427.68 1002.97)'
         >
           <tspan x='0' y='0'>
-            M
-          </tspan>
-          <tspan className='station-82__cls-48' x='16.51' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-93' x='27.99' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-86' x='39.89' y='0'>
-            B
-          </tspan>
-          <tspan x='51.12' y='0'>
-            -3P
+            MCCB-3P
           </tspan>
           <tspan x='-2.98' y='24.64'>
-            30
-          </tspan>
-          <tspan className='station-82__cls-74' x='18.09' y='24.64'>
-            A
-          </tspan>
-          <tspan className='station-82__cls-104' x='30.59' y='24.64'>
-            -36
-          </tspan>
-          <tspan className='station-82__cls-71' x='57.96' y='24.64'>
-            K
-          </tspan>
-          <tspan x='69.29' y='24.64'>
-            A
+            30A-36KA
           </tspan>
         </text>
         <rect
@@ -665,37 +593,13 @@ export function TR82Diagram() {
       <g>
         <text
           className='station-82__cls-14'
-          transform='translate(1612.3 1002.97)'
+          transform='translate(1607.3 1002.97)'
         >
           <tspan x='0' y='0'>
-            M
-          </tspan>
-          <tspan className='station-82__cls-48' x='16.51' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-93' x='27.99' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-86' x='39.89' y='0'>
-            B
-          </tspan>
-          <tspan x='51.12' y='0'>
-            -3P
+            MCCB-3P
           </tspan>
           <tspan x='-2.98' y='24.64'>
-            50
-          </tspan>
-          <tspan className='station-82__cls-74' x='18.09' y='24.64'>
-            A
-          </tspan>
-          <tspan className='station-82__cls-104' x='30.59' y='24.64'>
-            -36
-          </tspan>
-          <tspan className='station-82__cls-71' x='57.96' y='24.64'>
-            K
-          </tspan>
-          <tspan x='69.29' y='24.64'>
-            A
+            50A-36KA
           </tspan>
         </text>
         <rect
@@ -1421,34 +1325,10 @@ export function TR82Diagram() {
           transform='translate(260.27 741.78)'
         >
           <tspan x='0' y='0'>
-            M
-          </tspan>
-          <tspan className='station-82__cls-48' x='16.51' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-57' x='27.99' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-24' x='39.89' y='0'>
-            B
-          </tspan>
-          <tspan x='51.12' y='0'>
-            -3
-          </tspan>
-          <tspan className='station-82__cls-39' x='67.96' y='0'>
-            P
-          </tspan>
-          <tspan x='78.53' y='0'>
-            -630A
+            MCCB-3P-630A
           </tspan>
           <tspan x='42.02' y='24.64'>
-            20
-          </tspan>
-          <tspan className='station-82__cls-71' x='63.08' y='24.64'>
-            K
-          </tspan>
-          <tspan x='74.42' y='24.64'>
-            A
+            20KA
           </tspan>
         </text>
         <g>
@@ -1510,46 +1390,10 @@ export function TR82Diagram() {
               transform='translate(66.81 895.82)'
             >
               <tspan x='0' y='0'>
-                M
-              </tspan>
-              <tspan className='station-82__cls-48' x='16.51' y='0'>
-                C
-              </tspan>
-              <tspan className='station-82__cls-57' x='27.99' y='0'>
-                C
-              </tspan>
-              <tspan className='station-82__cls-24' x='39.89' y='0'>
-                B
-              </tspan>
-              <tspan x='51.12' y='0'>
-                -3
-              </tspan>
-              <tspan className='station-82__cls-39' x='67.96' y='0'>
-                P
-              </tspan>
-              <tspan x='78.53' y='0'>
-                -125A
+                MCCB-3P-125A
               </tspan>
               <tspan x='-3.64' y='24.64'>
-                NF125
-              </tspan>
-              <tspan className='station-82__cls-83' x='51.46' y='24.64'>
-                -
-              </tspan>
-              <tspan className='station-82__cls-23' x='58.05' y='24.64'>
-                C
-              </tspan>
-              <tspan className='station-82__cls-82' x='70.21' y='24.64'>
-                V
-              </tspan>
-              <tspan x='81.38' y='24.64'>
-                -15
-              </tspan>
-              <tspan className='station-82__cls-71' x='108.75' y='24.64'>
-                K
-              </tspan>
-              <tspan x='120.08' y='24.64'>
-                A
+                NF125-CV-15KA
               </tspan>
             </text>
             <polygon points='88.8 1051.27 50.3 1044.85 88.8 1038.43 88.8 1051.27' />
@@ -1776,46 +1620,10 @@ export function TR82Diagram() {
               transform='translate(258.14 895.82)'
             >
               <tspan x='0' y='0'>
-                M
-              </tspan>
-              <tspan className='station-82__cls-48' x='16.51' y='0'>
-                C
-              </tspan>
-              <tspan className='station-82__cls-57' x='27.99' y='0'>
-                C
-              </tspan>
-              <tspan className='station-82__cls-24' x='39.89' y='0'>
-                B
-              </tspan>
-              <tspan x='51.12' y='0'>
-                -3
-              </tspan>
-              <tspan className='station-82__cls-39' x='67.96' y='0'>
-                P
-              </tspan>
-              <tspan x='78.53' y='0'>
-                -125A
+                MCCB-3P-125A
               </tspan>
               <tspan x='-3.64' y='24.64'>
-                NF125
-              </tspan>
-              <tspan className='station-82__cls-83' x='51.46' y='24.64'>
-                -
-              </tspan>
-              <tspan className='station-82__cls-23' x='58.05' y='24.64'>
-                C
-              </tspan>
-              <tspan className='station-82__cls-82' x='70.21' y='24.64'>
-                V
-              </tspan>
-              <tspan x='81.38' y='24.64'>
-                -15
-              </tspan>
-              <tspan className='station-82__cls-71' x='108.75' y='24.64'>
-                K
-              </tspan>
-              <tspan x='120.08' y='24.64'>
-                A
+                NF125-CV-15KA
               </tspan>
             </text>
             <polygon points='280.13 1051.27 241.63 1044.85 280.13 1038.43 280.13 1051.27' />
@@ -2035,46 +1843,10 @@ export function TR82Diagram() {
               transform='translate(451.54 895.82)'
             >
               <tspan x='0' y='0'>
-                M
-              </tspan>
-              <tspan className='station-82__cls-48' x='16.51' y='0'>
-                C
-              </tspan>
-              <tspan className='station-82__cls-57' x='27.99' y='0'>
-                C
-              </tspan>
-              <tspan className='station-82__cls-24' x='39.89' y='0'>
-                B
-              </tspan>
-              <tspan x='51.12' y='0'>
-                -3
-              </tspan>
-              <tspan className='station-82__cls-39' x='67.96' y='0'>
-                P
-              </tspan>
-              <tspan x='78.53' y='0'>
-                -125A
+                MCCB-3P-125A
               </tspan>
               <tspan x='-3.64' y='24.64'>
-                NF125
-              </tspan>
-              <tspan className='station-82__cls-83' x='51.46' y='24.64'>
-                -
-              </tspan>
-              <tspan className='station-82__cls-23' x='58.05' y='24.64'>
-                C
-              </tspan>
-              <tspan className='station-82__cls-82' x='70.21' y='24.64'>
-                V
-              </tspan>
-              <tspan x='81.38' y='24.64'>
-                -15
-              </tspan>
-              <tspan className='station-82__cls-71' x='108.75' y='24.64'>
-                K
-              </tspan>
-              <tspan x='120.08' y='24.64'>
-                A
+                NF125-CV-15KA
               </tspan>
             </text>
             <polygon points='473.53 1051.27 435.03 1044.85 473.53 1038.43 473.53 1051.27' />
@@ -2442,28 +2214,7 @@ export function TR82Diagram() {
             transform='translate(427.47 112.3)'
           >
             <tspan className='station-82__cls-65' x='0' y='0'>
-              B
-            </tspan>
-            <tspan x='9.81' y='0'>
-              ộ ĐK nhiệt độ
-            </tspan>
-            <tspan className='station-82__cls-27' x='111.98' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='115.05' y='0'>
-              TBA
-            </tspan>
-            <tspan className='station-82__cls-27' x='144.71' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='147.79' y='0'>
-              TR82 -{' '}
-            </tspan>
-            <tspan className='station-82__cls-85' x='197.94' y='0'>
-              F
-            </tspan>
-            <tspan x='205.89' y='0'>
-              ault
+              Bộ ĐK nhiệt độ TBA TR82 - Fault
             </tspan>
           </text>
           <rect
@@ -2478,37 +2229,7 @@ export function TR82Diagram() {
             transform='translate(427.47 143.09)'
           >
             <tspan className='station-82__cls-65' x='0' y='0'>
-              B
-            </tspan>
-            <tspan x='9.81' y='0'>
-              ộ ĐK nhiệt độ
-            </tspan>
-            <tspan className='station-82__cls-27' x='111.98' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='115.05' y='0'>
-              TBA
-            </tspan>
-            <tspan className='station-82__cls-27' x='144.71' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='147.79' y='0'>
-              TR82 -{' '}
-            </tspan>
-            <tspan className='station-82__cls-100' x='197.94' y='0'>
-              O
-            </tspan>
-            <tspan className='station-82__cls-95' x='210.57' y='0'>
-              v
-            </tspan>
-            <tspan x='219.04' y='0'>
-              er{' '}
-            </tspan>
-            <tspan className='station-82__cls-70' x='237.72' y='0'>
-              t
-            </tspan>
-            <tspan x='243.56' y='0'>
-              emp
+              Bộ ĐK nhiệt độ TBA TR82 - Over temp
             </tspan>
           </text>
           <rect
@@ -2523,34 +2244,7 @@ export function TR82Diagram() {
             transform='translate(427.47 173.89)'
           >
             <tspan className='station-82__cls-65' x='0' y='0'>
-              B
-            </tspan>
-            <tspan x='9.81' y='0'>
-              ộ ĐK nhiệt độ
-            </tspan>
-            <tspan className='station-82__cls-27' x='111.98' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='115.05' y='0'>
-              TBA
-            </tspan>
-            <tspan className='station-82__cls-27' x='144.71' y='0'>
-              {' '}
-            </tspan>
-            <tspan x='147.79' y='0'>
-              TR82 -{' '}
-            </tspan>
-            <tspan className='station-82__cls-97' x='197.94' y='0'>
-              P
-            </tspan>
-            <tspan className='station-82__cls-31' x='207.05' y='0'>
-              o
-            </tspan>
-            <tspan className='station-82__cls-95' x='216.79' y='0'>
-              w
-            </tspan>
-            <tspan x='229.83' y='0'>
-              er cut
+              Bộ ĐK nhiệt độ TBA TR82 - Power cut
             </tspan>
           </text>
         </g>
@@ -2560,48 +2254,12 @@ export function TR82Diagram() {
         >
           <tspan className='station-82__cls-62'>
             <tspan className='station-82__cls-26' x='0' y='0'>
-              T
-            </tspan>
-            <tspan className='station-82__cls-81' x='9.28' y='0'>
-              r
-            </tspan>
-            <tspan x='15.89' y='0'>
-              ans
-            </tspan>
-            <tspan className='station-82__cls-91' x='45.31' y='0'>
-              f
-            </tspan>
-            <tspan x='51.04' y='0'>
-              o
-            </tspan>
-            <tspan className='station-82__cls-84' x='62.32' y='0'>
-              r
-            </tspan>
-            <tspan x='69.11' y='0'>
-              mer{' '}
-            </tspan>
-            <tspan className='station-82__cls-94' x='107.59' y='0'>
-              (
-            </tspan>
-            <tspan className='station-82__cls-35' x='114.41' y='0'>
-              TR#82)
+              Transformer (TR#82)
             </tspan>
           </tspan>
           <tspan className='station-82__cls-1'>
             <tspan x='-22.28' y='24.64'>
-              750k
-            </tspan>
-            <tspan className='station-82__cls-90' x='18.95' y='24.64'>
-              V
-            </tspan>
-            <tspan x='29.24' y='24.64'>
-              A 22kV/380/3/50
-            </tspan>
-            <tspan className='station-82__cls-75' x='172.63' y='24.64'>
-              H
-            </tspan>
-            <tspan x='186.25' y='24.64'>
-              z
+              750kVA 22kV/380/3/50Hz
             </tspan>
           </tspan>
         </text>
@@ -2843,22 +2501,10 @@ export function TR82Diagram() {
           />
           <text
             className='station-82__cls-12'
-            transform='translate(316.75 459.6)'
+            transform='translate(312.75 459.6)'
           >
             <tspan x='0' y='0'>
-              Shu
-            </tspan>
-            <tspan className='station-82__cls-89' x='28.73' y='0'>
-              n
-            </tspan>
-            <tspan x='38.63' y='0'>
-              t t
-            </tspan>
-            <tspan className='station-82__cls-65' x='54.33' y='0'>
-              r
-            </tspan>
-            <tspan className='station-82__cls-52' x='60.27' y='0'>
-              ip
+              Shunt trip
             </tspan>
           </text>
         </g>
@@ -2878,34 +2524,16 @@ export function TR82Diagram() {
               46
             </tspan>
             <tspan className='station-82__cls-79' x='-21.66' y='21.56'>
-              M
-            </tspan>
-            <tspan className='station-82__cls-89' x='-7.11' y='21.56'>
-              ấ
-            </tspan>
-            <tspan x='1.48' y='21.56'>
-              t pha
+              Mất pha
             </tspan>
           </text>
         </g>
         <text
           className='station-82__cls-14'
-          transform='translate(77.09 440.57)'
+          transform='translate(60.09 440.57)'
         >
           <tspan x='0' y='0'>
-            MMC
-          </tspan>
-          <tspan className='station-82__cls-24' x='44.92' y='0'>
-            B
-          </tspan>
-          <tspan className='station-82__cls-57' x='56.15' y='0'>
-            -3
-          </tspan>
-          <tspan className='station-82__cls-39' x='72.99' y='0'>
-            P
-          </tspan>
-          <tspan x='83.57' y='0'>
-            -1200A
+            MMCB-3P-1200A
           </tspan>
           <tspan x='21.62' y='24.64'>
             80kA - 380V
@@ -3141,36 +2769,12 @@ export function TR82Diagram() {
             y2='782.9'
           />
         </g>
-        <text className='station-82__cls-14' transform='translate(2273.23 671)'>
+        <text className='station-82__cls-14' transform='translate(2268.23 671)'>
           <tspan x='0' y='0'>
-            M
-          </tspan>
-          <tspan className='station-82__cls-48' x='16.51' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-93' x='27.99' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-86' x='39.89' y='0'>
-            B
-          </tspan>
-          <tspan x='51.12' y='0'>
-            -4
-          </tspan>
-          <tspan className='station-82__cls-33' x='67.96' y='0'>
-            P
-          </tspan>
-          <tspan x='78.53' y='0'>
-            -150A
+            MCCB-4P-150A
           </tspan>
           <tspan x='-1.37' y='24.64'>
-            NSX160N-20
-          </tspan>
-          <tspan className='station-82__cls-71' x='106.47' y='24.64'>
-            K
-          </tspan>
-          <tspan x='117.8' y='24.64'>
-            A
+            NSX160N-20KA
           </tspan>
         </text>
         <text
@@ -3554,7 +3158,7 @@ export function TR82Diagram() {
             transform='translate(719.2 361.5)'
           >
             <tspan x='0' y='0'>
-              11.11
+              99.99
             </tspan>
           </text>
         </g>
@@ -4441,37 +4045,13 @@ export function TR82Diagram() {
       <g>
         <text
           className='station-82__cls-14'
-          transform='translate(894.31 1002.93)'
+          transform='translate(885.31 1002.93)'
         >
           <tspan x='0' y='0'>
-            M
-          </tspan>
-          <tspan className='station-82__cls-48' x='16.51' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-93' x='27.99' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-86' x='39.89' y='0'>
-            B
-          </tspan>
-          <tspan x='51.12' y='0'>
-            -3P
+            MCCB-3P
           </tspan>
           <tspan x='-8.24' y='24.64'>
-            300
-          </tspan>
-          <tspan className='station-82__cls-74' x='23.35' y='24.64'>
-            A
-          </tspan>
-          <tspan x='35.86' y='24.64'>
-            -36
-          </tspan>
-          <tspan className='station-82__cls-71' x='63.23' y='24.64'>
-            K
-          </tspan>
-          <tspan x='74.56' y='24.64'>
-            A
+            300A-36KA
           </tspan>
         </text>
         <rect
@@ -5017,37 +4597,13 @@ export function TR82Diagram() {
       <g>
         <text
           className='station-82__cls-14'
-          transform='translate(1791.46 669.03)'
+          transform='translate(1785.46 669.03)'
         >
           <tspan x='0' y='0'>
-            M
-          </tspan>
-          <tspan className='station-82__cls-48' x='16.51' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-93' x='27.99' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-86' x='39.89' y='0'>
-            B
-          </tspan>
-          <tspan x='51.12' y='0'>
-            -2P
+            MCCB-2P
           </tspan>
           <tspan x='-8.24' y='24.64'>
-            100
-          </tspan>
-          <tspan className='station-82__cls-74' x='23.35' y='24.64'>
-            A
-          </tspan>
-          <tspan x='35.86' y='24.64'>
-            -36
-          </tspan>
-          <tspan className='station-82__cls-71' x='63.23' y='24.64'>
-            K
-          </tspan>
-          <tspan x='74.56' y='24.64'>
-            A
+            100A-36KA
           </tspan>
         </text>
         <g>
@@ -5198,37 +4754,13 @@ export function TR82Diagram() {
       <g>
         <text
           className='station-82__cls-14'
-          transform='translate(1971.12 669.03)'
+          transform='translate(1965.12 669.03)'
         >
           <tspan x='0' y='0'>
-            M
-          </tspan>
-          <tspan className='station-82__cls-48' x='16.51' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-93' x='27.99' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-86' x='39.89' y='0'>
-            B
-          </tspan>
-          <tspan x='51.12' y='0'>
-            -2P
+            MCCB-2P
           </tspan>
           <tspan x='-2.98' y='24.64'>
-            50
-          </tspan>
-          <tspan className='station-82__cls-87' x='18.09' y='24.64'>
-            A
-          </tspan>
-          <tspan x='30.59' y='24.64'>
-            -36
-          </tspan>
-          <tspan className='station-82__cls-71' x='57.96' y='24.64'>
-            K
-          </tspan>
-          <tspan x='69.29' y='24.64'>
-            A
+            50A-36KA
           </tspan>
         </text>
         <g>
@@ -5382,37 +4914,13 @@ export function TR82Diagram() {
       <g>
         <text
           className='station-82__cls-14'
-          transform='translate(2150.21 669.17)'
+          transform='translate(2145.21 669.17)'
         >
           <tspan x='0' y='0'>
-            M
-          </tspan>
-          <tspan className='station-82__cls-48' x='16.51' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-93' x='27.99' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-86' x='39.89' y='0'>
-            B
-          </tspan>
-          <tspan x='51.12' y='0'>
-            -2P
+            MCCB-2P
           </tspan>
           <tspan x='-2.98' y='24.64'>
-            30
-          </tspan>
-          <tspan className='station-82__cls-87' x='18.09' y='24.64'>
-            A
-          </tspan>
-          <tspan x='30.59' y='24.64'>
-            -36
-          </tspan>
-          <tspan className='station-82__cls-71' x='57.96' y='24.64'>
-            K
-          </tspan>
-          <tspan x='69.29' y='24.64'>
-            A
+            30A-36KA
           </tspan>
         </text>
         <g>
@@ -5566,37 +5074,13 @@ export function TR82Diagram() {
       <g>
         <text
           className='station-82__cls-14'
-          transform='translate(2475.7 669.17)'
+          transform='translate(2470.7 669.17)'
         >
           <tspan x='0' y='0'>
-            M
-          </tspan>
-          <tspan className='station-82__cls-48' x='16.51' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-93' x='27.99' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-86' x='39.89' y='0'>
-            B
-          </tspan>
-          <tspan x='51.12' y='0'>
-            -3P
+            MCCB-3P
           </tspan>
           <tspan x='-8.24' y='24.64'>
-            800
-          </tspan>
-          <tspan className='station-82__cls-74' x='23.35' y='24.64'>
-            A
-          </tspan>
-          <tspan x='35.86' y='24.64'>
-            -36
-          </tspan>
-          <tspan className='station-82__cls-71' x='63.23' y='24.64'>
-            K
-          </tspan>
-          <tspan x='74.56' y='24.64'>
-            A
+            800A-36KA
           </tspan>
         </text>
         <g>
@@ -5762,37 +5246,13 @@ export function TR82Diagram() {
       <g>
         <text
           className='station-82__cls-14'
-          transform='translate(2654.78 669.17)'
+          transform='translate(2649.78 669.17)'
         >
           <tspan x='0' y='0'>
-            M
-          </tspan>
-          <tspan className='station-82__cls-48' x='16.51' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-93' x='27.99' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-86' x='39.89' y='0'>
-            B
-          </tspan>
-          <tspan x='51.12' y='0'>
-            -3P
+            MCCB-3P
           </tspan>
           <tspan x='-8.24' y='24.64'>
-            350
-          </tspan>
-          <tspan className='station-82__cls-74' x='23.35' y='24.64'>
-            A
-          </tspan>
-          <tspan x='35.86' y='24.64'>
-            -36
-          </tspan>
-          <tspan className='station-82__cls-71' x='63.23' y='24.64'>
-            K
-          </tspan>
-          <tspan x='74.56' y='24.64'>
-            A
+            350A-36KA
           </tspan>
         </text>
         <g>
@@ -5947,37 +5407,13 @@ export function TR82Diagram() {
       </g>
       <text
         className='station-82__cls-14'
-        transform='translate(1335.97 669.17)'
+        transform='translate(1330.97 669.17)'
       >
         <tspan x='0' y='0'>
-          M
-        </tspan>
-        <tspan className='station-82__cls-48' x='16.51' y='0'>
-          C
-        </tspan>
-        <tspan className='station-82__cls-93' x='27.99' y='0'>
-          C
-        </tspan>
-        <tspan className='station-82__cls-86' x='39.89' y='0'>
-          B
-        </tspan>
-        <tspan x='51.12' y='0'>
-          -3P
+          MCCB-3P
         </tspan>
         <tspan x='-8.24' y='24.64'>
-          300
-        </tspan>
-        <tspan className='station-82__cls-74' x='23.35' y='24.64'>
-          A
-        </tspan>
-        <tspan x='35.86' y='24.64'>
-          -36
-        </tspan>
-        <tspan className='station-82__cls-71' x='63.23' y='24.64'>
-          K
-        </tspan>
-        <tspan x='74.56' y='24.64'>
-          A
+          300A-36KA
         </tspan>
       </text>
       <g>
@@ -6034,37 +5470,13 @@ export function TR82Diagram() {
       <g>
         <text
           className='station-82__cls-14'
-          transform='translate(648.41 1002.95)'
+          transform='translate(643.41 1002.95)'
         >
           <tspan x='0' y='0'>
-            M
-          </tspan>
-          <tspan className='station-82__cls-48' x='16.51' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-57' x='27.99' y='0'>
-            C
-          </tspan>
-          <tspan className='station-82__cls-24' x='39.89' y='0'>
-            B
-          </tspan>
-          <tspan x='51.12' y='0'>
-            -3P
+            MCCB-3P
           </tspan>
           <tspan x='-8.24' y='24.64'>
-            150
-          </tspan>
-          <tspan className='station-82__cls-74' x='23.35' y='24.64'>
-            A
-          </tspan>
-          <tspan className='station-82__cls-57' x='35.86' y='24.64'>
-            -36
-          </tspan>
-          <tspan className='station-82__cls-71' x='63.23' y='24.64'>
-            K
-          </tspan>
-          <tspan x='74.56' y='24.64'>
-            A
+            150A-36KA
           </tspan>
         </text>
         <rect
@@ -7071,22 +6483,7 @@ export function TR82Diagram() {
           transform='translate(2075.92 438.97)'
         >
           <tspan className='station-82__cls-55' x='0' y='0'>
-            A
-          </tspan>
-          <tspan className='station-82__cls-78' x='10.98' y='0'>
-            T
-          </tspan>
-          <tspan className='station-82__cls-103' x='21.07' y='0'>
-            S
-          </tspan>
-          <tspan x='31.29' y='0'>
-            -3
-          </tspan>
-          <tspan className='station-82__cls-96' x='48.13' y='0'>
-            P
-          </tspan>
-          <tspan className='station-82__cls-104' x='58.7' y='0'>
-            -1200A
+            ATS-3P-1200A
           </tspan>
         </text>
         <text
@@ -7095,42 +6492,12 @@ export function TR82Diagram() {
         >
           <tspan className='station-82__cls-62'>
             <tspan x='0' y='0'>
-              GENE
-            </tspan>
-            <tspan className='station-82__cls-103' x='46.98' y='0'>
-              R
-            </tspan>
-            <tspan className='station-82__cls-51' x='58.13' y='0'>
-              A
-            </tspan>
-            <tspan className='station-82__cls-45' x='69.11' y='0'>
-              T
-            </tspan>
-            <tspan x='78.76' y='0'>
-              OR{' '}
-            </tspan>
-            <tspan className='station-82__cls-41' x='108.31' y='0'>
-              (
-            </tspan>
-            <tspan x='113.89' y='0'>
-              G42)
+              GENERATOR (G42)
             </tspan>
           </tspan>
           <tspan className='station-82__cls-64'>
             <tspan x='-45.07' y='24.64'>
-              P=1500 k
-            </tspan>
-            <tspan className='station-82__cls-56' x='34.21' y='24.64'>
-              V
-            </tspan>
-            <tspan className='station-82__cls-93' x='44.49' y='24.64'>
-              A - U=400V - 50
-            </tspan>
-            <tspan className='station-82__cls-59' x='176.72' y='24.64'>
-              H
-            </tspan>
-            <tspan x='190.33' y='24.64'>
-              z
+              P=1500 kVA - U=400V - 50Hz
             </tspan>
           </tspan>
         </text>

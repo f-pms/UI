@@ -5,8 +5,10 @@ export { default as CenterFocusStrongOutlinedIcon } from '@mui/icons-material/Ce
 export { default as CloudUploadIcon } from '@mui/icons-material/CloudUpload';
 export { default as CottageOutlinedIcon } from '@mui/icons-material/CottageOutlined';
 export { default as DashboardOutlinedIcon } from '@mui/icons-material/DashboardOutlined';
+export { default as ElectricMeterOutlinedIcon } from '@mui/icons-material/ElectricMeterOutlined';
 export { default as ExitToAppOutlinedIcon } from '@mui/icons-material/ExitToAppOutlined';
 export { default as ExpandMoreOutlinedIcon } from '@mui/icons-material/ExpandMoreOutlined';
+export { default as FactoryOutlinedIcon } from '@mui/icons-material/FactoryOutlined';
 export { default as FileDownloadOutlinedIcon } from '@mui/icons-material/FileDownloadOutlined';
 export { default as FormatColorFillOutlinedIcon } from '@mui/icons-material/FormatColorFillOutlined';
 export { default as FormatIndentDecreaseOutlinedIcon } from '@mui/icons-material/FormatIndentDecreaseOutlined';
@@ -18,6 +20,7 @@ export { default as HandymanOutlinedIcon } from '@mui/icons-material/HandymanOut
 export { default as HighlightOffOutlinedIcon } from '@mui/icons-material/HighlightOffOutlined';
 export { default as LockOutlinedIcon } from '@mui/icons-material/LockOutlined';
 export { default as MenuOutlinedIcon } from '@mui/icons-material/MenuOutlined';
+export { default as MonitorOutlinedIcon } from '@mui/icons-material/MonitorOutlined';
 export { default as MoreVertOutlinedIcon } from '@mui/icons-material/MoreVertOutlined';
 export { default as NavigateBeforeIcon } from '@mui/icons-material/NavigateBefore';
 export { default as NavigateNextIcon } from '@mui/icons-material/NavigateNext';

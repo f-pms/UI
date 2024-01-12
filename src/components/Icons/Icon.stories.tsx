@@ -8,6 +8,7 @@ import {
   CloudUploadIcon,
   CottageOutlinedIcon,
   DashboardOutlinedIcon,
+  ElectricMeterOutlinedIcon,
   ExitToAppOutlinedIcon,
   ExpandMoreOutlinedIcon,
   FormatColorFillOutlinedIcon,
@@ -78,6 +79,7 @@ export const Primary: Story = {
       <TextFormatOutlinedIcon />
       <WebOutlinedIcon />
       <CenterFocusStrongOutlinedIcon />
+      <ElectricMeterOutlinedIcon />
     </Stack>
   ),
 };

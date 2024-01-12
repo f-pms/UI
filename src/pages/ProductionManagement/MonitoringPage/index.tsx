@@ -1,10 +1,11 @@
-import { useCallback, useEffect, useMemo, useRef } from 'react';
+import { useMemo } from 'react';
 import _ from 'lodash';
 
 import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
 import FiguresCoordinateProvider from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
 import useBlueprint from '~/pages/ProductionManagement/hooks/useBlueprint';
+import { useScrollToDiagram } from '~/pages/ProductionManagement/hooks/useScrollToDiagram';
 import useWebSocket from '~/pages/ProductionManagement/hooks/useWebSocket';
 import PageHeading from '~/pages/ProductionManagement/partials/PageHeading';
 import { StationNavigationTabs } from '~/pages/ProductionManagement/partials/StationNavigationTabs';
@@ -25,6 +26,8 @@ function MonitoringPage() {
 
   const ws = useWebSocket(tabValue, tabInfo.channel);
 
+  const { ref, scrollToDiagram } = useScrollToDiagram();
+
   const figureValues = useMonitoringStore((state) => state.figureValues);
   const isReady = useMemo(
     () =>
@@ -41,27 +44,14 @@ function MonitoringPage() {
     ],
   );
 
-  const ref = useRef<HTMLDivElement>(null);
-  const scrollIntoView = useCallback(() => {
-    ref.current?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'end',
-      inline: 'nearest',
-    });
-  }, []);
-
-  useEffect(() => {
-    scrollIntoView();
-  }, [scrollIntoView]);
-
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
     setTabValue(newValue);
-    scrollIntoView();
+    scrollToDiagram();
   };
 
   return (
     <Stack sx={{ width: '100%', height: '100%' }}>
-      <PageHeading scrollIntoView={scrollIntoView} />
+      <PageHeading scrollToDiagram={scrollToDiagram} />
       <Stack sx={{ flex: 1 }}>
         <StationNavigationTabs handleChange={handleChange} value={tabValue} />
         {isReady ? (
