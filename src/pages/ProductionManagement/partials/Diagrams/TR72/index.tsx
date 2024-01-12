@@ -832,25 +832,10 @@ export function TR72Diagram() {
               transform='translate(932.38 1067.76)'
             >
               <tspan x='0' y='0'>
-                He
-              </tspan>
-              <tspan className='station-72__cls-87' x='21.53' y='0'>
-                a
-              </tspan>
-              <tspan className='station-72__cls-96' x='30.45' y='0'>
-                ting pla
-              </tspan>
-              <tspan className='station-72__cls-49' x='89.79' y='0'>
-                n
-              </tspan>
-              <tspan x='100.07' y='0'>
-                t
+                Heating plant
               </tspan>
               <tspan className='station-72__cls-97' x='0' y='22.4'>
-                F
-              </tspan>
-              <tspan className='station-72__cls-78' x='8.43' y='22.4'>
-                uel handling
+                Fuel handling
               </tspan>
             </text>
           </g>
@@ -977,25 +962,10 @@ export function TR72Diagram() {
               transform='translate(1095.75 1067.76)'
             >
               <tspan x='0' y='0'>
-                He
-              </tspan>
-              <tspan className='station-72__cls-87' x='21.53' y='0'>
-                a
-              </tspan>
-              <tspan className='station-72__cls-96' x='30.45' y='0'>
-                ting pla
-              </tspan>
-              <tspan className='station-72__cls-49' x='89.79' y='0'>
-                n
-              </tspan>
-              <tspan x='100.07' y='0'>
-                t
+                Heating plant
               </tspan>
               <tspan className='station-72__cls-63' x='4.56' y='22.4'>
-                C
-              </tspan>
-              <tspan x='15.19' y='22.4'>
-                ombussion
+                Combustion
               </tspan>
             </text>
           </g>
@@ -1254,25 +1224,10 @@ export function TR72Diagram() {
               transform='translate(1581.3 1067.76)'
             >
               <tspan x='0' y='0'>
-                He
-              </tspan>
-              <tspan className='station-72__cls-87' x='21.53' y='0'>
-                a
-              </tspan>
-              <tspan className='station-72__cls-96' x='30.45' y='0'>
-                ting pla
-              </tspan>
-              <tspan className='station-72__cls-49' x='89.79' y='0'>
-                n
-              </tspan>
-              <tspan x='100.07' y='0'>
-                t
+                Heating plant
               </tspan>
               <tspan className='station-72__cls-72' x='12.98' y='22.4'>
-                T
-              </tspan>
-              <tspan x='22.13' y='22.4'>
-                hemo Oil
+                Thermo Oil
               </tspan>
             </text>
           </g>
@@ -1399,34 +1354,10 @@ export function TR72Diagram() {
               transform='translate(1744.67 1067.76)'
             >
               <tspan x='0' y='0'>
-                He
-              </tspan>
-              <tspan className='station-72__cls-87' x='21.53' y='0'>
-                a
-              </tspan>
-              <tspan className='station-72__cls-96' x='30.45' y='0'>
-                ting pla
-              </tspan>
-              <tspan className='station-72__cls-49' x='89.79' y='0'>
-                n
-              </tspan>
-              <tspan x='100.07' y='0'>
-                t
+                Heating plant
               </tspan>
               <tspan className='station-72__cls-61' x='-3.03' y='22.4'>
-                P
-              </tspan>
-              <tspan className='station-72__cls-92' x='6.6' y='22.4'>
-                r
-              </tspan>
-              <tspan x='12.78' y='22.4'>
-                ima
-              </tspan>
-              <tspan className='station-72__cls-12' x='41.72' y='22.4'>
-                r
-              </tspan>
-              <tspan x='48.29' y='22.4'>
-                y air fan
+                Primary air fan
               </tspan>
             </text>
           </g>
@@ -1557,31 +1488,10 @@ export function TR72Diagram() {
               transform='translate(1907.89 1067.76)'
             >
               <tspan x='0' y='0'>
-                He
-              </tspan>
-              <tspan className='station-72__cls-87' x='21.53' y='0'>
-                a
-              </tspan>
-              <tspan className='station-72__cls-96' x='30.45' y='0'>
-                ting pla
-              </tspan>
-              <tspan className='station-72__cls-49' x='89.79' y='0'>
-                n
-              </tspan>
-              <tspan x='100.07' y='0'>
-                t
+                Heating plant
               </tspan>
               <tspan className='station-72__cls-72' x='-12.78' y='22.4'>
-                T
-              </tspan>
-              <tspan x='-3.63' y='22.4'>
-                heme Oil ID{' '}
-              </tspan>
-              <tspan className='station-72__cls-93' x='91.42' y='22.4'>
-                F
-              </tspan>
-              <tspan className='station-72__cls-96' x='99.67' y='22.4'>
-                an
+                Theme Oil ID Fan
               </tspan>
             </text>
           </g>
@@ -1783,52 +1693,13 @@ export function TR72Diagram() {
               transform='translate(2071.38 1067.76)'
             >
               <tspan x='0' y='0'>
-                He
-              </tspan>
-              <tspan className='station-72__cls-87' x='21.53' y='0'>
-                a
-              </tspan>
-              <tspan className='station-72__cls-96' x='30.45' y='0'>
-                ting pla
-              </tspan>
-              <tspan className='station-72__cls-49' x='89.79' y='0'>
-                n
-              </tspan>
-              <tspan x='100.07' y='0'>
-                t
+                Heating plant
               </tspan>
               <tspan className='station-72__cls-72' x='-12.78' y='22.4'>
-                T
-              </tspan>
-              <tspan x='-3.63' y='22.4'>
-                heme Oil ID{' '}
-              </tspan>
-              <tspan className='station-72__cls-93' x='91.42' y='22.4'>
-                F
-              </tspan>
-              <tspan className='station-72__cls-96' x='99.67' y='22.4'>
-                an
+                Theme Oil ID Fan
               </tspan>
               <tspan x='1.3' y='44.81'>
-                b
-              </tspan>
-              <tspan className='station-72__cls-84' x='11.92' y='44.81'>
-                r
-              </tspan>
-              <tspan x='17.93' y='44.81'>
-                ake{' '}
-              </tspan>
-              <tspan className='station-72__cls-32' x='49' y='44.81'>
-                r
-              </tspan>
-              <tspan x='54.92' y='44.81'>
-                esis
-              </tspan>
-              <tspan className='station-72__cls-26' x='83.43' y='44.81'>
-                t
-              </tspan>
-              <tspan className='station-72__cls-78' x='89.5' y='44.81'>
-                er
+                brake resister
               </tspan>
             </text>
           </g>
@@ -2154,13 +2025,7 @@ export function TR72Diagram() {
               transform='translate(2216.34 1067.71)'
             >
               <tspan x='0' y='0'>
-                Lig
-              </tspan>
-              <tspan className='station-72__cls-49' x='23.62' y='0'>
-                h
-              </tspan>
-              <tspan x='33.91' y='0'>
-                ts and sockets
+                Lights and sockets
               </tspan>
               <tspan x='52.29' y='22.4'>
                 SR07
@@ -3098,34 +2963,10 @@ export function TR72Diagram() {
               transform='translate(48.2 949.48)'
             >
               <tspan x='0' y='0'>
-                M
-              </tspan>
-              <tspan className='station-72__cls-59' x='15.01' y='0'>
-                C
-              </tspan>
-              <tspan x='25.45' y='0'>
-                C
-              </tspan>
-              <tspan className='station-72__cls-28' x='36.28' y='0'>
-                B
-              </tspan>
-              <tspan x='46.49' y='0'>
-                -3
-              </tspan>
-              <tspan className='station-72__cls-91' x='61.8' y='0'>
-                P
-              </tspan>
-              <tspan x='71.41' y='0'>
-                -125A
+                MCCB-3P-125A
               </tspan>
               <tspan x='.35' y='22.4'>
-                NSX100F-50
-              </tspan>
-              <tspan className='station-72__cls-14' x='95.22' y='22.4'>
-                K
-              </tspan>
-              <tspan className='station-72__cls-69' x='105.52' y='22.4'>
-                A
+                NSX100F-50KA
               </tspan>
             </text>
             <polygon points='68.19 1090.83 33.18 1085 68.19 1079.16 68.19 1090.83' />
@@ -3252,25 +3093,7 @@ export function TR72Diagram() {
               transform='translate(56.17 1055.62)'
             >
               <tspan className='station-72__cls-31' x='0' y='0'>
-                C
-              </tspan>
-              <tspan className='station-72__cls-95' x='10.44' y='0'>
-                ON
-              </tspan>
-              <tspan className='station-72__cls-52' x='35.59' y='0'>
-                T
-              </tspan>
-              <tspan className='station-72__cls-76' x='43.46' y='0'>
-                A
-              </tspan>
-              <tspan className='station-72__cls-79' x='54.61' y='0'>
-                C
-              </tspan>
-              <tspan className='station-72__cls-90' x='65.96' y='0'>
-                T
-              </tspan>
-              <tspan x='74.74' y='0'>
-                OR
+                CONTACTOR
               </tspan>
               <tspan x='17.01' y='22.4'>
                 3P 110A
@@ -3352,34 +3175,10 @@ export function TR72Diagram() {
               transform='translate(222.18 949.48)'
             >
               <tspan x='0' y='0'>
-                M
-              </tspan>
-              <tspan className='station-72__cls-59' x='15.01' y='0'>
-                C
-              </tspan>
-              <tspan x='25.45' y='0'>
-                C
-              </tspan>
-              <tspan className='station-72__cls-28' x='36.28' y='0'>
-                B
-              </tspan>
-              <tspan x='46.49' y='0'>
-                -3
-              </tspan>
-              <tspan className='station-72__cls-91' x='61.8' y='0'>
-                P
-              </tspan>
-              <tspan x='71.41' y='0'>
-                -125A
+                MCCB-3P-125A
               </tspan>
               <tspan x='.35' y='22.4'>
-                NSX100F-50
-              </tspan>
-              <tspan className='station-72__cls-14' x='95.22' y='22.4'>
-                K
-              </tspan>
-              <tspan className='station-72__cls-69' x='105.52' y='22.4'>
-                A
+                NSX100F-50KA
               </tspan>
             </text>
             <polygon points='242.17 1090.83 207.16 1085 242.17 1079.16 242.17 1090.83' />
@@ -3506,25 +3305,7 @@ export function TR72Diagram() {
               transform='translate(230.15 1055.62)'
             >
               <tspan className='station-72__cls-31' x='0' y='0'>
-                C
-              </tspan>
-              <tspan className='station-72__cls-95' x='10.44' y='0'>
-                ON
-              </tspan>
-              <tspan className='station-72__cls-52' x='35.59' y='0'>
-                T
-              </tspan>
-              <tspan className='station-72__cls-76' x='43.46' y='0'>
-                A
-              </tspan>
-              <tspan className='station-72__cls-79' x='54.61' y='0'>
-                C
-              </tspan>
-              <tspan className='station-72__cls-90' x='65.96' y='0'>
-                T
-              </tspan>
-              <tspan x='74.74' y='0'>
-                OR
+                CONTACTOR
               </tspan>
               <tspan x='17.01' y='22.4'>
                 3P 110A
@@ -3599,34 +3380,10 @@ export function TR72Diagram() {
               transform='translate(398.04 949.48)'
             >
               <tspan x='0' y='0'>
-                M
-              </tspan>
-              <tspan className='station-72__cls-31' x='15.01' y='0'>
-                C
-              </tspan>
-              <tspan x='25.45' y='0'>
-                C
-              </tspan>
-              <tspan className='station-72__cls-28' x='36.28' y='0'>
-                B
-              </tspan>
-              <tspan x='46.49' y='0'>
-                -3
-              </tspan>
-              <tspan className='station-72__cls-91' x='61.8' y='0'>
-                P
-              </tspan>
-              <tspan x='71.41' y='0'>
-                -125A
+                MCCB-3P-125A
               </tspan>
               <tspan x='.35' y='22.4'>
-                NSX100F-50
-              </tspan>
-              <tspan className='station-72__cls-14' x='95.22' y='22.4'>
-                K
-              </tspan>
-              <tspan className='station-72__cls-69' x='105.52' y='22.4'>
-                A
+                NSX100F-50KA
               </tspan>
             </text>
             <polygon points='418.03 1090.83 383.02 1085 418.03 1079.16 418.03 1090.83' />
@@ -3762,25 +3519,7 @@ export function TR72Diagram() {
               transform='translate(406.01 1055.62)'
             >
               <tspan className='station-72__cls-31' x='0' y='0'>
-                C
-              </tspan>
-              <tspan className='station-72__cls-95' x='10.44' y='0'>
-                ON
-              </tspan>
-              <tspan className='station-72__cls-52' x='35.59' y='0'>
-                T
-              </tspan>
-              <tspan className='station-72__cls-76' x='43.46' y='0'>
-                A
-              </tspan>
-              <tspan className='station-72__cls-79' x='54.61' y='0'>
-                C
-              </tspan>
-              <tspan className='station-72__cls-90' x='65.96' y='0'>
-                T
-              </tspan>
-              <tspan x='74.74' y='0'>
-                OR
+                CONTACTOR
               </tspan>
               <tspan x='17.01' y='22.4'>
                 3P 110A
@@ -3992,28 +3731,7 @@ export function TR72Diagram() {
             transform='translate(376.15 237)'
           >
             <tspan className='station-72__cls-55' x='0' y='0'>
-              B
-            </tspan>
-            <tspan x='8.92' y='0'>
-              ộ ĐK nhiệt độ
-            </tspan>
-            <tspan className='station-72__cls-70' x='101.83' y='0'>
-              {' '}
-            </tspan>
-            <tspan className='station-72__cls-66' x='104.62' y='0'>
-              TBA
-            </tspan>
-            <tspan className='station-72__cls-70' x='131.59' y='0'>
-              {' '}
-            </tspan>
-            <tspan className='station-72__cls-66' x='134.38' y='0'>
-              TR72 -{' '}
-            </tspan>
-            <tspan className='station-72__cls-30' x='180' y='0'>
-              F
-            </tspan>
-            <tspan className='station-72__cls-66' x='187.22' y='0'>
-              ault
+              Bộ ĐK nhiệt độ TBA TR72 - Fault
             </tspan>
           </text>
           <rect
@@ -4028,37 +3746,7 @@ export function TR72Diagram() {
             transform='translate(376.15 265.01)'
           >
             <tspan className='station-72__cls-55' x='0' y='0'>
-              B
-            </tspan>
-            <tspan x='8.92' y='0'>
-              ộ ĐK nhiệt độ
-            </tspan>
-            <tspan className='station-72__cls-70' x='101.83' y='0'>
-              {' '}
-            </tspan>
-            <tspan className='station-72__cls-66' x='104.62' y='0'>
-              TBA
-            </tspan>
-            <tspan className='station-72__cls-70' x='131.59' y='0'>
-              {' '}
-            </tspan>
-            <tspan className='station-72__cls-66' x='134.38' y='0'>
-              TR72 -{' '}
-            </tspan>
-            <tspan className='station-72__cls-80' x='180' y='0'>
-              O
-            </tspan>
-            <tspan className='station-72__cls-46' x='191.48' y='0'>
-              v
-            </tspan>
-            <tspan x='199.17' y='0'>
-              er{' '}
-            </tspan>
-            <tspan className='station-72__cls-89' x='216.16' y='0'>
-              t
-            </tspan>
-            <tspan x='221.47' y='0'>
-              emp
+              Bộ ĐK nhiệt độ TBA TR72 - Over temp
             </tspan>
           </text>
           <rect
@@ -4073,34 +3761,7 @@ export function TR72Diagram() {
             transform='translate(376.15 293.02)'
           >
             <tspan className='station-72__cls-55' x='0' y='0'>
-              B
-            </tspan>
-            <tspan x='8.92' y='0'>
-              ộ ĐK nhiệt độ
-            </tspan>
-            <tspan className='station-72__cls-70' x='101.83' y='0'>
-              {' '}
-            </tspan>
-            <tspan className='station-72__cls-66' x='104.62' y='0'>
-              TBA
-            </tspan>
-            <tspan className='station-72__cls-70' x='131.59' y='0'>
-              {' '}
-            </tspan>
-            <tspan className='station-72__cls-66' x='134.38' y='0'>
-              TR72 -{' '}
-            </tspan>
-            <tspan className='station-72__cls-53' x='180' y='0'>
-              P
-            </tspan>
-            <tspan className='station-72__cls-18' x='188.28' y='0'>
-              o
-            </tspan>
-            <tspan className='station-72__cls-67' x='197.13' y='0'>
-              w
-            </tspan>
-            <tspan x='208.99' y='0'>
-              er cut
+              Bộ ĐK nhiệt độ TBA TR72 - Power cut
             </tspan>
           </text>
         </g>
@@ -4110,48 +3771,12 @@ export function TR72Diagram() {
         >
           <tspan className='station-72__cls-50'>
             <tspan className='station-72__cls-48' x='0' y='0'>
-              T
-            </tspan>
-            <tspan className='station-72__cls-75' x='8.44' y='0'>
-              r
-            </tspan>
-            <tspan x='14.45' y='0'>
-              ans
-            </tspan>
-            <tspan className='station-72__cls-71' x='41.21' y='0'>
-              f
-            </tspan>
-            <tspan className='station-72__cls-69' x='46.41' y='0'>
-              o
-            </tspan>
-            <tspan className='station-72__cls-19' x='56.67' y='0'>
-              r
-            </tspan>
-            <tspan x='62.84' y='0'>
-              mer{' '}
-            </tspan>
-            <tspan className='station-72__cls-65' x='97.83' y='0'>
-              (
-            </tspan>
-            <tspan className='station-72__cls-69' x='104.03' y='0'>
-              TR#72)
+              Transformer (TR#72)
             </tspan>
           </tspan>
           <tspan className='station-72__cls-1'>
             <tspan x='-40.04' y='22.4'>
-              1600k
-            </tspan>
-            <tspan className='station-72__cls-47' x='7.03' y='22.4'>
-              V
-            </tspan>
-            <tspan x='16.38' y='22.4'>
-              A 22kV/400/3pha/50
-            </tspan>
-            <tspan className='station-72__cls-40' x='176.76' y='22.4'>
-              H
-            </tspan>
-            <tspan x='189.14' y='22.4'>
-              z
+              1600kVA 22kV/400/3pha/50Hz
             </tspan>
           </tspan>
         </text>
@@ -4169,13 +3794,7 @@ export function TR72Diagram() {
             V//400V
           </tspan>
           <tspan x='12.04' y='22.4'>
-            1600k
-          </tspan>
-          <tspan className='station-72__cls-47' x='59.11' y='22.4'>
-            V
-          </tspan>
-          <tspan x='68.46' y='22.4'>
-            A
+            1600kVA
           </tspan>
         </text>
         <text
@@ -5025,37 +4644,10 @@ export function TR72Diagram() {
           transform='translate(669.96 379.57)'
         >
           <tspan x='0' y='0'>
-            Di
-          </tspan>
-          <tspan className='station-72__cls-51' x='16.8' y='0'>
-            g
-          </tspan>
-          <tspan className='station-72__cls-96' x='27.13' y='0'>
-            ital{' '}
-          </tspan>
-          <tspan className='station-72__cls-82' x='55.04' y='0'>
-            M
-          </tspan>
-          <tspan x='70.11' y='0'>
-            ulti{' '}
-          </tspan>
-          <tspan className='station-72__cls-94' x='99.31' y='0'>
-            M
-          </tspan>
-          <tspan className='station-72__cls-78' x='114.43' y='0'>
-            et
-          </tspan>
-          <tspan className='station-72__cls-26' x='129.96' y='0'>
-            t
-          </tspan>
-          <tspan className='station-72__cls-78' x='136.03' y='0'>
-            er
+            Digital Multi Metter
           </tspan>
           <tspan className='station-72__cls-64' x='44.23' y='22.4'>
-            P
-          </tspan>
-          <tspan x='53.94' y='22.4'>
-            M5310
+            PM5310
           </tspan>
         </text>
         <g>
@@ -5253,7 +4845,7 @@ export function TR72Diagram() {
             transform='translate(641.42 462)'
           >
             <tspan x='0' y='0'>
-              11.11
+              99.99
             </tspan>
           </text>
         </g>
