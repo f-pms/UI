@@ -100,7 +100,10 @@ export function AllMeterDiagram() {
             </tspan>
           </tspan>
         </text>
-        <g>
+        <g
+          className='data-table'
+          id='lv42dodien5900mc02hethonglocbuitoantruyen'
+        >
           <g>
             <rect
               className='all-meter__cls-1'
@@ -471,7 +474,7 @@ export function AllMeterDiagram() {
           </g>
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lv42dodientongtulv42'>
         <text className='all-meter__cls-6' transform='translate(1522.8 352.78)'>
           <tspan className='all-meter__cls-9'>
             <tspan className='all-meter__cls-37' x='0' y='0'>
@@ -779,35 +782,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1592.37'
-            y='580.28'
+            width='152.48'
+            x='1439.89'
+            y='478.62'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1597.67 598.68)'
+            className='all-meter__cls-6'
+            transform='translate(1499.49 496.83)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1592.37'
-            y='605.69'
+            width='152.48'
+            x='1439.89'
+            y='504.04'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1601.04 624.1)'
+            className='all-meter__cls-6'
+            transform='translate(1499.49 522.25)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1439.89'
+            y='529.45'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1499.49 547.66)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1439.89'
+            y='554.86'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1499.49 573.07)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -915,69 +952,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1439.89'
-            y='478.62'
+            width='50.83'
+            x='1592.37'
+            y='580.28'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1499.49 496.83)'
+            className='all-meter__cls-8'
+            transform='translate(1597.67 598.68)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1439.89'
-            y='504.04'
+            width='50.83'
+            x='1592.37'
+            y='605.69'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1499.49 522.25)'
+            className='all-meter__cls-8'
+            transform='translate(1601.04 624.1)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1439.89'
-            y='529.45'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1499.49 547.66)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1439.89'
-            y='554.86'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1499.49 573.07)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -1028,7 +1031,7 @@ export function AllMeterDiagram() {
             </tspan>
           </tspan>
         </text>
-        <g>
+        <g className='data-table' id='lv52dodienhethongkhinen'>
           <g>
             <rect
               className='all-meter__cls-1'
@@ -1466,7 +1469,10 @@ export function AllMeterDiagram() {
             </tspan>
           </tspan>
         </text>
-        <g>
+        <g
+          className='data-table'
+          id='lv82tongnhanhkhugiaodichcuibaovetramcandenduong'
+        >
           <g>
             <rect
               className='all-meter__cls-1'
@@ -1858,7 +1864,7 @@ export function AllMeterDiagram() {
             </tspan>
           </tspan>
         </text>
-        <g>
+        <g className='data-table' id='lv82hethongxulynuocthaibaicuisx'>
           <g>
             <rect
               className='all-meter__cls-1'
@@ -2250,7 +2256,7 @@ export function AllMeterDiagram() {
             </tspan>
           </tspan>
         </text>
-        <g>
+        <g className='data-table' id='lv82hethongnuocdaunguon'>
           <g>
             <rect
               className='all-meter__cls-1'
@@ -2642,7 +2648,7 @@ export function AllMeterDiagram() {
             </tspan>
           </tspan>
         </text>
-        <g>
+        <g className='data-table' id='lv12hethongxulinuoctrungtam'>
           <g>
             <rect
               className='all-meter__cls-1'
@@ -3043,7 +3049,7 @@ export function AllMeterDiagram() {
             </tspan>
           </tspan>
         </text>
-        <g>
+        <g className='data-table' id='lv12khochuadamtoihtruadam'>
           <g>
             <rect
               className='all-meter__cls-1'
@@ -3444,7 +3450,7 @@ export function AllMeterDiagram() {
             </tspan>
           </tspan>
         </text>
-        <g>
+        <g className='data-table' id='lv12tuutb1utb2utb3utplutcg'>
           <g>
             <rect
               className='all-meter__cls-1'
@@ -3842,7 +3848,7 @@ export function AllMeterDiagram() {
             </tspan>
           </tspan>
         </text>
-        <g>
+        <g className='data-table' id='lv12baotricscacphongchucnangnhaxuong'>
           <g>
             <rect
               className='all-meter__cls-1'
@@ -4238,7 +4244,7 @@ export function AllMeterDiagram() {
             </tspan>
           </tspan>
         </text>
-        <g>
+        <g className='data-table' id='lv12nhavanphongcantin'>
           <g>
             <rect
               className='all-meter__cls-1'
@@ -4651,7 +4657,7 @@ export function AllMeterDiagram() {
             </tspan>
           </tspan>
         </text>
-        <g>
+        <g className='data-table' id='lv12denphichtrudenbaovecongchinhvv'>
           <g>
             <rect
               className='all-meter__cls-1'
@@ -5043,7 +5049,7 @@ export function AllMeterDiagram() {
             </tspan>
           </tspan>
         </text>
-        <g>
+        <g className='data-table' id='lv12chieusanganninhtrudensanduong'>
           <g>
             <rect
               className='all-meter__cls-1'
@@ -5445,7 +5451,7 @@ export function AllMeterDiagram() {
             </tspan>
           </tspan>
         </text>
-        <g>
+        <g className='data-table' id='lv12hethongbomcapnuocthietbivapccc'>
           <g>
             <rect
               className='all-meter__cls-1'
@@ -5816,7 +5822,7 @@ export function AllMeterDiagram() {
           </g>
         </g>
       </g>
-      <g>
+      <g className='data-table' id='nlxkimtin5nhakeodigitalmultimetterpm2130'>
         <text
           className='all-meter__cls-6'
           transform='translate(1500.73 722.18)'
@@ -6168,35 +6174,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1635.17'
-            y='949.48'
+            width='152.48'
+            x='1482.68'
+            y='847.82'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1640.46 967.88)'
+            className='all-meter__cls-6'
+            transform='translate(1542.29 866.04)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1635.17'
-            y='974.89'
+            width='152.48'
+            x='1482.68'
+            y='873.24'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1643.83 993.3)'
+            className='all-meter__cls-6'
+            transform='translate(1542.29 891.45)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1482.68'
+            y='898.65'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1542.29 916.86)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1482.68'
+            y='924.06'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1542.29 942.28)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -6304,69 +6344,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1482.68'
-            y='847.82'
+            width='50.83'
+            x='1635.17'
+            y='949.48'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1542.29 866.04)'
+            className='all-meter__cls-8'
+            transform='translate(1640.46 967.88)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1482.68'
-            y='873.24'
+            width='50.83'
+            x='1635.17'
+            y='974.89'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1542.29 891.45)'
+            className='all-meter__cls-8'
+            transform='translate(1643.83 993.3)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1482.68'
-            y='898.65'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1542.29 916.86)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1482.68'
-            y='924.06'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1542.29 942.28)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -6387,7 +6393,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lv42nangluongxanhkimtin01'>
         <text className='all-meter__cls-6' transform='translate(1823 721.47)'>
           <tspan className='all-meter__cls-9'>
             <tspan className='all-meter__cls-37' x='0' y='0'>
@@ -6706,35 +6712,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1890.74'
-            y='948.77'
+            width='152.48'
+            x='1738.26'
+            y='847.11'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1896.04 967.17)'
+            className='all-meter__cls-6'
+            transform='translate(1797.87 865.32)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1890.74'
-            y='974.18'
+            width='152.48'
+            x='1738.26'
+            y='872.53'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1899.41 992.59)'
+            className='all-meter__cls-6'
+            transform='translate(1797.87 890.74)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1738.26'
+            y='897.94'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1797.87 916.15)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1738.26'
+            y='923.35'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1797.87 941.56)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -6842,69 +6882,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1738.26'
-            y='847.11'
+            width='50.83'
+            x='1890.74'
+            y='948.77'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1797.87 865.32)'
+            className='all-meter__cls-8'
+            transform='translate(1896.04 967.17)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1738.26'
-            y='872.53'
+            width='50.83'
+            x='1890.74'
+            y='974.18'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1797.87 890.74)'
+            className='all-meter__cls-8'
+            transform='translate(1899.41 992.59)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1738.26'
-            y='897.94'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1797.87 916.15)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1738.26'
-            y='923.35'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1797.87 941.56)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -6925,7 +6931,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lv52nangluongxanhkimtin02'>
         <text
           className='all-meter__cls-6'
           transform='translate(2048.09 721.47)'
@@ -7247,35 +7253,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='2115.83'
-            y='948.77'
+            width='152.48'
+            x='1963.35'
+            y='847.11'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(2121.13 967.17)'
+            className='all-meter__cls-6'
+            transform='translate(2022.95 865.32)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='2115.83'
-            y='974.18'
+            width='152.48'
+            x='1963.35'
+            y='872.53'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(2124.5 992.59)'
+            className='all-meter__cls-6'
+            transform='translate(2022.95 890.74)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1963.35'
+            y='897.94'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(2022.95 916.15)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1963.35'
+            y='923.35'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(2022.95 941.56)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -7383,69 +7423,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1963.35'
-            y='847.11'
+            width='50.83'
+            x='2115.83'
+            y='948.77'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(2022.95 865.32)'
+            className='all-meter__cls-8'
+            transform='translate(2121.13 967.17)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1963.35'
-            y='872.53'
+            width='50.83'
+            x='2115.83'
+            y='974.18'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(2022.95 890.74)'
+            className='all-meter__cls-8'
+            transform='translate(2124.5 992.59)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1963.35'
-            y='897.94'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(2022.95 916.15)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1963.35'
-            y='923.35'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(2022.95 941.56)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -7466,7 +7472,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lvnangluongxanhkimtin03'>
         <text
           className='all-meter__cls-6'
           transform='translate(2281.86 721.47)'
@@ -7788,35 +7794,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='2340.92'
-            y='948.77'
+            width='152.48'
+            x='2188.44'
+            y='847.11'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(2346.21 967.17)'
+            className='all-meter__cls-6'
+            transform='translate(2248.04 865.32)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='2340.92'
-            y='974.18'
+            width='152.48'
+            x='2188.44'
+            y='872.53'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(2349.58 992.59)'
+            className='all-meter__cls-6'
+            transform='translate(2248.04 890.74)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='2188.44'
+            y='897.94'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(2248.04 916.15)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='2188.44'
+            y='923.35'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(2248.04 941.56)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -7924,69 +7964,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='2188.44'
-            y='847.11'
+            width='50.83'
+            x='2340.92'
+            y='948.77'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(2248.04 865.32)'
+            className='all-meter__cls-8'
+            transform='translate(2346.21 967.17)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='2188.44'
-            y='872.53'
+            width='50.83'
+            x='2340.92'
+            y='974.18'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(2248.04 890.74)'
+            className='all-meter__cls-8'
+            transform='translate(2349.58 992.59)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='2188.44'
-            y='897.94'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(2248.04 916.15)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='2188.44'
-            y='923.35'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(2248.04 941.56)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -8007,7 +8013,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lvnangluongxanhkimtin04'>
         <text
           className='all-meter__cls-6'
           transform='translate(2506.95 721.47)'
@@ -8329,35 +8335,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='2566.01'
-            y='948.77'
+            width='152.48'
+            x='2413.52'
+            y='847.11'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(2571.3 967.17)'
+            className='all-meter__cls-6'
+            transform='translate(2473.13 865.32)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='2566.01'
-            y='974.18'
+            width='152.48'
+            x='2413.52'
+            y='872.53'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(2574.67 992.59)'
+            className='all-meter__cls-6'
+            transform='translate(2473.13 890.74)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='2413.52'
+            y='897.94'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(2473.13 916.15)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='2413.52'
+            y='923.35'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(2473.13 941.56)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -8465,69 +8505,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='2413.52'
-            y='847.11'
+            width='50.83'
+            x='2566.01'
+            y='948.77'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(2473.13 865.32)'
+            className='all-meter__cls-8'
+            transform='translate(2571.3 967.17)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='2413.52'
-            y='872.53'
+            width='50.83'
+            x='2566.01'
+            y='974.18'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(2473.13 890.74)'
+            className='all-meter__cls-8'
+            transform='translate(2574.67 992.59)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='2413.52'
-            y='897.94'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(2473.13 916.15)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='2413.52'
-            y='923.35'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(2473.13 941.56)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -8548,7 +8554,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lv12nangluongxanhkimtin05vp'>
         <text className='all-meter__cls-6' transform='translate(1823 1062.12)'>
           <tspan className='all-meter__cls-9'>
             <tspan className='all-meter__cls-37' x='0' y='0'>
@@ -8873,35 +8879,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1890.74'
-            y='1289.42'
+            width='152.48'
+            x='1738.26'
+            y='1187.77'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1896.04 1307.83)'
+            className='all-meter__cls-6'
+            transform='translate(1797.87 1205.98)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1890.74'
-            y='1314.84'
+            width='152.48'
+            x='1738.26'
+            y='1213.18'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1899.41 1333.24)'
+            className='all-meter__cls-6'
+            transform='translate(1797.87 1231.39)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1738.26'
+            y='1238.6'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1797.87 1256.81)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1738.26'
+            y='1264.01'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1797.87 1282.22)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -9009,69 +9049,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1738.26'
-            y='1187.77'
+            width='50.83'
+            x='1890.74'
+            y='1289.42'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1797.87 1205.98)'
+            className='all-meter__cls-8'
+            transform='translate(1896.04 1307.83)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1738.26'
-            y='1213.18'
+            width='50.83'
+            x='1890.74'
+            y='1314.84'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1797.87 1231.39)'
+            className='all-meter__cls-8'
+            transform='translate(1899.41 1333.24)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1738.26'
-            y='1238.6'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1797.87 1256.81)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1738.26'
-            y='1264.01'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1797.87 1282.22)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -9092,7 +9098,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lvnangluongxanhkimtin06'>
         <text
           className='all-meter__cls-6'
           transform='translate(2056.78 1062.12)'
@@ -9414,35 +9420,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='2115.83'
-            y='1289.42'
+            width='152.48'
+            x='1963.35'
+            y='1187.77'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(2121.13 1307.83)'
+            className='all-meter__cls-6'
+            transform='translate(2022.95 1205.98)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='2115.83'
-            y='1314.84'
+            width='152.48'
+            x='1963.35'
+            y='1213.18'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(2124.5 1333.24)'
+            className='all-meter__cls-6'
+            transform='translate(2022.95 1231.39)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1963.35'
+            y='1238.6'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(2022.95 1256.81)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1963.35'
+            y='1264.01'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(2022.95 1282.22)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -9550,69 +9590,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1963.35'
-            y='1187.77'
+            width='50.83'
+            x='2115.83'
+            y='1289.42'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(2022.95 1205.98)'
+            className='all-meter__cls-8'
+            transform='translate(2121.13 1307.83)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1963.35'
-            y='1213.18'
+            width='50.83'
+            x='2115.83'
+            y='1314.84'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(2022.95 1231.39)'
+            className='all-meter__cls-8'
+            transform='translate(2124.5 1333.24)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1963.35'
-            y='1238.6'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(2022.95 1256.81)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1963.35'
-            y='1264.01'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(2022.95 1282.22)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -9633,7 +9639,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lvnangluongxanhkimtin07'>
         <text
           className='all-meter__cls-6'
           transform='translate(2281.86 1062.12)'
@@ -9955,35 +9961,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='2340.92'
-            y='1289.42'
+            width='152.48'
+            x='2188.44'
+            y='1187.77'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(2346.21 1307.83)'
+            className='all-meter__cls-6'
+            transform='translate(2248.04 1205.98)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='2340.92'
-            y='1314.84'
+            width='152.48'
+            x='2188.44'
+            y='1213.18'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(2349.58 1333.24)'
+            className='all-meter__cls-6'
+            transform='translate(2248.04 1231.39)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='2188.44'
+            y='1238.6'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(2248.04 1256.81)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='2188.44'
+            y='1264.01'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(2248.04 1282.22)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -10091,69 +10131,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='2188.44'
-            y='1187.77'
+            width='50.83'
+            x='2340.92'
+            y='1289.42'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(2248.04 1205.98)'
+            className='all-meter__cls-8'
+            transform='translate(2346.21 1307.83)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='2188.44'
-            y='1213.18'
+            width='50.83'
+            x='2340.92'
+            y='1314.84'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(2248.04 1231.39)'
+            className='all-meter__cls-8'
+            transform='translate(2349.58 1333.24)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='2188.44'
-            y='1238.6'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(2248.04 1256.81)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='2188.44'
-            y='1264.01'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(2248.04 1282.22)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -10174,7 +10180,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lvnangluongxanhkimtin08'>
         <text
           className='all-meter__cls-6'
           transform='translate(2506.95 1062.12)'
@@ -10496,35 +10502,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='2566.01'
-            y='1289.42'
+            width='152.48'
+            x='2413.52'
+            y='1187.77'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(2571.3 1307.83)'
+            className='all-meter__cls-6'
+            transform='translate(2473.13 1205.98)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='2566.01'
-            y='1314.84'
+            width='152.48'
+            x='2413.52'
+            y='1213.18'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(2574.67 1333.24)'
+            className='all-meter__cls-6'
+            transform='translate(2473.13 1231.39)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='2413.52'
+            y='1238.6'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(2473.13 1256.81)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='2413.52'
+            y='1264.01'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(2473.13 1282.22)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -10632,69 +10672,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='2413.52'
-            y='1187.77'
+            width='50.83'
+            x='2566.01'
+            y='1289.42'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(2473.13 1205.98)'
+            className='all-meter__cls-8'
+            transform='translate(2571.3 1307.83)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='2413.52'
-            y='1213.18'
+            width='50.83'
+            x='2566.01'
+            y='1314.84'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(2473.13 1231.39)'
+            className='all-meter__cls-8'
+            transform='translate(2574.67 1333.24)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='2413.52'
-            y='1238.6'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(2473.13 1256.81)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='2413.52'
-            y='1264.01'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(2473.13 1282.22)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -10715,7 +10721,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='mvpmincoming1tuyennguon475'>
         <text
           className='all-meter__cls-6'
           transform='translate(779.53 1062.83)'
@@ -11043,35 +11049,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='855.6'
-            y='1290.13'
+            width='152.48'
+            x='703.11'
+            y='1188.48'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(860.89 1308.54)'
+            className='all-meter__cls-6'
+            transform='translate(762.72 1206.69)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='855.6'
-            y='1315.55'
+            width='152.48'
+            x='703.11'
+            y='1213.89'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(864.26 1333.96)'
+            className='all-meter__cls-6'
+            transform='translate(762.72 1232.11)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='703.11'
+            y='1239.31'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(762.72 1257.52)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='703.11'
+            y='1264.72'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(762.72 1282.93)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -11179,69 +11219,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='703.11'
-            y='1188.48'
+            width='50.83'
+            x='855.6'
+            y='1290.13'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(762.72 1206.69)'
+            className='all-meter__cls-8'
+            transform='translate(860.89 1308.54)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='703.11'
-            y='1213.89'
+            width='50.83'
+            x='855.6'
+            y='1315.55'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(762.72 1232.11)'
+            className='all-meter__cls-8'
+            transform='translate(864.26 1333.96)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='703.11'
-            y='1239.31'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(762.72 1257.52)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='703.11'
-            y='1264.72'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(762.72 1282.93)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -11262,7 +11268,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='mvpmincoming2tuyennguon477'>
         <text
           className='all-meter__cls-6'
           transform='translate(1004.62 1062.83)'
@@ -11596,35 +11602,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1080.68'
-            y='1290.13'
+            width='152.48'
+            x='928.2'
+            y='1188.48'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1085.98 1308.54)'
+            className='all-meter__cls-6'
+            transform='translate(987.81 1206.69)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1080.68'
-            y='1315.55'
+            width='152.48'
+            x='928.2'
+            y='1213.89'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1089.35 1333.96)'
+            className='all-meter__cls-6'
+            transform='translate(987.81 1232.11)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='928.2'
+            y='1239.31'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(987.81 1257.52)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='928.2'
+            y='1264.72'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(987.81 1282.93)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -11732,69 +11772,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='928.2'
-            y='1188.48'
+            width='50.83'
+            x='1080.68'
+            y='1290.13'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(987.81 1206.69)'
+            className='all-meter__cls-8'
+            transform='translate(1085.98 1308.54)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='928.2'
-            y='1213.89'
+            width='50.83'
+            x='1080.68'
+            y='1315.55'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(987.81 1232.11)'
+            className='all-meter__cls-8'
+            transform='translate(1089.35 1333.96)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='928.2'
-            y='1239.31'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(987.81 1257.52)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='928.2'
-            y='1264.72'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(987.81 1282.93)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -11815,7 +11821,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='mvpmoutgoing72'>
         <text
           className='all-meter__cls-6'
           transform='translate(1229.71 1062.83)'
@@ -12135,35 +12141,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1305.77'
-            y='1290.13'
+            width='152.48'
+            x='1153.29'
+            y='1188.48'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1311.07 1308.54)'
+            className='all-meter__cls-6'
+            transform='translate(1212.89 1206.69)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1305.77'
-            y='1315.55'
+            width='152.48'
+            x='1153.29'
+            y='1213.89'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1314.44 1333.96)'
+            className='all-meter__cls-6'
+            transform='translate(1212.89 1232.11)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1153.29'
+            y='1239.31'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1212.89 1257.52)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1153.29'
+            y='1264.72'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1212.89 1282.93)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -12271,69 +12311,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1153.29'
-            y='1188.48'
+            width='50.83'
+            x='1305.77'
+            y='1290.13'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1212.89 1206.69)'
+            className='all-meter__cls-8'
+            transform='translate(1311.07 1308.54)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1153.29'
-            y='1213.89'
+            width='50.83'
+            x='1305.77'
+            y='1315.55'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1212.89 1232.11)'
+            className='all-meter__cls-8'
+            transform='translate(1314.44 1333.96)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1153.29'
-            y='1239.31'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1212.89 1257.52)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1153.29'
-            y='1264.72'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1212.89 1282.93)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -12354,7 +12360,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='mvpmincomingtr30'>
         <text
           className='all-meter__cls-6'
           transform='translate(1454.79 1062.83)'
@@ -12683,35 +12689,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1530.86'
-            y='1290.13'
+            width='152.48'
+            x='1378.38'
+            y='1188.48'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1536.15 1308.54)'
+            className='all-meter__cls-6'
+            transform='translate(1437.98 1206.69)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1530.86'
-            y='1315.55'
+            width='152.48'
+            x='1378.38'
+            y='1213.89'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1539.52 1333.96)'
+            className='all-meter__cls-6'
+            transform='translate(1437.98 1232.11)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1378.38'
+            y='1239.31'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1437.98 1257.52)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1378.38'
+            y='1264.72'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1437.98 1282.93)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -12819,69 +12859,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1378.38'
-            y='1188.48'
+            width='50.83'
+            x='1530.86'
+            y='1290.13'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1437.98 1206.69)'
+            className='all-meter__cls-8'
+            transform='translate(1536.15 1308.54)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1378.38'
-            y='1213.89'
+            width='50.83'
+            x='1530.86'
+            y='1315.55'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1437.98 1232.11)'
+            className='all-meter__cls-8'
+            transform='translate(1539.52 1333.96)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1378.38'
-            y='1239.31'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1437.98 1257.52)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1378.38'
-            y='1264.72'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1437.98 1282.93)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -12902,7 +12908,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lv52dodientongtulv52'>
         <text
           className='all-meter__cls-6'
           transform='translate(1997.66 352.78)'
@@ -13219,35 +13225,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='2064.19'
-            y='584.99'
+            width='152.48'
+            x='1911.71'
+            y='483.33'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(2069.49 603.39)'
+            className='all-meter__cls-6'
+            transform='translate(1971.32 501.54)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='2064.19'
-            y='610.4'
+            width='152.48'
+            x='1911.71'
+            y='508.75'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(2072.86 628.81)'
+            className='all-meter__cls-6'
+            transform='translate(1971.32 526.96)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1911.71'
+            y='534.16'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1971.32 552.37)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1911.71'
+            y='559.57'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1971.32 577.79)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -13355,69 +13395,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1911.71'
-            y='483.33'
+            width='50.83'
+            x='2064.19'
+            y='584.99'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1971.32 501.54)'
+            className='all-meter__cls-8'
+            transform='translate(2069.49 603.39)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1911.71'
-            y='508.75'
+            width='50.83'
+            x='2064.19'
+            y='610.4'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1971.32 526.96)'
+            className='all-meter__cls-8'
+            transform='translate(2072.86 628.81)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1911.71'
-            y='534.16'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1971.32 552.37)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1911.71'
-            y='559.57'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1971.32 577.79)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -13438,7 +13444,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lv72dodientongtulv72'>
         <text
           className='all-meter__cls-6'
           transform='translate(2473.61 352.78)'
@@ -13758,35 +13764,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='2540.41'
-            y='580.01'
+            width='152.48'
+            x='2387.93'
+            y='478.36'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(2545.7 598.42)'
+            className='all-meter__cls-6'
+            transform='translate(2447.53 496.57)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='2540.41'
-            y='605.43'
+            width='152.48'
+            x='2387.93'
+            y='503.77'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(2549.07 623.83)'
+            className='all-meter__cls-6'
+            transform='translate(2447.53 521.98)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='2387.93'
+            y='529.19'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(2447.53 547.4)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='2387.93'
+            y='554.6'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(2447.53 572.81)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -13894,69 +13934,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='2387.93'
-            y='478.36'
+            width='50.83'
+            x='2540.41'
+            y='580.01'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(2447.53 496.57)'
+            className='all-meter__cls-8'
+            transform='translate(2545.7 598.42)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='2387.93'
-            y='503.77'
+            width='50.83'
+            x='2540.41'
+            y='605.43'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(2447.53 521.98)'
+            className='all-meter__cls-8'
+            transform='translate(2549.07 623.83)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='2387.93'
-            y='529.19'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(2447.53 547.4)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='2387.93'
-            y='554.6'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(2447.53 572.81)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -13977,7 +13983,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lv342dodientongtulv342'>
         <text
           className='all-meter__cls-6'
           transform='translate(1261.88 352.97)'
@@ -14297,35 +14303,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1336.57'
-            y='580.01'
+            width='152.48'
+            x='1184.09'
+            y='478.36'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1341.87 598.42)'
+            className='all-meter__cls-6'
+            transform='translate(1243.7 496.57)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1336.57'
-            y='605.43'
+            width='152.48'
+            x='1184.09'
+            y='503.77'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1345.24 623.83)'
+            className='all-meter__cls-6'
+            transform='translate(1243.7 521.98)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1184.09'
+            y='529.19'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1243.7 547.4)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='1184.09'
+            y='554.6'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1243.7 572.81)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -14433,72 +14473,39 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1184.09'
-            y='478.36'
+            width='50.83'
+            x='1336.57'
+            y='580.01'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1243.7 496.57)'
+            className='all-meter__cls-8'
+            transform='translate(1341.87 598.42)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='1184.09'
-            y='503.77'
+            width='50.83'
+            x='1336.57'
+            y='605.43'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1243.7 521.98)'
+            className='all-meter__cls-8'
+            transform='translate(1345.24 623.83)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1184.09'
-            y='529.19'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1243.7 547.4)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='1184.09'
-            y='554.6'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1243.7 572.81)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
+
         <g>
           <rect
             className='all-meter__cls-1'
@@ -14516,7 +14523,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lv82dodientongtulv82'>
         <text className='all-meter__cls-6' transform='translate(717.37 725.28)'>
           <tspan className='all-meter__cls-9'>
             <tspan className='all-meter__cls-37' x='0' y='0'>
@@ -14827,35 +14834,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='781.12'
-            y='949.48'
+            width='152.48'
+            x='628.64'
+            y='847.82'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(786.42 967.88)'
+            className='all-meter__cls-6'
+            transform='translate(688.24 866.04)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='781.12'
-            y='974.89'
+            width='152.48'
+            x='628.64'
+            y='873.24'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(789.79 993.3)'
+            className='all-meter__cls-6'
+            transform='translate(688.24 891.45)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='628.64'
+            y='898.65'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(688.24 916.86)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='628.64'
+            y='924.06'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(688.24 942.28)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -14963,69 +15004,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='628.64'
-            y='847.82'
+            width='50.83'
+            x='781.12'
+            y='949.48'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(688.24 866.04)'
+            className='all-meter__cls-8'
+            transform='translate(786.42 967.88)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='628.64'
-            y='873.24'
+            width='50.83'
+            x='781.12'
+            y='974.89'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(688.24 891.45)'
+            className='all-meter__cls-8'
+            transform='translate(789.79 993.3)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='628.64'
-            y='898.65'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(688.24 916.86)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='628.64'
-            y='924.06'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(688.24 942.28)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -15046,7 +15053,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lv33dodientongtulv33'>
         <text className='all-meter__cls-6' transform='translate(786.76 352.78)'>
           <tspan className='all-meter__cls-9'>
             <tspan className='all-meter__cls-37' x='0' y='0'>
@@ -15357,35 +15364,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='855.04'
-            y='580.01'
+            width='152.48'
+            x='702.56'
+            y='478.36'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(860.34 598.42)'
+            className='all-meter__cls-6'
+            transform='translate(762.16 496.57)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='855.04'
-            y='605.43'
+            width='152.48'
+            x='702.56'
+            y='503.77'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(863.71 623.83)'
+            className='all-meter__cls-6'
+            transform='translate(762.16 521.98)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='702.56'
+            y='529.19'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(762.16 547.4)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='702.56'
+            y='554.6'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(762.16 572.81)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -15493,69 +15534,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='702.56'
-            y='478.36'
+            width='50.83'
+            x='855.04'
+            y='580.01'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(762.16 496.57)'
+            className='all-meter__cls-8'
+            transform='translate(860.34 598.42)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='702.56'
-            y='503.77'
+            width='50.83'
+            x='855.04'
+            y='605.43'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(762.16 521.98)'
+            className='all-meter__cls-8'
+            transform='translate(863.71 623.83)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='702.56'
-            y='529.19'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(762.16 547.4)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='702.56'
-            y='554.6'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(762.16 572.81)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -15576,7 +15583,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lv341dodientongtulv341'>
         <text className='all-meter__cls-6' transform='translate(1021.6 352.78)'>
           <tspan className='all-meter__cls-9'>
             <tspan className='all-meter__cls-37' x='0' y='0'>
@@ -15887,35 +15894,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1095.81'
-            y='580.01'
+            width='152.48'
+            x='943.33'
+            y='478.36'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1101.1 598.42)'
+            className='all-meter__cls-6'
+            transform='translate(1002.93 496.57)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='1095.81'
-            y='605.43'
+            width='152.48'
+            x='943.33'
+            y='503.77'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(1104.47 623.83)'
+            className='all-meter__cls-6'
+            transform='translate(1002.93 521.98)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='943.33'
+            y='529.19'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1002.93 547.4)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='943.33'
+            y='554.6'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(1002.93 572.81)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -16017,69 +16058,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='943.33'
-            y='478.36'
+            width='50.83'
+            x='1095.81'
+            y='580.01'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1002.93 496.57)'
+            className='all-meter__cls-8'
+            transform='translate(1101.1 598.42)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='943.33'
-            y='503.77'
+            width='50.83'
+            x='1095.81'
+            y='605.43'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(1002.93 521.98)'
+            className='all-meter__cls-8'
+            transform='translate(1104.47 623.83)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='943.33'
-            y='529.19'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1002.93 547.4)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='943.33'
-            y='554.6'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(1002.93 572.81)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -16100,7 +16107,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lv32dodientongtulv32'>
         <text className='all-meter__cls-6' transform='translate(546.55 353.15)'>
           <tspan className='all-meter__cls-9'>
             <tspan className='all-meter__cls-37' x='0' y='0'>
@@ -16411,35 +16418,66 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='614.28'
-            y='580.01'
+            width='152.48'
+            x='461.79'
+            y='478.36'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(619.57 598.42)'
+            className='all-meter__cls-6'
+            transform='translate(521.4 496.57)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='614.28'
-            y='605.43'
+            width='152.48'
+            x='461.79'
+            y='503.77'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(622.94 623.83)'
+            className='all-meter__cls-6'
+            transform='translate(521.4 521.98)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='461.79'
+            y='529.19'
+          />
+          <text className='all-meter__cls-6' transform='translate(521.4 547.4)'>
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='461.79'
+            y='554.6'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(521.4 572.81)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -16547,66 +16585,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='461.79'
-            y='478.36'
+            width='50.83'
+            x='614.28'
+            y='580.01'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(521.4 496.57)'
+            className='all-meter__cls-8'
+            transform='translate(619.57 598.42)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='461.79'
-            y='503.77'
+            width='50.83'
+            x='614.28'
+            y='605.43'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(521.4 521.98)'
+            className='all-meter__cls-8'
+            transform='translate(622.94 623.83)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='461.79'
-            y='529.19'
-          />
-          <text className='all-meter__cls-6' transform='translate(521.4 547.4)'>
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='461.79'
-            y='554.6'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(521.4 572.81)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -16627,7 +16634,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lv31dodientongtulv31'>
         <text className='all-meter__cls-6' transform='translate(305.07 353.34)'>
           <tspan className='all-meter__cls-9'>
             <tspan className='all-meter__cls-37' x='0' y='0'>
@@ -16938,35 +16945,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='373.51'
-            y='580.01'
+            width='152.48'
+            x='221.03'
+            y='478.36'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(378.8 598.42)'
+            className='all-meter__cls-6'
+            transform='translate(280.63 496.57)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='373.51'
-            y='605.43'
+            width='152.48'
+            x='221.03'
+            y='503.77'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(382.17 623.83)'
+            className='all-meter__cls-6'
+            transform='translate(280.63 521.98)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='221.03'
+            y='529.19'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(280.63 547.4)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='221.03'
+            y='554.6'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(280.63 572.81)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -17074,69 +17115,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='221.03'
-            y='478.36'
+            width='50.83'
+            x='373.51'
+            y='580.01'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(280.63 496.57)'
+            className='all-meter__cls-8'
+            transform='translate(378.8 598.42)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='221.03'
-            y='503.77'
+            width='50.83'
+            x='373.51'
+            y='605.43'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(280.63 521.98)'
+            className='all-meter__cls-8'
+            transform='translate(382.17 623.83)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='221.03'
-            y='529.19'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(280.63 547.4)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='221.03'
-            y='554.6'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(280.63 572.81)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -17157,7 +17164,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lv12dodientongtulv12'>
         <text className='all-meter__cls-6' transform='translate(546.55 22.22)'>
           <tspan className='all-meter__cls-9'>
             <tspan className='all-meter__cls-37' x='0' y='0'>
@@ -17465,35 +17472,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='614.3'
-            y='248.12'
+            width='152.48'
+            x='461.81'
+            y='146.47'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(619.59 266.53)'
+            className='all-meter__cls-6'
+            transform='translate(521.42 164.68)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='614.3'
-            y='273.53'
+            width='152.48'
+            x='461.81'
+            y='171.88'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(622.96 291.94)'
+            className='all-meter__cls-6'
+            transform='translate(521.42 190.09)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='461.81'
+            y='197.29'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(521.42 215.51)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='461.81'
+            y='222.71'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(521.42 240.92)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -17601,69 +17642,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='461.81'
-            y='146.47'
+            width='50.83'
+            x='614.3'
+            y='248.12'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(521.42 164.68)'
+            className='all-meter__cls-8'
+            transform='translate(619.59 266.53)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='461.81'
-            y='171.88'
+            width='50.83'
+            x='614.3'
+            y='273.53'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(521.42 190.09)'
+            className='all-meter__cls-8'
+            transform='translate(622.96 291.94)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='461.81'
-            y='197.29'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(521.42 215.51)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='461.81'
-            y='222.71'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(521.42 240.92)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -17684,7 +17691,7 @@ export function AllMeterDiagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='lv11dodientongtulv11'>
         <text className='all-meter__cls-6' transform='translate(305.07 22.22)'>
           <tspan className='all-meter__cls-9'>
             <tspan className='all-meter__cls-37' x='0' y='0'>
@@ -17995,35 +18002,69 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='373.51'
-            y='248.12'
+            width='152.48'
+            x='221.03'
+            y='146.47'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(378.8 266.53)'
+            className='all-meter__cls-6'
+            transform='translate(280.63 164.68)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-1'
+            className='all-meter__cls-2'
             height='25.41'
-            width='50.83'
-            x='373.51'
-            y='273.53'
+            width='152.48'
+            x='221.03'
+            y='171.88'
           />
           <text
-            className='all-meter__cls-8'
-            transform='translate(382.17 291.94)'
+            className='all-meter__cls-6'
+            transform='translate(280.63 190.09)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='221.03'
+            y='197.29'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(280.63 215.51)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='all-meter__cls-2'
+            height='25.41'
+            width='152.48'
+            x='221.03'
+            y='222.71'
+          />
+          <text
+            className='all-meter__cls-6'
+            transform='translate(280.63 240.92)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -18131,69 +18172,35 @@ export function AllMeterDiagram() {
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='221.03'
-            y='146.47'
+            width='50.83'
+            x='373.51'
+            y='248.12'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(280.63 164.68)'
+            className='all-meter__cls-8'
+            transform='translate(378.8 266.53)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='all-meter__cls-2'
+            className='all-meter__cls-1'
             height='25.41'
-            width='152.48'
-            x='221.03'
-            y='171.88'
+            width='50.83'
+            x='373.51'
+            y='273.53'
           />
           <text
-            className='all-meter__cls-6'
-            transform='translate(280.63 190.09)'
+            className='all-meter__cls-8'
+            transform='translate(382.17 291.94)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='221.03'
-            y='197.29'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(280.63 215.51)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='all-meter__cls-2'
-            height='25.41'
-            width='152.48'
-            x='221.03'
-            y='222.71'
-          />
-          <text
-            className='all-meter__cls-6'
-            transform='translate(280.63 240.92)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -18216,18 +18223,18 @@ export function AllMeterDiagram() {
       </g>
       <g>
         <g>
-          <g>
+          <g className='temperature-table' id='lv12circuit'>
             <g>
               <rect
                 className='all-meter__cls-3'
                 height='19.06'
                 width='57.89'
                 x='306.3'
-                y='1171.38'
+                y='1133.51'
               />
               <text
                 className='all-meter__cls-6'
-                transform='translate(323.2 1185.72)'
+                transform='translate(323.2 1147.86)'
               >
                 <tspan x='0' y='0'>
                   +40
@@ -18257,11 +18264,11 @@ export function AllMeterDiagram() {
                 height='19.06'
                 width='57.89'
                 x='306.3'
-                y='1133.51'
+                y='1171.38'
               />
               <text
                 className='all-meter__cls-6'
-                transform='translate(323.2 1147.86)'
+                transform='translate(323.2 1185.72)'
               >
                 <tspan x='0' y='0'>
                   +40
@@ -18280,18 +18287,18 @@ export function AllMeterDiagram() {
               </tspan>
             </text>
           </g>
-          <g>
+          <g className='temperature-table' id='lv31circuit'>
             <g>
               <rect
                 className='all-meter__cls-3'
                 height='19.06'
                 width='57.89'
                 x='371.65'
-                y='1171.38'
+                y='1133.51'
               />
               <text
                 className='all-meter__cls-6'
-                transform='translate(388.54 1185.72)'
+                transform='translate(388.54 1147.86)'
               >
                 <tspan x='0' y='0'>
                   +40
@@ -18321,11 +18328,11 @@ export function AllMeterDiagram() {
                 height='19.06'
                 width='57.89'
                 x='371.65'
-                y='1133.51'
+                y='1171.38'
               />
               <text
                 className='all-meter__cls-6'
-                transform='translate(388.54 1147.86)'
+                transform='translate(388.54 1185.72)'
               >
                 <tspan x='0' y='0'>
                   +40
@@ -18344,18 +18351,18 @@ export function AllMeterDiagram() {
               </tspan>
             </text>
           </g>
-          <g>
+          <g className='temperature-table' id='lv32circuit'>
             <g>
               <rect
                 className='all-meter__cls-3'
                 height='19.06'
                 width='57.89'
                 x='437'
-                y='1171.38'
+                y='1133.51'
               />
               <text
                 className='all-meter__cls-6'
-                transform='translate(453.89 1185.72)'
+                transform='translate(453.89 1147.86)'
               >
                 <tspan x='0' y='0'>
                   +40
@@ -18385,11 +18392,11 @@ export function AllMeterDiagram() {
                 height='19.06'
                 width='57.89'
                 x='437'
-                y='1133.51'
+                y='1171.38'
               />
               <text
                 className='all-meter__cls-6'
-                transform='translate(453.89 1147.86)'
+                transform='translate(453.89 1185.72)'
               >
                 <tspan x='0' y='0'>
                   +40
@@ -18408,18 +18415,18 @@ export function AllMeterDiagram() {
               </tspan>
             </text>
           </g>
-          <g>
+          <g className='temperature-table' id='lv11circuit'>
             <g>
               <rect
                 className='all-meter__cls-3'
                 height='19.06'
                 width='57.89'
                 x='240.96'
-                y='1171.64'
+                y='1133.51'
               />
               <text
                 className='all-meter__cls-6'
-                transform='translate(257.85 1185.99)'
+                transform='translate(257.85 1147.86)'
               >
                 <tspan x='0' y='0'>
                   +40
@@ -18427,10 +18434,10 @@ export function AllMeterDiagram() {
               </text>
               <text
                 className='all-meter__cls-6'
-                transform='translate(225.46 1186.18)'
+                transform='translate(225.46 1148.05)'
               >
                 <tspan x='0' y='0'>
-                  C
+                  A
                 </tspan>
               </text>
             </g>
@@ -18465,11 +18472,11 @@ export function AllMeterDiagram() {
                 height='19.06'
                 width='57.89'
                 x='240.96'
-                y='1133.51'
+                y='1171.64'
               />
               <text
                 className='all-meter__cls-6'
-                transform='translate(257.85 1147.86)'
+                transform='translate(257.85 1185.99)'
               >
                 <tspan x='0' y='0'>
                   +40
@@ -18477,10 +18484,10 @@ export function AllMeterDiagram() {
               </text>
               <text
                 className='all-meter__cls-6'
-                transform='translate(225.46 1148.05)'
+                transform='translate(225.46 1186.18)'
               >
                 <tspan x='0' y='0'>
-                  A
+                  C
                 </tspan>
               </text>
             </g>
@@ -18497,7 +18504,7 @@ export function AllMeterDiagram() {
             </text>
           </g>
           <g>
-            <g>
+            <g className='temperature-table' id='lv33circuit'>
               <g>
                 <rect
                   className='all-meter__cls-3'
@@ -18588,18 +18595,18 @@ export function AllMeterDiagram() {
           </g>
         </g>
         <g>
-          <g>
+          <g className='temperature-table' id='lv42circuit'>
             <g>
               <rect
                 className='all-meter__cls-3'
                 height='19.06'
                 width='57.89'
                 x='306.3'
-                y='1265.01'
+                y='1227.15'
               />
               <text
                 className='all-meter__cls-6'
-                transform='translate(323.2 1279.36)'
+                transform='translate(323.2 1241.49)'
               >
                 <tspan x='0' y='0'>
                   +40
@@ -18629,11 +18636,11 @@ export function AllMeterDiagram() {
                 height='19.06'
                 width='57.89'
                 x='306.3'
-                y='1227.15'
+                y='1265.01'
               />
               <text
                 className='all-meter__cls-6'
-                transform='translate(323.2 1241.49)'
+                transform='translate(323.2 1279.36)'
               >
                 <tspan x='0' y='0'>
                   +40
@@ -18652,18 +18659,18 @@ export function AllMeterDiagram() {
               </tspan>
             </text>
           </g>
-          <g>
+          <g className='temperature-table' id='lv52circuit'>
             <g>
               <rect
                 className='all-meter__cls-3'
                 height='19.06'
                 width='57.89'
                 x='371.65'
-                y='1265.01'
+                y='1227.15'
               />
               <text
                 className='all-meter__cls-6'
-                transform='translate(388.55 1279.36)'
+                transform='translate(388.55 1241.49)'
               >
                 <tspan x='0' y='0'>
                   +40
@@ -18693,11 +18700,11 @@ export function AllMeterDiagram() {
                 height='19.06'
                 width='57.89'
                 x='371.65'
-                y='1227.15'
+                y='1265.01'
               />
               <text
                 className='all-meter__cls-6'
-                transform='translate(388.55 1241.49)'
+                transform='translate(388.55 1279.36)'
               >
                 <tspan x='0' y='0'>
                   +40
@@ -18716,18 +18723,18 @@ export function AllMeterDiagram() {
               </tspan>
             </text>
           </g>
-          <g>
+          <g className='temperature-table' id='lv72circuit'>
             <g>
               <rect
                 className='all-meter__cls-3'
                 height='19.06'
                 width='57.89'
                 x='437'
-                y='1265.01'
+                y='1227.15'
               />
               <text
                 className='all-meter__cls-6'
-                transform='translate(453.89 1279.36)'
+                transform='translate(453.89 1241.49)'
               >
                 <tspan x='0' y='0'>
                   +40
@@ -18757,11 +18764,11 @@ export function AllMeterDiagram() {
                 height='19.06'
                 width='57.89'
                 x='437'
-                y='1227.15'
+                y='1265.01'
               />
               <text
                 className='all-meter__cls-6'
-                transform='translate(453.89 1241.49)'
+                transform='translate(453.89 1279.36)'
               >
                 <tspan x='0' y='0'>
                   +40
@@ -18780,18 +18787,18 @@ export function AllMeterDiagram() {
               </tspan>
             </text>
           </g>
-          <g>
+          <g className='temperature-table' id='lv34circuit'>
             <g>
               <rect
                 className='all-meter__cls-3'
                 height='19.06'
                 width='57.89'
                 x='240.96'
-                y='1265.28'
+                y='1227.15'
               />
               <text
                 className='all-meter__cls-6'
-                transform='translate(257.85 1279.63)'
+                transform='translate(257.85 1241.49)'
               >
                 <tspan x='0' y='0'>
                   +40
@@ -18799,10 +18806,10 @@ export function AllMeterDiagram() {
               </text>
               <text
                 className='all-meter__cls-6'
-                transform='translate(225.46 1279.81)'
+                transform='translate(225.46 1241.68)'
               >
                 <tspan x='0' y='0'>
-                  C
+                  A
                 </tspan>
               </text>
             </g>
@@ -18837,11 +18844,11 @@ export function AllMeterDiagram() {
                 height='19.06'
                 width='57.89'
                 x='240.96'
-                y='1227.15'
+                y='1265.28'
               />
               <text
                 className='all-meter__cls-6'
-                transform='translate(257.85 1241.49)'
+                transform='translate(257.85 1279.63)'
               >
                 <tspan x='0' y='0'>
                   +40
@@ -18849,10 +18856,10 @@ export function AllMeterDiagram() {
               </text>
               <text
                 className='all-meter__cls-6'
-                transform='translate(225.46 1241.68)'
+                transform='translate(225.46 1279.81)'
               >
                 <tspan x='0' y='0'>
-                  A
+                  C
                 </tspan>
               </text>
             </g>
@@ -18869,7 +18876,7 @@ export function AllMeterDiagram() {
             </text>
           </g>
           <g>
-            <g>
+            <g className='temperature-table' id='lv30circuit'>
               <g>
                 <rect
                   className='all-meter__cls-3'

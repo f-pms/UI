@@ -2124,7 +2124,7 @@ export function TR82Diagram() {
         />
       </g>
       <g>
-        <g>
+        <g className='temperature-table' id='bodknhietdotbatr82'>
           <g>
             <rect
               className='station-82__cls-22'
@@ -2912,7 +2912,7 @@ export function TR82Diagram() {
           </tspan>
         </text>
       </g>
-      <g>
+      <g className='data-table' id='lv82digitalmultimetterpm5310'>
         <text
           className='station-82__cls-15'
           transform='translate(817.7 246.61)'
@@ -3249,35 +3249,69 @@ export function TR82Diagram() {
         </g>
         <g>
           <rect
-            className='station-82__cls-18'
+            className='station-82__cls-19'
             height='30.8'
-            width='61.6'
-            x='895.48'
-            y='524.34'
+            width='184.79'
+            x='710.69'
+            y='401.14'
           />
           <text
-            className='station-82__cls-3'
-            transform='translate(901.9 546.64)'
+            className='station-82__cls-15'
+            transform='translate(782.92 423.21)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='station-82__cls-18'
+            className='station-82__cls-19'
             height='30.8'
-            width='61.6'
-            x='895.48'
-            y='555.13'
+            width='184.79'
+            x='710.69'
+            y='431.94'
           />
           <text
-            className='station-82__cls-3'
-            transform='translate(905.98 577.44)'
+            className='station-82__cls-15'
+            transform='translate(782.92 454.01)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='station-82__cls-19'
+            height='30.8'
+            width='184.79'
+            x='710.69'
+            y='462.74'
+          />
+          <text
+            className='station-82__cls-15'
+            transform='translate(782.92 484.81)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='station-82__cls-19'
+            height='30.8'
+            width='184.79'
+            x='710.69'
+            y='493.54'
+          />
+          <text
+            className='station-82__cls-15'
+            transform='translate(782.92 515.61)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -3385,69 +3419,35 @@ export function TR82Diagram() {
         </g>
         <g>
           <rect
-            className='station-82__cls-19'
+            className='station-82__cls-18'
             height='30.8'
-            width='184.79'
-            x='710.69'
-            y='401.14'
+            width='61.6'
+            x='895.48'
+            y='524.34'
           />
           <text
-            className='station-82__cls-15'
-            transform='translate(782.92 423.21)'
+            className='station-82__cls-3'
+            transform='translate(901.9 546.64)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='station-82__cls-19'
+            className='station-82__cls-18'
             height='30.8'
-            width='184.79'
-            x='710.69'
-            y='431.94'
+            width='61.6'
+            x='895.48'
+            y='555.13'
           />
           <text
-            className='station-82__cls-15'
-            transform='translate(782.92 454.01)'
+            className='station-82__cls-3'
+            transform='translate(905.98 577.44)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-82__cls-19'
-            height='30.8'
-            width='184.79'
-            x='710.69'
-            y='462.74'
-          />
-          <text
-            className='station-82__cls-15'
-            transform='translate(782.92 484.81)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-82__cls-19'
-            height='30.8'
-            width='184.79'
-            x='710.69'
-            y='493.54'
-          />
-          <text
-            className='station-82__cls-15'
-            transform='translate(782.92 515.61)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -3468,7 +3468,7 @@ export function TR82Diagram() {
           />
         </g>
       </g>
-      <g>
+      <g className='data-table' id='nlxkimtin5nhakeodigitalmultimetterpm2130'>
         <text
           className='station-82__cls-15'
           transform='translate(1010.51 249.19)'
@@ -3823,35 +3823,69 @@ export function TR82Diagram() {
         </g>
         <g>
           <rect
-            className='station-82__cls-18'
+            className='station-82__cls-19'
             height='30.8'
-            width='61.6'
-            x='1170.36'
-            y='524.34'
+            width='184.79'
+            x='985.56'
+            y='401.14'
           />
           <text
-            className='station-82__cls-3'
-            transform='translate(1176.77 546.64)'
+            className='station-82__cls-15'
+            transform='translate(1057.8 423.21)'
           >
             <tspan x='0' y='0'>
-              THDV
+              1111
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='station-82__cls-18'
+            className='station-82__cls-19'
             height='30.8'
-            width='61.6'
-            x='1170.36'
-            y='555.13'
+            width='184.79'
+            x='985.56'
+            y='431.94'
           />
           <text
-            className='station-82__cls-3'
-            transform='translate(1180.86 577.44)'
+            className='station-82__cls-15'
+            transform='translate(1057.8 454.01)'
           >
             <tspan x='0' y='0'>
-              THDI
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='station-82__cls-19'
+            height='30.8'
+            width='184.79'
+            x='985.56'
+            y='462.74'
+          />
+          <text
+            className='station-82__cls-15'
+            transform='translate(1057.8 484.81)'
+          >
+            <tspan x='0' y='0'>
+              1111
+            </tspan>
+          </text>
+        </g>
+        <g>
+          <rect
+            className='station-82__cls-19'
+            height='30.8'
+            width='184.79'
+            x='985.56'
+            y='493.54'
+          />
+          <text
+            className='station-82__cls-15'
+            transform='translate(1057.8 515.61)'
+          >
+            <tspan x='0' y='0'>
+              1111
             </tspan>
           </text>
         </g>
@@ -3959,69 +3993,35 @@ export function TR82Diagram() {
         </g>
         <g>
           <rect
-            className='station-82__cls-19'
+            className='station-82__cls-18'
             height='30.8'
-            width='184.79'
-            x='985.56'
-            y='401.14'
+            width='61.6'
+            x='1170.36'
+            y='524.34'
           />
           <text
-            className='station-82__cls-15'
-            transform='translate(1057.8 423.21)'
+            className='station-82__cls-3'
+            transform='translate(1176.77 546.64)'
           >
             <tspan x='0' y='0'>
-              1111
+              THDV
             </tspan>
           </text>
         </g>
         <g>
           <rect
-            className='station-82__cls-19'
+            className='station-82__cls-18'
             height='30.8'
-            width='184.79'
-            x='985.56'
-            y='431.94'
+            width='61.6'
+            x='1170.36'
+            y='555.13'
           />
           <text
-            className='station-82__cls-15'
-            transform='translate(1057.8 454.01)'
+            className='station-82__cls-3'
+            transform='translate(1180.86 577.44)'
           >
             <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-82__cls-19'
-            height='30.8'
-            width='184.79'
-            x='985.56'
-            y='462.74'
-          />
-          <text
-            className='station-82__cls-15'
-            transform='translate(1057.8 484.81)'
-          >
-            <tspan x='0' y='0'>
-              1111
-            </tspan>
-          </text>
-        </g>
-        <g>
-          <rect
-            className='station-82__cls-19'
-            height='30.8'
-            width='184.79'
-            x='985.56'
-            y='493.54'
-          />
-          <text
-            className='station-82__cls-15'
-            transform='translate(1057.8 515.61)'
-          >
-            <tspan x='0' y='0'>
-              1111
+              THDI
             </tspan>
           </text>
         </g>
@@ -4223,7 +4223,10 @@ export function TR82Diagram() {
           x='996.99'
           y='639.82'
         />
-        <g>
+        <g
+          className='data-table'
+          id='hethongxulynuocthaibaicuivanuocthaisanxuat'
+        >
           <g>
             <rect
               className='station-82__cls-18'
@@ -5642,7 +5645,7 @@ export function TR82Diagram() {
           x='751.1'
           y='639.84'
         />
-        <g>
+        <g className='data-table' id='hethongxulynuocgiengkhoannuocdaunguon'>
           <g>
             <rect
               className='station-82__cls-18'
@@ -6013,7 +6016,7 @@ export function TR82Diagram() {
           </g>
         </g>
       </g>
-      <g>
+      <g className='data-table' id='hethongdenduongcongnhap'>
         <g>
           <rect
             className='station-82__cls-18'
@@ -6022,6 +6025,7 @@ export function TR82Diagram() {
             x='1324.47'
             y='741.78'
           />
+          hethongdenduongcongnhap
           <text
             className='station-82__cls-6'
             transform='translate(1342.31 763.22)'
