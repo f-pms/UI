@@ -831,11 +831,6 @@ export default function MainStaticDiagram() {
               x='871.29'
               y='658.62'
             />
-            <text className='main__cls-25' transform='translate(886.96 677.81)'>
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text className='main__cls-25' transform='translate(933.74 677.65)'>
               <tspan x='0' y='0'>
                 °C
@@ -850,11 +845,6 @@ export default function MainStaticDiagram() {
               x='871.29'
               y='684.87'
             />
-            <text className='main__cls-25' transform='translate(886.96 704.06)'>
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text className='main__cls-25' transform='translate(933.74 703.89)'>
               <tspan x='0' y='0'>
                 °C
@@ -869,11 +859,6 @@ export default function MainStaticDiagram() {
               x='871.29'
               y='711.11'
             />
-            <text className='main__cls-25' transform='translate(886.96 730.3)'>
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text className='main__cls-25' transform='translate(933.74 730.14)'>
               <tspan x='0' y='0'>
                 °C
@@ -1113,14 +1098,6 @@ export default function MainStaticDiagram() {
               x='998.04'
               y='659.53'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(1013.71 678.72)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text className='main__cls-25' transform='translate(1060.5 678.56)'>
               <tspan x='0' y='0'>
                 °C
@@ -1135,14 +1112,6 @@ export default function MainStaticDiagram() {
               x='998.04'
               y='685.78'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(1013.71 704.97)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text className='main__cls-25' transform='translate(1060.5 704.81)'>
               <tspan x='0' y='0'>
                 °C
@@ -1157,14 +1126,6 @@ export default function MainStaticDiagram() {
               x='998.04'
               y='712.03'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(1013.71 731.22)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text className='main__cls-25' transform='translate(1060.5 731.06)'>
               <tspan x='0' y='0'>
                 °C
@@ -1402,14 +1363,6 @@ export default function MainStaticDiagram() {
             />
             <text
               className='main__cls-25'
-              transform='translate(1342.55 680.38)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
-            <text
-              className='main__cls-25'
               transform='translate(1389.33 680.22)'
             >
               <tspan x='0' y='0'>
@@ -1427,14 +1380,6 @@ export default function MainStaticDiagram() {
             />
             <text
               className='main__cls-25'
-              transform='translate(1342.55 706.63)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
-            <text
-              className='main__cls-25'
               transform='translate(1389.33 706.47)'
             >
               <tspan x='0' y='0'>
@@ -1450,14 +1395,6 @@ export default function MainStaticDiagram() {
               x='1326.87'
               y='713.69'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(1342.55 732.88)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text
               className='main__cls-25'
               transform='translate(1389.33 732.71)'
@@ -1835,14 +1772,6 @@ export default function MainStaticDiagram() {
             />
             <text
               className='main__cls-25'
-              transform='translate(1731.26 684.79)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
-            <text
-              className='main__cls-25'
               transform='translate(1778.04 684.63)'
             >
               <tspan x='0' y='0'>
@@ -1860,14 +1789,6 @@ export default function MainStaticDiagram() {
             />
             <text
               className='main__cls-25'
-              transform='translate(1731.26 711.04)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
-            <text
-              className='main__cls-25'
               transform='translate(1778.04 710.88)'
             >
               <tspan x='0' y='0'>
@@ -1883,14 +1804,6 @@ export default function MainStaticDiagram() {
               x='1715.59'
               y='718.1'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(1731.26 737.29)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text
               className='main__cls-25'
               transform='translate(1778.04 737.12)'
@@ -2264,14 +2177,6 @@ export default function MainStaticDiagram() {
             />
             <text
               className='main__cls-25'
-              transform='translate(2188.99 682.13)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
-            <text
-              className='main__cls-25'
               transform='translate(2235.78 681.97)'
             >
               <tspan x='0' y='0'>
@@ -2289,14 +2194,6 @@ export default function MainStaticDiagram() {
             />
             <text
               className='main__cls-25'
-              transform='translate(2188.99 708.37)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
-            <text
-              className='main__cls-25'
               transform='translate(2235.78 708.21)'
             >
               <tspan x='0' y='0'>
@@ -2312,14 +2209,6 @@ export default function MainStaticDiagram() {
               x='2173.32'
               y='715.43'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(2188.99 734.62)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text
               className='main__cls-25'
               transform='translate(2235.78 734.46)'
@@ -2546,14 +2435,6 @@ export default function MainStaticDiagram() {
               x='2303.44'
               y='662.94'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(2319.11 682.13)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text className='main__cls-25' transform='translate(2365.9 681.97)'>
               <tspan x='0' y='0'>
                 °C
@@ -2568,14 +2449,6 @@ export default function MainStaticDiagram() {
               x='2303.44'
               y='689.18'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(2319.11 708.37)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text className='main__cls-25' transform='translate(2365.9 708.21)'>
               <tspan x='0' y='0'>
                 °C
@@ -2590,14 +2463,6 @@ export default function MainStaticDiagram() {
               x='2303.44'
               y='715.43'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(2319.11 734.62)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text className='main__cls-25' transform='translate(2365.9 734.46)'>
               <tspan x='0' y='0'>
                 °C
@@ -2839,14 +2704,6 @@ export default function MainStaticDiagram() {
             />
             <text
               className='main__cls-25'
-              transform='translate(2445.25 682.13)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
-            <text
-              className='main__cls-25'
               transform='translate(2492.04 681.97)'
             >
               <tspan x='0' y='0'>
@@ -2864,14 +2721,6 @@ export default function MainStaticDiagram() {
             />
             <text
               className='main__cls-25'
-              transform='translate(2445.25 708.37)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
-            <text
-              className='main__cls-25'
               transform='translate(2492.04 708.21)'
             >
               <tspan x='0' y='0'>
@@ -2887,14 +2736,6 @@ export default function MainStaticDiagram() {
               x='2429.59'
               y='715.43'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(2445.25 734.62)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text
               className='main__cls-25'
               transform='translate(2492.04 734.46)'
@@ -3489,11 +3330,6 @@ export default function MainStaticDiagram() {
               x='407.36'
               y='262.32'
             />
-            <text className='main__cls-25' transform='translate(423.03 281.51)'>
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text className='main__cls-25' transform='translate(469.81 281.35)'>
               <tspan x='0' y='0'>
                 °C
@@ -3508,11 +3344,6 @@ export default function MainStaticDiagram() {
               x='407.36'
               y='288.57'
             />
-            <text className='main__cls-25' transform='translate(423.03 307.75)'>
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text className='main__cls-25' transform='translate(469.81 307.59)'>
               <tspan x='0' y='0'>
                 °C
@@ -3527,11 +3358,6 @@ export default function MainStaticDiagram() {
               x='407.36'
               y='314.81'
             />
-            <text className='main__cls-25' transform='translate(423.03 334)'>
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text className='main__cls-25' transform='translate(469.81 333.84)'>
               <tspan x='0' y='0'>
                 °C
@@ -5616,14 +5442,6 @@ export default function MainStaticDiagram() {
             />
             <text
               className='main__cls-22'
-              transform='translate(1063.83 206.34)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
-            <text
-              className='main__cls-22'
               transform='translate(1108.84 206.51)'
             >
               <tspan x='0' y='0'>
@@ -6014,14 +5832,6 @@ export default function MainStaticDiagram() {
               x='1858.21'
               y='191.52'
             />
-            <text
-              className='main__cls-22'
-              transform='translate(1875.66 206.34)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text
               className='main__cls-22'
               transform='translate(1920.66 206.51)'
@@ -7289,14 +7099,6 @@ export default function MainStaticDiagram() {
             />
             <text
               className='main__cls-25'
-              transform='translate(2580.09 678.71)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
-            <text
-              className='main__cls-25'
               transform='translate(2626.88 678.55)'
             >
               <tspan x='0' y='0'>
@@ -7312,14 +7114,6 @@ export default function MainStaticDiagram() {
               x='2564.42'
               y='685.77'
             />
-            <text
-              className='main__cls-25'
-              transform='translate(2580.09 704.96)'
-            >
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text className='main__cls-25' transform='translate(2626.88 704.8)'>
               <tspan x='0' y='0'>
                 °C
@@ -7334,11 +7128,6 @@ export default function MainStaticDiagram() {
               x='2564.42'
               y='712.02'
             />
-            <text className='main__cls-25' transform='translate(2580.09 731.2)'>
-              <tspan x='0' y='0'>
-                +40
-              </tspan>
-            </text>
             <text
               className='main__cls-25'
               transform='translate(2626.88 731.04)'
@@ -9390,14 +9179,6 @@ export default function MainStaticDiagram() {
                 x='1734.82'
                 y='834'
               />
-              <text
-                className='main__cls-25'
-                transform='translate(1750.49 852.81)'
-              >
-                <tspan x='0' y='0'>
-                  +40
-                </tspan>
-              </text>
             </g>
             <g>
               <rect
@@ -9407,14 +9188,6 @@ export default function MainStaticDiagram() {
                 x='1794.62'
                 y='834'
               />
-              <text
-                className='main__cls-25'
-                transform='translate(1810.29 852.81)'
-              >
-                <tspan x='0' y='0'>
-                  +40
-                </tspan>
-              </text>
             </g>
             <g>
               <rect
@@ -9424,14 +9197,6 @@ export default function MainStaticDiagram() {
                 x='1854.41'
                 y='834'
               />
-              <text
-                className='main__cls-25'
-                transform='translate(1870.08 852.81)'
-              >
-                <tspan x='0' y='0'>
-                  +40
-                </tspan>
-              </text>
             </g>
             <text
               className='main__cls-25'
