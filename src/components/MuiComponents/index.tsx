@@ -2,6 +2,8 @@ export {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Alert,
+  AlertTitle,
   AppBar,
   Avatar,
   Box,

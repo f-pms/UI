@@ -7,6 +7,7 @@ import FiguresCoordinateProvider from '~/pages/ProductionManagement/context/Figu
 import useBlueprint from '~/pages/ProductionManagement/hooks/useBlueprint';
 import { useScrollToDiagram } from '~/pages/ProductionManagement/hooks/useScrollToDiagram';
 import useWebSocket from '~/pages/ProductionManagement/hooks/useWebSocket';
+import AlarmBar from '~/pages/ProductionManagement/partials/AlarmBar';
 import PageHeading from '~/pages/ProductionManagement/partials/PageHeading';
 import { StationNavigationTabs } from '~/pages/ProductionManagement/partials/StationNavigationTabs';
 import { StationTabPanel } from '~/pages/ProductionManagement/partials/StationTabPanel';
@@ -50,28 +51,31 @@ function MonitoringPage() {
   };
 
   return (
-    <Stack sx={{ width: '100%', height: '100%' }}>
-      <PageHeading scrollToDiagram={scrollToDiagram} />
-      <Stack sx={{ flex: 1 }}>
-        <StationNavigationTabs handleChange={handleChange} value={tabValue} />
-        {isReady ? (
-          <StationTabPanel ref={ref} value={tabValue} />
-        ) : (
-          <Box
-            sx={{
-              width: '100%',
-              height: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginBottom: 10,
-            }}
-          >
-            <CircularProgress />
-          </Box>
-        )}
+    <>
+      <AlarmBar />
+      <Stack sx={{ width: '100%', height: '100%', px: 4, py: 2 }}>
+        <PageHeading scrollToDiagram={scrollToDiagram} />
+        <Stack sx={{ flex: 1 }}>
+          <StationNavigationTabs handleChange={handleChange} value={tabValue} />
+          {isReady ? (
+            <StationTabPanel ref={ref} value={tabValue} />
+          ) : (
+            <Box
+              sx={{
+                width: '100%',
+                height: '100%',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginBottom: 10,
+              }}
+            >
+              <CircularProgress />
+            </Box>
+          )}
+        </Stack>
       </Stack>
-    </Stack>
+    </>
   );
 }
 
