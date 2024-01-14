@@ -1,13 +1,13 @@
 import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
-import { useFiguresCoordinateContext } from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
+import { useCurrentBlueprintContext } from '~/pages/ProductionManagement/context/BlueprintContext';
 import { Figures } from '~/pages/ProductionManagement/helpers/diagrams';
 import Tr72StaticDiagram from '~/pages/ProductionManagement/partials/Diagrams/TR72/Tr72StaticDiagram';
 
 import './styles.css';
 
 export function TR72Diagram() {
-  const figuresCoordinateList = useFiguresCoordinateContext();
+  const { sensorConfigurations } = useCurrentBlueprintContext();
   const figureValues = useMonitoringStore((state) => state.figureValues);
 
   return (
@@ -21,7 +21,7 @@ export function TR72Diagram() {
       <Tr72StaticDiagram />
       <Figures
         figureValues={figureValues}
-        figuresCoordinateList={figuresCoordinateList}
+        figuresCoordinateList={sensorConfigurations}
       />
     </svg>
   );

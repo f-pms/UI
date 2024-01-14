@@ -3,8 +3,8 @@ import _ from 'lodash';
 
 import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
-import FiguresCoordinateProvider from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
-import useBlueprint from '~/pages/ProductionManagement/hooks/useBlueprint';
+import BlueprintsProvider from '~/pages/ProductionManagement/context/BlueprintContext';
+import useBlueprints from '~/pages/ProductionManagement/hooks/useBlueprints';
 import { useScrollToDiagram } from '~/pages/ProductionManagement/hooks/useScrollToDiagram';
 import useWebSocket from '~/pages/ProductionManagement/hooks/useWebSocket';
 import PageHeading from '~/pages/ProductionManagement/partials/PageHeading';
@@ -16,32 +16,19 @@ import { Box, CircularProgress, Stack } from '~/components/MuiComponents';
 export interface IMonitoringPageProps {}
 
 function MonitoringPage() {
-  const {
-    tabValue,
-    setTabValue,
-    tabInfo,
-    figuresCoordinateList,
-    isBlueprintReady,
-  } = useBlueprint();
-
+  const { tabValue, setTabValue, tabInfo, blueprints, isBlueprintReady } =
+    useBlueprints();
   const ws = useWebSocket(tabValue, tabInfo.channel);
-
   const { ref, scrollToDiagram } = useScrollToDiagram();
 
   const figureValues = useMonitoringStore((state) => state.figureValues);
   const isReady = useMemo(
     () =>
       isBlueprintReady &&
-      !_.isEmpty(figuresCoordinateList) &&
+      !_.isEmpty(blueprints) &&
       ws.isSubscribed(tabInfo.channel) &&
       figureValues != undefined,
-    [
-      isBlueprintReady,
-      figuresCoordinateList,
-      ws,
-      tabInfo.channel,
-      figureValues,
-    ],
+    [isBlueprintReady, blueprints, ws, tabInfo.channel, figureValues],
   );
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
@@ -77,8 +64,8 @@ function MonitoringPage() {
 
 export default function MonitorPageWithContext() {
   return (
-    <FiguresCoordinateProvider>
+    <BlueprintsProvider>
       <MonitoringPage />
-    </FiguresCoordinateProvider>
+    </BlueprintsProvider>
   );
 }
