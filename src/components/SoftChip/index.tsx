@@ -15,8 +15,8 @@ export function SoftChip(props: ISoftChipProps) {
   return (
     <Chip
       sx={(theme) => ({
-        minWidth: props.label ? 'unset' : '48px',
-        minHeight: props.label ? 'unset' : '48px',
+        minWidth: props.label ? 'unset' : '36px',
+        minHeight: props.label ? 'unset' : '36px',
         borderRadius: shape === 'square' ? '4px' : '16px',
         backgroundColor: bgrColor,
         color: theme.palette[color]!.main,

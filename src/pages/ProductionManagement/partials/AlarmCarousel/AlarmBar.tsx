@@ -1,5 +1,8 @@
 import { useState } from 'react';
+import { format } from 'date-fns';
+import { vi } from 'date-fns/locale';
 
+import { Alarm } from '~/pages/ProductionManagement/helpers/alarmMockData';
 import AllAlarmDrawer from '~/pages/ProductionManagement/partials/AllAlarmDrawer';
 
 import { ArrowRightAltIcon } from '~/components/Icons';
@@ -12,9 +15,11 @@ import {
   Typography,
 } from '~/components/MuiComponents';
 
-export interface IAlarmBarProps {}
+export interface IAlarmBarProps {
+  alarm: Alarm;
+}
 
-export default function AlarmBar() {
+export default function AlarmBar({ alarm }: IAlarmBarProps) {
   const [opened, setOpened] = useState(false);
 
   return (
@@ -30,10 +35,12 @@ export default function AlarmBar() {
         <Stack direction='row' justifyContent='space-between' sx={{ flex: 1 }}>
           <Box>
             <AlertTitle>
-              <Typography variant='body2'>Cảnh báo CosP TR42</Typography>
+              <Typography variant='body2'>{alarm.name}</Typography>
             </AlertTitle>
             <Typography variant='caption'>
-              Thứ 5, 03/07/2024 10:52:10.865
+              {format(alarm.time, 'EEEE, dd/MM/yyyy HH:mm:ss', {
+                locale: vi,
+              })}
             </Typography>
           </Box>
           <Button

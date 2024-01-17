@@ -7,6 +7,7 @@ export { default as CloudUploadIcon } from '@mui/icons-material/CloudUpload';
 export { default as CottageOutlinedIcon } from '@mui/icons-material/CottageOutlined';
 export { default as DashboardOutlinedIcon } from '@mui/icons-material/DashboardOutlined';
 export { default as ElectricMeterOutlinedIcon } from '@mui/icons-material/ElectricMeterOutlined';
+export { default as ErrorOutlineOutlinedIcon } from '@mui/icons-material/ErrorOutlineOutlined';
 export { default as ExitToAppOutlinedIcon } from '@mui/icons-material/ExitToAppOutlined';
 export { default as ExpandMoreOutlinedIcon } from '@mui/icons-material/ExpandMoreOutlined';
 export { default as FactoryOutlinedIcon } from '@mui/icons-material/FactoryOutlined';
@@ -25,8 +26,10 @@ export { default as MonitorOutlinedIcon } from '@mui/icons-material/MonitorOutli
 export { default as MoreVertOutlinedIcon } from '@mui/icons-material/MoreVertOutlined';
 export { default as NavigateBeforeIcon } from '@mui/icons-material/NavigateBefore';
 export { default as NavigateNextIcon } from '@mui/icons-material/NavigateNext';
+export { default as NotificationImportantOutlinedIcon } from '@mui/icons-material/NotificationImportantOutlined';
 export { default as PersonOutlineOutlinedIcon } from '@mui/icons-material/PersonOutlineOutlined';
 export { default as PieChartOutlinedIcon } from '@mui/icons-material/PieChartOutlined';
+export { default as ReportProblemOutlinedIcon } from '@mui/icons-material/ReportProblemOutlined';
 export { default as SettingsSuggestOutlinedIcon } from '@mui/icons-material/SettingsSuggestOutlined';
 export { default as TextFormatOutlinedIcon } from '@mui/icons-material/TextFormatOutlined';
 export { default as WebOutlinedIcon } from '@mui/icons-material/WebOutlined';

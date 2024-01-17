@@ -7,7 +7,7 @@ import FiguresCoordinateProvider from '~/pages/ProductionManagement/context/Figu
 import useBlueprint from '~/pages/ProductionManagement/hooks/useBlueprint';
 import { useScrollToDiagram } from '~/pages/ProductionManagement/hooks/useScrollToDiagram';
 import useWebSocket from '~/pages/ProductionManagement/hooks/useWebSocket';
-import AlarmBar from '~/pages/ProductionManagement/partials/AlarmBar';
+import AlarmCarousel from '~/pages/ProductionManagement/partials/AlarmCarousel';
 import PageHeading from '~/pages/ProductionManagement/partials/PageHeading';
 import { StationNavigationTabs } from '~/pages/ProductionManagement/partials/StationNavigationTabs';
 import { StationTabPanel } from '~/pages/ProductionManagement/partials/StationTabPanel';
@@ -52,7 +52,7 @@ function MonitoringPage() {
 
   return (
     <>
-      <AlarmBar />
+      <AlarmCarousel />
       <Stack sx={{ width: '100%', height: '100%', px: 4, py: 2 }}>
         <PageHeading scrollToDiagram={scrollToDiagram} />
         <Stack sx={{ flex: 1 }}>
