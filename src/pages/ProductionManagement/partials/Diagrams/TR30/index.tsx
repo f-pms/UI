@@ -12,8 +12,8 @@ export function TR30Diagram() {
 
   return (
     <svg
-      data-name='Layer 1'
-      id='Layer_1'
+      data-name='Layer 4'
+      id='Layer_4'
       style={{ width: '100%', height: '100%' }}
       viewBox='0 0 2873.84 1312.21'
       xmlns='http://www.w3.org/2000/svg'

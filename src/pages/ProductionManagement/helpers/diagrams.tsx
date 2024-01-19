@@ -137,11 +137,7 @@ export interface FiguresProps {
 export function Figures({ figuresCoordinateList, figureValues }: FiguresProps) {
   return figuresCoordinateList.map(({ x, y, address }) => {
     return (
-      <text
-        key={address + x + y}
-        className='main__cls-25'
-        transform={`translate(${x} ${y})`}
-      >
+      <text key={address + x + y} transform={`translate(${x} ${y})`}>
         <tspan x='0' y='0'>
           {figureValues[address]}
         </tspan>

@@ -12,8 +12,8 @@ export function TR11Diagram() {
 
   return (
     <svg
-      data-name='Layer 1'
-      id='Layer_1'
+      data-name='Layer 2'
+      id='Layer_2'
       style={{ width: '100%', height: '100%' }}
       viewBox='0 0 2871.87 1345.36'
       xmlns='http://www.w3.org/2000/svg'

@@ -13,8 +13,6 @@ import { StationTabPanel } from '~/pages/ProductionManagement/partials/StationTa
 
 import { Box, CircularProgress, Stack } from '~/components/MuiComponents';
 
-export interface IMonitoringPageProps {}
-
 function MonitoringPage() {
   const { tabValue, setTabValue, tabInfo, blueprints, isBlueprintReady } =
     useBlueprints();

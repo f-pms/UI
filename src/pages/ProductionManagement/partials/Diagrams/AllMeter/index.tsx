@@ -12,8 +12,8 @@ export function AllMeterDiagram() {
 
   return (
     <svg
-      data-name='Layer 1'
-      id='Layer_1'
+      data-name='Layer 13'
+      id='Layer_13'
       style={{ width: '100%', height: '100%' }}
       viewBox='0 0 2871.87 1349'
       xmlns='http://www.w3.org/2000/svg'
