@@ -1,10 +1,12 @@
 import { format } from 'date-fns';
 import { vi } from 'date-fns/locale';
+import { useSnackbar } from 'notistack';
 
 import { ColorScheme } from '~/constants';
 import { AlarmSeverity } from '~/types/alarm';
 
 import { Alarm } from '~/pages/ProductionManagement/helpers/alarmMockData';
+import AlarmToast from '~/pages/ProductionManagement/partials/AlarmToast';
 
 import { SoftChip } from '~/components';
 import {
@@ -26,6 +28,8 @@ export interface IAlarmListItemProps {
 }
 
 export default function AlarmListItem({ alarm }: IAlarmListItemProps) {
+  const { enqueueSnackbar } = useSnackbar();
+
   let icon;
   let color;
   switch (alarm.severity) {
@@ -44,9 +48,16 @@ export default function AlarmListItem({ alarm }: IAlarmListItemProps) {
     default:
       break;
   }
+
+  const handleClick = () => {
+    enqueueSnackbar(<AlarmToast alarm={alarm} />, {
+      preventDuplicate: false,
+    });
+  };
+
   return (
     <>
-      <ListItemButton>
+      <ListItemButton onClick={handleClick}>
         <ListItemAvatar>
           <SoftChip color={color as ColorScheme} icon={icon} />
         </ListItemAvatar>
@@ -54,9 +65,7 @@ export default function AlarmListItem({ alarm }: IAlarmListItemProps) {
           primary={alarm.name}
           secondary={
             <Box>
-              <Typography color='text.primary' variant='body2'>
-                {alarm.description}
-              </Typography>
+              <Typography variant='body2'>{alarm.description}</Typography>
               <Typography variant='caption'>
                 {format(alarm.time, 'EEEE, dd/MM/yyyy HH:mm:ss', {
                   locale: vi,

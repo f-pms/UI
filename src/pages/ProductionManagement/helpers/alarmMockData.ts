@@ -51,32 +51,4 @@ export const MOCK_DATA_ALARMS: Alarm[] = [
     description: 'Cảnh báo CosP TR47',
     time: new Date(2024, 1, 10),
   },
-  {
-    id: 7,
-    severity: AlarmSeverity.Urgent,
-    name: 'Cảnh báo CosP TR47',
-    description: 'Cảnh báo CosP TR47',
-    time: new Date(2024, 1, 10),
-  },
-  {
-    id: 8,
-    severity: AlarmSeverity.High,
-    name: 'Cảnh báo CosP TR46',
-    description: 'Cảnh báo máy chà nhám TR46',
-    time: new Date(2024, 1, 11),
-  },
-  {
-    id: 9,
-    severity: AlarmSeverity.Urgent,
-    name: 'Cảnh báo CosP TR47',
-    description: 'Cảnh báo CosP TR47',
-    time: new Date(2024, 1, 10),
-  },
-  {
-    id: 10,
-    severity: AlarmSeverity.Urgent,
-    name: 'Cảnh báo CosP TR47',
-    description: 'Cảnh báo CosP TR47',
-    time: new Date(2024, 1, 10),
-  },
 ];
