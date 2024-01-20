@@ -12,7 +12,6 @@ export function TR42Diagram() {
 
   return (
     <svg
-      data-name='Layer 9'
       id='Layer_9'
       style={{ width: '100%', height: '100%' }}
       viewBox='0 0 2872.8 1340.18'

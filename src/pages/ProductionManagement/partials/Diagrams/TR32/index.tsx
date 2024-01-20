@@ -12,7 +12,6 @@ export function TR32Diagram() {
 
   return (
     <svg
-      data-name='Layer 6'
       id='Layer_6'
       style={{ width: '100%', height: '100%' }}
       viewBox='0 0 2872.8 1340.18'

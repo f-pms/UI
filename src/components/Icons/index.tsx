@@ -1,6 +1,7 @@
 export { default as AddCircleOutlineOutlinedIcon } from '@mui/icons-material/AddCircleOutlineOutlined';
 export { default as ArrowDropDownIcon } from '@mui/icons-material/ArrowDropDown';
 export { default as ArrowDropUpIcon } from '@mui/icons-material/ArrowDropUp';
+export { default as CancelIcon } from '@mui/icons-material/Cancel';
 export { default as CenterFocusStrongOutlinedIcon } from '@mui/icons-material/CenterFocusStrongOutlined';
 export { default as CloudUploadIcon } from '@mui/icons-material/CloudUpload';
 export { default as CottageOutlinedIcon } from '@mui/icons-material/CottageOutlined';
@@ -26,6 +27,7 @@ export { default as NavigateBeforeIcon } from '@mui/icons-material/NavigateBefor
 export { default as NavigateNextIcon } from '@mui/icons-material/NavigateNext';
 export { default as PersonOutlineOutlinedIcon } from '@mui/icons-material/PersonOutlineOutlined';
 export { default as PieChartOutlinedIcon } from '@mui/icons-material/PieChartOutlined';
+export { default as SettingsIcon } from '@mui/icons-material/Settings';
 export { default as SettingsSuggestOutlinedIcon } from '@mui/icons-material/SettingsSuggestOutlined';
 export { default as TextFormatOutlinedIcon } from '@mui/icons-material/TextFormatOutlined';
 export { default as WebOutlinedIcon } from '@mui/icons-material/WebOutlined';

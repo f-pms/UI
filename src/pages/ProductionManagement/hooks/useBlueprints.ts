@@ -15,15 +15,15 @@ export default () => {
     useContext(BlueprintsContext);
   const [isBlueprintReady, setIsBlueprintReady] = useState<boolean>(false);
 
-  const { data: blueprintList } = useQueryBlueprints();
+  const { data: fetchedBlueprints } = useQueryBlueprints();
 
   useEffect(() => {
-    if (blueprintList != undefined) {
-      updateBlueprints(blueprintList);
+    if (fetchedBlueprints) {
+      updateBlueprints(fetchedBlueprints);
       setIsBlueprintReady(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [blueprintList]);
+  }, [fetchedBlueprints]);
 
   useEffect(() => {
     updateRenderedBlueprintId(tabInfo.blueprintId);

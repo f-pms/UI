@@ -4,16 +4,20 @@ import { IBlueprint } from '~/services/blueprint/queries/useQueryBlueprintById';
 
 export type BlueprintsContextType = {
   blueprints: IBlueprint[];
+  updateBlueprints: (blueprints: IBlueprint[]) => void;
   renderedBlueprintId: number;
   updateRenderedBlueprintId: (id: number) => void;
-  updateBlueprints: (blueprints: IBlueprint[]) => void;
+  isEditMode: boolean;
+  updateIsEditMode: (enabled: boolean) => void;
 };
 
 export const BlueprintsContext = createContext<BlueprintsContextType>({
   blueprints: [],
+  updateBlueprints: () => {},
   renderedBlueprintId: 1,
   updateRenderedBlueprintId: () => {},
-  updateBlueprints: () => {},
+  isEditMode: false,
+  updateIsEditMode: () => {},
 });
 
 export interface IBlueprintsProviderProps {
@@ -25,20 +29,25 @@ export default function BlueprintsProvider({
 }: IBlueprintsProviderProps) {
   const [blueprints, setBlueprints] = useState<IBlueprint[]>([]);
   const [renderedBlueprintId, setRenderedBlueprintId] = useState<number>(1);
+  const [isEditMode, setIsEditMode] = useState<boolean>(false);
 
   const updateRenderedBlueprintId = (id: number) => setRenderedBlueprintId(id);
 
   const updateBlueprints = (blueprints: IBlueprint[]) =>
     setBlueprints(blueprints);
 
+  const updateIsEditMode = (enabled: boolean) => setIsEditMode(enabled);
+
   const value = useMemo(
     () => ({
       blueprints,
+      updateBlueprints,
       renderedBlueprintId,
       updateRenderedBlueprintId,
-      updateBlueprints,
+      isEditMode,
+      updateIsEditMode,
     }),
-    [blueprints, renderedBlueprintId],
+    [blueprints, isEditMode, renderedBlueprintId],
   );
 
   return (
@@ -53,7 +62,7 @@ export const useCurrentBlueprintContext = (): IBlueprint => {
   const blueprint = blueprints.find(
     (blueprint) => blueprint.id === renderedBlueprintId,
   );
-  if (blueprint === undefined)
+  if (!blueprint)
     throw new Error('There is no matched blueprint for this tab!');
   return blueprint;
 };

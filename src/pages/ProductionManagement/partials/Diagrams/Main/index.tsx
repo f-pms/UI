@@ -28,7 +28,6 @@ export function MainDiagram() {
 
   return (
     <svg
-      data-name='Layer 1'
       id='Layer_1'
       style={{ width: '100%', height: '100%' }}
       viewBox='0 0 2871.34 1349'
