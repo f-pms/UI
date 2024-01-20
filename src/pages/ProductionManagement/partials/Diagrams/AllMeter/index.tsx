@@ -1,8 +1,8 @@
 import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
 import { useCurrentBlueprintContext } from '~/pages/ProductionManagement/context/BlueprintContext';
-import { Figures } from '~/pages/ProductionManagement/helpers/diagrams';
 import AllMeterStaticDiagram from '~/pages/ProductionManagement/partials/Diagrams/AllMeter/AllMeterStaticDiagram';
+import { Figures } from '~/pages/ProductionManagement/partials/Diagrams/partials/Figures';
 
 import './styles.css';
 

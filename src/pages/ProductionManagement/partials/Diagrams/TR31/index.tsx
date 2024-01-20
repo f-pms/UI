@@ -1,7 +1,7 @@
 import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
 import { useCurrentBlueprintContext } from '~/pages/ProductionManagement/context/BlueprintContext';
-import { Figures } from '~/pages/ProductionManagement/helpers/diagrams';
+import { Figures } from '~/pages/ProductionManagement/partials/Diagrams/partials/Figures';
 import Tr31StaticDiagram from '~/pages/ProductionManagement/partials/Diagrams/TR31/Tr31StaticDiagram';
 
 import './styles.css';

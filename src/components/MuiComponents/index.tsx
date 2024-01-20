@@ -28,6 +28,7 @@ export {
   Menu,
   MenuItem,
   Paper,
+  Popover,
   Select,
   Stack,
   Tab,

@@ -1,8 +1,5 @@
 import { ReactNode } from 'react';
 
-import { FigureInfoType } from '~/services/blueprint/queries/useQueryBlueprintById';
-import { FigureValuesType } from '~/stores/useMonitoringStore';
-
 import {
   AllMeterDiagram,
   MainDiagram,
@@ -128,20 +125,3 @@ export const getTabItemByValue = (tabValue: number): TabItem => {
   }
   return diagram!;
 };
-
-export interface FiguresProps {
-  figuresCoordinateList: FigureInfoType[];
-  figureValues: FigureValuesType;
-}
-
-export function Figures({ figuresCoordinateList, figureValues }: FiguresProps) {
-  return figuresCoordinateList.map(({ x, y, address }) => {
-    return (
-      <text key={address + x + y} transform={`translate(${x} ${y})`}>
-        <tspan x='0' y='0'>
-          {figureValues[address]}
-        </tspan>
-      </text>
-    );
-  });
-}
