@@ -3,27 +3,15 @@ import { useQuery } from '@tanstack/react-query';
 import axiosClient from '~/libs/axios';
 
 export interface IBlueprint {
-  id: string;
+  id: number;
   name: string;
   description: string;
-  sensorConfigurations: Group[];
+  sensorConfigurations: FigureInfoType[];
 }
 
-export type Group = {
-  groupId: string;
-  figures: Figure[];
-};
-
-export type Figure = {
+export type FigureInfoType = {
   id: string;
-  dataType: string;
-  offset: string;
-  dataBlockNumber: number;
-  displayCoordinate: DisplayCoordinate;
   address: string;
-};
-
-export type DisplayCoordinate = {
   x: number;
   y: number;
 };
@@ -36,5 +24,6 @@ export const useQueryBlueprintById = (id: string) => {
   return useQuery({
     queryKey: ['blueprint', id],
     queryFn: () => getBlueprintById(id),
+    retry: 6,
   });
 };

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 
 import { useMonitoringStore } from '~/stores/useMonitoringStore';
 import { useWebSocketStore } from '~/stores/useWebSocketStore';
@@ -6,6 +6,11 @@ import { useWebSocketStore } from '~/stores/useWebSocketStore';
 export default (tabValue: number, channel: string) => {
   const { connectingStateTrigger, ...ws } = useWebSocketStore((state) => state);
   const { updateFigures } = useMonitoringStore((state) => state);
+  const isWebsocketReady = useMemo(
+    () => ws.isConnected() && ws.isSubscribed(channel),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [channel, ws],
+  );
 
   useEffect(() => {
     if (connectingStateTrigger && ws.isConnected()) {
@@ -25,6 +30,6 @@ export default (tabValue: number, channel: string) => {
   }, []);
 
   return {
-    ...ws,
+    isWebsocketReady,
   };
 };

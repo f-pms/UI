@@ -1632,14 +1632,6 @@ export default function Tr12StaticDiagram() {
               />
               <text
                 className='station-12__cls-34'
-                transform='translate(457.35 168.38)'
-              >
-                <tspan x='0' y='0'>
-                  +40
-                </tspan>
-              </text>
-              <text
-                className='station-12__cls-34'
                 transform='translate(508.63 169.69)'
               >
                 <tspan x='0' y='0'>
@@ -1657,14 +1649,6 @@ export default function Tr12StaticDiagram() {
               />
               <text
                 className='station-12__cls-34'
-                transform='translate(457.35 192.61)'
-              >
-                <tspan x='0' y='0'>
-                  +40
-                </tspan>
-              </text>
-              <text
-                className='station-12__cls-34'
                 transform='translate(508.63 193.92)'
               >
                 <tspan x='0' y='0'>
@@ -1680,14 +1664,6 @@ export default function Tr12StaticDiagram() {
                 x='432.04'
                 y='200.13'
               />
-              <text
-                className='station-12__cls-34'
-                transform='translate(457.35 216.84)'
-              >
-                <tspan x='0' y='0'>
-                  +40
-                </tspan>
-              </text>
               <text
                 className='station-12__cls-34'
                 transform='translate(508.63 218.15)'

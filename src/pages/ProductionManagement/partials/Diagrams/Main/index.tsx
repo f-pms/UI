@@ -1,8 +1,8 @@
 import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
-import { useFiguresCoordinateContext } from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
-import { Figures } from '~/pages/ProductionManagement/helpers/diagrams';
+import { useCurrentBlueprintContext } from '~/pages/ProductionManagement/context/BlueprintContext';
 import MainStaticDiagram from '~/pages/ProductionManagement/partials/Diagrams/Main/MainStaticDiagram';
+import { Figures } from '~/pages/ProductionManagement/partials/Diagrams/partials/Figures';
 
 import './styles.css';
 
@@ -23,12 +23,11 @@ export type DisplayCoordinate = {
 };
 
 export function MainDiagram() {
-  const figuresCoordinateList = useFiguresCoordinateContext();
+  const { sensorConfigurations } = useCurrentBlueprintContext();
   const figureValues = useMonitoringStore((state) => state.figureValues);
 
   return (
     <svg
-      data-name='Layer 1'
       id='Layer_1'
       style={{ width: '100%', height: '100%' }}
       viewBox='0 0 2871.34 1349'
@@ -37,7 +36,7 @@ export function MainDiagram() {
       <MainStaticDiagram />
       <Figures
         figureValues={figureValues}
-        figuresCoordinateList={figuresCoordinateList}
+        figuresCoordinateList={sensorConfigurations}
       />
     </svg>
   );

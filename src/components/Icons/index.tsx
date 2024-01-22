@@ -1,8 +1,10 @@
 export { default as AddCircleOutlineOutlinedIcon } from '@mui/icons-material/AddCircleOutlineOutlined';
 export { default as ArrowDropDownIcon } from '@mui/icons-material/ArrowDropDown';
 export { default as ArrowDropUpIcon } from '@mui/icons-material/ArrowDropUp';
+export { default as CancelIcon } from '@mui/icons-material/Cancel';
 export { default as CenterFocusStrongOutlinedIcon } from '@mui/icons-material/CenterFocusStrongOutlined';
 export { default as CloudUploadIcon } from '@mui/icons-material/CloudUpload';
+export { default as ContentCopyRoundedIcon } from '@mui/icons-material/ContentCopyRounded';
 export { default as CottageOutlinedIcon } from '@mui/icons-material/CottageOutlined';
 export { default as DashboardOutlinedIcon } from '@mui/icons-material/DashboardOutlined';
 export { default as ElectricMeterOutlinedIcon } from '@mui/icons-material/ElectricMeterOutlined';
@@ -18,6 +20,7 @@ export { default as FullscreenOutlinedIcon } from '@mui/icons-material/Fullscree
 export { default as GoogleIcon } from '@mui/icons-material/Google';
 export { default as HandymanOutlinedIcon } from '@mui/icons-material/HandymanOutlined';
 export { default as HighlightOffOutlinedIcon } from '@mui/icons-material/HighlightOffOutlined';
+export { default as LibraryAddCheckRoundedIcon } from '@mui/icons-material/LibraryAddCheckRounded';
 export { default as LockOutlinedIcon } from '@mui/icons-material/LockOutlined';
 export { default as MenuOutlinedIcon } from '@mui/icons-material/MenuOutlined';
 export { default as MonitorOutlinedIcon } from '@mui/icons-material/MonitorOutlined';
@@ -26,6 +29,7 @@ export { default as NavigateBeforeIcon } from '@mui/icons-material/NavigateBefor
 export { default as NavigateNextIcon } from '@mui/icons-material/NavigateNext';
 export { default as PersonOutlineOutlinedIcon } from '@mui/icons-material/PersonOutlineOutlined';
 export { default as PieChartOutlinedIcon } from '@mui/icons-material/PieChartOutlined';
+export { default as SettingsIcon } from '@mui/icons-material/Settings';
 export { default as SettingsSuggestOutlinedIcon } from '@mui/icons-material/SettingsSuggestOutlined';
 export { default as TextFormatOutlinedIcon } from '@mui/icons-material/TextFormatOutlined';
 export { default as WebOutlinedIcon } from '@mui/icons-material/WebOutlined';
