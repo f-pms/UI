@@ -32,7 +32,7 @@ function MonitoringPage() {
     return 'Getting things ready...';
   }, [isBlueprintReady, isWebsocketReady]);
   const isReady = useMemo(
-    () => isBlueprintReady && isWebsocketReady && figureValues != undefined,
+    () => isBlueprintReady && isWebsocketReady && figureValues,
     [isBlueprintReady, isWebsocketReady, figureValues],
   );
 
