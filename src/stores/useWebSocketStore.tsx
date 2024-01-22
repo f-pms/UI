@@ -1,7 +1,6 @@
 import { create } from 'zustand';
 import { combine } from 'zustand/middleware';
 
-import { StaticDateTimePicker } from '@mui/x-date-pickers';
 import { Client, IMessage, StompSubscription } from '@stomp/stompjs';
 
 import {

@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import _ from 'lodash';
 
 import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
