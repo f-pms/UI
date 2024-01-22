@@ -28,8 +28,8 @@ function MonitoringPage() {
 
   const figureValues = useMonitoringStore((state) => state.figureValues);
   const loadingMessage = useMemo(() => {
-    if (!isBlueprintReady) return 'Fetching blueprints ...';
-    if (!isWebsocketReady) return 'Connecting to the PLC ...';
+    if (!isBlueprintReady) return 'Đang tải bản vẽ ...';
+    if (!isWebsocketReady) return 'Đang kết nối tới PLC ...';
     return 'Getting things ready...';
   }, [isBlueprintReady, isWebsocketReady]);
   const isReady = useMemo(
