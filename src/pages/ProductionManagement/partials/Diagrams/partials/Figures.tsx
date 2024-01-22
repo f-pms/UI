@@ -72,7 +72,7 @@ function Figure({
           marginLeft={0.5}
           marginY={0.5}
         >
-          Address: {address}
+          Địa chỉ PLC: {address}
           <IconButton
             color='secondary'
             size='small'
