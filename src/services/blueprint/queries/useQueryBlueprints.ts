@@ -11,5 +11,6 @@ export const useQueryBlueprints = () => {
   return useQuery({
     queryKey: ['blueprints'],
     queryFn: () => getBlueprints(),
+    retry: 6,
   });
 };

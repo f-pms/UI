@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { combine } from 'zustand/middleware';
 
+import { StaticDateTimePicker } from '@mui/x-date-pickers';
 import { Client, IMessage, StompSubscription } from '@stomp/stompjs';
 
 import {
@@ -33,6 +34,10 @@ export const useWebSocketStore = create<State>(
         brokerURL: websocketUrl,
         onConnect: () => {
           set({ connectingStateTrigger: true });
+        },
+        onStompError: () => {
+          console.error('Websocket connection is corrupted!');
+          set({ connectingStateTrigger: false });
         },
         onDisconnect: () => {
           set({

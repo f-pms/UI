@@ -11,7 +11,7 @@ import {
 export default () => {
   const [tabValue, setTabValue] = useState(DIAGRAMS[0].value);
   const tabInfo = useMemo(() => getTabItemByValue(tabValue), [tabValue]);
-  const { blueprints, updateBlueprints, updateRenderedBlueprintId } =
+  const { updateBlueprints, updateRenderedBlueprintId } =
     useContext(BlueprintsContext);
   const [isBlueprintReady, setIsBlueprintReady] = useState<boolean>(false);
 
@@ -33,7 +33,6 @@ export default () => {
     tabValue,
     setTabValue,
     tabInfo,
-    blueprints,
     isBlueprintReady,
   };
 };

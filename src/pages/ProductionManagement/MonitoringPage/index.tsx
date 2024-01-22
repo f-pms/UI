@@ -5,28 +5,36 @@ import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
 import BlueprintsProvider from '~/pages/ProductionManagement/context/BlueprintContext';
 import useBlueprints from '~/pages/ProductionManagement/hooks/useBlueprints';
+import useMonitoringWebSocket from '~/pages/ProductionManagement/hooks/useMonitoringWebSocket';
 import { useScrollToDiagram } from '~/pages/ProductionManagement/hooks/useScrollToDiagram';
-import useWebSocket from '~/pages/ProductionManagement/hooks/useWebSocket';
 import PageHeading from '~/pages/ProductionManagement/partials/PageHeading';
 import { StationNavigationTabs } from '~/pages/ProductionManagement/partials/StationNavigationTabs';
 import { StationTabPanel } from '~/pages/ProductionManagement/partials/StationTabPanel';
 
-import { Box, CircularProgress, Stack } from '~/components/MuiComponents';
+import {
+  Box,
+  CircularProgress,
+  Stack,
+  Typography,
+} from '~/components/MuiComponents';
 
 function MonitoringPage() {
-  const { tabValue, setTabValue, tabInfo, blueprints, isBlueprintReady } =
-    useBlueprints();
-  const ws = useWebSocket(tabValue, tabInfo.channel);
+  const { tabValue, setTabValue, tabInfo, isBlueprintReady } = useBlueprints();
+  const { isWebsocketReady } = useMonitoringWebSocket(
+    tabValue,
+    tabInfo.channel,
+  );
   const { ref, scrollToDiagram } = useScrollToDiagram();
 
   const figureValues = useMonitoringStore((state) => state.figureValues);
+  const loadingMessage = useMemo(() => {
+    if (!isBlueprintReady) return 'Fetching blueprints ...';
+    if (!isWebsocketReady) return 'Connecting to the PLC ...';
+    return 'Getting things ready...';
+  }, [isBlueprintReady, isWebsocketReady]);
   const isReady = useMemo(
-    () =>
-      isBlueprintReady &&
-      !_.isEmpty(blueprints) &&
-      ws.isSubscribed(tabInfo.channel) &&
-      figureValues != undefined,
-    [isBlueprintReady, blueprints, ws, tabInfo.channel, figureValues],
+    () => isBlueprintReady && isWebsocketReady && figureValues != undefined,
+    [isBlueprintReady, isWebsocketReady, figureValues],
   );
 
   const handleChange = (_: React.SyntheticEvent, newValue: number) => {
@@ -47,12 +55,14 @@ function MonitoringPage() {
               width: '100%',
               height: '100%',
               display: 'flex',
+              flexDirection: 'column',
               justifyContent: 'center',
               alignItems: 'center',
               marginBottom: 10,
             }}
           >
             <CircularProgress />
+            <Typography marginY={2}>{loadingMessage}</Typography>
           </Box>
         )}
       </Stack>
