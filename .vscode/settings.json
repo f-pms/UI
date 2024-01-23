@@ -9,5 +9,6 @@
     "source.fixAll.eslint": "explicit"
   },
   "explorer.compactFolders": false,
-  "explorer.sortOrderLexicographicOptions": "lower"
+  "explorer.sortOrderLexicographicOptions": "lower",
+  "cSpell.words": ["swipeable"]
 }

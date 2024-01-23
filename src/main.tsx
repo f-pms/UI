@@ -10,7 +10,6 @@ import AppRouter from '~/router';
 
 import { AuthProvider } from '~/pages/Auth/context/AuthContext';
 
-import './index.css';
 const queryClient = new QueryClient();
 
 async function enableMocking() {

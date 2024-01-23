@@ -52,7 +52,7 @@ export function DefaultLayout({
               onCollapsed={() => setCollapsed(!collapsed)}
               onToggled={() => setToggled(!toggled)}
             />
-            <Box sx={{ px: 4, py: 2, flex: 1 }}>{children}</Box>
+            <Box sx={{ flex: 1 }}>{children}</Box>
             {/* <Footer /> */}
           </Stack>
         </Stack>
