@@ -44,6 +44,8 @@ export function CustomDatePicker() {
     }
   }, [focusedFromField, focusedToField, range]);
 
+  const selectedDays = Object.values(range).filter((date) => date) as Date[];
+
   return (
     <DayPicker
       captionLayout='dropdown-buttons'
@@ -56,7 +58,7 @@ export function CustomDatePicker() {
       mode='multiple'
       month={month}
       numberOfMonths={2}
-      selected={Object.values(range ?? {}) as Date[]}
+      selected={selectedDays}
       toYear={2025}
       onDayClick={handleDayClick}
       onMonthChange={setMonth}

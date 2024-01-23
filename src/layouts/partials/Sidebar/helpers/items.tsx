@@ -2,7 +2,6 @@ import { Path, PATH_LABEL } from '~/constants';
 import { SidebarItem } from '~/types/sidebar';
 
 import {
-  CottageOutlinedIcon,
   DashboardOutlinedIcon,
   FactoryOutlinedIcon,
   HandymanOutlinedIcon,

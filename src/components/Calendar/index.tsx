@@ -10,7 +10,6 @@ import { HeadRow } from '~/components/Calendar/partials/HeadRow';
 import { Months } from '~/components/Calendar/partials/Months';
 
 import 'react-day-picker/dist/style.css';
-import './styles.css';
 
 export function Calendar() {
   const [selected, setSelected] = useState<Date>(new Date());
