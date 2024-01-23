@@ -34,6 +34,10 @@ export const useWebSocketStore = create<State>(
         onConnect: () => {
           set({ connectingStateTrigger: true });
         },
+        onStompError: () => {
+          console.error('Websocket connection is corrupted!');
+          set({ connectingStateTrigger: false });
+        },
         onDisconnect: () => {
           set({
             connectingStateTrigger: false,

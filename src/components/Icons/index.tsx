@@ -3,9 +3,11 @@ export { default as ArrowDropDownIcon } from '@mui/icons-material/ArrowDropDown'
 export { default as ArrowDropUpIcon } from '@mui/icons-material/ArrowDropUp';
 export { default as ArrowForwardIcon } from '@mui/icons-material/ArrowForward';
 export { default as ArrowRightAltIcon } from '@mui/icons-material/ArrowRightAlt';
+export { default as CancelIcon } from '@mui/icons-material/Cancel';
 export { default as CenterFocusStrongOutlinedIcon } from '@mui/icons-material/CenterFocusStrongOutlined';
 export { default as CloseOutlinedIcon } from '@mui/icons-material/CloseOutlined';
 export { default as CloudUploadIcon } from '@mui/icons-material/CloudUpload';
+export { default as ContentCopyRoundedIcon } from '@mui/icons-material/ContentCopyRounded';
 export { default as CottageOutlinedIcon } from '@mui/icons-material/CottageOutlined';
 export { default as DashboardOutlinedIcon } from '@mui/icons-material/DashboardOutlined';
 export { default as DateRangeIcon } from '@mui/icons-material/DateRange';
@@ -25,6 +27,7 @@ export { default as GoogleIcon } from '@mui/icons-material/Google';
 export { default as HandymanOutlinedIcon } from '@mui/icons-material/HandymanOutlined';
 export { default as HighlightOffOutlinedIcon } from '@mui/icons-material/HighlightOffOutlined';
 export { default as HistoryOutlinedIcon } from '@mui/icons-material/HistoryOutlined';
+export { default as LibraryAddCheckRoundedIcon } from '@mui/icons-material/LibraryAddCheckRounded';
 export { default as LockOutlinedIcon } from '@mui/icons-material/LockOutlined';
 export { default as MenuOutlinedIcon } from '@mui/icons-material/MenuOutlined';
 export { default as MonitorOutlinedIcon } from '@mui/icons-material/MonitorOutlined';
@@ -35,6 +38,7 @@ export { default as NotificationImportantOutlinedIcon } from '@mui/icons-materia
 export { default as PersonOutlineOutlinedIcon } from '@mui/icons-material/PersonOutlineOutlined';
 export { default as PieChartOutlinedIcon } from '@mui/icons-material/PieChartOutlined';
 export { default as ReportProblemOutlinedIcon } from '@mui/icons-material/ReportProblemOutlined';
+export { default as SettingsIcon } from '@mui/icons-material/Settings';
 export { default as SettingsInputComponentOutlinedIcon } from '@mui/icons-material/SettingsInputComponentOutlined';
 export { default as SettingsSuggestOutlinedIcon } from '@mui/icons-material/SettingsSuggestOutlined';
 export { default as TextFormatOutlinedIcon } from '@mui/icons-material/TextFormatOutlined';

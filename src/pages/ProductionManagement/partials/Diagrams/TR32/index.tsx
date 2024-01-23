@@ -1,19 +1,18 @@
 import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
-import { useFiguresCoordinateContext } from '~/pages/ProductionManagement/context/FiguresCoordinateContext';
-import { Figures } from '~/pages/ProductionManagement/helpers/diagrams';
+import { useCurrentBlueprintContext } from '~/pages/ProductionManagement/context/BlueprintContext';
+import { Figures } from '~/pages/ProductionManagement/partials/Diagrams/partials/Figures';
 import Tr32StaticDiagram from '~/pages/ProductionManagement/partials/Diagrams/TR32/Tr32StaticDiagram';
 
 import './styles.css';
 
 export function TR32Diagram() {
-  const figuresCoordinateList = useFiguresCoordinateContext();
+  const { sensorConfigurations } = useCurrentBlueprintContext();
   const figureValues = useMonitoringStore((state) => state.figureValues);
 
   return (
     <svg
-      data-name='Layer 1'
-      id='Layer_1'
+      id='Layer_6'
       style={{ width: '100%', height: '100%' }}
       viewBox='0 0 2872.8 1340.18'
       xmlns='http://www.w3.org/2000/svg'
@@ -21,7 +20,7 @@ export function TR32Diagram() {
       <Tr32StaticDiagram />
       <Figures
         figureValues={figureValues}
-        figuresCoordinateList={figuresCoordinateList}
+        figuresCoordinateList={sensorConfigurations}
       />
     </svg>
   );
