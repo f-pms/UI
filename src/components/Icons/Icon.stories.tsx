@@ -2,28 +2,43 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
 import {
+  AddCircleOutlineOutlinedIcon,
   ArrowDropDownIcon,
   ArrowDropUpIcon,
+  ArrowForwardIcon,
+  ArrowRightAltIcon,
   CenterFocusStrongOutlinedIcon,
   CloudUploadIcon,
   CottageOutlinedIcon,
   DashboardOutlinedIcon,
+  DateRangeIcon,
   ElectricMeterOutlinedIcon,
+  ErrorOutlineOutlinedIcon,
   ExitToAppOutlinedIcon,
   ExpandMoreOutlinedIcon,
+  FactoryOutlinedIcon,
+  FileDownloadOutlinedIcon,
+  FilterAltOutlinedIcon,
   FormatColorFillOutlinedIcon,
   FormatIndentDecreaseOutlinedIcon,
   FormatIndentIncreaseOutlinedIcon,
+  FullscreenExitOutlinedIcon,
+  FullscreenOutlinedIcon,
   GoogleIcon,
   HandymanOutlinedIcon,
   HighlightOffOutlinedIcon,
+  HistoryOutlinedIcon,
   LockOutlinedIcon,
   MenuOutlinedIcon,
+  MonitorOutlinedIcon,
   MoreVertOutlinedIcon,
   NavigateBeforeIcon,
   NavigateNextIcon,
+  NotificationImportantOutlinedIcon,
   PersonOutlineOutlinedIcon,
   PieChartOutlinedIcon,
+  ReportProblemOutlinedIcon,
+  SettingsInputComponentOutlinedIcon,
   SettingsSuggestOutlinedIcon,
   TextFormatOutlinedIcon,
   WebOutlinedIcon,
@@ -54,32 +69,46 @@ type Story = StoryObj<typeof Stack>;
 export const Primary: Story = {
   render: () => (
     <Stack useFlexGap direction='row' flexWrap='wrap' spacing={5}>
+      <AddCircleOutlineOutlinedIcon />
       <ArrowDropDownIcon />
       <ArrowDropUpIcon />
-      <ArrowDropUpIcon />
+      <ArrowForwardIcon />
+      <ArrowRightAltIcon />
+      <CenterFocusStrongOutlinedIcon />
       <CloudUploadIcon />
       <CottageOutlinedIcon />
       <DashboardOutlinedIcon />
+      <DateRangeIcon />
+      <ElectricMeterOutlinedIcon />
+      <ErrorOutlineOutlinedIcon />
       <ExitToAppOutlinedIcon />
       <ExpandMoreOutlinedIcon />
+      <FactoryOutlinedIcon />
+      <FileDownloadOutlinedIcon />
       <FormatColorFillOutlinedIcon />
       <FormatIndentDecreaseOutlinedIcon />
       <FormatIndentIncreaseOutlinedIcon />
+      <FullscreenExitOutlinedIcon />
+      <FullscreenOutlinedIcon />
       <GoogleIcon />
       <HandymanOutlinedIcon />
       <HighlightOffOutlinedIcon />
+      <HistoryOutlinedIcon />
       <LockOutlinedIcon />
       <MenuOutlinedIcon />
+      <MonitorOutlinedIcon />
       <MoreVertOutlinedIcon />
       <NavigateBeforeIcon />
       <NavigateNextIcon />
+      <NotificationImportantOutlinedIcon />
       <PersonOutlineOutlinedIcon />
       <PieChartOutlinedIcon />
+      <ReportProblemOutlinedIcon />
+      <SettingsInputComponentOutlinedIcon />
       <SettingsSuggestOutlinedIcon />
       <TextFormatOutlinedIcon />
       <WebOutlinedIcon />
-      <CenterFocusStrongOutlinedIcon />
-      <ElectricMeterOutlinedIcon />
+      <FilterAltOutlinedIcon />
     </Stack>
   ),
 };

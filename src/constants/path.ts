@@ -21,6 +21,11 @@ export enum Path {
   PRODUCTION = '/production',
   PRODUCTION_MONITORING = '/production/monitoring',
 
+  // Alarm
+  ALARM = '/alarm',
+  ALARM_HISTORY = '/alarm/history',
+  ALARM_SETTING = '/alarm/setting',
+
   // Errors
   NOT_FOUND = '/not-found',
   FORBIDDEN = '/forbidden',
@@ -43,4 +48,7 @@ export const PATH_LABEL: Record<Path, string> = {
   [Path.USER_PROFILE]: 'User Profile',
   [Path.PRODUCTION]: 'Quản lý sản xuất',
   [Path.PRODUCTION_MONITORING]: 'Giám Sát',
+  [Path.ALARM]: 'Cảnh báo',
+  [Path.ALARM_HISTORY]: 'Lịch sử',
+  [Path.ALARM_SETTING]: 'Cấu hình',
 };

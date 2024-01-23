@@ -6,26 +6,41 @@ import {
   DashboardOutlinedIcon,
   FactoryOutlinedIcon,
   HandymanOutlinedIcon,
+  HistoryOutlinedIcon,
   MonitorOutlinedIcon,
+  NotificationImportantOutlinedIcon,
+  SettingsInputComponentOutlinedIcon,
 } from '~/components/Icons';
 
 export const SIDEBAR_ITEMS: SidebarItem[] = [
   {
     name: PATH_LABEL[Path.PRODUCTION],
-    icon: <FactoryOutlinedIcon sx={{ fontSize: '22px' }} />,
+    icon: <FactoryOutlinedIcon sx={{ fontSize: '20px' }} />,
     path: Path.PRODUCTION,
     children: [
       {
         name: PATH_LABEL[Path.PRODUCTION_MONITORING],
         path: Path.PRODUCTION_MONITORING,
-        icon: <MonitorOutlinedIcon sx={{ fontSize: '22px' }} />,
+        icon: <MonitorOutlinedIcon sx={{ fontSize: '20px' }} />,
       },
     ],
   },
   {
-    name: PATH_LABEL[Path.DASHBOARD],
-    icon: <CottageOutlinedIcon sx={{ fontSize: '20px' }} />,
-    path: Path.DASHBOARD,
+    name: PATH_LABEL[Path.ALARM],
+    icon: <NotificationImportantOutlinedIcon sx={{ fontSize: '20px' }} />,
+    path: Path.ALARM,
+    children: [
+      {
+        name: PATH_LABEL[Path.ALARM_HISTORY],
+        path: Path.ALARM_HISTORY,
+        icon: <HistoryOutlinedIcon sx={{ fontSize: '20px' }} />,
+      },
+      {
+        name: PATH_LABEL[Path.ALARM_SETTING],
+        path: Path.ALARM_SETTING,
+        icon: <SettingsInputComponentOutlinedIcon sx={{ fontSize: '20px' }} />,
+      },
+    ],
   },
   {
     name: PATH_LABEL[Path.HOME],
