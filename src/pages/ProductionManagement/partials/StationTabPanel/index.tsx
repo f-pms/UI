@@ -1,14 +1,24 @@
 import * as React from 'react';
 
+import { useMonitoringWebSocketStore } from '~/stores/useMonitoringWebSocketStore';
+
 import { DIAGRAMS } from '~/pages/ProductionManagement/helpers/diagrams';
 
 import { CustomTabPanel } from '~/components/CustomTabPanel';
 import {
+  ErrorOutlineOutlinedIcon,
   FileDownloadOutlinedIcon,
   FullscreenExitOutlinedIcon,
   FullscreenOutlinedIcon,
 } from '~/components/Icons';
-import { IconButton, Paper, Stack } from '~/components/MuiComponents';
+import {
+  Box,
+  IconButton,
+  LinearProgress,
+  Paper,
+  Stack,
+  Typography,
+} from '~/components/MuiComponents';
 
 export interface IStationTabPanelProps {
   value: number;
@@ -18,6 +28,8 @@ export const StationTabPanel = React.forwardRef<
   HTMLDivElement,
   IStationTabPanelProps
 >(function StationTabPanel({ value }: IStationTabPanelProps, ref) {
+  const { isReady, isError } = useMonitoringWebSocketStore();
+
   const [expanded, setExpanded] = React.useState(false);
   const paperStyles = {
     display: 'flex',
@@ -35,7 +47,42 @@ export const StationTabPanel = React.forwardRef<
 
   return (
     <Paper ref={ref} elevation={0} sx={paperStyles} variant='elevation'>
-      <Stack direction='row' justifyContent='flex-end'>
+      <Stack
+        direction='row'
+        justifyContent='flex-end'
+        marginBottom={1}
+        marginTop={1.5}
+      >
+        {isError ? (
+          <Stack
+            alignItems='center'
+            direction='row'
+            justifyContent='center'
+            width='100%'
+          >
+            <ErrorOutlineOutlinedIcon color='error' fontSize='large' />
+            <Typography marginX={1} variant='body2'>
+              Có lỗi xảy ra khi kết nối với PLC, vui lòng thử lại sau!
+            </Typography>
+          </Stack>
+        ) : (
+          !isReady && (
+            <Stack direction='column' width='100%'>
+              <LinearProgress
+                sx={{
+                  marginX: 'auto',
+                  width: '80%',
+                  marginTop: 1,
+                  marginBottom: 1,
+                }}
+              />
+              <Typography marginX='auto' variant='body2'>
+                Đang kết nối tới PLC...
+              </Typography>
+            </Stack>
+          )
+        )}
+
         <IconButton>
           <FileDownloadOutlinedIcon />
         </IconButton>

@@ -36,6 +36,7 @@ export {
   Paper,
   Popover,
   Select,
+  Snackbar,
   Stack,
   Tab,
   Tabs,

@@ -15,7 +15,8 @@ export default () => {
     useContext(BlueprintsContext);
   const [isBlueprintReady, setIsBlueprintReady] = useState<boolean>(false);
 
-  const { data: fetchedBlueprints } = useQueryBlueprints();
+  const { data: fetchedBlueprints, isError: isBlueprintError } =
+    useQueryBlueprints();
 
   useEffect(() => {
     if (fetchedBlueprints) {
@@ -34,5 +35,6 @@ export default () => {
     setTabValue,
     tabInfo,
     isBlueprintReady,
+    isBlueprintError,
   };
 };
