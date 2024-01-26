@@ -11,6 +11,7 @@ export { default as ContentCopyRoundedIcon } from '@mui/icons-material/ContentCo
 export { default as CottageOutlinedIcon } from '@mui/icons-material/CottageOutlined';
 export { default as DashboardOutlinedIcon } from '@mui/icons-material/DashboardOutlined';
 export { default as DateRangeIcon } from '@mui/icons-material/DateRange';
+export { default as EditRoundedIcon } from '@mui/icons-material/EditRounded';
 export { default as ElectricMeterOutlinedIcon } from '@mui/icons-material/ElectricMeterOutlined';
 export { default as ErrorOutlineOutlinedIcon } from '@mui/icons-material/ErrorOutlineOutlined';
 export { default as ExitToAppOutlinedIcon } from '@mui/icons-material/ExitToAppOutlined';

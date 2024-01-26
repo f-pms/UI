@@ -12,7 +12,6 @@ import {
   FullscreenOutlinedIcon,
 } from '~/components/Icons';
 import {
-  Box,
   IconButton,
   LinearProgress,
   Paper,

@@ -1,4 +1,5 @@
-import { useContext } from 'react';
+import { useCallback, useContext } from 'react';
+import { toast } from 'react-toastify';
 
 import { Path, PATH_LABEL } from '~/constants';
 import { useLocation } from '~/libs/react-router-dom';
@@ -11,7 +12,7 @@ import {
   CenterFocusStrongOutlinedIcon,
   SettingsIcon,
 } from '~/components/Icons';
-import { Box, Button } from '~/components/MuiComponents';
+import { Box, Button, Typography } from '~/components/MuiComponents';
 
 export interface IPageHeadingProps {
   scrollToDiagram: () => void;
@@ -20,6 +21,17 @@ export interface IPageHeadingProps {
 export default function PageHeading({ scrollToDiagram }: IPageHeadingProps) {
   const location = useLocation();
   const { isEditMode, updateIsEditMode } = useContext(BlueprintsContext);
+
+  const handleTurnOnEditMode = useCallback(() => {
+    updateIsEditMode(true);
+    toast.info(
+      <Typography variant='body2'>
+        Đã bật chế độ thiết lập!
+        <br />
+        Di chuyển chuột lên các số để tiến hành thiết lập.
+      </Typography>,
+    );
+  }, [updateIsEditMode]);
 
   return (
     <Box>
@@ -39,7 +51,7 @@ export default function PageHeading({ scrollToDiagram }: IPageHeadingProps) {
               <Button
                 startIcon={<SettingsIcon />}
                 variant='contained'
-                onClick={() => updateIsEditMode(true)}
+                onClick={handleTurnOnEditMode}
               >
                 Bật chế độ thiết lập
               </Button>

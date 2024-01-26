@@ -1,10 +1,11 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 
 import BlueprintsProvider from '~/pages/ProductionManagement/context/BlueprintContext';
 import useBlueprints from '~/pages/ProductionManagement/hooks/useBlueprints';
 import useMonitoringWebSocket from '~/pages/ProductionManagement/hooks/useMonitoringWebSocket';
 import { useScrollToDiagram } from '~/pages/ProductionManagement/hooks/useScrollToDiagram';
 import AlarmCarousel from '~/pages/ProductionManagement/partials/AlarmCarousel';
+import UpdateFigureInfoForm from '~/pages/ProductionManagement/partials/Diagrams/partials/UpdateFigureInfoForm';
 import PageHeading from '~/pages/ProductionManagement/partials/PageHeading';
 import { StationNavigationTabs } from '~/pages/ProductionManagement/partials/StationNavigationTabs';
 import { StationTabPanel } from '~/pages/ProductionManagement/partials/StationTabPanel';
@@ -28,10 +29,17 @@ function MonitoringPage() {
     scrollToDiagram();
   };
 
+  const [updateFigureInfoFormOpen, setupdateFigureInfoFormOpen] =
+    useState<boolean>(true);
+
   return (
     <Fragment>
       <AlarmCarousel />
       <Stack sx={{ width: '100%', height: '100%' }}>
+        <UpdateFigureInfoForm
+          handleClose={() => setupdateFigureInfoFormOpen(false)}
+          open={updateFigureInfoFormOpen}
+        />
         <PageHeading scrollToDiagram={scrollToDiagram} />
         <Stack sx={{ flex: 1 }}>
           <StationNavigationTabs handleChange={handleChange} value={tabValue} />

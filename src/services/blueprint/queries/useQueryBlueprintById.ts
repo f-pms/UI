@@ -12,6 +12,9 @@ export interface IBlueprint {
 export type FigureInfoType = {
   id: string;
   address: string;
+  db: number;
+  offset: number;
+  dataType: string;
   x: number;
   y: number;
 };
