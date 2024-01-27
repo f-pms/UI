@@ -1,5 +1,5 @@
 export enum AlarmSeverity {
-  Low = 1,
-  High = 2,
-  Urgent = 3,
+  Critical = 1,
+  Important = 2,
+  Warning = 3,
 }

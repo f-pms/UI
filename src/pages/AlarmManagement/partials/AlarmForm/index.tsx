@@ -2,32 +2,33 @@ import { useState } from 'react';
 
 import { SelectChangeEvent } from '@mui/material';
 
-import { Control } from '~/libs/react-hook-form';
+import { Control, UseFormSetValue } from '~/libs/react-hook-form';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 import { SeverityTabs } from '~/pages/AlarmManagement/partials/AlarmForm/SeverityTabs';
-import StationAutoComplete from '~/pages/AlarmManagement/partials/AlarmForm/StationAutoComplete';
+import { StationAutoComplete } from '~/pages/AlarmManagement/partials/AlarmForm/StationAutoComplete';
 import {
   TypeCondition,
   TypeConditionSelect,
 } from '~/pages/AlarmManagement/partials/AlarmForm/TypeConditionSelect';
+import { VariableAutoComplete } from '~/pages/AlarmManagement/partials/AlarmForm/VariableAutocomplete';
 
 import { InputWithLabel } from '~/components/InputWithLabel';
 import {
   Box,
   FormControl,
   InputAdornment,
-  OutlinedInput,
   Stack,
   Typography,
 } from '~/components/MuiComponents';
 
 export interface IAlarmFormProps {
   control: Control<AlarmFormData>;
+  setValue: UseFormSetValue<AlarmFormData>;
 }
 
 export default function AlarmForm(props: IAlarmFormProps) {
-  const { control } = props;
+  const { control, setValue } = props;
   const [typeCondition, setTypeCondition] = useState<TypeCondition>(
     TypeCondition.RANGE,
   );
@@ -38,7 +39,7 @@ export default function AlarmForm(props: IAlarmFormProps) {
 
   return (
     <Box sx={{ width: '600px' }}>
-      <SeverityTabs />
+      <SeverityTabs setValue={setValue} />
       <InputWithLabel control={control} label='Tên cảnh báo' name='name' />
       <InputWithLabel
         multiline
@@ -56,20 +57,8 @@ export default function AlarmForm(props: IAlarmFormProps) {
         spacing={4}
         sx={{ mt: 4 }}
       >
-        <StationAutoComplete />
-        <FormControl sx={{ mt: 1, width: '100%' }} variant='outlined'>
-          <Typography
-            color='text.strong'
-            sx={{ fontWeight: 'bold' }}
-            variant='subtitle2'
-          >
-            Tên biến
-          </Typography>
-          <Typography variant='body2'>
-            Biến được áp dụng điều kiện cảnh báo
-          </Typography>
-          <OutlinedInput size='small' />
-        </FormControl>
+        <StationAutoComplete control={control} />
+        <VariableAutoComplete control={control} />
       </Stack>
       <Stack
         alignItems='center'

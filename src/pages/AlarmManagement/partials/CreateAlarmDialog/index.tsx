@@ -1,8 +1,11 @@
-import * as React from 'react';
+import { useState } from 'react';
 
 import { useForm } from '~/libs/react-hook-form';
 
-import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
+import {
+  AlarmFormData,
+  defaultAlarmFormData,
+} from '~/pages/AlarmManagement/helpers/alarmForm';
 import AlarmForm from '~/pages/AlarmManagement/partials/AlarmForm';
 
 import { SettingsInputComponentOutlinedIcon } from '~/components/Icons';
@@ -19,11 +22,9 @@ import {
 export interface ICreateAlarmDialogProps {}
 
 export function CreateAlarmDialog() {
-  const [open, setOpen] = React.useState(false);
-  const { control, handleSubmit, reset } = useForm<AlarmFormData>({
-    defaultValues: {
-      name: '',
-    },
+  const [open, setOpen] = useState(false);
+  const { control, reset, setValue } = useForm<AlarmFormData>({
+    defaultValues: defaultAlarmFormData,
   });
   const handleClickOpen = () => {
     setOpen(true);
@@ -67,7 +68,7 @@ export function CreateAlarmDialog() {
           </Typography>
         </Box>
         <DialogContent>
-          <AlarmForm control={control} />
+          <AlarmForm control={control} setValue={setValue} />
         </DialogContent>
         <DialogActions sx={{ borderTop: 1, borderColor: 'divider' }}>
           <Stack

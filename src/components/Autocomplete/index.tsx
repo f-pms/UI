@@ -87,8 +87,8 @@ export function Autocomplete<
             isOptionEqualToValue={(option, value) => _.isEqual(option, value)}
             options={props.options}
             renderInput={props.renderInput}
-            onChange={(_, data) => {
-              field.onChange(data);
+            onChange={(data) => {
+              return data;
             }}
           />
         )}

@@ -1,17 +1,16 @@
-import { Control } from 'react-hook-form';
-
-import { TextField } from '@mui/material';
+import { TextField } from '~/libs/mui';
+import { Control } from '~/libs/react-hook-form';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 
 import { Autocomplete } from '~/components';
 import { FormControl, Typography } from '~/components/MuiComponents';
 
-export interface IStationAutoCompleteProps {
+export interface IVariableAutoCompleteProps {
   control: Control<AlarmFormData>;
 }
 
-export function StationAutoComplete({ control }: IStationAutoCompleteProps) {
+export function VariableAutoComplete({ control }: IVariableAutoCompleteProps) {
   return (
     <FormControl sx={{ mt: 1, width: '100%' }} variant='outlined'>
       <Typography
@@ -19,15 +18,17 @@ export function StationAutoComplete({ control }: IStationAutoCompleteProps) {
         sx={{ fontWeight: 'bold' }}
         variant='subtitle2'
       >
-        Trạm
+        Tên biến
       </Typography>
-      <Typography variant='body2'>Mỗi trạm quản lý nhiều biến</Typography>
+      <Typography variant='body2'>
+        Biến được áp dụng điều kiện cảnh báo
+      </Typography>
       <Autocomplete
         control={control}
         defaultValue={top100Films[0]}
         freeSolo={false}
         getOptionLabel={(option) => option.label}
-        name='station'
+        name='variable'
         options={top100Films}
         renderInput={(params) => <TextField {...params} size='small' />}
         renderOption={(props, option) => (
@@ -45,7 +46,7 @@ export function StationAutoComplete({ control }: IStationAutoCompleteProps) {
   );
 }
 
-export type FilmOption = {
+type FilmOption = {
   id: number;
   label: string;
   year: number;

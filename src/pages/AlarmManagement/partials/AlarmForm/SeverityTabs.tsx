@@ -1,5 +1,12 @@
+import { SyntheticEvent, useState } from 'react';
+import { UseFormSetValue } from 'react-hook-form';
+
 import { buttonClasses, tabClasses } from '@mui/base';
 import { styled } from '@mui/system';
+
+import { AlarmSeverity } from '~/types/alarm';
+
+import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 
 import {
   BaseTab,
@@ -7,20 +14,31 @@ import {
   BaseTabsList,
 } from '~/components/BaseMuiComponents';
 import { Typography } from '~/components/MuiComponents';
+export interface ISeverityTabsProps {
+  setValue: UseFormSetValue<AlarmFormData>;
+}
 
-export interface ISeverityTabsProps {}
+export function SeverityTabs({ setValue }: ISeverityTabsProps) {
+  const [tab, setTab] = useState<AlarmSeverity>(AlarmSeverity.Critical);
 
-export function SeverityTabs() {
+  const handleChange = (
+    _: SyntheticEvent<Element, Event> | null,
+    value: string | number | null,
+  ) => {
+    setTab(value as AlarmSeverity);
+    setValue('severity', value as number);
+  };
+
   return (
-    <BaseTabs defaultValue={0}>
+    <BaseTabs value={tab} onChange={handleChange}>
       <TabsList>
-        <Tab value={0}>
+        <Tab value={AlarmSeverity.Critical}>
           <Typography variant='subtitle2'>Khẩn cấp</Typography>
         </Tab>
-        <Tab value={1}>
+        <Tab value={AlarmSeverity.Important}>
           <Typography variant='subtitle2'>Quan trọng</Typography>
         </Tab>
-        <Tab value={2}>
+        <Tab value={AlarmSeverity.Warning}>
           <Typography variant='subtitle2'>Thông báo</Typography>
         </Tab>
       </TabsList>
