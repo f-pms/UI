@@ -11,15 +11,15 @@ export const ALARM_TABS: TabItem[] = [
     label: 'Tất cả',
   },
   {
-    value: AlarmSeverity.Urgent,
+    value: AlarmSeverity.Critical,
     label: 'Khẩn cấp',
   },
   {
-    value: AlarmSeverity.High,
+    value: AlarmSeverity.Important,
     label: 'Quan trọng',
   },
   {
-    value: AlarmSeverity.Low,
-    label: 'Bình thường',
+    value: AlarmSeverity.Warning,
+    label: 'Thông báo',
   },
 ];
