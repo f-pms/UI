@@ -39,6 +39,7 @@
     "react-material-ui-carousel": "3.4.2",
     "react-pro-sidebar": "1.1.0-alpha.1",
     "react-router-dom": "6.18.0",
+    "react-swipeable-views": "^0.14.0",
     "sort-by": "1.2.0",
     "zustand": "4.4.7"
   },
@@ -55,6 +56,8 @@
     "@types/node": "20.9.0",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
+    "@types/react-swipeable-views": "^0.13.5",
+    "@types/react-swipeable-views-utils": "^0.13.7",
     "@typescript-eslint/eslint-plugin": "6.0.0",
     "@typescript-eslint/parser": "6.0.0",
     "@vitejs/plugin-react": "4.0.3",
@@ -73,7 +76,7 @@
     "msw": "2.0.10",
     "prettier": "3.0.3",
     "storybook": "7.6.3",
-    "typescript": "5.0.2",
+    "typescript": "^5.3.3",
     "vite": "4.4.5",
     "vite-tsconfig-paths": "4.2.1"
   },
