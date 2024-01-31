@@ -29,12 +29,12 @@ export function Figures({ figuresCoordinateList, figureValues }: FiguresProps) {
   return (
     <g>
       {figuresCoordinateList.map((figuresCoordinate) => {
-        const { id, address } = figuresCoordinate;
+        const { id } = figuresCoordinate;
         return (
           <Figure
             key={id}
             figureInfo={figuresCoordinate}
-            figureValue={figureValues[address]}
+            figureValue={figureValues[id]}
             openUpdateFigureInfoDialog={openUpdateFigureInfoDialog}
           />
         );
