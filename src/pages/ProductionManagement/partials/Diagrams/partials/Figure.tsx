@@ -1,6 +1,9 @@
 import { useContext, useState } from 'react';
 
+import { FigureInfoType } from '~/services/blueprint/queries/useQueryBlueprintById';
+
 import { BlueprintsContext } from '~/pages/ProductionManagement/context/BlueprintContext';
+import { OpenUpdateFigureInfoDialogProps } from '~/pages/ProductionManagement/partials/Diagrams/partials/Figures';
 
 import {
   ContentCopyRoundedIcon,
@@ -15,29 +18,24 @@ import {
 } from '~/components/MuiComponents';
 
 interface FigureProps {
-  horizontalCoordinate: number;
-  verticalCoordinate: number;
-  db: number;
-  offset: number;
-  dataType: string;
-  value: string;
+  figureInfo: FigureInfoType;
+  figureValue: string;
+  openUpdateFigureInfoDialog: (props: OpenUpdateFigureInfoDialogProps) => void;
 }
 
 export function Figure({
-  horizontalCoordinate,
-  verticalCoordinate,
-  db,
-  offset,
-  dataType,
-  value,
+  figureInfo,
+  figureValue,
+  openUpdateFigureInfoDialog,
 }: FigureProps) {
+  const { x, y, db, offset, dataType } = figureInfo;
   const { isEditMode } = useContext(BlueprintsContext);
   const [isCopied, setIsCopied] = useState<boolean>(false);
-  const transformString = `translate(${horizontalCoordinate} ${verticalCoordinate})`;
+  const transformString = `translate(${x} ${y})`;
 
-  const handleOnCopyToClipboard = () => {
+  const copyToClipboard = () => {
     navigator.clipboard.writeText(
-      `Datablock: ${db}\nOffset: ${offset}\nData type: ${dataType}`,
+      `Data Block: ${db}\nOffset: ${offset}\nData type: ${dataType}`,
     );
     setIsCopied(true);
   };
@@ -45,26 +43,38 @@ export function Figure({
   return !isEditMode ? (
     <text transform={transformString}>
       <tspan x='0' y='0'>
-        {value}
+        {figureValue}
       </tspan>
     </text>
   ) : (
     <Tooltip
       arrow
       placement='right-start'
+      slotProps={{
+        popper: {
+          modifiers: [
+            {
+              name: 'offset',
+              options: {
+                offset: [0, -4],
+              },
+            },
+          ],
+        },
+      }}
       title={
         <Stack alignItems='center' justifyContent='center' margin={0.5}>
           <Typography variant='caption'>
-            Datablock: {db} <br />
+            Data Block: {db} <br />
             Offset: {offset} <br />
-            Data type: {dataType}
+            Kiểu Dữ Liệu: {dataType}
           </Typography>
           <Stack direction='row' justifyContent='space-evenly' marginTop={0.5}>
             <IconButton
               color='secondary'
               size='small'
               sx={{ marginLeft: 0.5 }}
-              onClick={handleOnCopyToClipboard}
+              onClick={() => openUpdateFigureInfoDialog(figureInfo)}
             >
               <EditRoundedIcon fontSize='small' />
             </IconButton>
@@ -72,7 +82,7 @@ export function Figure({
               color='secondary'
               size='small'
               sx={{ marginLeft: 0.5 }}
-              onClick={handleOnCopyToClipboard}
+              onClick={copyToClipboard}
             >
               {!isCopied ? (
                 <ContentCopyRoundedIcon fontSize='small' />
@@ -87,7 +97,7 @@ export function Figure({
     >
       <text style={{ cursor: 'pointer' }} transform={transformString}>
         <tspan x='0' y='0'>
-          {value}
+          {figureValue}
         </tspan>
       </text>
     </Tooltip>

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useMemo, useState } from 'react';
 
-import { useQueryBlueprints } from '~/services/blueprint/queries/useQueryBlueprints';
+import { useQueryBlueprints } from '~/services/blueprint';
 
 import { BlueprintsContext } from '~/pages/ProductionManagement/context/BlueprintContext';
 import {

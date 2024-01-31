@@ -9,12 +9,17 @@ export interface IBlueprint {
   sensorConfigurations: FigureInfoType[];
 }
 
+export enum DataTypeEnum {
+  REAL = 'REAL',
+  INT = 'INT',
+}
+
 export type FigureInfoType = {
-  id: string;
+  id: number;
   address: string;
   db: number;
   offset: number;
-  dataType: string;
+  dataType: DataTypeEnum;
   x: number;
   y: number;
 };

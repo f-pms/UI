@@ -4,32 +4,44 @@ import { FigureInfoType } from '~/services/blueprint/queries/useQueryBlueprintBy
 import { FigureValuesType } from '~/stores/useMonitoringStore';
 
 import { Figure } from '~/pages/ProductionManagement/partials/Diagrams/partials/Figure';
-import UpdateFigureInfoForm from '~/pages/ProductionManagement/partials/Diagrams/partials/UpdateFigureInfoForm';
+import UpdateFigureInfoDialog from '~/pages/ProductionManagement/partials/Diagrams/partials/UpdateFigureInfoDialog';
 
 export interface FiguresProps {
   figuresCoordinateList: FigureInfoType[];
   figureValues: FigureValuesType;
 }
 
+export interface OpenUpdateFigureInfoDialogProps extends FigureInfoType {}
+
 export function Figures({ figuresCoordinateList, figureValues }: FiguresProps) {
-  const [updateFigureInfoFormOpen, setupdateFigureInfoFormOpen] =
+  const [updateFigureInfoFormOpen, setUpdateFigureInfoFormOpen] =
     useState<boolean>(false);
+  const [selectedFigureInfo, setSelectedFigureInfo] =
+    useState<FigureInfoType>();
+
+  const openUpdateFigureInfoDialog = (
+    props: OpenUpdateFigureInfoDialogProps,
+  ) => {
+    setSelectedFigureInfo(props);
+    setUpdateFigureInfoFormOpen(true);
+  };
 
   return (
     <g>
-      {figuresCoordinateList.map(({ address, db, offset, dataType, x, y }) => (
-        <Figure
-          key={address + x + y}
-          dataType={dataType}
-          db={db}
-          horizontalCoordinate={x}
-          offset={offset}
-          value={figureValues[address]}
-          verticalCoordinate={y}
-        />
-      ))}
-      <UpdateFigureInfoForm
-        handleClose={() => setupdateFigureInfoFormOpen(false)}
+      {figuresCoordinateList.map((figuresCoordinate) => {
+        const { id, address } = figuresCoordinate;
+        return (
+          <Figure
+            key={id}
+            figureInfo={figuresCoordinate}
+            figureValue={figureValues[address]}
+            openUpdateFigureInfoDialog={openUpdateFigureInfoDialog}
+          />
+        );
+      })}
+      <UpdateFigureInfoDialog
+        figureInfo={selectedFigureInfo}
+        handleClose={() => setUpdateFigureInfoFormOpen(false)}
         open={updateFigureInfoFormOpen}
       />
     </g>
