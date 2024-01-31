@@ -1,6 +1,6 @@
 import { useContext, useEffect, useMemo, useState } from 'react';
 
-import { useQueryBlueprints } from '~/services/blueprint/queries/useQueryBlueprints';
+import { useQueryBlueprints } from '~/services/blueprint';
 
 import { BlueprintsContext } from '~/pages/ProductionManagement/context/BlueprintContext';
 import {
@@ -15,7 +15,8 @@ export default () => {
     useContext(BlueprintsContext);
   const [isBlueprintReady, setIsBlueprintReady] = useState<boolean>(false);
 
-  const { data: fetchedBlueprints } = useQueryBlueprints();
+  const { data: fetchedBlueprints, isError: isBlueprintError } =
+    useQueryBlueprints();
 
   useEffect(() => {
     if (fetchedBlueprints) {
@@ -34,5 +35,6 @@ export default () => {
     setTabValue,
     tabInfo,
     isBlueprintReady,
+    isBlueprintError,
   };
 };

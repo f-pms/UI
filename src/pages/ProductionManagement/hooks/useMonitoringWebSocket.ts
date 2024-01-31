@@ -1,16 +1,26 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect } from 'react';
 
 import { useMonitoringStore } from '~/stores/useMonitoringStore';
-import { useWebSocketStore } from '~/stores/useWebSocketStore';
+import {
+  MAX_RETRIES_COUNT,
+  useMonitoringWebSocketStore,
+} from '~/stores/useMonitoringWebSocketStore';
 
 export default (tabValue: number, channel: string) => {
-  const { connectingStateTrigger, ...ws } = useWebSocketStore((state) => state);
+  const { connectingStateTrigger, isError, retries, resetRetries, ...ws } =
+    useMonitoringWebSocketStore((state) => state);
   const { updateFigures } = useMonitoringStore((state) => state);
-  const isWebsocketReady = useMemo(
-    () => ws.isConnected() && ws.isSubscribed(channel),
+
+  useEffect(() => {
+    if (isError && retries > MAX_RETRIES_COUNT) {
+      ws.disconnect();
+      resetRetries();
+    } else if (!isError) {
+      resetRetries();
+    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [channel, ws],
-  );
+  }, [isError, retries]);
 
   useEffect(() => {
     if (connectingStateTrigger && ws.isConnected()) {
@@ -28,8 +38,4 @@ export default (tabValue: number, channel: string) => {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  return {
-    isWebsocketReady,
-  };
 };
