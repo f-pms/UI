@@ -28,6 +28,45 @@ function MonitoringPage() {
     scrollToDiagram();
   };
 
+  let TabPanelComponent = <StationTabPanel ref={ref} value={tabValue} />;
+  if (isBlueprintError) {
+    TabPanelComponent = (
+      <Box
+        sx={{
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginBottom: 10,
+        }}
+      >
+        <ErrorOutlineOutlinedIcon color='error' fontSize='large' />
+        <Typography marginY={2}>
+          Có lỗi xảy ra khi tải bản vẽ, vui lòng thử lại sau!
+        </Typography>
+      </Box>
+    );
+  } else if (!isBlueprintReady) {
+    TabPanelComponent = (
+      <Box
+        sx={{
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginBottom: 10,
+        }}
+      >
+        <CircularProgress />
+        <Typography marginY={2}>Đang tải bản vẽ</Typography>
+      </Box>
+    );
+  }
+
   return (
     <Fragment>
       <AlarmCarousel />
@@ -35,41 +74,7 @@ function MonitoringPage() {
         <PageHeading scrollToDiagram={scrollToDiagram} />
         <Stack sx={{ flex: 1 }}>
           <StationNavigationTabs handleChange={handleChange} value={tabValue} />
-          {isBlueprintError ? (
-            <Box
-              sx={{
-                width: '100%',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginBottom: 10,
-              }}
-            >
-              <ErrorOutlineOutlinedIcon color='error' fontSize='large' />
-              <Typography marginY={2}>
-                Có lỗi xảy ra khi tải bản vẽ, vui lòng thử lại sau!
-              </Typography>
-            </Box>
-          ) : !isBlueprintReady ? (
-            <Box
-              sx={{
-                width: '100%',
-                height: '100%',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginBottom: 10,
-              }}
-            >
-              <CircularProgress />
-              <Typography marginY={2}>Đang tải bản vẽ</Typography>
-            </Box>
-          ) : (
-            <StationTabPanel ref={ref} value={tabValue} />
-          )}
+          {TabPanelComponent}
         </Stack>
       </Stack>
     </Fragment>

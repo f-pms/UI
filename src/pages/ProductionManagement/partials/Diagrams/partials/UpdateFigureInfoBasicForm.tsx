@@ -61,7 +61,7 @@ export default function UpdateFigureInfoBasicForm({
   });
 
   const { renderedBlueprintId } = useContext(BlueprintsContext);
-  const { mutate: updateAddress, isPending, isError } = useUpdateAddress();
+  const { mutate: updateAddress, isPending } = useUpdateAddress();
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     updateAddress({
       id: figureInfo?.id ?? 0,
