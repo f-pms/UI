@@ -2,7 +2,7 @@ import { CreateAlarmDialog } from '~/pages/AlarmManagement/partials/CreateAlarmD
 
 import { SectionHeading } from '~/components';
 
-export default function SettingPageHeading() {
+export function ConfigPageHeading() {
   return (
     <SectionHeading
       actions={<CreateAlarmDialog />}

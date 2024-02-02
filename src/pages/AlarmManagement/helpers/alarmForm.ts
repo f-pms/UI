@@ -1,4 +1,4 @@
-import { AlarmSeverity, SensorConfig, Station } from '~/types/alarm';
+import { AlarmSeverity, SensorConfig, Station } from '~/types/alarmConfig';
 
 export type AlarmFormData = {
   message: string;

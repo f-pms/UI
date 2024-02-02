@@ -3,7 +3,7 @@ import { vi } from 'date-fns/locale';
 import { useSnackbar } from 'notistack';
 
 import { ColorScheme } from '~/constants';
-import { AlarmSeverity } from '~/types/alarm';
+import { AlarmSeverity } from '~/types/alarmConfig';
 
 import { Alarm } from '~/pages/ProductionManagement/helpers/alarmMockData';
 import AlarmToast from '~/pages/ProductionManagement/partials/AlarmToast';

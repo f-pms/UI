@@ -4,7 +4,7 @@ import { UseFormSetValue } from 'react-hook-form';
 import { buttonClasses, tabClasses } from '@mui/base';
 import { styled } from '@mui/system';
 
-import { AlarmSeverity } from '~/types/alarm';
+import { AlarmSeverity } from '~/types/alarmConfig';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 

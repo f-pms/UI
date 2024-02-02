@@ -24,8 +24,15 @@ export type Station = {
   name: string;
 };
 
-export type AlarmInfoDTO = {
-  id: number;
+export enum AlarmActionType {
+  Toast,
+  Email,
+}
+
+export interface AlarmConfigDTO extends AlarmInfoDTO, AlarmNotiDTO {}
+
+export interface AlarmInfoDTO {
+  id: string;
   sensorConfigId: string;
   type: AlarmType;
   severity: AlarmSeverity;
@@ -34,11 +41,6 @@ export type AlarmInfoDTO = {
   isEnabled: boolean;
   min?: number;
   max?: number;
-};
-
-export enum AlarmActionType {
-  Toast,
-  Email,
 }
 
 export type AlarmAction = {

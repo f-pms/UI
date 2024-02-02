@@ -3,7 +3,7 @@ import { vi } from 'date-fns/locale';
 
 import { AlertColor } from '@mui/material';
 
-import { AlarmSeverity } from '~/types/alarm';
+import { AlarmSeverity } from '~/types/alarmConfig';
 
 import { Alarm } from '~/pages/ProductionManagement/helpers/alarmMockData';
 

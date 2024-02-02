@@ -4,9 +4,9 @@ import { RouteObject } from '~/libs/react-router-dom';
 import { PrivateRouteObject } from '~/types';
 
 import {
+  AlarmConfigPage,
   AlarmHistoryPage,
   AlarmManagementLayout,
-  AlarmSettingPage,
 } from '~/pages/AlarmManagement';
 import {
   CalendarPage,
@@ -72,8 +72,8 @@ export const privateRoutes: (PrivateRouteObject & RouteObject)[] = [
         element: <AlarmHistoryPage />,
       },
       {
-        path: 'setting',
-        element: <AlarmSettingPage />,
+        path: 'config',
+        element: <AlarmConfigPage />,
       },
     ],
   },

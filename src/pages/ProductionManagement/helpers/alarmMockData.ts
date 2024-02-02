@@ -1,4 +1,4 @@
-import { AlarmSeverity } from '~/types/alarm';
+import { AlarmSeverity } from '~/types/alarmConfig';
 
 export type Alarm = {
   id: number;

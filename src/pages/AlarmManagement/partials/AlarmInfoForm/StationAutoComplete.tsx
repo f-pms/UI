@@ -2,7 +2,7 @@ import { Control } from 'react-hook-form';
 
 import { TextField } from '@mui/material';
 
-import { Station } from '~/types/alarm';
+import { Station } from '~/types/alarmConfig';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 

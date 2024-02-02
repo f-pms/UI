@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { TextField } from '~/libs/mui';
 import { Control } from '~/libs/react-hook-form';
-import { SensorConfig } from '~/types/alarm';
+import { SensorConfig } from '~/types/alarmConfig';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 import { CreateSensorAddressDialog } from '~/pages/AlarmManagement/partials/CreateSensorAddressDialog';
