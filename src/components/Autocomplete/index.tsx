@@ -18,7 +18,6 @@ import {
 
 interface BaseOption {
   id: number | string;
-  label: string;
 }
 
 interface IAutocompleteProps<
@@ -87,8 +86,10 @@ export function Autocomplete<
             isOptionEqualToValue={(option, value) => _.isEqual(option, value)}
             options={props.options}
             renderInput={props.renderInput}
-            onChange={(data) => {
-              return data;
+            onChange={(_, data) => {
+              props.onChange &&
+                props.onChange(_, data, 'selectOption', undefined);
+              field.onChange(data);
             }}
           />
         )}

@@ -2,6 +2,8 @@ import { Control } from 'react-hook-form';
 
 import { TextField } from '@mui/material';
 
+import { Station } from '~/types/alarm';
+
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 
 import { Autocomplete } from '~/components';
@@ -24,15 +26,15 @@ export function StationAutoComplete({ control }: IStationAutoCompleteProps) {
       <Typography variant='body2'>Mỗi trạm quản lý nhiều biến</Typography>
       <Autocomplete
         control={control}
-        defaultValue={top100Films[0]}
+        defaultValue={stations[0]}
         freeSolo={false}
-        getOptionLabel={(option) => option.label}
+        getOptionLabel={(option) => option.name}
         name='station'
-        options={top100Films}
+        options={stations}
         renderInput={(params) => <TextField {...params} size='small' />}
         renderOption={(props, option) => (
           <Typography {...props} variant='body2'>
-            {option.label}
+            {option.name}
           </Typography>
         )}
         sx={{
@@ -51,17 +53,45 @@ export type FilmOption = {
   year: number;
 };
 
-const top100Films: FilmOption[] = [
-  { id: 1, label: 'The Shawshank Redemption', year: 1994 },
-  { id: 2, label: 'The Godfather', year: 1972 },
-  { id: 3, label: 'The Godfather: Part II', year: 1974 },
-  { id: 4, label: 'The Dark Knight', year: 2008 },
-  { id: 5, label: '12 Angry Men', year: 1957 },
-  { id: 6, label: "Schindler's List", year: 1993 },
-  { id: 7, label: 'Pulp Fiction', year: 1994 },
+const stations: Station[] = [
   {
-    id: 8,
-    label: 'The Lord of the Rings: The Return of the King',
-    year: 2003,
+    id: 'station-1',
+    name: 'Trạm 1',
+  },
+  {
+    id: 'station-2',
+    name: 'Trạm 2',
+  },
+  {
+    id: 'station-3',
+    name: 'Trạm 3',
+  },
+  {
+    id: 'station-4',
+    name: 'Trạm 4',
+  },
+  {
+    id: 'station-5',
+    name: 'Trạm 5',
+  },
+  {
+    id: 'station-6',
+    name: 'Trạm 6',
+  },
+  {
+    id: 'station-7',
+    name: 'Trạm 7',
+  },
+  {
+    id: 'station-8',
+    name: 'Trạm 8',
+  },
+  {
+    id: 'station-9',
+    name: 'Trạm 9',
+  },
+  {
+    id: 'station-10',
+    name: 'Trạm 10',
   },
 ];

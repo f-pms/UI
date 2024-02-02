@@ -16,15 +16,15 @@ export interface IAlarmToastProps {
 export default function AlarmToast({ alarm }: IAlarmToastProps) {
   let severity;
   switch (alarm.severity) {
-    case AlarmSeverity.Warning: {
+    case AlarmSeverity.WARNING: {
       severity = 'info';
       break;
     }
-    case AlarmSeverity.Important: {
+    case AlarmSeverity.IMPORTANT: {
       severity = 'warning';
       break;
     }
-    case AlarmSeverity.Critical: {
+    case AlarmSeverity.CRITICAL: {
       severity = 'error';
       break;
     }

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import React from 'react';
 
 import { useForm } from '~/libs/react-hook-form';
 
@@ -7,7 +6,10 @@ import {
   AlarmFormData,
   defaultAlarmFormData,
 } from '~/pages/AlarmManagement/helpers/alarmForm';
-import AlarmForm from '~/pages/AlarmManagement/partials/AlarmForm';
+import { AlarmInfoForm } from '~/pages/AlarmManagement/partials/AlarmInfoForm';
+import { AlarmNotiForm } from '~/pages/AlarmManagement/partials/AlarmNotiForm';
+import { AlertChangeModeDialog } from '~/pages/AlarmManagement/partials/AlertChangeModeDialog';
+import { FinishStep } from '~/pages/AlarmManagement/partials/FinishStep';
 
 import { SettingsInputComponentOutlinedIcon } from '~/components/Icons';
 import {
@@ -16,7 +18,9 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
+  FormControlLabel,
   Stack,
+  Switch,
   Typography,
 } from '~/components/MuiComponents';
 
@@ -25,40 +29,35 @@ export interface ICreateAlarmDialogProps {}
 export type AlarmStep = {
   label: string;
   content: React.ReactNode;
+  description: string;
 };
 
 export function CreateAlarmDialog() {
   const [open, setOpen] = useState(false);
+  const [activeStep, setActiveStep] = useState(0);
+  const [isAdvanced, setIsAdvanced] = useState(false);
+  const [openAlertChangeMode, setOpenAlertChangeMode] = useState(false);
+
   const { control, reset, setValue } = useForm<AlarmFormData>({
     defaultValues: defaultAlarmFormData,
   });
-  const handleClickOpen = () => {
+
+  const handleOpenDialog = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleCloseDialog = () => {
     setOpen(false);
     reset();
+    setActiveStep(0);
+    setIsAdvanced(false);
   };
 
-  const [activeStep, setActiveStep] = React.useState(0);
-
-  const steps: AlarmStep[] = [
-    {
-      label: 'Cấu hình cảnh báo',
-      content: <AlarmForm control={control} setValue={setValue} />,
-    },
-    {
-      label: 'Gửi cảnh báo',
-      content: <div>Gửi cảnh báo</div>,
-    },
-    {
-      label: 'Hoàn thành',
-      content: <div>Hoàn thành</div>,
-    },
-  ];
-
   const handleNext = () => {
+    if (activeStep === steps.length - 1) {
+      handleCloseDialog();
+      return;
+    }
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
@@ -70,25 +69,53 @@ export function CreateAlarmDialog() {
     setActiveStep(0);
   };
 
+  const handleAgreeChangeMode = () => {
+    setOpenAlertChangeMode(false);
+    setIsAdvanced((prevIsAdvanced) => !prevIsAdvanced);
+    setActiveStep(0);
+    reset();
+  };
+
+  const steps: AlarmStep[] = [
+    {
+      label: 'Cấu hình cảnh báo',
+      description: 'Thiết lập các điều kiện cho hiển thị cảnh báo',
+      content: (
+        <AlarmInfoForm
+          control={control}
+          isAdvanced={isAdvanced}
+          setValue={setValue}
+        />
+      ),
+    },
+    {
+      label: 'Gửi cảnh báo',
+      description: 'Thiết lập các thông tin gửi cảnh báo',
+      content: <AlarmNotiForm />,
+    },
+    {
+      label: 'Hoàn thành',
+      description: 'Các bước chuẩn bị đã hoàn tất và sẵn sàng để tạo cảnh báo',
+      content: <FinishStep />,
+    },
+  ];
+
   return (
     <>
       <Button
         startIcon={<SettingsInputComponentOutlinedIcon />}
         variant='contained'
-        onClick={handleClickOpen}
+        onClick={handleOpenDialog}
       >
         Thêm cấu hình
       </Button>
       <Dialog
         PaperProps={{
           component: 'form',
-          // onSubmit: handleSubmit((data) => {
-          //   console.log(data);
-          // }),
         }}
         maxWidth='md'
         open={open}
-        onClose={handleClose}
+        onClose={handleCloseDialog}
       >
         <Box pt={2} px={3}>
           <Stack
@@ -102,20 +129,34 @@ export function CreateAlarmDialog() {
                 sx={{ fontWeight: 'bold' }}
                 variant='h6'
               >
-                {`Bước ${activeStep + 1}: ${steps[activeStep].label}`}
+                {`Bước ${activeStep + 1}/${steps.length}: ${
+                  steps[activeStep].label
+                }`}
               </Typography>
               <Typography variant='body2'>
-                Thiết lập các điều kiện cho hiển thị cảnh báo.
+                {steps[activeStep].description}
               </Typography>
             </Box>
-            <Typography variant='body2'>{`(${activeStep + 1}/${
-              steps.length
-            })`}</Typography>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={isAdvanced}
+                  color='primary'
+                  inputProps={{ 'aria-label': 'controlled' }}
+                  onChange={() => setOpenAlertChangeMode(true)}
+                />
+              }
+              label={
+                <Typography variant='body2'>Thiết lập nâng cao</Typography>
+              }
+              labelPlacement='bottom'
+              sx={{ mr: 0 }}
+            />
           </Stack>
         </Box>
         <DialogContent>
           {activeStep === steps.length ? (
-            <React.Fragment>
+            <>
               <Typography sx={{ mt: 2, mb: 1 }}>
                 All steps completed - you&apos;re finished
               </Typography>
@@ -123,11 +164,10 @@ export function CreateAlarmDialog() {
                 <Box sx={{ flex: '1 1 auto' }} />
                 <Button onClick={handleReset}>Reset</Button>
               </Box>
-            </React.Fragment>
+            </>
           ) : (
-            <React.Fragment>{steps[activeStep].content}</React.Fragment>
+            <>{steps[activeStep].content}</>
           )}
-          {/* <AlarmForm control={control} setValue={setValue} /> */}
         </DialogContent>
         <DialogActions sx={{ borderTop: 1, borderColor: 'divider' }}>
           <Stack
@@ -138,47 +178,33 @@ export function CreateAlarmDialog() {
           >
             <Button
               color='inherit'
-              disabled={activeStep === 0}
               variant='outlined'
-              onClick={handleBack}
+              onClick={handleCloseDialog}
             >
-              Trở lại
+              Đóng
             </Button>
-            <Button type='button' variant='contained' onClick={handleNext}>
-              {activeStep === steps.length - 1 ? 'Hoàn thành' : 'Kế tiếp'}
-            </Button>
-          </Stack>
-        </DialogActions>
-        {/* <DialogActions sx={{ borderTop: 1, borderColor: 'divider' }}>
-          <Stack
-            alignItems='center'
-            direction='row'
-            justifyContent='space-between'
-            sx={{ width: '100%', p: 2 }}
-          >
-            <Box>
-              <Typography
-                color='text.strong'
-                sx={{ fontWeight: 'bold' }}
-                variant='subtitle2'
+            <Stack direction='row' spacing={1}>
+              <Button
+                color='inherit'
+                disabled={activeStep === 0}
+                variant='contained'
+                onClick={handleBack}
               >
-                Lưu thiết lập
-              </Typography>
-              <Typography variant='body2'>
-                Hệ thống sẽ hiển thị cảnh báo sao 5s (Nếu có)
-              </Typography>
-            </Box>
-            <Stack direction='row' spacing={2}>
-              <Button color='inherit' variant='outlined' onClick={handleClose}>
-                Đóng
+                Trở lại
               </Button>
-              <Button type='submit' variant='contained'>
-                Thiết lập
+              <Button variant='contained' onClick={handleNext}>
+                {activeStep === steps.length - 1 ? 'Tạo cảnh báo' : 'Kế tiếp'}
               </Button>
             </Stack>
           </Stack>
-        </DialogActions> */}
+        </DialogActions>
       </Dialog>
+      <AlertChangeModeDialog
+        handleAgree={handleAgreeChangeMode}
+        handleClose={() => setOpenAlertChangeMode(false)}
+        isAdvanced={isAdvanced}
+        open={openAlertChangeMode}
+      />
     </>
   );
 }

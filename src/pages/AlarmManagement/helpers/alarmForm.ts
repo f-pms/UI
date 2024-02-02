@@ -1,25 +1,25 @@
-import { AlarmSeverity } from '~/types/alarm';
-
-import { FilmOption } from '~/pages/AlarmManagement/partials/AlarmForm/StationAutoComplete';
+import { AlarmSeverity, SensorConfig, Station } from '~/types/alarm';
 
 export type AlarmFormData = {
-  name: string;
-  description: string;
+  message: string;
   severity: AlarmSeverity;
   status?: boolean;
   checkInterval: number;
   timeDelay: number;
-  station: FilmOption | null;
-  variable: FilmOption | null;
+  station: Station | null;
+  variable: SensorConfig | null;
+  min?: number;
+  max?: number;
 };
 
 export const defaultAlarmFormData: AlarmFormData = {
-  name: '',
-  description: '',
-  severity: AlarmSeverity.Critical,
+  message: '',
+  severity: AlarmSeverity.CRITICAL,
   variable: null,
   status: false,
   checkInterval: 0,
   timeDelay: 0,
   station: null,
+  min: 0,
+  max: 0,
 };
