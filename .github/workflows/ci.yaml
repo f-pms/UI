@@ -12,5 +12,5 @@ permissions:
   statuses: write
 
 jobs:
-  ci:
+  general-ci:
     uses: f-pms/Devops/.github/workflows/ci.yaml@huynn/linter
