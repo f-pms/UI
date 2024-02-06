@@ -1,4 +1,4 @@
-# Front-end Folder Structure Conventions
+# Frontend Folder Structure Conventions
 
 A well-organized folder structure is essential for maintaining a clean and scalable codebase in a React TypeScript project. Below is a suggested folder structure with brief descriptions for each directory:
 
