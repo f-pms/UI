@@ -35,5 +35,12 @@ jobs:
         run: yarn build
       - name: Build storybook
         run: yarn build-storybook
-      - name: Test vrt
+      - id: vrt
+        name: Test vrt
         uses: lost-pixel/lost-pixel@v3.8.0
+      - name: Save vrt results
+        uses: actions/upload-artifact@v4
+        if: ${{ failure() && steps.vrt.conclusion == 'failure' }}
+        with:
+          name: lost-pixel-artifacts
+          path: .lostpixel
