@@ -3,6 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">= 18.12.0 < 20.0.0",
+    "npm": "please-use-yarn",
+    "yarn": ">= 1.22.15"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -39,8 +44,8 @@
     "react-material-ui-carousel": "3.4.2",
     "react-pro-sidebar": "1.1.0-alpha.1",
     "react-router-dom": "6.18.0",
-    "react-toastify": "^10.0.4",
     "react-swipeable-views": "^0.14.0",
+    "react-toastify": "^10.0.4",
     "sort-by": "1.2.0",
     "zustand": "4.4.7"
   },
@@ -85,6 +90,7 @@
     "workerDirectory": "public"
   },
   "resolutions": {
-    "strip-ansi": "6.0.1"
+    "strip-ansi": "6.0.1",
+    "jackspeak": "2.1.1"
   }
 }
