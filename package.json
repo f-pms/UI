@@ -18,7 +18,6 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "vrt": "lost-pixel",
-    "update-vrt": "lost-pixel update",
     "cz": "git-cz --disable-emoji"
   },
   "dependencies": {
