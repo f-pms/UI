@@ -35,7 +35,5 @@ jobs:
         run: yarn build
       - name: Build storybook
         run: yarn build-storybook
-      - name: Lost Pixel
+      - name: Test vrt
         uses: lost-pixel/lost-pixel@v3.8.0
-        env:
-          LOST_PIXEL_API_KEY: ${{ secrets.LOST_PIXEL_API_KEY }}

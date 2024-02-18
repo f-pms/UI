@@ -17,6 +17,8 @@
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "vrt": "lost-pixel",
+    "update-vrt": "lost-pixel update",
     "cz": "git-cz --disable-emoji"
   },
   "dependencies": {
@@ -79,6 +81,7 @@
     "eslint-plugin-storybook": "0.6.15",
     "husky": "8.0.3",
     "lint-staged": "15.1.0",
+    "lost-pixel": "^3.13.0",
     "msw": "2.0.10",
     "prettier": "3.0.3",
     "storybook": "7.6.3",
