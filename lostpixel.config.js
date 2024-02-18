@@ -5,4 +5,5 @@ export default {
   },
   generateOnly: true,
   failOnDifference: true,
+  threshold: 0.1,
 };
