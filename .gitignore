@@ -21,4 +21,4 @@ dist-ssr
 *.sln
 *.sw?
 
-yarn.lock
+storybook-static

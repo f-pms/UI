@@ -7,5 +7,6 @@
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["vite.config.ts", ".eslintrc.cjs"]
+  "include": ["vite.config.ts"],
+  "exclude": ["lostpixel.config.js"]
 }
