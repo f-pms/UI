@@ -8,5 +8,5 @@
     "allowSyntheticDefaultImports": true
   },
   "include": ["vite.config.ts"],
-  "exclude": ["lost-pixel.config.js"]
+  "exclude": ["lostpixel.config.js"]
 }
