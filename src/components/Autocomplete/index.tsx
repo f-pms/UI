@@ -18,7 +18,6 @@ import {
 
 interface BaseOption {
   id: number | string;
-  label: string;
 }
 
 interface IAutocompleteProps<
@@ -88,6 +87,7 @@ export function Autocomplete<
             options={props.options}
             renderInput={props.renderInput}
             onChange={(_, data) => {
+              props.onChange?.(_, data, 'selectOption', undefined);
               field.onChange(data);
             }}
           />

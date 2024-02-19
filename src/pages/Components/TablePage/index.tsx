@@ -5,10 +5,6 @@ import {
   useMaterialReactTable,
 } from 'material-react-table';
 
-import { Button, Divider, Stack, Tooltip, Typography } from '@mui/material';
-
-import { AddCircleOutlineOutlinedIcon } from '~/components/Icons';
-
 //If using TypeScript, define the shape of your data (optional, but recommended)
 interface Person {
   name: string;
@@ -78,27 +74,6 @@ export function TablePage() {
       search: 'Tìm kiếm',
       toggleSelectAll: 'Chọn/Hủy tất cả',
       toggleSelectRow: 'Chọn/Hủy dòng này',
-    },
-    renderTopToolbarCustomActions: () => {
-      return (
-        <div>
-          <Tooltip title='Lọc theo tên'>
-            <Button
-              color='zinc'
-              size='small'
-              startIcon={<AddCircleOutlineOutlinedIcon />}
-              sx={{ borderStyle: 'dashed' }}
-              variant='outlined'
-            >
-              <Stack direction='row' spacing={1}>
-                <Typography variant='caption'>Tên</Typography>
-                <Divider flexItem orientation='vertical' />
-                <Typography variant='caption'>Huy</Typography>
-              </Stack>
-            </Button>
-          </Tooltip>
-        </div>
-      );
     },
   });
 

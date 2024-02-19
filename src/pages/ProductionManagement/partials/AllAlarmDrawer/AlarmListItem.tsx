@@ -3,7 +3,7 @@ import { vi } from 'date-fns/locale';
 import { useSnackbar } from 'notistack';
 
 import { ColorScheme } from '~/constants';
-import { AlarmSeverity } from '~/types/alarm';
+import { AlarmSeverity } from '~/types/alarmConfig';
 
 import { Alarm } from '~/pages/ProductionManagement/helpers/alarmMockData';
 import AlarmToast from '~/pages/ProductionManagement/partials/AlarmToast';
@@ -33,15 +33,15 @@ export default function AlarmListItem({ alarm }: IAlarmListItemProps) {
   let icon;
   let color;
   switch (alarm.severity) {
-    case AlarmSeverity.Low:
+    case AlarmSeverity.WARNING:
       icon = <NotificationImportantOutlinedIcon sx={{ fontSize: '18px' }} />;
       color = 'info';
       break;
-    case AlarmSeverity.High:
+    case AlarmSeverity.IMPORTANT:
       icon = <ReportProblemOutlinedIcon sx={{ fontSize: '18px' }} />;
       color = 'warning';
       break;
-    case AlarmSeverity.Urgent:
+    case AlarmSeverity.CRITICAL:
       icon = <ErrorOutlineOutlinedIcon sx={{ fontSize: '18px' }} />;
       color = 'error';
       break;

@@ -42,6 +42,48 @@ export const getCustomizeTheme = (
           },
         },
       },
+      MuiInputBase: {
+        styleOverrides: {
+          root: {
+            fontSize: '0.875rem',
+          },
+        },
+      },
+      MuiButtonBase: {
+        styleOverrides: {
+          root: {
+            fontSize: '0.875rem',
+          },
+        },
+      },
+      MuiInput: {
+        styleOverrides: {
+          root: {
+            fontSize: '0.875rem',
+          },
+        },
+      },
+      MuiInputLabel: {
+        styleOverrides: {
+          root: {
+            fontSize: '0.875rem',
+          },
+        },
+      },
+      MuiMenuItem: {
+        styleOverrides: {
+          root: {
+            fontSize: '0.875rem',
+          },
+        },
+      },
+      MuiListItemText: {
+        styleOverrides: {
+          primary: {
+            fontSize: '0.875rem',
+          },
+        },
+      },
     },
   });
 };

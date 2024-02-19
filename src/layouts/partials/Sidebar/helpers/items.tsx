@@ -35,8 +35,8 @@ export const SIDEBAR_ITEMS: SidebarItem[] = [
         icon: <HistoryOutlinedIcon sx={{ fontSize: '20px' }} />,
       },
       {
-        name: PATH_LABEL[Path.ALARM_SETTING],
-        path: Path.ALARM_SETTING,
+        name: PATH_LABEL[Path.ALARM_CONFIG],
+        path: Path.ALARM_CONFIG,
         icon: <SettingsInputComponentOutlinedIcon sx={{ fontSize: '20px' }} />,
       },
     ],

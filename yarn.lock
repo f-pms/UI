@@ -3348,7 +3348,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-swipeable-views-utils@^0.13.7":
+"@types/react-swipeable-views-utils@0.13.7":
   version "0.13.7"
   resolved "https://registry.yarnpkg.com/@types/react-swipeable-views-utils/-/react-swipeable-views-utils-0.13.7.tgz#9dd524c78612837779367ede885a0a8097444464"
   integrity sha512-ED8pf8dq3S79uWtP8EnSdrg7dUCrxyL9Uapq1dSA2mz+H83SjS8vsqmlFWmmBQoTuEHsQp5Ru9fxxsofQ+bI9Q==
@@ -3357,7 +3357,7 @@
     "@types/react" "*"
     "@types/react-swipeable-views" "*"
 
-"@types/react-swipeable-views@*", "@types/react-swipeable-views@^0.13.5":
+"@types/react-swipeable-views@*", "@types/react-swipeable-views@0.13.5":
   version "0.13.5"
   resolved "https://registry.yarnpkg.com/@types/react-swipeable-views/-/react-swipeable-views-0.13.5.tgz#f9dc947b7424d34cade864185bfa831a818a45f6"
   integrity sha512-ni6WjO7gBq2xB2Y/ZiRdQOgjGOxIik5ow2s7xKieDq8DxsXTdV46jJslSBVK2yoIJHf6mG3uqNTwxwgzbXRRzg==
@@ -7298,7 +7298,7 @@ normalize-path@^3.0.0, normalize-path@~3.0.0:
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
   integrity sha512-6eZs5Ls3WtCisHWp9S2GUy8dqkpGi4BVSz3GaqiE6ezub0512ESztXUwUB6C6IKbQkY2Pnb/mD4WYojCRwcwLA==
 
-notistack@^3.0.1:
+notistack@3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/notistack/-/notistack-3.0.1.tgz#daf59888ab7e2c30a1fa8f71f9cba2978773236e"
   integrity sha512-ntVZXXgSQH5WYfyU+3HfcXuKaapzAJ8fBLQ/G618rn3yvSzEbnOB8ZSOwhX+dAORy/lw+GC2N061JA0+gYWTVA==
@@ -8123,7 +8123,7 @@ react-swipeable-views-utils@^0.14.0:
     react-swipeable-views-core "^0.14.0"
     shallow-equal "^1.2.1"
 
-react-swipeable-views@^0.14.0:
+react-swipeable-views@0.14.0:
   version "0.14.0"
   resolved "https://registry.yarnpkg.com/react-swipeable-views/-/react-swipeable-views-0.14.0.tgz#149c0df3d92220cc89e3f6d5c04a78dfe46f9b54"
   integrity sha512-wrTT6bi2nC3JbmyNAsPXffUXLn0DVT9SbbcFr36gKpbaCgEp7rX/OFxsu5hPc/NBsUhHyoSRGvwqJNNrWTwCww==
@@ -8134,7 +8134,7 @@ react-swipeable-views@^0.14.0:
     react-swipeable-views-utils "^0.14.0"
     warning "^4.0.1"
 
-react-toastify@^10.0.4:
+react-toastify@10.0.4:
   version "10.0.4"
   resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-10.0.4.tgz#6ecdbbf923a07fc45850e69b0566efc7bf733283"
   integrity sha512-etR3RgueY8pe88SA67wLm8rJmL1h+CLqUGHuAoNsseW35oTGJEri6eBTyaXnFKNQ80v/eO10hBYLgz036XRGgA==
@@ -9223,7 +9223,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-typescript@^5.3.3:
+typescript@5.3.3:
   version "5.3.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.3.3.tgz#b3ce6ba258e72e6305ba66f5c9b452aaee3ffe37"
   integrity sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==

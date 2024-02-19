@@ -11,6 +11,7 @@ export { default as ContentCopyRoundedIcon } from '@mui/icons-material/ContentCo
 export { default as CottageOutlinedIcon } from '@mui/icons-material/CottageOutlined';
 export { default as DashboardOutlinedIcon } from '@mui/icons-material/DashboardOutlined';
 export { default as DateRangeIcon } from '@mui/icons-material/DateRange';
+export { default as EditOutlinedIcon } from '@mui/icons-material/EditOutlined';
 export { default as EditRoundedIcon } from '@mui/icons-material/EditRounded';
 export { default as ElectricMeterOutlinedIcon } from '@mui/icons-material/ElectricMeterOutlined';
 export { default as ErrorOutlineOutlinedIcon } from '@mui/icons-material/ErrorOutlineOutlined';
@@ -32,10 +33,12 @@ export { default as LibraryAddCheckRoundedIcon } from '@mui/icons-material/Libra
 export { default as LockOutlinedIcon } from '@mui/icons-material/LockOutlined';
 export { default as MenuOutlinedIcon } from '@mui/icons-material/MenuOutlined';
 export { default as MonitorOutlinedIcon } from '@mui/icons-material/MonitorOutlined';
+export { default as MoreHorizIcon } from '@mui/icons-material/MoreHoriz';
 export { default as MoreVertOutlinedIcon } from '@mui/icons-material/MoreVertOutlined';
 export { default as NavigateBeforeIcon } from '@mui/icons-material/NavigateBefore';
 export { default as NavigateNextIcon } from '@mui/icons-material/NavigateNext';
 export { default as NotificationImportantOutlinedIcon } from '@mui/icons-material/NotificationImportantOutlined';
+export { default as NotificationsOffOutlinedIcon } from '@mui/icons-material/NotificationsOffOutlined';
 export { default as PersonOutlineOutlinedIcon } from '@mui/icons-material/PersonOutlineOutlined';
 export { default as PieChartOutlinedIcon } from '@mui/icons-material/PieChartOutlined';
 export { default as ReportProblemOutlinedIcon } from '@mui/icons-material/ReportProblemOutlined';

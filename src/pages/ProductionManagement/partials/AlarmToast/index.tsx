@@ -3,7 +3,7 @@ import { vi } from 'date-fns/locale';
 
 import { AlertColor } from '@mui/material';
 
-import { AlarmSeverity } from '~/types/alarm';
+import { AlarmSeverity } from '~/types/alarmConfig';
 
 import { Alarm } from '~/pages/ProductionManagement/helpers/alarmMockData';
 
@@ -16,15 +16,15 @@ export interface IAlarmToastProps {
 export default function AlarmToast({ alarm }: IAlarmToastProps) {
   let severity;
   switch (alarm.severity) {
-    case AlarmSeverity.Low: {
+    case AlarmSeverity.WARNING: {
       severity = 'info';
       break;
     }
-    case AlarmSeverity.High: {
+    case AlarmSeverity.IMPORTANT: {
       severity = 'warning';
       break;
     }
-    case AlarmSeverity.Urgent: {
+    case AlarmSeverity.CRITICAL: {
       severity = 'error';
       break;
     }

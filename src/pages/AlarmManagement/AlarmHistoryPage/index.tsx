@@ -1,5 +1,5 @@
+import { AlarmHistoryTable } from '~/pages/AlarmManagement/partials/AlarmHistoryTable';
 import HistoryPageHeading from '~/pages/AlarmManagement/partials/HistoryPageHeading';
-import { TablePage } from '~/pages/Components';
 
 import { SoftChip } from '~/components';
 import { DateRangePicker } from '~/components/DateRangePicker';
@@ -50,7 +50,7 @@ export function AlarmHistoryPage() {
         </Stack>
       </Paper>
 
-      <TablePage />
+      <AlarmHistoryTable />
     </Container>
   );
 }

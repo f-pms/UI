@@ -1,4 +1,4 @@
-import { AlarmSeverity } from '~/types/alarm';
+import { AlarmSeverity } from '~/types/alarmConfig';
 
 export type TabItem = {
   value: number;
@@ -11,15 +11,15 @@ export const ALARM_TABS: TabItem[] = [
     label: 'Tất cả',
   },
   {
-    value: AlarmSeverity.Urgent,
+    value: AlarmSeverity.CRITICAL,
     label: 'Khẩn cấp',
   },
   {
-    value: AlarmSeverity.High,
+    value: AlarmSeverity.IMPORTANT,
     label: 'Quan trọng',
   },
   {
-    value: AlarmSeverity.Low,
-    label: 'Bình thường',
+    value: AlarmSeverity.WARNING,
+    label: 'Thông báo',
   },
 ];
