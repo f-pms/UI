@@ -1,17 +1,46 @@
 name: CI
+
 on:
   pull_request:
-    branches:
-      - master
 
 permissions:
   contents: read
-  pull-requests: read
+  packages: read
+  statuses: write
 
 jobs:
-  ci:
+  general-ci:
     uses: f-pms/Devops/.github/workflows/ci.yaml@master
-    with:
-      prepare-command: echo "Preparing...!"
-      build-command: yarn && yarn build
-      test-command: echo "Testing...!"
+  node-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.base_ref }}
+          fetch-depth: 0
+      - name: Git merge
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "Github Actions"
+          git merge origin/${{ github.head_ref }} --allow-unrelated-histories
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: yarn
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+      - name: Build
+        run: yarn build
+      - name: Build storybook
+        run: yarn build-storybook
+      - id: vrt
+        name: Test vrt
+        uses: lost-pixel/lost-pixel@v3.8.0
+      - name: Save vrt results
+        uses: actions/upload-artifact@v4
+        if: ${{ failure() && steps.vrt.conclusion == 'failure' }}
+        with:
+          name: lost-pixel-artifacts
+          path: .lostpixel

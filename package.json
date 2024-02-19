@@ -3,6 +3,11 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">= 18.12.0 <= 20.9.0",
+    "npm": "please-use-yarn",
+    "yarn": ">= 1.22.15"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -12,6 +17,7 @@
     "prepare": "husky install",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
+    "vrt": "lost-pixel",
     "cz": "git-cz --disable-emoji"
   },
   "dependencies": {
@@ -74,6 +80,7 @@
     "eslint-plugin-storybook": "0.6.15",
     "husky": "8.0.3",
     "lint-staged": "15.1.0",
+    "lost-pixel": "^3.13.0",
     "msw": "2.0.10",
     "prettier": "3.0.3",
     "storybook": "7.6.3",
@@ -85,6 +92,7 @@
     "workerDirectory": "public"
   },
   "resolutions": {
-    "strip-ansi": "6.0.1"
+    "strip-ansi": "6.0.1",
+    "jackspeak": "2.1.1"
   }
 }

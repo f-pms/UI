@@ -1,0 +1,108 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2020": true
+  },
+  "extends": [
+    "plugin:react/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:storybook/recommended",
+    "plugin:sonarjs/recommended"
+  ],
+  "ignorePatterns": ["dist", ".eslintrc.cjs", "vite.config.ts", "public"],
+  "plugins": [
+    "simple-import-sort",
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "sonarjs"
+  ],
+  "rules": {
+    "react/display-name": "off",
+    "no-console": [
+      "error",
+      {
+        "allow": ["warn", "error", "info"]
+      }
+    ],
+    "@typescript-eslint/no-unsafe-assignment": "warn",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variable",
+        "types": ["boolean"],
+        "format": ["camelCase", "PascalCase", "UPPER_CASE"]
+      },
+      {
+        "selector": "variable",
+        "types": ["array"],
+        "format": ["camelCase", "PascalCase", "UPPER_CASE"],
+        "custom": {
+          "match": true,
+          "regex": "[s|List|S|LIST]$"
+        }
+      },
+      {
+        "selector": "enumMember",
+        "format": ["PascalCase", "UPPER_CASE"]
+      }
+    ],
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": "off",
+    "react-hooks/exhaustive-deps": "warn",
+    "@typescript-eslint/no-explicit-any": "error",
+    "simple-import-sort/imports": [
+      "warn",
+      {
+        "groups": [
+          ["^react$", "^[a-z]"],
+          ["^@"],
+          ["^~"],
+          ["^~/pages"],
+          ["^~/components"],
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          ["^.+\\.s?css$"],
+          ["^\\u0000"]
+        ]
+      }
+    ],
+    "simple-import-sort/exports": "warn",
+    "react/jsx-sort-props": [
+      "warn",
+      {
+        "callbacksLast": true,
+        "shorthandFirst": true,
+        "shorthandLast": false,
+        "ignoreCase": false,
+        "noSortAlphabetically": false,
+        "reservedFirst": true
+      }
+    ],
+    "react/prefer-read-only-props": "off",
+    "sonarjs/no-duplicate-string": "off"
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": ["./tsconfig.json", "./tsconfig.node.json"]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

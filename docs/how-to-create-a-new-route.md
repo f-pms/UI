@@ -1,6 +1,6 @@
 # How to crete a new route for your page
 
-### Step 1: Create new path constant
+## Step 1: Create new path constant
 
 Inside the `src/constants/path` directory, update a new **Path** and **PATH_LABEL** for your page. For example:
 
@@ -17,11 +17,11 @@ export const PATH_LABEL: Record<Path, string> = {
 
 ```
 
-### Step 2: Create new page
+## Step 2: Create new page
 
 Inside the `src/pages` directory, create new folder for your page. For example, let's call it **NewPage**.
 
-### Step 3: Update routes
+## Step 3: Update routes
 
 Inside the `src/router/routes` directory, update privateRoles or publicRoutes which match with your route. When creating a public route, use the `isRestricted` tag if the page is restricted. For example:
 
@@ -37,7 +37,7 @@ export const publicRoutes: (PublicRouteObject & RouteObject)[] = [
 ]
 ```
 
-### Step 4: Update sidebar
+## Step 4: Update sidebar
 
 Inside the `src/layouts/partials/Sidebar/helpers/items`, update the `SIDEBAR_ITEMS` and their icon. For example:
 
