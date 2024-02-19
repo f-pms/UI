@@ -22,9 +22,7 @@ export function CheckIntervalInput({ control }: ICheckIntervalInputProps) {
     setUnit(event.target.value as UnitOfTime);
   };
 
-  useEffect(() => {
-    // TODO: parse data to cron format
-  }, [unit]);
+  useEffect(() => {}, [unit]);
 
   return (
     <InputWithLabel

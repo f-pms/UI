@@ -87,8 +87,7 @@ export function Autocomplete<
             options={props.options}
             renderInput={props.renderInput}
             onChange={(_, data) => {
-              props.onChange &&
-                props.onChange(_, data, 'selectOption', undefined);
+              props.onChange?.(_, data, 'selectOption', undefined);
               field.onChange(data);
             }}
           />
