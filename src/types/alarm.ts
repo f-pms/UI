@@ -1,12 +1,12 @@
 export enum AlarmSeverity {
-  CRITICAL = 1,
-  IMPORTANT = 2,
-  WARNING = 3,
+  CRITICAL = '1',
+  IMPORTANT = '2',
+  WARNING = '3',
 }
 
 export enum AlarmType {
-  PRE_DEFINED,
-  USER_DEFINED,
+  PRE_DEFINED = '1',
+  USER_DEFINED = '2',
 }
 
 export enum AlarmStatus {
@@ -25,13 +25,11 @@ export type Station = {
 };
 
 export enum AlarmActionType {
-  Toast,
-  Email,
+  TOAST = '1',
+  EMAIL = '2',
 }
 
-export interface AlarmConfigDTO extends AlarmInfoDTO, AlarmNotiDTO {}
-
-export interface AlarmInfoDTO {
+export interface AlarmInfo {
   id: string;
   sensorConfigId: string;
   type: AlarmType;
@@ -49,7 +47,11 @@ export type AlarmAction = {
   recipientsId?: string[];
 };
 
-export type AlarmNotiDTO = {
+export type AlarmNoti = {
   message: string;
   actions: AlarmAction[];
 };
+
+export interface CreateAlarmDTO extends Omit<AlarmInfo, 'id'>, AlarmNoti {}
+export interface Alarm extends AlarmInfo, AlarmNoti {}
+export interface UpdateAlarmDTO extends Alarm {}

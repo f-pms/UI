@@ -1,4 +1,4 @@
-import { AlarmSeverity } from '~/types/alarmConfig';
+import { AlarmSeverity } from '~/types/alarm';
 
 import { MOCK_DATA_ALARMS } from '~/pages/ProductionManagement/helpers/alarmMockData';
 import { ALARM_TABS } from '~/pages/ProductionManagement/helpers/alarmTabs';

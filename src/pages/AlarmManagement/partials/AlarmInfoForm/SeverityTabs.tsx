@@ -1,12 +1,10 @@
 import { SyntheticEvent, useState } from 'react';
-import { UseFormSetValue } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 
 import { buttonClasses, tabClasses } from '@mui/base';
 import { styled } from '@mui/system';
 
-import { AlarmSeverity } from '~/types/alarmConfig';
-
-import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
+import { AlarmSeverity } from '~/types/alarm';
 
 import {
   BaseTab,
@@ -14,11 +12,10 @@ import {
   BaseTabsList,
 } from '~/components/BaseMuiComponents';
 import { Typography } from '~/components/MuiComponents';
-export interface ISeverityTabsProps {
-  setValue: UseFormSetValue<AlarmFormData>;
-}
+export interface ISeverityTabsProps {}
 
-export function SeverityTabs({ setValue }: ISeverityTabsProps) {
+export function SeverityTabs() {
+  const { setValue } = useFormContext();
   const [tab, setTab] = useState<AlarmSeverity>(AlarmSeverity.CRITICAL);
 
   const handleChange = (
@@ -26,7 +23,7 @@ export function SeverityTabs({ setValue }: ISeverityTabsProps) {
     value: string | number | null,
   ) => {
     setTab(value as AlarmSeverity);
-    setValue('severity', value as number);
+    setValue('info.severity', value as number);
   };
 
   return (

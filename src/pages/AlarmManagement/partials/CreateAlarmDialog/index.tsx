@@ -1,9 +1,12 @@
 import { useState } from 'react';
 
-import { useForm } from '~/libs/react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+import { FormProvider, useForm } from '~/libs/react-hook-form';
 
 import {
   AlarmFormData,
+  alarmSchema,
   defaultAlarmFormData,
 } from '~/pages/AlarmManagement/helpers/alarmForm';
 import { AlarmInfoForm } from '~/pages/AlarmManagement/partials/AlarmInfoForm';
@@ -38,8 +41,9 @@ export function CreateAlarmDialog() {
   const [isAdvanced, setIsAdvanced] = useState(false);
   const [openAlertChangeMode, setOpenAlertChangeMode] = useState(false);
 
-  const { control, reset, setValue } = useForm<AlarmFormData>({
+  const methods = useForm<AlarmFormData>({
     defaultValues: defaultAlarmFormData,
+    resolver: yupResolver(alarmSchema),
   });
 
   const handleOpenDialog = () => {
@@ -48,17 +52,22 @@ export function CreateAlarmDialog() {
 
   const handleCloseDialog = () => {
     setOpen(false);
-    reset();
+    methods.reset();
     setActiveStep(0);
     setIsAdvanced(false);
   };
 
   const handleNext = () => {
-    if (activeStep === steps.length - 1) {
-      handleCloseDialog();
-      return;
-    }
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    // if (activeStep === steps.length - 1) {
+    //   handleCloseDialog();
+    //   return;
+    // }
+    // setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    methods.trigger('info').then((isValid) => {
+      if (isValid) {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+      }
+    });
   };
 
   const handleBack = () => {
@@ -73,20 +82,14 @@ export function CreateAlarmDialog() {
     setOpenAlertChangeMode(false);
     setIsAdvanced((prevIsAdvanced) => !prevIsAdvanced);
     setActiveStep(0);
-    reset();
+    methods.reset();
   };
 
   const steps: AlarmStep[] = [
     {
       label: 'Cấu hình cảnh báo',
       description: 'Thiết lập các điều kiện cho hiển thị cảnh báo',
-      content: (
-        <AlarmInfoForm
-          control={control}
-          isAdvanced={isAdvanced}
-          setValue={setValue}
-        />
-      ),
+      content: <AlarmInfoForm isAdvanced={isAdvanced} />,
     },
     {
       label: 'Gửi cảnh báo',
@@ -155,19 +158,21 @@ export function CreateAlarmDialog() {
           </Stack>
         </Box>
         <DialogContent>
-          {activeStep === steps.length ? (
-            <>
-              <Typography sx={{ mt: 2, mb: 1 }}>
-                All steps completed - you&apos;re finished
-              </Typography>
-              <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                <Box sx={{ flex: '1 1 auto' }} />
-                <Button onClick={handleReset}>Reset</Button>
-              </Box>
-            </>
-          ) : (
-            <>{steps[activeStep].content}</>
-          )}
+          <FormProvider {...methods}>
+            {activeStep === steps.length ? (
+              <>
+                <Typography sx={{ mt: 2, mb: 1 }}>
+                  All steps completed - you&apos;re finished
+                </Typography>
+                <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+                  <Box sx={{ flex: '1 1 auto' }} />
+                  <Button onClick={handleReset}>Reset</Button>
+                </Box>
+              </>
+            ) : (
+              steps[activeStep].content
+            )}
+          </FormProvider>
         </DialogContent>
         <DialogActions sx={{ borderTop: 1, borderColor: 'divider' }}>
           <Stack

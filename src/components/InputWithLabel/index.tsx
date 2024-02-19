@@ -1,5 +1,6 @@
 import {
   FormControl,
+  FormHelperText,
   OutlinedInput,
   OutlinedInputProps,
   SxProps,
@@ -8,6 +9,7 @@ import {
 import {
   Control,
   Controller,
+  FieldError,
   FieldPath,
   FieldPathValue,
   FieldValues,
@@ -15,7 +17,7 @@ import {
 } from '~/libs/react-hook-form';
 
 export interface InputWithLabelProps<T extends FieldValues>
-  extends Omit<OutlinedInputProps, 'defaultValue' | 'name' | 'label'>,
+  extends Omit<OutlinedInputProps, 'defaultValue' | 'name' | 'label' | 'error'>,
     Omit<UseControllerProps, 'defaultValue' | 'name' | 'control'> {
   defaultValue?: FieldPathValue<T, FieldPath<T>>;
   name: FieldPath<T>;
@@ -23,13 +25,22 @@ export interface InputWithLabelProps<T extends FieldValues>
   label?: string;
   description?: string;
   styled?: SxProps;
+  error?: FieldError;
 }
 
 export function InputWithLabel<T extends FieldValues>(
   props: InputWithLabelProps<T>,
 ) {
-  const { name, control, defaultValue, label, description, styled, ...rest } =
-    props;
+  const {
+    name,
+    control,
+    defaultValue,
+    label,
+    description,
+    styled,
+    error,
+    ...rest
+  } = props;
 
   const controllerProps = {
     control,
@@ -68,6 +79,7 @@ export function InputWithLabel<T extends FieldValues>(
           {...rest}
         />
       )}
+      <FormHelperText error={!!error}>{error?.message}</FormHelperText>
     </FormControl>
   );
 }

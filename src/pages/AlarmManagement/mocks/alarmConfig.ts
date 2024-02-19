@@ -1,11 +1,11 @@
 import {
+  Alarm,
   AlarmActionType,
-  AlarmConfigDTO,
   AlarmSeverity,
   AlarmType,
-} from '~/types/alarmConfig';
+} from '~/types/alarm';
 
-export const ALARM_CONFIG_LIST: AlarmConfigDTO[] = [
+export const ALARM_CONFIG_LIST: Alarm[] = [
   {
     id: 'alarm-config-1',
     sensorConfigId: 'sensor-config-1',
@@ -20,7 +20,7 @@ export const ALARM_CONFIG_LIST: AlarmConfigDTO[] = [
     actions: [
       {
         actionId: 'action-1',
-        actionType: AlarmActionType.Toast,
+        actionType: AlarmActionType.TOAST,
         recipientsId: ['1'],
       },
     ],
@@ -39,7 +39,7 @@ export const ALARM_CONFIG_LIST: AlarmConfigDTO[] = [
     actions: [
       {
         actionId: 'action-2',
-        actionType: AlarmActionType.Email,
+        actionType: AlarmActionType.EMAIL,
         recipientsId: ['2'],
       },
     ],
@@ -58,7 +58,7 @@ export const ALARM_CONFIG_LIST: AlarmConfigDTO[] = [
     actions: [
       {
         actionId: 'action-3',
-        actionType: AlarmActionType.Toast,
+        actionType: AlarmActionType.TOAST,
         recipientsId: ['3'],
       },
     ],
@@ -77,7 +77,7 @@ export const ALARM_CONFIG_LIST: AlarmConfigDTO[] = [
     actions: [
       {
         actionId: 'action-4',
-        actionType: AlarmActionType.Email,
+        actionType: AlarmActionType.EMAIL,
         recipientsId: ['4'],
       },
     ],
@@ -96,7 +96,7 @@ export const ALARM_CONFIG_LIST: AlarmConfigDTO[] = [
     actions: [
       {
         actionId: 'action-5',
-        actionType: AlarmActionType.Toast,
+        actionType: AlarmActionType.TOAST,
         recipientsId: ['5'],
       },
     ],
@@ -115,7 +115,7 @@ export const ALARM_CONFIG_LIST: AlarmConfigDTO[] = [
     actions: [
       {
         actionId: 'action-6',
-        actionType: AlarmActionType.Email,
+        actionType: AlarmActionType.EMAIL,
         recipientsId: ['6'],
       },
     ],
@@ -134,7 +134,7 @@ export const ALARM_CONFIG_LIST: AlarmConfigDTO[] = [
     actions: [
       {
         actionId: 'action-7',
-        actionType: AlarmActionType.Toast,
+        actionType: AlarmActionType.TOAST,
         recipientsId: ['7'],
       },
     ],
@@ -153,7 +153,7 @@ export const ALARM_CONFIG_LIST: AlarmConfigDTO[] = [
     actions: [
       {
         actionId: 'action-8',
-        actionType: AlarmActionType.Email,
+        actionType: AlarmActionType.EMAIL,
         recipientsId: ['8'],
       },
     ],
@@ -172,7 +172,7 @@ export const ALARM_CONFIG_LIST: AlarmConfigDTO[] = [
     actions: [
       {
         actionId: 'action-9',
-        actionType: AlarmActionType.Toast,
+        actionType: AlarmActionType.TOAST,
         recipientsId: ['9'],
       },
     ],

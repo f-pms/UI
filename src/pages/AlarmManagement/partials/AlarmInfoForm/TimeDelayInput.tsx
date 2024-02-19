@@ -1,15 +1,18 @@
-import { Control } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 
 import { InputWithLabel } from '~/components';
 import { InputAdornment, Typography } from '~/components/MuiComponents';
 
-export interface ITimeDelayInputProps {
-  control: Control<AlarmFormData>;
-}
+export interface ITimeDelayInputProps {}
 
-export function TimeDelayInput({ control }: ITimeDelayInputProps) {
+export function TimeDelayInput() {
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext<AlarmFormData>();
+
   return (
     <InputWithLabel
       control={control}
@@ -20,8 +23,9 @@ export function TimeDelayInput({ control }: ITimeDelayInputProps) {
           <Typography variant='body2'>(s)</Typography>
         </InputAdornment>
       }
+      error={errors.info?.timeDelay}
       label='Độ trễ'
-      name='timeDelay'
+      name='info.timeDelay'
       type='number'
     />
   );

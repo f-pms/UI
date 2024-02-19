@@ -5,7 +5,7 @@ import {
   useMaterialReactTable,
 } from 'material-react-table';
 
-import { AlarmConfigDTO } from '~/types/alarmConfig';
+import { AlarmConfigDTO } from '~/types/alarm';
 
 import { ALARM_CONFIG_LIST } from '~/pages/AlarmManagement/mocks/alarmConfig';
 

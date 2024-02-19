@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Control } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 
 import { InputAdornment, SelectChangeEvent } from '@mui/material';
 
@@ -11,11 +11,13 @@ import {
 
 import { InputWithLabel } from '~/components';
 
-export interface ICheckIntervalInputProps {
-  control: Control<AlarmFormData>;
-}
+export interface ICheckIntervalInputProps {}
 
-export function CheckIntervalInput({ control }: ICheckIntervalInputProps) {
+export function CheckIntervalInput() {
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext<AlarmFormData>();
   const [unit, setUnit] = useState<UnitOfTime>(UnitOfTime.Second);
 
   const handleUnitChange = (event: SelectChangeEvent) => {
@@ -34,8 +36,9 @@ export function CheckIntervalInput({ control }: ICheckIntervalInputProps) {
           <UnitOfTimeSelect handleUnitChange={handleUnitChange} unit={unit} />
         </InputAdornment>
       }
+      error={errors.info?.checkInterval}
       label='Chu kì kiểm tra'
-      name='checkInterval'
+      name='info.checkInterval'
       type='number'
     />
   );

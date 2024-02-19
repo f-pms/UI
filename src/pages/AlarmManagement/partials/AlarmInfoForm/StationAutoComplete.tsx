@@ -1,21 +1,27 @@
-import { Control } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 
-import { TextField } from '@mui/material';
+import { FormHelperText, TextField } from '@mui/material';
 
-import { Station } from '~/types/alarmConfig';
+import { Station } from '~/types/alarm';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 
 import { Autocomplete } from '~/components';
 import { FormControl, Typography } from '~/components/MuiComponents';
 
-export interface IStationAutoCompleteProps {
-  control: Control<AlarmFormData>;
-}
+export interface IStationAutoCompleteProps {}
 
-export function StationAutoComplete({ control }: IStationAutoCompleteProps) {
+export function StationAutoComplete() {
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext<AlarmFormData>();
   return (
-    <FormControl sx={{ mt: 1, width: '100%' }} variant='outlined'>
+    <FormControl
+      error={!!errors.info?.station}
+      sx={{ mt: 1, width: '100%' }}
+      variant='outlined'
+    >
       <Typography
         color='text.strong'
         sx={{ fontWeight: 'bold' }}
@@ -29,7 +35,7 @@ export function StationAutoComplete({ control }: IStationAutoCompleteProps) {
         defaultValue={stations[0]}
         freeSolo={false}
         getOptionLabel={(option) => option.name}
-        name='station'
+        name='info.station'
         options={stations}
         renderInput={(params) => <TextField {...params} size='small' />}
         renderOption={(props, option) => (
@@ -43,6 +49,9 @@ export function StationAutoComplete({ control }: IStationAutoCompleteProps) {
           },
         }}
       />
+      <FormHelperText error={!!errors.info?.station}>
+        {errors.info?.station?.message}
+      </FormHelperText>
     </FormControl>
   );
 }

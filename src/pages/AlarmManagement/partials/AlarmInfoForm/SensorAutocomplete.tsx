@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import { TextField } from '~/libs/mui';
-import { Control } from '~/libs/react-hook-form';
-import { SensorConfig } from '~/types/alarmConfig';
+import { FormHelperText, TextField } from '~/libs/mui';
+import { useFormContext } from '~/libs/react-hook-form';
+import { SensorConfig } from '~/types/alarm';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 import { CreateSensorAddressDialog } from '~/pages/AlarmManagement/partials/CreateSensorAddressDialog';
@@ -10,15 +10,21 @@ import { CreateSensorAddressDialog } from '~/pages/AlarmManagement/partials/Crea
 import { Autocomplete } from '~/components';
 import { FormControl, Typography } from '~/components/MuiComponents';
 
-export interface IVariableAutoCompleteProps {
-  control: Control<AlarmFormData>;
-}
+export interface IVariableAutoCompleteProps {}
 
-export function SensorAutoComplete({ control }: IVariableAutoCompleteProps) {
+export function SensorAutoComplete() {
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext<AlarmFormData>();
   const [open, setOpen] = useState(false);
   return (
     <>
-      <FormControl sx={{ mt: 1, width: '100%' }} variant='outlined'>
+      <FormControl
+        error={!!errors.info?.sensorConfig}
+        sx={{ mt: 1, width: '100%' }}
+        variant='outlined'
+      >
         <Typography
           color='text.strong'
           sx={{ fontWeight: 'bold' }}
@@ -36,7 +42,7 @@ export function SensorAutoComplete({ control }: IVariableAutoCompleteProps) {
           freeSolo={false}
           getOptionLabel={(option) => option.address}
           multiple={false}
-          name='variable'
+          name='info.sensorConfig'
           noOptionsText={
             <Typography variant='body2'>
               Địa chỉ không tồn tại?{' '}
@@ -68,6 +74,9 @@ export function SensorAutoComplete({ control }: IVariableAutoCompleteProps) {
             },
           }}
         />
+        <FormHelperText error={!!errors.info?.sensorConfig}>
+          {errors.info?.sensorConfig?.message}
+        </FormHelperText>
       </FormControl>
       <CreateSensorAddressDialog open={open} setOpen={setOpen} />
     </>

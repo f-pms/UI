@@ -1,3 +1,4 @@
+export * from './alarm';
 export * from './calendar';
 export * from './color';
 export * from './route';

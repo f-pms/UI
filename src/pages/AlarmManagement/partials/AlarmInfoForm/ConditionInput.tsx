@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Control, UseFormSetValue } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 
 import { SelectChangeEvent } from '@mui/material';
 
-import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 import {
   TypeCondition,
   TypeConditionSelect,
@@ -12,13 +11,10 @@ import {
 import { InputWithLabel } from '~/components';
 import { FormControl, Stack, Typography } from '~/components/MuiComponents';
 
-export interface IConditionInputProps {
-  control: Control<AlarmFormData>;
-  setValue: UseFormSetValue<AlarmFormData>;
-}
+export interface IConditionInputProps {}
 
-export function ConditionInput(props: IConditionInputProps) {
-  const { control, setValue } = props;
+export function ConditionInput() {
+  const { setValue, control } = useFormContext();
   const [typeCondition, setTypeCondition] = useState<TypeCondition>(
     TypeCondition.RANGE,
   );
@@ -29,10 +25,10 @@ export function ConditionInput(props: IConditionInputProps) {
 
   useEffect(() => {
     if (typeCondition === TypeCondition.LESS_THAN) {
-      setValue('min', 0);
+      setValue('info.min', 0);
     }
     if (typeCondition === TypeCondition.GREATER_THAN) {
-      setValue('max', 0);
+      setValue('info.max', 0);
     }
   }, [typeCondition, setValue]);
   return (
@@ -55,14 +51,14 @@ export function ConditionInput(props: IConditionInputProps) {
         <InputWithLabel
           control={control}
           disabled={typeCondition === TypeCondition.LESS_THAN}
-          name='min'
+          name='info.min'
           placeholder='Giới hạn dưới'
           type='number'
         />
         <InputWithLabel
           control={control}
           disabled={typeCondition === TypeCondition.GREATER_THAN}
-          name='max'
+          name='info.max'
           placeholder='Giới hạn trên'
           type='number'
         />
