@@ -40,6 +40,7 @@ export {
   Popover,
   Select,
   Slider,
+  Snackbar,
   Stack,
   Switch,
   Tab,

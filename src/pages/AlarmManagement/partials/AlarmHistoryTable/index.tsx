@@ -13,16 +13,12 @@ import {
 } from '~/components/Icons';
 import {
   Box,
-  Button,
-  Divider,
   IconButton,
   ListItemIcon,
   ListItemText,
   Menu,
   MenuItem,
-  Stack,
   Tooltip,
-  Typography,
 } from '~/components/MuiComponents';
 import { getDefaultMRTOptions } from '~/components/Table';
 
@@ -211,27 +207,27 @@ export function AlarmHistoryTable() {
     data: persons,
     getRowId: (row) => row.id,
     enableRowActions: true,
-    renderTopToolbarCustomActions: () => {
-      return (
-        <div>
-          <Tooltip title='Lọc theo tên'>
-            <Button
-              color='zinc'
-              size='small'
-              startIcon={<AddCircleOutlineOutlinedIcon />}
-              sx={{ borderStyle: 'dashed' }}
-              variant='outlined'
-            >
-              <Stack direction='row' spacing={1}>
-                <Typography variant='caption'>Tên</Typography>
-                <Divider flexItem orientation='vertical' />
-                <Typography variant='caption'>Huy</Typography>
-              </Stack>
-            </Button>
-          </Tooltip>
-        </div>
-      );
-    },
+    // renderTopToolbarCustomActions: () => {
+    //   return (
+    //     <div>
+    //       <Tooltip title='Lọc theo tên'>
+    //         <Button
+    //           color='zinc'
+    //           size='small'
+    //           startIcon={<AddCircleOutlineOutlinedIcon />}
+    //           sx={{ borderStyle: 'dashed' }}
+    //           variant='outlined'
+    //         >
+    //           <Stack direction='row' spacing={1}>
+    //             <Typography variant='caption'>Tên</Typography>
+    //             <Divider flexItem orientation='vertical' />
+    //             <Typography variant='caption'>Huy</Typography>
+    //           </Stack>
+    //         </Button>
+    //       </Tooltip>
+    //     </div>
+    //   );
+    // },
     renderRowActions: () => (
       <Box sx={{ display: 'flex', width: '20px' }}>
         <Tooltip title=''>

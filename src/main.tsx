@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Slide, ToastContainer } from 'react-toastify';
 
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
@@ -10,6 +11,7 @@ import AppRouter from '~/router';
 
 import { AuthProvider } from '~/pages/Auth/context/AuthContext';
 
+import 'react-toastify/dist/ReactToastify.css';
 const queryClient = new QueryClient();
 
 async function enableMocking() {
@@ -23,7 +25,7 @@ async function enableMocking() {
 }
 
 enableMocking().then(() => {
-  ReactDOM.createRoot(document.getElementById('root')!).render(
+  return ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <QueryClientProvider client={queryClient}>
@@ -33,6 +35,7 @@ enableMocking().then(() => {
           </AuthProvider>
         </QueryClientProvider>
       </LocalizationProvider>
+      <ToastContainer position='bottom-right' transition={Slide} />
     </React.StrictMode>,
   );
 });

@@ -49,6 +49,13 @@ export const getCustomizeTheme = (
           },
         },
       },
+      MuiButtonBase: {
+        styleOverrides: {
+          root: {
+            fontSize: '0.875rem',
+          },
+        },
+      },
       MuiInput: {
         styleOverrides: {
           root: {

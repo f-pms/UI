@@ -15,14 +15,9 @@ import {
   NotificationsOffOutlinedIcon,
 } from '~/components/Icons';
 import {
-  Button,
-  Divider,
   ListItemIcon,
   ListItemText,
   MenuItem,
-  Stack,
-  Tooltip,
-  Typography,
 } from '~/components/MuiComponents';
 import { getDefaultMRTOptions } from '~/components/Table';
 
@@ -75,27 +70,27 @@ export function AlarmConfigTable() {
     getRowId: (row) => row.id,
     onPaginationChange: setPagination, //hoist pagination state to your state when it changes internally
     state: { pagination }, //pass the pagination state to the table
-    renderTopToolbarCustomActions: () => {
-      return (
-        <div>
-          <Tooltip title='Lọc theo tên'>
-            <Button
-              color='zinc'
-              size='small'
-              startIcon={<AddCircleOutlineOutlinedIcon />}
-              sx={{ borderStyle: 'dashed' }}
-              variant='outlined'
-            >
-              <Stack direction='row' spacing={1}>
-                <Typography variant='caption'>Tên</Typography>
-                <Divider flexItem orientation='vertical' />
-                <Typography variant='caption'>Huy</Typography>
-              </Stack>
-            </Button>
-          </Tooltip>
-        </div>
-      );
-    },
+    // renderTopToolbarCustomActions: () => {
+    //   return (
+    //     <div>
+    //       <Tooltip title='Lọc theo tên'>
+    //         <Button
+    //           color='zinc'
+    //           size='small'
+    //           startIcon={<AddCircleOutlineOutlinedIcon />}
+    //           sx={{ borderStyle: 'dashed' }}
+    //           variant='outlined'
+    //         >
+    //           <Stack direction='row' spacing={1}>
+    //             <Typography variant='caption'>Tên</Typography>
+    //             <Divider flexItem orientation='vertical' />
+    //             <Typography variant='caption'>Huy</Typography>
+    //           </Stack>
+    //         </Button>
+    //       </Tooltip>
+    //     </div>
+    //   );
+    // },
     renderRowActionMenuItems: () => [
       <MenuItem key='edit'>
         <ListItemIcon>

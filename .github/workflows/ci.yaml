@@ -13,5 +13,5 @@ jobs:
     uses: f-pms/Devops/.github/workflows/ci.yaml@master
     with:
       prepare-command: echo "Preparing...!"
-      build-command: echo "Building...!"
+      build-command: yarn && yarn build
       test-command: echo "Testing...!"

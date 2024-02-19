@@ -35,5 +35,8 @@ export const getDefaultMRTOptions = <TData extends MRT_RowData>(): Partial<
     toggleSelectRow: 'Chọn/Hủy dòng này',
     showHideSearch: 'Ẩn/Hiện thanh tìm kiếm',
     actions: 'Thao tác',
+    noRecordsToDisplay: 'Không có dữ liệu',
+    noResultsFound: 'Không tìm thấy kết quả',
+    toggleVisibility: 'Ẩn/Hiện',
   },
 });

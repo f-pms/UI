@@ -9,9 +9,17 @@ export interface IBlueprint {
   sensorConfigurations: FigureInfoType[];
 }
 
+export enum DataTypeEnum {
+  REAL = 'REAL',
+  INT = 'INT',
+}
+
 export type FigureInfoType = {
-  id: string;
+  id: number;
   address: string;
+  db: number;
+  offset: number;
+  dataType: DataTypeEnum;
   x: number;
   y: number;
 };
@@ -24,6 +32,6 @@ export const useQueryBlueprintById = (id: string) => {
   return useQuery({
     queryKey: ['blueprint', id],
     queryFn: () => getBlueprintById(id),
-    retry: 6,
+    retry: 3,
   });
 };
