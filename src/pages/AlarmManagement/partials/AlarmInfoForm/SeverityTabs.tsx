@@ -1,4 +1,4 @@
-import { SyntheticEvent, useState } from 'react';
+import { SyntheticEvent, useEffect, useMemo, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 import { buttonClasses, tabClasses } from '@mui/base';
@@ -15,7 +15,7 @@ import { Typography } from '~/components/MuiComponents';
 export interface ISeverityTabsProps {}
 
 export function SeverityTabs() {
-  const { setValue } = useFormContext();
+  const { setValue, watch } = useFormContext();
   const [tab, setTab] = useState<AlarmSeverity>(AlarmSeverity.CRITICAL);
 
   const handleChange = (
@@ -25,6 +25,17 @@ export function SeverityTabs() {
     setTab(value as AlarmSeverity);
     setValue('info.severity', value as number);
   };
+
+  const severity = useMemo(
+    () => watch('info.severity'),
+    [watch],
+  ) as AlarmSeverity;
+
+  useEffect(() => {
+    if (severity) {
+      setTab(severity);
+    }
+  }, [severity]);
 
   return (
     <BaseTabs value={tab} onChange={handleChange}>

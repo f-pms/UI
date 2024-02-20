@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { FormProvider, useForm } from '~/libs/react-hook-form';
+import { AlarmType } from '~/types';
 
 import {
   AlarmFormData,
@@ -80,9 +81,14 @@ export function CreateAlarmDialog() {
 
   const handleAgreeChangeMode = () => {
     setOpenAlertChangeMode(false);
-    setIsAdvanced((prevIsAdvanced) => !prevIsAdvanced);
     setActiveStep(0);
     methods.reset();
+    methods.clearErrors();
+    methods.setValue(
+      'info.type',
+      isAdvanced ? AlarmType.PRE_DEFINED : AlarmType.USER_DEFINED,
+    );
+    setIsAdvanced((prevIsAdvanced) => !prevIsAdvanced);
   };
 
   const steps: AlarmStep[] = [
@@ -104,7 +110,7 @@ export function CreateAlarmDialog() {
   ];
 
   return (
-    <>
+    <FormProvider {...methods}>
       <Button
         startIcon={<SettingsInputComponentOutlinedIcon />}
         variant='contained'
@@ -158,21 +164,19 @@ export function CreateAlarmDialog() {
           </Stack>
         </Box>
         <DialogContent>
-          <FormProvider {...methods}>
-            {activeStep === steps.length ? (
-              <>
-                <Typography sx={{ mt: 2, mb: 1 }}>
-                  All steps completed - you&apos;re finished
-                </Typography>
-                <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
-                  <Box sx={{ flex: '1 1 auto' }} />
-                  <Button onClick={handleReset}>Reset</Button>
-                </Box>
-              </>
-            ) : (
-              steps[activeStep].content
-            )}
-          </FormProvider>
+          {activeStep === steps.length ? (
+            <>
+              <Typography sx={{ mt: 2, mb: 1 }}>
+                All steps completed - you&apos;re finished
+              </Typography>
+              <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
+                <Box sx={{ flex: '1 1 auto' }} />
+                <Button onClick={handleReset}>Reset</Button>
+              </Box>
+            </>
+          ) : (
+            steps[activeStep].content
+          )}
         </DialogContent>
         <DialogActions sx={{ borderTop: 1, borderColor: 'divider' }}>
           <Stack
@@ -210,6 +214,6 @@ export function CreateAlarmDialog() {
         isAdvanced={isAdvanced}
         open={openAlertChangeMode}
       />
-    </>
+    </FormProvider>
   );
 }

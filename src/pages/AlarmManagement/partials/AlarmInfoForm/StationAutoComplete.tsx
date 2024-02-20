@@ -1,7 +1,6 @@
 import { useFormContext } from 'react-hook-form';
 
-import { FormHelperText, TextField } from '@mui/material';
-
+import { FormHelperText, TextField } from '~/libs/mui';
 import { Station } from '~/types/alarm';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';

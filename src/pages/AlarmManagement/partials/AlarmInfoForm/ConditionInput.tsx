@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 import { SelectChangeEvent } from '@mui/material';
@@ -14,7 +14,7 @@ import { FormControl, Stack, Typography } from '~/components/MuiComponents';
 export interface IConditionInputProps {}
 
 export function ConditionInput() {
-  const { setValue, control } = useFormContext();
+  const { setValue, control, watch } = useFormContext();
   const [typeCondition, setTypeCondition] = useState<TypeCondition>(
     TypeCondition.RANGE,
   );
@@ -25,12 +25,28 @@ export function ConditionInput() {
 
   useEffect(() => {
     if (typeCondition === TypeCondition.LESS_THAN) {
-      setValue('info.min', 0);
+      setValue('info.min', undefined);
     }
     if (typeCondition === TypeCondition.GREATER_THAN) {
-      setValue('info.max', 0);
+      setValue('info.max', undefined);
     }
   }, [typeCondition, setValue]);
+
+  const min = useMemo(() => watch('info.min'), [watch]) as number | undefined;
+  const max = useMemo(() => watch('info.max'), [watch]) as number | undefined;
+
+  useEffect(() => {
+    if (min && max) {
+      setTypeCondition(TypeCondition.RANGE);
+    } else if (min) {
+      setTypeCondition(TypeCondition.GREATER_THAN);
+    } else if (max) {
+      setTypeCondition(TypeCondition.LESS_THAN);
+    } else {
+      setTypeCondition(TypeCondition.RANGE);
+    }
+  }, [min, max]);
+
   return (
     <FormControl sx={{ width: '100%' }} variant='outlined'>
       <Typography

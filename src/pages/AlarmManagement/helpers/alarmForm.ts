@@ -11,12 +11,23 @@ import {
 import {
   AlarmActionType,
   AlarmInfo,
-  AlarmNoti,
   AlarmSeverity,
   AlarmType,
+  CreateAlarmNoti,
   SensorConfig,
   Station,
 } from '~/types';
+
+export const NOTI_METHOD_OPTIONS = [
+  {
+    label: 'Hiện cảnh báo ở trang "Giám sát"',
+    value: AlarmActionType.TOAST,
+  },
+  {
+    label: 'Gửi cảnh báo qua email',
+    value: AlarmActionType.EMAIL,
+  },
+];
 
 interface AlarmInfoFromData extends Omit<AlarmInfo, 'id' | 'sensorConfigId'> {
   sensorConfig: SensorConfig | null;
@@ -25,7 +36,7 @@ interface AlarmInfoFromData extends Omit<AlarmInfo, 'id' | 'sensorConfigId'> {
 
 export interface AlarmFormData {
   info: AlarmInfoFromData;
-  noti: AlarmNoti;
+  noti: CreateAlarmNoti;
 }
 
 export const defaultAlarmFormData: AlarmFormData = {
@@ -52,40 +63,37 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
     sensorConfig: object({
       id: string().required(),
       address: string().required(),
-    }).required('Hãy chọn địa chỉ biến'),
+    }).required('Địa chỉ biến không được phép để trống'),
     station: object({
       id: string().required(),
       name: string().required(),
-    }).required('Hãy chọn trạm'),
+    }).required('Tên trạm không được phép để trống'),
     severity: mixed<AlarmSeverity>()
       .required()
       .oneOf(Object.values(AlarmSeverity)),
     checkInterval: number()
-      .required()
-      .positive()
-      .max(100, 'Chu kì kiểm tra không vượt quá 100(giây)')
-      .integer(),
+      .required('Chu kì kiểm tra không được phép bỏ trống')
+      .positive('Chu kì kiểm tra phải là số nguyên dương')
+      .integer('Chu kì kiểm tra phải là số nguyên dương'),
     timeDelay: number()
-      .required()
-      .positive()
-      .max(100, 'Độ trễ không vượt quá 100(giây)')
-      .integer(),
+      .required('Độ trễ không được phép để trống')
+      .positive('Độ trễ phải là số nguyên dương')
+      .integer('Độ trễ phải là số nguyên dương'),
     isEnabled: boolean().required(),
-    min: number().positive().max(100).optional(),
-    max: number().positive().max(100).optional(),
+    min: number().optional(),
+    max: number().optional(),
   }),
   noti: object({
-    message: string().required(),
+    message: string().required('Nội dung cảnh báo không được để trống'),
     actions: array()
       .of(
         object({
-          actionId: string().required(),
           actionType: mixed<AlarmActionType>()
             .required()
             .oneOf(Object.values(AlarmActionType)),
           recipientsId: array().of(string().required()).optional(),
         }),
       )
-      .required(),
+      .required('Ít nhất phải chọn một phương thức cảnh báo'),
   }),
 });

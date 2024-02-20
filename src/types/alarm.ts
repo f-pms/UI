@@ -53,5 +53,11 @@ export type AlarmNoti = {
 };
 
 export interface CreateAlarmDTO extends Omit<AlarmInfo, 'id'>, AlarmNoti {}
+export interface CreateAlarmAction extends Omit<AlarmAction, 'actionId'> {}
 export interface Alarm extends AlarmInfo, AlarmNoti {}
 export interface UpdateAlarmDTO extends Alarm {}
+
+export type CreateAlarmNoti = {
+  message: string;
+  actions: CreateAlarmAction[];
+};
