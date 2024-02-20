@@ -25,14 +25,14 @@ export function FinishStep() {
   };
 
   const ACTION_TYPE_TEXT = {
-    [AlarmActionType.TOAST]: 'Hiện cảnh báo ở trang "Giám sát"',
+    [AlarmActionType.POPUP]: 'Hiện cảnh báo ở trang "Giám sát"',
     [AlarmActionType.EMAIL]: 'Gửi cảnh báo qua email',
   };
 
   const SEVERITY_TEXT = {
-    [AlarmSeverity.CRITICAL]: 'Nghiêm trọng',
-    [AlarmSeverity.IMPORTANT]: 'Quan trọng',
-    [AlarmSeverity.WARNING]: 'Thông báo',
+    [AlarmSeverity.URGENT]: 'Nghiêm trọng',
+    [AlarmSeverity.HIGH]: 'Quan trọng',
+    [AlarmSeverity.LOW]: 'Thông báo',
   };
 
   return (
@@ -84,7 +84,7 @@ export function FinishStep() {
             {watch('info.timeDelay')} (giây)
           </Typography>
         </Stack>
-        {watch('info.type') == AlarmType.USER_DEFINED && (
+        {watch('info.type') == AlarmType.CUSTOM && (
           <Stack
             alignItems='flex-start'
             direction='row'

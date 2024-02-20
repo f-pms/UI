@@ -1,17 +1,18 @@
 export enum AlarmSeverity {
-  CRITICAL = '1',
-  IMPORTANT = '2',
-  WARNING = '3',
+  URGENT = 'URGENT',
+  HIGH = 'HIGH',
+  LOW = 'LOW',
 }
 
 export enum AlarmType {
-  PRE_DEFINED = '1',
-  USER_DEFINED = '2',
+  PREDEFINED = 'PREDEFINED',
+  CUSTOM = 'CUSTOM',
 }
 
 export enum AlarmStatus {
-  ACTIVE,
-  INACTIVE,
+  TRIGGERED = 'TRIGGERED',
+  SENT = 'SENT',
+  SOLVED = 'SOLVED',
 }
 
 export type SensorConfig = {
@@ -25,8 +26,8 @@ export type Station = {
 };
 
 export enum AlarmActionType {
-  TOAST = '1',
-  EMAIL = '2',
+  POPUP = 'POPUP',
+  EMAIL = 'EMAIL',
 }
 
 export interface AlarmInfo {

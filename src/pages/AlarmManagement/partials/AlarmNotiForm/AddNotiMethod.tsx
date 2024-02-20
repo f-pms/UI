@@ -56,7 +56,7 @@ export function AddNotiMethod() {
   };
 
   const fields = {
-    [AlarmActionType.TOAST]: (
+    [AlarmActionType.POPUP]: (
       <ToastMethod onRemoveAction={handleRemoveAction} />
     ),
     [AlarmActionType.EMAIL]: (

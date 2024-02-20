@@ -9,8 +9,8 @@ export const ALARM_CONFIG_LIST: Alarm[] = [
   {
     id: 'alarm-config-1',
     sensorConfigId: 'sensor-config-1',
-    type: AlarmType.PRE_DEFINED,
-    severity: AlarmSeverity.CRITICAL,
+    type: AlarmType.PREDEFINED,
+    severity: AlarmSeverity.URGENT,
     checkInterval: 1,
     timeDelay: 1,
     isEnabled: true,
@@ -20,7 +20,7 @@ export const ALARM_CONFIG_LIST: Alarm[] = [
     actions: [
       {
         actionId: 'action-1',
-        actionType: AlarmActionType.TOAST,
+        actionType: AlarmActionType.POPUP,
         recipientsId: ['1'],
       },
     ],
@@ -28,8 +28,8 @@ export const ALARM_CONFIG_LIST: Alarm[] = [
   {
     id: 'alarm-config-2',
     sensorConfigId: 'sensor-config-2',
-    type: AlarmType.USER_DEFINED,
-    severity: AlarmSeverity.IMPORTANT,
+    type: AlarmType.CUSTOM,
+    severity: AlarmSeverity.HIGH,
     checkInterval: 2,
     timeDelay: 2,
     isEnabled: true,
@@ -47,8 +47,8 @@ export const ALARM_CONFIG_LIST: Alarm[] = [
   {
     id: 'alarm-config-3',
     sensorConfigId: 'sensor-config-3',
-    type: AlarmType.PRE_DEFINED,
-    severity: AlarmSeverity.WARNING,
+    type: AlarmType.PREDEFINED,
+    severity: AlarmSeverity.LOW,
     checkInterval: 3,
     timeDelay: 3,
     isEnabled: true,
@@ -58,7 +58,7 @@ export const ALARM_CONFIG_LIST: Alarm[] = [
     actions: [
       {
         actionId: 'action-3',
-        actionType: AlarmActionType.TOAST,
+        actionType: AlarmActionType.EMAIL,
         recipientsId: ['3'],
       },
     ],
@@ -66,8 +66,8 @@ export const ALARM_CONFIG_LIST: Alarm[] = [
   {
     id: 'alarm-config-4',
     sensorConfigId: 'sensor-config-4',
-    type: AlarmType.USER_DEFINED,
-    severity: AlarmSeverity.CRITICAL,
+    type: AlarmType.CUSTOM,
+    severity: AlarmSeverity.URGENT,
     checkInterval: 4,
     timeDelay: 4,
     isEnabled: true,
@@ -85,8 +85,8 @@ export const ALARM_CONFIG_LIST: Alarm[] = [
   {
     id: 'alarm-config-5',
     sensorConfigId: 'sensor-config-5',
-    type: AlarmType.PRE_DEFINED,
-    severity: AlarmSeverity.IMPORTANT,
+    type: AlarmType.PREDEFINED,
+    severity: AlarmSeverity.HIGH,
     checkInterval: 5,
     timeDelay: 5,
     isEnabled: true,
@@ -96,7 +96,7 @@ export const ALARM_CONFIG_LIST: Alarm[] = [
     actions: [
       {
         actionId: 'action-5',
-        actionType: AlarmActionType.TOAST,
+        actionType: AlarmActionType.EMAIL,
         recipientsId: ['5'],
       },
     ],
@@ -104,8 +104,8 @@ export const ALARM_CONFIG_LIST: Alarm[] = [
   {
     id: 'alarm-config-6',
     sensorConfigId: 'sensor-config-6',
-    type: AlarmType.USER_DEFINED,
-    severity: AlarmSeverity.WARNING,
+    type: AlarmType.CUSTOM,
+    severity: AlarmSeverity.LOW,
     checkInterval: 6,
     timeDelay: 6,
     isEnabled: true,
@@ -123,8 +123,8 @@ export const ALARM_CONFIG_LIST: Alarm[] = [
   {
     id: 'alarm-config-7',
     sensorConfigId: 'sensor-config-7',
-    type: AlarmType.PRE_DEFINED,
-    severity: AlarmSeverity.CRITICAL,
+    type: AlarmType.PREDEFINED,
+    severity: AlarmSeverity.URGENT,
     checkInterval: 7,
     timeDelay: 7,
     isEnabled: true,
@@ -134,7 +134,7 @@ export const ALARM_CONFIG_LIST: Alarm[] = [
     actions: [
       {
         actionId: 'action-7',
-        actionType: AlarmActionType.TOAST,
+        actionType: AlarmActionType.EMAIL,
         recipientsId: ['7'],
       },
     ],
@@ -142,8 +142,8 @@ export const ALARM_CONFIG_LIST: Alarm[] = [
   {
     id: 'alarm-config-8',
     sensorConfigId: 'sensor-config-8',
-    type: AlarmType.USER_DEFINED,
-    severity: AlarmSeverity.IMPORTANT,
+    type: AlarmType.CUSTOM,
+    severity: AlarmSeverity.HIGH,
     checkInterval: 8,
     timeDelay: 8,
     isEnabled: true,
@@ -161,8 +161,8 @@ export const ALARM_CONFIG_LIST: Alarm[] = [
   {
     id: 'alarm-config-9',
     sensorConfigId: 'sensor-config-9',
-    type: AlarmType.PRE_DEFINED,
-    severity: AlarmSeverity.WARNING,
+    type: AlarmType.PREDEFINED,
+    severity: AlarmSeverity.LOW,
     checkInterval: 9,
     timeDelay: 9,
     isEnabled: true,
@@ -172,7 +172,7 @@ export const ALARM_CONFIG_LIST: Alarm[] = [
     actions: [
       {
         actionId: 'action-9',
-        actionType: AlarmActionType.TOAST,
+        actionType: AlarmActionType.EMAIL,
         recipientsId: ['9'],
       },
     ],

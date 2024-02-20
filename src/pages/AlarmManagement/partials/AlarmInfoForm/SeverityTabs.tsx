@@ -16,7 +16,7 @@ export interface ISeverityTabsProps {}
 
 export function SeverityTabs() {
   const { setValue, watch } = useFormContext();
-  const [tab, setTab] = useState<AlarmSeverity>(AlarmSeverity.CRITICAL);
+  const [tab, setTab] = useState<AlarmSeverity>(AlarmSeverity.URGENT);
 
   const handleChange = (
     _: SyntheticEvent<Element, Event> | null,
@@ -40,13 +40,13 @@ export function SeverityTabs() {
   return (
     <BaseTabs value={tab} onChange={handleChange}>
       <TabsList>
-        <Tab value={AlarmSeverity.CRITICAL}>
+        <Tab value={AlarmSeverity.URGENT}>
           <Typography variant='subtitle2'>Khẩn cấp</Typography>
         </Tab>
-        <Tab value={AlarmSeverity.IMPORTANT}>
+        <Tab value={AlarmSeverity.HIGH}>
           <Typography variant='subtitle2'>Quan trọng</Typography>
         </Tab>
-        <Tab value={AlarmSeverity.WARNING}>
+        <Tab value={AlarmSeverity.LOW}>
           <Typography variant='subtitle2'>Thông báo</Typography>
         </Tab>
       </TabsList>

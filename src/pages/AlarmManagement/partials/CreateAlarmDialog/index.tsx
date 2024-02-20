@@ -86,7 +86,7 @@ export function CreateAlarmDialog() {
     methods.clearErrors();
     methods.setValue(
       'info.type',
-      isAdvanced ? AlarmType.PRE_DEFINED : AlarmType.USER_DEFINED,
+      isAdvanced ? AlarmType.PREDEFINED : AlarmType.CUSTOM,
     );
     setIsAdvanced((prevIsAdvanced) => !prevIsAdvanced);
   };

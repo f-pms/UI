@@ -21,7 +21,7 @@ import {
 export const NOTI_METHOD_OPTIONS = [
   {
     label: 'Hiện cảnh báo ở trang "Giám sát"',
-    value: AlarmActionType.TOAST,
+    value: AlarmActionType.POPUP,
   },
   {
     label: 'Gửi cảnh báo qua email',
@@ -43,8 +43,8 @@ export const defaultAlarmFormData: AlarmFormData = {
   info: {
     sensorConfig: null,
     station: null,
-    type: AlarmType.PRE_DEFINED,
-    severity: AlarmSeverity.CRITICAL,
+    type: AlarmType.PREDEFINED,
+    severity: AlarmSeverity.URGENT,
     checkInterval: 1,
     timeDelay: 1,
     isEnabled: true,

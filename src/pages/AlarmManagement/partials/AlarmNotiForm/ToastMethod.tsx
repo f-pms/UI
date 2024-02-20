@@ -28,7 +28,7 @@ export function ToastMethod({ onRemoveAction }: IToastMethodProps) {
       <Stack alignItems='center' justifyContent='center'>
         <IconButton
           aria-label='delete'
-          onClick={() => onRemoveAction(AlarmActionType.TOAST)}
+          onClick={() => onRemoveAction(AlarmActionType.POPUP)}
         >
           <DeleteOutlineOutlinedIcon />
         </IconButton>

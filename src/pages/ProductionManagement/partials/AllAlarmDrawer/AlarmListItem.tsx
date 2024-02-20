@@ -33,15 +33,15 @@ export default function AlarmListItem({ alarm }: IAlarmListItemProps) {
   let icon;
   let color;
   switch (alarm.severity) {
-    case AlarmSeverity.WARNING:
+    case AlarmSeverity.LOW:
       icon = <NotificationImportantOutlinedIcon sx={{ fontSize: '18px' }} />;
       color = 'info';
       break;
-    case AlarmSeverity.IMPORTANT:
+    case AlarmSeverity.HIGH:
       icon = <ReportProblemOutlinedIcon sx={{ fontSize: '18px' }} />;
       color = 'warning';
       break;
-    case AlarmSeverity.CRITICAL:
+    case AlarmSeverity.URGENT:
       icon = <ErrorOutlineOutlinedIcon sx={{ fontSize: '18px' }} />;
       color = 'error';
       break;
