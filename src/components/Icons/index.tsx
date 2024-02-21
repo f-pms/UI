@@ -43,6 +43,7 @@ export { default as NotificationsOffOutlinedIcon } from '@mui/icons-material/Not
 export { default as PersonOutlineOutlinedIcon } from '@mui/icons-material/PersonOutlineOutlined';
 export { default as PieChartOutlinedIcon } from '@mui/icons-material/PieChartOutlined';
 export { default as ReportProblemOutlinedIcon } from '@mui/icons-material/ReportProblemOutlined';
+export { default as SaveAsOutlinedIcon } from '@mui/icons-material/SaveAsOutlined';
 export { default as SettingsIcon } from '@mui/icons-material/Settings';
 export { default as SettingsInputComponentOutlinedIcon } from '@mui/icons-material/SettingsInputComponentOutlined';
 export { default as SettingsSuggestOutlinedIcon } from '@mui/icons-material/SettingsSuggestOutlined';

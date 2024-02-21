@@ -1,46 +1,68 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { FormProvider, useForm } from '~/libs/react-hook-form';
-import { AlarmType } from '~/types';
+import { Alarm, AlarmType } from '~/types';
 
 import {
   AlarmFormData,
   alarmSchema,
-  defaultAlarmFormData,
 } from '~/pages/AlarmManagement/helpers/alarmForm';
 import { AlarmInfoForm } from '~/pages/AlarmManagement/partials/AlarmInfoForm';
 import { AlarmNotiForm } from '~/pages/AlarmManagement/partials/AlarmNotiForm';
-import { AlertChangeModeDialog } from '~/pages/AlarmManagement/partials/AlertChangeModeDialog';
-import { FinishStep } from '~/pages/AlarmManagement/partials/FinishStep';
 
-import { SettingsInputComponentOutlinedIcon } from '~/components/Icons';
+import { SoftChip } from '~/components';
+import { EditOutlinedIcon } from '~/components/Icons';
 import {
   Box,
   Button,
   Dialog,
   DialogActions,
   DialogContent,
-  FormControlLabel,
+  ListItemIcon,
+  ListItemText,
+  MenuItem,
   Stack,
-  Switch,
   Typography,
 } from '~/components/MuiComponents';
 
-export interface ICreateAlarmDialogProps {}
+export interface IUpdateAlarmDialogProps {
+  alarm: Alarm;
+}
 
 export type AlarmStep = {
   label: string;
   content: React.ReactNode;
   description: string;
+  value: 'info' | 'noti';
 };
 
-export function CreateAlarmDialog() {
+export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
+  const { alarm } = props;
   const [open, setOpen] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
-  const [isAdvanced, setIsAdvanced] = useState(false);
-  const [openAlertChangeMode, setOpenAlertChangeMode] = useState(false);
+
+  const defaultAlarmFormData: AlarmFormData = useMemo(() => {
+    return {
+      info: {
+        sensorConfig: null,
+        station: null,
+        type: alarm.type,
+        severity: alarm.severity,
+        checkInterval: alarm.checkInterval,
+        timeDelay: alarm.timeDelay,
+        isEnabled: alarm.isEnabled,
+        min: alarm.min,
+        max: alarm.max,
+      },
+      noti: {
+        message: alarm.message,
+        actions: alarm.actions,
+      },
+      isUpdate: true,
+    };
+  }, [alarm]);
 
   const methods = useForm<AlarmFormData>({
     defaultValues: defaultAlarmFormData,
@@ -55,69 +77,51 @@ export function CreateAlarmDialog() {
     setOpen(false);
     methods.reset();
     setActiveStep(0);
-    setIsAdvanced(false);
   };
 
   const handleNext = () => {
-    // if (activeStep === steps.length - 1) {
-    //   handleCloseDialog();
-    //   return;
-    // }
-    // setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    methods.trigger('info').then((isValid) => {
-      if (isValid) {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-      }
-    });
+    if (activeStep === steps.length - 1) {
+      handleCloseDialog();
+      return;
+    }
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleAgreeChangeMode = () => {
-    setOpenAlertChangeMode(false);
-    setActiveStep(0);
-    methods.reset();
-    methods.clearErrors();
-    methods.setValue(
-      'info.type',
-      isAdvanced ? AlarmType.PREDEFINED : AlarmType.CUSTOM,
-    );
-    setIsAdvanced((prevIsAdvanced) => !prevIsAdvanced);
+  const handleSubmit = (step: 'noti' | 'info') => {
+    methods.trigger(step).then((isValid) => {
+      if (isValid) {
+        // console.log('submit', methods.getValues(step));
+      }
+    });
   };
 
   const steps: AlarmStep[] = [
     {
       label: 'Cấu hình cảnh báo',
       description: 'Thiết lập các điều kiện cho hiển thị cảnh báo',
-      content: <AlarmInfoForm isAdvanced={isAdvanced} />,
+      content: <AlarmInfoForm isAdvanced={alarm.type === AlarmType.CUSTOM} />,
+      value: 'info',
     },
     {
       label: 'Gửi cảnh báo',
       description: 'Thiết lập các thông tin gửi cảnh báo',
       content: <AlarmNotiForm />,
-    },
-    {
-      label: 'Hoàn thành',
-      description: 'Các bước chuẩn bị đã hoàn tất và sẵn sàng để tạo cảnh báo',
-      content: <FinishStep />,
+      value: 'noti',
     },
   ];
 
-  const handleSubmit = () => {
-    handleCloseDialog();
-  };
-
   return (
     <FormProvider {...methods}>
-      <Button
-        startIcon={<SettingsInputComponentOutlinedIcon />}
-        variant='contained'
-        onClick={handleOpenDialog}
-      >
-        Thêm cấu hình
-      </Button>
+      <MenuItem key='edit' onClick={handleOpenDialog}>
+        <ListItemIcon>
+          <EditOutlinedIcon sx={{ fontSize: 20 }} />
+        </ListItemIcon>
+        <ListItemText>Chỉnh sửa cảnh báo</ListItemText>
+      </MenuItem>
       <Dialog
         PaperProps={{
           component: 'form',
@@ -138,28 +142,18 @@ export function CreateAlarmDialog() {
                 sx={{ fontWeight: 'bold' }}
                 variant='h6'
               >
-                {`Bước ${activeStep + 1}/${steps.length}: ${
-                  steps[activeStep].label
-                }`}
+                {`Chỉnh sửa: ${steps[activeStep].label}`}
               </Typography>
               <Typography variant='body2'>
                 {steps[activeStep].description}
               </Typography>
             </Box>
-            <FormControlLabel
-              control={
-                <Switch
-                  checked={isAdvanced}
-                  color='primary'
-                  inputProps={{ 'aria-label': 'controlled' }}
-                  onChange={() => setOpenAlertChangeMode(true)}
-                />
-              }
+            <SoftChip
               label={
-                <Typography variant='body2'>Thiết lập nâng cao</Typography>
+                alarm.type == AlarmType.PREDEFINED
+                  ? 'Thiết lập cơ bản'
+                  : 'Thiết lập nâng cao'
               }
-              labelPlacement='bottom'
-              sx={{ mr: 0 }}
             />
           </Stack>
         </Box>
@@ -173,7 +167,7 @@ export function CreateAlarmDialog() {
           >
             <Button
               color='inherit'
-              variant='outlined'
+              variant='contained'
               onClick={handleCloseDialog}
             >
               Đóng
@@ -182,31 +176,28 @@ export function CreateAlarmDialog() {
               <Button
                 color='inherit'
                 disabled={activeStep === 0}
-                variant='contained'
+                variant='outlined'
                 onClick={handleBack}
               >
                 Trở lại
               </Button>
+              {activeStep < steps.length - 1 && (
+                <Button variant='outlined' onClick={handleNext}>
+                  Kế tiếp
+                </Button>
+              )}
+            </Stack>
+            {activeStep < steps.length - 1 && (
               <Button
                 variant='contained'
-                onClick={
-                  activeStep === steps.length - 1
-                    ? () => handleSubmit()
-                    : () => handleNext()
-                }
+                onClick={() => handleSubmit(steps[activeStep].value)}
               >
-                {activeStep === steps.length - 1 ? 'Tạo cảnh báo' : 'Kế tiếp'}
+                Cập nhật
               </Button>
-            </Stack>
+            )}
           </Stack>
         </DialogActions>
       </Dialog>
-      <AlertChangeModeDialog
-        handleAgree={handleAgreeChangeMode}
-        handleClose={() => setOpenAlertChangeMode(false)}
-        isAdvanced={isAdvanced}
-        open={openAlertChangeMode}
-      />
     </FormProvider>
   );
 }

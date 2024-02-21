@@ -1,8 +1,15 @@
+import { useFormContext } from 'react-hook-form';
+
 import { IconButton, Stack } from '@mui/material';
 
 import { AlarmActionType } from '~/types';
 
-import { DeleteOutlineOutlinedIcon } from '~/components/Icons';
+import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
+
+import {
+  DeleteOutlineOutlinedIcon,
+  SaveAsOutlinedIcon,
+} from '~/components/Icons';
 import { FormControl, Typography } from '~/components/MuiComponents';
 
 export interface IToastMethodProps {
@@ -10,6 +17,10 @@ export interface IToastMethodProps {
 }
 
 export function ToastMethod({ onRemoveAction }: IToastMethodProps) {
+  const { watch } = useFormContext<AlarmFormData>();
+
+  const isUpdate = watch('isUpdate');
+
   return (
     <Stack
       component='li'
@@ -25,9 +36,15 @@ export function ToastMethod({ onRemoveAction }: IToastMethodProps) {
           Tất cả mọi người đều có thể xem cảnh báo này
         </Typography>
       </FormControl>
-      <Stack alignItems='center' justifyContent='center'>
+      <Stack alignItems='center' direction='row' justifyContent='center'>
+        {isUpdate && (
+          <IconButton aria-label='update' color='green'>
+            <SaveAsOutlinedIcon />
+          </IconButton>
+        )}
         <IconButton
           aria-label='delete'
+          color='red'
           onClick={() => onRemoveAction(AlarmActionType.POPUP)}
         >
           <DeleteOutlineOutlinedIcon />

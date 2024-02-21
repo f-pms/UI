@@ -7,7 +7,10 @@ import { AlarmActionType } from '~/types';
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 
 import { SoftChip } from '~/components';
-import { DeleteOutlineOutlinedIcon } from '~/components/Icons';
+import {
+  DeleteOutlineOutlinedIcon,
+  SaveAsOutlinedIcon,
+} from '~/components/Icons';
 import {
   FormControl,
   IconButton,
@@ -52,6 +55,8 @@ export function SendEmailMethod({ onRemoveAction }: ISendEmailMethodProps) {
   const [personNames, setPersonNames] = useState<string[]>([]);
   const { setValue, watch } = useFormContext<AlarmFormData>();
 
+  const isUpdate = watch('isUpdate');
+
   const handleChange = (event: SelectChangeEvent<typeof personNames>) => {
     const users = event.target.value as string[];
 
@@ -86,7 +91,7 @@ export function SendEmailMethod({ onRemoveAction }: ISendEmailMethodProps) {
           Thông báo qua email
         </Typography>
         <Typography variant='body2'>
-          Những người có trong danh sách sẽ nhận được cảnh báo qua email
+          Những người có trong danh sách sẽ được cảnh báo qua email
         </Typography>
         <Select
           multiple
@@ -122,9 +127,15 @@ export function SendEmailMethod({ onRemoveAction }: ISendEmailMethodProps) {
           ))}
         </Select>
       </FormControl>
-      <Stack alignItems='center' justifyContent='center'>
+      <Stack alignItems='center' direction='row' justifyContent='center'>
+        {isUpdate && (
+          <IconButton aria-label='update' color='green'>
+            <SaveAsOutlinedIcon />
+          </IconButton>
+        )}
         <IconButton
           aria-label='delete'
+          color='red'
           onClick={() => onRemoveAction(AlarmActionType.EMAIL)}
         >
           <DeleteOutlineOutlinedIcon />

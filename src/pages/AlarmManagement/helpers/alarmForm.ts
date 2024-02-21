@@ -39,6 +39,7 @@ interface AlarmInfoFromData extends Omit<AlarmInfoDTO, 'sensorConfigId'> {
 export interface AlarmFormData {
   info: AlarmInfoFromData;
   noti: AlarmNotiDTO;
+  isUpdate: boolean;
 }
 
 export const defaultAlarmFormData: AlarmFormData = {
@@ -57,6 +58,7 @@ export const defaultAlarmFormData: AlarmFormData = {
     message: '',
     actions: [],
   },
+  isUpdate: false,
 };
 
 export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
@@ -65,11 +67,11 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
     sensorConfig: object({
       id: string().required(),
       address: string().required(),
-    }).required('Địa chỉ biến không được phép để trống'),
+    }).nullable(),
     station: object({
       id: string().required(),
       name: string().required(),
-    }).required('Tên trạm không được phép để trống'),
+    }).nullable(),
     severity: mixed<AlarmSeverity>()
       .required()
       .oneOf(Object.values(AlarmSeverity)),
@@ -98,4 +100,5 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
       )
       .required('Ít nhất phải chọn một phương thức cảnh báo'),
   }),
+  isUpdate: boolean().required(),
 });

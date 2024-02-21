@@ -5,13 +5,13 @@ import {
   useMaterialReactTable,
 } from 'material-react-table';
 
-import { AlarmConfigDTO } from '~/types/alarm';
+import { Alarm } from '~/types';
 
 import { ALARM_CONFIG_LIST } from '~/pages/AlarmManagement/mocks/alarmConfig';
+import UpdateAlarmDialog from '~/pages/AlarmManagement/partials/UpdateAlarmDialog';
 
 import {
   AddCircleOutlineOutlinedIcon,
-  EditOutlinedIcon,
   NotificationsOffOutlinedIcon,
 } from '~/components/Icons';
 import {
@@ -23,7 +23,7 @@ import { getDefaultMRTOptions } from '~/components/Table';
 
 export interface IAlarmConfigTableProps {}
 
-const defaultMRTOptions = getDefaultMRTOptions<AlarmConfigDTO>();
+const defaultMRTOptions = getDefaultMRTOptions<Alarm>();
 
 export function AlarmConfigTable() {
   const [pagination, setPagination] = useState({
@@ -31,7 +31,7 @@ export function AlarmConfigTable() {
     pageSize: 10, //customize the default page size
   });
 
-  const columns: MRT_ColumnDef<AlarmConfigDTO>[] = [
+  const columns: MRT_ColumnDef<Alarm>[] = [
     {
       accessorKey: 'type',
       header: 'Loại',
@@ -91,13 +91,8 @@ export function AlarmConfigTable() {
     //     </div>
     //   );
     // },
-    renderRowActionMenuItems: () => [
-      <MenuItem key='edit'>
-        <ListItemIcon>
-          <EditOutlinedIcon sx={{ fontSize: 20 }} />
-        </ListItemIcon>
-        <ListItemText>Chỉnh sửa cảnh báo</ListItemText>
-      </MenuItem>,
+    renderRowActionMenuItems: ({ row }) => [
+      <UpdateAlarmDialog key='update' alarm={row.original} />,
       <MenuItem key='create'>
         <ListItemIcon>
           <AddCircleOutlineOutlinedIcon sx={{ fontSize: 20 }} />

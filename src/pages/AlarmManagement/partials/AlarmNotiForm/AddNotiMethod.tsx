@@ -73,17 +73,23 @@ export function AddNotiMethod() {
         >
           Phương thức cảnh báo
         </Typography>
-        <Typography variant='body2'>
+        <Typography mb={1} variant='body2'>
           Cho phép chọn nhiều phương thức cảnh báo khác nhau
         </Typography>
-        <Box sx={{ px: 4, py: 1 }}>
+        <Box
+          sx={(theme) => ({
+            background: theme.palette.grey[100],
+            p: watch('noti.actions').length ? 2 : 0,
+            borderRadius: '4px',
+          })}
+        >
           {watch('noti.actions').map((item, index) => (
-            <>
+            <Box key={item.actionType}>
               {fields[item.actionType]}
               {index !== watch('noti.actions').length - 1 && (
                 <Divider sx={{ my: 2 }} />
               )}
-            </>
+            </Box>
           ))}
         </Box>
         <SoftButton

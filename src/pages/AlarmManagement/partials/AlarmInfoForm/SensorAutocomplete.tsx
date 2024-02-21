@@ -15,9 +15,11 @@ export interface IVariableAutoCompleteProps {}
 export function SensorAutoComplete() {
   const {
     control,
+    watch,
     formState: { errors },
   } = useFormContext<AlarmFormData>();
   const [open, setOpen] = useState(false);
+  const isUpdated = watch('isUpdate');
   return (
     <>
       <FormControl
@@ -39,6 +41,7 @@ export function SensorAutoComplete() {
           control={control}
           defaultChecked={true}
           defaultValue={sensorConfigs[0]}
+          disabled={isUpdated}
           freeSolo={false}
           getOptionLabel={(option) => option.address}
           multiple={false}

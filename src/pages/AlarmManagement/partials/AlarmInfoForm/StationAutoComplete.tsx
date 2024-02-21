@@ -13,8 +13,10 @@ export interface IStationAutoCompleteProps {}
 export function StationAutoComplete() {
   const {
     control,
+    watch,
     formState: { errors },
   } = useFormContext<AlarmFormData>();
+  const isUpdated = watch('isUpdate');
   return (
     <FormControl
       error={!!errors.info?.station}
@@ -32,6 +34,7 @@ export function StationAutoComplete() {
       <Autocomplete
         control={control}
         defaultValue={stations[0]}
+        disabled={isUpdated}
         freeSolo={false}
         getOptionLabel={(option) => option.name}
         name='info.station'
