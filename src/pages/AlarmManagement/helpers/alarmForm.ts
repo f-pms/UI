@@ -9,11 +9,13 @@ import {
 } from 'yup';
 
 import {
+  AlarmInfoDTO,
+  AlarmNotiDTO,
+} from '~/services/alarm-condition/mutation/useCreateAlarmCondition';
+import {
   AlarmActionType,
-  AlarmInfo,
   AlarmSeverity,
   AlarmType,
-  CreateAlarmNoti,
   SensorConfig,
   Station,
 } from '~/types';
@@ -29,14 +31,14 @@ export const NOTI_METHOD_OPTIONS = [
   },
 ];
 
-interface AlarmInfoFromData extends Omit<AlarmInfo, 'id' | 'sensorConfigId'> {
+interface AlarmInfoFromData extends Omit<AlarmInfoDTO, 'sensorConfigId'> {
   sensorConfig: SensorConfig | null;
   station: Station | null;
 }
 
 export interface AlarmFormData {
   info: AlarmInfoFromData;
-  noti: CreateAlarmNoti;
+  noti: AlarmNotiDTO;
 }
 
 export const defaultAlarmFormData: AlarmFormData = {
