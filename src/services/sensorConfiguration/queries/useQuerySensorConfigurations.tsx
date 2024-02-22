@@ -12,9 +12,11 @@ export type GetSensorConfigurationsParams = {
 const getSensorConfigurations = async (
   params: GetSensorConfigurationsParams,
 ) => {
-  return (await axiosClient.get('sensor-configurations', {
-    params,
-  })) as SensorConfiguration[];
+  return (
+    await axiosClient.get('sensor-configurations', {
+      params,
+    })
+  ).data as SensorConfiguration[];
 };
 
 export const useQuerySensorConfigurations = (
