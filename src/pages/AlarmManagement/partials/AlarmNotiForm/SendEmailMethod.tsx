@@ -35,16 +35,16 @@ const MenuProps = {
 };
 
 const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
+  'huybnse150819@fpt.edu.vn',
+  'huynnse150807@fpt.edu.vn',
+  'kienttse151340@fpt.edu.vn',
+  'dailxse150683@fpt.edu.vn',
+  'thinhltse151082@fpt.edu.vn',
+  'huybui479@gmail.com',
+  'nguyennhathuy.orit@gmail.com',
+  'kien123456k@gmail.com',
+  'lxdai0307@gmail.com',
+  'letienthinh0109@gmail.com',
 ];
 
 export interface ISendEmailMethodProps {
@@ -64,8 +64,8 @@ export function SendEmailMethod({ onRemoveAction }: ISendEmailMethodProps) {
 
     const actions = watch('noti.actions');
     const newActions = actions.map((action) => {
-      if (action.actionType === AlarmActionType.EMAIL) {
-        return { ...action, recipientsId: users };
+      if (action.type === AlarmActionType.EMAIL) {
+        return { ...action, recipients: users };
       }
       return action;
     });
@@ -75,8 +75,8 @@ export function SendEmailMethod({ onRemoveAction }: ISendEmailMethodProps) {
   const users = useMemo(() => {
     return (
       watch('noti.actions').find(
-        (action) => action.actionType === AlarmActionType.EMAIL,
-      )?.recipientsId ?? []
+        (action) => action.type === AlarmActionType.EMAIL,
+      )?.recipients ?? []
     );
   }, [watch]);
 

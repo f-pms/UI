@@ -16,7 +16,7 @@ import {
   AlarmActionType,
   AlarmSeverity,
   AlarmType,
-  SensorConfig,
+  SensorConfiguration,
   Station,
 } from '~/types';
 
@@ -31,8 +31,9 @@ export const NOTI_METHOD_OPTIONS = [
   },
 ];
 
-interface AlarmInfoFromData extends Omit<AlarmInfoDTO, 'sensorConfigId'> {
-  sensorConfig: SensorConfig | null;
+interface AlarmInfoFromData
+  extends Omit<AlarmInfoDTO, 'sensorConfigurationId'> {
+  sensorConfig: SensorConfiguration | null;
   station: Station | null;
 }
 
@@ -50,7 +51,7 @@ export const defaultAlarmFormData: AlarmFormData = {
     severity: AlarmSeverity.URGENT,
     checkInterval: 1,
     timeDelay: 1,
-    isEnabled: true,
+    enabled: true,
     min: undefined,
     max: undefined,
   },
@@ -65,13 +66,18 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
   info: object({
     type: mixed<AlarmType>().required().oneOf(Object.values(AlarmType)),
     sensorConfig: object({
-      id: string().required(),
+      id: number().required(),
       address: string().required(),
-    }).nullable(),
+      x: string().required(),
+      y: string().required(),
+    }).required('Địa chỉ biến không được phép để trống'),
     station: object({
-      id: string().required(),
+      id: number().required(),
       name: string().required(),
-    }).nullable(),
+      value: string().required(),
+      type: string().required(),
+      typeLabel: string().required(),
+    }).required('Trạm không được phép để trống'),
     severity: mixed<AlarmSeverity>()
       .required()
       .oneOf(Object.values(AlarmSeverity)),
@@ -83,7 +89,7 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
       .required('Độ trễ không được phép để trống')
       .positive('Độ trễ phải là số nguyên dương')
       .integer('Độ trễ phải là số nguyên dương'),
-    isEnabled: boolean().required(),
+    enabled: boolean().required(),
     min: number().optional(),
     max: number().optional(),
   }),
@@ -92,10 +98,10 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
     actions: array()
       .of(
         object({
-          actionType: mixed<AlarmActionType>()
+          type: mixed<AlarmActionType>()
             .required()
             .oneOf(Object.values(AlarmActionType)),
-          recipientsId: array().of(string().required()).optional(),
+          recipients: array().of(string().required()).optional(),
         }),
       )
       .required('Ít nhất phải chọn một phương thức cảnh báo'),

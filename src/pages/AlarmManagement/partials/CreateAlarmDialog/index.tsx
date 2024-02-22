@@ -1,8 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { FormProvider, useForm } from '~/libs/react-hook-form';
+import {
+  CreateAlarmDTO,
+  useCreateAlarmCondition,
+} from '~/services/alarm-condition/mutation/useCreateAlarmCondition';
+import { useQueryAlarmConditions } from '~/services/alarm-condition/queries/useQueryAlarmConditions';
 import { AlarmType } from '~/types';
 
 import {
@@ -28,12 +34,11 @@ import {
   Typography,
 } from '~/components/MuiComponents';
 
-export interface ICreateAlarmDialogProps {}
-
 export type AlarmStep = {
   label: string;
   content: React.ReactNode;
   description: string;
+  step?: 'info' | 'noti';
 };
 
 export function CreateAlarmDialog() {
@@ -41,6 +46,8 @@ export function CreateAlarmDialog() {
   const [activeStep, setActiveStep] = useState(0);
   const [isAdvanced, setIsAdvanced] = useState(false);
   const [openAlertChangeMode, setOpenAlertChangeMode] = useState(false);
+  const { mutate: createAlarmCondition, isSuccess } = useCreateAlarmCondition();
+  const { refetch } = useQueryAlarmConditions();
 
   const methods = useForm<AlarmFormData>({
     defaultValues: defaultAlarmFormData,
@@ -58,13 +65,8 @@ export function CreateAlarmDialog() {
     setIsAdvanced(false);
   };
 
-  const handleNext = () => {
-    // if (activeStep === steps.length - 1) {
-    //   handleCloseDialog();
-    //   return;
-    // }
-    // setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    methods.trigger('info').then((isValid) => {
+  const handleNext = (step: 'info' | 'noti') => {
+    methods.trigger(step).then((isValid) => {
       if (isValid) {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
       }
@@ -92,11 +94,13 @@ export function CreateAlarmDialog() {
       label: 'Cấu hình cảnh báo',
       description: 'Thiết lập các điều kiện cho hiển thị cảnh báo',
       content: <AlarmInfoForm isAdvanced={isAdvanced} />,
+      step: 'info',
     },
     {
       label: 'Gửi cảnh báo',
       description: 'Thiết lập các thông tin gửi cảnh báo',
       content: <AlarmNotiForm />,
+      step: 'noti',
     },
     {
       label: 'Hoàn thành',
@@ -106,8 +110,30 @@ export function CreateAlarmDialog() {
   ];
 
   const handleSubmit = () => {
-    handleCloseDialog();
+    const data = methods.watch();
+    const payload: CreateAlarmDTO = {
+      sensorConfigurationId: data.info.sensorConfig?.id ?? 0,
+      type: data.info.type,
+      severity: data.info.severity,
+      timeDelay: data.info.timeDelay,
+      enabled: true,
+      checkInterval: data.info.checkInterval,
+      message: data.noti.message,
+      actions: data.noti.actions,
+      min: data.info.min,
+      max: data.info.max,
+    };
+    createAlarmCondition(payload);
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      handleCloseDialog();
+      refetch();
+      toast.success('Tạo cảnh báo thành công');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSuccess]);
 
   return (
     <FormProvider {...methods}>
@@ -192,7 +218,7 @@ export function CreateAlarmDialog() {
                 onClick={
                   activeStep === steps.length - 1
                     ? () => handleSubmit()
-                    : () => handleNext()
+                    : () => handleNext(steps[activeStep]?.step ?? 'info')
                 }
               >
                 {activeStep === steps.length - 1 ? 'Tạo cảnh báo' : 'Kế tiếp'}

@@ -7,7 +7,6 @@ import {
 
 import { Alarm } from '~/types';
 
-import { ALARM_CONFIG_LIST } from '~/pages/AlarmManagement/mocks/alarmConfig';
 import UpdateAlarmDialog from '~/pages/AlarmManagement/partials/UpdateAlarmDialog';
 
 import {
@@ -21,11 +20,14 @@ import {
 } from '~/components/MuiComponents';
 import { getDefaultMRTOptions } from '~/components/Table';
 
-export interface IAlarmConfigTableProps {}
+export interface IAlarmConfigTableProps {
+  alarmConditions: Alarm[];
+}
 
 const defaultMRTOptions = getDefaultMRTOptions<Alarm>();
 
-export function AlarmConfigTable() {
+export function AlarmConfigTable(props: IAlarmConfigTableProps) {
+  const { alarmConditions } = props;
   const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: 10, //customize the default page size
@@ -37,7 +39,7 @@ export function AlarmConfigTable() {
       header: 'Loại',
     },
     {
-      accessorKey: 'sensorConfigId',
+      accessorKey: 'sensorConfiguration.address',
       header: 'Địa chỉ biến',
     },
     {
@@ -45,16 +47,19 @@ export function AlarmConfigTable() {
       header: 'Mức độ',
     },
     {
-      accessorKey: 'message',
+      id: 'message',
       header: 'Thông báo',
+      accessorFn: (row) => (row.actions.length ? row.actions[0]?.message : ''),
     },
     {
       accessorKey: 'checkInterval',
       header: 'Chu kì kiểm tra',
+      accessorFn: (row) => `${row.checkInterval} giây`,
     },
     {
-      accessorKey: 'timeDelay',
+      id: 'timeDelay',
       header: 'Độ trễ',
+      accessorFn: (row) => `${row.timeDelay} giây`,
     },
   ];
 
@@ -65,7 +70,7 @@ export function AlarmConfigTable() {
     },
     positionActionsColumn: 'first',
     columns,
-    data: ALARM_CONFIG_LIST,
+    data: alarmConditions,
     enableRowActions: true,
     getRowId: (row) => row.id,
     onPaginationChange: setPagination, //hoist pagination state to your state when it changes internally
@@ -91,8 +96,12 @@ export function AlarmConfigTable() {
     //     </div>
     //   );
     // },
-    renderRowActionMenuItems: ({ row }) => [
-      <UpdateAlarmDialog key='update' alarm={row.original} />,
+    renderRowActionMenuItems: ({ row, closeMenu }) => [
+      <UpdateAlarmDialog
+        key='update'
+        alarm={row.original}
+        closeMenu={closeMenu}
+      />,
       <MenuItem key='create'>
         <ListItemIcon>
           <AddCircleOutlineOutlinedIcon sx={{ fontSize: 20 }} />

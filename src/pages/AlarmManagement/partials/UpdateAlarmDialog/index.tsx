@@ -3,6 +3,10 @@ import { FormProvider, useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 
+import {
+  UpdateAlarmDTO,
+  useUpdateAlarmCondition,
+} from '~/services/alarm-condition/mutation/useUpdateAlarmCondition';
 import { Alarm, AlarmType } from '~/types';
 
 import {
@@ -29,6 +33,7 @@ import {
 
 export interface IUpdateAlarmDialogProps {
   alarm: Alarm;
+  closeMenu: () => void;
 }
 
 export type AlarmStep = {
@@ -39,25 +44,32 @@ export type AlarmStep = {
 };
 
 export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
-  const { alarm } = props;
+  const { alarm, closeMenu } = props;
   const [open, setOpen] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
+  const { mutate: updateAlarmCondition } = useUpdateAlarmCondition();
 
   const defaultAlarmFormData: AlarmFormData = useMemo(() => {
     return {
       info: {
-        sensorConfig: null,
-        station: null,
+        sensorConfig: alarm.sensorConfiguration,
+        station: {
+          id: 1,
+          name: 'Main',
+          value: 'main',
+          type: 'MONITORING',
+          typeLabel: 'Giám sát',
+        },
         type: alarm.type,
         severity: alarm.severity,
         checkInterval: alarm.checkInterval,
         timeDelay: alarm.timeDelay,
-        isEnabled: alarm.isEnabled,
         min: alarm.min,
         max: alarm.max,
+        enabled: alarm.enabled,
       },
       noti: {
-        message: alarm.message,
+        message: alarm.actions[0]?.message,
         actions: alarm.actions,
       },
       isUpdate: true,
@@ -77,6 +89,7 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
     setOpen(false);
     methods.reset();
     setActiveStep(0);
+    closeMenu();
   };
 
   const handleNext = () => {
@@ -91,10 +104,21 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleSubmit = (step: 'noti' | 'info') => {
-    methods.trigger(step).then((isValid) => {
+  const handleSubmit = () => {
+    methods.trigger('info').then((isValid) => {
       if (isValid) {
-        // console.log('submit', methods.getValues(step));
+        const data = methods.watch();
+        const payload: UpdateAlarmDTO = {
+          enabled: data.info.enabled,
+          sensorConfigurationId: data.info.sensorConfig?.id ?? 0,
+          type: data.info.type,
+          severity: data.info.severity,
+          timeDelay: data.info.timeDelay,
+          checkInterval: data.info.checkInterval,
+          min: data.info.min,
+          max: data.info.max,
+        };
+        updateAlarmCondition({ id: alarm.id, payload });
       }
     });
   };
@@ -188,10 +212,7 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
               )}
             </Stack>
             {activeStep < steps.length - 1 && (
-              <Button
-                variant='contained'
-                onClick={() => handleSubmit(steps[activeStep].value)}
-              >
+              <Button variant='contained' onClick={handleSubmit}>
                 Cập nhật
               </Button>
             )}

@@ -34,7 +34,7 @@ export function AddNotiMethod() {
 
   const checkIsSelected = (value: AlarmActionType) => {
     const selectedOptions = watch('noti.actions');
-    return selectedOptions.some((item) => item.actionType === value);
+    return selectedOptions.some((item) => item.type === value);
   };
 
   const handleMenuItemClick = (value: AlarmActionType) => {
@@ -42,7 +42,7 @@ export function AddNotiMethod() {
 
     setValue('noti.actions', [
       ...selectedOptions,
-      { actionType: value, recipientsId: [] },
+      { type: value, recipients: [] },
     ]);
     setAnchorEl(null);
   };
@@ -51,7 +51,7 @@ export function AddNotiMethod() {
     const selectedOptions = watch('noti.actions');
     setValue(
       'noti.actions',
-      selectedOptions.filter((option) => option.actionType !== value),
+      selectedOptions.filter((option) => option.type !== value),
     );
   };
 
@@ -84,8 +84,8 @@ export function AddNotiMethod() {
           })}
         >
           {watch('noti.actions').map((item, index) => (
-            <Box key={item.actionType}>
-              {fields[item.actionType]}
+            <Box key={item.type}>
+              {fields[item.type]}
               {index !== watch('noti.actions').length - 1 && (
                 <Divider sx={{ my: 2 }} />
               )}

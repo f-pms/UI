@@ -17,10 +17,10 @@ export function TimeDelayInput() {
     <InputWithLabel
       control={control}
       defaultValue={1}
-      description=' Số nguyên dương, đơn vị: giây(s)'
+      description=' Số nguyên dương, đơn vị: giây'
       endAdornment={
         <InputAdornment position='end'>
-          <Typography variant='body2'>(s)</Typography>
+          <Typography variant='body2'>(giây)</Typography>
         </InputAdornment>
       }
       error={errors.info?.timeDelay}

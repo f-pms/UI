@@ -15,14 +15,12 @@ export enum AlarmStatus {
   SOLVED = 'SOLVED',
 }
 
-export type SensorConfig = {
-  id: string;
-  address: string;
-};
-
 export type Station = {
-  id: string;
+  id: number;
   name: string;
+  value: string;
+  type: string;
+  typeLabel: string;
 };
 
 export enum AlarmActionType {
@@ -30,27 +28,29 @@ export enum AlarmActionType {
   EMAIL = 'EMAIL',
 }
 
-export interface AlarmInfo {
-  id: string;
-  sensorConfigId: string;
-  type: AlarmType;
-  severity: AlarmSeverity;
-  checkInterval: number;
-  timeDelay: number;
-  isEnabled: boolean;
-  min?: number;
-  max?: number;
-}
+export type SensorConfiguration = {
+  id: number;
+  address: string;
+  x: string;
+  y: string;
+};
 
 export type AlarmAction = {
-  actionId: string;
-  actionType: AlarmActionType;
-  recipientsId?: string[];
-};
-
-export type AlarmNoti = {
   message: string;
-  actions: AlarmAction[];
+  id: string;
+  type: AlarmActionType;
+  recipients?: string[];
 };
 
-export interface Alarm extends AlarmInfo, AlarmNoti {}
+export interface Alarm {
+  id: number;
+  sensorConfiguration: SensorConfiguration;
+  type: AlarmType;
+  severity: AlarmSeverity;
+  timeDelay: number;
+  min?: number;
+  max?: number;
+  actions: AlarmAction[];
+  enabled: boolean;
+  checkInterval: number;
+}

@@ -43,7 +43,7 @@ export function FinishStep() {
       </Typography>
       <Box
         sx={(theme) => ({
-          '& > div:nth-child(odd)': {
+          '& > div:nth-of-type(odd)': {
             background: theme.palette.grey[100],
           },
         })}
@@ -124,11 +124,11 @@ export function FinishStep() {
           <Box>
             {watch('noti.actions')?.map((item, index) => (
               <Typography
-                key={item.actionType}
+                key={item.type}
                 sx={{ mt: index > 0 ? 1 : 0 }}
                 variant='body2'
               >
-                {ACTION_TYPE_TEXT[item.actionType]}
+                {ACTION_TYPE_TEXT[item.type]}
               </Typography>
             ))}
           </Box>
