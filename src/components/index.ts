@@ -1,4 +1,5 @@
 // Custom Components
+export * from './AlertDialog';
 export * from './Autocomplete';
 export * from './Buttons/CustomBorderButton';
 export * from './Buttons/SoftButton';

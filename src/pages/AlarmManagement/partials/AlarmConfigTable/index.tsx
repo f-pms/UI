@@ -7,17 +7,10 @@ import {
 
 import { Alarm } from '~/types';
 
+import { ConfirmDeleteAlarmDialog } from '~/pages/AlarmManagement/partials/ConfirmDeleteAlarmDialog';
+import { CreateAlarmWithBaseDialog } from '~/pages/AlarmManagement/partials/CreateAlarmWithBaseDialog';
 import UpdateAlarmDialog from '~/pages/AlarmManagement/partials/UpdateAlarmDialog';
 
-import {
-  AddCircleOutlineOutlinedIcon,
-  NotificationsOffOutlinedIcon,
-} from '~/components/Icons';
-import {
-  ListItemIcon,
-  ListItemText,
-  MenuItem,
-} from '~/components/MuiComponents';
 import { getDefaultMRTOptions } from '~/components/Table';
 
 export interface IAlarmConfigTableProps {
@@ -72,7 +65,7 @@ export function AlarmConfigTable(props: IAlarmConfigTableProps) {
     columns,
     data: alarmConditions,
     enableRowActions: true,
-    getRowId: (row) => row.id,
+    getRowId: (row) => row.id.toString(),
     onPaginationChange: setPagination, //hoist pagination state to your state when it changes internally
     state: { pagination }, //pass the pagination state to the table
     // renderTopToolbarCustomActions: () => {
@@ -102,18 +95,16 @@ export function AlarmConfigTable(props: IAlarmConfigTableProps) {
         alarm={row.original}
         closeMenu={closeMenu}
       />,
-      <MenuItem key='create'>
-        <ListItemIcon>
-          <AddCircleOutlineOutlinedIcon sx={{ fontSize: 20 }} />
-        </ListItemIcon>
-        <ListItemText>Tạo mới từ cảnh báo</ListItemText>
-      </MenuItem>,
-      <MenuItem key='delete'>
-        <ListItemIcon>
-          <NotificationsOffOutlinedIcon sx={{ fontSize: 20 }} />
-        </ListItemIcon>
-        <ListItemText>Vô hiệu hóa cảnh báo</ListItemText>
-      </MenuItem>,
+      <CreateAlarmWithBaseDialog
+        key='create-with-base'
+        alarm={row.original}
+        closeMenu={closeMenu}
+      />,
+      <ConfirmDeleteAlarmDialog
+        key='delete'
+        alarm={row.original}
+        closeMenu={closeMenu}
+      />,
     ],
   });
 

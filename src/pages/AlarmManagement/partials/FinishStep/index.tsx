@@ -9,11 +9,11 @@ import { Box, Stack, Typography } from '~/components/MuiComponents';
 export interface IFinishStepProps {}
 
 export function FinishStep() {
-  const { watch } = useFormContext<AlarmFormData>();
+  const { getValues } = useFormContext<AlarmFormData>();
 
   const getConditionText = () => {
-    const min = watch('info.min');
-    const max = watch('info.max');
+    const min = getValues('info.min');
+    const max = getValues('info.max');
 
     if (min && max) {
       return `Từ ${min} đến ${max}`;
@@ -52,14 +52,16 @@ export function FinishStep() {
           <Typography fontWeight='bold' sx={{ width: '240px' }} variant='body2'>
             Trạm
           </Typography>
-          <Typography variant='body2'>{watch('info.station')?.name}</Typography>
+          <Typography variant='body2'>
+            {getValues('info.station')?.name}
+          </Typography>
         </Stack>
         <Stack alignItems='flex-start' direction='row' sx={{ p: 2 }}>
           <Typography fontWeight='bold' sx={{ width: '240px' }} variant='body2'>
             Địa chỉ biến
           </Typography>
           <Typography variant='body2'>
-            {watch('info.sensorConfig')?.address}
+            {getValues('info.sensorConfig')?.address}
           </Typography>
         </Stack>
         <Stack alignItems='flex-start' direction='row' sx={{ p: 2 }}>
@@ -67,7 +69,7 @@ export function FinishStep() {
             Chu kì kiểm tra
           </Typography>
           <Typography variant='body2'>
-            {watch('info.checkInterval')} (giây)
+            {getValues('info.checkInterval')} (giây)
           </Typography>
         </Stack>
         <Stack
@@ -81,10 +83,10 @@ export function FinishStep() {
             Độ trễ
           </Typography>
           <Typography variant='body2'>
-            {watch('info.timeDelay')} (giây)
+            {getValues('info.timeDelay')} (giây)
           </Typography>
         </Stack>
-        {watch('info.type') == AlarmType.CUSTOM && (
+        {getValues('info.type') == AlarmType.CUSTOM && (
           <Stack
             alignItems='flex-start'
             direction='row'
@@ -107,14 +109,14 @@ export function FinishStep() {
           <Typography fontWeight='bold' sx={{ width: '240px' }} variant='body2'>
             Nội dung cảnh báo
           </Typography>
-          <Typography variant='body2'>{watch('noti.message')}</Typography>
+          <Typography variant='body2'>{getValues('noti.message')}</Typography>
         </Stack>
         <Stack alignItems='flex-start' direction='row' sx={{ p: 2 }}>
           <Typography fontWeight='bold' sx={{ width: '240px' }} variant='body2'>
             Mức độ
           </Typography>
           <Typography variant='body2'>
-            {SEVERITY_TEXT[watch('info.severity')]}
+            {SEVERITY_TEXT[getValues('info.severity')]}
           </Typography>
         </Stack>
         <Stack alignItems='flex-start' direction='row' sx={{ p: 2 }}>
@@ -122,7 +124,7 @@ export function FinishStep() {
             Phương thức cảnh báo
           </Typography>
           <Box>
-            {watch('noti.actions')?.map((item, index) => (
+            {getValues('noti.actions')?.map((item, index) => (
               <Typography
                 key={item.type}
                 sx={{ mt: index > 0 ? 1 : 0 }}

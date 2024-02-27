@@ -16,15 +16,15 @@ export interface IVariableAutoCompleteProps {}
 export function SensorAutoComplete() {
   const {
     control,
-    watch,
+    getValues,
     formState: { errors },
   } = useFormContext<AlarmFormData>();
   const [open, setOpen] = useState(false);
-  const isUpdated = watch('isUpdate');
+  const isUpdated = getValues('isUpdate');
 
   const { data: sensorConfigs } = useQuerySensorConfigurations({
-    blueprintType: watch('info.station')?.type ?? '',
-    blueprintName: watch('info.station')?.value ?? '',
+    blueprintType: getValues('info.station')?.type ?? '',
+    blueprintName: getValues('info.station')?.value ?? '',
   });
 
   return (
@@ -49,15 +49,16 @@ export function SensorAutoComplete() {
             disabled
             size='small'
             sx={{ fontSize: '14px' }}
-            value={_.upperFirst(watch('info.sensorConfig')?.address)}
+            value={_.upperFirst(getValues('info.sensorConfig')?.address)}
           />
         ) : (
           <Autocomplete
             control={control}
             defaultChecked={true}
             defaultValue={sensorConfigs?.[0]}
-            disabled={isUpdated || !watch('info.station')}
+            disabled={isUpdated || !getValues('info.station')}
             freeSolo={false}
+            getOptionDisabled={(option) => option.attachedToAlarm}
             getOptionLabel={(option) => option.address}
             multiple={false}
             name='info.sensorConfig'

@@ -1,25 +1,33 @@
 import { useFormContext } from 'react-hook-form';
 
-import { IconButton, Stack } from '@mui/material';
-
 import { AlarmActionType } from '~/types';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
+import { useUpdateAction } from '~/pages/AlarmManagement/hooks/useUpdateAction';
 
 import {
   DeleteOutlineOutlinedIcon,
   SaveAsOutlinedIcon,
 } from '~/components/Icons';
-import { FormControl, Typography } from '~/components/MuiComponents';
+import {
+  FormControl,
+  IconButton,
+  Stack,
+  Tooltip,
+  Typography,
+} from '~/components/MuiComponents';
 
 export interface IToastMethodProps {
   onRemoveAction: (value: AlarmActionType) => void;
 }
 
 export function ToastMethod({ onRemoveAction }: IToastMethodProps) {
-  const { watch } = useFormContext<AlarmFormData>();
-
-  const isUpdate = watch('isUpdate');
+  const { getValues } = useFormContext<AlarmFormData>();
+  const { handleCreateAction, handleDeleteAction, disabled } = useUpdateAction({
+    actionType: AlarmActionType.POPUP,
+    onRemoveAction,
+  });
+  const isUpdate = getValues('isUpdate');
 
   return (
     <Stack
@@ -38,17 +46,26 @@ export function ToastMethod({ onRemoveAction }: IToastMethodProps) {
       </FormControl>
       <Stack alignItems='center' direction='row' justifyContent='center'>
         {isUpdate && (
-          <IconButton aria-label='update' color='green'>
-            <SaveAsOutlinedIcon />
-          </IconButton>
+          <Tooltip title='Lưu'>
+            <IconButton
+              aria-label='update'
+              color='green'
+              disabled={disabled}
+              onClick={() => handleCreateAction()}
+            >
+              <SaveAsOutlinedIcon />
+            </IconButton>
+          </Tooltip>
         )}
-        <IconButton
-          aria-label='delete'
-          color='red'
-          onClick={() => onRemoveAction(AlarmActionType.POPUP)}
-        >
-          <DeleteOutlineOutlinedIcon />
-        </IconButton>
+        <Tooltip title='Xóa'>
+          <IconButton
+            aria-label='delete'
+            color='red'
+            onClick={handleDeleteAction}
+          >
+            <DeleteOutlineOutlinedIcon />
+          </IconButton>
+        </Tooltip>
       </Stack>
     </Stack>
   );

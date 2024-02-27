@@ -10,11 +10,11 @@ export interface IAlarmNotiFormProps {}
 
 export function AlarmNotiForm() {
   const {
-    watch,
+    getValues,
     control,
     formState: { errors },
   } = useFormContext<AlarmFormData>();
-  const isUpdate = watch('isUpdate');
+  const isUpdate = getValues('isUpdate');
   return (
     <Box sx={{ width: '600px' }}>
       <Stack direction='row'>

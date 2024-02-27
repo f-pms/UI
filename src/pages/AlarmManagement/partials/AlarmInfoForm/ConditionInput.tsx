@@ -14,7 +14,7 @@ import { FormControl, Stack, Typography } from '~/components/MuiComponents';
 export interface IConditionInputProps {}
 
 export function ConditionInput() {
-  const { setValue, control, watch } = useFormContext();
+  const { setValue, control, getValues } = useFormContext();
   const [typeCondition, setTypeCondition] = useState<TypeCondition>(
     TypeCondition.RANGE,
   );
@@ -32,8 +32,12 @@ export function ConditionInput() {
     }
   }, [typeCondition, setValue]);
 
-  const min = useMemo(() => watch('info.min'), [watch]) as number | undefined;
-  const max = useMemo(() => watch('info.max'), [watch]) as number | undefined;
+  const min = useMemo(() => getValues('info.min'), [getValues]) as
+    | number
+    | undefined;
+  const max = useMemo(() => getValues('info.max'), [getValues]) as
+    | number
+    | undefined;
 
   useEffect(() => {
     if (min && max) {

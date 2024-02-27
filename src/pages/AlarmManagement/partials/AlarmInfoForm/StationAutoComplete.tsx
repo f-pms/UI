@@ -33,32 +33,37 @@ const GroupItems = styled('ul')({
 export function StationAutoComplete() {
   const {
     control,
-    watch,
+    getValues,
     formState: { errors },
     resetField,
     clearErrors,
   } = useFormContext<AlarmFormData>();
   const { data: blueprints } = useQueryBlueprints();
-  const isUpdated = watch('isUpdate');
+  const isUpdated = getValues('isUpdate');
 
   const options: Station[] = useMemo(() => {
-    const monitoringBlueprints = blueprints?.map((blueprint) => {
-      return {
-        id: blueprint.id,
-        name: blueprint.name,
-        value: blueprint.name,
-        type: 'MONITORING',
-        typeLabel: 'Giám sát',
-      };
-    });
+    const monitoringBlueprints =
+      getValues('info.type') == AlarmType.PREDEFINED
+        ? []
+        : blueprints?.map((blueprint) => {
+            return {
+              id: blueprint.id,
+              name: blueprint.name,
+              value: blueprint.name,
+              type: 'MONITORING',
+              typeLabel: 'Giám sát',
+            };
+          });
     return [
       ...(monitoringBlueprints ?? []),
       {
         id: 100,
         name:
-          watch('info.type') == AlarmType.PREDEFINED ? 'Cơ bản' : 'Nâng cao',
+          getValues('info.type') == AlarmType.PREDEFINED
+            ? 'Cơ bản'
+            : 'Nâng cao',
         value:
-          watch('info.type') == AlarmType.PREDEFINED
+          getValues('info.type') == AlarmType.PREDEFINED
             ? AlarmType.PREDEFINED
             : AlarmType.CUSTOM,
         type: 'ALARM',
@@ -66,7 +71,7 @@ export function StationAutoComplete() {
       },
     ];
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [blueprints, watch('info.type')]);
+  }, [blueprints, getValues('info.type')]);
 
   return (
     <FormControl
@@ -87,7 +92,7 @@ export function StationAutoComplete() {
           disabled
           size='small'
           sx={{ fontSize: '14px' }}
-          value={_.upperFirst(watch('info.station')?.name)}
+          value={_.upperFirst(getValues('info.station')?.name)}
         />
       ) : (
         <Autocomplete

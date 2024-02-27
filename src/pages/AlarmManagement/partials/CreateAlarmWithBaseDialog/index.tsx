@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -9,19 +9,18 @@ import {
   useCreateAlarmCondition,
 } from '~/services/alarm-condition/mutation/useCreateAlarmCondition';
 import { useQueryAlarmConditions } from '~/services/alarm-condition/queries/useQueryAlarmConditions';
-import { AlarmType } from '~/types';
+import { Alarm, AlarmType } from '~/types';
 
 import {
   AlarmFormData,
   alarmSchema,
-  defaultAlarmFormData,
 } from '~/pages/AlarmManagement/helpers/alarmForm';
 import { AlarmInfoForm } from '~/pages/AlarmManagement/partials/AlarmInfoForm';
 import { AlarmNotiForm } from '~/pages/AlarmManagement/partials/AlarmNotiForm';
 import { AlertChangeModeDialog } from '~/pages/AlarmManagement/partials/AlertChangeModeDialog';
 import { FinishStep } from '~/pages/AlarmManagement/partials/FinishStep';
 
-import { SettingsInputComponentOutlinedIcon } from '~/components/Icons';
+import { AddCircleOutlineOutlinedIcon } from '~/components/Icons';
 import {
   Box,
   Button,
@@ -29,6 +28,9 @@ import {
   DialogActions,
   DialogContent,
   FormControlLabel,
+  ListItemIcon,
+  ListItemText,
+  MenuItem,
   Stack,
   Switch,
   Typography,
@@ -41,13 +43,41 @@ export type AlarmStep = {
   step?: 'info' | 'noti';
 };
 
-export function CreateAlarmDialog() {
+export interface IAlarmConfigTableProps {
+  alarm: Alarm;
+  closeMenu: () => void;
+}
+
+export function CreateAlarmWithBaseDialog(props: IAlarmConfigTableProps) {
+  const { alarm, closeMenu } = props;
   const [open, setOpen] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
   const [isAdvanced, setIsAdvanced] = useState(false);
   const [openAlertChangeMode, setOpenAlertChangeMode] = useState(false);
   const { mutate: createAlarmCondition, isSuccess } = useCreateAlarmCondition();
   const { refetch } = useQueryAlarmConditions();
+
+  const defaultAlarmFormData: AlarmFormData = useMemo(() => {
+    return {
+      info: {
+        id: alarm.id,
+        sensorConfig: null,
+        station: null,
+        type: alarm.type,
+        severity: alarm.severity,
+        checkInterval: alarm.checkInterval,
+        timeDelay: alarm.timeDelay,
+        min: alarm.min,
+        max: alarm.max,
+        enabled: alarm.enabled,
+      },
+      noti: {
+        message: alarm.actions[0]?.message,
+        actions: alarm.actions,
+      },
+      isUpdate: false,
+    };
+  }, [alarm]);
 
   const methods = useForm<AlarmFormData>({
     defaultValues: defaultAlarmFormData,
@@ -63,6 +93,7 @@ export function CreateAlarmDialog() {
     methods.reset();
     setActiveStep(0);
     setIsAdvanced(false);
+    closeMenu();
   };
 
   const handleNext = (step: 'info' | 'noti') => {
@@ -88,6 +119,12 @@ export function CreateAlarmDialog() {
     );
     setIsAdvanced((prevIsAdvanced) => !prevIsAdvanced);
   };
+
+  useEffect(() => {
+    if (alarm.type === AlarmType.CUSTOM) {
+      setIsAdvanced(true);
+    }
+  }, [alarm]);
 
   const steps: AlarmStep[] = [
     {
@@ -137,13 +174,12 @@ export function CreateAlarmDialog() {
 
   return (
     <FormProvider {...methods}>
-      <Button
-        startIcon={<SettingsInputComponentOutlinedIcon />}
-        variant='contained'
-        onClick={handleOpenDialog}
-      >
-        Thêm cấu hình
-      </Button>
+      <MenuItem key='edit' onClick={handleOpenDialog}>
+        <ListItemIcon>
+          <AddCircleOutlineOutlinedIcon sx={{ fontSize: 20 }} />
+        </ListItemIcon>
+        <ListItemText>Tạo mới dựa theo cảnh báo này</ListItemText>
+      </MenuItem>
       <Dialog
         PaperProps={{
           component: 'form',

@@ -3,7 +3,7 @@ import { useMutation, UseMutationOptions } from '@tanstack/react-query';
 import axiosClient from '~/libs/axios';
 import { Alarm, AlarmAction } from '~/types';
 
-interface AlarmActionDTO extends Omit<AlarmAction, 'id' | 'message'> {}
+interface AlarmActionDTO extends Omit<AlarmAction, 'message'> {}
 
 export type AlarmNotiDTO = {
   message: string;
@@ -11,7 +11,7 @@ export type AlarmNotiDTO = {
 };
 
 export interface AlarmInfoDTO
-  extends Omit<Alarm, 'id' | 'sensorConfiguration' | 'actions'> {
+  extends Omit<Alarm, 'id' | 'sensorConfiguration' | 'actions' | 'blueprint'> {
   sensorConfigurationId: number;
 }
 

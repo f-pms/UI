@@ -24,7 +24,7 @@ import {
 export interface IAddMethodProps {}
 
 export function AddNotiMethod() {
-  const { setValue, watch } = useFormContext<AlarmFormData>();
+  const { setValue, getValues } = useFormContext<AlarmFormData>();
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -33,22 +33,22 @@ export function AddNotiMethod() {
   };
 
   const checkIsSelected = (value: AlarmActionType) => {
-    const selectedOptions = watch('noti.actions');
+    const selectedOptions = getValues('noti.actions');
     return selectedOptions.some((item) => item.type === value);
   };
 
   const handleMenuItemClick = (value: AlarmActionType) => {
-    const selectedOptions = watch('noti.actions');
+    const selectedOptions = getValues('noti.actions');
 
     setValue('noti.actions', [
       ...selectedOptions,
-      { type: value, recipients: [] },
+      { id: 0, type: value, recipients: [] },
     ]);
     setAnchorEl(null);
   };
 
   const handleRemoveAction = (value: AlarmActionType) => {
-    const selectedOptions = watch('noti.actions');
+    const selectedOptions = getValues('noti.actions');
     setValue(
       'noti.actions',
       selectedOptions.filter((option) => option.type !== value),
@@ -63,6 +63,7 @@ export function AddNotiMethod() {
       <SendEmailMethod onRemoveAction={handleRemoveAction} />
     ),
   };
+
   return (
     <div>
       <Box sx={{ mt: 3 }}>
@@ -79,14 +80,14 @@ export function AddNotiMethod() {
         <Box
           sx={(theme) => ({
             background: theme.palette.grey[100],
-            p: watch('noti.actions').length ? 2 : 0,
+            p: getValues('noti.actions').length ? 2 : 0,
             borderRadius: '4px',
           })}
         >
-          {watch('noti.actions').map((item, index) => (
+          {getValues('noti.actions').map((item, index) => (
             <Box key={item.type}>
               {fields[item.type]}
-              {index !== watch('noti.actions').length - 1 && (
+              {index !== getValues('noti.actions').length - 1 && (
                 <Divider sx={{ my: 2 }} />
               )}
             </Box>

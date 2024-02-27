@@ -2,6 +2,7 @@ import { SyntheticEvent, useEffect, useMemo, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 import { buttonClasses, tabClasses } from '@mui/base';
+import { alpha } from '@mui/material';
 import { styled } from '@mui/system';
 
 import { AlarmSeverity } from '~/types/alarm';
@@ -40,15 +41,15 @@ export function SeverityTabs() {
   return (
     <BaseTabs value={tab} onChange={handleChange}>
       <TabsList>
-        <Tab value={AlarmSeverity.URGENT}>
+        <CustomTab value={AlarmSeverity.URGENT}>
           <Typography variant='subtitle2'>Khẩn cấp</Typography>
-        </Tab>
-        <Tab value={AlarmSeverity.HIGH}>
+        </CustomTab>
+        <CustomTab value={AlarmSeverity.HIGH}>
           <Typography variant='subtitle2'>Quan trọng</Typography>
-        </Tab>
-        <Tab value={AlarmSeverity.LOW}>
+        </CustomTab>
+        <CustomTab value={AlarmSeverity.LOW}>
           <Typography variant='subtitle2'>Thông báo</Typography>
-        </Tab>
+        </CustomTab>
       </TabsList>
     </BaseTabs>
   );
@@ -70,24 +71,21 @@ const Tab = styled(BaseTab)`
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 
-  &:focus {
-  }
-
-  &.${tabClasses.selected} {
-    background-color: #fff;
-    color: #09090b;
-
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    & > h6 {
-      font-weight: bold;
-    }
-  }
-
   &.${buttonClasses.disabled} {
     opacity: 0.5;
     cursor: not-allowed;
   }
 `;
+
+const CustomTab = styled(Tab)(({ theme }) => ({
+  [`&.${tabClasses.selected}`]: {
+    backgroundColor: alpha(theme.palette.primary.light, 0.18),
+    color: '#09090b',
+    '& > h6': {
+      fontWeight: 600,
+    },
+  },
+}));
 
 const TabsList = styled(BaseTabsList)`
   min-width: 400px;

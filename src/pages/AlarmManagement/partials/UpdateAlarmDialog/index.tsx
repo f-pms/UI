@@ -1,5 +1,6 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 
@@ -7,6 +8,7 @@ import {
   UpdateAlarmDTO,
   useUpdateAlarmCondition,
 } from '~/services/alarm-condition/mutation/useUpdateAlarmCondition';
+import { useQueryAlarmConditions } from '~/services/alarm-condition/queries/useQueryAlarmConditions';
 import { Alarm, AlarmType } from '~/types';
 
 import {
@@ -47,16 +49,23 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
   const { alarm, closeMenu } = props;
   const [open, setOpen] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
-  const { mutate: updateAlarmCondition } = useUpdateAlarmCondition();
+  const {
+    mutate: updateAlarmCondition,
+    isSuccess: isUpdateInfoAlarmSuccess,
+    isError: isUpdateInfoAlarmError,
+    error,
+  } = useUpdateAlarmCondition();
+  const { refetch } = useQueryAlarmConditions();
 
   const defaultAlarmFormData: AlarmFormData = useMemo(() => {
     return {
       info: {
-        sensorConfig: alarm.sensorConfiguration,
+        id: alarm.id,
+        sensorConfig: { ...alarm.sensorConfiguration, attachedToAlarm: true },
         station: {
-          id: 1,
-          name: 'Main',
-          value: 'main',
+          id: alarm.blueprint.id,
+          name: alarm.blueprint.name,
+          value: alarm.blueprint.name,
           type: 'MONITORING',
           typeLabel: 'Giám sát',
         },
@@ -107,7 +116,7 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
   const handleSubmit = () => {
     methods.trigger('info').then((isValid) => {
       if (isValid) {
-        const data = methods.watch();
+        const data = methods.getValues();
         const payload: UpdateAlarmDTO = {
           enabled: data.info.enabled,
           sensorConfigurationId: data.info.sensorConfig?.id ?? 0,
@@ -122,6 +131,19 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
       }
     });
   };
+
+  useEffect(() => {
+    if (isUpdateInfoAlarmSuccess) {
+      toast.success('Cập nhật thông tin cảnh báo thành công');
+      refetch();
+    }
+  }, [isUpdateInfoAlarmSuccess, refetch]);
+
+  useEffect(() => {
+    if (isUpdateInfoAlarmError) {
+      toast.error('Cập nhật thông tin cảnh báo thất bại: ' + error?.message);
+    }
+  }, [error?.message, isUpdateInfoAlarmError]);
 
   const steps: AlarmStep[] = [
     {

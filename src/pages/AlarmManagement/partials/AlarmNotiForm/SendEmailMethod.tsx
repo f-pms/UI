@@ -1,10 +1,13 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import _ from 'lodash';
 import { useFormContext } from 'react-hook-form';
 
-import { Checkbox, SelectChangeEvent } from '~/libs/mui';
+import { Checkbox, SelectChangeEvent, Tooltip } from '~/libs/mui';
 import { AlarmActionType } from '~/types';
+import { areArraysEqual } from '~/utils/areArraysEqual';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
+import { useUpdateAction } from '~/pages/AlarmManagement/hooks/useUpdateAction';
 
 import { SoftChip } from '~/components';
 import {
@@ -53,16 +56,29 @@ export interface ISendEmailMethodProps {
 
 export function SendEmailMethod({ onRemoveAction }: ISendEmailMethodProps) {
   const [personNames, setPersonNames] = useState<string[]>([]);
-  const { setValue, watch } = useFormContext<AlarmFormData>();
+  const { setValue, getValues } = useFormContext<AlarmFormData>();
+  const {
+    handleCreateAction,
+    handleDeleteAction,
+    disabled,
+    currentAction,
+    handleUpdateAction,
+  } = useUpdateAction({
+    actionType: AlarmActionType.EMAIL,
+    onRemoveAction,
+  });
 
-  const isUpdate = watch('isUpdate');
+  const isUpdate = getValues('isUpdate');
+  const isUpdateAction = useMemo(() => {
+    return !areArraysEqual(currentAction?.recipients ?? [], personNames);
+  }, [currentAction?.recipients, personNames]);
 
   const handleChange = (event: SelectChangeEvent<typeof personNames>) => {
     const users = event.target.value as string[];
 
     setPersonNames(users);
 
-    const actions = watch('noti.actions');
+    const actions = getValues('noti.actions');
     const newActions = actions.map((action) => {
       if (action.type === AlarmActionType.EMAIL) {
         return { ...action, recipients: users };
@@ -74,15 +90,23 @@ export function SendEmailMethod({ onRemoveAction }: ISendEmailMethodProps) {
 
   const users = useMemo(() => {
     return (
-      watch('noti.actions').find(
+      getValues('noti.actions').find(
         (action) => action.type === AlarmActionType.EMAIL,
       )?.recipients ?? []
     );
-  }, [watch]);
+  }, [getValues]);
 
-  useMemo(() => {
+  useEffect(() => {
     setPersonNames(users);
   }, [users]);
+
+  const handleClickUpdate = () => {
+    if (!disabled) {
+      handleCreateAction(personNames);
+    } else {
+      handleUpdateAction(personNames);
+    }
+  };
 
   return (
     <Stack direction='row' justifyContent='space-between' spacing={4}>
@@ -91,7 +115,8 @@ export function SendEmailMethod({ onRemoveAction }: ISendEmailMethodProps) {
           Thông báo qua email
         </Typography>
         <Typography variant='body2'>
-          Những người có trong danh sách sẽ được cảnh báo qua email
+          Danh sách những người sẽ nhận được cảnh báo qua email (vui lòng chọn
+          ít nhất một người)
         </Typography>
         <Select
           multiple
@@ -129,17 +154,26 @@ export function SendEmailMethod({ onRemoveAction }: ISendEmailMethodProps) {
       </FormControl>
       <Stack alignItems='center' direction='row' justifyContent='center'>
         {isUpdate && (
-          <IconButton aria-label='update' color='green'>
-            <SaveAsOutlinedIcon />
-          </IconButton>
+          <Tooltip title='Lưu'>
+            <IconButton
+              aria-label='update'
+              color='green'
+              disabled={disabled && !isUpdateAction}
+              onClick={handleClickUpdate}
+            >
+              <SaveAsOutlinedIcon />
+            </IconButton>
+          </Tooltip>
         )}
-        <IconButton
-          aria-label='delete'
-          color='red'
-          onClick={() => onRemoveAction(AlarmActionType.EMAIL)}
-        >
-          <DeleteOutlineOutlinedIcon />
-        </IconButton>
+        <Tooltip title='Xóa'>
+          <IconButton
+            aria-label='delete'
+            color='red'
+            onClick={handleDeleteAction}
+          >
+            <DeleteOutlineOutlinedIcon />
+          </IconButton>
+        </Tooltip>
       </Stack>
     </Stack>
   );

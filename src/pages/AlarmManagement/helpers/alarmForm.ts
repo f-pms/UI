@@ -35,6 +35,7 @@ interface AlarmInfoFromData
   extends Omit<AlarmInfoDTO, 'sensorConfigurationId'> {
   sensorConfig: SensorConfiguration | null;
   station: Station | null;
+  id: number;
 }
 
 export interface AlarmFormData {
@@ -45,6 +46,7 @@ export interface AlarmFormData {
 
 export const defaultAlarmFormData: AlarmFormData = {
   info: {
+    id: 0,
     sensorConfig: null,
     station: null,
     type: AlarmType.PREDEFINED,
@@ -64,12 +66,14 @@ export const defaultAlarmFormData: AlarmFormData = {
 
 export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
   info: object({
+    id: number().required(),
     type: mixed<AlarmType>().required().oneOf(Object.values(AlarmType)),
     sensorConfig: object({
       id: number().required(),
       address: string().required(),
       x: string().required(),
       y: string().required(),
+      attachedToAlarm: boolean().required(),
     }).required('Địa chỉ biến không được phép để trống'),
     station: object({
       id: number().required(),
@@ -100,6 +104,7 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
     actions: array()
       .of(
         object({
+          id: number().required(),
           type: mixed<AlarmActionType>()
             .required()
             .oneOf(Object.values(AlarmActionType)),

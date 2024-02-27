@@ -33,13 +33,20 @@ export type SensorConfiguration = {
   address: string;
   x: string;
   y: string;
+  attachedToAlarm: boolean;
 };
 
 export type AlarmAction = {
   message: string;
-  id: string;
+  id: number;
   type: AlarmActionType;
   recipients?: string[];
+};
+
+type Blueprint = {
+  id: number;
+  name: string;
+  description: string;
 };
 
 export interface Alarm {
@@ -53,4 +60,5 @@ export interface Alarm {
   actions: AlarmAction[];
   enabled: boolean;
   checkInterval: number;
+  blueprint: Blueprint;
 }
