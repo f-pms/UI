@@ -1,20 +1,10 @@
-import { useEffect, useMemo, useState } from 'react';
-import { toast } from 'react-toastify';
+import { useEffect, useMemo } from 'react';
+import { FormProvider } from 'react-hook-form';
 
-import { yupResolver } from '@hookform/resolvers/yup';
-
-import { FormProvider, useForm } from '~/libs/react-hook-form';
-import {
-  CreateAlarmDTO,
-  useCreateAlarmCondition,
-} from '~/services/alarm-condition/mutation/useCreateAlarmCondition';
-import { useQueryAlarmConditions } from '~/services/alarm-condition/queries/useQueryAlarmConditions';
 import { Alarm, AlarmType } from '~/types';
 
-import {
-  AlarmFormData,
-  alarmSchema,
-} from '~/pages/AlarmManagement/helpers/alarmForm';
+import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
+import { useCreateAlarm } from '~/pages/AlarmManagement/hooks/useCreateAlarm';
 import { AlarmInfoForm } from '~/pages/AlarmManagement/partials/AlarmInfoForm';
 import { AlarmNotiForm } from '~/pages/AlarmManagement/partials/AlarmNotiForm';
 import { AlertChangeModeDialog } from '~/pages/AlarmManagement/partials/AlertChangeModeDialog';
@@ -50,13 +40,6 @@ export interface IAlarmConfigTableProps {
 
 export function CreateAlarmWithBaseDialog(props: IAlarmConfigTableProps) {
   const { alarm, closeMenu } = props;
-  const [open, setOpen] = useState(false);
-  const [activeStep, setActiveStep] = useState(0);
-  const [isAdvanced, setIsAdvanced] = useState(false);
-  const [openAlertChangeMode, setOpenAlertChangeMode] = useState(false);
-  const { mutate: createAlarmCondition, isSuccess } = useCreateAlarmCondition();
-  const { refetch } = useQueryAlarmConditions();
-
   const defaultAlarmFormData: AlarmFormData = useMemo(() => {
     return {
       info: {
@@ -78,53 +61,21 @@ export function CreateAlarmWithBaseDialog(props: IAlarmConfigTableProps) {
       isUpdate: false,
     };
   }, [alarm]);
-
-  const methods = useForm<AlarmFormData>({
-    defaultValues: defaultAlarmFormData,
-    resolver: yupResolver(alarmSchema),
-  });
-
-  const handleOpenDialog = () => {
-    setOpen(true);
-  };
-
-  const handleCloseDialog = () => {
-    setOpen(false);
-    methods.reset();
-    setActiveStep(0);
-    setIsAdvanced(false);
-    closeMenu();
-  };
-
-  const handleNext = (step: 'info' | 'noti') => {
-    methods.trigger(step).then((isValid) => {
-      if (isValid) {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-      }
-    });
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleAgreeChangeMode = () => {
-    setOpenAlertChangeMode(false);
-    setActiveStep(0);
-    methods.reset();
-    methods.clearErrors();
-    methods.setValue(
-      'info.type',
-      isAdvanced ? AlarmType.PREDEFINED : AlarmType.CUSTOM,
-    );
-    setIsAdvanced((prevIsAdvanced) => !prevIsAdvanced);
-  };
-
-  useEffect(() => {
-    if (alarm.type === AlarmType.CUSTOM) {
-      setIsAdvanced(true);
-    }
-  }, [alarm]);
+  const {
+    open,
+    activeStep,
+    isAdvanced,
+    setIsAdvanced,
+    openAlertChangeMode,
+    methods,
+    handleOpenDialog,
+    handleCloseDialog: handleClose,
+    handleNext,
+    handleBack,
+    handleAgreeChangeMode,
+    handleSubmit,
+    setOpenAlertChangeMode,
+  } = useCreateAlarm(defaultAlarmFormData);
 
   const steps: AlarmStep[] = [
     {
@@ -146,31 +97,17 @@ export function CreateAlarmWithBaseDialog(props: IAlarmConfigTableProps) {
     },
   ];
 
-  const handleSubmit = () => {
-    const data = methods.getValues();
-    const payload: CreateAlarmDTO = {
-      sensorConfigurationId: data.info.sensorConfig?.id ?? 0,
-      type: data.info.type,
-      severity: data.info.severity,
-      timeDelay: data.info.timeDelay,
-      enabled: true,
-      checkInterval: data.info.checkInterval,
-      message: data.noti.message,
-      actions: data.noti.actions,
-      min: data.info.min,
-      max: data.info.max,
-    };
-    createAlarmCondition(payload);
+  const handleCloseDialog = () => {
+    handleClose();
+    closeMenu();
   };
 
   useEffect(() => {
-    if (isSuccess) {
-      handleCloseDialog();
-      refetch();
-      toast.success('Tạo cảnh báo thành công');
+    if (alarm.type === AlarmType.CUSTOM) {
+      setIsAdvanced(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSuccess]);
+  }, [alarm]);
 
   return (
     <FormProvider {...methods}>

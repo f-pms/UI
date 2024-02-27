@@ -1,21 +1,7 @@
-import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
+import { FormProvider } from 'react-hook-form';
 
-import { yupResolver } from '@hookform/resolvers/yup';
-
-import { FormProvider, useForm } from '~/libs/react-hook-form';
-import {
-  CreateAlarmDTO,
-  useCreateAlarmCondition,
-} from '~/services/alarm-condition/mutation/useCreateAlarmCondition';
-import { useQueryAlarmConditions } from '~/services/alarm-condition/queries/useQueryAlarmConditions';
-import { AlarmType } from '~/types';
-
-import {
-  AlarmFormData,
-  alarmSchema,
-  defaultAlarmFormData,
-} from '~/pages/AlarmManagement/helpers/alarmForm';
+import { defaultAlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
+import { useCreateAlarm } from '~/pages/AlarmManagement/hooks/useCreateAlarm';
 import { AlarmInfoForm } from '~/pages/AlarmManagement/partials/AlarmInfoForm';
 import { AlarmNotiForm } from '~/pages/AlarmManagement/partials/AlarmNotiForm';
 import { AlertChangeModeDialog } from '~/pages/AlarmManagement/partials/AlertChangeModeDialog';
@@ -42,53 +28,20 @@ export type AlarmStep = {
 };
 
 export function CreateAlarmDialog() {
-  const [open, setOpen] = useState(false);
-  const [activeStep, setActiveStep] = useState(0);
-  const [isAdvanced, setIsAdvanced] = useState(false);
-  const [openAlertChangeMode, setOpenAlertChangeMode] = useState(false);
-  const { mutate: createAlarmCondition, isSuccess } = useCreateAlarmCondition();
-  const { refetch } = useQueryAlarmConditions();
-
-  const methods = useForm<AlarmFormData>({
-    defaultValues: defaultAlarmFormData,
-    resolver: yupResolver(alarmSchema),
-  });
-
-  const handleOpenDialog = () => {
-    setOpen(true);
-  };
-
-  const handleCloseDialog = () => {
-    setOpen(false);
-    methods.reset();
-    setActiveStep(0);
-    setIsAdvanced(false);
-  };
-
-  const handleNext = (step: 'info' | 'noti') => {
-    methods.trigger(step).then((isValid) => {
-      if (isValid) {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-      }
-    });
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleAgreeChangeMode = () => {
-    setOpenAlertChangeMode(false);
-    setActiveStep(0);
-    methods.reset();
-    methods.clearErrors();
-    methods.setValue(
-      'info.type',
-      isAdvanced ? AlarmType.PREDEFINED : AlarmType.CUSTOM,
-    );
-    setIsAdvanced((prevIsAdvanced) => !prevIsAdvanced);
-  };
-
+  const {
+    open,
+    activeStep,
+    isAdvanced,
+    openAlertChangeMode,
+    methods,
+    handleOpenDialog,
+    handleCloseDialog,
+    handleNext,
+    handleBack,
+    handleAgreeChangeMode,
+    handleSubmit,
+    setOpenAlertChangeMode,
+  } = useCreateAlarm(defaultAlarmFormData);
   const steps: AlarmStep[] = [
     {
       label: 'Cấu hình cảnh báo',
@@ -108,32 +61,6 @@ export function CreateAlarmDialog() {
       content: <FinishStep />,
     },
   ];
-
-  const handleSubmit = () => {
-    const data = methods.getValues();
-    const payload: CreateAlarmDTO = {
-      sensorConfigurationId: data.info.sensorConfig?.id ?? 0,
-      type: data.info.type,
-      severity: data.info.severity,
-      timeDelay: data.info.timeDelay,
-      enabled: true,
-      checkInterval: data.info.checkInterval,
-      message: data.noti.message,
-      actions: data.noti.actions,
-      min: data.info.min,
-      max: data.info.max,
-    };
-    createAlarmCondition(payload);
-  };
-
-  useEffect(() => {
-    if (isSuccess) {
-      handleCloseDialog();
-      refetch();
-      toast.success('Tạo cảnh báo thành công');
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSuccess]);
 
   return (
     <FormProvider {...methods}>

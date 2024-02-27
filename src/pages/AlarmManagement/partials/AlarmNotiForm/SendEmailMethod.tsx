@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react';
-import _ from 'lodash';
 import { useFormContext } from 'react-hook-form';
 
 import { Checkbox, SelectChangeEvent, Tooltip } from '~/libs/mui';
