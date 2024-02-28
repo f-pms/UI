@@ -5,39 +5,34 @@ import {
   useMaterialReactTable,
 } from 'material-react-table';
 
-import { AlarmConfigDTO } from '~/types/alarmConfig';
+import { Alarm } from '~/types';
 
-import { ALARM_CONFIG_LIST } from '~/pages/AlarmManagement/mocks/alarmConfig';
+import { ConfirmDeleteAlarmDialog } from '~/pages/AlarmManagement/partials/ConfirmDeleteAlarmDialog';
+import { CreateAlarmWithBaseDialog } from '~/pages/AlarmManagement/partials/CreateAlarmWithBaseDialog';
+import UpdateAlarmDialog from '~/pages/AlarmManagement/partials/UpdateAlarmDialog';
 
-import {
-  AddCircleOutlineOutlinedIcon,
-  EditOutlinedIcon,
-  NotificationsOffOutlinedIcon,
-} from '~/components/Icons';
-import {
-  ListItemIcon,
-  ListItemText,
-  MenuItem,
-} from '~/components/MuiComponents';
 import { getDefaultMRTOptions } from '~/components/Table';
 
-export interface IAlarmConfigTableProps {}
+export interface IAlarmConfigTableProps {
+  alarmConditions: Alarm[];
+}
 
-const defaultMRTOptions = getDefaultMRTOptions<AlarmConfigDTO>();
+const defaultMRTOptions = getDefaultMRTOptions<Alarm>();
 
-export function AlarmConfigTable() {
+export function AlarmConfigTable(props: IAlarmConfigTableProps) {
+  const { alarmConditions } = props;
   const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: 10, //customize the default page size
   });
 
-  const columns: MRT_ColumnDef<AlarmConfigDTO>[] = [
+  const columns: MRT_ColumnDef<Alarm>[] = [
     {
       accessorKey: 'type',
       header: 'Loại',
     },
     {
-      accessorKey: 'sensorConfigId',
+      accessorKey: 'sensorConfiguration.address',
       header: 'Địa chỉ biến',
     },
     {
@@ -45,16 +40,19 @@ export function AlarmConfigTable() {
       header: 'Mức độ',
     },
     {
-      accessorKey: 'message',
+      id: 'message',
       header: 'Thông báo',
+      accessorFn: (row) => (row.actions.length ? row.actions[0]?.message : ''),
     },
     {
       accessorKey: 'checkInterval',
       header: 'Chu kì kiểm tra',
+      accessorFn: (row) => `${row.checkInterval} giây`,
     },
     {
-      accessorKey: 'timeDelay',
+      id: 'timeDelay',
       header: 'Độ trễ',
+      accessorFn: (row) => `${row.timeDelay} giây`,
     },
   ];
 
@@ -65,9 +63,9 @@ export function AlarmConfigTable() {
     },
     positionActionsColumn: 'first',
     columns,
-    data: ALARM_CONFIG_LIST,
+    data: alarmConditions,
     enableRowActions: true,
-    getRowId: (row) => row.id,
+    getRowId: (row) => row.id.toString(),
     onPaginationChange: setPagination, //hoist pagination state to your state when it changes internally
     state: { pagination }, //pass the pagination state to the table
     // renderTopToolbarCustomActions: () => {
@@ -91,25 +89,22 @@ export function AlarmConfigTable() {
     //     </div>
     //   );
     // },
-    renderRowActionMenuItems: () => [
-      <MenuItem key='edit'>
-        <ListItemIcon>
-          <EditOutlinedIcon sx={{ fontSize: 20 }} />
-        </ListItemIcon>
-        <ListItemText>Chỉnh sửa cảnh báo</ListItemText>
-      </MenuItem>,
-      <MenuItem key='create'>
-        <ListItemIcon>
-          <AddCircleOutlineOutlinedIcon sx={{ fontSize: 20 }} />
-        </ListItemIcon>
-        <ListItemText>Tạo mới từ cảnh báo</ListItemText>
-      </MenuItem>,
-      <MenuItem key='delete'>
-        <ListItemIcon>
-          <NotificationsOffOutlinedIcon sx={{ fontSize: 20 }} />
-        </ListItemIcon>
-        <ListItemText>Vô hiệu hóa cảnh báo</ListItemText>
-      </MenuItem>,
+    renderRowActionMenuItems: ({ row, closeMenu }) => [
+      <UpdateAlarmDialog
+        key='update'
+        alarm={row.original}
+        closeMenu={closeMenu}
+      />,
+      <CreateAlarmWithBaseDialog
+        key='create-with-base'
+        alarm={row.original}
+        closeMenu={closeMenu}
+      />,
+      <ConfirmDeleteAlarmDialog
+        key='delete'
+        alarm={row.original}
+        closeMenu={closeMenu}
+      />,
     ],
   });
 

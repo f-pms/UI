@@ -11,6 +11,7 @@ export { default as ContentCopyRoundedIcon } from '@mui/icons-material/ContentCo
 export { default as CottageOutlinedIcon } from '@mui/icons-material/CottageOutlined';
 export { default as DashboardOutlinedIcon } from '@mui/icons-material/DashboardOutlined';
 export { default as DateRangeIcon } from '@mui/icons-material/DateRange';
+export { default as DeleteOutlineOutlinedIcon } from '@mui/icons-material/DeleteOutlineOutlined';
 export { default as EditOutlinedIcon } from '@mui/icons-material/EditOutlined';
 export { default as EditRoundedIcon } from '@mui/icons-material/EditRounded';
 export { default as ElectricMeterOutlinedIcon } from '@mui/icons-material/ElectricMeterOutlined';
@@ -41,7 +42,9 @@ export { default as NotificationImportantOutlinedIcon } from '@mui/icons-materia
 export { default as NotificationsOffOutlinedIcon } from '@mui/icons-material/NotificationsOffOutlined';
 export { default as PersonOutlineOutlinedIcon } from '@mui/icons-material/PersonOutlineOutlined';
 export { default as PieChartOutlinedIcon } from '@mui/icons-material/PieChartOutlined';
+export { default as PublishedWithChangesOutlinedIcon } from '@mui/icons-material/PublishedWithChangesOutlined';
 export { default as ReportProblemOutlinedIcon } from '@mui/icons-material/ReportProblemOutlined';
+export { default as SaveAsOutlinedIcon } from '@mui/icons-material/SaveAsOutlined';
 export { default as SettingsIcon } from '@mui/icons-material/Settings';
 export { default as SettingsInputComponentOutlinedIcon } from '@mui/icons-material/SettingsInputComponentOutlined';
 export { default as SettingsSuggestOutlinedIcon } from '@mui/icons-material/SettingsSuggestOutlined';

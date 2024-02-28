@@ -1,41 +1,31 @@
-import { useEffect, useState } from 'react';
-import { Control } from 'react-hook-form';
-
-import { InputAdornment, SelectChangeEvent } from '@mui/material';
+import { useFormContext } from 'react-hook-form';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
-import {
-  UnitOfTime,
-  UnitOfTimeSelect,
-} from '~/pages/AlarmManagement/partials/AlarmInfoForm/UnitOfTimeSelect';
 
 import { InputWithLabel } from '~/components';
+import { InputAdornment, Typography } from '~/components/MuiComponents';
 
-export interface ICheckIntervalInputProps {
-  control: Control<AlarmFormData>;
-}
+export interface ICheckIntervalInputProps {}
 
-export function CheckIntervalInput({ control }: ICheckIntervalInputProps) {
-  const [unit, setUnit] = useState<UnitOfTime>(UnitOfTime.Second);
-
-  const handleUnitChange = (event: SelectChangeEvent) => {
-    setUnit(event.target.value as UnitOfTime);
-  };
-
-  useEffect(() => {}, [unit]);
+export function CheckIntervalInput() {
+  const {
+    control,
+    formState: { errors },
+  } = useFormContext<AlarmFormData>();
 
   return (
     <InputWithLabel
       control={control}
       defaultValue={1}
-      description=' Số nguyên dương, đơn vị: giây(s)'
+      description=' Số nguyên dương, đơn vị: giây'
       endAdornment={
         <InputAdornment position='end'>
-          <UnitOfTimeSelect handleUnitChange={handleUnitChange} unit={unit} />
+          <Typography variant='body2'>(giây)</Typography>
         </InputAdornment>
       }
+      error={errors.info?.checkInterval}
       label='Chu kì kiểm tra'
-      name='checkInterval'
+      name='info.checkInterval'
       type='number'
     />
   );

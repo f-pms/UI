@@ -1,12 +1,5 @@
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  Typography,
-} from '~/components/MuiComponents';
+import { AlertDialog } from '~/components';
+import { PublishedWithChangesOutlinedIcon } from '~/components/Icons';
 
 export interface IAlertChangeModeDialogProps {
   open: boolean;
@@ -14,7 +7,6 @@ export interface IAlertChangeModeDialogProps {
   handleAgree: () => void;
   isAdvanced: boolean;
 }
-
 export function AlertChangeModeDialog(props: IAlertChangeModeDialogProps) {
   const { open, handleClose, handleAgree, isAdvanced } = props;
 
@@ -23,42 +15,14 @@ export function AlertChangeModeDialog(props: IAlertChangeModeDialogProps) {
     : 'Chuyển sang "Thiết lập nâng cao"';
 
   return (
-    <Dialog open={open} onClose={handleClose}>
-      <DialogTitle id='alert-dialog-title'>
-        <Typography
-          color='text.strong'
-          sx={{ fontWeight: 'bold' }}
-          variant='h6'
-        >
-          {alertTitle}
-        </Typography>
-      </DialogTitle>
-      <DialogContent>
-        <DialogContentText id='alert-dialog-description'>
-          <Typography variant='body2'>
-            Khi bạn chuyển đổi chế độ thiết lập, tất cả thông tin đã nhập sẽ bị
-            xóa và không thể khôi phục. Bạn có chắc chắn muốn tiếp tục không?
-          </Typography>
-        </DialogContentText>
-      </DialogContent>
-      <DialogActions sx={{ px: 3, pb: 2 }}>
-        <Button
-          color='inherit'
-          size='small'
-          variant='outlined'
-          onClick={handleClose}
-        >
-          Hủy
-        </Button>
-        <Button
-          autoFocus
-          size='small'
-          variant='contained'
-          onClick={handleAgree}
-        >
-          Tiếp tục
-        </Button>
-      </DialogActions>
-    </Dialog>
+    <AlertDialog
+      content='Khi bạn chuyển đổi chế độ thiết lập, tất cả thông tin đã nhập sẽ bị
+           xóa và không thể khôi phục. Bạn có chắc chắn muốn tiếp tục không?'
+      handleAgree={handleAgree}
+      handleClose={handleClose}
+      icon={PublishedWithChangesOutlinedIcon}
+      open={open}
+      title={alertTitle}
+    />
   );
 }

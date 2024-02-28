@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react';
-import { Control, UseFormSetValue } from 'react-hook-form';
+import { useEffect, useMemo, useState } from 'react';
+import { useFormContext } from 'react-hook-form';
 
 import { SelectChangeEvent } from '@mui/material';
 
-import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 import {
   TypeCondition,
   TypeConditionSelect,
@@ -12,13 +11,10 @@ import {
 import { InputWithLabel } from '~/components';
 import { FormControl, Stack, Typography } from '~/components/MuiComponents';
 
-export interface IConditionInputProps {
-  control: Control<AlarmFormData>;
-  setValue: UseFormSetValue<AlarmFormData>;
-}
+export interface IConditionInputProps {}
 
-export function ConditionInput(props: IConditionInputProps) {
-  const { control, setValue } = props;
+export function ConditionInput() {
+  const { setValue, control, getValues } = useFormContext();
   const [typeCondition, setTypeCondition] = useState<TypeCondition>(
     TypeCondition.RANGE,
   );
@@ -29,12 +25,32 @@ export function ConditionInput(props: IConditionInputProps) {
 
   useEffect(() => {
     if (typeCondition === TypeCondition.LESS_THAN) {
-      setValue('min', 0);
+      setValue('info.min', undefined);
     }
     if (typeCondition === TypeCondition.GREATER_THAN) {
-      setValue('max', 0);
+      setValue('info.max', undefined);
     }
   }, [typeCondition, setValue]);
+
+  const min = useMemo(() => getValues('info.min'), [getValues]) as
+    | number
+    | undefined;
+  const max = useMemo(() => getValues('info.max'), [getValues]) as
+    | number
+    | undefined;
+
+  useEffect(() => {
+    if (min && max) {
+      setTypeCondition(TypeCondition.RANGE);
+    } else if (min) {
+      setTypeCondition(TypeCondition.GREATER_THAN);
+    } else if (max) {
+      setTypeCondition(TypeCondition.LESS_THAN);
+    } else {
+      setTypeCondition(TypeCondition.RANGE);
+    }
+  }, [min, max]);
+
   return (
     <FormControl sx={{ width: '100%' }} variant='outlined'>
       <Typography
@@ -55,14 +71,14 @@ export function ConditionInput(props: IConditionInputProps) {
         <InputWithLabel
           control={control}
           disabled={typeCondition === TypeCondition.LESS_THAN}
-          name='min'
+          name='info.min'
           placeholder='Giới hạn dưới'
           type='number'
         />
         <InputWithLabel
           control={control}
           disabled={typeCondition === TypeCondition.GREATER_THAN}
-          name='max'
+          name='info.max'
           placeholder='Giới hạn trên'
           type='number'
         />

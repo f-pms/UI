@@ -1,12 +1,11 @@
-import { SyntheticEvent, useState } from 'react';
-import { UseFormSetValue } from 'react-hook-form';
+import { SyntheticEvent, useEffect, useMemo, useState } from 'react';
+import { useFormContext } from 'react-hook-form';
 
 import { buttonClasses, tabClasses } from '@mui/base';
+import { alpha } from '@mui/material';
 import { styled } from '@mui/system';
 
-import { AlarmSeverity } from '~/types/alarmConfig';
-
-import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
+import { AlarmSeverity } from '~/types/alarm';
 
 import {
   BaseTab,
@@ -14,33 +13,43 @@ import {
   BaseTabsList,
 } from '~/components/BaseMuiComponents';
 import { Typography } from '~/components/MuiComponents';
-export interface ISeverityTabsProps {
-  setValue: UseFormSetValue<AlarmFormData>;
-}
+export interface ISeverityTabsProps {}
 
-export function SeverityTabs({ setValue }: ISeverityTabsProps) {
-  const [tab, setTab] = useState<AlarmSeverity>(AlarmSeverity.CRITICAL);
+export function SeverityTabs() {
+  const { setValue, watch } = useFormContext();
+  const [tab, setTab] = useState<AlarmSeverity>(AlarmSeverity.URGENT);
 
   const handleChange = (
     _: SyntheticEvent<Element, Event> | null,
     value: string | number | null,
   ) => {
     setTab(value as AlarmSeverity);
-    setValue('severity', value as number);
+    setValue('info.severity', value as number);
   };
+
+  const severity = useMemo(
+    () => watch('info.severity'),
+    [watch],
+  ) as AlarmSeverity;
+
+  useEffect(() => {
+    if (severity) {
+      setTab(severity);
+    }
+  }, [severity]);
 
   return (
     <BaseTabs value={tab} onChange={handleChange}>
       <TabsList>
-        <Tab value={AlarmSeverity.CRITICAL}>
+        <CustomTab value={AlarmSeverity.URGENT}>
           <Typography variant='subtitle2'>Khẩn cấp</Typography>
-        </Tab>
-        <Tab value={AlarmSeverity.IMPORTANT}>
+        </CustomTab>
+        <CustomTab value={AlarmSeverity.HIGH}>
           <Typography variant='subtitle2'>Quan trọng</Typography>
-        </Tab>
-        <Tab value={AlarmSeverity.WARNING}>
+        </CustomTab>
+        <CustomTab value={AlarmSeverity.LOW}>
           <Typography variant='subtitle2'>Thông báo</Typography>
-        </Tab>
+        </CustomTab>
       </TabsList>
     </BaseTabs>
   );
@@ -62,24 +71,21 @@ const Tab = styled(BaseTab)`
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   }
 
-  &:focus {
-  }
-
-  &.${tabClasses.selected} {
-    background-color: #fff;
-    color: #09090b;
-
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    & > h6 {
-      font-weight: bold;
-    }
-  }
-
   &.${buttonClasses.disabled} {
     opacity: 0.5;
     cursor: not-allowed;
   }
 `;
+
+const CustomTab = styled(Tab)(({ theme }) => ({
+  [`&.${tabClasses.selected}`]: {
+    backgroundColor: alpha(theme.palette.primary.light, 0.18),
+    color: '#09090b',
+    '& > h6': {
+      fontWeight: 600,
+    },
+  },
+}));
 
 const TabsList = styled(BaseTabsList)`
   min-width: 400px;
