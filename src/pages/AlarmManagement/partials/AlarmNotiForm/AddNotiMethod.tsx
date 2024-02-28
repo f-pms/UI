@@ -24,7 +24,7 @@ import {
 export interface IAddMethodProps {}
 
 export function AddNotiMethod() {
-  const { setValue, getValues } = useFormContext<AlarmFormData>();
+  const { setValue, getValues, watch } = useFormContext<AlarmFormData>();
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -84,7 +84,7 @@ export function AddNotiMethod() {
             borderRadius: '4px',
           })}
         >
-          {getValues('noti.actions').map((item, index) => (
+          {watch('noti.actions').map((item, index) => (
             <Box key={item.type}>
               {fields[item.type]}
               {index !== getValues('noti.actions').length - 1 && (
