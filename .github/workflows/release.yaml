@@ -34,10 +34,10 @@ jobs:
       uses: 'phips28/gh-action-bump-version@v11.0.0'
       with:
         tag-prefix: ''
-        release-branch: 'master' 
+        target-branch: 'master'
         minor-wording: 'minor'
         major-wording: 'major'
         patch-wording: 'patch'
-        custom-version: ${{ github.event.inputs.versionType }}
+        version-type: ${{ github.event.inputs.versionType }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
