@@ -26,19 +26,19 @@ export function AlarmHistoryTable(props: IAlarmHistoryTableProps) {
 
   const columns: MRT_ColumnDef<AlarmHistory>[] = [
     {
-      accessorKey: 'alarmCondition.type',
+      accessorKey: 'condition.type',
       header: 'Loại',
     },
     {
-      accessorKey: 'alarmCondition.sensorConfiguration.address',
+      accessorKey: 'condition.sensorConfiguration.address',
       header: 'Địa chỉ biến',
     },
     {
-      accessorKey: 'alarmCondition.blueprint.name',
+      accessorKey: 'condition.blueprint.name',
       header: 'Trạm',
     },
     {
-      accessorKey: 'alarmCondition.severity',
+      accessorKey: 'condition.severity',
       header: 'Mức độ',
     },
     {
