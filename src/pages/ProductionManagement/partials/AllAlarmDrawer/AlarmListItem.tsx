@@ -50,7 +50,7 @@ export default function AlarmListItem({ alarm }: IAlarmListItemProps) {
           <SoftChip color={color as ColorScheme} icon={icon} />
         </ListItemAvatar>
         <ListItemText
-          primary={'Main - %DB100:0.0:BOOL'}
+          primary={`Main - ${alarm.alarmCondition.sensorConfiguration.address}`}
           secondary={
             <Box>
               <Typography variant='body2'>

@@ -37,6 +37,9 @@ export default function AlarmBar({ alarm }: IAlarmBarProps) {
           <Box>
             <AlertTitle>
               <Typography variant='body2'>
+                <b>
+                  {`Main - ${alarm.alarmCondition.sensorConfiguration.address}: `}
+                </b>
                 {alarm.alarmCondition.actions.length
                   ? alarm.alarmCondition.actions[0]?.message
                   : ''}

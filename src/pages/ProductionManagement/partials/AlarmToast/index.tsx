@@ -35,7 +35,7 @@ export default function AlarmToast({ alarm }: IAlarmToastProps) {
     <Alert severity={severity as AlertColor} sx={{ minWidth: '380px' }}>
       <AlertTitle>
         <Typography sx={{ fontWeight: 'bold' }}>
-          {'Main - %DB100:0.0:BOOL'}
+          {`Main - ${alarm.alarmCondition.sensorConfiguration.address}`}
         </Typography>
       </AlertTitle>
       <Box>
