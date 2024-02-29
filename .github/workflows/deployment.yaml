@@ -6,6 +6,13 @@ on:
       tag:
         description: 'Tag to deploy'
         required: true
+      env:
+        type: choice
+        description: Target env
+        required: true
+        options:
+          - dev01
+          - dev02
 
 jobs:
   build-and-deploy:
@@ -26,9 +33,10 @@ jobs:
       run: yarn install
       
     - name: Build 
-      run: yarn run build
+      run: yarn run build --mode ${{ github.event.inputs.env }}
     
     - name: Deploy to Netlify
+      if: ${{ github.event.inputs.environment == 'dev01' }}
       uses: netlify/actions/cli@master
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
