@@ -36,7 +36,7 @@ jobs:
       run: yarn run build --mode ${{ github.event.inputs.env }}
     
     - name: Deploy to Netlify
-      if: ${{ github.event.inputs.environment == 'dev01' }}
+      if: ${{ github.event.inputs.env == 'dev01' }}
       uses: netlify/actions/cli@master
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
