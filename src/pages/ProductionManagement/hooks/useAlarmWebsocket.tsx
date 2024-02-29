@@ -22,7 +22,7 @@ export const useAlarmWebsocket = () => {
         alarm={{
           id: 1,
           severity: AlarmSeverity.URGENT,
-          name: message.command,
+          name: message.body,
           time: new Date(),
         }}
       />,
