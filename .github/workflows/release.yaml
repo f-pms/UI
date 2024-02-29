@@ -27,7 +27,7 @@ jobs:
         cache: yarn
 
     - name: Install dependencies
-      run: npm install
+      run: yarn install
 
     - name: Bump version and tag
       id: bump_version
