@@ -9,14 +9,6 @@ import {
 
 import { AlarmHistory } from '~/types';
 
-import { AddCircleOutlineOutlinedIcon } from '~/components/Icons';
-import {
-  Button,
-  Divider,
-  Stack,
-  Tooltip,
-  Typography,
-} from '~/components/MuiComponents';
 import { getDefaultMRTOptions } from '~/components/Table';
 
 export interface IAlarmHistoryTableProps {
@@ -53,9 +45,7 @@ export function AlarmHistoryTable(props: IAlarmHistoryTableProps) {
       id: 'message',
       header: 'Thông báo',
       accessorFn: (row) =>
-        row.alarmCondition.actions.length
-          ? row.alarmCondition.actions[0]?.message
-          : '',
+        row.condition.actions.length ? row.condition.actions[0]?.message : '',
     },
     {
       accessorKey: 'startAlarm',
@@ -87,27 +77,27 @@ export function AlarmHistoryTable(props: IAlarmHistoryTableProps) {
     getRowId: (row) => row.id.toString(),
     onPaginationChange: setPagination, //hoist pagination state to your state when it changes internally
     state: { pagination }, //pass the pagination state to the table
-    renderTopToolbarCustomActions: () => {
-      return (
-        <div>
-          <Tooltip title='Lọc theo tên'>
-            <Button
-              color='zinc'
-              size='small'
-              startIcon={<AddCircleOutlineOutlinedIcon />}
-              sx={{ borderStyle: 'dashed' }}
-              variant='outlined'
-            >
-              <Stack direction='row' spacing={1}>
-                <Typography variant='caption'>Tên</Typography>
-                <Divider flexItem orientation='vertical' />
-                <Typography variant='caption'>Huy</Typography>
-              </Stack>
-            </Button>
-          </Tooltip>
-        </div>
-      );
-    },
+    // renderTopToolbarCustomActions: () => {
+    //   return (
+    //     <div>
+    //       <Tooltip title='Lọc theo tên'>
+    //         <Button
+    //           color='zinc'
+    //           size='small'
+    //           startIcon={<AddCircleOutlineOutlinedIcon />}
+    //           sx={{ borderStyle: 'dashed' }}
+    //           variant='outlined'
+    //         >
+    //           <Stack direction='row' spacing={1}>
+    //             <Typography variant='caption'>Tên</Typography>
+    //             <Divider flexItem orientation='vertical' />
+    //             <Typography variant='caption'>Huy</Typography>
+    //           </Stack>
+    //         </Button>
+    //       </Tooltip>
+    //     </div>
+    //   );
+    // },
   });
 
   return <MaterialReactTable table={table} />;

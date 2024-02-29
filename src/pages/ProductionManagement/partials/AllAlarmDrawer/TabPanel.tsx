@@ -22,7 +22,7 @@ export default function TabPanel({ tabValue }: ITabPanelsProps) {
     if (tabValue === 0) return sentAlarms;
     return sentAlarms?.filter(
       (alarm) =>
-        alarm.alarmCondition.severity ===
+        alarm.condition.severity ===
         (ALARM_TABS[tabValue].value as AlarmSeverity),
     );
   }, [sentAlarms, tabValue]);

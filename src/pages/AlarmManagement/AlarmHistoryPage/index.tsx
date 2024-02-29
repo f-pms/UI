@@ -36,7 +36,11 @@ export function AlarmHistoryPage() {
             >
               Tất cả:
             </Typography>
-            <SoftChip label='150 cảnh báo' shape='square' size='small' />
+            <SoftChip
+              label={`${solvedAlarms?.length} cảnh báo`}
+              shape='square'
+              size='small'
+            />
           </Stack>
           <Stack
             alignItems='center'

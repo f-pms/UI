@@ -70,7 +70,8 @@ export const useUpdateAction = ({
       });
       refetch();
       setCurrentAction(null);
-    } else onRemoveAction(actionType);
+    }
+    onRemoveAction(actionType);
   };
 
   const handleCreateAction = (recipients?: string[]) => {

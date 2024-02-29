@@ -38,10 +38,10 @@ export default function AlarmBar({ alarm }: IAlarmBarProps) {
             <AlertTitle>
               <Typography variant='body2'>
                 <b>
-                  {`Main - ${alarm.alarmCondition.sensorConfiguration.address}: `}
+                  {`Main - ${alarm.condition.sensorConfiguration.address}: `}
                 </b>
-                {alarm.alarmCondition.actions.length
-                  ? alarm.alarmCondition.actions[0]?.message
+                {alarm.condition.actions.length
+                  ? alarm.condition.actions[0]?.message
                   : ''}
               </Typography>
             </AlertTitle>

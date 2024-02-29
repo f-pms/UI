@@ -96,8 +96,8 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
       .integer('Độ trễ phải là số nguyên dương')
       .max(3600, 'Độ trễ không được lớn hơn 3600 giây'),
     enabled: boolean().required(),
-    min: number().optional(),
-    max: number().optional(),
+    min: number().nullable().optional(),
+    max: number().nullable().optional(),
   }),
   noti: object({
     message: string().required('Nội dung cảnh báo không được để trống'),

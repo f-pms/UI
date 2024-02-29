@@ -55,8 +55,8 @@ export interface Alarm {
   type: AlarmType;
   severity: AlarmSeverity;
   timeDelay: number;
-  min?: number;
-  max?: number;
+  min?: null | number;
+  max?: null | number;
   actions: AlarmAction[];
   enabled: boolean;
   checkInterval: number;
@@ -75,5 +75,10 @@ export interface AlarmHistory {
   triggeredAt: string;
   sentAt: string;
   solvedAt: string;
-  alarmCondition: Alarm;
+  condition: Alarm;
+}
+
+export interface AlarmWebsocket {
+  message: string;
+  triggeredAt: string;
 }

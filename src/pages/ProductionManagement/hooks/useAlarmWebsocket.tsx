@@ -4,32 +4,37 @@ import { enqueueSnackbar } from 'notistack';
 
 import { IMessage } from '@stomp/stompjs';
 
+import { useQueryAlarmHistories } from '~/services/alarm-history/queries/useQueryAlarmHistories';
 import {
   MAX_RETRIES_COUNT,
   useWebsocketStore,
 } from '~/stores/useWebsocketStore';
-import { AlarmSeverity } from '~/types';
+import { AlarmHistoryStatus, AlarmSeverity, AlarmWebsocket } from '~/types';
 
 import AlarmToast from '~/pages/ProductionManagement/partials/AlarmToast';
 
 export const useAlarmWebsocket = () => {
+  const { refetch } = useQueryAlarmHistories({
+    status: AlarmHistoryStatus.SENT,
+  });
   const { subscribeOnly, ...ws } = useWebsocketStore();
   const [alarmMessage, setAlarmMessage] = useState<string>();
 
   const subscribeCallback = (message: IMessage) => {
+    const body = JSON.parse(message.body) as AlarmWebsocket;
     enqueueSnackbar(
       <AlarmToast
         alarm={{
-          id: 1,
           severity: AlarmSeverity.URGENT,
-          name: message.body,
-          time: new Date(),
+          message: body.message,
+          triggeredAt: body.triggeredAt,
         }}
       />,
       {
         preventDuplicate: false,
       },
     );
+    refetch();
   };
 
   const subscribeOnlyAlarm = () => {

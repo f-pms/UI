@@ -3,17 +3,21 @@ import { vi } from 'date-fns/locale';
 
 import { AlertColor } from '@mui/material';
 
-import { AlarmHistory, AlarmSeverity } from '~/types/alarm';
+import { AlarmSeverity } from '~/types/alarm';
 
 import { Alert, AlertTitle, Box, Typography } from '~/components/MuiComponents';
 
 export interface IAlarmToastProps {
-  alarm: AlarmHistory;
+  alarm: {
+    severity: AlarmSeverity;
+    message: string;
+    triggeredAt: string;
+  };
 }
 
 export default function AlarmToast({ alarm }: IAlarmToastProps) {
   let severity;
-  switch (alarm.alarmCondition.severity) {
+  switch (alarm.severity) {
     case AlarmSeverity.LOW: {
       severity = 'info';
       break;
@@ -35,15 +39,11 @@ export default function AlarmToast({ alarm }: IAlarmToastProps) {
     <Alert severity={severity as AlertColor} sx={{ minWidth: '380px' }}>
       <AlertTitle>
         <Typography sx={{ fontWeight: 'bold' }}>
-          {`Main - ${alarm.alarmCondition.sensorConfiguration.address}`}
+          {`Main - %DB100:0.0:BOOL`}
         </Typography>
       </AlertTitle>
       <Box>
-        <Typography variant='body2'>
-          {alarm.alarmCondition.actions.length
-            ? alarm.alarmCondition.actions[0]?.message
-            : ''}
-        </Typography>
+        <Typography variant='body2'>{alarm.message}</Typography>
         <Typography variant='caption'>
           {format(new Date(alarm.triggeredAt), 'EEEE, dd/MM/yyyy HH:mm:ss', {
             locale: vi,
