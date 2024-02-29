@@ -39,7 +39,7 @@ jobs:
         major-wording: 'major'
         patch-wording: 'patch'
         version-type: ${{ github.event.inputs.versionType }}
-        skip-push:  'true'
+        skip-push: 'true'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # Setup SSH
