@@ -34,7 +34,7 @@ export default function PageHeading({ scrollToDiagram }: IPageHeadingProps) {
   }, [updateIsEditMode]);
 
   return (
-    <Box>
+    <Box px={4} py={2}>
       <SectionHeading
         actions={
           <Box display='flex' justifyContent='space-between'>

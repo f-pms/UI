@@ -1,21 +1,24 @@
 import Carousel from 'react-material-ui-carousel';
 
-import { MOCK_DATA_ALARMS } from '~/pages/ProductionManagement/helpers/alarmMockData';
+import { useQueryAlarmHistories } from '~/services/alarm-history/queries/useQueryAlarmHistories';
+import { AlarmHistoryStatus } from '~/types';
+
 import AlarmBar from '~/pages/ProductionManagement/partials/AlarmCarousel/AlarmBar';
 
 export interface IAlarmCarouselProps {}
 
 export default function AlarmCarousel() {
-  return (
+  const { data: sentAlarms } = useQueryAlarmHistories({
+    status: AlarmHistoryStatus.SENT,
+  });
+  return sentAlarms?.length ? (
     <Carousel
       animation='slide'
       indicators={false}
       interval={5000}
       navButtonsAlwaysInvisible={true}
     >
-      {MOCK_DATA_ALARMS.map((alarm) => (
-        <AlarmBar key={alarm.id} alarm={alarm} />
-      ))}
+      {sentAlarms?.map((alarm) => <AlarmBar key={alarm.id} alarm={alarm} />)}
     </Carousel>
-  );
+  ) : null;
 }

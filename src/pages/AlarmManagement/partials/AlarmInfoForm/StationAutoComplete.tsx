@@ -11,6 +11,7 @@ import {
 } from '~/libs/mui';
 import { useQueryBlueprints } from '~/services/blueprint';
 import { AlarmType, Station } from '~/types/alarm';
+import { BlueprintType } from '~/types/blueprints';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 
@@ -38,7 +39,9 @@ export function StationAutoComplete() {
     resetField,
     clearErrors,
   } = useFormContext<AlarmFormData>();
-  const { data: blueprints } = useQueryBlueprints();
+  const { data: blueprints } = useQueryBlueprints({
+    blueprintType: BlueprintType.MONITORING,
+  });
   const isUpdated = getValues('isUpdate');
 
   const options: Station[] = useMemo(() => {

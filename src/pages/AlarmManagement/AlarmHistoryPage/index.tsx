@@ -1,3 +1,6 @@
+import { useQueryAlarmHistories } from '~/services/alarm-history/queries/useQueryAlarmHistories';
+import { AlarmHistoryStatus } from '~/types';
+
 import { AlarmHistoryTable } from '~/pages/AlarmManagement/partials/AlarmHistoryTable';
 import HistoryPageHeading from '~/pages/AlarmManagement/partials/HistoryPageHeading';
 
@@ -13,6 +16,9 @@ import {
 } from '~/components/MuiComponents';
 
 export function AlarmHistoryPage() {
+  const { data: solvedAlarms } = useQueryAlarmHistories({
+    status: AlarmHistoryStatus.SOLVED,
+  });
   return (
     <Container fixed sx={{ py: 2 }}>
       <HistoryPageHeading />
@@ -50,7 +56,7 @@ export function AlarmHistoryPage() {
         </Stack>
       </Paper>
 
-      <AlarmHistoryTable />
+      <AlarmHistoryTable solvedAlarms={solvedAlarms ?? []} />
     </Container>
   );
 }
