@@ -48,18 +48,18 @@ export function AlarmHistoryTable(props: IAlarmHistoryTableProps) {
         row.condition.actions.length ? row.condition.actions[0]?.message : '',
     },
     {
-      accessorKey: 'startAlarm',
+      id: 'triggeredAt',
       header: 'Ban đầu cảnh báo',
-      accessorFn: () =>
-        format(new Date(), 'dd/MM/yyyy HH:mm:ss', {
+      accessorFn: (row) =>
+        format(new Date(row.triggeredAt), 'dd/MM/yyyy HH:mm:ss', {
           locale: vi,
         }),
     },
     {
-      id: 'endAlarm',
+      id: 'solvedAt',
       header: 'Kết thúc cảnh báo',
-      accessorFn: () =>
-        format(new Date(), 'dd/MM/yyyy HH:mm:ss', {
+      accessorFn: (row) =>
+        format(new Date(row.solvedAt), 'dd/MM/yyyy HH:mm:ss', {
           locale: vi,
         }),
     },
