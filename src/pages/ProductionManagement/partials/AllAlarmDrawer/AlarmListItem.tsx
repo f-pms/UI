@@ -1,12 +1,8 @@
 import { format } from 'date-fns';
 import { vi } from 'date-fns/locale';
-import { useSnackbar } from 'notistack';
 
 import { ColorScheme } from '~/constants';
-import { AlarmSeverity } from '~/types/alarm';
-
-import { Alarm } from '~/pages/ProductionManagement/helpers/alarmMockData';
-import AlarmToast from '~/pages/ProductionManagement/partials/AlarmToast';
+import { AlarmHistory, AlarmSeverity } from '~/types/alarm';
 
 import { SoftChip } from '~/components';
 import {
@@ -24,15 +20,13 @@ import {
 } from '~/components/MuiComponents';
 
 export interface IAlarmListItemProps {
-  alarm: Alarm;
+  alarm: AlarmHistory;
 }
 
 export default function AlarmListItem({ alarm }: IAlarmListItemProps) {
-  const { enqueueSnackbar } = useSnackbar();
-
   let icon;
   let color;
-  switch (alarm.severity) {
+  switch (alarm.alarmCondition.severity) {
     case AlarmSeverity.LOW:
       icon = <NotificationImportantOutlinedIcon sx={{ fontSize: '18px' }} />;
       color = 'info';
@@ -49,27 +43,29 @@ export default function AlarmListItem({ alarm }: IAlarmListItemProps) {
       break;
   }
 
-  const handleClick = () => {
-    enqueueSnackbar(<AlarmToast alarm={alarm} />, {
-      preventDuplicate: false,
-    });
-  };
-
   return (
     <>
-      <ListItemButton onClick={handleClick}>
+      <ListItemButton>
         <ListItemAvatar>
           <SoftChip color={color as ColorScheme} icon={icon} />
         </ListItemAvatar>
         <ListItemText
-          primary={alarm.name}
+          primary={`Main - ${alarm.alarmCondition.sensorConfiguration.address}`}
           secondary={
             <Box>
-              <Typography variant='body2'>{alarm.description}</Typography>
+              <Typography variant='body2'>
+                {alarm.alarmCondition.actions.length
+                  ? alarm.alarmCondition.actions[0]?.message
+                  : ''}
+              </Typography>
               <Typography variant='caption'>
-                {format(alarm.time, 'EEEE, dd/MM/yyyy HH:mm:ss', {
-                  locale: vi,
-                })}
+                {format(
+                  new Date(alarm.triggeredAt),
+                  'EEEE, dd/MM/yyyy HH:mm:ss',
+                  {
+                    locale: vi,
+                  },
+                )}
               </Typography>
             </Box>
           }

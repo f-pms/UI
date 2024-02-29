@@ -1,6 +1,8 @@
-import { AlarmSeverity } from '~/types/alarm';
+import { useMemo } from 'react';
 
-import { MOCK_DATA_ALARMS } from '~/pages/ProductionManagement/helpers/alarmMockData';
+import { useQueryAlarmHistories } from '~/services/alarm-history/queries/useQueryAlarmHistories';
+import { AlarmHistoryStatus, AlarmSeverity } from '~/types/alarm';
+
 import { ALARM_TABS } from '~/pages/ProductionManagement/helpers/alarmTabs';
 import AlarmListItem from '~/pages/ProductionManagement/partials/AllAlarmDrawer/AlarmListItem';
 
@@ -12,15 +14,20 @@ export interface ITabPanelsProps {
 }
 
 export default function TabPanel({ tabValue }: ITabPanelsProps) {
-  let alarms = MOCK_DATA_ALARMS;
-  if (tabValue !== 0) {
-    alarms = MOCK_DATA_ALARMS.filter(
-      (alarm) =>
-        alarm.severity === (ALARM_TABS[tabValue].value as AlarmSeverity),
-    );
-  }
+  const { data: sentAlarms } = useQueryAlarmHistories({
+    status: AlarmHistoryStatus.SENT,
+  });
 
-  return alarms.length ? (
+  const alarms = useMemo(() => {
+    if (tabValue === 0) return sentAlarms;
+    return sentAlarms?.filter(
+      (alarm) =>
+        alarm.alarmCondition.severity ===
+        (ALARM_TABS[tabValue].value as AlarmSeverity),
+    );
+  }, [sentAlarms, tabValue]);
+
+  return alarms?.length ? (
     <CustomTabPanel
       index={tabValue}
       style={{
