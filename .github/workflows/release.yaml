@@ -1,0 +1,38 @@
+name: Manual Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      versionType:
+        type: choice
+        description: Make a choice
+        options:
+          - major
+          - minor
+          - patch
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Bump version and tag
+      id: bump_version
+      uses: phips28/gh-action-bump-version
+      with:
+        tag-prefix: ''
+        release-branch: 'master'  # Adjust this to your release branch
+        minor-wording: 'minor'
+        major-wording: 'major'
+        patch-wording: 'patch'
+        custom-version: ${{ github.event.inputs.versionType }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
