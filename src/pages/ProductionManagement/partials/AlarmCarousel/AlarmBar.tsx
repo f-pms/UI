@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { format } from 'date-fns';
 import { vi } from 'date-fns/locale';
 
-import { Alarm } from '~/pages/ProductionManagement/helpers/alarmMockData';
+import { AlarmHistory } from '~/types';
+
 import AllAlarmDrawer from '~/pages/ProductionManagement/partials/AllAlarmDrawer';
 
 import { ArrowRightAltIcon } from '~/components/Icons';
@@ -16,7 +17,7 @@ import {
 } from '~/components/MuiComponents';
 
 export interface IAlarmBarProps {
-  alarm: Alarm;
+  alarm: AlarmHistory;
 }
 
 export default function AlarmBar({ alarm }: IAlarmBarProps) {
@@ -35,12 +36,20 @@ export default function AlarmBar({ alarm }: IAlarmBarProps) {
         <Stack direction='row' justifyContent='space-between' sx={{ flex: 1 }}>
           <Box>
             <AlertTitle>
-              <Typography variant='body2'>{alarm.name}</Typography>
+              <Typography variant='body2'>
+                {alarm.alarmCondition.actions.length
+                  ? alarm.alarmCondition.actions[0]?.message
+                  : ''}
+              </Typography>
             </AlertTitle>
             <Typography variant='caption'>
-              {format(alarm.time, 'EEEE, dd/MM/yyyy HH:mm:ss', {
-                locale: vi,
-              })}
+              {format(
+                new Date(alarm.triggeredAt),
+                'EEEE, dd/MM/yyyy HH:mm:ss',
+                {
+                  locale: vi,
+                },
+              )}
             </Typography>
           </Box>
           <Button

@@ -72,7 +72,8 @@ export enum AlarmHistoryStatus {
 export interface AlarmHistory {
   id: number;
   status: AlarmStatus;
-  createdAt: string;
-  updatedAt: string;
+  triggeredAt: string;
+  sentAt: string;
+  solvedAt: string;
   alarmCondition: Alarm;
 }
