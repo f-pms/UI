@@ -19,6 +19,8 @@ jobs:
       with:
         ref: ${{ github.base_ref }}
         fetch-depth: 0
+        ssh-key: ${{secrets.GIT_DEPLOY_SECRET}}
+    
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
@@ -39,6 +41,21 @@ jobs:
         major-wording: 'major'
         patch-wording: 'patch'
         version-type: ${{ github.event.inputs.versionType }}
-        skip-commit:  'true'
+        skip-push: 'true'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # Setup SSH
+    - name: Setup SSH Keys and known_hosts
+      env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+      run: |
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          ssh-add - <<< "${{ secrets.GIT_DEPLOY_SECRET }}"
+
+    # Your steps that use git commands
+    - name: Push Tag & commit
+      run: |
+        git config --global user.email "github_action@rms.com"
+        git config --global user.name "Github ACtion"
+        git push origin ${{ steps.bump_version.outputs.newTag }}
+        git push origin master --force
