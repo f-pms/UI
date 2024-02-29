@@ -26,7 +26,7 @@ export interface IAlarmListItemProps {
 export default function AlarmListItem({ alarm }: IAlarmListItemProps) {
   let icon;
   let color;
-  switch (alarm.alarmCondition.severity) {
+  switch (alarm.condition.severity) {
     case AlarmSeverity.LOW:
       icon = <NotificationImportantOutlinedIcon sx={{ fontSize: '18px' }} />;
       color = 'info';
@@ -50,12 +50,12 @@ export default function AlarmListItem({ alarm }: IAlarmListItemProps) {
           <SoftChip color={color as ColorScheme} icon={icon} />
         </ListItemAvatar>
         <ListItemText
-          primary={`Main - ${alarm.alarmCondition.sensorConfiguration.address}`}
+          primary={`Main - ${alarm.condition.sensorConfiguration.address}`}
           secondary={
             <Box>
               <Typography variant='body2'>
-                {alarm.alarmCondition.actions.length
-                  ? alarm.alarmCondition.actions[0]?.message
+                {alarm.condition.actions.length
+                  ? alarm.condition.actions[0]?.message
                   : ''}
               </Typography>
               <Typography variant='caption'>

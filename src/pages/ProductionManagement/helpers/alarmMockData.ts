@@ -3,7 +3,7 @@ import { AlarmSeverity } from '~/types/alarm';
 export type Alarm = {
   id: number;
   name: string;
-  description: string;
+  description?: string;
   time: Date;
   severity: AlarmSeverity;
 };

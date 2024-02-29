@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 
 import BlueprintsProvider from '~/pages/ProductionManagement/context/BlueprintContext';
+import { useAlarmWebsocket } from '~/pages/ProductionManagement/hooks/useAlarmWebsocket';
 import useBlueprints from '~/pages/ProductionManagement/hooks/useBlueprints';
 import useMonitoringWebSocket from '~/pages/ProductionManagement/hooks/useMonitoringWebSocket';
 import { useScrollToDiagram } from '~/pages/ProductionManagement/hooks/useScrollToDiagram';
@@ -21,6 +22,8 @@ function MonitoringPage() {
   const { tabValue, setTabValue, tabInfo, isBlueprintReady, isBlueprintError } =
     useBlueprints();
   useMonitoringWebSocket(tabValue, tabInfo.channel);
+  useAlarmWebsocket();
+
   const { ref, scrollToDiagram } = useScrollToDiagram();
 
   const handleChange = (_: React.SyntheticEvent | null, newValue: number) => {
