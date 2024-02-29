@@ -39,5 +39,6 @@ jobs:
         major-wording: 'major'
         patch-wording: 'patch'
         version-type: ${{ github.event.inputs.versionType }}
+        skip-commit:  'true'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
