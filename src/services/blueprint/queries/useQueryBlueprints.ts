@@ -2,15 +2,21 @@ import { useQuery } from '@tanstack/react-query';
 
 import axiosClient from '~/libs/axios';
 import { IBlueprint } from '~/services/blueprint/queries/useQueryBlueprintById';
+import { BlueprintType } from '~/types/blueprints';
 
-const getBlueprints = async () => {
-  return (await axiosClient.get('blueprints')).data as IBlueprint[];
+type GetBlueprintsParams = {
+  blueprintType: BlueprintType;
+  blueprintName?: string;
 };
 
-export const useQueryBlueprints = () => {
+const getBlueprints = async (params: GetBlueprintsParams) => {
+  return (await axiosClient.get('blueprints', { params })).data as IBlueprint[];
+};
+
+export const useQueryBlueprints = (params: GetBlueprintsParams) => {
   return useQuery({
     queryKey: ['blueprints'],
-    queryFn: () => getBlueprints(),
+    queryFn: () => getBlueprints(params),
     retry: 3,
   });
 };

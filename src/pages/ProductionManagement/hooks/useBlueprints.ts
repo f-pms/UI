@@ -1,6 +1,7 @@
 import { useContext, useEffect, useMemo, useState } from 'react';
 
 import { useQueryBlueprints } from '~/services/blueprint';
+import { BlueprintType } from '~/types/blueprints';
 
 import { BlueprintsContext } from '~/pages/ProductionManagement/context/BlueprintContext';
 import {
@@ -16,7 +17,9 @@ export default () => {
   const [isBlueprintReady, setIsBlueprintReady] = useState<boolean>(false);
 
   const { data: fetchedBlueprints, isError: isBlueprintError } =
-    useQueryBlueprints();
+    useQueryBlueprints({
+      blueprintType: BlueprintType.MONITORING,
+    });
 
   useEffect(() => {
     if (fetchedBlueprints) {
