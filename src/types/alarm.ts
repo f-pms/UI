@@ -62,3 +62,17 @@ export interface Alarm {
   checkInterval: number;
   blueprint: Blueprint;
 }
+
+export enum AlarmHistoryStatus {
+  TRIGGERED = 'TRIGGERED',
+  SENT = 'SENT',
+  SOLVED = 'SOLVED',
+}
+
+export interface AlarmHistory {
+  id: number;
+  status: AlarmStatus;
+  createdAt: string;
+  updatedAt: string;
+  alarmCondition: Alarm;
+}
