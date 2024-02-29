@@ -19,6 +19,8 @@ jobs:
       with:
         ref: ${{ github.base_ref }}
         fetch-depth: 0
+        ssh-key: ${{secrets.GIT_DEPLOY_SECRET}}
+    
 
     - name: Setup Node.js
       uses: actions/setup-node@v4
