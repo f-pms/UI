@@ -35,11 +35,19 @@ jobs:
     - name: Build 
       run: yarn run build --mode ${{ github.event.inputs.env }}
     
-    - name: Deploy to Netlify
+    - name: Deploy to Netlify (dev01)
       if: ${{ github.event.inputs.env == 'dev01' }}
       uses: netlify/actions/cli@master
       env:
         NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
         NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_DEV01 }}
+      with:
+        args: deploy --dir=dist --prod
+    - name: Deploy to Netlify (dev02)
+      if: ${{ github.event.inputs.env == 'dev02' }}
+      uses: netlify/actions/cli@master
+      env:
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_DEV02 }}
       with:
         args: deploy --dir=dist --prod
