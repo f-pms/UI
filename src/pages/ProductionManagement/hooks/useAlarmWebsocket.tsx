@@ -21,7 +21,12 @@ export const useAlarmWebsocket = () => {
   const [alarmMessage, setAlarmMessage] = useState<string>();
 
   const subscribeCallback = (message: IMessage) => {
+    refetch();
     const body = JSON.parse(message.body) as AlarmWebsocket;
+
+    // solved alarm event will not show toast, only refetch data
+    if (Object.keys(body).length === 0) return;
+
     enqueueSnackbar(
       <AlarmToast
         alarm={{
@@ -34,7 +39,6 @@ export const useAlarmWebsocket = () => {
         preventDuplicate: false,
       },
     );
-    refetch();
   };
 
   const subscribeOnlyAlarm = () => {
