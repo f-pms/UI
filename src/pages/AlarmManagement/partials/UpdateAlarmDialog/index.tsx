@@ -172,7 +172,7 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
         PaperProps={{
           component: 'form',
         }}
-        maxWidth='md'
+        maxWidth='lg'
         open={open}
         onClose={handleCloseDialog}
       >
