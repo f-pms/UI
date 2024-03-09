@@ -44,7 +44,7 @@ export function CreateAlarmDialog() {
         PaperProps={{
           component: 'form',
         }}
-        maxWidth='md'
+        maxWidth='lg'
         open={open}
         onClose={handleCloseDialog}
       >

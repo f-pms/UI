@@ -9,6 +9,8 @@ import {
 
 import { AlarmHistory } from '~/types';
 
+import AlarmHistoryDetailsDialog from '~/pages/AlarmManagement/partials/AlarmHistoryDetailsDialog';
+
 import { getDefaultMRTOptions } from '~/components/Table';
 
 export interface IAlarmHistoryTableProps {
@@ -77,27 +79,9 @@ export function AlarmHistoryTable(props: IAlarmHistoryTableProps) {
     getRowId: (row) => row.id.toString(),
     onPaginationChange: setPagination, //hoist pagination state to your state when it changes internally
     state: { pagination }, //pass the pagination state to the table
-    // renderTopToolbarCustomActions: () => {
-    //   return (
-    //     <div>
-    //       <Tooltip title='Lọc theo tên'>
-    //         <Button
-    //           color='zinc'
-    //           size='small'
-    //           startIcon={<AddCircleOutlineOutlinedIcon />}
-    //           sx={{ borderStyle: 'dashed' }}
-    //           variant='outlined'
-    //         >
-    //           <Stack direction='row' spacing={1}>
-    //             <Typography variant='caption'>Tên</Typography>
-    //             <Divider flexItem orientation='vertical' />
-    //             <Typography variant='caption'>Huy</Typography>
-    //           </Stack>
-    //         </Button>
-    //       </Tooltip>
-    //     </div>
-    //   );
-    // },
+    renderRowActions: (row) => {
+      return <AlarmHistoryDetailsDialog alarmHistory={row.row.original} />;
+    },
   });
 
   return <MaterialReactTable table={table} />;

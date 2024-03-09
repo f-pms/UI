@@ -96,7 +96,7 @@ export function CreateAlarmWithBaseDialog(props: IAlarmConfigTableProps) {
         PaperProps={{
           component: 'form',
         }}
-        maxWidth='md'
+        maxWidth='lg'
         open={open}
         onClose={handleCloseDialog}
       >
