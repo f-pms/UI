@@ -5,8 +5,8 @@ import { Alarm, AlarmType } from '~/types';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 import { useCreateAlarm } from '~/pages/AlarmManagement/hooks/useCreateAlarm';
-import { AlertChangeModeDialog } from '~/pages/AlarmManagement/partials/AlertChangeModeDialog';
 import { CreateAlarmStepper } from '~/pages/AlarmManagement/partials/CreateAlarmStepper';
+import { AlertChangeModeDialog } from '~/pages/AlarmManagement/partials/Dialogs/AlertChangeModeDialog';
 
 import { AddCircleOutlineOutlinedIcon } from '~/components/Icons';
 import {

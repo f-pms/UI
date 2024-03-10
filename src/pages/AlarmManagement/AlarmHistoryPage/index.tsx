@@ -1,8 +1,8 @@
 import { useQueryAlarmHistories } from '~/services/alarm-history/queries/useQueryAlarmHistories';
 import { AlarmHistoryStatus } from '~/types';
 
-import { AlarmHistoryTable } from '~/pages/AlarmManagement/partials/AlarmHistoryTable';
-import HistoryPageHeading from '~/pages/AlarmManagement/partials/HistoryPageHeading';
+import HistoryPageHeading from '~/pages/AlarmManagement/partials/Headings/HistoryPageHeading';
+import { AlarmHistoryTable } from '~/pages/AlarmManagement/partials/Tables/AlarmHistoryTable';
 
 import { SoftChip } from '~/components';
 import { DateRangePicker } from '~/components/DateRangePicker';
@@ -20,7 +20,7 @@ export function AlarmHistoryPage() {
     status: AlarmHistoryStatus.SOLVED,
   });
   return (
-    <Container fixed sx={{ py: 2 }}>
+    <Container maxWidth='xl' sx={{ py: 2 }}>
       <HistoryPageHeading />
       <Paper elevation={0} sx={{ my: 1, py: 2 }} variant='elevation'>
         <Stack

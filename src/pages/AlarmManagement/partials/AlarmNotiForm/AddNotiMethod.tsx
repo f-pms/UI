@@ -7,6 +7,7 @@ import {
   AlarmFormData,
   NOTI_METHOD_OPTIONS,
 } from '~/pages/AlarmManagement/helpers/alarmForm';
+import { PushMessageMethod } from '~/pages/AlarmManagement/partials/AlarmNotiForm/PushMessageMethod';
 import { SendEmailMethod } from '~/pages/AlarmManagement/partials/AlarmNotiForm/SendEmailMethod';
 import { ToastMethod } from '~/pages/AlarmManagement/partials/AlarmNotiForm/ToastMethod';
 
@@ -61,6 +62,9 @@ export function AddNotiMethod() {
     ),
     [AlarmActionType.EMAIL]: (
       <SendEmailMethod onRemoveAction={handleRemoveAction} />
+    ),
+    [AlarmActionType.PUSH_MESSAGE]: (
+      <PushMessageMethod onRemoveAction={handleRemoveAction} />
     ),
   };
 

@@ -16,7 +16,7 @@ export function AlarmNotiForm() {
   } = useFormContext<AlarmFormData>();
   const isUpdate = getValues('isUpdate');
   return (
-    <Box sx={{ width: '900px' }}>
+    <Box sx={{ width: '600px' }}>
       <Stack direction='row'>
         <InputWithLabel
           multiline

@@ -54,6 +54,7 @@ export default function AlarmHistoryDetailsDialog(
   const ACTION_TYPE_TEXT = {
     [AlarmActionType.POPUP]: 'Hiện cảnh báo ở trang "Giám sát"',
     [AlarmActionType.EMAIL]: 'Gửi cảnh báo qua email',
+    [AlarmActionType.PUSH_MESSAGE]: 'Gửi cảnh báo tới thiết bị di động',
   };
 
   const SEVERITY_TEXT = {

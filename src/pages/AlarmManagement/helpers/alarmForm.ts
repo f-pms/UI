@@ -29,6 +29,10 @@ export const NOTI_METHOD_OPTIONS = [
     label: 'Gửi cảnh báo qua email',
     value: AlarmActionType.EMAIL,
   },
+  {
+    label: 'Gửi cảnh báo tới thiết bị di động',
+    value: AlarmActionType.PUSH_MESSAGE,
+  },
 ];
 
 interface AlarmInfoFromData

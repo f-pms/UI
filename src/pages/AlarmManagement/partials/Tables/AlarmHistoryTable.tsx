@@ -7,9 +7,13 @@ import {
   useMaterialReactTable,
 } from 'material-react-table';
 
+import { Stack } from '@mui/system';
+
 import { AlarmHistory } from '~/types';
 
-import AlarmHistoryDetailsDialog from '~/pages/AlarmManagement/partials/AlarmHistoryDetailsDialog';
+import AlarmHistoryDetailsDialog from '~/pages/AlarmManagement/partials/Dialogs/AlarmHistoryDetailsDialog';
+import { SeverityCell } from '~/pages/AlarmManagement/partials/Tables/SeverityCell';
+import TypeCell from '~/pages/AlarmManagement/partials/Tables/TypeCell';
 
 import { getDefaultMRTOptions } from '~/components/Table';
 
@@ -28,8 +32,31 @@ export function AlarmHistoryTable(props: IAlarmHistoryTableProps) {
 
   const columns: MRT_ColumnDef<AlarmHistory>[] = [
     {
-      accessorKey: 'condition.type',
+      id: 'severity',
+      header: '',
+      accessorFn: (row) => {
+        return <SeverityCell severity={row.condition.severity} />;
+      },
+      muiTableHeadCellProps: {
+        align: 'center',
+      },
+      muiTableBodyCellProps: {
+        align: 'center',
+      },
+      muiTableFooterCellProps: {
+        align: 'center',
+      },
+      enableColumnActions: false,
+      enableSorting: false,
+      size: 30,
+    },
+
+    {
+      id: 'type',
       header: 'Loại',
+      accessorFn: (row) => {
+        return <TypeCell type={row.condition.type} />;
+      },
     },
     {
       accessorKey: 'condition.sensorConfiguration.address',
@@ -38,10 +65,6 @@ export function AlarmHistoryTable(props: IAlarmHistoryTableProps) {
     {
       accessorKey: 'condition.blueprint.name',
       header: 'Trạm',
-    },
-    {
-      accessorKey: 'condition.severity',
-      header: 'Mức độ',
     },
     {
       id: 'message',
@@ -71,6 +94,7 @@ export function AlarmHistoryTable(props: IAlarmHistoryTableProps) {
     ...defaultMRTOptions,
     initialState: {
       ...defaultMRTOptions.initialState,
+      columnPinning: { left: ['mrt-row-actions'] },
     },
     positionActionsColumn: 'first',
     columns,
@@ -79,8 +103,13 @@ export function AlarmHistoryTable(props: IAlarmHistoryTableProps) {
     getRowId: (row) => row.id.toString(),
     onPaginationChange: setPagination, //hoist pagination state to your state when it changes internally
     state: { pagination }, //pass the pagination state to the table
+    enableColumnPinning: true,
     renderRowActions: (row) => {
-      return <AlarmHistoryDetailsDialog alarmHistory={row.row.original} />;
+      return (
+        <Stack alignItems='center' justifyContent='center'>
+          <AlarmHistoryDetailsDialog alarmHistory={row.row.original} />
+        </Stack>
+      );
     },
   });
 

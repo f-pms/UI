@@ -7,9 +7,11 @@ import {
 
 import { Alarm } from '~/types';
 
-import { ConfirmDeleteAlarmDialog } from '~/pages/AlarmManagement/partials/ConfirmDeleteAlarmDialog';
-import { CreateAlarmWithBaseDialog } from '~/pages/AlarmManagement/partials/CreateAlarmWithBaseDialog';
-import UpdateAlarmDialog from '~/pages/AlarmManagement/partials/UpdateAlarmDialog';
+import { ConfirmDeleteAlarmDialog } from '~/pages/AlarmManagement/partials/Dialogs/ConfirmDeleteAlarmDialog';
+import { CreateAlarmWithBaseDialog } from '~/pages/AlarmManagement/partials/Dialogs/CreateAlarmWithBaseDialog';
+import UpdateAlarmDialog from '~/pages/AlarmManagement/partials/Dialogs/UpdateAlarmDialog';
+import { SeverityCell } from '~/pages/AlarmManagement/partials/Tables/SeverityCell';
+import TypeCell from '~/pages/AlarmManagement/partials/Tables/TypeCell';
 
 import { getDefaultMRTOptions } from '~/components/Table';
 
@@ -28,16 +30,34 @@ export function AlarmConfigTable(props: IAlarmConfigTableProps) {
 
   const columns: MRT_ColumnDef<Alarm>[] = [
     {
-      accessorKey: 'type',
+      id: 'severity',
+      header: '',
+      accessorFn: (row) => {
+        return <SeverityCell severity={row.severity} />;
+      },
+      muiTableHeadCellProps: {
+        align: 'center',
+      },
+      muiTableBodyCellProps: {
+        align: 'center',
+      },
+      muiTableFooterCellProps: {
+        align: 'center',
+      },
+      enableColumnActions: false,
+      enableSorting: false,
+      size: 30,
+    },
+    {
+      id: 'type',
       header: 'Loại',
+      accessorFn: (row) => {
+        return <TypeCell type={row.type} />;
+      },
     },
     {
       accessorKey: 'sensorConfiguration.address',
       header: 'Địa chỉ biến',
-    },
-    {
-      accessorKey: 'severity',
-      header: 'Mức độ',
     },
     {
       id: 'message',
@@ -60,6 +80,7 @@ export function AlarmConfigTable(props: IAlarmConfigTableProps) {
     ...defaultMRTOptions,
     initialState: {
       ...defaultMRTOptions.initialState,
+      columnPinning: { left: ['mrt-row-actions'] },
     },
     positionActionsColumn: 'first',
     columns,
@@ -68,6 +89,17 @@ export function AlarmConfigTable(props: IAlarmConfigTableProps) {
     getRowId: (row) => row.id.toString(),
     onPaginationChange: setPagination, //hoist pagination state to your state when it changes internally
     state: { pagination }, //pass the pagination state to the table
+    enableColumnPinning: true,
+    displayColumnDefOptions: {
+      'mrt-row-actions': {
+        muiTableHeadCellProps: {
+          align: 'center',
+        },
+        muiTableBodyCellProps: {
+          align: 'center',
+        },
+      },
+    },
     // renderTopToolbarCustomActions: () => {
     //   return (
     //     <div>

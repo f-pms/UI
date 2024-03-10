@@ -6,7 +6,7 @@ import { useFormContext } from '~/libs/react-hook-form';
 import { useQuerySensorConfigurations } from '~/services/sensorConfiguration/queries/useQuerySensorConfigurations';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
-import { CreateSensorAddressDialog } from '~/pages/AlarmManagement/partials/CreateSensorAddressDialog';
+import { CreateSensorAddressDialog } from '~/pages/AlarmManagement/partials/Dialogs/CreateSensorAddressDialog';
 
 import { Autocomplete } from '~/components';
 import { FormControl, Typography } from '~/components/MuiComponents';
