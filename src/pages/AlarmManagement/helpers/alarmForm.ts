@@ -96,8 +96,18 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
       .integer('Độ trễ phải là số nguyên dương')
       .max(3600, 'Độ trễ không được lớn hơn 3600 giây'),
     enabled: boolean().required(),
-    min: number().nullable().optional(),
-    max: number().nullable().optional(),
+    min: string()
+      .nullable()
+      .optional()
+      .test('is-number-or-empty', '', (value) => {
+        return !Number.isNaN(value) || String(value) === ''; // Only number or emtpy string is allowed
+      }),
+    max: string()
+      .nullable()
+      .optional()
+      .test('is-number-or-empty', '', (value) => {
+        return !Number.isNaN(value) || String(value) === ''; // Only number or emtpy string is allowed
+      }),
   }),
   noti: object({
     message: string().required('Nội dung cảnh báo không được để trống'),

@@ -124,8 +124,9 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
           severity: data.info.severity,
           timeDelay: data.info.timeDelay,
           checkInterval: data.info.checkInterval,
-          min: data.info.min,
-          max: data.info.max,
+          // Convert to undefined if min or max is empty string
+          min: String(data.info.min) !== '' ? data.info.min : undefined,
+          max: String(data.info.max) !== '' ? data.info.max : undefined,
         };
         updateAlarmCondition({ id: alarm.id, payload });
       }

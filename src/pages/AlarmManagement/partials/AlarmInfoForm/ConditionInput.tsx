@@ -24,11 +24,12 @@ export function ConditionInput() {
   };
 
   useEffect(() => {
+    // Set it to empty string to make the UI is changed
     if (typeCondition === TypeCondition.LESS_THAN) {
-      setValue('info.min', undefined);
+      setValue('info.min', '');
     }
     if (typeCondition === TypeCondition.GREATER_THAN) {
-      setValue('info.max', undefined);
+      setValue('info.max', '');
     }
   }, [typeCondition, setValue]);
 
