@@ -16,6 +16,7 @@ import {
   alarmSchema,
 } from '~/pages/AlarmManagement/helpers/alarmForm';
 import { AlarmInfoForm } from '~/pages/AlarmManagement/partials/AlarmInfoForm';
+import { TypeCondition } from '~/pages/AlarmManagement/partials/AlarmInfoForm/TypeConditionSelect';
 import { AlarmNotiForm } from '~/pages/AlarmManagement/partials/AlarmNotiForm';
 
 import { SoftChip } from '~/components';
@@ -57,6 +58,20 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
   } = useUpdateAlarmCondition();
   const { refetch } = useQueryAlarmConditions();
 
+  const getTypeCondition = (
+    min?: number | null | string,
+    max?: number | null | string,
+  ) => {
+    if (min && max) {
+      return TypeCondition.RANGE;
+    } else if (min) {
+      return TypeCondition.GREATER_THAN;
+    } else if (max) {
+      return TypeCondition.LESS_THAN;
+    }
+    return TypeCondition.RANGE;
+  };
+
   const defaultAlarmFormData: AlarmFormData = useMemo(() => {
     return {
       info: {
@@ -76,6 +91,7 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
         min: alarm.min,
         max: alarm.max,
         enabled: alarm.enabled,
+        typeCondition: getTypeCondition(alarm.min, alarm.max),
       },
       noti: {
         message: alarm.actions[0]?.message,
@@ -124,8 +140,8 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
           severity: data.info.severity,
           timeDelay: data.info.timeDelay,
           checkInterval: data.info.checkInterval,
-          min: data.info.min,
-          max: data.info.max,
+          min: data.info.min === '' ? undefined : data.info.min,
+          max: data.info.max === '' ? undefined : data.info.max,
         };
         updateAlarmCondition({ id: alarm.id, payload });
       }

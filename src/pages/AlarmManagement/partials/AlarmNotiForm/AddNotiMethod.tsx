@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { useFormContext } from 'react-hook-form';
 
+import { FormHelperText } from '@mui/material';
+
 import { AlarmActionType } from '~/types';
 
 import {
@@ -25,7 +27,12 @@ import {
 export interface IAddMethodProps {}
 
 export function AddNotiMethod() {
-  const { setValue, getValues, watch } = useFormContext<AlarmFormData>();
+  const {
+    setValue,
+    getValues,
+    watch,
+    formState: { errors },
+  } = useFormContext<AlarmFormData>();
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -109,6 +116,9 @@ export function AddNotiMethod() {
           Thêm phương thức
         </SoftButton>
       </Box>
+      <FormHelperText error={!!errors.noti?.actions} sx={{ ml: 0 }}>
+        {errors.noti?.actions?.message}
+      </FormHelperText>
       <Menu
         MenuListProps={{
           'aria-labelledby': 'basic-button',

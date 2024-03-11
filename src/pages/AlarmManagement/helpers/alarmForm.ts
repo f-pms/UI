@@ -20,6 +20,8 @@ import {
   Station,
 } from '~/types';
 
+import { TypeCondition } from '~/pages/AlarmManagement/partials/AlarmInfoForm/TypeConditionSelect';
+
 export const NOTI_METHOD_OPTIONS = [
   {
     label: 'Hiện cảnh báo ở trang "Giám sát"',
@@ -40,6 +42,7 @@ interface AlarmInfoFromData
   sensorConfig: SensorConfiguration | null;
   station: Station | null;
   id: number;
+  typeCondition: TypeCondition;
 }
 
 export interface AlarmFormData {
@@ -60,6 +63,7 @@ export const defaultAlarmFormData: AlarmFormData = {
     enabled: true,
     min: undefined,
     max: undefined,
+    typeCondition: TypeCondition.RANGE,
   },
   noti: {
     message: '',
@@ -100,12 +104,72 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
       .integer('Độ trễ phải là số nguyên dương')
       .max(3600, 'Độ trễ không được lớn hơn 3600 giây'),
     enabled: boolean().required(),
-    min: number().nullable().optional(),
-    max: number().nullable().optional(),
+    min: string().when('type', {
+      is: AlarmType.CUSTOM,
+      then: (schema) =>
+        schema
+          .test({
+            name: 'max',
+            exclusive: false,
+            params: {},
+            message: 'Giá trị tối thiểu phải nhỏ hơn giá trị tối đa',
+            test: function (value) {
+              if (this.parent.max && value) {
+                return value < this.parent.max;
+              }
+              return true;
+            },
+          })
+          .test({
+            name: 'typeCondition',
+            exclusive: false,
+            params: {},
+            message: 'Giá trị tối thiểu không được phép để trống',
+            test: function (value) {
+              if (this.parent.typeCondition === TypeCondition.LESS_THAN) {
+                return true;
+              }
+              return value !== '';
+            },
+          }),
+      otherwise: (schema) => schema.nullable().optional(),
+    }),
+    max: string().when('type', {
+      is: AlarmType.CUSTOM,
+      then: (schema) =>
+        schema
+          .test({
+            name: 'min',
+            exclusive: false,
+            params: {},
+            message: 'Giá trị tối đa phải lớn hơn giá trị tối thiểu',
+            test: function (value) {
+              if (this.parent.min && value) {
+                return value > this.parent.min;
+              }
+              return true;
+            },
+          })
+          .test({
+            name: 'typeCondition',
+            exclusive: false,
+            params: {},
+            message: 'Giá trị tối đa không được phép để trống',
+            test: function (value) {
+              if (this.parent.typeCondition === TypeCondition.GREATER_THAN) {
+                return true;
+              }
+              return value !== '';
+            },
+          }),
+      otherwise: (schema) => schema.nullable().optional(),
+    }),
+    typeCondition: mixed<TypeCondition>().required(),
   }),
   noti: object({
     message: string().required('Nội dung cảnh báo không được để trống'),
     actions: array()
+      .min(1, 'Ít nhất phải chọn một phương thức cảnh báo')
       .of(
         object({
           id: number().required(),

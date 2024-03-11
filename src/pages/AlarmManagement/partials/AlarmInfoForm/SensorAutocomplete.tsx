@@ -94,7 +94,7 @@ export function SensorAutoComplete() {
             }}
           />
         )}
-        <FormHelperText error={!!errors.info?.sensorConfig}>
+        <FormHelperText error={!!errors.info?.sensorConfig} sx={{ ml: 0 }}>
           {errors.info?.sensorConfig?.message}
         </FormHelperText>
       </FormControl>

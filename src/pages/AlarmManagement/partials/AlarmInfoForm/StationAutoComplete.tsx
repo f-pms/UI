@@ -131,7 +131,7 @@ export function StationAutoComplete() {
         />
       )}
 
-      <FormHelperText error={!!errors.info?.station}>
+      <FormHelperText error={!!errors.info?.station} sx={{ ml: 0 }}>
         {errors.info?.station?.message}
       </FormHelperText>
     </FormControl>

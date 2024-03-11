@@ -56,8 +56,8 @@ export interface Alarm {
   type: AlarmType;
   severity: AlarmSeverity;
   timeDelay: number;
-  min?: null | number;
-  max?: null | number;
+  min?: null | number | string;
+  max?: null | number | string;
   actions: AlarmAction[];
   enabled: boolean;
   checkInterval: number;
