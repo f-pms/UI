@@ -26,7 +26,7 @@ export type Station = {
 export enum AlarmActionType {
   POPUP = 'POPUP',
   EMAIL = 'EMAIL',
-  PUSH_MESSAGE = 'PUSH',
+  PUSH_MESSAGE = 'PUSH_NOTIFICATION',
 }
 
 export type SensorConfiguration = {
