@@ -6,12 +6,12 @@ export interface IToastMethodProps {
   onRemoveAction: (value: AlarmActionType) => void;
 }
 
-export function ToastMethod({ onRemoveAction }: IToastMethodProps) {
+export function PushMessageMethod({ onRemoveAction }: IToastMethodProps) {
   return (
     <MethodOption
-      actionType={AlarmActionType.POPUP}
-      description='Tất cả mọi người đều có thể xem cảnh báo'
-      title='Hiện cảnh báo ở trang "Giám sát"'
+      actionType={AlarmActionType.PUSH_MESSAGE}
+      description='Tất cả mọi người đã cài đặt ứng dụng PMS-Mobile sẽ nhận được cảnh báo'
+      title='Cảnh báo qua thiết bị di động'
       onRemoveAction={onRemoveAction}
     />
   );

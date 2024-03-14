@@ -15,6 +15,7 @@ import {
   AlarmFormData,
   alarmSchema,
 } from '~/pages/AlarmManagement/helpers/alarmForm';
+import { getTypeCondition } from '~/pages/AlarmManagement/helpers/getTypeCondition';
 import { AlarmInfoForm } from '~/pages/AlarmManagement/partials/AlarmInfoForm';
 import { AlarmNotiForm } from '~/pages/AlarmManagement/partials/AlarmNotiForm';
 
@@ -76,6 +77,7 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
         min: alarm.min,
         max: alarm.max,
         enabled: alarm.enabled,
+        typeCondition: getTypeCondition(alarm.min, alarm.max),
       },
       noti: {
         message: alarm.actions[0]?.message,
@@ -124,8 +126,8 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
           severity: data.info.severity,
           timeDelay: data.info.timeDelay,
           checkInterval: data.info.checkInterval,
-          min: data.info.min,
-          max: data.info.max,
+          min: data.info.min === '' ? undefined : data.info.min,
+          max: data.info.max === '' ? undefined : data.info.max,
         };
         updateAlarmCondition({ id: alarm.id, payload });
       }

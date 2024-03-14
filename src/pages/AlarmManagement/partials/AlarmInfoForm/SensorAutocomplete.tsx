@@ -6,7 +6,7 @@ import { useFormContext } from '~/libs/react-hook-form';
 import { useQuerySensorConfigurations } from '~/services/sensorConfiguration/queries/useQuerySensorConfigurations';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
-import { CreateSensorAddressDialog } from '~/pages/AlarmManagement/partials/CreateSensorAddressDialog';
+import { CreateSensorAddressDialog } from '~/pages/AlarmManagement/partials/Dialogs/CreateSensorAddressDialog';
 
 import { Autocomplete } from '~/components';
 import { FormControl, Typography } from '~/components/MuiComponents';
@@ -94,7 +94,7 @@ export function SensorAutoComplete() {
             }}
           />
         )}
-        <FormHelperText error={!!errors.info?.sensorConfig}>
+        <FormHelperText error={!!errors.info?.sensorConfig} sx={{ ml: 0 }}>
           {errors.info?.sensorConfig?.message}
         </FormHelperText>
       </FormControl>

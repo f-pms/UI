@@ -1,4 +1,4 @@
-import { CreateAlarmDialog } from '~/pages/AlarmManagement/partials/CreateAlarmDialog';
+import { CreateAlarmDialog } from '~/pages/AlarmManagement/partials/Dialogs/CreateAlarmDialog';
 
 import { SectionHeading } from '~/components';
 

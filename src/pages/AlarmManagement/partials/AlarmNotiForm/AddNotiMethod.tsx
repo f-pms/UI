@@ -1,12 +1,15 @@
 import * as React from 'react';
 import { useFormContext } from 'react-hook-form';
 
+import { FormHelperText } from '@mui/material';
+
 import { AlarmActionType } from '~/types';
 
 import {
   AlarmFormData,
   NOTI_METHOD_OPTIONS,
 } from '~/pages/AlarmManagement/helpers/alarmForm';
+import { PushMessageMethod } from '~/pages/AlarmManagement/partials/AlarmNotiForm/PushMessageMethod';
 import { SendEmailMethod } from '~/pages/AlarmManagement/partials/AlarmNotiForm/SendEmailMethod';
 import { ToastMethod } from '~/pages/AlarmManagement/partials/AlarmNotiForm/ToastMethod';
 
@@ -24,7 +27,12 @@ import {
 export interface IAddMethodProps {}
 
 export function AddNotiMethod() {
-  const { setValue, getValues, watch } = useFormContext<AlarmFormData>();
+  const {
+    setValue,
+    getValues,
+    watch,
+    formState: { errors },
+  } = useFormContext<AlarmFormData>();
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -61,6 +69,9 @@ export function AddNotiMethod() {
     ),
     [AlarmActionType.EMAIL]: (
       <SendEmailMethod onRemoveAction={handleRemoveAction} />
+    ),
+    [AlarmActionType.PUSH_MESSAGE]: (
+      <PushMessageMethod onRemoveAction={handleRemoveAction} />
     ),
   };
 
@@ -105,6 +116,9 @@ export function AddNotiMethod() {
           Thêm phương thức
         </SoftButton>
       </Box>
+      <FormHelperText error={!!errors.noti?.actions} sx={{ ml: 0 }}>
+        {errors.noti?.actions?.message}
+      </FormHelperText>
       <Menu
         MenuListProps={{
           'aria-labelledby': 'basic-button',

@@ -2,8 +2,8 @@ import { FormProvider } from 'react-hook-form';
 
 import { defaultAlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 import { useCreateAlarm } from '~/pages/AlarmManagement/hooks/useCreateAlarm';
-import { AlertChangeModeDialog } from '~/pages/AlarmManagement/partials/AlertChangeModeDialog';
 import { CreateAlarmStepper } from '~/pages/AlarmManagement/partials/CreateAlarmStepper';
+import { AlertChangeModeDialog } from '~/pages/AlarmManagement/partials/Dialogs/AlertChangeModeDialog';
 
 import { SettingsInputComponentOutlinedIcon } from '~/components/Icons';
 import { Button, Dialog } from '~/components/MuiComponents';

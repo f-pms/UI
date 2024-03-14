@@ -11,8 +11,8 @@ import {
 
 import { AlarmInfoForm } from '~/pages/AlarmManagement/partials/AlarmInfoForm';
 import { AlarmNotiForm } from '~/pages/AlarmManagement/partials/AlarmNotiForm';
-import { AlarmStep } from '~/pages/AlarmManagement/partials/CreateAlarmWithBaseDialog';
-import { FinishStep } from '~/pages/AlarmManagement/partials/FinishStep';
+import { FinishStep } from '~/pages/AlarmManagement/partials/CreateAlarmStepper/FinishStep';
+import { AlarmStep } from '~/pages/AlarmManagement/partials/Dialogs/CreateAlarmWithBaseDialog';
 
 export interface ICreateAlarmStepperProps {
   activeStep: number;

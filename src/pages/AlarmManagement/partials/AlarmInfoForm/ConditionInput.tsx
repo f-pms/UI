@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
-import { SelectChangeEvent } from '@mui/material';
+import { FormHelperText, SelectChangeEvent } from '@mui/material';
 
+import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 import {
   TypeCondition,
   TypeConditionSelect,
@@ -14,7 +15,12 @@ import { FormControl, Stack, Typography } from '~/components/MuiComponents';
 export interface IConditionInputProps {}
 
 export function ConditionInput() {
-  const { setValue, control, getValues } = useFormContext();
+  const {
+    setValue,
+    control,
+    getValues,
+    formState: { errors },
+  } = useFormContext<AlarmFormData>();
   const [typeCondition, setTypeCondition] = useState<TypeCondition>(
     TypeCondition.RANGE,
   );
@@ -25,11 +31,12 @@ export function ConditionInput() {
 
   useEffect(() => {
     if (typeCondition === TypeCondition.LESS_THAN) {
-      setValue('info.min', undefined);
+      setValue('info.min', '');
     }
     if (typeCondition === TypeCondition.GREATER_THAN) {
-      setValue('info.max', undefined);
+      setValue('info.max', '');
     }
+    setValue('info.typeCondition', typeCondition);
   }, [typeCondition, setValue]);
 
   const min = useMemo(() => getValues('info.min'), [getValues]) as
@@ -42,14 +49,17 @@ export function ConditionInput() {
   useEffect(() => {
     if (min && max) {
       setTypeCondition(TypeCondition.RANGE);
+      setValue('info.typeCondition', TypeCondition.RANGE);
     } else if (min) {
       setTypeCondition(TypeCondition.GREATER_THAN);
+      setValue('info.typeCondition', TypeCondition.GREATER_THAN);
     } else if (max) {
       setTypeCondition(TypeCondition.LESS_THAN);
+      setValue('info.typeCondition', TypeCondition.GREATER_THAN);
     } else {
       setTypeCondition(TypeCondition.RANGE);
     }
-  }, [min, max]);
+  }, [min, max, setValue]);
 
   return (
     <FormControl sx={{ width: '100%' }} variant='outlined'>
@@ -83,6 +93,12 @@ export function ConditionInput() {
           type='number'
         />
       </Stack>
+      <FormHelperText error={!!errors?.info?.min} sx={{ ml: 0 }}>
+        {errors.info?.min?.message}
+      </FormHelperText>
+      <FormHelperText error={!!errors.info?.max} sx={{ ml: 0 }}>
+        {errors.info?.max?.message}
+      </FormHelperText>
     </FormControl>
   );
 }

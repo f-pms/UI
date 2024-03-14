@@ -15,7 +15,7 @@ export function AlarmInfoForm(props: IAlarmFormProps) {
   const { isAdvanced } = props;
 
   return (
-    <Box sx={{ width: '900px' }}>
+    <Box sx={{ width: '600px' }}>
       <SeverityTabs />
       <Stack
         alignItems='flex-start'

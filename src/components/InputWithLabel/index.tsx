@@ -79,7 +79,9 @@ export function InputWithLabel<T extends FieldValues>(
           {...rest}
         />
       )}
-      <FormHelperText error={!!error}>{error?.message}</FormHelperText>
+      <FormHelperText error={!!error} sx={{ ml: 0 }}>
+        {error?.message}
+      </FormHelperText>
     </FormControl>
   );
 }
