@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { format } from 'date-fns';
 import { vi } from 'date-fns/locale';
 import {
   MaterialReactTable,
   type MRT_ColumnDef,
+  MRT_Row,
   useMaterialReactTable,
 } from 'material-react-table';
 
@@ -30,65 +31,68 @@ export function AlarmHistoryTable(props: IAlarmHistoryTableProps) {
     pageSize: 10, //customize the default page size
   });
 
-  const columns: MRT_ColumnDef<AlarmHistory>[] = [
-    {
-      id: 'severity',
-      header: '',
-      accessorFn: (row) => {
-        return <SeverityCell severity={row.condition.severity} />;
+  const columns: MRT_ColumnDef<AlarmHistory>[] = useMemo(
+    () => [
+      {
+        id: 'severity',
+        header: '',
+        Cell: ({ row }: { row: MRT_Row<AlarmHistory> }) => (
+          <SeverityCell severity={row.original.condition.severity} />
+        ),
+        muiTableHeadCellProps: {
+          align: 'center',
+        },
+        muiTableBodyCellProps: {
+          align: 'center',
+        },
+        muiTableFooterCellProps: {
+          align: 'center',
+        },
+        enableColumnActions: false,
+        enableSorting: false,
+        size: 30,
       },
-      muiTableHeadCellProps: {
-        align: 'center',
-      },
-      muiTableBodyCellProps: {
-        align: 'center',
-      },
-      muiTableFooterCellProps: {
-        align: 'center',
-      },
-      enableColumnActions: false,
-      enableSorting: false,
-      size: 30,
-    },
 
-    {
-      id: 'type',
-      header: 'Loại',
-      accessorFn: (row) => {
-        return <TypeCell type={row.condition.type} />;
+      {
+        id: 'type',
+        header: 'Loại',
+        Cell: ({ row }: { row: MRT_Row<AlarmHistory> }) => (
+          <TypeCell type={row.original.condition.type} />
+        ),
       },
-    },
-    {
-      accessorKey: 'condition.sensorConfiguration.address',
-      header: 'Địa chỉ biến',
-    },
-    {
-      accessorKey: 'condition.blueprint.name',
-      header: 'Trạm',
-    },
-    {
-      id: 'message',
-      header: 'Thông báo',
-      accessorFn: (row) =>
-        row.condition.actions.length ? row.condition.actions[0]?.message : '',
-    },
-    {
-      id: 'triggeredAt',
-      header: 'Ban đầu cảnh báo',
-      accessorFn: (row) =>
-        format(new Date(row.triggeredAt), 'dd/MM/yyyy HH:mm:ss', {
-          locale: vi,
-        }),
-    },
-    {
-      id: 'solvedAt',
-      header: 'Kết thúc cảnh báo',
-      accessorFn: (row) =>
-        format(new Date(row.solvedAt), 'dd/MM/yyyy HH:mm:ss', {
-          locale: vi,
-        }),
-    },
-  ];
+      {
+        accessorKey: 'condition.sensorConfiguration.address',
+        header: 'Địa chỉ biến',
+      },
+      {
+        accessorKey: 'condition.blueprint.name',
+        header: 'Trạm',
+      },
+      {
+        id: 'message',
+        header: 'Thông báo',
+        accessorFn: (row) =>
+          row.condition.actions.length ? row.condition.actions[0]?.message : '',
+      },
+      {
+        id: 'triggeredAt',
+        header: 'Ban đầu cảnh báo',
+        accessorFn: (row) =>
+          format(new Date(row.triggeredAt), 'dd/MM/yyyy HH:mm:ss', {
+            locale: vi,
+          }),
+      },
+      {
+        id: 'solvedAt',
+        header: 'Kết thúc cảnh báo',
+        accessorFn: (row) =>
+          format(new Date(row.solvedAt), 'dd/MM/yyyy HH:mm:ss', {
+            locale: vi,
+          }),
+      },
+    ],
+    [],
+  );
 
   const table = useMaterialReactTable({
     ...defaultMRTOptions,

@@ -1,11 +1,12 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
   MaterialReactTable,
   type MRT_ColumnDef,
+  MRT_Row,
   useMaterialReactTable,
 } from 'material-react-table';
 
-import { Alarm } from '~/types';
+import { Alarm, AlarmSeverity, Color } from '~/types';
 
 import { ConfirmDeleteAlarmDialog } from '~/pages/AlarmManagement/partials/Dialogs/ConfirmDeleteAlarmDialog';
 import { CreateAlarmWithBaseDialog } from '~/pages/AlarmManagement/partials/Dialogs/CreateAlarmWithBaseDialog';
@@ -13,6 +14,7 @@ import UpdateAlarmDialog from '~/pages/AlarmManagement/partials/Dialogs/UpdateAl
 import { SeverityCell } from '~/pages/AlarmManagement/partials/Tables/SeverityCell';
 import TypeCell from '~/pages/AlarmManagement/partials/Tables/TypeCell';
 
+import { CircleIcon } from '~/components/Icons';
 import { getDefaultMRTOptions } from '~/components/Table';
 
 export interface IAlarmConfigTableProps {
@@ -28,53 +30,57 @@ export function AlarmConfigTable(props: IAlarmConfigTableProps) {
     pageSize: 10, //customize the default page size
   });
 
-  const columns: MRT_ColumnDef<Alarm>[] = [
-    {
-      id: 'severity',
-      header: '',
-      accessorFn: (row) => {
-        return <SeverityCell severity={row.severity} />;
+  const columns: MRT_ColumnDef<Alarm>[] = useMemo(
+    () => [
+      {
+        id: 'severity',
+        header: '',
+        Cell: ({ row }: { row: MRT_Row<Alarm> }) => (
+          <SeverityCell severity={row.original.severity} />
+        ),
+        muiTableHeadCellProps: {
+          align: 'center',
+        },
+        muiTableBodyCellProps: {
+          align: 'center',
+        },
+        muiTableFooterCellProps: {
+          align: 'center',
+        },
+        enableColumnActions: false,
+        enableSorting: false,
+        size: 30,
       },
-      muiTableHeadCellProps: {
-        align: 'center',
+      {
+        id: 'type',
+        header: 'Loại',
+        Cell: ({ row }: { row: MRT_Row<Alarm> }) => (
+          <TypeCell type={row.original.type} />
+        ),
       },
-      muiTableBodyCellProps: {
-        align: 'center',
+      {
+        accessorKey: 'sensorConfiguration.address',
+        header: 'Địa chỉ biến',
       },
-      muiTableFooterCellProps: {
-        align: 'center',
+      {
+        id: 'message',
+        header: 'Thông báo',
+        accessorFn: (row) =>
+          row.actions.length ? row.actions[0]?.message : '',
       },
-      enableColumnActions: false,
-      enableSorting: false,
-      size: 30,
-    },
-    {
-      id: 'type',
-      header: 'Loại',
-      accessorFn: (row) => {
-        return <TypeCell type={row.type} />;
+      {
+        accessorKey: 'checkInterval',
+        header: 'Chu kì kiểm tra',
+        accessorFn: (row) => `${row.checkInterval} giây`,
       },
-    },
-    {
-      accessorKey: 'sensorConfiguration.address',
-      header: 'Địa chỉ biến',
-    },
-    {
-      id: 'message',
-      header: 'Thông báo',
-      accessorFn: (row) => (row.actions.length ? row.actions[0]?.message : ''),
-    },
-    {
-      accessorKey: 'checkInterval',
-      header: 'Chu kì kiểm tra',
-      accessorFn: (row) => `${row.checkInterval} giây`,
-    },
-    {
-      id: 'timeDelay',
-      header: 'Độ trễ',
-      accessorFn: (row) => `${row.timeDelay} giây`,
-    },
-  ];
+      {
+        id: 'timeDelay',
+        header: 'Độ trễ',
+        accessorFn: (row) => `${row.timeDelay} giây`,
+      },
+    ],
+    [],
+  );
 
   const table = useMaterialReactTable({
     ...defaultMRTOptions,
