@@ -1,6 +1,3 @@
-import { FieldError, useFormContext } from 'react-hook-form';
-
-import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 import ActionMessage from '~/pages/AlarmManagement/partials/AlarmNotiForm/ActionMessage';
 import { AddNotiMethod } from '~/pages/AlarmManagement/partials/AlarmNotiForm/AddNotiMethod';
 
