@@ -39,6 +39,7 @@ export function InputWithLabel<T extends FieldValues>(
     description,
     styled,
     error,
+    type,
     ...rest
   } = props;
 
@@ -46,6 +47,7 @@ export function InputWithLabel<T extends FieldValues>(
     control,
     defaultValue,
     name,
+    valueAsNumber: type === 'number',
   };
 
   return (
@@ -63,10 +65,11 @@ export function InputWithLabel<T extends FieldValues>(
           {...controllerProps}
           render={({ field }) => (
             <OutlinedInput
-              size='small'
-              sx={{ fontSize: '14px' }}
               {...field}
               {...rest}
+              size='small'
+              sx={{ fontSize: '14px' }}
+              type={type}
             />
           )}
         />

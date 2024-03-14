@@ -32,8 +32,8 @@ export enum AlarmActionType {
 export type SensorConfiguration = {
   id: number;
   address: string;
-  x: string;
-  y: string;
+  x: number;
+  y: number;
   attachedToAlarm: boolean;
 };
 
@@ -56,8 +56,8 @@ export interface Alarm {
   type: AlarmType;
   severity: AlarmSeverity;
   timeDelay: number;
-  min?: null | number | string;
-  max?: null | number | string;
+  min?: number | string;
+  max?: number | string;
   actions: AlarmAction[];
   enabled: boolean;
   checkInterval: number;

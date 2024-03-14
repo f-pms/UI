@@ -20,6 +20,7 @@ export function ConditionInput() {
     control,
     getValues,
     formState: { errors },
+    resetField,
   } = useFormContext<AlarmFormData>();
   const [typeCondition, setTypeCondition] = useState<TypeCondition>(
     TypeCondition.RANGE,
@@ -31,20 +32,16 @@ export function ConditionInput() {
 
   useEffect(() => {
     if (typeCondition === TypeCondition.LESS_THAN) {
-      setValue('info.min', '');
+      setValue('info.min', undefined);
     }
     if (typeCondition === TypeCondition.GREATER_THAN) {
-      setValue('info.max', '');
+      setValue('info.max', undefined);
     }
     setValue('info.typeCondition', typeCondition);
-  }, [typeCondition, setValue]);
+  }, [typeCondition, setValue, resetField]);
 
-  const min = useMemo(() => getValues('info.min'), [getValues]) as
-    | number
-    | undefined;
-  const max = useMemo(() => getValues('info.max'), [getValues]) as
-    | number
-    | undefined;
+  const min = useMemo(() => getValues('info.min'), [getValues]);
+  const max = useMemo(() => getValues('info.max'), [getValues]);
 
   useEffect(() => {
     if (min && max) {
@@ -78,20 +75,24 @@ export function ConditionInput() {
           handleChange={handleChange}
           typeCondition={typeCondition}
         />
-        <InputWithLabel
-          control={control}
-          disabled={typeCondition === TypeCondition.LESS_THAN}
-          name='info.min'
-          placeholder='Giới hạn dưới'
-          type='number'
-        />
-        <InputWithLabel
-          control={control}
-          disabled={typeCondition === TypeCondition.GREATER_THAN}
-          name='info.max'
-          placeholder='Giới hạn trên'
-          type='number'
-        />
+        {(typeCondition === TypeCondition.GREATER_THAN ||
+          typeCondition === TypeCondition.RANGE) && (
+          <InputWithLabel
+            control={control}
+            name='info.min'
+            placeholder='Giới hạn dưới'
+            type='number'
+          />
+        )}
+        {(typeCondition === TypeCondition.LESS_THAN ||
+          typeCondition === TypeCondition.RANGE) && (
+          <InputWithLabel
+            control={control}
+            name='info.max'
+            placeholder='Giới hạn trên'
+            type='number'
+          />
+        )}
       </Stack>
       <FormHelperText error={!!errors?.info?.min} sx={{ ml: 0 }}>
         {errors.info?.min?.message}
