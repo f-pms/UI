@@ -75,8 +75,10 @@ export const useCreateAlarm = (defaultValue: AlarmFormData) => {
       checkInterval: data.info.checkInterval,
       message: data.noti.message,
       actions: data.noti.actions,
-      min: data.info.min === '' ? undefined : data.info.min,
-      max: data.info.max === '' ? undefined : data.info.max,
+      min:
+        data.info.min === '' ? undefined : parseFloat(data.info.min as string),
+      max:
+        data.info.max === '' ? undefined : parseFloat(data.info.max as string),
     };
     createAlarmCondition(payload);
   };
