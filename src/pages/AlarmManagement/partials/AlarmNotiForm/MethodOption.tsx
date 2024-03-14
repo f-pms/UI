@@ -1,10 +1,6 @@
-import { useFormContext } from 'react-hook-form';
-
 import { AlarmActionType } from '~/types';
 
-import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 import { useNotiMethod } from '~/pages/AlarmManagement/hooks/useNotiMethod';
-import { useUpdateAction } from '~/pages/AlarmManagement/hooks/useUpdateAction';
 
 import {
   DeleteOutlineOutlinedIcon,
