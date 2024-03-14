@@ -6,7 +6,7 @@ import {
   useMaterialReactTable,
 } from 'material-react-table';
 
-import { Alarm, AlarmSeverity, Color } from '~/types';
+import { Alarm } from '~/types';
 
 import { ConfirmDeleteAlarmDialog } from '~/pages/AlarmManagement/partials/Dialogs/ConfirmDeleteAlarmDialog';
 import { CreateAlarmWithBaseDialog } from '~/pages/AlarmManagement/partials/Dialogs/CreateAlarmWithBaseDialog';
@@ -14,7 +14,6 @@ import UpdateAlarmDialog from '~/pages/AlarmManagement/partials/Dialogs/UpdateAl
 import { SeverityCell } from '~/pages/AlarmManagement/partials/Tables/SeverityCell';
 import TypeCell from '~/pages/AlarmManagement/partials/Tables/TypeCell';
 
-import { CircleIcon } from '~/components/Icons';
 import { getDefaultMRTOptions } from '~/components/Table';
 
 export interface IAlarmConfigTableProps {
