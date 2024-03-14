@@ -15,8 +15,8 @@ import {
   AlarmFormData,
   alarmSchema,
 } from '~/pages/AlarmManagement/helpers/alarmForm';
+import { getTypeCondition } from '~/pages/AlarmManagement/helpers/getTypeCondition';
 import { AlarmInfoForm } from '~/pages/AlarmManagement/partials/AlarmInfoForm';
-import { TypeCondition } from '~/pages/AlarmManagement/partials/AlarmInfoForm/TypeConditionSelect';
 import { AlarmNotiForm } from '~/pages/AlarmManagement/partials/AlarmNotiForm';
 
 import { SoftChip } from '~/components';
@@ -57,20 +57,6 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
     error,
   } = useUpdateAlarmCondition();
   const { refetch } = useQueryAlarmConditions();
-
-  const getTypeCondition = (
-    min?: number | null | string,
-    max?: number | null | string,
-  ) => {
-    if (min && max) {
-      return TypeCondition.RANGE;
-    } else if (min) {
-      return TypeCondition.GREATER_THAN;
-    } else if (max) {
-      return TypeCondition.LESS_THAN;
-    }
-    return TypeCondition.RANGE;
-  };
 
   const defaultAlarmFormData: AlarmFormData = useMemo(() => {
     return {

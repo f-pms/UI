@@ -4,6 +4,7 @@ import { FormProvider } from 'react-hook-form';
 import { Alarm, AlarmType } from '~/types';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
+import { getTypeCondition } from '~/pages/AlarmManagement/helpers/getTypeCondition';
 import { useCreateAlarm } from '~/pages/AlarmManagement/hooks/useCreateAlarm';
 import { CreateAlarmStepper } from '~/pages/AlarmManagement/partials/CreateAlarmStepper';
 import { AlertChangeModeDialog } from '~/pages/AlarmManagement/partials/Dialogs/AlertChangeModeDialog';
@@ -43,6 +44,7 @@ export function CreateAlarmWithBaseDialog(props: IAlarmConfigTableProps) {
         min: alarm.min,
         max: alarm.max,
         enabled: alarm.enabled,
+        typeCondition: getTypeCondition(alarm.min, alarm.max),
       },
       noti: {
         message: alarm.actions[0]?.message,
