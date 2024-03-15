@@ -4,6 +4,7 @@ import _ from 'lodash';
 import { FormHelperText, OutlinedInput, TextField } from '~/libs/mui';
 import { useFormContext } from '~/libs/react-hook-form';
 import { useQuerySensorConfigurations } from '~/services/sensorConfiguration/queries/useQuerySensorConfigurations';
+import { AlarmType } from '~/types';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 import { CreateSensorAddressDialog } from '~/pages/AlarmManagement/partials/Dialogs/CreateSensorAddressDialog';
@@ -21,6 +22,7 @@ export function SensorAutoComplete() {
   } = useFormContext<AlarmFormData>();
   const [open, setOpen] = useState(false);
   const isUpdated = getValues('isUpdate');
+  const isCustomType = getValues('info.type') === AlarmType.CUSTOM;
 
   const { data: sensorConfigs } = useQuerySensorConfigurations({
     blueprintType: getValues('info.station')?.type ?? '',
@@ -63,22 +65,28 @@ export function SensorAutoComplete() {
             multiple={false}
             name='info.sensorConfig'
             noOptionsText={
-              <Typography variant='body2'>
-                Địa chỉ không tồn tại?{' '}
-                <Typography
-                  color='primary'
-                  component='span'
-                  sx={{
-                    fontWeight: 'bold',
-                    textDecoration: 'underline',
-                    cursor: 'pointer',
-                  }}
-                  variant='body2'
-                  onClick={() => setOpen(true)}
-                >
-                  Tạo mới
+              isCustomType ? (
+                <Typography variant='body2'>
+                  Địa chỉ không tồn tại?{' '}
+                  <Typography
+                    color='primary'
+                    component='span'
+                    sx={{
+                      fontWeight: 'bold',
+                      textDecoration: 'underline',
+                      cursor: 'pointer',
+                    }}
+                    variant='body2'
+                    onClick={() => setOpen(true)}
+                  >
+                    Tạo mới
+                  </Typography>
                 </Typography>
-              </Typography>
+              ) : (
+                <Typography variant='body2'>
+                  Không có địa chỉ biến nào
+                </Typography>
+              )
             }
             options={sensorConfigs ?? []}
             renderInput={(params) => <TextField {...params} size='small' />}
