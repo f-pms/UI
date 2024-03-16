@@ -35,7 +35,7 @@ export function CustomInputField() {
           borderRadius: 1,
           bgcolor: 'background.paper',
           position: 'absolute',
-          right: 0,
+          left: 0,
           top: '42px',
           zIndex: 2,
           display: focused ? 'block' : 'none',

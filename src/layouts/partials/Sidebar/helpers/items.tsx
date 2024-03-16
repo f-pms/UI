@@ -2,10 +2,11 @@ import { Path, PATH_LABEL } from '~/constants';
 import { SidebarItem } from '~/types/sidebar';
 
 import {
-  DashboardOutlinedIcon,
+  ArticleOutlinedIcon,
   FactoryOutlinedIcon,
   HandymanOutlinedIcon,
-  HistoryOutlinedIcon,
+  InsertChartOutlinedIcon,
+  ManageSearchOutlinedIcon,
   MonitorOutlinedIcon,
   NotificationImportantOutlinedIcon,
   SettingsInputComponentOutlinedIcon,
@@ -32,7 +33,7 @@ export const SIDEBAR_ITEMS: SidebarItem[] = [
       {
         name: PATH_LABEL[Path.ALARM_HISTORY],
         path: Path.ALARM_HISTORY,
-        icon: <HistoryOutlinedIcon sx={{ fontSize: '20px' }} />,
+        icon: <ManageSearchOutlinedIcon sx={{ fontSize: '20px' }} />,
       },
       {
         name: PATH_LABEL[Path.ALARM_CONFIG],
@@ -42,9 +43,21 @@ export const SIDEBAR_ITEMS: SidebarItem[] = [
     ],
   },
   {
-    name: PATH_LABEL[Path.HOME],
-    icon: <DashboardOutlinedIcon sx={{ fontSize: '20px' }} />,
-    path: Path.HOME,
+    name: PATH_LABEL[Path.REPORT],
+    icon: <ArticleOutlinedIcon sx={{ fontSize: '20px' }} />,
+    path: Path.REPORT,
+    children: [
+      {
+        name: PATH_LABEL[Path.HISTORICAL_REPORT],
+        path: Path.HISTORICAL_REPORT,
+        icon: <ManageSearchOutlinedIcon sx={{ fontSize: '20px' }} />,
+      },
+      {
+        name: PATH_LABEL[Path.STATISTIC_REPORT],
+        path: Path.STATISTIC_REPORT,
+        icon: <InsertChartOutlinedIcon sx={{ fontSize: '20px' }} />,
+      },
+    ],
   },
   {
     name: PATH_LABEL[Path.COMPONENTS],

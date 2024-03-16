@@ -26,6 +26,10 @@ export enum Path {
   ALARM_HISTORY = '/alarm/history',
   ALARM_CONFIG = '/alarm/config',
 
+  REPORT = '/report',
+  STATISTIC_REPORT = '/report/statistic',
+  HISTORICAL_REPORT = '/report/historical',
+
   // Errors
   NOT_FOUND = '/not-found',
   FORBIDDEN = '/forbidden',
@@ -51,4 +55,7 @@ export const PATH_LABEL: Record<Path, string> = {
   [Path.ALARM]: 'Cảnh báo',
   [Path.ALARM_HISTORY]: 'Lịch sử',
   [Path.ALARM_CONFIG]: 'Cấu hình',
+  [Path.REPORT]: 'Báo cáo',
+  [Path.STATISTIC_REPORT]: 'Thống kê',
+  [Path.HISTORICAL_REPORT]: 'Lịch sử',
 };
