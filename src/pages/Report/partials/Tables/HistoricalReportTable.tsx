@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import {
   MaterialReactTable,
   MRT_ColumnDef,
@@ -9,7 +9,11 @@ import { HistoricalReportItem } from '~/types';
 
 import { HISTORICAL_REPORT_LIST } from '~/pages/Report/mocks/historicalReportList';
 
-import { SoftChip } from '~/components';
+import { SoftButton, SoftChip } from '~/components';
+import {
+  ArticleOutlinedIcon,
+  FileDownloadOutlinedIcon,
+} from '~/components/Icons';
 import { Box, Link, Stack, Typography } from '~/components/MuiComponents';
 import { getDefaultMRTOptions } from '~/components/Table';
 
@@ -17,6 +21,11 @@ export interface IHistoricalReportTableProps {}
 
 const defaultMRTOptions = getDefaultMRTOptions<HistoricalReportItem>();
 export function HistoricalReportTable() {
+  const [pagination, setPagination] = useState({
+    pageIndex: 0,
+    pageSize: 10,
+  });
+
   const columns: MRT_ColumnDef<HistoricalReportItem>[] = useMemo(
     () => [
       {
@@ -49,6 +58,10 @@ export function HistoricalReportTable() {
     enableRowActions: true,
     getRowId: (row) => row.id.toString(),
     enableColumnPinning: false,
+    manualPagination: true,
+    rowCount: 100,
+    onPaginationChange: setPagination,
+    state: { pagination },
     renderTopToolbarCustomActions: ({ table }) => {
       const selectedRows = table.getSelectedRowModel().rows;
       const allRows = table.getRowModel().rows;
@@ -86,6 +99,43 @@ export function HistoricalReportTable() {
           </Stack>
         </Stack>
       );
+    },
+    renderRowActions: () => {
+      return (
+        <Stack
+          alignItems='center'
+          direction='row'
+          justifyContent='center'
+          spacing={2}
+          sx={{ minWidth: '240px' }}
+        >
+          <SoftButton
+            color='rose'
+            size='small'
+            startIcon={<ArticleOutlinedIcon />}
+          >
+            Xem báo cáo
+          </SoftButton>
+          <SoftButton
+            color='primary'
+            size='small'
+            startIcon={<FileDownloadOutlinedIcon />}
+          >
+            Tải xuống
+          </SoftButton>
+        </Stack>
+      );
+    },
+    displayColumnDefOptions: {
+      'mrt-row-actions': {
+        size: 0,
+        muiTableHeadCellProps: {
+          align: 'center',
+        },
+        muiTableBodyCellProps: {
+          align: 'center',
+        },
+      },
     },
     muiTopToolbarProps: {
       sx: {

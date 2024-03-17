@@ -89,6 +89,7 @@ const useDateInput = () => {
     onBlurredFromField,
     onBlurredToField,
     handleKeyDown,
+    range,
   };
 };
 
