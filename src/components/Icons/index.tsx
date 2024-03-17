@@ -3,6 +3,7 @@ export { default as ArrowDropDownIcon } from '@mui/icons-material/ArrowDropDown'
 export { default as ArrowDropUpIcon } from '@mui/icons-material/ArrowDropUp';
 export { default as ArrowForwardIcon } from '@mui/icons-material/ArrowForward';
 export { default as ArrowRightAltIcon } from '@mui/icons-material/ArrowRightAlt';
+export { default as ArticleOutlinedIcon } from '@mui/icons-material/ArticleOutlined';
 export { default as CancelIcon } from '@mui/icons-material/Cancel';
 export { default as CenterFocusStrongOutlinedIcon } from '@mui/icons-material/CenterFocusStrongOutlined';
 export { default as CircleIcon } from '@mui/icons-material/Circle';
@@ -31,8 +32,10 @@ export { default as GoogleIcon } from '@mui/icons-material/Google';
 export { default as HandymanOutlinedIcon } from '@mui/icons-material/HandymanOutlined';
 export { default as HighlightOffOutlinedIcon } from '@mui/icons-material/HighlightOffOutlined';
 export { default as HistoryOutlinedIcon } from '@mui/icons-material/HistoryOutlined';
+export { default as InsertChartOutlinedIcon } from '@mui/icons-material/InsertChartOutlined';
 export { default as LibraryAddCheckRoundedIcon } from '@mui/icons-material/LibraryAddCheckRounded';
 export { default as LockOutlinedIcon } from '@mui/icons-material/LockOutlined';
+export { default as ManageSearchOutlinedIcon } from '@mui/icons-material/ManageSearchOutlined';
 export { default as MenuOutlinedIcon } from '@mui/icons-material/MenuOutlined';
 export { default as MonitorOutlinedIcon } from '@mui/icons-material/MonitorOutlined';
 export { default as MoreHorizIcon } from '@mui/icons-material/MoreHoriz';

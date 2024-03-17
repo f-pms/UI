@@ -15,7 +15,7 @@ const getBlueprints = async (params: GetBlueprintsParams) => {
 
 export const useQueryBlueprints = (params: GetBlueprintsParams) => {
   return useQuery({
-    queryKey: ['blueprints'],
+    queryKey: ['blueprints', params],
     queryFn: () => getBlueprints(params),
     retry: 3,
   });

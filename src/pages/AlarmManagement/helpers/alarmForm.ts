@@ -37,7 +37,7 @@ export const NOTI_METHOD_OPTIONS = [
   },
 ];
 
-interface AlarmInfoFromData
+interface AlarmInfoFormData
   extends Omit<AlarmInfoDTO, 'sensorConfigurationId'> {
   sensorConfig: SensorConfiguration | null;
   station: Station | null;
@@ -46,7 +46,7 @@ interface AlarmInfoFromData
 }
 
 export interface AlarmFormData {
-  info: AlarmInfoFromData;
+  info: AlarmInfoFormData;
   noti: AlarmNotiDTO;
   isUpdate: boolean;
 }

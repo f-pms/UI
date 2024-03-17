@@ -4,7 +4,6 @@ import _ from 'lodash';
 import { FormHelperText, OutlinedInput, TextField } from '~/libs/mui';
 import { useFormContext } from '~/libs/react-hook-form';
 import { useQuerySensorConfigurations } from '~/services/sensorConfiguration/queries/useQuerySensorConfigurations';
-import { AlarmType } from '~/types';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 import { CreateSensorAddressDialog } from '~/pages/AlarmManagement/partials/Dialogs/CreateSensorAddressDialog';
@@ -22,7 +21,7 @@ export function SensorAutoComplete() {
   } = useFormContext<AlarmFormData>();
   const [open, setOpen] = useState(false);
   const isUpdated = getValues('isUpdate');
-  const isCustomType = getValues('info.type') === AlarmType.CUSTOM;
+  const isMonitoringType = getValues('info.station.type') === 'MONITORING';
 
   const { data: sensorConfigs } = useQuerySensorConfigurations({
     blueprintType: getValues('info.station')?.type ?? '',
@@ -65,7 +64,7 @@ export function SensorAutoComplete() {
             multiple={false}
             name='info.sensorConfig'
             noOptionsText={
-              isCustomType ? (
+              !isMonitoringType ? (
                 <Typography variant='body2'>
                   Địa chỉ không tồn tại?{' '}
                   <Typography
