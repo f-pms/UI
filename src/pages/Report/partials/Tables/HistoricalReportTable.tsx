@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import {
   MaterialReactTable,
   MRT_ColumnDef,
@@ -7,6 +7,7 @@ import {
 
 import { HistoricalReportItem } from '~/types';
 
+import { HistoryPaginationContext } from '~/pages/Report/context/HistoryPaginationContext';
 import { HISTORICAL_REPORT_LIST } from '~/pages/Report/mocks/historicalReportList';
 
 import { SoftButton, SoftChip } from '~/components';
@@ -21,10 +22,7 @@ export interface IHistoricalReportTableProps {}
 
 const defaultMRTOptions = getDefaultMRTOptions<HistoricalReportItem>();
 export function HistoricalReportTable() {
-  const [pagination, setPagination] = useState({
-    pageIndex: 0,
-    pageSize: 10,
-  });
+  const { pagination, setPagination } = useContext(HistoryPaginationContext);
 
   const columns: MRT_ColumnDef<HistoricalReportItem>[] = useMemo(
     () => [

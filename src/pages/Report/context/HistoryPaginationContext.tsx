@@ -1,9 +1,15 @@
-import { createContext, useMemo, useState } from 'react';
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useMemo,
+  useState,
+} from 'react';
 import { MRT_PaginationState } from 'material-react-table';
 
 export type HistoryPaginationType = {
   pagination: MRT_PaginationState;
-  setPagination: (old: MRT_PaginationState) => void;
+  setPagination: Dispatch<SetStateAction<MRT_PaginationState>>;
 };
 
 export const HistoryPaginationContext = createContext<HistoryPaginationType>({
