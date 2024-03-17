@@ -19,6 +19,11 @@ import { HomePage } from '~/pages/HomePage';
 import MonitoringPage, {
   ProductionPageLayout,
 } from '~/pages/ProductionManagement';
+import {
+  HistoricalReportPage,
+  ReportPageWrapper,
+  StatisticReportPage,
+} from '~/pages/Report';
 import { UserListPage, UserProfilePage } from '~/pages/Users';
 
 export const privateRoutes: (PrivateRouteObject & RouteObject)[] = [
@@ -74,6 +79,22 @@ export const privateRoutes: (PrivateRouteObject & RouteObject)[] = [
       {
         path: 'config',
         element: <AlarmConfigPage />,
+      },
+    ],
+  },
+  {
+    path: Path.REPORT,
+    element: <ReportPageWrapper />,
+    layout: <DefaultLayout />,
+    roles: [Role.ADMIN, Role.USER],
+    children: [
+      {
+        path: 'historical',
+        element: <HistoricalReportPage />,
+      },
+      {
+        path: 'statistic',
+        element: <StatisticReportPage />,
       },
     ],
   },

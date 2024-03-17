@@ -38,5 +38,7 @@ export const getDefaultMRTOptions = <TData extends MRT_RowData>(): Partial<
     noRecordsToDisplay: 'Không có dữ liệu',
     noResultsFound: 'Không tìm thấy kết quả',
     toggleVisibility: 'Ẩn/Hiện',
+    selectedCountOfRowCountRowsSelected:
+      '{selectedCount}/{rowCount} hàng được chọn',
   },
 });

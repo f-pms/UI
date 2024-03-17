@@ -26,7 +26,7 @@ export function AlarmConfigTable(props: IAlarmConfigTableProps) {
   const { alarmConditions } = props;
   const [pagination, setPagination] = useState({
     pageIndex: 0,
-    pageSize: 10, //customize the default page size
+    pageSize: 10,
   });
 
   const columns: MRT_ColumnDef<Alarm>[] = useMemo(

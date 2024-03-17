@@ -5,10 +5,7 @@ import HistoryPageHeading from '~/pages/AlarmManagement/partials/Headings/Histor
 import { AlarmHistoryTable } from '~/pages/AlarmManagement/partials/Tables/AlarmHistoryTable';
 
 import { SoftChip } from '~/components';
-import { DateRangePicker } from '~/components/DateRangePicker';
-import { FilterAltOutlinedIcon } from '~/components/Icons';
 import {
-  Button,
   Container,
   Paper,
   Stack,
@@ -41,21 +38,6 @@ export function AlarmHistoryPage() {
               shape='square'
               size='small'
             />
-          </Stack>
-          <Stack
-            alignItems='center'
-            direction='row'
-            justifyContent='space-between'
-            spacing={2}
-          >
-            <DateRangePicker />
-            <Button
-              size='small'
-              startIcon={<FilterAltOutlinedIcon />}
-              variant='contained'
-            >
-              Lọc kết quả
-            </Button>
           </Stack>
         </Stack>
       </Paper>

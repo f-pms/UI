@@ -53,7 +53,13 @@ export function DateInput({ focused, setFocused }: IDateInputProps) {
   }, [focused, onFocusField, focusedFromField, focusedToField]);
 
   return (
-    <Stack alignItems='center' direction='row' spacing={1}>
+    <Stack
+      alignItems='center'
+      direction='row'
+      justifyContent='space-between'
+      spacing={1}
+      sx={{ width: '100%' }}
+    >
       <StyledInput
         id='date-from'
         placeholder='Từ ngày'
