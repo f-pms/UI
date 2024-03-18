@@ -12,7 +12,7 @@ export function SectionHeading(props: ISectionHeadingProps) {
   return (
     <>
       <Stack
-        alignItems='flex-end'
+        alignItems='center'
         direction='row'
         justifyContent='space-between'
         sx={{ mb: 1 }}

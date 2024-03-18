@@ -8,9 +8,9 @@ import {
 import { DateRangeProvider } from '~/components/DateRangePicker/context/DateRangeContext';
 import { Container, Paper, Stack } from '~/components/MuiComponents';
 
-export interface IHistoricalReportPageProps {}
+export interface IHistoricalReportListPageProps {}
 
-export function HistoricalReportPage() {
+export function HistoricalReportListPage() {
   return (
     <Container maxWidth='xl' sx={{ py: 2 }}>
       <HistoryPaginationProvider>

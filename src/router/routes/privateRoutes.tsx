@@ -20,7 +20,9 @@ import MonitoringPage, {
   ProductionPageLayout,
 } from '~/pages/ProductionManagement';
 import {
-  HistoricalReportPage,
+  HistoricalReportDetailsPage,
+  HistoricalReportListPage,
+  HistoricalReportStatisticsPage,
   ReportPageWrapper,
   StatisticReportPage,
 } from '~/pages/Report';
@@ -89,8 +91,16 @@ export const privateRoutes: (PrivateRouteObject & RouteObject)[] = [
     roles: [Role.ADMIN, Role.USER],
     children: [
       {
-        path: 'historical',
-        element: <HistoricalReportPage />,
+        path: 'history',
+        element: <HistoricalReportListPage />,
+      },
+      {
+        path: 'history/:reportId',
+        element: <HistoricalReportDetailsPage />,
+      },
+      {
+        path: 'history/:reportTypeId/statistic',
+        element: <HistoricalReportStatisticsPage />,
       },
       {
         path: 'statistic',
