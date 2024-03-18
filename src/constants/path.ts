@@ -28,7 +28,7 @@ export enum Path {
 
   REPORT = '/report',
   STATISTIC_REPORT = '/report/statistic',
-  HISTORICAL_REPORT = '/report/historical',
+  HISTORICAL_REPORT = '/report/history',
 
   // Errors
   NOT_FOUND = '/not-found',

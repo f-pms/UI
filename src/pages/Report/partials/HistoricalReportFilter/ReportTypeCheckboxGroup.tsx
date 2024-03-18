@@ -15,7 +15,7 @@ import {
 import { ReportType } from '~/types';
 
 import { FilterReportFormData } from '~/pages/Report/helpers/filterReportFrom';
-import { reportTypeList } from '~/pages/Report/mocks/reportTypeList';
+import { REPORT_TYPE_LIST } from '~/pages/Report/mocks/reportTypeList';
 
 export interface IReportTypeCheckboxGroupProps {}
 
@@ -46,7 +46,7 @@ export function ReportTypeCheckboxGroup() {
       >
         Loại chỉ số điện:
       </Typography>
-      {reportTypeList.map((item: ReportType) => (
+      {REPORT_TYPE_LIST.map((item: ReportType) => (
         <FormControlLabel
           key={item.id}
           control={
@@ -62,7 +62,7 @@ export function ReportTypeCheckboxGroup() {
               )}
             />
           }
-          label={<Typography variant='body2'>{item.label}</Typography>}
+          label={<Typography variant='body2'>{item.name}</Typography>}
         />
       ))}
       <FormHelperText error={!!errors.typeId} sx={{ ml: 0 }}>

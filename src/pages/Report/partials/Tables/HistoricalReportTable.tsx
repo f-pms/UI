@@ -5,7 +5,8 @@ import {
   useMaterialReactTable,
 } from 'material-react-table';
 
-import { HistoricalReportItem } from '~/types';
+import { useNavigate } from '~/libs/react-router-dom';
+import { HistoricalReportItem, Shift } from '~/types';
 
 import { HistoryPaginationContext } from '~/pages/Report/context/HistoryPaginationContext';
 import { HISTORICAL_REPORT_LIST } from '~/pages/Report/mocks/historicalReportList';
@@ -22,12 +23,13 @@ export interface IHistoricalReportTableProps {}
 
 const defaultMRTOptions = getDefaultMRTOptions<HistoricalReportItem>();
 export function HistoricalReportTable() {
+  const navigate = useNavigate();
   const { pagination, setPagination } = useContext(HistoryPaginationContext);
 
   const columns: MRT_ColumnDef<HistoricalReportItem>[] = useMemo(
     () => [
       {
-        accessorKey: 'type',
+        accessorKey: 'reportType.name',
         header: 'Loại chỉ số điện',
       },
       {
@@ -37,6 +39,13 @@ export function HistoricalReportTable() {
     ],
     [],
   );
+
+  const handleViewDetailsReport = (id: number) => {
+    navigate({
+      pathname: `/report/history/${id}`,
+      search: `?shift=${Shift.ALL_DAY}`,
+    });
+  };
 
   const table = useMaterialReactTable({
     ...defaultMRTOptions,
@@ -98,7 +107,7 @@ export function HistoricalReportTable() {
         </Stack>
       );
     },
-    renderRowActions: () => {
+    renderRowActions: ({ row }) => {
       return (
         <Stack
           alignItems='center'
@@ -111,6 +120,7 @@ export function HistoricalReportTable() {
             color='rose'
             size='small'
             startIcon={<ArticleOutlinedIcon />}
+            onClick={() => handleViewDetailsReport(row.original.id)}
           >
             Xem báo cáo
           </SoftButton>
