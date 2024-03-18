@@ -17,7 +17,7 @@ export default function Header(props: IHeaderProps) {
       textAlign='center'
     >
       <Typography
-        fontSize={12}
+        fontSize={13}
         fontWeight='bold'
         sx={{ width: `${width}px`, textWrap: 'wrap' }}
       >

@@ -245,14 +245,14 @@ export default function ElectricalIndexTable() {
     },
     muiTableHeadCellProps: {
       sx: {
-        border: '1px solid rgba(81, 81, 81, .12)',
+        border: '1px solid #e0e0e0',
         paddingTop: 0,
         paddingBottom: 0,
         paddingLeft: 0,
         paddingRight: 0,
         textAlign: 'center',
-        fontSize: 12,
-        background: grey[300],
+        fontSize: 13,
+        background: grey[200],
 
         '& > .Mui-TableHeadCell-Content': {
           width: '100%',
@@ -265,9 +265,9 @@ export default function ElectricalIndexTable() {
         },
 
         '& table, th, td': {
-          border: '1px solid rgba(81, 81, 81, .12)',
+          border: '1px solid #e0e0e0',
           borderCollapse: 'collapse',
-          fontWeight: 500,
+          fontWeight: 700,
         },
 
         '& table': {
@@ -285,28 +285,29 @@ export default function ElectricalIndexTable() {
         '& table > thead > tr:last-of-type': {
           '& > th': {
             borderBottom: 0,
+            fontWeight: 500,
+            fontSize: 12,
           },
         },
         '& table > thead > tr:first-of-type': {
           '& > th': {
             borderTop: 0,
-            fontWeight: 700,
           },
         },
       },
     },
     muiTableBodyCellProps: {
       sx: {
-        border: '1px solid rgba(81, 81, 81, .12)',
+        border: '1px solid #e0e0e0',
         paddingLeft: 0,
         paddingRight: 0,
         textAlign: 'center',
-        fontSize: 12,
+        fontSize: 13,
         backgroundColor: 'gray.100',
         position: 'relative',
 
         '& table, th, td': {
-          border: '1px solid rgba(81, 81, 81, .12)',
+          border: '1px solid #e0e0e0',
           borderCollapse: 'collapse',
           fontWeight: 500,
         },

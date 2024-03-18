@@ -13,7 +13,7 @@ export type HistoricalReportItem = {
 export enum Shift {
   ALL_DAY = 'ALL_DAY',
   MORNING = 'MORNING',
-  AFTERNOON = 'AFTERNOON',
+  NIGHT = 'NIGHT',
 }
 
 export enum ReportKey {

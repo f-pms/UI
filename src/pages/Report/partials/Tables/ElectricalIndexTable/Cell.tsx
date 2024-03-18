@@ -12,7 +12,7 @@ export function Cell<T extends MRT_RowData>(props: ICellProps<T>) {
 
   return (
     <Typography
-      fontSize={12}
+      fontSize={13}
       sx={(theme) => ({
         textWrap: 'wrap',
         fontWeight: highlight ? 'bold' : 'inherit',

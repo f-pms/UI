@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useSearchParams } from 'react-router-dom';
 
-import { ReportKey } from '~/types';
+import { ReportKey, Shift } from '~/types';
 
 import { HISTORICAL_REPORT_LIST } from '~/pages/Report/mocks/historicalReportList';
 import {
@@ -10,6 +10,7 @@ import {
   DetailsPageHeading,
   ShiftNavigationTabs,
 } from '~/pages/Report/partials';
+import Total from '~/pages/Report/partials/Clusters/Total';
 
 import { Box } from '~/components/MuiComponents';
 
@@ -17,6 +18,8 @@ export interface IHistoricalReportDetailsPageProps {}
 
 export function HistoricalReportDetailsPage() {
   const { reportId } = useParams();
+  const [searchParams] = useSearchParams();
+  const shift = searchParams.get('shift');
 
   const report = HISTORICAL_REPORT_LIST.find(
     (report) => report.id === parseInt(reportId ?? ''),
@@ -26,6 +29,11 @@ export function HistoricalReportDetailsPage() {
     if (!report) {
       return <div>No Data</div>;
     }
+
+    if (shift === Shift.ALL_DAY) {
+      return <Total />;
+    }
+
     switch (report.reportType.value) {
       case ReportKey.CHE_BIEN_DAM:
         return <CheBienDamCluster />;
@@ -34,7 +42,7 @@ export function HistoricalReportDetailsPage() {
       default:
         return <div>No Data</div>;
     }
-  }, [report]);
+  }, [report, shift]);
 
   return (
     <Box px={4} py={2}>

@@ -15,7 +15,7 @@ export const SHIFT_OPTIONS: ShiftOption[] = [
     label: 'Ca sáng',
   },
   {
-    value: Shift.AFTERNOON,
+    value: Shift.NIGHT,
     label: 'Ca chiều',
   },
 ];
@@ -30,7 +30,7 @@ export const SHIFT_NAVIGATION_OPTIONS: ShiftOption[] = [
     label: 'Ca sáng (6h00-18h00)',
   },
   {
-    value: Shift.AFTERNOON,
+    value: Shift.NIGHT,
     label: 'Ca tối (18h00-6h00)',
   },
 ];
