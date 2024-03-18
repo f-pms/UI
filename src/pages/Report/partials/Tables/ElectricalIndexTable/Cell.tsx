@@ -8,7 +8,7 @@ export interface ICellProps<T extends MRT_RowData> {
 }
 
 export function Cell<T extends MRT_RowData>(props: ICellProps<T>) {
-  const { highlight } = props;
+  const { highlight, cell } = props;
 
   return (
     <Typography
@@ -19,7 +19,7 @@ export function Cell<T extends MRT_RowData>(props: ICellProps<T>) {
         color: highlight ? theme.palette.primary.main : 'inherit',
       })}
     >
-      Test
+      {cell.getValue<string | number>()}
     </Typography>
   );
 }

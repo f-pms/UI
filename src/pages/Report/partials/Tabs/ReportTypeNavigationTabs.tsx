@@ -11,13 +11,9 @@ export interface IReportTypeNavigationTabsProps {}
 
 export function ReportTypeNavigationTabs() {
   const [value, setValue] = useState(0);
-  // const [currentReportType, setCurrentReportType] = useState(
-  //   REPORT_TYPE_LIST[0],
-  // );
 
   const handleChange = (_: React.SyntheticEvent | null, newValue: number) => {
     setValue(newValue);
-    // setCurrentReportType(REPORT_TYPE_LIST[newValue]);
   };
 
   return (

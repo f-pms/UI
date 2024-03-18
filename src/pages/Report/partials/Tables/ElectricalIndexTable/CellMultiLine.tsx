@@ -8,7 +8,7 @@ export interface ICellMultiLineProps<T extends MRT_RowData> {
 export function CellMultiLine<T extends MRT_RowData>(
   props: ICellMultiLineProps<T>,
 ) {
-  const { width = 90 } = props;
+  const { width = 90, cell } = props;
 
   return (
     <table
@@ -21,7 +21,7 @@ export function CellMultiLine<T extends MRT_RowData>(
               minWidth: `${width}px`,
             }}
           >
-            10000
+            {cell.getValue<string | number>()}
           </td>
           <td
             style={{
