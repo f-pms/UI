@@ -1,25 +1,29 @@
-import { MRT_Cell, MRT_RowData } from 'material-react-table';
+import _ from 'lodash';
 
-import { Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 
-export interface ICellProps<T extends MRT_RowData> {
-  cell: MRT_Cell<T, unknown>;
-  highlight?: boolean;
+export interface ICellProps {
+  value: string | number;
+  rowHeights: number[][];
+  rowIndex: number;
 }
 
-export function Cell<T extends MRT_RowData>(props: ICellProps<T>) {
-  const { highlight, cell } = props;
+export function Cell(props: ICellProps) {
+  const { value, rowHeights, rowIndex } = props;
 
   return (
-    <Typography
-      fontSize={13}
-      sx={(theme) => ({
+    <Stack
+      justifyContent='center'
+      sx={{
+        width: '100%',
+        height: `${_.sum(rowHeights[rowIndex]) * 32}px`,
+        padding: '0px 4px',
         textWrap: 'wrap',
-        fontWeight: highlight ? 'bold' : 'inherit',
-        color: highlight ? theme.palette.primary.main : 'inherit',
-      })}
+      }}
     >
-      {cell.getValue<string | number>()}
-    </Typography>
+      <Typography fontSize={12} textAlign='center'>
+        {value}
+      </Typography>
+    </Stack>
   );
 }

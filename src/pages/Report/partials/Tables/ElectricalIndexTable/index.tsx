@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import _ from 'lodash';
 import {
   MaterialReactTable,
   MRT_Cell,
@@ -10,102 +11,189 @@ import {
 import { Stack, Typography } from '@mui/material';
 import { grey } from '@mui/material/colors';
 
+import { CheckpointValue, ElectricalMeterReadingRow } from '~/types';
+
+import { ELECTRICAL_METER_READING_TABLE } from '~/pages/Report/mocks/ElectricalMeterReadingTable';
 import { Cell } from '~/pages/Report/partials/Tables/ElectricalIndexTable/Cell';
+import { CellCheckpoint } from '~/pages/Report/partials/Tables/ElectricalIndexTable/CellCheckpoint';
 import { CellMultiLine } from '~/pages/Report/partials/Tables/ElectricalIndexTable/CellMultiLine';
 import Header from '~/pages/Report/partials/Tables/ElectricalIndexTable/Header';
 import { HeaderMultiLine } from '~/pages/Report/partials/Tables/ElectricalIndexTable/HeaderMultiLine';
 
 import { SoftChip } from '~/components';
 
-export interface Person {
-  name: string;
-  age: number;
-}
-
-const persons: Person[] = [
-  {
-    name: 'John',
-    age: 30,
-  },
-  {
-    name: 'Sara',
-    age: 1000000,
-  },
-  {
-    name: 'Harry',
-    age: 15,
-  },
-  {
-    name: 'Dyan',
-    age: 15,
-  },
-];
-
 export interface IElectricalIndexTableProps {}
 
 export default function ElectricalIndexTable() {
-  const columns = useMemo<MRT_ColumnDef<Person>[]>(
+  const rowHeights = useMemo(() => {
+    return ELECTRICAL_METER_READING_TABLE.rows.map((item) => {
+      return item.equipments.map((e) => _.round((e.length * 6.5) / 240));
+    });
+  }, []);
+
+  const columns = useMemo<MRT_ColumnDef<ElectricalMeterReadingRow>[]>(
     () => [
       {
-        accessorKey: 'stt',
+        id: 'stt',
         header: 'STT',
-        Header: ({ column }: { column: MRT_Column<Person, unknown> }) => (
-          <Header header={column.columnDef.header} width={40} />
-        ),
-        Cell: ({ cell }: { cell: MRT_Cell<Person, unknown> }) => (
-          <Cell<Person> cell={cell} />
+        Header: ({
+          column,
+        }: {
+          column: MRT_Column<ElectricalMeterReadingRow, unknown>;
+        }) => <Header header={column.columnDef.header} width={20} />,
+        Cell: ({
+          cell,
+        }: {
+          cell: MRT_Cell<ElectricalMeterReadingRow, unknown>;
+        }) => (
+          <Cell
+            rowHeights={rowHeights}
+            rowIndex={cell.row.index}
+            value={cell.row.index + 1}
+          />
         ),
         size: 0,
       },
       {
-        accessorKey: 'info',
+        accessorKey: 'locationInfo',
         header: 'Thông tin vị trí sử dụng',
-        Header: ({ column }: { column: MRT_Column<Person, unknown> }) => (
-          <Header header={column.columnDef.header} width={100} />
-        ),
-        Cell: ({ cell }: { cell: MRT_Cell<Person, unknown> }) => (
-          <Cell<Person> cell={cell} />
+        Header: ({
+          column,
+        }: {
+          column: MRT_Column<ElectricalMeterReadingRow, unknown>;
+        }) => <Header header={column.columnDef.header} width={100} />,
+        Cell: ({
+          cell,
+        }: {
+          cell: MRT_Cell<ElectricalMeterReadingRow, unknown>;
+        }) => (
+          <Cell
+            rowHeights={rowHeights}
+            rowIndex={cell.row.index}
+            value={cell.getValue<string>()}
+          />
         ),
       },
       {
-        accessorKey: 'room',
+        accessorKey: 'electricRoom',
         header: 'Phòng điện',
-        Header: ({ column }: { column: MRT_Column<Person, unknown> }) => (
-          <Header header={column.columnDef.header} width={100} />
-        ),
-        Cell: ({ cell }: { cell: MRT_Cell<Person, unknown> }) => (
-          <Cell<Person> cell={cell} />
+        Header: ({
+          column,
+        }: {
+          column: MRT_Column<ElectricalMeterReadingRow, unknown>;
+        }) => <Header header={column.columnDef.header} width={100} />,
+        Cell: ({
+          cell,
+        }: {
+          cell: MRT_Cell<ElectricalMeterReadingRow, unknown>;
+        }) => (
+          <Cell
+            rowHeights={rowHeights}
+            rowIndex={cell.row.index}
+            value={cell.getValue<string>()}
+          />
         ),
         size: 0,
       },
       {
-        accessorKey: 'position',
+        accessorKey: 'electricMeter',
         header: 'Vị trí đặt đồng hồ điện',
-        Header: ({ column }: { column: MRT_Column<Person, unknown> }) => (
-          <Header header={column.columnDef.header} width={100} />
+        Header: ({
+          column,
+        }: {
+          column: MRT_Column<ElectricalMeterReadingRow, unknown>;
+        }) => <Header header={column.columnDef.header} width={180} />,
+        Cell: ({
+          cell,
+        }: {
+          cell: MRT_Cell<ElectricalMeterReadingRow, unknown>;
+        }) => (
+          <CellMultiLine
+            rowHeights={rowHeights}
+            rowIndex={cell.row.index}
+            values={cell.getValue<string[]>()}
+          />
         ),
-        Cell: ({ cell }: { cell: MRT_Cell<Person, unknown> }) => (
-          <Cell<Person> cell={cell} />
+        size: 0,
+      },
+      {
+        accessorKey: 'equipments',
+        header: 'Tên thiết bị sử dụng láp đồng hồ',
+        Header: ({
+          column,
+        }: {
+          column: MRT_Column<ElectricalMeterReadingRow, unknown>;
+        }) => <Header header={column.columnDef.header} width={240} />,
+        Cell: ({
+          cell,
+        }: {
+          cell: MRT_Cell<ElectricalMeterReadingRow, unknown>;
+        }) => (
+          <CellMultiLine
+            rowHeights={rowHeights}
+            rowIndex={cell.row.index}
+            values={cell.getValue<string[]>()}
+          />
         ),
       },
       {
-        accessorKey: 'age',
+        accessorKey: 'meterMultiplier',
         header: 'Hệ số đồng hồ',
-        Header: ({ column }: { column: MRT_Column<Person, unknown> }) => (
+        Header: ({
+          column,
+        }: {
+          column: MRT_Column<ElectricalMeterReadingRow, unknown>;
+        }) => (
           <Header
             header={column.columnDef.header}
             orderNumber='(1)'
-            width={60}
+            width={90}
           />
         ),
-        Cell: ({ cell }: { cell: MRT_Cell<Person, unknown> }) => (
-          <Cell<Person> cell={cell} />
+        Cell: ({
+          cell,
+        }: {
+          cell: MRT_Cell<ElectricalMeterReadingRow, unknown>;
+        }) => (
+          <CellMultiLine
+            rowHeights={rowHeights}
+            rowIndex={cell.row.index}
+            values={cell.getValue<string[]>()}
+          />
         ),
         size: 0,
       },
       {
-        id: 'shift-1',
-        header: 'Tuổi',
+        accessorKey: 'oldElectricValue',
+        header: 'Chỉ số cũ',
+        Header: ({
+          column,
+        }: {
+          column: MRT_Column<ElectricalMeterReadingRow, unknown>;
+        }) => (
+          <Header
+            header={column.columnDef.header}
+            orderNumber='(2)'
+            width={90}
+          />
+        ),
+        Cell: ({
+          cell,
+        }: {
+          cell: MRT_Cell<ElectricalMeterReadingRow, unknown>;
+        }) => (
+          <CellMultiLine
+            rowHeights={rowHeights}
+            rowIndex={cell.row.index}
+            values={cell.getValue<string[]>()}
+          />
+        ),
+        size: 0,
+      },
+      {
+        id: 'checkpoints-1',
+        accessorKey: 'checkpoints',
+        header: 'Lần chốt 1',
         Header: () => (
           <HeaderMultiLine
             newIndex={{
@@ -120,22 +208,33 @@ export default function ElectricalIndexTable() {
             time="6h00' - 9h30'"
             total={{
               label: 'Tổng(Gwh)',
-              orderNumber: '(4)=(3)+(2)',
+              orderNumber: '(4)=(3)-(2)',
             }}
           />
         ),
-        Cell: ({ cell }: { cell: MRT_Cell<Person, unknown> }) => {
-          return <CellMultiLine cell={cell} />;
+        Cell: ({
+          cell,
+        }: {
+          cell: MRT_Cell<ElectricalMeterReadingRow, unknown>;
+        }) => {
+          return (
+            <CellCheckpoint
+              rowHeights={rowHeights}
+              rowIndex={cell.row.index}
+              values={cell.getValue<CheckpointValue[]>()}
+            />
+          );
         },
       },
       {
-        accessorKey: 'shift-2',
-        header: 'Tên',
+        id: 'checkpoints-2',
+        accessorKey: 'checkpoints',
+        header: 'Lần chốt 2',
         Header: () => (
           <HeaderMultiLine
             newIndex={{
               label: 'Chỉ số mới',
-              orderNumber: '(6)',
+              orderNumber: '(5)',
             }}
             oldIndex={{
               label: 'Chỉ số cũ',
@@ -145,23 +244,33 @@ export default function ElectricalIndexTable() {
             time="9h30' - 11h30'"
             total={{
               label: 'Tổng(Gwh)',
-              orderNumber: '(7)=(6)+(5)',
+              orderNumber: '(6)=(5)-(3)',
             }}
           />
         ),
-        Cell: ({ cell }: { cell: MRT_Cell<Person, unknown> }) => {
-          return <CellMultiLine cell={cell} />;
+        Cell: ({
+          cell,
+        }: {
+          cell: MRT_Cell<ElectricalMeterReadingRow, unknown>;
+        }) => {
+          return (
+            <CellCheckpoint
+              rowHeights={rowHeights}
+              rowIndex={cell.row.index}
+              values={cell.getValue<CheckpointValue[]>()}
+            />
+          );
         },
       },
       {
-        accessorFn: (originalRow) => originalRow.age,
-        id: 'shift-3',
-        header: 'Tuổi',
+        id: 'checkpoints-3',
+        accessorKey: 'checkpoints',
+        header: 'Lần chốt 3',
         Header: () => (
           <HeaderMultiLine
             newIndex={{
               label: 'Chỉ số mới',
-              orderNumber: '(9)',
+              orderNumber: '(7)',
             }}
             oldIndex={{
               label: 'Chỉ số cũ',
@@ -171,23 +280,33 @@ export default function ElectricalIndexTable() {
             time="11h30' - 17h00'"
             total={{
               label: 'Tổng(Gwh)',
-              orderNumber: '(10)=(9)+(8)',
+              orderNumber: '(8)=(7)-(5)',
             }}
           />
         ),
-        Cell: ({ cell }: { cell: MRT_Cell<Person, unknown> }) => {
-          return <CellMultiLine cell={cell} />;
+        Cell: ({
+          cell,
+        }: {
+          cell: MRT_Cell<ElectricalMeterReadingRow, unknown>;
+        }) => {
+          return (
+            <CellCheckpoint
+              rowHeights={rowHeights}
+              rowIndex={cell.row.index}
+              values={cell.getValue<CheckpointValue[]>()}
+            />
+          );
         },
       },
       {
-        accessorFn: (originalRow) => originalRow.age,
-        id: 'shift-4',
-        header: 'Tuổi',
+        id: 'checkpoints-4',
+        accessorKey: 'checkpoints',
+        header: 'Lần chốt 4',
         Header: () => (
           <HeaderMultiLine
             newIndex={{
               label: 'Chỉ số mới',
-              orderNumber: '(11)',
+              orderNumber: '(9)',
             }}
             oldIndex={{
               label: 'Chỉ số cũ',
@@ -197,31 +316,54 @@ export default function ElectricalIndexTable() {
             time="17h00' - 18h00'"
             total={{
               label: 'Tổng(Gwh)',
-              orderNumber: '(13)=(12)+(11)',
+              orderNumber: '(10)=(9)-(7)',
             }}
           />
         ),
-        Cell: ({ cell }: { cell: MRT_Cell<Person, unknown> }) => {
-          return <CellMultiLine cell={cell} />;
+        Cell: ({
+          cell,
+        }: {
+          cell: MRT_Cell<ElectricalMeterReadingRow, unknown>;
+        }) => {
+          return (
+            <CellCheckpoint
+              rowHeights={rowHeights}
+              rowIndex={cell.row.index}
+              values={cell.getValue<CheckpointValue[]>()}
+            />
+          );
         },
       },
       {
-        accessorKey: 'total',
+        accessorKey: 'checkpointTotal',
         header: 'Tổng số điện sử dụng (KWh)',
-        Header: ({ column }: { column: MRT_Column<Person, unknown> }) => (
+        Header: ({
+          column,
+        }: {
+          column: MRT_Column<ElectricalMeterReadingRow, unknown>;
+        }) => (
           <Header
             header={column.columnDef.header}
-            orderNumber='(14)=(1)*(4+7+10+13)'
+            orderNumber='(14)=(1)*(4+6+8+10)'
             width={100}
           />
         ),
-        Cell: ({ cell }: { cell: MRT_Cell<Person, unknown> }) => (
-          <Cell<Person> cell={cell} highlight={true} />
+        Cell: ({
+          cell,
+        }: {
+          cell: MRT_Cell<ElectricalMeterReadingRow, unknown>;
+        }) => (
+          <CellMultiLine
+            highlight
+            rowHeights={rowHeights}
+            rowIndex={cell.row.index}
+            values={cell.getValue<string[]>()}
+          />
         ),
         size: 0,
       },
     ],
-    [],
+    [rowHeights],
   );
 
   const table = useMaterialReactTable({
@@ -229,7 +371,7 @@ export default function ElectricalIndexTable() {
       density: 'compact',
     },
     columns,
-    data: persons,
+    data: ELECTRICAL_METER_READING_TABLE.rows,
     enableColumnActions: false,
     enableColumnFilters: false,
     enablePagination: false,
@@ -251,7 +393,7 @@ export default function ElectricalIndexTable() {
         paddingLeft: 0,
         paddingRight: 0,
         textAlign: 'center',
-        fontSize: 13,
+        fontSize: 12,
         background: grey[200],
 
         '& > .Mui-TableHeadCell-Content': {
@@ -286,7 +428,7 @@ export default function ElectricalIndexTable() {
           '& > th': {
             borderBottom: 0,
             fontWeight: 500,
-            fontSize: 12,
+            fontSize: 11,
           },
         },
         '& table > thead > tr:first-of-type': {
@@ -301,8 +443,9 @@ export default function ElectricalIndexTable() {
         border: '1px solid #e0e0e0',
         paddingLeft: 0,
         paddingRight: 0,
-        textAlign: 'center',
-        fontSize: 13,
+        paddingTop: 0,
+        paddingBottom: 0,
+        fontSize: 12,
         backgroundColor: 'gray.100',
         position: 'relative',
 

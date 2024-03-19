@@ -1,45 +1,48 @@
-import { MRT_Cell, MRT_RowData } from 'material-react-table';
+import _ from 'lodash';
 
-export interface ICellMultiLineProps<T extends MRT_RowData> {
-  cell: MRT_Cell<T, unknown>;
+import { Box, Typography } from '@mui/material';
+
+export interface ICellMultiLineProps {
   width?: number;
+  values: string[] | number[];
+  rowHeights: number[][];
+  rowIndex: number;
+  highlight?: boolean;
 }
 
-export function CellMultiLine<T extends MRT_RowData>(
-  props: ICellMultiLineProps<T>,
-) {
-  const { width = 90, cell } = props;
+export function CellMultiLine(props: ICellMultiLineProps) {
+  const { highlight, values, width, rowHeights, rowIndex } = props;
 
   return (
-    <table
-      style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
-    >
-      <thead>
-        <tr>
-          <td
-            style={{
-              minWidth: `${width}px`,
-            }}
+    <Box sx={{ width: `${width}px` }}>
+      {values.map((item, index) => (
+        <Box
+          key={index}
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: `${width}px`,
+            height: `${rowHeights[rowIndex][index] * 32}px`,
+            textWrap: 'wrap',
+
+            borderBottom: '1px solid #e0e0e0',
+            '&:last-child': { borderBottom: 'none' },
+            padding: '1px 4px',
+          }}
+        >
+          <Typography
+            fontSize={12}
+            sx={(theme) => ({
+              textAlign: 'center',
+              fontWeight: highlight ? 'bold' : 'inherit',
+              color: highlight ? theme.palette.primary.main : 'inherit',
+            })}
           >
-            {cell.getValue<string | number>()}
-          </td>
-          <td
-            style={{
-              minWidth: `${width}px`,
-            }}
-          >
-            1000
-          </td>
-          <td
-            style={{
-              minWidth: `${width}px`,
-              fontWeight: 'bolder',
-            }}
-          >
-            1000
-          </td>
-        </tr>
-      </thead>
-    </table>
+            {item}
+          </Typography>
+        </Box>
+      ))}
+    </Box>
   );
 }
