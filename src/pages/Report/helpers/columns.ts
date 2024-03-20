@@ -52,7 +52,7 @@ export const CHECKPOINT_HEADERS = {
     shift: 'Lần chốt 1',
     time: SHIFT_TIME[Shift.MORNING].checkpoint1,
     total: {
-      label: 'Tổng(Gwh)',
+      label: 'Tổng(GWh)',
       orderNumber: '(4)=(3)-(2)',
     },
   },
@@ -64,7 +64,7 @@ export const CHECKPOINT_HEADERS = {
     shift: 'Lần chốt 2',
     time: SHIFT_TIME[Shift.MORNING].checkpoint2,
     total: {
-      label: 'Tổng(Gwh)',
+      label: 'Tổng(GWh)',
       orderNumber: '(6)=(5)-(3)',
     },
   },
@@ -76,7 +76,7 @@ export const CHECKPOINT_HEADERS = {
     shift: 'Lần chốt 3',
     time: SHIFT_TIME[Shift.MORNING].checkpoint3,
     total: {
-      label: 'Tổng(Gwh)',
+      label: 'Tổng(GWh)',
       orderNumber: '(8)=(7)-(5)',
     },
   },
@@ -88,7 +88,7 @@ export const CHECKPOINT_HEADERS = {
     shift: 'Lần chốt 4',
     time: SHIFT_TIME[Shift.MORNING].checkpoint4,
     total: {
-      label: 'Tổng(Gwh)',
+      label: 'Tổng(GWh)',
       orderNumber: '(10)=(9)-(7)',
     },
   },

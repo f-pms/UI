@@ -1,6 +1,10 @@
 import _ from 'lodash';
 
 export function formatNumber(number: number, decimalPlaces: number) {
+  if (_.isNaN(number) || !_.isNumber(number)) {
+    return '';
+  }
+
   // 1. Convert to a string and ensure it's a number
   const numberString = _.toString(_.round(number, decimalPlaces));
 

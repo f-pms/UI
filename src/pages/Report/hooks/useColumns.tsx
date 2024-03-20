@@ -135,9 +135,9 @@ export function useColumns({ totalOrderNumber, tableRowData }: IUseColumns) {
     if (!colEquipments || !colLocationInfo || !colElectricRoom) return 1;
     return (
       _.max([
-        (tableRowData[row].locationInfo.length * 8) / colLocationInfo.width,
-        (tableRowData[row].electricRoom.length * 8) / colElectricRoom.width,
-        (tableRowData[row].equipments[line].length * 8) / colEquipments.width,
+        (tableRowData[row].locationInfo.length * 7.5) / colLocationInfo.width,
+        (tableRowData[row].electricRoom.length * 7.5) / colElectricRoom.width,
+        (tableRowData[row].equipments[line].length * 7.5) / colEquipments.width,
       ]) ?? 1
     );
   };

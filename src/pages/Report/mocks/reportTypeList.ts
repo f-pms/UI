@@ -8,7 +8,7 @@ export const REPORT_TYPE_LIST: ReportType[] = [
   },
   {
     id: 2,
-    name: 'Chỉ số điện bán thành phần',
-    value: ReportKey.BAN_THANH_PHAN,
+    name: 'Chỉ số điện bán thành phẩm',
+    value: ReportKey.BAN_THANH_PHAM,
   },
 ];

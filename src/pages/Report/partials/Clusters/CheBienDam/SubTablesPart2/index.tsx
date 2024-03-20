@@ -9,7 +9,7 @@ export function SubTablesPart2() {
     <Stack direction='row' mt={2} spacing={4}>
       <SubTable
         headers={[
-          'Tổng số điện sử dụng cho công đoạn bán thành phần (BTP)',
+          'Tổng số điện sử dụng cho công đoạn bán thành phẩm (BTP)',
           'Tổng số điện sử dụng (KWh)',
         ]}
         orderNumber='(16)'

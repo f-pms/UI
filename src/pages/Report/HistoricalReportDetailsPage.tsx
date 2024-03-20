@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 
-import { ReportKey, Shift } from '~/types';
+import { ReportKey, Shift, UNITS } from '~/types';
 
 import { HISTORICAL_REPORT_LIST } from '~/pages/Report/mocks/historicalReportList';
 import {
@@ -31,13 +31,37 @@ export function HistoricalReportDetailsPage() {
     }
 
     if (shift === Shift.ALL_DAY) {
-      return <Total />;
+      return (
+        <Total
+          data={{
+            [Shift.MORNING]: {
+              peakTimeValue: 100,
+              lowTimeValue: 200,
+              normalTimeValue: 300,
+              total: 600,
+              totalElectricalUsage: 1000,
+              totalOutput: 1000,
+            },
+            [Shift.NIGHT]: {
+              peakTimeValue: 100,
+              lowTimeValue: 200,
+              normalTimeValue: 300,
+              total: 600,
+              totalElectricalUsage: 1000,
+              totalOutput: 1000,
+            },
+          }}
+          date={report.recordingDate}
+          reportKey={report.reportType.value}
+          unit={UNITS[report.reportType.value]}
+        />
+      );
     }
 
     switch (report.reportType.value) {
       case ReportKey.CHE_BIEN_DAM:
         return <CheBienDamCluster />;
-      case 'BAN_THANH_PHAN':
+      case ReportKey.BAN_THANH_PHAM:
         return <BanThanhPhanCluster />;
       default:
         return <div>No Data</div>;

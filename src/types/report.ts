@@ -20,8 +20,13 @@ export enum Shift {
 
 export enum ReportKey {
   CHE_BIEN_DAM = 'CHE_BIEN_DAM',
-  BAN_THANH_PHAN = 'BAN_THANH_PHAN',
+  BAN_THANH_PHAM = 'BAN_THANH_PHAM',
 }
+
+export const UNITS = {
+  [ReportKey.CHE_BIEN_DAM]: 'tấn',
+  [ReportKey.BAN_THANH_PHAM]: 'm3',
+};
 
 export type CheckpointValue = {
   [key in Checkpoint]: {
