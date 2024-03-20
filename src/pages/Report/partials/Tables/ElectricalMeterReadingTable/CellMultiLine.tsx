@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 import { Box, Typography } from '@mui/material';
 
 import { AutoSuggestHighlightText } from '~/components';
