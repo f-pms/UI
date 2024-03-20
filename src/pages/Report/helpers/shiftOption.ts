@@ -16,7 +16,7 @@ export const SHIFT_OPTIONS: ShiftOption[] = [
   },
   {
     value: Shift.NIGHT,
-    label: 'Ca chiều',
+    label: 'Ca tối',
   },
 ];
 
