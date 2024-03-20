@@ -4,16 +4,18 @@ import { CheckpointValue } from '~/types';
 
 import { Checkpoint } from '~/pages/Report/helpers/columns';
 
+import { getRowHeight } from '../../../helpers/getRowHeight';
+
 export interface ICellMultiLineProps {
   width: number;
   values: CheckpointValue[];
   rowIndex: number;
-  rowHeights: number[][];
+  linesPerRows: number[][];
   checkpoint: Checkpoint;
 }
 
 export function CellCheckpoint(props: ICellMultiLineProps) {
-  const { width, values, rowIndex, rowHeights, checkpoint } = props;
+  const { width, values, rowIndex, linesPerRows, checkpoint } = props;
   return (
     <Box
       sx={{
@@ -26,7 +28,7 @@ export function CellCheckpoint(props: ICellMultiLineProps) {
           key={`${index}-${rowIndex}`}
           direction='row'
           sx={{
-            height: `${rowHeights[rowIndex][index] * 32}px`,
+            height: getRowHeight(linesPerRows[rowIndex][index]),
             borderBottom: '1px solid #e0e0e0',
             '&:last-child': { borderBottom: 'none' },
           }}

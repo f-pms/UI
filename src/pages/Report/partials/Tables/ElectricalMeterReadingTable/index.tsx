@@ -5,30 +5,40 @@ import {
 
 import { Stack, Typography } from '@mui/material';
 
-import { ElectricalMeterReadingRow } from '~/types';
+import {
+  ElectricalMeterReadingRowValues,
+  ElectricalMeterReadingTableValues,
+} from '~/types';
+import { formatNumber } from '~/utils';
 
 import { getDefaultEMRTOptions } from '~/pages/Report/helpers/getDefaultEMRTOptions';
 import { useColumns } from '~/pages/Report/hooks/useColumns';
-import { ELECTRICAL_METER_READING_TABLE } from '~/pages/Report/mocks/electricalMeterReadingTable';
 
 import { SoftChip } from '~/components';
 
-export interface IElectricalIndexTableProps {}
-const defaultMRTOptions = getDefaultEMRTOptions<ElectricalMeterReadingRow>();
+const defaultMRTOptions =
+  getDefaultEMRTOptions<ElectricalMeterReadingRowValues>();
 
-export default function ElectricalIndexTable() {
+export interface IElectricalMeterReadingTable {
+  tableData: ElectricalMeterReadingTableValues;
+}
+
+export function ElectricalMeterReadingTable({
+  tableData,
+}: IElectricalMeterReadingTable) {
   const { columns } = useColumns({
-    totalOrderNumber: '(14)=(1)*(4+6+8+10)',
+    totalOrderNumber: tableData.totalOrderNumber,
+    tableRowData: tableData.rows,
   });
 
   const table = useMaterialReactTable({
     ...defaultMRTOptions,
     columns,
-    data: ELECTRICAL_METER_READING_TABLE.rows,
+    data: tableData.rows,
     renderTopToolbarCustomActions: () => {
       return (
-        <Typography fontWeight='bold' variant='subtitle1'>
-          I. Danh mục chốt chỉ số các đồng hồ điện thuộc cụm chế biến dăm
+        <Typography color='primary' fontWeight='bold' variant='subtitle2'>
+          {tableData.title}
         </Typography>
       );
     },
@@ -36,13 +46,17 @@ export default function ElectricalIndexTable() {
       return (
         <Stack alignItems='center' direction='row' spacing={1}>
           <Typography
-            color='text.strong'
+            color='primary'
             sx={{ fontWeight: 'bold' }}
             variant='body2'
           >
             Tổng số điện sử dụng (KWh):
           </Typography>
-          <SoftChip label={'1.000.000'} shape='square' size='small' />
+          <SoftChip
+            label={formatNumber(tableData.total, 6)}
+            shape='square'
+            size='small'
+          />
         </Stack>
       );
     },

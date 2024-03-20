@@ -8,7 +8,11 @@ import {
 } from 'material-react-table';
 import { useSearchParams } from 'react-router-dom';
 
-import { CheckpointValue, ElectricalMeterReadingRow, Shift } from '~/types';
+import {
+  CheckpointValue,
+  ElectricalMeterReadingRowValues,
+  Shift,
+} from '~/types';
 
 import {
   Checkpoint,
@@ -17,12 +21,11 @@ import {
   REPORT_TABLE_COLUMNS,
   SHIFT_TIME,
 } from '~/pages/Report/helpers/columns';
-import { ELECTRICAL_METER_READING_TABLE } from '~/pages/Report/mocks/electricalMeterReadingTable';
-import { Cell as CellCustom } from '~/pages/Report/partials/Tables/ElectricalIndexTable/Cell';
-import { CellCheckpoint } from '~/pages/Report/partials/Tables/ElectricalIndexTable/CellCheckpoint';
-import { CellMultiLine } from '~/pages/Report/partials/Tables/ElectricalIndexTable/CellMultiLine';
-import { Header as HeaderCustom } from '~/pages/Report/partials/Tables/ElectricalIndexTable/Header';
-import { HeaderMultiLine } from '~/pages/Report/partials/Tables/ElectricalIndexTable/HeaderMultiLine';
+import { Cell as CellCustom } from '~/pages/Report/partials/Tables/ElectricalMeterReadingTable/Cell';
+import { CellCheckpoint } from '~/pages/Report/partials/Tables/ElectricalMeterReadingTable/CellCheckpoint';
+import { CellMultiLine } from '~/pages/Report/partials/Tables/ElectricalMeterReadingTable/CellMultiLine';
+import { Header as HeaderCustom } from '~/pages/Report/partials/Tables/ElectricalMeterReadingTable/Header';
+import { HeaderMultiLine } from '~/pages/Report/partials/Tables/ElectricalMeterReadingTable/HeaderMultiLine';
 
 const MyHeader = ({
   col,
@@ -30,7 +33,7 @@ const MyHeader = ({
   shift,
   totalOrderNumber,
 }: {
-  column: MRT_Column<ElectricalMeterReadingRow, unknown>;
+  column: MRT_Column<ElectricalMeterReadingRowValues, unknown>;
   shift: Shift;
   col: ColumnReportTable;
   totalOrderNumber: string;
@@ -68,19 +71,20 @@ const MyHeader = ({
 const MyCell = ({
   cell,
   col,
-  rowHeights,
+  linesPerRows,
   filterValue,
 }: {
-  cell: MRT_Cell<ElectricalMeterReadingRow, unknown>;
+  cell: MRT_Cell<ElectricalMeterReadingRowValues, unknown>;
   col: ColumnReportTable;
-  rowHeights: number[][];
+  linesPerRows: number[][];
   filterValue?: string;
 }) => {
   if (col.isMultiRLineInRow) {
     return (
       <CellMultiLine
         filterValue={filterValue}
-        rowHeights={rowHeights}
+        highlight={cell.column.id === 'checkpointTotal'}
+        linesPerRows={linesPerRows}
         rowIndex={cell.row.index}
         values={cell.getValue<string[] | number[]>()}
         width={col.width}
@@ -91,7 +95,7 @@ const MyCell = ({
     return (
       <CellCheckpoint
         checkpoint={col.id as Checkpoint}
-        rowHeights={rowHeights}
+        linesPerRows={linesPerRows}
         rowIndex={cell.row.index}
         values={cell.getValue<CheckpointValue[]>()}
         width={col.width}
@@ -101,7 +105,7 @@ const MyCell = ({
   return (
     <CellCustom
       filterValue={filterValue}
-      rowHeights={rowHeights}
+      linesPerRows={linesPerRows}
       rowIndex={cell.row.index}
       value={cell.getValue<string | number>()}
       width={col.width}
@@ -111,17 +115,15 @@ const MyCell = ({
 
 interface IUseColumns {
   totalOrderNumber: string;
+  tableRowData: ElectricalMeterReadingRowValues[];
 }
-export function useColumns({ totalOrderNumber }: IUseColumns) {
+export function useColumns({ totalOrderNumber, tableRowData }: IUseColumns) {
   const [searchParams] = useSearchParams();
   const shift = searchParams.get('shift') as Shift | Shift.MORNING;
 
-  const calculateHeight = (row: number, line: number) => {
+  const calculateNumberOfLine = (row: number, line: number) => {
     const colEquipments = REPORT_TABLE_COLUMNS.find(
       (item) => item.id === 'equipments',
-    );
-    const colElectricMeter = REPORT_TABLE_COLUMNS.find(
-      (item) => item.id === 'electricMeter',
     );
     const colLocationInfo = REPORT_TABLE_COLUMNS.find(
       (item) => item.id === 'locationInfo',
@@ -130,38 +132,29 @@ export function useColumns({ totalOrderNumber }: IUseColumns) {
       (item) => item.id === 'electricRoom',
     );
 
-    if (
-      !colEquipments ||
-      !colElectricMeter ||
-      !colLocationInfo ||
-      !colElectricRoom
-    )
-      return 1;
+    if (!colEquipments || !colLocationInfo || !colElectricRoom) return 1;
     return (
       _.max([
-        (ELECTRICAL_METER_READING_TABLE.rows[row].locationInfo.length * 8) /
-          colLocationInfo.width,
-        (ELECTRICAL_METER_READING_TABLE.rows[row].electricRoom.length * 8) /
-          colElectricRoom.width,
-        (ELECTRICAL_METER_READING_TABLE.rows[row].electricMeter[line].length *
-          8) /
-          colElectricMeter.width,
-        (ELECTRICAL_METER_READING_TABLE.rows[row].equipments[line].length * 8) /
-          colEquipments.width,
+        (tableRowData[row].locationInfo.length * 8) / colLocationInfo.width,
+        (tableRowData[row].electricRoom.length * 8) / colElectricRoom.width,
+        (tableRowData[row].equipments[line].length * 8) / colEquipments.width,
       ]) ?? 1
     );
   };
 
-  const rowHeights = useMemo(() => {
-    return ELECTRICAL_METER_READING_TABLE.rows.map((item, row) => {
+  const linesPerRows = useMemo(() => {
+    return tableRowData.map((item, row) => {
       return item.equipments.map((__, line) => {
-        return _.round(calculateHeight(row, line));
+        return _.round(calculateNumberOfLine(row, line));
       });
     });
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tableRowData]);
 
-  const columns = useMemo<MRT_ColumnDef<ElectricalMeterReadingRow>[]>(() => {
-    const columns: MRT_ColumnDef<ElectricalMeterReadingRow>[] = [];
+  const columns = useMemo<
+    MRT_ColumnDef<ElectricalMeterReadingRowValues>[]
+  >(() => {
+    const columns: MRT_ColumnDef<ElectricalMeterReadingRowValues>[] = [];
 
     REPORT_TABLE_COLUMNS.forEach((col) => {
       columns.push({
@@ -171,7 +164,7 @@ export function useColumns({ totalOrderNumber }: IUseColumns) {
         Header: ({
           column,
         }: {
-          column: MRT_Column<ElectricalMeterReadingRow, unknown>;
+          column: MRT_Column<ElectricalMeterReadingRowValues, unknown>;
         }) => (
           <MyHeader
             col={col}
@@ -184,21 +177,21 @@ export function useColumns({ totalOrderNumber }: IUseColumns) {
           cell,
           table,
         }: {
-          cell: MRT_Cell<ElectricalMeterReadingRow, unknown>;
-          table: MRT_TableInstance<ElectricalMeterReadingRow>;
+          cell: MRT_Cell<ElectricalMeterReadingRowValues, unknown>;
+          table: MRT_TableInstance<ElectricalMeterReadingRowValues>;
         }) => (
           <MyCell
             cell={cell}
             col={col}
             filterValue={table.refs.searchInputRef.current?.value}
-            rowHeights={rowHeights}
+            linesPerRows={linesPerRows}
           />
         ),
         size: 0,
       });
     });
     return columns;
-  }, [rowHeights, shift, totalOrderNumber]);
+  }, [linesPerRows, shift, totalOrderNumber]);
 
   return { columns };
 }

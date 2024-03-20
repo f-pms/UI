@@ -2,25 +2,27 @@ import _ from 'lodash';
 
 import { Stack, Typography } from '@mui/material';
 
+import { getRowHeight } from '~/pages/Report/helpers/getRowHeight';
+
 import { AutoSuggestHighlightText } from '~/components';
 
 export interface ICellProps {
   width: number;
   value: string | number;
-  rowHeights: number[][];
+  linesPerRows: number[][];
   rowIndex: number;
   filterValue?: string;
 }
 
 export function Cell(props: ICellProps) {
-  const { width, value, rowHeights, rowIndex, filterValue = '' } = props;
+  const { width, value, linesPerRows, rowIndex, filterValue = '' } = props;
 
   return (
     <Stack
       justifyContent='center'
       sx={{
         width: '100%',
-        height: `${_.sum(rowHeights[rowIndex]) * 32}px`,
+        height: getRowHeight(_.sum(linesPerRows[rowIndex])),
         minWidth: `${width}px`,
         padding: '0px 4px',
         textWrap: 'wrap',

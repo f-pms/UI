@@ -30,20 +30,28 @@ export type CheckpointValue = {
   };
 };
 
-export type ElectricalMeterReadingRow = {
+export interface StaticValues {
   id: number;
   locationInfo: string;
   electricRoom: string;
   electricMeter: string[];
   equipments: string[];
+  meterMultiplier: number[] | string[];
+}
+
+export interface DynamicValues {
+  oldElectricValue: number[] | string[];
   checkpoints: CheckpointValue[];
   checkpointTotal: number[] | string[];
-  meterMultiplier: number[] | string[];
-  total: number;
-  oldElectricValue: number[] | string[];
-};
+}
 
-export type ElectricalMeterReading = {
+export interface ElectricalMeterReadingRowValues
+  extends StaticValues,
+    DynamicValues {}
+
+export type ElectricalMeterReadingTableValues = {
   title: string;
-  rows: ElectricalMeterReadingRow[];
+  rows: ElectricalMeterReadingRowValues[];
+  total: number;
+  totalOrderNumber: string;
 };

@@ -115,6 +115,7 @@ export const getDefaultEMRTOptions = <TData extends MRT_RowData>(): Partial<
       },
     },
   },
+  muiTableBodyRowProps: { hover: false },
   muiTopToolbarProps: {
     sx: {
       '& > .MuiBox-root': {

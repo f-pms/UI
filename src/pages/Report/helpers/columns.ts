@@ -1,4 +1,4 @@
-import { ElectricalMeterReadingRow, Shift } from '~/types';
+import { ElectricalMeterReadingRowValues, Shift } from '~/types';
 
 export type Checkpoint =
   | 'checkpoint1'
@@ -16,7 +16,7 @@ export type ColumnReportTable = {
   id: string;
   header: string;
   width: number;
-  accessorKey: keyof ElectricalMeterReadingRow;
+  accessorKey: keyof ElectricalMeterReadingRowValues;
   isMultiRLineInRow?: boolean;
   isMultiColumn?: boolean;
   subColumns?: object;
@@ -116,7 +116,7 @@ export const REPORT_TABLE_COLUMNS: ColumnReportTable[] = [
   {
     id: 'electricMeter',
     header: 'Vị trí đặt đồng hồ điện',
-    width: 180,
+    width: 100,
     accessorKey: 'electricMeter',
     isMultiRLineInRow: true,
   },

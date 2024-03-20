@@ -4,10 +4,12 @@ import { Box, Typography } from '@mui/material';
 
 import { AutoSuggestHighlightText } from '~/components';
 
+import { getRowHeight } from '../../../helpers/getRowHeight';
+
 export interface ICellMultiLineProps {
   width: number;
   values: string[] | number[];
-  rowHeights: number[][];
+  linesPerRows: number[][];
   rowIndex: number;
   highlight?: boolean;
   filterValue?: string;
@@ -18,7 +20,7 @@ export function CellMultiLine(props: ICellMultiLineProps) {
     highlight,
     values,
     width,
-    rowHeights,
+    linesPerRows,
     rowIndex,
     filterValue = '',
   } = props;
@@ -34,7 +36,7 @@ export function CellMultiLine(props: ICellMultiLineProps) {
               alignItems: 'center',
               justifyContent: 'center',
               minWidth: `${width}px`,
-              height: `${rowHeights[rowIndex][index] * 32}px`,
+              height: getRowHeight(linesPerRows[rowIndex][index]),
               textWrap: 'wrap',
 
               borderBottom: '1px solid #e0e0e0',
