@@ -2,23 +2,27 @@ import { useMemo } from 'react';
 import { TooltipItem } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
-import { DATA_LIST } from '~/components/Charts/PieChart';
+import { ChartData } from '~/pages/Report/mocks/chartDataset';
 
-const LineChart = () => {
+type LineChartProp = {
+  dataset: ChartData[];
+};
+
+const LineChart = ({ dataset }: LineChartProp) => {
   const data = useMemo(
     () => ({
-      labels: DATA_LIST.map((item) => item.year),
+      labels: dataset.map((item) => item.year),
       datasets: [
         {
           label: 'Chỉ số điện chế biến dăm',
-          data: [...DATA_LIST.map((item) => item.consumedElectricity), 0],
+          data: [...dataset.map((item) => item.consumedElectricity), 0],
           borderColor: 'rgb(255, 99, 132)',
           backgroundColor: 'rgba(255, 99, 132, 0.5)',
           yAxisID: 'y',
         },
         {
           label: 'Chỉ số điện thành phẩm',
-          data: [...DATA_LIST.map((item) => item.consumedElectricity2), 0],
+          data: [...dataset.map((item) => item.consumedElectricity2), 0],
           borderColor: 'rgb(53, 162, 235)',
           backgroundColor: 'rgba(53, 162, 235, 0.5)',
           yAxisID: 'y',
@@ -41,7 +45,7 @@ const LineChart = () => {
         },
         title: {
           display: true,
-          text: 'Chart.js Line Chart - Multi Axis',
+          text: 'Thống kê tổng lượng điện tiêu thụ của từng công đoạn',
         },
         tooltip: {
           callbacks: {

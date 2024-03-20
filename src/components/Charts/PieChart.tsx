@@ -2,47 +2,20 @@ import { useMemo } from 'react';
 import { TooltipItem } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 
-export const DATA_LIST = [
-  {
-    id: 1,
-    year: '1-1-2024',
-    consumedElectricity: 20000,
-    consumedElectricity2: 12000,
-  },
-  {
-    id: 2,
-    year: '2-1-2024',
-    consumedElectricity: 10000,
-    consumedElectricity2: 10000,
-  },
-  {
-    id: 3,
-    year: '3-1-2024',
-    consumedElectricity: 15000,
-    consumedElectricity2: 7000,
-  },
-  {
-    id: 4,
-    year: '4-1-2024',
-    consumedElectricity: 60000,
-    consumedElectricity2: 20000,
-  },
-  {
-    id: 5,
-    year: '5-1-2024',
-    consumedElectricity: 15000,
-    consumedElectricity2: 4500,
-  },
-];
+import { ChartData } from '~/pages/Report/mocks/chartDataset';
 
-const PieChart = () => {
+type PieChartProps = {
+  dataset: ChartData[];
+};
+
+const PieChart = ({ dataset }: PieChartProps) => {
   const data = useMemo(
     () => ({
-      labels: DATA_LIST.map((item) => item.year),
+      labels: dataset.map((item) => item.year),
       datasets: [
         {
           label: 'Lượng điện tiêu thụ',
-          data: DATA_LIST.map((item) => item.consumedElectricity),
+          data: dataset.map((item) => item.consumedElectricity),
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -69,7 +42,7 @@ const PieChart = () => {
       plugins: {
         title: {
           display: true,
-          text: 'Chart.js Pie Chart',
+          text: 'Thống kê tổng lượng điện tiêu thụ của từng công đoạn',
         },
         datalabels: {
           formatter: (value: number, context: unknown) => {
