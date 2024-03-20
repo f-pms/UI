@@ -2,15 +2,18 @@ import { Box, Stack, Typography } from '@mui/material';
 
 import { CheckpointValue } from '~/types';
 
+import { Checkpoint } from '~/pages/Report/helpers/columns';
+
 export interface ICellMultiLineProps {
-  width?: number;
+  width: number;
   values: CheckpointValue[];
   rowIndex: number;
   rowHeights: number[][];
+  checkpoint: Checkpoint;
 }
 
 export function CellCheckpoint(props: ICellMultiLineProps) {
-  const { values, rowIndex, rowHeights } = props;
+  const { width, values, rowIndex, rowHeights, checkpoint } = props;
   return (
     <Box
       sx={{
@@ -34,9 +37,10 @@ export function CellCheckpoint(props: ICellMultiLineProps) {
             style={{ flex: 1 }}
             sx={{
               textAlign: 'center',
+              minWidth: `${width}px`,
             }}
           >
-            <Typography fontSize={12}>{1000}</Typography>
+            <Typography fontSize={12}>{item[checkpoint].newValue}</Typography>
           </Stack>
           <Stack
             alignItems='center'
@@ -45,10 +49,11 @@ export function CellCheckpoint(props: ICellMultiLineProps) {
             sx={{
               textAlign: 'center',
               borderLeft: '1px solid #e0e0e0',
+              minWidth: `${width}px`,
             }}
           >
             <Typography fontSize={12} fontWeight='bold'>
-              {1000}
+              {item[checkpoint].total}
             </Typography>
           </Stack>
         </Stack>

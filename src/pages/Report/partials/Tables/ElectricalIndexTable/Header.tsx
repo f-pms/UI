@@ -3,10 +3,10 @@ import { Stack, Typography } from '~/components/MuiComponents';
 export interface IHeaderProps {
   width: number;
   header: string;
-  orderNumber?: string;
+  orderNumber?: string | null;
 }
 
-export default function Header(props: IHeaderProps) {
+export function Header(props: IHeaderProps) {
   const { width, header, orderNumber } = props;
   return (
     <Stack
@@ -23,9 +23,7 @@ export default function Header(props: IHeaderProps) {
       >
         {header}
       </Typography>
-      {orderNumber && (
-        <Typography fontSize={12}>{props.orderNumber}</Typography>
-      )}
+      {orderNumber && <Typography fontSize={12}>{orderNumber}</Typography>}
     </Stack>
   );
 }

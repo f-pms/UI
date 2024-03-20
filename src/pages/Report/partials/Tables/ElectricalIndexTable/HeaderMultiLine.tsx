@@ -1,11 +1,7 @@
 export interface IHeaderMultiLineProps {
-  width?: number;
+  width: number;
   shift: string;
   time: string;
-  oldIndex: {
-    label: string;
-    orderNumber: string;
-  };
   newIndex: {
     label: string;
     orderNumber: string;
@@ -17,7 +13,7 @@ export interface IHeaderMultiLineProps {
 }
 
 export function HeaderMultiLine(props: IHeaderMultiLineProps) {
-  const { shift, time, newIndex, total, width = 90 } = props;
+  const { shift, time, newIndex, total, width } = props;
   return (
     <table>
       <thead>

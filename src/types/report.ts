@@ -1,3 +1,5 @@
+import { Checkpoint } from '~/pages/Report/helpers/columns';
+
 export type ReportType = {
   id: number;
   name: string;
@@ -22,22 +24,23 @@ export enum ReportKey {
 }
 
 export type CheckpointValue = {
-  newElectricValue1: number;
-  newElectricValue2: number;
-  newElectricValue3: number;
-  newElectricValue4: number;
+  [key in Checkpoint]: {
+    newValue: number | string;
+    total?: number | string;
+  };
 };
 
 export type ElectricalMeterReadingRow = {
+  id: number;
   locationInfo: string;
   electricRoom: string;
   electricMeter: string[];
   equipments: string[];
   checkpoints: CheckpointValue[];
-  checkpointTotal: number[];
-  meterMultiplier: number[];
+  checkpointTotal: number[] | string[];
+  meterMultiplier: number[] | string[];
   total: number;
-  oldElectricValue: number[];
+  oldElectricValue: number[] | string[];
 };
 
 export type ElectricalMeterReading = {
