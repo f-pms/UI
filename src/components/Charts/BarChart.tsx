@@ -1,14 +1,24 @@
 import { useMemo } from 'react';
 import { Bar } from 'react-chartjs-2';
 
+import { Box, Stack, StackProps } from '@mui/material';
+
 import { ChartData } from '~/pages/Report/mocks/chartDataset';
 
-type BarChartProps = {
-  isStacked?: boolean;
+import ChartContainer from '~/components/Charts/ChartContainer';
+
+type BarChartProps = StackProps & {
+  title: string;
   dataset: ChartData[];
+  isStacked?: boolean;
 };
 
-const BarChart = ({ isStacked = false, dataset }: BarChartProps) => {
+const BarChart = ({
+  isStacked = false,
+  dataset,
+  title,
+  ...props
+}: BarChartProps) => {
   const data = useMemo(
     () => ({
       labels: dataset.map((item) => item.year),
@@ -25,15 +35,14 @@ const BarChart = ({ isStacked = false, dataset }: BarChartProps) => {
         },
       ],
     }),
-    [],
+    [dataset],
   );
 
   const options = useMemo(
     () => ({
       plugins: {
-        title: {
-          display: true,
-          text: `Thống kê tổng lượng điện tiêu thụ của từng công đoạn}`,
+        legend: {
+          position: 'bottom' as const,
         },
       },
       responsive: true,
@@ -49,7 +58,16 @@ const BarChart = ({ isStacked = false, dataset }: BarChartProps) => {
     [isStacked],
   );
 
-  return <Bar data={data} options={options} />;
+  return (
+    <ChartContainer title={title} {...props}>
+      <Stack direction='row'>
+        <Bar data={data} options={options} />
+        <Box height={500} width={400}>
+          test
+        </Box>
+      </Stack>
+    </ChartContainer>
+  );
 };
 
 export default BarChart;

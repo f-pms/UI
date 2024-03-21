@@ -2,13 +2,18 @@ import { useMemo } from 'react';
 import { TooltipItem } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
+import { Stack, StackProps, Typography } from '@mui/material';
+
 import { ChartData } from '~/pages/Report/mocks/chartDataset';
 
-type LineChartProp = {
+import ChartContainer from '~/components/Charts/ChartContainer';
+
+type LineChartProp = StackProps & {
   dataset: ChartData[];
+  title: string;
 };
 
-const LineChart = ({ dataset }: LineChartProp) => {
+const LineChart = ({ dataset, title, ...props }: LineChartProp) => {
   const data = useMemo(
     () => ({
       labels: dataset.map((item) => item.year),
@@ -29,7 +34,7 @@ const LineChart = ({ dataset }: LineChartProp) => {
         },
       ],
     }),
-    [],
+    [dataset],
   );
   const options = useMemo(
     () => ({
@@ -43,10 +48,6 @@ const LineChart = ({ dataset }: LineChartProp) => {
         datalabels: {
           formatter: () => ``,
         },
-        title: {
-          display: true,
-          text: 'Thống kê tổng lượng điện tiêu thụ của từng công đoạn',
-        },
         tooltip: {
           callbacks: {
             label: (tooltipItem: TooltipItem<'line'>) => {
@@ -55,6 +56,9 @@ const LineChart = ({ dataset }: LineChartProp) => {
               return `${label}: ${value} GkW`;
             },
           },
+        },
+        legend: {
+          position: 'bottom' as const,
         },
       },
       scales: {
@@ -68,7 +72,11 @@ const LineChart = ({ dataset }: LineChartProp) => {
     [],
   );
 
-  return <Line data={data} options={options} />;
+  return (
+    <ChartContainer title={title} {...props}>
+      <Line data={data} options={options} />
+    </ChartContainer>
+  );
 };
 
 export default LineChart;

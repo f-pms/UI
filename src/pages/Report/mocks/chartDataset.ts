@@ -27,7 +27,7 @@ export const DATA_LIST: ChartData[] = [
   {
     id: 4,
     year: '4-1-2024',
-    consumedElectricity: 60000,
+    consumedElectricity: 35000,
     consumedElectricity2: 20000,
   },
   {
