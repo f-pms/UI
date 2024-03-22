@@ -1,4 +1,17 @@
 import { useEffect } from 'react';
+import {
+  ArcElement,
+  BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip,
+} from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { MaterialDesignContent, SnackbarProvider } from 'notistack';
 
 import { Path } from '~/constants';
@@ -6,6 +19,19 @@ import { CssBaseline, styled } from '~/libs/mui';
 import { Outlet, useLocation, useNavigate } from '~/libs/react-router-dom';
 
 import { CustomizeThemeProvider } from '~/pages/App/context/CustomizeThemeContext';
+
+ChartJS.register(
+  ArcElement,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  PointElement,
+  LineElement,
+  Tooltip,
+  Legend,
+  ChartDataLabels,
+  Title,
+);
 
 export function App() {
   const location = useLocation();
