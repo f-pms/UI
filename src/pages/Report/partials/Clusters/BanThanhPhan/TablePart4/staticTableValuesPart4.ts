@@ -1,5 +1,4 @@
 import { StaticValues } from '~/types';
-import { formatNumber } from '~/utils';
 
 export const TABLE_PART_4_STATIC_VALUES: StaticValues[] = [
   {
