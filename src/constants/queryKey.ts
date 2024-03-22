@@ -3,4 +3,5 @@ export const QUERY_KEYS = {
   ALARM_CONDITIONS: 'alarm-conditions',
   SENSOR_CONFIGURATIONS: 'sensor-configurations',
   ALARM_HISTORY: 'alarm-history',
+  REPORT_DETAILS: 'report-details',
 };
