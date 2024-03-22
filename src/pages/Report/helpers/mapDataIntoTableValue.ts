@@ -1,24 +1,32 @@
-import { ElectricalMeterReadingTableValues, ReportKey, RowsMap } from '~/types';
+import {
+  ElectricalMeterReadingTableValues,
+  ReportDetails,
+  ReportKey,
+  RowsMap,
+  Shift,
+} from '~/types';
 
 export const mapDataIntoTableValue = (
   defaultValues: ElectricalMeterReadingTableValues,
-  rowsMap: RowsMap,
-  reportKey: ReportKey | undefined,
+  report: ReportDetails,
+  shift: Shift,
   startLineIndex: number,
-) => {
-  if (!rowsMap) {
+): ElectricalMeterReadingTableValues => {
+  const rowsMap = report.rowsMaps[shift === Shift.MORNING ? 0 : 1];
+  const reportKey = report.type.name as ReportKey;
+
+  if (!rowsMap || !reportKey || !shift) {
     return defaultValues;
   }
-
   const rows = defaultValues.rows;
   let total = 0;
   defaultValues.rows.forEach((row, rowIndex) => {
     row.equipments.forEach((_, lineIndex) => {
-      const oldValueMapKey = `${reportKey}_${lineIndex + startLineIndex}.0`;
-      const newValue1MapKey = `${reportKey}_${lineIndex + startLineIndex}.1`;
-      const newValue2MapKey = `${reportKey}_${lineIndex + startLineIndex}.2`;
-      const newValue3MapKey = `${reportKey}_${lineIndex + startLineIndex}.3`;
-      const newValue4MapKey = `${reportKey}_${lineIndex + startLineIndex}.4`;
+      const oldValueMapKey = `${reportKey}_${lineIndex + startLineIndex}_0`;
+      const newValue1MapKey = `${reportKey}_${lineIndex + startLineIndex}_1`;
+      const newValue2MapKey = `${reportKey}_${lineIndex + startLineIndex}_2`;
+      const newValue3MapKey = `${reportKey}_${lineIndex + startLineIndex}_3`;
+      const newValue4MapKey = `${reportKey}_${lineIndex + startLineIndex}_4`;
       const oldValue = rowsMap[oldValueMapKey as keyof RowsMap];
       const newValue1 = rowsMap[newValue1MapKey as keyof RowsMap];
       const newValue2 = rowsMap[newValue2MapKey as keyof RowsMap];

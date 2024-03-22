@@ -36,7 +36,7 @@ const MyHeader = ({
   column: MRT_Column<ElectricalMeterReadingRowValues, unknown>;
   shift: Shift;
   col: ColumnReportTable;
-  totalOrderNumber: string;
+  totalOrderNumber: string | number;
 }) => {
   if (col.isMultiColumn) {
     const checkpoint = column.id as keyof typeof CHECKPOINT_HEADERS;
@@ -50,7 +50,7 @@ const MyHeader = ({
   const orderNumber = () => {
     switch (col.id) {
       case 'checkpointTotals':
-        return totalOrderNumber;
+        return `(${totalOrderNumber})=(1)*(4)+(6)+(8)+(10)`;
       case 'meterMultipliers':
         return '(1)';
       case 'oldElectricValues':
@@ -114,7 +114,7 @@ const MyCell = ({
 };
 
 interface IUseColumns {
-  totalOrderNumber: string;
+  totalOrderNumber: string | number;
   tableRowData: ElectricalMeterReadingRowValues[];
 }
 export function useColumns({ totalOrderNumber, tableRowData }: IUseColumns) {

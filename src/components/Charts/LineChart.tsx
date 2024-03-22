@@ -29,7 +29,7 @@ const LineChart = ({ dataset }: LineChartProp) => {
         },
       ],
     }),
-    [],
+    [dataset],
   );
   const options = useMemo(
     () => ({

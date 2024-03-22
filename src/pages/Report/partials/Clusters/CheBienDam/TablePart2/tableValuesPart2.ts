@@ -6,6 +6,7 @@ import { TABLE_PART_2_STATIC_VALUES } from '~/pages/Report/partials/Clusters/Che
 export const TABLE_PART_2: ElectricalMeterReadingTableValues = {
   title:
     'II. Danh mục chốt chỉ số các đồng hồ điện không thuộc cụm chế biến dăm (nguồn điện dùng chung với cụm chế biến dăm của công đoạn BTP và điện dùng chung)',
+  totalOrderNumber: 15,
   rows: [
     {
       ...TABLE_PART_2_STATIC_VALUES[0],
@@ -13,5 +14,4 @@ export const TABLE_PART_2: ElectricalMeterReadingTableValues = {
     },
   ],
   total: 0,
-  totalOrderNumber: '(15)=(1)*(4+6+8+10)',
 };

@@ -4,8 +4,9 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { Button, Stack } from '@mui/material';
 
-import { HistoricalReportItem } from '~/types';
+import { HistoricalReportItem, ReportKey } from '~/types';
 
+import { REPORT_TYPE_LABELS } from '~/pages/Report/helpers/constants';
 import { SHIFT_NAVIGATION_OPTIONS } from '~/pages/Report/helpers/shiftOption';
 
 import { SectionHeading } from '~/components';
@@ -39,7 +40,9 @@ export function DetailsPageHeading({ report }: IDetailsPageHeadingProps) {
           </Button>
         </Stack>
       }
-      description={`Báo cáo ${report?.reportType.name.toLowerCase()} - ${shiftText}: ${format(
+      description={`Báo cáo chỉ số điện cụm SX ${REPORT_TYPE_LABELS[
+        report?.reportType.name as ReportKey
+      ].toLowerCase()} - ${shiftText}: ${format(
         new Date(report?.recordingDate ?? ''),
         'PPPP',
         { locale: vi },

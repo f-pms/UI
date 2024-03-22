@@ -1,4 +1,4 @@
-export * from './Clusters/BanThanhPhan';
+export * from './Clusters/BanThanhPham';
 export * from './Clusters/CheBienDam';
 export * from './Headings/DetailsPageHeading';
 export * from './Headings/HistoricalReportPageHeading';

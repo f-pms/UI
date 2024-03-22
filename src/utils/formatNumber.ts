@@ -11,11 +11,14 @@ export function formatNumber(number: number, decimalPlaces: number) {
   // 2. Split into integer and decimal parts (using toFixed for consistency)
   const parts = numberString.split('.');
 
+  const length = parts[0].length;
   parts[0] = parts[0]
     .split('')
     .reverse()
     .reduce((prev, curr, i) => {
-      return (i % 3 === 2 && i !== 0 ? ',' : '') + curr + prev;
+      return (
+        (i % 3 === 2 && i !== 0 && i !== length - 1 ? ',' : '') + curr + prev
+      );
     }, '');
 
   // 4. Join and return the formatted number
