@@ -1,4 +1,7 @@
-import { ReportSortBy } from '~/pages/Report/helpers/filterReportFrom';
+import {
+  ReportOrder,
+  ReportSortBy,
+} from '~/pages/Report/helpers/filterReportFrom';
 
 export type SortOption = {
   label: string;
@@ -19,10 +22,10 @@ export const SORT_BY_OPTIONS: SortOption[] = [
 export const ORDER_OPTIONS: SortOption[] = [
   {
     label: 'Sắp xếp tăng dần',
-    value: 'asc',
+    value: ReportOrder.ASC,
   },
   {
     label: 'Sắp sếp giảm dần',
-    value: 'desc',
+    value: ReportOrder.DESC,
   },
 ];

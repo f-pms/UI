@@ -1,16 +1,15 @@
-import { useContext, useMemo } from 'react';
+import { Dispatch, useMemo } from 'react';
 import {
   MaterialReactTable,
   MRT_ColumnDef,
+  MRT_PaginationState,
   useMaterialReactTable,
 } from 'material-react-table';
 
 import { useNavigate } from '~/libs/react-router-dom';
-import { HistoricalReportItem, Shift } from '~/types';
+import { HistoricalReport, HistoricalReportPagination, Shift } from '~/types';
 
-import { HistoryPaginationContext } from '~/pages/Report/context/HistoryPaginationContext';
 import { REPORT_TYPE_LABELS } from '~/pages/Report/helpers/constants';
-import { HISTORICAL_REPORT_LIST } from '~/pages/Report/mocks/historicalReportList';
 
 import { SoftButton, SoftChip } from '~/components';
 import {
@@ -20,19 +19,23 @@ import {
 import { Box, Link, Stack, Typography } from '~/components/MuiComponents';
 import { getDefaultMRTOptions } from '~/components/Table';
 
-export interface IHistoricalReportTableProps {}
+export interface IHistoricalReportTableProps {
+  historicalReports?: HistoricalReportPagination;
+  pagination: MRT_PaginationState;
+  setPagination: Dispatch<React.SetStateAction<MRT_PaginationState>>;
+}
 
-const defaultMRTOptions = getDefaultMRTOptions<HistoricalReportItem>();
-export function HistoricalReportTable() {
+const defaultMRTOptions = getDefaultMRTOptions<HistoricalReport>();
+export function HistoricalReportTable(props: IHistoricalReportTableProps) {
+  const { historicalReports, pagination, setPagination } = props;
   const navigate = useNavigate();
-  const { pagination, setPagination } = useContext(HistoryPaginationContext);
 
-  const columns: MRT_ColumnDef<HistoricalReportItem>[] = useMemo(
+  const columns: MRT_ColumnDef<HistoricalReport>[] = useMemo(
     () => [
       {
         id: 'reportTypeName',
         header: 'Cụm sản xuất',
-        accessorFn: (row) => REPORT_TYPE_LABELS[row.reportType.name],
+        accessorFn: (row) => REPORT_TYPE_LABELS[row.type.name],
       },
       {
         accessorKey: 'recordingDate',
@@ -63,12 +66,12 @@ export function HistoricalReportTable() {
     enableFullScreenToggle: false,
     enableHiding: false,
     columns,
-    data: HISTORICAL_REPORT_LIST,
+    data: historicalReports?.content ?? [],
     enableRowActions: true,
     getRowId: (row) => row.id.toString(),
     enableColumnPinning: false,
     manualPagination: true,
-    rowCount: 100,
+    rowCount: historicalReports?.total,
     onPaginationChange: setPagination,
     state: { pagination },
     renderTopToolbarCustomActions: ({ table }) => {

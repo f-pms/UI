@@ -8,7 +8,21 @@ export enum ReportKey {
 export type ReportType = {
   id: number;
   name: ReportKey;
-  label?: string;
+};
+
+export type HistoricalReport = {
+  id: number;
+  recordingDate: string;
+  type: ReportType;
+  sum: {
+    TONG1: number;
+    TONG2: number;
+  };
+};
+
+export type HistoricalReportPagination = {
+  total: number;
+  content: HistoricalReport[];
 };
 
 export type HistoricalReportItem = {
