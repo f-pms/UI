@@ -12,8 +12,8 @@ export function formatNumber(number: number, decimalPlaces: number) {
   const parts = numberString.split('.');
 
   // 3. Format the integer part using a regular expression (similar to previous example)
-  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
   // 4. Join and return the formatted number
-  return parts.join(',');
+  return parts.join('.');
 }

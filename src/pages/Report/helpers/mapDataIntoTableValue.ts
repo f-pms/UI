@@ -24,8 +24,8 @@ export const mapDataIntoTableValue = (
       const newValue2 = rowsMap[newValue2MapKey as keyof RowsMap];
       const newValue3 = rowsMap[newValue3MapKey as keyof RowsMap];
       const newValue4 = rowsMap[newValue4MapKey as keyof RowsMap];
-      rows[rowIndex].oldElectricValue[lineIndex] = oldValue;
-      rows[rowIndex].checkpointTotal[lineIndex] = newValue4 - oldValue;
+      rows[rowIndex].oldElectricValues[lineIndex] = oldValue;
+      rows[rowIndex].checkpointTotals[lineIndex] = newValue4 - oldValue;
       rows[rowIndex].checkpoints[lineIndex] = {
         checkpoint1: {
           newValue: newValue1,

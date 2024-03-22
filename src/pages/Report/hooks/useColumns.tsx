@@ -49,11 +49,11 @@ const MyHeader = ({
 
   const orderNumber = () => {
     switch (col.id) {
-      case 'checkpointTotal':
+      case 'checkpointTotals':
         return totalOrderNumber;
       case 'meterMultiplier':
         return '(1)';
-      case 'oldElectricValue':
+      case 'oldElectricValues':
         return '(2)';
       default:
         return null;
@@ -83,7 +83,7 @@ const MyCell = ({
     return (
       <CellMultiLine
         filterValue={filterValue}
-        highlight={cell.column.id === 'checkpointTotal'}
+        highlight={cell.column.id === 'checkpointTotals'}
         linesPerRows={linesPerRows}
         rowIndex={cell.row.index}
         values={cell.getValue<string[] | number[]>()}

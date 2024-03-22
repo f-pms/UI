@@ -135,10 +135,10 @@ export const REPORT_TABLE_COLUMNS: ColumnReportTable[] = [
     isMultiRLineInRow: true,
   },
   {
-    id: 'oldElectricValue',
+    id: 'oldElectricValues',
     header: 'Chỉ số cũ',
     width: 90,
-    accessorKey: 'oldElectricValue',
+    accessorKey: 'oldElectricValues',
     isMultiRLineInRow: true,
   },
 
@@ -171,10 +171,10 @@ export const REPORT_TABLE_COLUMNS: ColumnReportTable[] = [
     isMultiColumn: true,
   },
   {
-    id: 'checkpointTotal',
+    id: 'checkpointTotals',
     header: 'Tổng số điện sử dụng (KWh)',
     width: 100,
-    accessorKey: 'checkpointTotal',
+    accessorKey: 'checkpointTotals',
     isMultiRLineInRow: true,
   },
 ];

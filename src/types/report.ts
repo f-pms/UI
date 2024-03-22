@@ -45,9 +45,9 @@ export interface StaticValues {
 }
 
 export interface DynamicValues {
-  oldElectricValue: number[] | string[];
+  oldElectricValues: number[] | string[];
   checkpoints: CheckpointValue[];
-  checkpointTotal: number[] | string[];
+  checkpointTotals: number[] | string[];
 }
 
 export interface ElectricalMeterReadingRowValues
