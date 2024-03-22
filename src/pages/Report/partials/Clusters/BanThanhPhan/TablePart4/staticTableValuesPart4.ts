@@ -8,6 +8,5 @@ export const TABLE_PART_4_STATIC_VALUES: StaticValues[] = [
     electricRoom: 'SR05',
     electricMeter: ['Tủ LV52'],
     equipments: ['Tủ điện cụm máy khí nén'],
-    meterMultiplier: [formatNumber(1000000, 0)],
   },
 ];

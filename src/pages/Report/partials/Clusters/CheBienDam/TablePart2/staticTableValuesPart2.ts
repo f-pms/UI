@@ -1,5 +1,4 @@
 import { StaticValues } from '~/types';
-import { formatNumber } from '~/utils';
 
 export const TABLE_PART_2_STATIC_VALUES: StaticValues[] = [
   {
@@ -16,16 +15,6 @@ export const TABLE_PART_2_STATIC_VALUES: StaticValues[] = [
       'Chiếu sáng an ninh sân đường nhà xưởng chính',
       'Tủ nguồn ưu tiên: UTB1-2-3, UTPL, UTCG',
       'Cấp nguồn tổng các tủ: Trụ đèn CS 15m, bơm nước tưới cây; Nguồn cấp khu bảo vệ cổng chính; Chiếu sáng nhà xe ô tô + tủ UT mài dao (không công tơ); Chiếu sáng phòng vận hành SR01&SR02',
-    ],
-    meterMultiplier: [
-      formatNumber(1000000, 0),
-      formatNumber(1000000, 0),
-      formatNumber(1000000, 0),
-      formatNumber(1000000, 0),
-      formatNumber(1000000, 0),
-      formatNumber(1000000, 0),
-      formatNumber(1000000, 0),
-      formatNumber(1000000, 0),
     ],
   },
 ];

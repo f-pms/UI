@@ -1,7 +1,11 @@
-export const getDynamicTableValues = (lineNumber: number) => {
+import { DynamicValues } from '~/types';
+import { formatNumber } from '~/utils';
+
+export const getDynamicTableValues = (lineNumber: number): DynamicValues => {
   const oldElectricValues = [];
   const checkpoints = [];
   const checkpointTotals = [];
+  const meterMultipliers = [];
   for (let i = 0; i < lineNumber; i++) {
     oldElectricValues.push(0);
     checkpoints.push({
@@ -23,6 +27,12 @@ export const getDynamicTableValues = (lineNumber: number) => {
       },
     });
     checkpointTotals.push(0);
+    meterMultipliers.push(formatNumber(1000000, 0));
   }
-  return { oldElectricValues, checkpoints, checkpointTotals };
+  return {
+    oldElectricValues,
+    checkpoints,
+    checkpointTotals,
+    meterMultipliers,
+  };
 };

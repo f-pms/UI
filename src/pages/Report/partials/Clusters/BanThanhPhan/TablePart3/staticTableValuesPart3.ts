@@ -12,11 +12,6 @@ export const TABLE_PART_3_STATIC_VALUES: StaticValues[] = [
       'Tủ điều khiển hệ thống xử lí nước trung tâm',
       'Tủ nguồn UTCĐ, tủ C/S văn phòng xưởng, C/S nhà xưởng, thiết bị lạnh các phòng điện',
     ],
-    meterMultiplier: [
-      formatNumber(1000000, 0),
-      formatNumber(1000000, 0),
-      formatNumber(1000000, 0),
-    ],
   },
   {
     id: 2,
@@ -27,6 +22,5 @@ export const TABLE_PART_3_STATIC_VALUES: StaticValues[] = [
       'Hệ thống xử lý nước đầu nguồn',
       'Hệ thống xử lý nước thải bãi củi và nước thải SX',
     ],
-    meterMultiplier: [formatNumber(1000000, 0), formatNumber(1000000, 0)],
   },
 ];

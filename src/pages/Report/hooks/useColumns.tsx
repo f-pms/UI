@@ -51,7 +51,7 @@ const MyHeader = ({
     switch (col.id) {
       case 'checkpointTotals':
         return totalOrderNumber;
-      case 'meterMultiplier':
+      case 'meterMultipliers':
         return '(1)';
       case 'oldElectricValues':
         return '(2)';

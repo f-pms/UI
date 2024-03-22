@@ -41,13 +41,13 @@ export interface StaticValues {
   electricRoom: string;
   electricMeter: string[];
   equipments: string[];
-  meterMultiplier: number[] | string[];
 }
 
 export interface DynamicValues {
   oldElectricValues: number[] | string[];
   checkpoints: CheckpointValue[];
   checkpointTotals: number[] | string[];
+  meterMultipliers: number[] | string[];
 }
 
 export interface ElectricalMeterReadingRowValues

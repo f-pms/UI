@@ -128,10 +128,10 @@ export const REPORT_TABLE_COLUMNS: ColumnReportTable[] = [
     isMultiRLineInRow: true,
   },
   {
-    id: 'meterMultiplier',
+    id: 'meterMultipliers',
     header: 'Hệ số đồng hồ',
     width: 90,
-    accessorKey: 'meterMultiplier',
+    accessorKey: 'meterMultipliers',
     isMultiRLineInRow: true,
   },
   {

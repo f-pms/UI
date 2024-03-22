@@ -1,5 +1,4 @@
 import { StaticValues } from '~/types';
-import { formatNumber } from '~/utils';
 
 export const TABLE_PART_1_STATIC_VALUES: StaticValues[] = [
   {
@@ -8,7 +7,6 @@ export const TABLE_PART_1_STATIC_VALUES: StaticValues[] = [
     electricRoom: 'Phòng điện TTMV',
     electricMeter: ['MV 30'],
     equipments: ['Đồng hồ đo tổng tủ MV30'],
-    meterMultiplier: [formatNumber(1000000, 0)],
   },
   {
     id: 2,
@@ -16,7 +14,6 @@ export const TABLE_PART_1_STATIC_VALUES: StaticValues[] = [
     electricRoom: 'SR03-2',
     electricMeter: ['Tủ LV31'],
     equipments: ['Đồng hồ đo tổng tủ LV31'],
-    meterMultiplier: [formatNumber(1000000, 0)],
   },
   {
     id: 3,
@@ -24,7 +21,6 @@ export const TABLE_PART_1_STATIC_VALUES: StaticValues[] = [
     electricRoom: 'SR03-2',
     electricMeter: ['Tủ LV32'],
     equipments: ['Đồng hồ đo tổng tủ LV32'],
-    meterMultiplier: [formatNumber(1000000, 0)],
   },
   {
     id: 4,
@@ -32,7 +28,6 @@ export const TABLE_PART_1_STATIC_VALUES: StaticValues[] = [
     electricRoom: 'SR03-2',
     electricMeter: ['Tủ LV33'],
     equipments: ['Đồng hồ đo tổng tủ LV33'],
-    meterMultiplier: [formatNumber(1000000, 0)],
   },
   {
     id: 5,
@@ -40,7 +35,6 @@ export const TABLE_PART_1_STATIC_VALUES: StaticValues[] = [
     electricRoom: 'SR03-1',
     electricMeter: ['Tủ LV34', 'Tủ LV34'],
     equipments: ['Đồng hồ đo tổng tủ LV34-1', 'Đồng hồ đo tổng tủ LV34-2'],
-    meterMultiplier: [formatNumber(1000000, 0), formatNumber(1000000, 0)],
   },
   {
     id: 6,
@@ -48,7 +42,6 @@ export const TABLE_PART_1_STATIC_VALUES: StaticValues[] = [
     electricRoom: 'SR04',
     electricMeter: ['Tủ LV42', 'Tủ điện mặt trời'],
     equipments: ['Đồng hồ đo tổng tủ LV42', 'Năng lượng xanh Kim Tín 01'],
-    meterMultiplier: [formatNumber(1000000, 0), formatNumber(1000000, 0)],
   },
   {
     id: 7,
@@ -56,6 +49,5 @@ export const TABLE_PART_1_STATIC_VALUES: StaticValues[] = [
     electricRoom: 'SR07',
     electricMeter: ['Tủ LV72'],
     equipments: ['Đồng hồ đo tổng tủ LV72'],
-    meterMultiplier: [formatNumber(1000000, 0)],
   },
 ];
