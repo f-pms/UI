@@ -50,10 +50,14 @@ export function ElectricalMeterReadingTable({
             sx={{ fontWeight: 'bold' }}
             variant='body2'
           >
-            Tổng số điện sử dụng (KWh):
+            Tổng số điện sử dụng{' '}
+            <sup
+              style={{ fontSize: '11px' }}
+            >{`(${tableData.totalOrderNumber}*)`}</sup>
+            {''}:
           </Typography>
           <SoftChip
-            label={formatNumber(tableData.total, 6)}
+            label={`${formatNumber(tableData.total, 6)} (KWh)`}
             shape='square'
             size='small'
           />

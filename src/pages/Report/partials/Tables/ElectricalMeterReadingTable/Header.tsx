@@ -23,7 +23,7 @@ export function Header(props: IHeaderProps) {
       >
         {header}
       </Typography>
-      {orderNumber && <Typography fontSize={12}>{orderNumber}</Typography>}
+      {orderNumber && <Typography fontSize={11}>{orderNumber}</Typography>}
     </Stack>
   );
 }

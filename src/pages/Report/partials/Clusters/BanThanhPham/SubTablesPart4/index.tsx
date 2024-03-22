@@ -1,4 +1,4 @@
-import SubTable from '~/pages/Report/partials/Clusters/BanThanhPhan/SubTablesPart4/SubTable';
+import SubTable from '~/pages/Report/partials/Clusters/BanThanhPham/SubTablesPart4/SubTable';
 
 import { Stack } from '~/components/MuiComponents';
 

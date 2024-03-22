@@ -14,6 +14,7 @@ import {
 
 import { ReportType } from '~/types';
 
+import { REPORT_TYPE_LABELS } from '~/pages/Report/helpers/constants';
 import { FilterReportFormData } from '~/pages/Report/helpers/filterReportFrom';
 import { REPORT_TYPE_LIST } from '~/pages/Report/mocks/reportTypeList';
 
@@ -44,7 +45,7 @@ export function ReportTypeCheckboxGroup() {
         sx={{ fontWeight: 'bold' }}
         variant='subtitle2'
       >
-        Loại chỉ số điện:
+        Cụm sản xuất:
       </Typography>
       {REPORT_TYPE_LIST.map((item: ReportType) => (
         <FormControlLabel
@@ -62,7 +63,11 @@ export function ReportTypeCheckboxGroup() {
               )}
             />
           }
-          label={<Typography variant='body2'>{item.name}</Typography>}
+          label={
+            <Typography variant='body2'>
+              {REPORT_TYPE_LABELS[item.name]}
+            </Typography>
+          }
         />
       ))}
       <FormHelperText error={!!errors.typeId} sx={{ ml: 0 }}>

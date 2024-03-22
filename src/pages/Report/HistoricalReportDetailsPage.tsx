@@ -1,11 +1,15 @@
 import { useMemo } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 
-import { ReportKey, Shift, UNITS } from '~/types';
+import { CircularProgress } from '@mui/material';
 
+import { useQueryReportDetailsById } from '~/services/report/useQueryReportDetailsById';
+import { ReportKey, Shift } from '~/types';
+
+import { UNITS } from '~/pages/Report/helpers/constants';
 import { HISTORICAL_REPORT_LIST } from '~/pages/Report/mocks/historicalReportList';
 import {
-  BanThanhPhanCluster,
+  BanThanhPhamCluster,
   CheBienDamCluster,
   DetailsPageHeading,
   ShiftNavigationTabs,
@@ -20,14 +24,18 @@ export function HistoricalReportDetailsPage() {
   const { reportId } = useParams();
   const [searchParams] = useSearchParams();
   const shift = searchParams.get('shift');
-
+  const { data } = useQueryReportDetailsById(reportId ?? '');
   const report = HISTORICAL_REPORT_LIST.find(
     (report) => report.id === parseInt(reportId ?? ''),
   );
 
   const content = useMemo(() => {
-    if (!report) {
-      return <div>No Data</div>;
+    if (!data) {
+      return (
+        <Box alignItems='center' textAlign='center'>
+          <CircularProgress color='primary' />
+        </Box>
+      );
     }
 
     if (shift === Shift.ALL_DAY) {
@@ -51,22 +59,22 @@ export function HistoricalReportDetailsPage() {
               totalOutput: 1000,
             },
           }}
-          date={report.recordingDate}
-          reportKey={report.reportType.value}
-          unit={UNITS[report.reportType.value]}
+          date={data.recordingDate}
+          reportKey={data.type.name}
+          unit={UNITS[data.type.name]}
         />
       );
     }
 
-    switch (report.reportType.value) {
+    switch (data.type.name) {
       case ReportKey.CHE_BIEN_DAM:
-        return <CheBienDamCluster />;
+        return <CheBienDamCluster report={data} />;
       case ReportKey.BAN_THANH_PHAM:
-        return <BanThanhPhanCluster />;
+        return <BanThanhPhamCluster report={data} />;
       default:
         return <div>No Data</div>;
     }
-  }, [report, shift]);
+  }, [shift, data]);
 
   return (
     <Box px={4} py={2}>

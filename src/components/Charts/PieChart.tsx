@@ -34,7 +34,7 @@ const PieChart = ({ dataset }: PieChartProps) => {
         },
       ],
     }),
-    [],
+    [dataset],
   );
 
   const options = useMemo(

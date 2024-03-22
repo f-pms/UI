@@ -25,7 +25,7 @@ const BarChart = ({ isStacked = false, dataset }: BarChartProps) => {
         },
       ],
     }),
-    [],
+    [dataset],
   );
 
   const options = useMemo(

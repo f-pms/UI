@@ -9,6 +9,7 @@ import { useNavigate } from '~/libs/react-router-dom';
 import { HistoricalReportItem, Shift } from '~/types';
 
 import { HistoryPaginationContext } from '~/pages/Report/context/HistoryPaginationContext';
+import { REPORT_TYPE_LABELS } from '~/pages/Report/helpers/constants';
 import { HISTORICAL_REPORT_LIST } from '~/pages/Report/mocks/historicalReportList';
 
 import { SoftButton, SoftChip } from '~/components';
@@ -29,8 +30,9 @@ export function HistoricalReportTable() {
   const columns: MRT_ColumnDef<HistoricalReportItem>[] = useMemo(
     () => [
       {
-        accessorKey: 'reportType.name',
-        header: 'Loại chỉ số điện',
+        id: 'reportTypeName',
+        header: 'Cụm sản xuất',
+        accessorFn: (row) => REPORT_TYPE_LABELS[row.reportType.name],
       },
       {
         accessorKey: 'recordingDate',

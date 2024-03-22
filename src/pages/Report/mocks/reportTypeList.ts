@@ -3,12 +3,12 @@ import { ReportKey, ReportType } from '~/types';
 export const REPORT_TYPE_LIST: ReportType[] = [
   {
     id: 1,
-    name: 'Chỉ số điện chế biến dăm',
-    value: ReportKey.CHE_BIEN_DAM,
+    label: 'Chỉ số điện chế biến dăm',
+    name: ReportKey.CHE_BIEN_DAM,
   },
   {
     id: 2,
-    name: 'Chỉ số điện bán thành phẩm',
-    value: ReportKey.BAN_THANH_PHAM,
+    label: 'Chỉ số điện bán thành phẩm',
+    name: ReportKey.BAN_THANH_PHAM,
   },
 ];
