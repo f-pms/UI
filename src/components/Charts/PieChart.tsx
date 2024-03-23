@@ -6,6 +6,7 @@ import { Stack, StackProps, Typography } from '@mui/material';
 
 import { ChartData } from '~/pages/Report/mocks/chartDataset';
 
+import { generateColors } from '~/components/Charts/chartColorsUtil';
 import ChartContainer from '~/components/Charts/ChartContainer';
 
 type PieChartProps = StackProps & {
@@ -21,20 +22,8 @@ const PieChart = ({ dataset, title, ...props }: PieChartProps) => {
         {
           label: 'Lượng điện tiêu thụ',
           data: dataset.map((item) => item.consumedElectricity),
-          backgroundColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(255,159,64, 1)',
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(255,159,64, 1)',
-          ],
+          backgroundColor: generateColors(dataset.length),
+          borderColor: generateColors(dataset.length),
           borderWidth: 1,
         },
       ],
@@ -47,10 +36,15 @@ const PieChart = ({ dataset, title, ...props }: PieChartProps) => {
       plugins: {
         datalabels: {
           formatter: (value: number, context: unknown) => {
-            const sum = (context as TooltipItem<'pie'>).dataset.data.reduce(
-              (currentSum, item) => currentSum + item,
-              0,
-            );
+            const { chart, dataset } = context as TooltipItem<'pie'>;
+
+            const sum = dataset.data.reduce((currentSum, item, index) => {
+              if (chart.getDataVisibility(index)) {
+                return currentSum + item;
+              }
+
+              return currentSum;
+            }, 0);
             const percentage = (value / sum) * 100;
             return `${percentage.toFixed(1)}%`;
           },

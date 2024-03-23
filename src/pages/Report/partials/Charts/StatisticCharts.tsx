@@ -9,7 +9,7 @@ import PieChart from '~/components/Charts/PieChart';
 const StatisticCharts = () => {
   return (
     <Stack marginTop={5} spacing={5}>
-      <Stack direction='row' height={600} justifyContent={'space-between'}>
+      <Stack direction='row' height={550} justifyContent={'space-between'}>
         <PieChart
           dataset={DATA_LIST}
           title='Tổng chỉ số điện của nhà máy'
@@ -23,7 +23,6 @@ const StatisticCharts = () => {
       </Stack>
       <BarChart
         dataset={DATA_LIST}
-        height={600}
         title='Tổng chỉ số điện của các thiết bị điện theo công đoạn sản xuất'
       />
     </Stack>

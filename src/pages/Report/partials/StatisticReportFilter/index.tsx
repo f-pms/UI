@@ -163,6 +163,34 @@ const StatisticReportFilter = () => {
           <FormControl>
             <Controller
               control={control}
+              name='selectedDateType'
+              render={({ field }) => (
+                <StyledSelect sx={{ width: 160 }} {...field}>
+                  <MenuItem value={DateTypes.START_DATE}>
+                    {DateTypes.START_DATE}
+                  </MenuItem>
+                  <MenuItem value={DateTypes.END_DATE}>
+                    {DateTypes.END_DATE}
+                  </MenuItem>
+                </StyledSelect>
+              )}
+            />
+          </FormControl>
+          <FormControl>
+            <Controller
+              control={control}
+              name='selectedDate'
+              render={({ field }) => (
+                <CustomSingleDatePicker width={230} {...field} disableFuture />
+              )}
+            />
+          </FormControl>
+        </Stack>
+
+        <Stack direction='row'>
+          <FormControl>
+            <Controller
+              control={control}
               name='viewType'
               render={({ field }) => (
                 <StyledSelect
@@ -213,39 +241,12 @@ const StatisticReportFilter = () => {
         </Stack>
 
         <Stack direction='row'>
-          <FormControl>
-            <Controller
-              control={control}
-              name='selectedDateType'
-              render={({ field }) => (
-                <StyledSelect sx={{ width: 160 }} {...field}>
-                  <MenuItem value={DateTypes.START_DATE}>
-                    {DateTypes.START_DATE}
-                  </MenuItem>
-                  <MenuItem value={DateTypes.END_DATE}>
-                    {DateTypes.END_DATE}
-                  </MenuItem>
-                </StyledSelect>
-              )}
-            />
-          </FormControl>
-          <FormControl>
-            <Controller
-              control={control}
-              name='selectedDate'
-              render={({ field }) => (
-                <CustomSingleDatePicker width={230} {...field} disableFuture />
-              )}
-            />
-          </FormControl>
-        </Stack>
-
-        <Stack direction='row'>
           <Button
             color='primary'
             sx={{
-              padding: (theme) => theme.spacing(1.7, 4.5),
+              padding: (theme) => theme.spacing(0, 4.5),
               marginLeft: 4,
+              maxHeight: 50,
             }}
             variant='contained'
             onClick={handleSubmit(onSubmit)}
@@ -254,10 +255,17 @@ const StatisticReportFilter = () => {
           </Button>
         </Stack>
       </StyledFilterBox>
-      <Typography variant='body2'>
-        Thống kê chỉ số điện SX cho nhà máy 7 từ {date.startDate} đến{' '}
-        {date.endDate}
-      </Typography>
+      {isValid && (
+        <Typography variant='body2'>
+          Thống kê chỉ số điện SX cho nhà máy 7 từ{' '}
+          <strong>{date.startDate}</strong> đến <strong>{date.endDate}</strong>
+        </Typography>
+      )}
+      {!isValid && (
+        <Typography color='error' variant='body2'>
+          {errors.fixedDate?.message}
+        </Typography>
+      )}
     </Box>
   );
 };
