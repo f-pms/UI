@@ -49,7 +49,7 @@ const StatisticReportFilter = () => {
     defaultValues: defaultStatisticReportFormData,
     resolver: yupResolver(statisticReportValidationSchema),
   });
-  const { date, setDate } = useContext(StatisticReportContext);
+  const { setDate } = useContext(StatisticReportContext);
 
   const watchStepField = watch('stepField');
   const watchSelectedDateType = watch('selectedDateType');
@@ -156,6 +156,23 @@ const StatisticReportFilter = () => {
     }
   }, [watchSelectedDate, watchFixedDate, watchSelectedDateType, setDate]);
 
+  const getFormatedDate = () => {
+    const formatedSelectedDate = format(watchSelectedDate, 'dd/MM/yyyy');
+    const fixedSelectedDate = format(watchFixedDate ?? 0, 'dd/MM/yyyy');
+
+    if (watchSelectedDateType === DateTypes.START_DATE) {
+      return {
+        startDate: formatedSelectedDate,
+        endDate: watchFixedDate ? fixedSelectedDate : '',
+      };
+    } else {
+      return {
+        startDate: watchFixedDate ? fixedSelectedDate : '',
+        endDate: formatedSelectedDate,
+      };
+    }
+  };
+
   return (
     <Box marginBottom={4} textAlign='center'>
       <StyledFilterBox
@@ -259,7 +276,8 @@ const StatisticReportFilter = () => {
       {isValid && (
         <Typography variant='body2'>
           Thống kê chỉ số điện SX cho nhà máy 7 từ{' '}
-          <strong>{date.startDate}</strong> đến <strong>{date.endDate}</strong>
+          <strong>{getFormatedDate().startDate}</strong> đến{' '}
+          <strong>{getFormatedDate().endDate}</strong>
         </Typography>
       )}
       {!isValid && (

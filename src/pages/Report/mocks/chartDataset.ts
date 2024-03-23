@@ -80,11 +80,9 @@ export const DUMMY_REPORT_PIE_DATA: ReportData = {
   ],
 };
 
-export type ReportComplexBarData = {
+export type ReportComplexBarData = ReportData & {
   id: number;
   title: string;
-  labelStep: string[];
-  data: ReportDataItem[];
 };
 
 export const DUMMY_REPORT_BAR_DATA_LIST: ReportComplexBarData[] = [

@@ -15,16 +15,14 @@ const ChartColors = {
 export const generateColors = (numberOfColors: number) => {
   const result = [];
   for (let i = 1; i <= numberOfColors; i++) {
-    result.push(ChartColors[`color${i}` as keyof typeof ChartColors]);
+    result.push(getColorNumber(i));
   }
 
   return result;
 };
 
 export const getColorNumber = (number: number) => {
-  return ChartColors[
-    `color${
-      number % Object.keys(ChartColors).length
-    }` as keyof typeof ChartColors
-  ];
+  const selectedIndex = number % (Object.keys(ChartColors).length + 1);
+
+  return ChartColors[`color${selectedIndex}` as keyof typeof ChartColors];
 };
