@@ -1,4 +1,8 @@
+import { useContext } from 'react';
+
 import { Grid, Stack, StackProps, styled, Typography } from '@mui/material';
+
+import { StatisticReportContext } from '~/pages/Report/context/StatisticReportContext';
 
 import CircularProgressWithLabel from '~/components/CircularProgressWithLabel';
 
@@ -20,42 +24,30 @@ const StyledGridItem = styled(Stack, {
   borderRight: displayBorder ? '2px solid #00000033' : 'none',
 }));
 
-const REPORT_LIST = [
-  {
-    id: 1,
-    title: 'Giờ cao điểm',
-    consumedElectricity: 1024,
-    percent: 66,
-  },
-  {
-    id: 2,
-    title: 'Giờ thấp điểm',
-    consumedElectricity: 1024,
-    percent: 66,
-  },
-  {
-    id: 3,
-    title: 'Giờ bình thường',
-    consumedElectricity: 1024,
-    percent: 66,
-  },
-  {
-    id: 4,
-    title: 'Tổng chỉ số điện',
-    consumedElectricity: 1024,
-    percent: 66,
-  },
-];
-
 const StatisticReportOverall = () => {
+  const { electricityConsumptionList } = useContext(StatisticReportContext);
+
+  const getPercentByIndex = (index: number) => {
+    const sum = electricityConsumptionList.reduce((sum, current, index) => {
+      if (index < electricityConsumptionList.length - 1) {
+        return sum + (current.consumedElectricity ?? 0);
+      }
+      return sum;
+    }, 0);
+
+    return (
+      ((electricityConsumptionList[index].consumedElectricity ?? 0) / sum) * 100
+    );
+  };
+
   return (
     <StyledContainer container>
-      {REPORT_LIST.map((data, index) => (
+      {electricityConsumptionList.map((data, index) => (
         <Grid key={data.id} item xs={3}>
           <StyledGridItem
             alignItems={'center'}
             direction='row'
-            displayBorder={index < REPORT_LIST.length - 1}
+            displayBorder={index < electricityConsumptionList.length - 1}
             gap={3}
             justifyContent={'center'}
           >
@@ -71,7 +63,7 @@ const StatisticReportOverall = () => {
                 {data.consumedElectricity} (KWh)
               </Typography>
             </Stack>
-            <CircularProgressWithLabel value={data.percent} />
+            <CircularProgressWithLabel value={getPercentByIndex(index)} />
           </StyledGridItem>
         </Grid>
       ))}
