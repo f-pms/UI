@@ -7,7 +7,6 @@ import { useQueryReportDetailsById } from '~/services/report/useQueryReportDetai
 import { ReportKey, Shift } from '~/types';
 
 import { UNITS } from '~/pages/Report/helpers/constants';
-import { HISTORICAL_REPORT_LIST } from '~/pages/Report/mocks/historicalReportList';
 import {
   BanThanhPhamCluster,
   CheBienDamCluster,
@@ -24,10 +23,7 @@ export function HistoricalReportDetailsPage() {
   const { reportId } = useParams();
   const [searchParams] = useSearchParams();
   const shift = searchParams.get('shift');
-  const { data } = useQueryReportDetailsById(reportId ?? '');
-  const report = HISTORICAL_REPORT_LIST.find(
-    (report) => report.id === parseInt(reportId ?? ''),
-  );
+  const { data, isPending } = useQueryReportDetailsById(reportId ?? '');
 
   const content = useMemo(() => {
     if (!data) {
@@ -76,9 +72,16 @@ export function HistoricalReportDetailsPage() {
     }
   }, [shift, data]);
 
+  if (isPending)
+    return (
+      <Box alignItems='center' textAlign='center'>
+        <CircularProgress color='primary' />
+      </Box>
+    );
+
   return (
     <Box px={4} py={2}>
-      <DetailsPageHeading report={report} />
+      <DetailsPageHeading report={data} />
       <ShiftNavigationTabs />
       <Box mt={4}>{content}</Box>
     </Box>

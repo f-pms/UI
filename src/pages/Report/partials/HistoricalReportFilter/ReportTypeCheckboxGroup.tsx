@@ -12,22 +12,23 @@ import {
   Typography,
 } from '@mui/material';
 
+import { useQueryReportTypes } from '~/services/report/useQueryReportTypes';
 import { ReportType } from '~/types';
 
 import { REPORT_TYPE_LABELS } from '~/pages/Report/helpers/constants';
 import { FilterReportFormData } from '~/pages/Report/helpers/filterReportFrom';
-import { REPORT_TYPE_LIST } from '~/pages/Report/mocks/reportTypeList';
 
 export interface IReportTypeCheckboxGroupProps {}
 
 export function ReportTypeCheckboxGroup() {
+  const { data: reportTypes } = useQueryReportTypes();
   const {
     control,
     formState: { errors },
   } = useFormContext<FilterReportFormData>();
 
   const handleCheckboxChange = (
-    field: ControllerRenderProps<FilterReportFormData, 'typeId'>,
+    field: ControllerRenderProps<FilterReportFormData, 'typeIds'>,
     id: number,
   ) => {
     if (!field.value.includes(id)) {
@@ -47,13 +48,13 @@ export function ReportTypeCheckboxGroup() {
       >
         Cụm sản xuất:
       </Typography>
-      {REPORT_TYPE_LIST.map((item: ReportType) => (
+      {reportTypes?.map((item: ReportType) => (
         <FormControlLabel
           key={item.id}
           control={
             <Controller
               control={control}
-              name='typeId'
+              name='typeIds'
               render={({ field }) => (
                 <Checkbox
                   {...field}
@@ -70,8 +71,8 @@ export function ReportTypeCheckboxGroup() {
           }
         />
       ))}
-      <FormHelperText error={!!errors.typeId} sx={{ ml: 0 }}>
-        {errors.typeId?.message}
+      <FormHelperText error={!!errors.typeIds} sx={{ ml: 0 }}>
+        {errors.typeIds?.message}
       </FormHelperText>
     </FormControl>
   );

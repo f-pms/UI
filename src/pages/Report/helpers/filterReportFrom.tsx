@@ -1,17 +1,17 @@
 import { array, date, object, ObjectSchema, string } from 'yup';
 
 export enum ReportSortBy {
-  TYPE = 'type',
-  RECORDING_DATE = 'recordingDate',
+  TYPE = 'TYPE',
+  RECORDING_DATE = 'NONE',
 }
 
 export enum ReportOrder {
-  ASC = 'asc',
-  DESC = 'desc',
+  ASC = 'ASC',
+  DESC = 'DESC',
 }
 
 export interface FilterReportFormData {
-  typeId: number[];
+  typeIds: number[];
   startDate: Date;
   endDate: Date;
   sortBy: ReportSortBy;
@@ -19,7 +19,7 @@ export interface FilterReportFormData {
 }
 
 export const defaultFilterReportFormData: FilterReportFormData = {
-  typeId: [],
+  typeIds: [],
   startDate: new Date(),
   endDate: new Date(),
   sortBy: ReportSortBy.RECORDING_DATE,
@@ -27,7 +27,7 @@ export const defaultFilterReportFormData: FilterReportFormData = {
 };
 
 export const filterReportSchema: ObjectSchema<FilterReportFormData> = object({
-  typeId: array().min(1, 'Cần chọn ít nhất 1 loại chỉ số điện').required(),
+  typeIds: array().min(1, 'Cần chọn ít nhất 1 cụm sản xuất').required(),
   startDate: date().required(),
   endDate: date().required(),
   sortBy: string().oneOf(Object.values(ReportSortBy)).required(),
