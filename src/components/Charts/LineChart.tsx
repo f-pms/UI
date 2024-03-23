@@ -4,35 +4,27 @@ import { Line } from 'react-chartjs-2';
 
 import { Stack, StackProps, Typography } from '@mui/material';
 
-import { ChartData } from '~/pages/Report/mocks/chartDataset';
+import { ChartData, ReportData } from '~/pages/Report/mocks/chartDataset';
 
+import { getColorNumber } from '~/components/Charts/chartColorsUtil';
 import ChartContainer from '~/components/Charts/ChartContainer';
 
 type LineChartProp = StackProps & {
-  dataset: ChartData[];
+  dataset: ReportData;
   title: string;
 };
 
 const LineChart = ({ dataset, title, ...props }: LineChartProp) => {
   const data = useMemo(
     () => ({
-      labels: dataset.map((item) => item.year),
-      datasets: [
-        {
-          label: 'Chỉ số điện chế biến dăm',
-          data: [...dataset.map((item) => item.consumedElectricity), 0],
-          borderColor: 'rgb(255, 99, 132)',
-          backgroundColor: 'rgba(255, 99, 132, 0.5)',
-          yAxisID: 'y',
-        },
-        {
-          label: 'Chỉ số điện thành phẩm',
-          data: [...dataset.map((item) => item.consumedElectricity2), 0],
-          borderColor: 'rgb(53, 162, 235)',
-          backgroundColor: 'rgba(53, 162, 235, 0.5)',
-          yAxisID: 'y',
-        },
-      ],
+      labels: dataset.labelStep,
+      datasets: dataset.data.map((item, index) => ({
+        label: item.label,
+        data: [...item.dataset, 0],
+        backgroundColor: getColorNumber(index + 1),
+        borderColor: getColorNumber(index + 1),
+        borderWidth: 1,
+      })),
     }),
     [dataset],
   );

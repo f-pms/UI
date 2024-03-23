@@ -2,31 +2,29 @@ import { useMemo } from 'react';
 import { TooltipItem } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 
-import { Stack, StackProps, Typography } from '@mui/material';
+import { StackProps } from '@mui/material';
 
-import { ChartData } from '~/pages/Report/mocks/chartDataset';
+import { ReportData } from '~/pages/Report/mocks/chartDataset';
 
 import { generateColors } from '~/components/Charts/chartColorsUtil';
 import ChartContainer from '~/components/Charts/ChartContainer';
 
 type PieChartProps = StackProps & {
-  dataset: ChartData[];
+  dataset: ReportData;
   title: string;
 };
 
 const PieChart = ({ dataset, title, ...props }: PieChartProps) => {
   const data = useMemo(
     () => ({
-      labels: dataset.map((item) => item.year),
-      datasets: [
-        {
-          label: 'Lượng điện tiêu thụ',
-          data: dataset.map((item) => item.consumedElectricity),
-          backgroundColor: generateColors(dataset.length),
-          borderColor: generateColors(dataset.length),
-          borderWidth: 1,
-        },
-      ],
+      labels: dataset.labelStep,
+      datasets: dataset.data.map((item) => ({
+        label: item.label,
+        data: item.dataset,
+        backgroundColor: generateColors(dataset.labelStep.length),
+        borderColor: '#fff',
+        borderWidth: 2,
+      })),
     }),
     [dataset],
   );

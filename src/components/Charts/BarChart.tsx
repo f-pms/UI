@@ -1,4 +1,4 @@
-import { ReactNode, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 
 import {
@@ -11,15 +11,14 @@ import {
   Typography,
 } from '@mui/material';
 
-import { ChartData } from '~/pages/Report/mocks/chartDataset';
-import { REPORT_TYPE_LIST } from '~/pages/Report/mocks/reportTypeList';
+import { ReportComplexBarData } from '~/pages/Report/mocks/chartDataset';
 
 import { getColorNumber } from '~/components/Charts/chartColorsUtil';
 import ChartContainer from '~/components/Charts/ChartContainer';
 
 type BarChartProps = StackProps & {
   title: string;
-  dataset: ChartData[];
+  dataset: ReportComplexBarData[];
   isStacked?: boolean;
 };
 
@@ -29,32 +28,40 @@ const BarChart = ({
   title,
   ...props
 }: BarChartProps) => {
-  const [reportType, setReportType] = useState(REPORT_TYPE_LIST[0].name);
+  const [reportType, setReportType] = useState(dataset[0].title);
   const [hiddenLabels, setHiddenLabels] = useState<string[]>([]);
+  const [visibleData, setVisibleData] = useState<ReportComplexBarData>(
+    dataset[0],
+  );
+
+  useEffect(() => {
+    const selectedData = dataset.find((data) => data.title === reportType);
+
+    if (selectedData) {
+      setVisibleData(selectedData);
+      setHiddenLabels([]);
+    }
+  }, [reportType, dataset]);
 
   const data = useMemo(
     () => ({
-      labels: dataset.map((item) => item.year),
-      datasets: [
-        {
-          label: 'Chỉ số điện chế biến dăm',
-          data: dataset.map((item) => item.consumedElectricity),
-          backgroundColor: getColorNumber(1),
-          hidden: hiddenLabels.includes('Chỉ số điện chế biến dăm'),
-        },
-        {
-          label: 'Chỉ số điện thành phẩm',
-          data: dataset.map((item) => item.consumedElectricity2),
-          backgroundColor: getColorNumber(2),
-        },
-      ],
+      labels: visibleData.labelStep,
+      datasets: visibleData.data.map((item, index) => ({
+        label: item.label,
+        data: item.dataset,
+        backgroundColor: getColorNumber(index + 1),
+        hidden: hiddenLabels.includes(item.label),
+      })),
     }),
-    [dataset, hiddenLabels],
+    [hiddenLabels, visibleData.labelStep, visibleData.data],
   );
 
   const options = useMemo(
     () => ({
       plugins: {
+        datalabels: {
+          formatter: () => ``,
+        },
         legend: {
           display: false,
         },
@@ -67,6 +74,7 @@ const BarChart = ({
           stacked: isStacked,
         },
       },
+      animation: false as const,
     }),
     [isStacked],
   );
@@ -81,13 +89,12 @@ const BarChart = ({
 
   const removeHiddenLabel = (label: string) => {
     setHiddenLabels((prevValue) => {
-      const removedIndex = prevValue.indexOf(label);
+      const newHiddenLabels = [...prevValue];
+      const removedIndex = newHiddenLabels.indexOf(label);
 
-      prevValue.splice(removedIndex, 1);
+      if (removedIndex >= 0) newHiddenLabels.splice(removedIndex, 1);
 
-      if (!prevValue.length) prevValue = [''];
-
-      return prevValue;
+      return newHiddenLabels;
     });
   };
 
@@ -100,10 +107,12 @@ const BarChart = ({
   };
 
   return (
-    <ChartContainer title={title} {...props}>
+    <ChartContainer height={'auto'} title={title} {...props}>
       <Stack direction='row'>
-        <Bar data={data} options={options} />
-        <Stack alignItems={'center'} height={450} spacing={5} width={380}>
+        <Box width={1000}>
+          <Bar data={data} options={options} />
+        </Box>
+        <Stack alignItems={'center'} spacing={5} width={380}>
           <Stack marginInline='auto' width={250}>
             <Typography
               color='text.strong'
@@ -118,15 +127,15 @@ const BarChart = ({
               value={reportType}
               onChange={handleChangeType}
             >
-              {REPORT_TYPE_LIST.map((type) => (
+              {dataset.map((data, index) => (
                 <FormControlLabel
-                  key={type.id}
+                  key={`DATA_ITEM_${index}`}
                   control={<Radio />}
-                  label={<Typography variant='body2'>{type.name}</Typography>}
+                  label={<Typography variant='body2'>{data.title}</Typography>}
                   sx={{
                     width: 'fit-content',
                   }}
-                  value={type.name}
+                  value={data.title}
                 />
               ))}
             </RadioGroup>
@@ -140,48 +149,37 @@ const BarChart = ({
             >
               Thiết bị điện
             </Typography>
-            <Stack
-              alignItems={'flex-start'}
-              direction='row'
-              gap={1}
-              sx={{
-                cursor: 'pointer',
-              }}
-              onClick={() => handleLegendClick('Chỉ số điện chế biến dăm')}
-            >
-              <Box
+            {visibleData.data.map(({ label }, index) => (
+              <Stack
+                key={`DEVICE_${index}`}
+                alignItems={'flex-st1art'}
+                direction='row'
+                gap={1}
                 sx={{
-                  background: getColorNumber(1),
-                  height: 15,
-                  width: 55,
+                  cursor: 'pointer',
                 }}
-              />
-              <Typography
-                sx={{
-                  textDecoration: hiddenLabels.includes(
-                    'Chỉ số điện chế biến dăm',
-                  )
-                    ? 'line-through'
-                    : '',
-                }}
-                variant='body2'
-                width={180}
+                onClick={() => handleLegendClick(label)}
               >
-                Chỉ số điện chế biến dăm
-              </Typography>
-            </Stack>
-            <Stack alignItems={'flex-start'} direction='row' gap={1}>
-              <Box
-                sx={{
-                  background: getColorNumber(2),
-                  height: 15,
-                  width: 55,
-                }}
-              />
-              <Typography variant='body2' width={180}>
-                Chỉ số điện bán thành phẩm
-              </Typography>
-            </Stack>
+                <Box
+                  sx={{
+                    background: getColorNumber(index + 1),
+                    height: 15,
+                    width: 55,
+                  }}
+                />
+                <Typography
+                  sx={{
+                    textDecoration: hiddenLabels.includes(label)
+                      ? 'line-through'
+                      : '',
+                  }}
+                  variant='body2'
+                  width={180}
+                >
+                  {label}
+                </Typography>
+              </Stack>
+            ))}
           </Stack>
         </Stack>
       </Stack>
