@@ -6,6 +6,7 @@ export { default as ArrowRightAltIcon } from '@mui/icons-material/ArrowRightAlt'
 export { default as ArticleOutlinedIcon } from '@mui/icons-material/ArticleOutlined';
 export { default as CancelIcon } from '@mui/icons-material/Cancel';
 export { default as CenterFocusStrongOutlinedIcon } from '@mui/icons-material/CenterFocusStrongOutlined';
+export { default as CheckOutlinedIcon } from '@mui/icons-material/CheckOutlined';
 export { default as CircleIcon } from '@mui/icons-material/Circle';
 export { default as CloseOutlinedIcon } from '@mui/icons-material/CloseOutlined';
 export { default as CloudUploadIcon } from '@mui/icons-material/CloudUpload';

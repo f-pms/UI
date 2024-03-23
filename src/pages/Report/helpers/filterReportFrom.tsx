@@ -27,7 +27,7 @@ export const defaultFilterReportFormData: FilterReportFormData = {
 };
 
 export const filterReportSchema: ObjectSchema<FilterReportFormData> = object({
-  typeIds: array().min(1, 'Cần chọn ít nhất 1 loại chỉ số điện').required(),
+  typeIds: array().min(1, 'Cần chọn ít nhất 1 cụm sản xuất').required(),
   startDate: date().required(),
   endDate: date().required(),
   sortBy: string().oneOf(Object.values(ReportSortBy)).required(),

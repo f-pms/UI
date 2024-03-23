@@ -42,7 +42,7 @@ export function HistoricalReportFilter({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Box sx={{ width: '320px' }}>
+      <Box sx={{ width: '340px' }}>
         <ReportTypeCheckboxGroup />
         <Divider />
         <ReportDateRangePicker />

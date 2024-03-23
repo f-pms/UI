@@ -11,7 +11,7 @@ import { HistoricalReport, HistoricalReportPagination, Shift } from '~/types';
 
 import { REPORT_TYPE_LABELS } from '~/pages/Report/helpers/constants';
 
-import { SoftButton, SoftChip } from '~/components';
+import { SoftButton } from '~/components';
 import {
   ArticleOutlinedIcon,
   FileDownloadOutlinedIcon,
@@ -71,12 +71,11 @@ export function HistoricalReportTable(props: IHistoricalReportTableProps) {
     getRowId: (row) => row.id.toString(),
     enableColumnPinning: false,
     manualPagination: true,
-    rowCount: historicalReports?.total,
+    rowCount: historicalReports?.total ?? 0,
     onPaginationChange: setPagination,
     state: { pagination },
     renderTopToolbarCustomActions: ({ table }) => {
       const selectedRows = table.getSelectedRowModel().rows;
-      const allRows = table.getRowModel().rows;
       return (
         <Stack
           alignItems='center'
@@ -92,7 +91,7 @@ export function HistoricalReportTable(props: IHistoricalReportTableProps) {
             }}
             variant='body2'
           >
-            {`Tải xuống ${selectedRows.length}/${allRows.length} báo cáo đã chọn`}
+            {`Tải xuống ${selectedRows.length} báo cáo đã chọn`}
           </Link>
           <Stack
             alignItems='center'
@@ -107,7 +106,13 @@ export function HistoricalReportTable(props: IHistoricalReportTableProps) {
             >
               Kết quả tìm kiếm:
             </Typography>
-            <SoftChip label={`${100} báo cáo`} shape='square' size='small' />
+            <SoftButton
+              color='primary'
+              size='small'
+              startIcon={<FileDownloadOutlinedIcon />}
+            >
+              {`${100} báo cáo`}
+            </SoftButton>
           </Stack>
         </Stack>
       );

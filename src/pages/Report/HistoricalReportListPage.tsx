@@ -47,6 +47,7 @@ export function HistoricalReportListPage() {
       ReportSortBy.RECORDING_DATE,
     order: (searchParams.get('order') as ReportOrder) ?? ReportOrder.ASC,
   };
+
   const [params, setParams] = useState<GetHistoricalReportsParams>(() => {
     return {
       ...defaultFilterReportFormData,
@@ -88,14 +89,19 @@ export function HistoricalReportListPage() {
   return (
     <Container maxWidth='xl' sx={{ py: 2 }}>
       <FormProvider {...methods}>
-        <HistoricalReportPageHeading />
+        <HistoricalReportPageHeading params={params} />
         <Paper elevation={0} sx={{ my: 1, py: 2 }} variant='elevation'>
           <Stack
             alignItems='flex-start'
             direction='row'
             justifyContent='space-between'
           >
-            <DateRangeProvider>
+            <DateRangeProvider
+              defaultRange={{
+                from: params.startDate,
+                to: params.endDate,
+              }}
+            >
               <HistoricalReportFilter params={params} setParams={setParams} />
             </DateRangeProvider>
             <HistoricalReportTable

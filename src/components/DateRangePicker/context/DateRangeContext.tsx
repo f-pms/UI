@@ -24,12 +24,16 @@ export const DateRangeContext = createContext<DateRangeContextType>({
 
 interface IDateRangeContextProps {
   children: ReactNode;
+  defaultRange?: DateRange;
 }
 
-export function DateRangeProvider({ children }: IDateRangeContextProps) {
+export function DateRangeProvider({
+  children,
+  defaultRange,
+}: IDateRangeContextProps) {
   const [range, setRange] = useState<DateRange>({
-    from: new Date(),
-    to: new Date(),
+    from: defaultRange?.from ?? new Date(),
+    to: defaultRange?.to ?? new Date(),
   });
   const [focusedFromField, setFocusedFromField] = useState(false);
   const [focusedToField, setFocusedToField] = useState(false);
