@@ -81,6 +81,7 @@ export const DUMMY_REPORT_PIE_DATA: ReportData = {
 };
 
 export type ReportComplexBarData = {
+  id: number;
   title: string;
   labelStep: string[];
   data: ReportDataItem[];
@@ -88,6 +89,7 @@ export type ReportComplexBarData = {
 
 export const DUMMY_REPORT_BAR_DATA_LIST: ReportComplexBarData[] = [
   {
+    id: 1,
     title: 'Chỉ số điện chế biến dăm',
     labelStep: [
       '1-1-2024',
@@ -114,6 +116,7 @@ export const DUMMY_REPORT_BAR_DATA_LIST: ReportComplexBarData[] = [
     ],
   },
   {
+    id: 2,
     title: 'Chỉ số điện bán thành phần',
     labelStep: [
       '1-1-2024',

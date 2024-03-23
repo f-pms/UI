@@ -80,7 +80,7 @@ const BarChart = ({
   );
 
   const handleChangeType = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setReportType((event.target as HTMLInputElement).value as string);
+    setReportType(event.target.value as string);
   };
 
   const insertHiddenLabel = (label: string) => {
@@ -127,9 +127,9 @@ const BarChart = ({
               value={reportType}
               onChange={handleChangeType}
             >
-              {dataset.map((data, index) => (
+              {dataset.map((data) => (
                 <FormControlLabel
-                  key={`DATA_ITEM_${index}`}
+                  key={data.id}
                   control={<Radio />}
                   label={<Typography variant='body2'>{data.title}</Typography>}
                   sx={{
@@ -151,7 +151,7 @@ const BarChart = ({
             </Typography>
             {visibleData.data.map(({ label }, index) => (
               <Stack
-                key={`DEVICE_${index}`}
+                key={label}
                 alignItems={'flex-st1art'}
                 direction='row'
                 gap={1}

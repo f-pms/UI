@@ -2,9 +2,9 @@ import { useMemo } from 'react';
 import { TooltipItem } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
-import { Stack, StackProps, Typography } from '@mui/material';
+import { StackProps } from '@mui/material';
 
-import { ChartData, ReportData } from '~/pages/Report/mocks/chartDataset';
+import { ReportData } from '~/pages/Report/mocks/chartDataset';
 
 import { getColorNumber } from '~/components/Charts/chartColorsUtil';
 import ChartContainer from '~/components/Charts/ChartContainer';
