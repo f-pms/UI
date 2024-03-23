@@ -4,6 +4,8 @@ import { Pie } from 'react-chartjs-2';
 
 import { StackProps } from '@mui/material';
 
+import { formatNumber } from '~/utils';
+
 import { ReportData } from '~/pages/Report/mocks/chartDataset';
 
 import { generateColors } from '~/components/Charts/chartColorsUtil';
@@ -52,7 +54,7 @@ const PieChart = ({ dataset, title, ...props }: PieChartProps) => {
             label: (tooltipItem: TooltipItem<'pie'>) => {
               const label = tooltipItem.dataset.label;
               const value = tooltipItem.parsed;
-              return `${label}: ${value} GkW`;
+              return `${label}: ${formatNumber(value, 6)} KWh`;
             },
           },
         },

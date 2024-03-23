@@ -22,6 +22,7 @@ const CustomSingleDatePicker = forwardRef(
           textField: {
             error: !!helperText,
             helperText,
+            size: 'small',
           },
           layout: {
             sx: {

@@ -24,7 +24,7 @@ const ChartContainer = ({ title, children, ...props }: ChartContainerProp) => {
         sx={{
           fontWeight: 'bold',
         }}
-        variant='h6'
+        variant='subtitle1'
       >
         {title}
       </Typography>

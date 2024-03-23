@@ -51,6 +51,7 @@ export { default as PublishedWithChangesOutlinedIcon } from '@mui/icons-material
 export { default as RemoveRedEyeOutlinedIcon } from '@mui/icons-material/RemoveRedEyeOutlined';
 export { default as ReportProblemOutlinedIcon } from '@mui/icons-material/ReportProblemOutlined';
 export { default as SaveAsOutlinedIcon } from '@mui/icons-material/SaveAsOutlined';
+export { default as SearchOutlinedIcon } from '@mui/icons-material/SearchOutlined';
 export { default as SettingsIcon } from '@mui/icons-material/Settings';
 export { default as SettingsInputComponentOutlinedIcon } from '@mui/icons-material/SettingsInputComponentOutlined';
 export { default as SettingsSuggestOutlinedIcon } from '@mui/icons-material/SettingsSuggestOutlined';

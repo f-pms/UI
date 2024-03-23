@@ -102,15 +102,15 @@ export const DUMMY_REPORT_BAR_DATA_LIST: ReportComplexBarData[] = [
     ],
     data: [
       {
-        label: 'TB1',
+        label: 'Thiết bị 1',
         dataset: [58, 50, 40, 11, 62, 52, 48],
       },
       {
-        label: 'TB2',
+        label: 'Thiết bị 2',
         dataset: [20, 25, 11, 35, 32, 22, 25],
       },
       {
-        label: 'TB3',
+        label: 'Thiết bị 3',
         dataset: [12, 22, 31, 8, 12, 15, 11],
       },
     ],
@@ -129,17 +129,67 @@ export const DUMMY_REPORT_BAR_DATA_LIST: ReportComplexBarData[] = [
     ],
     data: [
       {
-        label: 'TB1',
+        label: 'Thiết bị 1',
         dataset: [22, 33, 22, 26, 24, 31, 41],
       },
       {
-        label: 'TB2',
+        label: 'Thiết bị 2',
         dataset: [12, 15, 9, 21, 16, 7, 14],
       },
       {
-        label: 'TB3',
+        label: 'Thiết bị 3',
         dataset: [16, 11, 25, 11, 6, 12, 11],
       },
     ],
   },
 ];
+
+export const DUMMY_REPORT_DETAILS_BAR_DATA_LIST: ReportComplexBarData[] = [
+  {
+    id: 1,
+    title: 'Chỉ số điện chế biến dăm',
+    labelStep: [
+      'Thiết bị 1',
+      'Thiết bị 2',
+      'Thiết bị 3',
+      'Thiết bị 4',
+      'Thiết bị 5',
+      'Thiết bị 6',
+      'Thiết bị 7',
+      'Thiết bị 8',
+      'Thiết bị 9',
+      'Thiết bị 10',
+      'Thiết bị 11',
+    ],
+    data: [
+      {
+        label: 'Ca sáng (6h00-18h00)',
+        dataset: [
+          58, 50, 20, 58, 50, 20, 58, 50, 20, 58, 1158.00943434343, 50.3434,
+        ],
+      },
+      {
+        label: 'Ca tối (18h00-6h00)',
+        dataset: [20, 25, 30, 20, 58, 50, 20, 58, 50, 20, 58],
+      },
+    ],
+  },
+];
+
+export const DUMMY_REPORT_DETAILS_LINE_DATA: ReportData = {
+  labelStep: ['Ca sáng (6h00-18h00)', 'Ca tối(18h00-6h00)'],
+  data: [
+    {
+      label: 'Điện giờ cao điểm',
+      dataset: [158.00943434343, 50.3434],
+    },
+    {
+      label: 'Điện giờ thấp điểm',
+      dataset: [20, 251],
+    },
+    {
+      label: 'Điện giờ trung bình',
+      dataset: [20, 25],
+    },
+  ],
+};
