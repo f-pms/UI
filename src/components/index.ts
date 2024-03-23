@@ -1,6 +1,7 @@
 // Custom Components
 export * from './AlertDialog';
 export * from './Autocomplete';
+export * from './AutoSuggestHighlightText';
 export * from './Buttons/CustomBorderButton';
 export * from './Buttons/SoftButton';
 export * from './Calendar';

@@ -1,17 +1,17 @@
-import { useContext, useMemo } from 'react';
+import { Dispatch, useMemo } from 'react';
 import {
   MaterialReactTable,
   MRT_ColumnDef,
+  MRT_PaginationState,
   useMaterialReactTable,
 } from 'material-react-table';
 
 import { useNavigate } from '~/libs/react-router-dom';
-import { HistoricalReportItem, Shift } from '~/types';
+import { HistoricalReport, HistoricalReportPagination, Shift } from '~/types';
 
-import { HistoryPaginationContext } from '~/pages/Report/context/HistoryPaginationContext';
-import { HISTORICAL_REPORT_LIST } from '~/pages/Report/mocks/historicalReportList';
+import { REPORT_TYPE_LABELS } from '~/pages/Report/helpers/constants';
 
-import { SoftButton, SoftChip } from '~/components';
+import { SoftButton } from '~/components';
 import {
   ArticleOutlinedIcon,
   FileDownloadOutlinedIcon,
@@ -19,18 +19,23 @@ import {
 import { Box, Link, Stack, Typography } from '~/components/MuiComponents';
 import { getDefaultMRTOptions } from '~/components/Table';
 
-export interface IHistoricalReportTableProps {}
+export interface IHistoricalReportTableProps {
+  historicalReports?: HistoricalReportPagination;
+  pagination: MRT_PaginationState;
+  setPagination: Dispatch<React.SetStateAction<MRT_PaginationState>>;
+}
 
-const defaultMRTOptions = getDefaultMRTOptions<HistoricalReportItem>();
-export function HistoricalReportTable() {
+const defaultMRTOptions = getDefaultMRTOptions<HistoricalReport>();
+export function HistoricalReportTable(props: IHistoricalReportTableProps) {
+  const { historicalReports, pagination, setPagination } = props;
   const navigate = useNavigate();
-  const { pagination, setPagination } = useContext(HistoryPaginationContext);
 
-  const columns: MRT_ColumnDef<HistoricalReportItem>[] = useMemo(
+  const columns: MRT_ColumnDef<HistoricalReport>[] = useMemo(
     () => [
       {
-        accessorKey: 'reportType.name',
-        header: 'Loại chỉ số điện',
+        id: 'reportTypeName',
+        header: 'Cụm sản xuất',
+        accessorFn: (row) => REPORT_TYPE_LABELS[row.type.name],
       },
       {
         accessorKey: 'recordingDate',
@@ -61,17 +66,16 @@ export function HistoricalReportTable() {
     enableFullScreenToggle: false,
     enableHiding: false,
     columns,
-    data: HISTORICAL_REPORT_LIST,
+    data: historicalReports?.content ?? [],
     enableRowActions: true,
     getRowId: (row) => row.id.toString(),
     enableColumnPinning: false,
     manualPagination: true,
-    rowCount: 100,
+    rowCount: historicalReports?.total ?? 0,
     onPaginationChange: setPagination,
     state: { pagination },
     renderTopToolbarCustomActions: ({ table }) => {
       const selectedRows = table.getSelectedRowModel().rows;
-      const allRows = table.getRowModel().rows;
       return (
         <Stack
           alignItems='center'
@@ -87,7 +91,7 @@ export function HistoricalReportTable() {
             }}
             variant='body2'
           >
-            {`Tải xuống ${selectedRows.length}/${allRows.length} báo cáo đã chọn`}
+            {`Tải xuống ${selectedRows.length} báo cáo đã chọn`}
           </Link>
           <Stack
             alignItems='center'
@@ -102,7 +106,13 @@ export function HistoricalReportTable() {
             >
               Kết quả tìm kiếm:
             </Typography>
-            <SoftChip label={`${100} báo cáo`} shape='square' size='small' />
+            <SoftButton
+              color='primary'
+              size='small'
+              startIcon={<FileDownloadOutlinedIcon />}
+            >
+              {`${100} báo cáo`}
+            </SoftButton>
           </Stack>
         </Stack>
       );

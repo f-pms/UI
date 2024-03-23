@@ -12,35 +12,17 @@ import {
 } from '@mui/material';
 import { grey } from '@mui/material/colors';
 
-export interface IEquipmentTableProps {}
+export interface IEquipmentTableProps {
+  title: string;
+  rows: {
+    name: string;
+    equipments: string[];
+  }[];
+}
 
-export function EquipmentTable() {
+export function EquipmentTable(props: IEquipmentTableProps) {
+  const { title, rows } = props;
   const headers = ['STT', 'Phạm vi', 'Tên thiết bị'];
-  const tableData = {
-    title: 'III. Phạm vi thiết bị công đoạn sản xuất keo',
-    rows: [
-      {
-        name: 'Trạm TR11: 1000KVA-22KV/0.96KV',
-        equipments: ['Tủ điện điều khiển motor băm 1220MC01'],
-      },
-      {
-        name: 'Trạm TR12: 2000KVA-22KV/0.38KV',
-        equipments: [
-          'Tủ điền khiển dây chuyền băm củi keo 13000MC01',
-          'Tủ điều khiển dây chuyền bóc vỏ cây 1000MC01',
-          'Tủ điều khiển dây chuyền máy băm và băng tải cấp dăm vào kho 12000MC01',
-          'Tủ điều khiển dây chuyền xử lí vỏ cây 1900MC01',
-          'Tủ cấp nguồn cầu trục nhà xưởng',
-          'Cấp nguồn cho UPS(Tủ 1000PLC01)',
-          'Máy lạnh, CS xưởng',
-        ],
-      },
-      {
-        name: 'Test null',
-        equipments: [''],
-      },
-    ],
-  };
 
   return (
     <TableContainer component={Paper}>
@@ -53,7 +35,7 @@ export function EquipmentTable() {
         }}
         variant='body2'
       >
-        {tableData.title}
+        {title}
       </Typography>
       <Table
         size='small'
@@ -67,7 +49,11 @@ export function EquipmentTable() {
           <TableRow>
             {headers.map((header) => (
               <TableCell key={header} align='center'>
-                <Typography sx={{ fontWeight: 'bold' }} variant='body2'>
+                <Typography
+                  fontSize={12}
+                  sx={{ fontWeight: 'bold' }}
+                  variant='body2'
+                >
                   {header}
                 </Typography>
               </TableCell>
@@ -75,21 +61,29 @@ export function EquipmentTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {tableData.rows.map((row, index) => (
+          {rows.map((row, index) => (
             <Fragment key={row.name}>
               <TableRow>
-                <TableCell align='center' rowSpan={row.equipments.length + 2}>
+                <TableCell
+                  align='center'
+                  rowSpan={row.equipments.length + 2}
+                  sx={{ fontSize: 12 }}
+                >
                   {index + 1}
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell align='center' rowSpan={row.equipments.length + 2}>
+                <TableCell
+                  align='center'
+                  rowSpan={row.equipments.length + 2}
+                  sx={{ fontSize: 12 }}
+                >
                   {row.name}
                 </TableCell>
               </TableRow>
               {row.equipments.map((item) => (
                 <TableRow key={item}>
-                  <TableCell>{item}</TableCell>
+                  <TableCell sx={{ fontSize: 12 }}>{item}</TableCell>
                 </TableRow>
               ))}
             </Fragment>

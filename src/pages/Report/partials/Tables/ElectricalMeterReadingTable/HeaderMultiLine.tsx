@@ -1,11 +1,7 @@
 export interface IHeaderMultiLineProps {
-  width?: number;
+  width: number;
   shift: string;
   time: string;
-  oldIndex: {
-    label: string;
-    orderNumber: string;
-  };
   newIndex: {
     label: string;
     orderNumber: string;
@@ -17,7 +13,7 @@ export interface IHeaderMultiLineProps {
 }
 
 export function HeaderMultiLine(props: IHeaderMultiLineProps) {
-  const { shift, time, oldIndex, newIndex, total, width = 90 } = props;
+  const { shift, time, newIndex, total, width } = props;
   return (
     <table>
       <thead>
@@ -28,12 +24,10 @@ export function HeaderMultiLine(props: IHeaderMultiLineProps) {
           <th colSpan={3}>{time}</th>
         </tr>
         <tr>
-          <th style={{ minWidth: `${width}px` }}>{oldIndex.label}</th>
           <th style={{ minWidth: `${width}px` }}>{newIndex.label}</th>
           <th style={{ minWidth: `${width}px` }}>{total.label}</th>
         </tr>
         <tr>
-          <th style={{ minWidth: `${width}px` }}>{oldIndex.orderNumber}</th>
           <th style={{ minWidth: `${width}px` }}>{newIndex.orderNumber}</th>
           <th style={{ minWidth: `${width}px` }}>{total.orderNumber}</th>
         </tr>
