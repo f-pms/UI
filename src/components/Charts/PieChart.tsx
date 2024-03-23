@@ -2,37 +2,29 @@ import { useMemo } from 'react';
 import { TooltipItem } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 
-import { ChartData } from '~/pages/Report/mocks/chartDataset';
+import { StackProps } from '@mui/material';
 
-type PieChartProps = {
-  dataset: ChartData[];
+import { ReportData } from '~/pages/Report/mocks/chartDataset';
+
+import { generateColors } from '~/components/Charts/chartColorsUtil';
+import ChartContainer from '~/components/Charts/ChartContainer';
+
+type PieChartProps = StackProps & {
+  dataset: ReportData;
+  title: string;
 };
 
-const PieChart = ({ dataset }: PieChartProps) => {
+const PieChart = ({ dataset, title, ...props }: PieChartProps) => {
   const data = useMemo(
     () => ({
-      labels: dataset.map((item) => item.year),
-      datasets: [
-        {
-          label: 'Lượng điện tiêu thụ',
-          data: dataset.map((item) => item.consumedElectricity),
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
-            'rgba(255, 206, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(153, 102, 255, 0.2)',
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-          ],
-          borderWidth: 1,
-        },
-      ],
+      labels: dataset.labelStep,
+      datasets: dataset.data.map((item) => ({
+        label: item.label,
+        data: item.dataset,
+        backgroundColor: generateColors(dataset.labelStep.length),
+        borderColor: '#fff',
+        borderWidth: 2,
+      })),
     }),
     [dataset],
   );
@@ -40,16 +32,17 @@ const PieChart = ({ dataset }: PieChartProps) => {
   const options = useMemo(
     () => ({
       plugins: {
-        title: {
-          display: true,
-          text: 'Thống kê tổng lượng điện tiêu thụ của từng công đoạn',
-        },
         datalabels: {
           formatter: (value: number, context: unknown) => {
-            const sum = (context as TooltipItem<'pie'>).dataset.data.reduce(
-              (currentSum, item) => currentSum + item,
-              0,
-            );
+            const { chart, dataset } = context as TooltipItem<'pie'>;
+
+            const sum = dataset.data.reduce((currentSum, item, index) => {
+              if (chart.getDataVisibility(index)) {
+                return currentSum + item;
+              }
+
+              return currentSum;
+            }, 0);
             const percentage = (value / sum) * 100;
             return `${percentage.toFixed(1)}%`;
           },
@@ -63,12 +56,19 @@ const PieChart = ({ dataset }: PieChartProps) => {
             },
           },
         },
+        legend: {
+          position: 'bottom' as const,
+        },
       },
     }),
     [],
   );
 
-  return <Pie data={data} options={options} />;
+  return (
+    <ChartContainer title={title} {...props}>
+      <Pie data={data} options={options} />
+    </ChartContainer>
+  );
 };
 
 export default PieChart;

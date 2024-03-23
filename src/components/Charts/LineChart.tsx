@@ -2,32 +2,29 @@ import { useMemo } from 'react';
 import { TooltipItem } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
-import { ChartData } from '~/pages/Report/mocks/chartDataset';
+import { StackProps } from '@mui/material';
 
-type LineChartProp = {
-  dataset: ChartData[];
+import { ReportData } from '~/pages/Report/mocks/chartDataset';
+
+import { getColorNumber } from '~/components/Charts/chartColorsUtil';
+import ChartContainer from '~/components/Charts/ChartContainer';
+
+type LineChartProp = StackProps & {
+  dataset: ReportData;
+  title: string;
 };
 
-const LineChart = ({ dataset }: LineChartProp) => {
+const LineChart = ({ dataset, title, ...props }: LineChartProp) => {
   const data = useMemo(
     () => ({
-      labels: dataset.map((item) => item.year),
-      datasets: [
-        {
-          label: 'Chỉ số điện chế biến dăm',
-          data: [...dataset.map((item) => item.consumedElectricity), 0],
-          borderColor: 'rgb(255, 99, 132)',
-          backgroundColor: 'rgba(255, 99, 132, 0.5)',
-          yAxisID: 'y',
-        },
-        {
-          label: 'Chỉ số điện thành phẩm',
-          data: [...dataset.map((item) => item.consumedElectricity2), 0],
-          borderColor: 'rgb(53, 162, 235)',
-          backgroundColor: 'rgba(53, 162, 235, 0.5)',
-          yAxisID: 'y',
-        },
-      ],
+      labels: dataset.labelStep,
+      datasets: dataset.data.map((item, index) => ({
+        label: item.label,
+        data: [...item.dataset, 0],
+        backgroundColor: getColorNumber(index + 1),
+        borderColor: getColorNumber(index + 1),
+        borderWidth: 1,
+      })),
     }),
     [dataset],
   );
@@ -43,10 +40,6 @@ const LineChart = ({ dataset }: LineChartProp) => {
         datalabels: {
           formatter: () => ``,
         },
-        title: {
-          display: true,
-          text: 'Thống kê tổng lượng điện tiêu thụ của từng công đoạn',
-        },
         tooltip: {
           callbacks: {
             label: (tooltipItem: TooltipItem<'line'>) => {
@@ -55,6 +48,9 @@ const LineChart = ({ dataset }: LineChartProp) => {
               return `${label}: ${value} GkW`;
             },
           },
+        },
+        legend: {
+          position: 'bottom' as const,
         },
       },
       scales: {
@@ -68,7 +64,11 @@ const LineChart = ({ dataset }: LineChartProp) => {
     [],
   );
 
-  return <Line data={data} options={options} />;
+  return (
+    <ChartContainer title={title} {...props}>
+      <Line data={data} options={options} />
+    </ChartContainer>
+  );
 };
 
 export default LineChart;

@@ -1,42 +1,71 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 
-import { ChartData } from '~/pages/Report/mocks/chartDataset';
+import {
+  Box,
+  FormControlLabel,
+  Radio,
+  RadioGroup,
+  Stack,
+  StackProps,
+  Typography,
+} from '@mui/material';
 
-type BarChartProps = {
+import { ReportComplexBarData } from '~/pages/Report/mocks/chartDataset';
+
+import { getColorNumber } from '~/components/Charts/chartColorsUtil';
+import ChartContainer from '~/components/Charts/ChartContainer';
+
+type BarChartProps = StackProps & {
+  title: string;
+  dataset: ReportComplexBarData[];
   isStacked?: boolean;
-  dataset: ChartData[];
 };
 
-const BarChart = ({ isStacked = false, dataset }: BarChartProps) => {
+const BarChart = ({
+  isStacked = false,
+  dataset,
+  title,
+  ...props
+}: BarChartProps) => {
+  const [reportType, setReportType] = useState(dataset[0].title);
+  const [hiddenLabels, setHiddenLabels] = useState<string[]>([]);
+  const [visibleData, setVisibleData] = useState<ReportComplexBarData>(
+    dataset[0],
+  );
+
+  useEffect(() => {
+    const selectedData = dataset.find((data) => data.title === reportType);
+
+    if (selectedData) {
+      setVisibleData(selectedData);
+      setHiddenLabels([]);
+    }
+  }, [reportType, dataset]);
+
   const data = useMemo(
     () => ({
-      labels: dataset.map((item) => item.year),
-      datasets: [
-        {
-          label: 'Chỉ số điện chế biến dăm',
-          data: dataset.map((item) => item.consumedElectricity),
-          backgroundColor: 'rgb(255, 99, 132)',
-        },
-        {
-          label: 'Chỉ số điện thành phẩm',
-          data: dataset.map((item) => item.consumedElectricity2),
-          backgroundColor: 'rgb(75, 192, 192)',
-        },
-      ],
+      labels: visibleData.labelStep,
+      datasets: visibleData.data.map((item, index) => ({
+        label: item.label,
+        data: item.dataset,
+        backgroundColor: getColorNumber(index + 1),
+        hidden: hiddenLabels.includes(item.label),
+      })),
     }),
-    [dataset],
+    [hiddenLabels, visibleData.labelStep, visibleData.data],
   );
 
   const options = useMemo(
     () => ({
       plugins: {
-        title: {
-          display: true,
-          text: `Thống kê tổng lượng điện tiêu thụ của từng công đoạn}`,
+        datalabels: {
+          formatter: () => ``,
+        },
+        legend: {
+          display: false,
         },
       },
-      responsive: true,
       scales: {
         x: {
           stacked: isStacked,
@@ -45,11 +74,117 @@ const BarChart = ({ isStacked = false, dataset }: BarChartProps) => {
           stacked: isStacked,
         },
       },
+      animation: false as const,
     }),
     [isStacked],
   );
 
-  return <Bar data={data} options={options} />;
+  const handleChangeType = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setReportType(event.target.value as string);
+  };
+
+  const insertHiddenLabel = (label: string) => {
+    setHiddenLabels([...hiddenLabels, label]);
+  };
+
+  const removeHiddenLabel = (label: string) => {
+    setHiddenLabels((prevValue) => {
+      const newHiddenLabels = [...prevValue];
+      const removedIndex = newHiddenLabels.indexOf(label);
+
+      if (removedIndex >= 0) newHiddenLabels.splice(removedIndex, 1);
+
+      return newHiddenLabels;
+    });
+  };
+
+  const handleLegendClick = (type: string) => {
+    if (hiddenLabels.includes(type)) {
+      removeHiddenLabel(type);
+    } else {
+      insertHiddenLabel(type);
+    }
+  };
+
+  return (
+    <ChartContainer height={'auto'} title={title} {...props}>
+      <Stack direction='row'>
+        <Box width={1000}>
+          <Bar data={data} options={options} />
+        </Box>
+        <Stack alignItems={'center'} spacing={5} width={380}>
+          <Stack marginInline='auto' width={250}>
+            <Typography
+              color='text.strong'
+              sx={{ fontWeight: 'bold' }}
+              variant='subtitle2'
+            >
+              Công đoạn sản xuất
+            </Typography>
+            <RadioGroup
+              aria-labelledby='demo-controlled-radio-buttons-group'
+              name='controlled-radio-buttons-group'
+              value={reportType}
+              onChange={handleChangeType}
+            >
+              {dataset.map((data) => (
+                <FormControlLabel
+                  key={data.id}
+                  control={<Radio />}
+                  label={<Typography variant='body2'>{data.title}</Typography>}
+                  sx={{
+                    width: 'fit-content',
+                  }}
+                  value={data.title}
+                />
+              ))}
+            </RadioGroup>
+          </Stack>
+          <Stack gap={1} marginInline='auto' width={250}>
+            <Typography
+              color='text.strong'
+              marginBottom={1}
+              sx={{ fontWeight: 'bold' }}
+              variant='subtitle2'
+            >
+              Thiết bị điện
+            </Typography>
+            {visibleData.data.map(({ label }, index) => (
+              <Stack
+                key={label}
+                alignItems={'flex-st1art'}
+                direction='row'
+                gap={1}
+                sx={{
+                  cursor: 'pointer',
+                }}
+                onClick={() => handleLegendClick(label)}
+              >
+                <Box
+                  sx={{
+                    background: getColorNumber(index + 1),
+                    height: 15,
+                    width: 55,
+                  }}
+                />
+                <Typography
+                  sx={{
+                    textDecoration: hiddenLabels.includes(label)
+                      ? 'line-through'
+                      : '',
+                  }}
+                  variant='body2'
+                  width={180}
+                >
+                  {label}
+                </Typography>
+              </Stack>
+            ))}
+          </Stack>
+        </Stack>
+      </Stack>
+    </ChartContainer>
+  );
 };
 
 export default BarChart;
