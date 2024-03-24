@@ -29,6 +29,8 @@ export enum Path {
   REPORT = '/report',
   STATISTIC_REPORT = '/report/statistic',
   HISTORICAL_REPORT = '/report/history',
+  HISTORICAL_REPORT_DETAILS = '/report/history/:reportId',
+  HISTORICAL_REPORT_STATISTIC = '/report/history/:reportId/statistic',
 
   // Errors
   NOT_FOUND = '/not-found',
@@ -56,6 +58,8 @@ export const PATH_LABEL: Record<Path, string> = {
   [Path.ALARM_HISTORY]: 'Lịch sử',
   [Path.ALARM_CONFIG]: 'Cấu hình',
   [Path.REPORT]: 'Báo cáo',
-  [Path.STATISTIC_REPORT]: 'Thống kê',
-  [Path.HISTORICAL_REPORT]: 'Lịch sử',
+  [Path.STATISTIC_REPORT]: 'Báo cáo thống kê',
+  [Path.HISTORICAL_REPORT]: 'Lịch sử báo cáo',
+  [Path.HISTORICAL_REPORT_DETAILS]: 'Chi tiết báo cáo',
+  [Path.HISTORICAL_REPORT_STATISTIC]: 'Thống kê',
 };

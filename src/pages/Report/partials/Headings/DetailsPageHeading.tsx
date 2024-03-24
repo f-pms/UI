@@ -10,7 +10,10 @@ import { REPORT_TYPE_LABELS } from '~/pages/Report/helpers/constants';
 import { SHIFT_NAVIGATION_OPTIONS } from '~/pages/Report/helpers/shiftOption';
 
 import { SectionHeading } from '~/components';
-import { InsertChartOutlinedIcon } from '~/components/Icons';
+import {
+  FileDownloadOutlinedIcon,
+  InsertChartOutlinedIcon,
+} from '~/components/Icons';
 
 export interface IDetailsPageHeadingProps {
   report?: ReportDetails;
@@ -31,12 +34,15 @@ export function DetailsPageHeading({ report }: IDetailsPageHeadingProps) {
           justifyContent='space-between'
           spacing={2}
         >
+          <Button startIcon={<FileDownloadOutlinedIcon />} variant='outlined'>
+            Tải báo cáo
+          </Button>
           <Button
             startIcon={<InsertChartOutlinedIcon />}
             variant='contained'
             onClick={() => navigate('statistic')}
           >
-            Xem báo cáo thống kê
+            Xem thống kê
           </Button>
         </Stack>
       }
@@ -48,7 +54,7 @@ export function DetailsPageHeading({ report }: IDetailsPageHeadingProps) {
         { locale: vi },
       )}`}
       divider={false}
-      header='Báo cáo chi tiết chỉ số điện sản xuất'
+      header='Báo cáo chi tiết chỉ số điện cụm sản xuất'
     />
   );
 }

@@ -21,7 +21,8 @@ export type HistoricalReport = {
 };
 
 export type HistoricalReportPagination = {
-  total: number;
+  pageTotal: number;
+  recordTotal: number;
   content: HistoricalReport[];
 };
 

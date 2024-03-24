@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
+import { TooltipItem } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
 import {
   Box,
   FormControlLabel,
+  Grid,
   Radio,
   RadioGroup,
   Stack,
@@ -16,18 +18,22 @@ import { ReportComplexBarData } from '~/pages/Report/mocks/chartDataset';
 import { getColorNumber } from '~/components/Charts/chartColorsUtil';
 import ChartContainer from '~/components/Charts/ChartContainer';
 
-type BarChartProps = StackProps & {
+import { formatNumber } from './../../utils/formatNumber';
+
+type GroupBarChartProps = StackProps & {
   title: string;
   dataset: ReportComplexBarData[];
   isStacked?: boolean;
+  legendTitle: string;
 };
 
-const BarChart = ({
+export const GroupBarChart = ({
   isStacked = false,
   dataset,
   title,
+  legendTitle,
   ...props
-}: BarChartProps) => {
+}: GroupBarChartProps) => {
   const [reportType, setReportType] = useState(dataset[0].title);
   const [hiddenLabels, setHiddenLabels] = useState<string[]>([]);
   const [visibleData, setVisibleData] = useState<ReportComplexBarData>(
@@ -65,6 +71,15 @@ const BarChart = ({
         legend: {
           display: false,
         },
+        tooltip: {
+          callbacks: {
+            label: (tooltipItem: TooltipItem<'bar'>) => {
+              const label = tooltipItem.dataset.label;
+              const value = tooltipItem.parsed.y;
+              return `${label}: ${formatNumber(value, 6)} KWh`;
+            },
+          },
+        },
       },
       scales: {
         x: {
@@ -74,7 +89,6 @@ const BarChart = ({
           stacked: isStacked,
         },
       },
-      animation: false as const,
     }),
     [isStacked],
   );
@@ -108,16 +122,16 @@ const BarChart = ({
 
   return (
     <ChartContainer height={'auto'} title={title} {...props}>
-      <Stack direction='row'>
-        <Box width={1000}>
+      <Grid container columnSpacing={5} justifyContent='center'>
+        <Grid item xs={9}>
           <Bar data={data} options={options} />
-        </Box>
-        <Stack alignItems={'center'} spacing={5} width={380}>
-          <Stack marginInline='auto' width={250}>
+        </Grid>
+        <Grid item xs={3}>
+          <Stack>
             <Typography
               color='text.strong'
               sx={{ fontWeight: 'bold' }}
-              variant='subtitle2'
+              variant='body2'
             >
               Công đoạn sản xuất
             </Typography>
@@ -140,14 +154,14 @@ const BarChart = ({
               ))}
             </RadioGroup>
           </Stack>
-          <Stack gap={1} marginInline='auto' width={250}>
+          <Stack gap={1} mt={2}>
             <Typography
               color='text.strong'
               marginBottom={1}
               sx={{ fontWeight: 'bold' }}
-              variant='subtitle2'
+              variant='body2'
             >
-              Thiết bị điện
+              {legendTitle}
             </Typography>
             {visibleData.data.map(({ label }, index) => (
               <Stack
@@ -181,10 +195,8 @@ const BarChart = ({
               </Stack>
             ))}
           </Stack>
-        </Stack>
-      </Stack>
+        </Grid>
+      </Grid>
     </ChartContainer>
   );
 };
-
-export default BarChart;

@@ -24,6 +24,10 @@ export function SideBar(props: ISideBarProps) {
         '.ps-sidebar-container::-webkit-scrollbar': {
           width: '0',
         },
+        '.ps-submenu-content': {
+          width: 'fit-content',
+          minWidth: '200px',
+        },
       }}
       toggled={broken ? toggled : false}
       onBackdropClick={() => setToggled(false)}

@@ -71,7 +71,7 @@ export function HistoricalReportTable(props: IHistoricalReportTableProps) {
     getRowId: (row) => row.id.toString(),
     enableColumnPinning: false,
     manualPagination: true,
-    rowCount: historicalReports?.total ?? 0,
+    rowCount: historicalReports?.recordTotal,
     onPaginationChange: setPagination,
     state: { pagination },
     renderTopToolbarCustomActions: ({ table }) => {
@@ -111,7 +111,7 @@ export function HistoricalReportTable(props: IHistoricalReportTableProps) {
               size='small'
               startIcon={<FileDownloadOutlinedIcon />}
             >
-              {`${100} báo cáo`}
+              {`${historicalReports?.recordTotal ?? 0} báo cáo`}
             </SoftButton>
           </Stack>
         </Stack>

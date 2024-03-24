@@ -24,10 +24,10 @@ import {
 } from '~/pages/Report/helpers/statisticReportForm';
 
 import CustomSingleDatePicker from '~/components/DatePicker';
+import { SearchOutlinedIcon } from '~/components/Icons';
 
 const StyledFilterBox = styled(Stack)(() => ({
   height: 'min-content',
-  padding: `1rem`,
 }));
 
 const StyledSelect = styled(Select)(() => ({
@@ -174,9 +174,13 @@ const StatisticReportFilter = () => {
   };
 
   return (
-    <Box marginBottom={4} marginLeft={-1.5} textAlign='center'>
-      <StyledFilterBox flexDirection='row' gap={1.5} justifyContent='center'>
-        <Stack direction='row'>
+    <Box marginBottom={4} textAlign='center'>
+      <StyledFilterBox
+        alignItems='center'
+        flexDirection='row'
+        justifyContent='center'
+      >
+        <Stack alignItems='center' direction='row'>
           <FormControl>
             <Controller
               control={control}
@@ -204,7 +208,7 @@ const StatisticReportFilter = () => {
           </FormControl>
         </Stack>
 
-        <Stack direction='row'>
+        <Stack alignItems='center' direction='row'>
           <FormControl>
             <Controller
               control={control}
@@ -240,13 +244,14 @@ const StatisticReportFilter = () => {
                   {...field}
                   InputProps={{
                     endAdornment: (
-                      <Typography paddingInlineStart={1}>
+                      <Typography paddingInlineStart={1} variant='body2'>
                         {getStepPostFix()}
                       </Typography>
                     ),
                   }}
                   error={!!errors.stepField}
                   helperText={errors.stepField?.message}
+                  size='small'
                   sx={{
                     width: 230,
                   }}
@@ -257,20 +262,16 @@ const StatisticReportFilter = () => {
           </FormControl>
         </Stack>
 
-        <Stack direction='row'>
-          <Button
-            color='primary'
-            sx={{
-              padding: (theme) => theme.spacing(0, 4.5),
-              marginLeft: 4,
-              maxHeight: 50,
-            }}
-            variant='contained'
-            onClick={handleSubmit(onSubmit)}
-          >
-            Xem kết quả
-          </Button>
-        </Stack>
+        <Button
+          color='primary'
+          size='small'
+          startIcon={<SearchOutlinedIcon />}
+          sx={{ ml: 2 }}
+          variant='contained'
+          onClick={handleSubmit(onSubmit)}
+        >
+          Xem kết quả
+        </Button>
       </StyledFilterBox>
       {isValid && (
         <Typography variant='body2'>

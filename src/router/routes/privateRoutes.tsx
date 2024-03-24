@@ -22,8 +22,8 @@ import MonitoringPage, {
 import {
   HistoricalReportDetailsPage,
   HistoricalReportListPage,
-  HistoricalReportStatisticsPage,
   ReportPageWrapper,
+  StatisticReportDetailsPage,
   StatisticReportPage,
 } from '~/pages/Report';
 import { UserListPage, UserProfilePage } from '~/pages/Users';
@@ -99,8 +99,8 @@ export const privateRoutes: (PrivateRouteObject & RouteObject)[] = [
         element: <HistoricalReportDetailsPage />,
       },
       {
-        path: 'history/:reportTypeId/statistic',
-        element: <HistoricalReportStatisticsPage />,
+        path: 'history/:reportId/statistic',
+        element: <StatisticReportDetailsPage />,
       },
       {
         path: 'statistic',

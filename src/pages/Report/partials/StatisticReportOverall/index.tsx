@@ -10,7 +10,7 @@ const StyledContainer = styled(Grid)(({ theme }) => ({
   boxShadow: '0px 4px 4px 0px #00000040',
   border: '1px solid #00000033',
   width: '100%',
-  padding: theme.spacing(3.5, 0),
+  padding: theme.spacing(3, 0),
 }));
 
 type StyledGridItemProps = StackProps & {
@@ -20,8 +20,8 @@ type StyledGridItemProps = StackProps & {
 const StyledGridItem = styled(Stack, {
   shouldForwardProp: (prop) => prop !== 'displayBorder',
 })<StyledGridItemProps>(({ theme, displayBorder }) => ({
-  padding: theme.spacing(1.2),
-  borderRight: displayBorder ? '2px solid #00000033' : 'none',
+  padding: theme.spacing(1),
+  borderRight: displayBorder ? '1px solid #0000001f' : 'none',
 }));
 
 const StatisticReportOverall = () => {
