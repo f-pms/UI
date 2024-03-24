@@ -22,8 +22,10 @@ export interface IHistoricalReportDetailsPageProps {}
 export function HistoricalReportDetailsPage() {
   const { reportId } = useParams();
   const [searchParams] = useSearchParams();
-  const shift = searchParams.get('shift');
-  const { data, isPending } = useQueryReportDetailsById(reportId ?? '');
+  const shift = (searchParams.get('shift') as Shift) ?? Shift.ALL_DAY;
+  const { data, isPending } = useQueryReportDetailsById(reportId ?? '', {
+    enabled: !!reportId,
+  });
 
   const content = useMemo(() => {
     if (!data) {
