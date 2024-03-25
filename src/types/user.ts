@@ -3,3 +3,7 @@ export interface User {
   name: string;
   role: string;
 }
+
+export type LoginResponse = {
+  token: string;
+};

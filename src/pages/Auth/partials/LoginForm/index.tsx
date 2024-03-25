@@ -1,10 +1,18 @@
 import { useContext } from 'react';
+import { Controller, useForm } from 'react-hook-form';
+
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import { Path } from '~/constants';
 
 import { AuthContext } from '~/pages/Auth/context/AuthContext';
+import {
+  defaultUserFormData,
+  UserFormData,
+  userValidationSchema,
+} from '~/pages/Auth/helpers/loginForm';
 
-import { Checkbox, RouteLink, TextField } from '~/components';
+import { Checkbox, InputWithLabel, RouteLink, TextField } from '~/components';
 import { LockOutlinedIcon } from '~/components/Icons';
 import {
   Avatar,
@@ -23,9 +31,19 @@ interface ILoginFormProps {
 export function LoginForm(props: ILoginFormProps) {
   const { onCallbackUrl } = props;
   const { login, register } = useContext(AuthContext);
-
-  const handleSubmitUser = () => {
-    login();
+  const {
+    handleSubmit,
+    formState: { errors, isValid },
+    control,
+    watch,
+    getValues,
+    trigger,
+  } = useForm<UserFormData>({
+    defaultValues: defaultUserFormData,
+    resolver: yupResolver(userValidationSchema),
+  });
+  const handleSubmitUser = (formData: UserFormData) => {
+    login(formData);
     onCallbackUrl(Path.HOME);
   };
   const handleSubmitAdmin = () => {
@@ -50,36 +68,42 @@ export function LoginForm(props: ILoginFormProps) {
           Sign in
         </Typography>
         <Box component='form' sx={{ mt: 1 }}>
-          <TextField
+          <InputWithLabel
             autoFocus
             fullWidth
-            required
-            autoComplete='email'
-            id='email'
-            label='Email Address'
-            margin='normal'
-            name='email'
+            control={control}
+            error={errors.username}
+            name='username'
+            placeholder='Tên đăng nhập'
+            type='text'
           />
-          <TextField
+          <InputWithLabel
+            autoFocus
             fullWidth
-            required
-            autoComplete='current-password'
-            id='password'
-            label='Password'
-            margin='normal'
+            control={control}
+            error={errors.password}
             name='password'
+            placeholder='Mật khẩu'
             type='password'
           />
           <FormControlLabel
-            control={<Checkbox color='primary' name={''} value='remember' />}
-            label='Remember me'
+            control={
+              <Controller
+                control={control}
+                name='remember'
+                render={({ field }) => (
+                  <Checkbox {...field} value={watch('remember')} />
+                )}
+              />
+            }
+            label={'Ghi nhớ tên đăng nhập'}
           />
           <Button
             fullWidth
             sx={{ mt: 3, mb: 2 }}
             type='button'
             variant='contained'
-            onClick={handleSubmitUser}
+            onClick={handleSubmit(handleSubmitUser)}
           >
             Sign In as User
           </Button>
