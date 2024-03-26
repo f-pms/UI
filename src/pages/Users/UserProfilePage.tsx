@@ -34,7 +34,7 @@ export function UserProfilePage() {
     id: 0,
     fullName: 'Bui Ngoc Huy',
     username: 'buingochuy123',
-    password: 'buingochuy123',
+    password: '***',
     email: 'huybui@fpt.edu.vn',
     role: Role.ADMIN,
   };
