@@ -6,7 +6,6 @@ export const USERS: User[] = [
     fullName: 'Bui Ngoc Huy',
     email: 'huy@fpt.edu.vn',
     username: 'huybui123',
-    password: '***',
     role: Role.ADMIN,
   },
   {
@@ -14,7 +13,6 @@ export const USERS: User[] = [
     fullName: 'Tran Trung Kien',
     email: 'kien@fpt.edu.vn',
     username: 'kien123',
-    password: '***',
     role: Role.USER,
   },
 ];
