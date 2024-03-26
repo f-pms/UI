@@ -67,9 +67,9 @@ export function PasswordTextField() {
   }, [validateErrors]);
 
   useEffect(() => {
-    if (!watchPassword.length) {
-      setPassword(watchPassword);
-      setConfirmPassword(watchPassword);
+    if (!watchPassword?.length) {
+      setPassword(watchPassword ?? '');
+      setConfirmPassword(watchPassword ?? '');
     }
   }, [watchPassword]);
 
