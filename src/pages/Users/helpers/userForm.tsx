@@ -5,12 +5,18 @@ import { Role, User } from '~/types';
 export interface UserDTO extends Omit<User, 'id'> {}
 
 export const userSchema: ObjectSchema<UserDTO> = object({
-  name: string()
+  fullName: string()
     .min(2, 'Tên tối thiểu có 2 kí tự')
     .max(50, 'Tên tối đa có 50 kí tự')
     .required('Tên không được để trống'),
-  username: string().required('Tên đăng nhập không được để trống'),
-  password: string().required('Mật khẩu không được để trống'),
+  username: string()
+    .min(2, 'Tên đăng nhập tối thiểu có 2 kí tự')
+    .max(16, 'Tên đăng nhập tối đa có 16 kí tự')
+    .required('Tên đăng nhập không được để trống'),
+  password: string()
+    .min(8, 'Mật khẩu không hợp lệ')
+    .max(16, 'Mật khẩu không hợp lệ')
+    .required('Mật khẩu không được để trống'),
   email: string()
     .email('Email không hợp lệ')
     .max(320, 'Email tối đa có 320 kí tự')
@@ -21,7 +27,7 @@ export const userSchema: ObjectSchema<UserDTO> = object({
 });
 
 export const defaultUser: UserDTO = {
-  name: '',
+  fullName: '',
   username: '',
   password: '',
   email: '',

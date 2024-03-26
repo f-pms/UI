@@ -26,6 +26,7 @@ export interface InputWithLabelProps<T extends FieldValues>
   description?: string;
   styled?: SxProps;
   error?: FieldError;
+  clearErrors?: (name?: FieldPath<T>) => void;
 }
 
 export function InputWithLabel<T extends FieldValues>(
@@ -40,6 +41,7 @@ export function InputWithLabel<T extends FieldValues>(
     styled,
     error,
     type,
+    clearErrors,
     ...rest
   } = props;
 
@@ -70,6 +72,10 @@ export function InputWithLabel<T extends FieldValues>(
               size='small'
               sx={{ fontSize: '14px' }}
               type={type}
+              onChange={(e) => {
+                clearErrors?.(name);
+                field.onChange(e.target.value);
+              }}
             />
           )}
         />

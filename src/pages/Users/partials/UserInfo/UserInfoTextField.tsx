@@ -35,6 +35,7 @@ export function UserInfoTextField(props: IUserInfoTextFieldProps) {
       ...prev,
       [key]: true,
     }));
+    setError(undefined);
   };
 
   const handleSave = async (key: keyof UserDTO) => {
@@ -51,6 +52,7 @@ export function UserInfoTextField(props: IUserInfoTextFieldProps) {
   };
 
   const handleCancel = (key: keyof UserDTO) => {
+    setValue(getValues(name));
     setIsEdit((prev) => ({
       ...prev,
       [key]: false,

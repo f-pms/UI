@@ -94,11 +94,13 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
       .required()
       .oneOf(Object.values(AlarmSeverity)),
     checkInterval: number()
+      .typeError('Chu kì kiểm tra không được phép để trống')
       .required('Chu kì kiểm tra không được phép bỏ trống')
       .positive('Chu kì kiểm tra phải là số nguyên dương')
       .integer('Chu kì kiểm tra phải là số nguyên dương')
       .max(3600, 'Chu kì kiểm tra không được lớn hơn 3600 giây'),
     timeDelay: number()
+      .typeError('Độ trễ không được phép để trống')
       .required('Độ trễ không được phép để trống')
       .positive('Độ trễ phải là số nguyên dương')
       .integer('Độ trễ phải là số nguyên dương')

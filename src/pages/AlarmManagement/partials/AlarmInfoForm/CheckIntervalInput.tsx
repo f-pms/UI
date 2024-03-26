@@ -11,10 +11,12 @@ export function CheckIntervalInput() {
   const {
     control,
     formState: { errors },
+    clearErrors,
   } = useFormContext<AlarmFormData>();
 
   return (
     <InputWithLabel
+      clearErrors={clearErrors}
       control={control}
       defaultValue={1}
       description=' Số nguyên dương, đơn vị: giây'

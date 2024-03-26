@@ -43,6 +43,9 @@ export function UserPasswordField(props: IUserPasswordFieldProps) {
       ...prev,
       [key]: true,
     }));
+    setCurrentPassword('');
+    setPassword('');
+    setConfirmPassword('');
   };
 
   const handleSave = async () => {

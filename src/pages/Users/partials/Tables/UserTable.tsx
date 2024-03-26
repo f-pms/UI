@@ -44,7 +44,7 @@ export function UserTable() {
   const columns: MRT_ColumnDef<User>[] = useMemo(
     () => [
       {
-        accessorKey: 'name',
+        accessorKey: 'fullName',
         header: 'Họ và tên',
       },
       {
