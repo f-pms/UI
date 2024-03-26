@@ -27,7 +27,7 @@ export interface IUserInfoTextFieldProps {
 export function UserInfoTextField(props: IUserInfoTextFieldProps) {
   const { isEdit, setIsEdit, name, label, disableEdit = false } = props;
   const { getValues, setValue: setValueForm } = useFormContext<UserDTO>();
-  const [value, setValue] = useState<string>(() => getValues(name));
+  const [value, setValue] = useState<string>(() => getValues(name) ?? '');
   const [error, setError] = useState<FieldError>();
 
   const handleEdit = (key: keyof UserDTO) => {
@@ -52,7 +52,7 @@ export function UserInfoTextField(props: IUserInfoTextFieldProps) {
   };
 
   const handleCancel = (key: keyof UserDTO) => {
-    setValue(getValues(name));
+    setValue(getValues(name) ?? '');
     setIsEdit((prev) => ({
       ...prev,
       [key]: false,
