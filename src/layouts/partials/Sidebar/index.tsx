@@ -25,8 +25,8 @@ export function SideBar(props: ISideBarProps) {
           width: '0',
         },
         '.ps-submenu-content': {
-          width: 'fit-content',
-          minWidth: '200px',
+          width: collapsed ? 'fit-content' : 'inherit',
+          minWidth: collapsed ? '200px' : 'inherit',
         },
       }}
       toggled={broken ? toggled : false}

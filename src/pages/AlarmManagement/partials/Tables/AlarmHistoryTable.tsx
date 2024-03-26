@@ -8,6 +8,7 @@ import {
   useMaterialReactTable,
 } from 'material-react-table';
 
+import { Typography } from '@mui/material';
 import { Stack } from '@mui/system';
 
 import { AlarmHistory } from '~/types';
@@ -16,6 +17,7 @@ import AlarmHistoryDetailsDialog from '~/pages/AlarmManagement/partials/Dialogs/
 import { SeverityCell } from '~/pages/AlarmManagement/partials/Tables/SeverityCell';
 import TypeCell from '~/pages/AlarmManagement/partials/Tables/TypeCell';
 
+import { SoftChip } from '~/components';
 import { getDefaultMRTOptions } from '~/components/Table';
 
 export interface IAlarmHistoryTableProps {
@@ -112,6 +114,20 @@ export function AlarmHistoryTable(props: IAlarmHistoryTableProps) {
       return (
         <Stack alignItems='center' justifyContent='center'>
           <AlarmHistoryDetailsDialog alarmHistory={row.row.original} />
+        </Stack>
+      );
+    },
+    renderTopToolbarCustomActions: () => {
+      return (
+        <Stack alignItems='center' direction='row' spacing={1}>
+          <Typography fontWeight='bold' variant='body2'>
+            Tất cả:
+          </Typography>
+          <SoftChip
+            label={`${solvedAlarms.length} cảnh báo`}
+            shape='square'
+            size='small'
+          />
         </Stack>
       );
     },

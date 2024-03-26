@@ -14,6 +14,7 @@ export function SoftChip(props: ISoftChipProps) {
 
   return (
     <Chip
+      component='div'
       sx={(theme) => ({
         minWidth: props.label ? 'unset' : '36px',
         minHeight: props.label ? 'unset' : '36px',

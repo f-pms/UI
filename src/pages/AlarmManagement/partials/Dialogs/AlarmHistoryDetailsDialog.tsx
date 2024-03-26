@@ -25,7 +25,7 @@ import {
 } from '~/types';
 
 import { SoftChip } from '~/components';
-import { RemoveRedEyeOutlinedIcon } from '~/components/Icons';
+import { ContentPasteSearchOutlinedIcon } from '~/components/Icons';
 import { List } from '~/components/MuiComponents';
 
 export interface IAlarmHistoryDetailsDialogProps {
@@ -67,7 +67,7 @@ export default function AlarmHistoryDetailsDialog(
     <>
       <Tooltip placement='top' title='Xem chi tiết'>
         <IconButton size='small' onClick={() => setOpen(true)}>
-          <RemoveRedEyeOutlinedIcon sx={{ fontSize: '20px' }} />
+          <ContentPasteSearchOutlinedIcon sx={{ fontSize: '20px' }} />
         </IconButton>
       </Tooltip>
       <Dialog maxWidth='md' open={open} onClose={() => setOpen(false)}>

@@ -1,4 +1,4 @@
-import { Role } from '~/constants/role';
+import { Role } from '~/types';
 
 export type AccessTokenDecoded = {
   sub: string;
