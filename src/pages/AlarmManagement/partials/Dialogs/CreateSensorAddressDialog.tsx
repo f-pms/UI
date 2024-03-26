@@ -108,13 +108,14 @@ export function CreateSensorAddressDialog(
       <DialogContent>
         <Typography variant='body2'>
           Địa chỉ mới sẽ tự động cập nhật vào danh sách chọn{' '}
-          <b>&quot;Địa chỉ biến&quot;</b>. Bạn có thể chọn địa chỉ biến này và
-          tiếp tục cấu hình cảnh báo.
+          <b>&quot;Địa chỉ biến&quot;</b>, bạn có thể chọn địa chỉ biến này và
+          tiếp tục cấu hình cảnh báo. <br />
+          Địa chỉ biến được định nghĩa theo mẫu:{' '}
+          <b>%DB&#123;dbblock&#125;:&#123;offset&#125;:&#123;dataType&#125;</b>
         </Typography>
         <Box sx={{ mt: 2 }}>
           <InputWithLabel
             control={control}
-            description='Địa chỉ biến được định nghĩa theo mẫu %DB{dbblock}:{offset}:{dataType}'
             error={errors.address}
             label='Địa chỉ biến'
             name='address'
@@ -140,18 +141,22 @@ export function CreateSensorAddressDialog(
           />
         </Stack>
       </DialogContent>
-      <DialogActions sx={{ px: 3, pb: 2 }}>
-        <Button
-          color='inherit'
-          size='small'
-          variant='outlined'
-          onClick={handleClose}
+      <DialogActions
+        sx={{ px: 3, pb: 2, borderTop: 1, borderColor: 'divider' }}
+      >
+        <Stack
+          alignItems='center'
+          direction='row'
+          justifyContent='space-between'
+          sx={{ width: '100%' }}
         >
-          Đóng
-        </Button>
-        <Button autoFocus size='small' type='submit' variant='contained'>
-          Thêm địa chỉ
-        </Button>
+          <Button color='inherit' variant='outlined' onClick={handleClose}>
+            Đóng
+          </Button>
+          <Button autoFocus type='submit' variant='contained'>
+            Thêm địa chỉ
+          </Button>
+        </Stack>
       </DialogActions>
     </Dialog>
   );

@@ -6,6 +6,8 @@ import {
   useMaterialReactTable,
 } from 'material-react-table';
 
+import { Stack, Typography } from '@mui/material';
+
 import { Alarm } from '~/types';
 
 import { ConfirmDeleteAlarmDialog } from '~/pages/AlarmManagement/partials/Dialogs/ConfirmDeleteAlarmDialog';
@@ -14,6 +16,7 @@ import UpdateAlarmDialog from '~/pages/AlarmManagement/partials/Dialogs/UpdateAl
 import { SeverityCell } from '~/pages/AlarmManagement/partials/Tables/SeverityCell';
 import TypeCell from '~/pages/AlarmManagement/partials/Tables/TypeCell';
 
+import { SoftChip } from '~/components';
 import { getDefaultMRTOptions } from '~/components/Table';
 
 export interface IAlarmConfigTableProps {
@@ -105,27 +108,6 @@ export function AlarmConfigTable(props: IAlarmConfigTableProps) {
         },
       },
     },
-    // renderTopToolbarCustomActions: () => {
-    //   return (
-    //     <div>
-    //       <Tooltip title='Lọc theo tên'>
-    //         <Button
-    //           color='zinc'
-    //           size='small'
-    //           startIcon={<AddCircleOutlineOutlinedIcon />}
-    //           sx={{ borderStyle: 'dashed' }}
-    //           variant='outlined'
-    //         >
-    //           <Stack direction='row' spacing={1}>
-    //             <Typography variant='caption'>Tên</Typography>
-    //             <Divider flexItem orientation='vertical' />
-    //             <Typography variant='caption'>Huy</Typography>
-    //           </Stack>
-    //         </Button>
-    //       </Tooltip>
-    //     </div>
-    //   );
-    // },
     renderRowActionMenuItems: ({ row, closeMenu }) => [
       <UpdateAlarmDialog
         key='update'
@@ -143,6 +125,20 @@ export function AlarmConfigTable(props: IAlarmConfigTableProps) {
         closeMenu={closeMenu}
       />,
     ],
+    renderTopToolbarCustomActions: () => {
+      return (
+        <Stack alignItems='center' direction='row' spacing={1}>
+          <Typography fontWeight='bold' variant='body2'>
+            Tất cả:
+          </Typography>
+          <SoftChip
+            label={`${alarmConditions.length} cấu hình cảnh báo`}
+            shape='square'
+            size='small'
+          />
+        </Stack>
+      );
+    },
   });
 
   return <MaterialReactTable table={table} />;

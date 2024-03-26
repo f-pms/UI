@@ -1,10 +1,9 @@
 import {
   FormControl,
   FormHelperText,
-  OutlinedInput,
-  OutlinedInputProps,
+  OutlinedInput as MuiOutlinedInput,
+  OutlinedInputProps as MuiOutlinedInputProps,
   SxProps,
-  Typography,
 } from '~/libs/mui';
 import {
   Control,
@@ -16,34 +15,23 @@ import {
   UseControllerProps,
 } from '~/libs/react-hook-form';
 
-export interface InputWithLabelProps<T extends FieldValues>
-  extends Omit<OutlinedInputProps, 'defaultValue' | 'name' | 'label' | 'error'>,
+export interface OutlinedInputProps<T extends FieldValues>
+  extends Omit<
+      MuiOutlinedInputProps,
+      'defaultValue' | 'name' | 'label' | 'error'
+    >,
     Omit<UseControllerProps, 'defaultValue' | 'name' | 'control'> {
   defaultValue?: FieldPathValue<T, FieldPath<T>>;
   name: FieldPath<T>;
   control?: Control<T>; // The React Hook Form control object, if using React Hook Form
-  label?: string;
-  description?: string;
   styled?: SxProps;
   error?: FieldError;
-  clearErrors?: (name?: FieldPath<T>) => void;
 }
 
-export function InputWithLabel<T extends FieldValues>(
-  props: InputWithLabelProps<T>,
+export function OutlinedInput<T extends FieldValues>(
+  props: OutlinedInputProps<T>,
 ) {
-  const {
-    name,
-    control,
-    defaultValue,
-    label,
-    description,
-    styled,
-    error,
-    type,
-    clearErrors,
-    ...rest
-  } = props;
+  const { name, control, defaultValue, styled, error, type, ...rest } = props;
 
   const controllerProps = {
     control,
@@ -54,33 +42,21 @@ export function InputWithLabel<T extends FieldValues>(
 
   return (
     <FormControl sx={{ width: '100%', ...styled }} variant='outlined'>
-      <Typography
-        color='text.strong'
-        sx={{ fontWeight: 'bold' }}
-        variant='subtitle2'
-      >
-        {label}
-      </Typography>
-      <Typography variant='body2'>{description}</Typography>
       {control ? (
         <Controller<T>
           {...controllerProps}
           render={({ field }) => (
-            <OutlinedInput
+            <MuiOutlinedInput
               {...field}
               {...rest}
               size='small'
               sx={{ fontSize: '14px' }}
               type={type}
-              onChange={(e) => {
-                clearErrors?.(name);
-                field.onChange(e.target.value);
-              }}
             />
           )}
         />
       ) : (
-        <OutlinedInput
+        <MuiOutlinedInput
           defaultValue={defaultValue}
           name={name}
           size='small'

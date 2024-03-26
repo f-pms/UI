@@ -41,4 +41,14 @@ export const getDefaultMRTOptions = <TData extends MRT_RowData>(): Partial<
     selectedCountOfRowCountRowsSelected:
       '{selectedCount}/{rowCount} hàng được chọn',
   },
+  muiTopToolbarProps: {
+    sx: {
+      '& > .MuiBox-root': {
+        pl: 2,
+        alignItems: 'center',
+        height: '100%',
+        width: '100%',
+      },
+    },
+  },
 });

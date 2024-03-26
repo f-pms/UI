@@ -32,6 +32,7 @@ export function AddNotiMethod() {
     getValues,
     watch,
     formState: { errors },
+    clearErrors,
   } = useFormContext<AlarmFormData>();
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -53,6 +54,7 @@ export function AddNotiMethod() {
       { id: 0, type: value, recipients: [] },
     ]);
     setAnchorEl(null);
+    clearErrors('noti.actions');
   };
 
   const handleRemoveAction = (value: AlarmActionType) => {

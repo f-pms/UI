@@ -43,6 +43,7 @@ interface IAutocompleteProps<
   control?: Control<T>;
   options: Value[];
   renderInput: (params: AutocompleteRenderInputParams) => ReactNode;
+  clearErrors?: (name?: FieldPath<T>) => void;
 }
 
 export function Autocomplete<
@@ -62,8 +63,15 @@ export function Autocomplete<
     ChipComponent
   >,
 ) {
-  const { name, control, defaultValue, rules, shouldUnregister, ...rest } =
-    props;
+  const {
+    name,
+    control,
+    defaultValue,
+    rules,
+    shouldUnregister,
+    clearErrors,
+    ...rest
+  } = props;
 
   // Set up props for the Controller component if control is provided
   const controllerProps = {
@@ -89,6 +97,7 @@ export function Autocomplete<
             onChange={(_, data) => {
               props.onChange?.(_, data, 'selectOption', undefined);
               field.onChange(data);
+              clearErrors?.(name);
             }}
           />
         )}

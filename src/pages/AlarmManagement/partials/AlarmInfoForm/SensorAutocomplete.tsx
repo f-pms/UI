@@ -18,6 +18,7 @@ export function SensorAutoComplete() {
     control,
     getValues,
     formState: { errors },
+    clearErrors,
   } = useFormContext<AlarmFormData>();
   const [open, setOpen] = useState(false);
   const isUpdated = getValues('isUpdate');
@@ -54,6 +55,7 @@ export function SensorAutoComplete() {
           />
         ) : (
           <Autocomplete
+            clearErrors={clearErrors}
             control={control}
             defaultChecked={true}
             defaultValue={sensorConfigs?.[0]}
