@@ -5,4 +5,5 @@ export type AccessTokenDecoded = {
   name: string;
   iat: number;
   role: Role;
+  userId: string;
 };

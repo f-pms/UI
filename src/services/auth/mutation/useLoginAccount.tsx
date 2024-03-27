@@ -9,7 +9,7 @@ export type UserDTO = {
 };
 
 const loginAccount = async (user: UserDTO) => {
-  return (await axiosClient.put(`auth/login`, user)).data as LoginResponse;
+  return (await axiosClient.post(`auth/login`, user)).data as LoginResponse;
 };
 
 export const useLoginAccount = (

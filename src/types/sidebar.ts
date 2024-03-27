@@ -1,10 +1,11 @@
 import { ReactNode } from 'react';
 
-import { Path } from '~/constants';
+import { Path, Role } from '~/constants';
 
 export type SidebarItem = {
   name: string;
   path: Path;
   icon?: ReactNode;
   children?: SidebarItem[];
+  requiredRoles?: Role[];
 };

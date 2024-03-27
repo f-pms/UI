@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { Path, PATH_LABEL } from '~/constants';
 import { useLocation } from '~/libs/react-router-dom';
 
+import { AuthContext } from '~/pages/Auth/context/AuthContext';
 import { BlueprintsContext } from '~/pages/ProductionManagement/context/BlueprintContext';
 
 import { SectionHeading } from '~/components';
@@ -21,6 +22,7 @@ export interface IPageHeadingProps {
 export default function PageHeading({ scrollToDiagram }: IPageHeadingProps) {
   const location = useLocation();
   const { isEditMode, updateIsEditMode } = useContext(BlueprintsContext);
+  const { isAdmin } = useContext(AuthContext);
 
   const handleTurnOnEditMode = useCallback(() => {
     updateIsEditMode(true);
@@ -38,24 +40,29 @@ export default function PageHeading({ scrollToDiagram }: IPageHeadingProps) {
       <SectionHeading
         actions={
           <Box display='flex' justifyContent='space-between'>
-            {isEditMode ? (
-              <Button
-                color='secondary'
-                startIcon={<CancelIcon />}
-                variant='contained'
-                onClick={() => updateIsEditMode(false)}
-              >
-                Tắt chế độ thiết lập
-              </Button>
-            ) : (
-              <Button
-                startIcon={<SettingsIcon />}
-                variant='contained'
-                onClick={handleTurnOnEditMode}
-              >
-                Bật chế độ thiết lập
-              </Button>
+            {isAdmin && (
+              <>
+                {isEditMode ? (
+                  <Button
+                    color='secondary'
+                    startIcon={<CancelIcon />}
+                    variant='contained'
+                    onClick={() => updateIsEditMode(false)}
+                  >
+                    Tắt chế độ thiết lập
+                  </Button>
+                ) : (
+                  <Button
+                    startIcon={<SettingsIcon />}
+                    variant='contained'
+                    onClick={handleTurnOnEditMode}
+                  >
+                    Bật chế độ thiết lập
+                  </Button>
+                )}
+              </>
             )}
+
             <Button
               startIcon={<CenterFocusStrongOutlinedIcon />}
               sx={{ marginX: 2 }}

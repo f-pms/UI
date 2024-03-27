@@ -1,7 +1,8 @@
-import { useContext } from 'react';
-import { Controller, useForm } from 'react-hook-form';
+import { useContext, useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Stack } from '@mui/material';
 
 import { Path } from '~/constants';
 
@@ -12,14 +13,11 @@ import {
   userValidationSchema,
 } from '~/pages/Auth/helpers/loginForm';
 
-import { Checkbox, InputWithLabel, RouteLink, TextField } from '~/components';
-import { LockOutlinedIcon } from '~/components/Icons';
+import { InputWithLabel } from '~/components';
 import {
-  Avatar,
   Box,
   Button,
   Container,
-  FormControlLabel,
   Grid,
   Typography,
 } from '~/components/MuiComponents';
@@ -30,104 +28,127 @@ interface ILoginFormProps {
 
 export function LoginForm(props: ILoginFormProps) {
   const { onCallbackUrl } = props;
-  const { login, register } = useContext(AuthContext);
+  const { login, isError, user } = useContext(AuthContext);
+  const [errorState, setErrorState] = useState(false);
+
   const {
     handleSubmit,
-    formState: { errors, isValid },
+    formState: { errors },
     control,
     watch,
-    getValues,
-    trigger,
   } = useForm<UserFormData>({
     defaultValues: defaultUserFormData,
     resolver: yupResolver(userValidationSchema),
   });
+
   const handleSubmitUser = (formData: UserFormData) => {
     login(formData);
-    onCallbackUrl(Path.HOME);
-  };
-  const handleSubmitAdmin = () => {
-    register();
-    onCallbackUrl(Path.HOME);
+    onCallbackUrl(Path.PRODUCTION_MONITORING);
   };
 
+  useEffect(() => {
+    setErrorState(isError);
+  }, [isError]);
+
+  const watchedUsername = watch('username');
+  const watchedPassword = watch('password');
+
+  useEffect(() => {
+    setErrorState(false);
+  }, [watchedUsername, watchedPassword]);
+
+  useEffect(() => {
+    if (user) {
+      onCallbackUrl(Path.PRODUCTION_MONITORING);
+    }
+  }, [user, onCallbackUrl]);
+
   return (
-    <Container component='main' maxWidth='xs'>
-      <Box
-        sx={{
-          marginTop: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component='h1' variant='h5'>
-          Sign in
-        </Typography>
-        <Box component='form' sx={{ mt: 1 }}>
-          <InputWithLabel
-            autoFocus
-            fullWidth
-            control={control}
-            error={errors.username}
-            name='username'
-            placeholder='Tên đăng nhập'
-            type='text'
+    <Container
+      component='main'
+      maxWidth='xl'
+      sx={{
+        height: '100vh !important',
+        display: 'flex',
+        overflow: 'hidden',
+      }}
+    >
+      <Grid container alignItems='center' justifyContent='space-between'>
+        <Grid item xs={7}>
+          <Box
+            alt='login background'
+            component='img'
+            src={'/login_background.png'}
+            sx={{
+              width: '100%',
+            }}
           />
-          <InputWithLabel
-            autoFocus
-            fullWidth
-            control={control}
-            error={errors.password}
-            name='password'
-            placeholder='Mật khẩu'
-            type='password'
-          />
-          <FormControlLabel
-            control={
-              <Controller
-                control={control}
-                name='remember'
-                render={({ field }) => (
-                  <Checkbox {...field} value={watch('remember')} />
-                )}
-              />
-            }
-            label={'Ghi nhớ tên đăng nhập'}
-          />
-          <Button
-            fullWidth
-            sx={{ mt: 3, mb: 2 }}
-            type='button'
-            variant='contained'
-            onClick={handleSubmit(handleSubmitUser)}
+        </Grid>
+        <Grid item lg={5} md={4}>
+          <Box
+            sx={{
+              marginTop: 8,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              width: '100% !important',
+            }}
           >
-            Sign In as User
-          </Button>
-          <Button
-            fullWidth
-            sx={{ mt: 3, mb: 2 }}
-            type='button'
-            variant='contained'
-            onClick={handleSubmitAdmin}
-          >
-            Sign In as Admin
-          </Button>
-          <Grid container>
-            <Grid item xs>
-              <RouteLink to={Path.SIGN_IN}>Forgot password?</RouteLink>
-            </Grid>
-            <Grid item>
-              <RouteLink to={Path.SIGN_UP}>
-                {"Don't have an account? Sign Up"}
-              </RouteLink>
-            </Grid>
-          </Grid>
-        </Box>
-      </Box>
+            <Typography
+              color={'black'}
+              marginBottom={6}
+              sx={{
+                fontWeight: 600,
+              }}
+              variant='h3'
+            >
+              Đăng nhập
+            </Typography>
+            <Box component='form' sx={{ mt: 1 }} width={400}>
+              <Stack gap={2}>
+                <InputWithLabel
+                  autoFocus
+                  fullWidth
+                  control={control}
+                  error={errors.username}
+                  name='username'
+                  placeholder='Tên đăng nhập'
+                  size='medium'
+                  type='text'
+                />
+                <InputWithLabel
+                  fullWidth
+                  control={control}
+                  error={errors.password}
+                  name='password'
+                  placeholder='Mật khẩu'
+                  size='medium'
+                  type='password'
+                />
+              </Stack>
+
+              {errorState && (
+                <Typography
+                  color={'error'}
+                  sx={{ marginBlock: 1.5 }}
+                  textAlign={'center'}
+                >
+                  Đăng nhập thất bại
+                </Typography>
+              )}
+              <Button
+                fullWidth
+                sx={{ mt: 3, mb: 2, paddingBlock: 1.5 }}
+                type='button'
+                variant='contained'
+                onClick={handleSubmit(handleSubmitUser)}
+              >
+                Đăng nhập
+              </Button>
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
     </Container>
   );
 }
