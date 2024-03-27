@@ -1,10 +1,11 @@
 import { Dispatch, useContext, useMemo } from 'react';
 
-import { Path, Role } from '~/constants';
+import { Path } from '~/constants';
 import { SETTING_ITEMS } from '~/layouts/partials/Header/helpers/settingItems';
 import { ThemeCustomization } from '~/layouts/partials/Header/ThemeCustomization';
 import { UserSettingItem } from '~/layouts/partials/Header/UserSettingItem';
 import { useNavigate } from '~/libs/react-router-dom';
+import { Role } from '~/types';
 
 import { AuthContext } from '~/pages/Auth/context/AuthContext';
 
@@ -66,7 +67,7 @@ export function UserSettingMenu(props: IUserSettingMenuProps) {
         <Stack alignItems='center' direction='row' spacing={1}>
           <Avatar>H</Avatar>
           <Box sx={{ ml: 6 }}>
-            <Typography variant='body1'>{user?.name}</Typography>
+            <Typography variant='body1'>{user?.fullName}</Typography>
             <Typography variant='caption'>{translateUserRole}</Typography>
           </Box>
         </Stack>

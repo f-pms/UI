@@ -165,16 +165,6 @@ export function HistoricalReportTable(props: IHistoricalReportTableProps) {
         },
       },
     },
-    muiTopToolbarProps: {
-      sx: {
-        '& > .MuiBox-root': {
-          pl: 2,
-          alignItems: 'center',
-          height: '100%',
-          width: '100%',
-        },
-      },
-    },
   });
   return (
     <Box style={{ flex: 5 }} sx={{ ml: 5 }}>

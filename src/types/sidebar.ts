@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
-import { Path, Role } from '~/constants';
+import { Path } from '~/constants';
+import { Role } from '~/types/user';
 
 export type SidebarItem = {
   name: string;

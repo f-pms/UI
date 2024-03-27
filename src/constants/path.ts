@@ -14,8 +14,10 @@ export enum Path {
   COMPONENTS_CALENDAR = '/components/calendar',
   COMPONENTS_CHART = '/components/chart',
   COMPONENTS_TABLE = '/components/table',
-  USER_LIST = '/user-list',
-  USER_PROFILE = '/user-profile',
+
+  // Users
+  USER_LIST = '/users',
+  USER_PROFILE = '/users/:userId',
 
   // Production
   PRODUCTION = '/production',
@@ -50,13 +52,13 @@ export const PATH_LABEL: Record<Path, string> = {
   [Path.COMPONENTS_CHART]: 'Chart',
   [Path.NOT_FOUND]: 'Not Found',
   [Path.FORBIDDEN]: 'Forbidden',
-  [Path.USER_LIST]: 'User List',
-  [Path.USER_PROFILE]: 'User Profile',
+  [Path.USER_LIST]: 'Quản lý người dùng',
+  [Path.USER_PROFILE]: 'Thông tin người dùng',
   [Path.PRODUCTION]: 'Quản lý sản xuất',
   [Path.PRODUCTION_MONITORING]: 'Giám Sát',
   [Path.ALARM]: 'Cảnh báo',
-  [Path.ALARM_HISTORY]: 'Lịch sử',
-  [Path.ALARM_CONFIG]: 'Cấu hình',
+  [Path.ALARM_HISTORY]: 'Lịch sử cảnh báo',
+  [Path.ALARM_CONFIG]: 'Cấu hình cảnh báo',
   [Path.REPORT]: 'Báo cáo',
   [Path.STATISTIC_REPORT]: 'Báo cáo thống kê',
   [Path.HISTORICAL_REPORT]: 'Lịch sử báo cáo',

@@ -1,12 +1,11 @@
 import { useContext } from 'react';
 
-import { Role } from '~/constants';
 import { useSoftColor } from '~/hooks';
 import { SIDEBAR_ITEMS } from '~/layouts/partials/Sidebar/helpers/items';
 import { useTheme } from '~/libs/mui';
 import { Menu, MenuItem, SubMenu } from '~/libs/react-pro-sidebar';
 import { Link, useLocation } from '~/libs/react-router-dom';
-import { SidebarItem } from '~/types';
+import { Role, SidebarItem } from '~/types';
 
 import { AuthContext } from '~/pages/Auth/context/AuthContext';
 

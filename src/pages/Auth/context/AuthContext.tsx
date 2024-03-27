@@ -7,17 +7,16 @@ import {
   useState,
 } from 'react';
 import { jwtDecode } from 'jwt-decode';
-import { useNavigate } from 'react-router-dom';
 
-import { Role } from '~/constants';
 import {
   useLoginAccount,
   UserDTO,
 } from '~/services/auth/mutation/useloginAccount';
-import { AccessTokenDecoded, User } from '~/types';
+import { AccessTokenDecoded, Role, User } from '~/types';
 import { storage } from '~/utils';
 
 import { UserFormData } from '~/pages/Auth/helpers/loginForm';
+import { USERS } from '~/pages/Users/mocks/users';
 
 export interface IAuthProviderProps {
   children: ReactNode;
@@ -48,9 +47,10 @@ export function AuthProvider({ children }: IAuthProviderProps) {
   const convertToUser = (userDecoded: AccessTokenDecoded) => {
     return {
       id: userDecoded.userId,
-      name: userDecoded.sub,
+      fullName: userDecoded.sub,
       role: userDecoded.role,
-    };
+      email: userDecoded.email,
+    } as User;
   };
 
   useEffect(() => {
@@ -68,7 +68,6 @@ export function AuthProvider({ children }: IAuthProviderProps) {
 
     storage.set('TOKEN', data.token);
     const userDecoded: AccessTokenDecoded = jwtDecode(data?.token ?? '');
-
     const currentUser = convertToUser(userDecoded);
     setUser(currentUser);
   }, [isSuccess, data]);
@@ -95,7 +94,7 @@ export function AuthProvider({ children }: IAuthProviderProps) {
   );
 
   const register = () => {
-    const fakeUser: User = { id: '001', name: 'John Doe', role: 'ADMIN' };
+    const fakeUser: User = USERS[0];
     storage.set(
       'TOKEN',
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJyb2xlIjoiQURNSU4ifQ._F60tRV98OYI8752zrPs66Tdhbfee_wUGsfb4kXt7qo',

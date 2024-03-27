@@ -1,8 +1,7 @@
 import { Path } from '~/constants/path';
-import { Role } from '~/constants/role';
 import { jwtDecode } from '~/libs/jwt-decode';
 import { redirect } from '~/libs/react-router-dom';
-import { AccessTokenDecoded } from '~/types';
+import { AccessTokenDecoded, Role } from '~/types';
 import { storage } from '~/utils';
 
 // This function is used to check if the user is authorized to access a private route
@@ -32,8 +31,8 @@ export const publicRouteLoader = (isRestricted = false) => {
   // If the token exists and the route is restricted, redirect the user to the appropriate page based on their role
   if (token && isRestricted) {
     const user: AccessTokenDecoded = jwtDecode(token);
-    if (user.role === Role.ADMIN) return redirect(Path.DASHBOARD);
-    if (user.role === Role.USER) return redirect(Path.HOME);
+    if (user.role === Role.ADMIN) return redirect(Path.PRODUCTION_MONITORING);
+    if (user.role === Role.USER) return redirect(Path.PRODUCTION_MONITORING);
   }
 
   // If the user is authorized, return null

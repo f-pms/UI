@@ -1,8 +1,14 @@
-import { Role } from '~/constants';
+export enum Role {
+  USER = 'SUPERVISOR',
+  ADMIN = 'ADMIN',
+}
 
 export interface User {
-  id: string;
-  name: string;
+  id: number;
+  fullName: string;
+  username: string;
+  password?: string;
+  email: string;
   role: Role;
 }
 

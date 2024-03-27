@@ -25,7 +25,7 @@ import {
 } from '~/types';
 
 import { SoftChip } from '~/components';
-import { RemoveRedEyeOutlinedIcon } from '~/components/Icons';
+import { ContentPasteSearchOutlinedIcon } from '~/components/Icons';
 import { List } from '~/components/MuiComponents';
 
 export interface IAlarmHistoryDetailsDialogProps {
@@ -67,7 +67,7 @@ export default function AlarmHistoryDetailsDialog(
     <>
       <Tooltip placement='top' title='Xem chi tiết'>
         <IconButton size='small' onClick={() => setOpen(true)}>
-          <RemoveRedEyeOutlinedIcon sx={{ fontSize: '20px' }} />
+          <ContentPasteSearchOutlinedIcon sx={{ fontSize: '20px' }} />
         </IconButton>
       </Tooltip>
       <Dialog maxWidth='md' open={open} onClose={() => setOpen(false)}>
@@ -109,7 +109,7 @@ export default function AlarmHistoryDetailsDialog(
             </Typography>
             <Box
               sx={(theme) => ({
-                '& > div:nth-of-type(odd)': {
+                '& > div:last-child': {
                   background: theme.palette.grey[100],
                 },
               })}
@@ -128,6 +128,7 @@ export default function AlarmHistoryDetailsDialog(
                   })}
                 </Typography>
               </Stack>
+              <Divider />
               <Stack alignItems='flex-start' direction='row' sx={{ p: 2 }}>
                 <Typography
                   fontWeight='bold'
@@ -299,19 +300,6 @@ export default function AlarmHistoryDetailsDialog(
                   <Typography variant='body2'>{getConditionText()}</Typography>
                 </Stack>
               )}
-              {/* 
-              <Stack alignItems='flex-start' direction='row' sx={{ p: 2 }}>
-                <Typography
-                  fontWeight='bold'
-                  sx={{ width: '240px' }}
-                  variant='body2'
-                >
-                  Nội dung cảnh báo
-                </Typography>
-                <Typography variant='body2'>
-                  {getValues('noti.message')}
-                </Typography>
-              </Stack> */}
               <Stack alignItems='flex-start' direction='row' sx={{ p: 2 }}>
                 <Typography
                   fontWeight='bold'

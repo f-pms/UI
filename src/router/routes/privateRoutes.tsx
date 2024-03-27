@@ -1,7 +1,7 @@
-import { Path, Role } from '~/constants';
+import { Path } from '~/constants';
 import { DefaultLayout } from '~/layouts';
 import { RouteObject } from '~/libs/react-router-dom';
-import { PrivateRouteObject } from '~/types';
+import { PrivateRouteObject, Role } from '~/types';
 
 import {
   AlarmConfigPage,
@@ -84,7 +84,7 @@ export const privateRoutes: (PrivateRouteObject & RouteObject)[] = [
     path: Path.ALARM,
     element: <AlarmManagementLayout />,
     layout: <DefaultLayout />,
-    roles: [Role.USER],
+    roles: [Role.ADMIN],
     children: [
       {
         path: 'config',
@@ -127,6 +127,12 @@ export const privateRoutes: (PrivateRouteObject & RouteObject)[] = [
     element: <UserListPage />,
     roles: [Role.ADMIN],
     layout: <DefaultLayout />,
+    children: [
+      {
+        path: ':userId',
+        element: <UserProfilePage />,
+      },
+    ],
   },
   {
     path: Path.USER_PROFILE,
