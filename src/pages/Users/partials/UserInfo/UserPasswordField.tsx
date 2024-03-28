@@ -43,6 +43,9 @@ export function UserPasswordField(props: IUserPasswordFieldProps) {
       ...prev,
       [key]: true,
     }));
+    setCurrentPassword('');
+    setPassword('');
+    setConfirmPassword('');
   };
 
   const handleSave = async () => {
@@ -155,7 +158,7 @@ export function UserPasswordField(props: IUserPasswordFieldProps) {
         </Stack>
       ) : (
         <Typography style={{ flex: 1 }} variant='body2'>
-          {getValues('password').replace(/./g, '*')}
+          {getValues('password')?.replace(/./g, '*')}
         </Typography>
       )}
 

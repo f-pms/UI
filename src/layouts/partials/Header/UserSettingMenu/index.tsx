@@ -1,10 +1,11 @@
-import { Dispatch, useContext } from 'react';
+import { Dispatch, useContext, useMemo } from 'react';
 
 import { Path } from '~/constants';
 import { SETTING_ITEMS } from '~/layouts/partials/Header/helpers/settingItems';
 import { ThemeCustomization } from '~/layouts/partials/Header/ThemeCustomization';
 import { UserSettingItem } from '~/layouts/partials/Header/UserSettingItem';
 import { useNavigate } from '~/libs/react-router-dom';
+import { Role } from '~/types';
 
 import { AuthContext } from '~/pages/Auth/context/AuthContext';
 
@@ -26,12 +27,19 @@ export interface IUserSettingMenuProps {
 export function UserSettingMenu(props: IUserSettingMenuProps) {
   const { anchorElUser, setAnchorElUser } = props;
   const navigate = useNavigate();
-  const { logout } = useContext(AuthContext);
+  const { logout, user } = useContext(AuthContext);
 
   const handleCloseUserMenu = (path: string) => {
     setAnchorElUser(null);
     if (path) navigate(path);
   };
+
+  const translateUserRole = useMemo(() => {
+    if (user?.role === Role.ADMIN) {
+      return 'Quản lý';
+    }
+    return 'Giám sát viên';
+  }, [user?.role]);
 
   return (
     <Menu
@@ -59,8 +67,8 @@ export function UserSettingMenu(props: IUserSettingMenuProps) {
         <Stack alignItems='center' direction='row' spacing={1}>
           <Avatar>H</Avatar>
           <Box sx={{ ml: 6 }}>
-            <Typography variant='body1'>Bùi Ngọc Huy</Typography>
-            <Typography variant='caption'>Quản lý</Typography>
+            <Typography variant='body1'>{user?.fullName}</Typography>
+            <Typography variant='caption'>{translateUserRole}</Typography>
           </Box>
         </Stack>
         <SoftButton color={'primary'}>

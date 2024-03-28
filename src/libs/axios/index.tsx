@@ -1,16 +1,21 @@
 import axios from 'axios';
 
-import { storage } from '~/utils';
-
-const accessToken = storage.get('ACCESS_TOKEN');
 const baseURL = import.meta.env.VITE_API_URL as string;
 
 const axiosClient = axios.create({
   baseURL: baseURL,
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${accessToken}`,
   },
+});
+
+axiosClient.interceptors.request.use(async (config) => {
+  const token = localStorage.getItem('TOKEN');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+
+  return config;
 });
 
 axiosClient.interceptors.response.use(

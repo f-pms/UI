@@ -78,6 +78,14 @@ export const privateRoutes: (PrivateRouteObject & RouteObject)[] = [
         path: 'history',
         element: <AlarmHistoryPage />,
       },
+    ],
+  },
+  {
+    path: Path.ALARM,
+    element: <AlarmManagementLayout />,
+    layout: <DefaultLayout />,
+    roles: [Role.ADMIN],
+    children: [
       {
         path: 'config',
         element: <AlarmConfigPage />,

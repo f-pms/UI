@@ -17,6 +17,7 @@ export default function ActionMessage() {
     formState: { errors },
     setError,
     watch,
+    clearErrors,
   } = useFormContext<AlarmFormData>();
   const isUpdate = getValues('isUpdate');
   const { refetch } = useQueryAlarmConditions();
@@ -48,6 +49,7 @@ export default function ActionMessage() {
   return (
     <InputWithLabel
       multiline
+      clearErrors={clearErrors}
       control={control}
       endAdornment={
         isUpdate && (

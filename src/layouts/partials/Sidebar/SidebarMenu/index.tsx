@@ -1,8 +1,13 @@
+import { useContext } from 'react';
+
 import { useSoftColor } from '~/hooks';
 import { SIDEBAR_ITEMS } from '~/layouts/partials/Sidebar/helpers/items';
 import { useTheme } from '~/libs/mui';
 import { Menu, MenuItem, SubMenu } from '~/libs/react-pro-sidebar';
 import { Link, useLocation } from '~/libs/react-router-dom';
+import { Role, SidebarItem } from '~/types';
+
+import { AuthContext } from '~/pages/Auth/context/AuthContext';
 
 export interface ISidebarMenuProps {
   collapsed: boolean;
@@ -12,6 +17,15 @@ export default function SidebarMenu({ collapsed }: ISidebarMenuProps) {
   const theme = useTheme();
   const location = useLocation();
   const { bgrColor, bgrHoverColor } = useSoftColor('primary');
+  const { user } = useContext(AuthContext);
+
+  const validateSidebarItem = (item: SidebarItem) => {
+    if (item.requiredRoles) {
+      return item.requiredRoles?.includes(user?.role ?? Role.USER);
+    }
+
+    return true;
+  };
 
   return (
     <Menu
@@ -49,27 +63,39 @@ export default function SidebarMenu({ collapsed }: ISidebarMenuProps) {
       }}
     >
       {SIDEBAR_ITEMS.map((item) => {
-        return item.children ? (
-          <SubMenu
-            key={item.path}
-            active={location.pathname.startsWith(item.path)}
-            icon={item.icon}
-            label={item.name}
-          >
-            {item.children.map((child) => {
-              return (
-                <MenuItem
-                  key={child.path}
-                  active={location.pathname == child.path}
-                  component={<Link to={child.path} />}
-                  icon={child.icon}
-                >
-                  {child.name}
-                </MenuItem>
-              );
-            })}
-          </SubMenu>
-        ) : (
+        if (item.children) {
+          return (
+            <SubMenu
+              key={item.path}
+              active={location.pathname.startsWith(item.path)}
+              icon={item.icon}
+              label={item.name}
+            >
+              {item.children.map((child) => {
+                if (!validateSidebarItem(child)) {
+                  return;
+                }
+
+                return (
+                  <MenuItem
+                    key={child.path}
+                    active={location.pathname == child.path}
+                    component={<Link to={child.path} />}
+                    icon={child.icon}
+                  >
+                    {child.name}
+                  </MenuItem>
+                );
+              })}
+            </SubMenu>
+          );
+        }
+
+        if (!validateSidebarItem(item)) {
+          return;
+        }
+
+        return (
           <MenuItem
             key={item.path}
             active={location.pathname == item.path}

@@ -17,13 +17,14 @@ import { ConfirmDeleteUserDialog } from '~/pages/Users/partials/Dialogs/ConfirmD
 import { UserProfilePageHeading } from '~/pages/Users/partials/Headings/UserProfilePageHeading';
 import { UserInfoTextField } from '~/pages/Users/partials/UserInfo/UserInfoTextField';
 import { UserPasswordField } from '~/pages/Users/partials/UserInfo/UserPasswordField';
-import { UserRoleSelect } from '~/pages/Users/partials/UserInfo/UserRoleSelect';
+
+import { SoftChip } from '~/components';
 
 export interface IUserProfilePageProps {}
 
 export function UserProfilePage() {
   const [isEdit, setIsEdit] = useState<{ [Key in keyof UserDTO]: boolean }>({
-    name: false,
+    fullName: false,
     email: false,
     role: false,
     username: false,
@@ -31,15 +32,15 @@ export function UserProfilePage() {
   });
   const user: User = {
     id: 0,
-    name: 'Bui Ngoc Huy',
+    fullName: 'Bui Ngoc Huy',
     username: 'buingochuy123',
-    password: 'buingochuy123',
+    password: '',
     email: 'huybui@fpt.edu.vn',
     role: Role.ADMIN,
   };
   const methods = useForm<UserDTO>({
     defaultValues: {
-      name: user.name,
+      fullName: user.fullName,
       username: user.username,
       password: user.password,
       email: user.email,
@@ -73,7 +74,7 @@ export function UserProfilePage() {
           <UserInfoTextField
             isEdit={isEdit}
             label='Họ và tên'
-            name='name'
+            name='fullName'
             setIsEdit={setIsEdit}
           />
           <Divider />
@@ -84,7 +85,25 @@ export function UserProfilePage() {
             setIsEdit={setIsEdit}
           />
           <Divider />
-          <UserRoleSelect />
+          <Stack
+            alignItems='center'
+            direction='row'
+            px={2}
+            py={2}
+            spacing={2}
+            width='100%'
+          >
+            <Typography variant='body2' width={240}>
+              Vai trò
+            </Typography>
+            <Box style={{ flex: 1 }}>
+              <SoftChip
+                label={methods.getValues('role')}
+                shape='square'
+                size='small'
+              />
+            </Box>
+          </Stack>
           <Box mt={2}>
             <Typography
               color='text.strong'
