@@ -99,6 +99,12 @@ const StatisticReportFilter = () => {
       default:
         break;
     }
+    if (selectedDateType === DateTypes.START_DATE) {
+      fixedDate.setDate(fixedDate.getDate() - 1);
+    } else {
+      fixedDate.setDate(fixedDate.getDate() + 1);
+    }
+
     return fixedDate;
   }, [watch]);
 
@@ -249,8 +255,6 @@ const StatisticReportFilter = () => {
                       </Typography>
                     ),
                   }}
-                  error={!!errors.stepField}
-                  helperText={errors.stepField?.message}
                   size='small'
                   sx={{
                     width: 230,
@@ -281,9 +285,14 @@ const StatisticReportFilter = () => {
         </Typography>
       )}
       {!isValid && (
-        <Typography color='error' variant='body2'>
-          {errors.fixedDate?.message}
-        </Typography>
+        <>
+          <Typography color='error' variant='body2'>
+            {errors.stepField?.message}
+          </Typography>
+          <Typography color='error' variant='body2'>
+            {errors.fixedDate?.message}
+          </Typography>
+        </>
       )}
     </Box>
   );
