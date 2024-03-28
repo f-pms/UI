@@ -81,14 +81,6 @@ export function AuthProvider({ children }: IAuthProviderProps) {
       };
 
       loginAccount(userDTO);
-
-      // const fakeUser: User = { id: '001', name: 'John Doe', role: 'USER' };
-
-      // storage.set(
-      //   'TOKEN',
-      //   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJyb2xlIjoiVVNFUiIsImlkIjoiMDAxIn0.W8vbB7ySChWTt1ZWzqWLLPWsv7t0RO6jroI8WPUtI6k',
-      // );
-      // setUser(fakeUser);
     },
     [loginAccount],
   );
