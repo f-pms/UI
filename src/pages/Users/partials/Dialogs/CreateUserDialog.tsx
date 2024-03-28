@@ -1,5 +1,6 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
@@ -8,28 +9,21 @@ import {
   DialogActions,
   DialogContent,
   DialogTitle,
-  ListItemIcon,
-  ListItemText,
-  MenuItem,
   Stack,
   Typography,
 } from '@mui/material';
 
-import {
-  defaultUser,
-  UserDTO,
-  userSchema,
-} from '~/pages/Users/helpers/userForm';
+import { useCreateUser, UserDTO } from '~/services/user/mutation/useCreateUser';
+
+import { defaultUser, userSchema } from '~/pages/Users/helpers/userForm';
 import { UserForm } from '~/pages/Users/partials/UserForm';
 
 import { AddCircleOutlineOutlinedIcon } from '~/components/Icons';
 
-export interface ICreateUserDialogProps {
-  closeMenu: () => void;
-}
+export interface ICreateUserDialogProps {}
 
-export function CreateUserDialog(props: ICreateUserDialogProps) {
-  const { closeMenu } = props;
+export function CreateUserDialog() {
+  const { mutate: createUser, isSuccess: isCreateSuccess } = useCreateUser();
   const [open, setOpen] = useState(false);
   const methods = useForm<UserDTO>({
     mode: 'onBlur',
@@ -44,7 +38,6 @@ export function CreateUserDialog(props: ICreateUserDialogProps) {
 
   const handleCloseDialog = () => {
     setOpen(false);
-    closeMenu();
     handleReset();
   };
 
@@ -56,19 +49,28 @@ export function CreateUserDialog(props: ICreateUserDialogProps) {
     event.preventDefault();
     methods.trigger().then((isValid) => {
       if (isValid) {
-        console.warn(methods.getValues());
+        createUser({ ...methods.getValues() });
       }
     });
   };
 
+  useEffect(() => {
+    if (isCreateSuccess) {
+      toast.success('Tạo người dùng mới thành công');
+      handleCloseDialog();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isCreateSuccess]);
+
   return (
     <>
-      <MenuItem key='edit' onClick={handleOpenDialog}>
-        <ListItemIcon>
-          <AddCircleOutlineOutlinedIcon sx={{ fontSize: 20 }} />
-        </ListItemIcon>
-        <ListItemText>Thêm người dùng</ListItemText>
-      </MenuItem>
+      <Button
+        startIcon={<AddCircleOutlineOutlinedIcon />}
+        variant='contained'
+        onClick={handleOpenDialog}
+      >
+        Thêm người dùng
+      </Button>
 
       <FormProvider {...methods}>
         <Dialog

@@ -12,7 +12,7 @@ import {
   Typography,
 } from '@mui/material';
 
-import { useQueryReportTypes } from '~/services/report/useQueryReportTypes';
+import { useQueryReportTypes } from '~/services/report/queries/useQueryReportTypes';
 import { ReportType } from '~/types';
 
 import { REPORT_TYPE_LABELS } from '~/pages/Report/helpers/constants';

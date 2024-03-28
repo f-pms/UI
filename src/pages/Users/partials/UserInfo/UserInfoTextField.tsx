@@ -10,7 +10,9 @@ import {
   Typography,
 } from '@mui/material';
 
-import { UserDTO, userSchema } from '~/pages/Users/helpers/userForm';
+import { UserDTO } from '~/services/user/mutation/useCreateUser';
+
+import { userSchema } from '~/pages/Users/helpers/userForm';
 
 import { EditOutlinedIcon } from '~/components/Icons';
 

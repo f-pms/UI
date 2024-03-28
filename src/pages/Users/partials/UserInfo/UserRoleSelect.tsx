@@ -2,7 +2,7 @@ import { useFormContext } from 'react-hook-form';
 
 import { Box, Stack, Typography } from '@mui/material';
 
-import { UserDTO } from '~/pages/Users/helpers/userForm';
+import { UserDTO } from '~/services/user/mutation/useCreateUser';
 
 import { SoftChip } from '~/components';
 

@@ -10,20 +10,13 @@ import { User } from '~/types';
 
 import { USERS } from '~/pages/Users/mocks/users';
 import { ConfirmDeleteUserDialog } from '~/pages/Users/partials/Dialogs/ConfirmDeleteUserDialog';
-import { CreateUserDialog } from '~/pages/Users/partials/Dialogs/CreateUserDialog';
 
-import { SoftChip } from '~/components';
+import { SoftButton, SoftChip } from '~/components';
 import {
   ContentPasteSearchOutlinedIcon,
   DeleteOutlineOutlinedIcon,
 } from '~/components/Icons';
-import {
-  ListItemIcon,
-  ListItemText,
-  MenuItem,
-  Stack,
-  Typography,
-} from '~/components/MuiComponents';
+import { Stack, Typography } from '~/components/MuiComponents';
 import { getDefaultMRTOptions } from '~/components/Table';
 
 const defaultMRTOptions = getDefaultMRTOptions<User>();
@@ -36,9 +29,8 @@ export function UserTable() {
     pageSize: 10,
   });
 
-  const handleViewDetail = (user: User, closeMenu: () => void) => {
+  const handleViewDetail = (user: User) => {
     navigate(`/users/${user.id}`);
-    closeMenu();
   };
 
   const columns: MRT_ColumnDef<User>[] = useMemo(
@@ -68,9 +60,10 @@ export function UserTable() {
     initialState: {
       ...defaultMRTOptions.initialState,
     },
-    positionActionsColumn: 'first',
+    positionActionsColumn: 'last',
     columns,
     data: USERS,
+    enableRowNumbers: true,
     enableRowActions: true,
     getRowId: (row) => row.id.toString(),
     onPaginationChange: setPagination, //hoist pagination state to your state when it changes internally
@@ -86,26 +79,37 @@ export function UserTable() {
         size: 0,
       },
     },
-    renderRowActionMenuItems: ({ row, closeMenu }) => [
-      <MenuItem
-        key='edit'
-        onClick={() => handleViewDetail(row.original, closeMenu)}
-      >
-        <ListItemIcon>
-          <ContentPasteSearchOutlinedIcon sx={{ fontSize: 20 }} />
-        </ListItemIcon>
-        <ListItemText>Thông tin chi tiết</ListItemText>
-      </MenuItem>,
-      <CreateUserDialog key='create' closeMenu={closeMenu} />,
-      <ConfirmDeleteUserDialog key='delete' closeMenu={closeMenu}>
-        <MenuItem key='delete'>
-          <ListItemIcon>
-            <DeleteOutlineOutlinedIcon sx={{ fontSize: 20 }} />
-          </ListItemIcon>
-          <ListItemText>Xóa người dùng</ListItemText>
-        </MenuItem>
-      </ConfirmDeleteUserDialog>,
-    ],
+    renderRowActions: ({ row }) => {
+      return (
+        <Stack
+          alignItems='center'
+          direction='row'
+          justifyContent='center'
+          spacing={2}
+          sx={{ minWidth: '240px' }}
+        >
+          <SoftButton
+            color='primary'
+            size='small'
+            startIcon={<ContentPasteSearchOutlinedIcon />}
+            onClick={() => handleViewDetail(row.original)}
+          >
+            Xem chi tiết
+          </SoftButton>
+          {
+            <ConfirmDeleteUserDialog userId={row.original.id}>
+              <SoftButton
+                color='rose'
+                size='small'
+                startIcon={<DeleteOutlineOutlinedIcon />}
+              >
+                Xóa người dùng
+              </SoftButton>
+            </ConfirmDeleteUserDialog>
+          }
+        </Stack>
+      );
+    },
     renderTopToolbarCustomActions: () => {
       return (
         <Stack alignItems='center' direction='row' spacing={1}>

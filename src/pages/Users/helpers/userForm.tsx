@@ -1,8 +1,7 @@
 import { mixed, object, ObjectSchema, string } from 'yup';
 
-import { Role, User } from '~/types';
-
-export interface UserDTO extends Omit<User, 'id'> {}
+import { UserDTO } from '~/services/user/mutation/useCreateUser';
+import { Role } from '~/types';
 
 export const userSchema: ObjectSchema<UserDTO> = object({
   fullName: string()

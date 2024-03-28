@@ -1,27 +1,37 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import { Box } from '@mui/material';
+
+import { useDeleteUser } from '~/services/user/mutation/useDeleteUser';
 
 import { AlertDialog } from '~/components';
 import { DeleteOutlineOutlinedIcon } from '~/components/Icons';
 
 export interface IConfirmDeleteUserDialogProps {
-  closeMenu?: () => void;
   children: React.ReactNode;
+  userId?: number | string;
 }
 
 export function ConfirmDeleteUserDialog(props: IConfirmDeleteUserDialogProps) {
-  const { closeMenu, children } = props;
+  const { children, userId } = props;
+  const { mutate: deleteUser, isSuccess: isDeleteSuccess } = useDeleteUser();
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {
     setOpen(false);
-    closeMenu && closeMenu();
   };
   const handleAgree = () => {
-    setOpen(false);
-    closeMenu && closeMenu();
+    if (userId === undefined) return;
+    deleteUser(userId);
   };
+
+  useEffect(() => {
+    if (isDeleteSuccess) {
+      toast.success('Xóa người dùng thành công');
+      handleClose();
+    }
+  }, [isDeleteSuccess]);
   return (
     <>
       <Box key='delete' onClick={() => setOpen(true)}>

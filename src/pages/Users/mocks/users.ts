@@ -9,7 +9,7 @@ export const USERS: User[] = [
     role: Role.ADMIN,
   },
   {
-    id: 2,
+    id: 3,
     fullName: 'Tran Trung Kien',
     email: 'kien@fpt.edu.vn',
     username: 'kien123',

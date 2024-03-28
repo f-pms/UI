@@ -1,7 +1,7 @@
 import { format } from 'date-fns';
 import { vi } from 'date-fns/locale';
 
-import { GetHistoricalReportsParams } from '~/services/report/useQueryHistoricalReports';
+import { GetHistoricalReportsParams } from '~/services/report/queries/useQueryHistoricalReports';
 
 import { SectionHeading } from '~/components';
 

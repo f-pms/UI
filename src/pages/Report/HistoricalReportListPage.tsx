@@ -8,7 +8,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import {
   GetHistoricalReportsParams,
   useQueryHistoricalReports,
-} from '~/services/report/useQueryHistoricalReports';
+} from '~/services/report/queries/useQueryHistoricalReports';
 
 import {
   FilterReportFormData,

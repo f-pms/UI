@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import {
   Box,
@@ -10,9 +12,11 @@ import {
   Typography,
 } from '@mui/material';
 
-import { Role, User } from '~/types';
+import { UserDTO } from '~/services/user/mutation/useCreateUser';
+import { useUpdateUser } from '~/services/user/mutation/useUpdateUser';
+import { useQueryUserById } from '~/services/user/queries/useQueryUserById';
+import { Role } from '~/types';
 
-import { UserDTO } from '~/pages/Users/helpers/userForm';
 import { ConfirmDeleteUserDialog } from '~/pages/Users/partials/Dialogs/ConfirmDeleteUserDialog';
 import { UserProfilePageHeading } from '~/pages/Users/partials/Headings/UserProfilePageHeading';
 import { UserInfoTextField } from '~/pages/Users/partials/UserInfo/UserInfoTextField';
@@ -23,34 +27,51 @@ import { SoftChip } from '~/components';
 export interface IUserProfilePageProps {}
 
 export function UserProfilePage() {
-  const [isEdit, setIsEdit] = useState<{ [Key in keyof UserDTO]: boolean }>({
+  const { userId } = useParams();
+  const { data: user } = useQueryUserById(userId ?? 0, { enabled: !!userId });
+  const { mutate: updateUser, isSuccess: isUpdateSuccess } = useUpdateUser();
+
+  const [isEdit, setIsEdit] = useState<{
+    [Key in keyof UserDTO]: boolean;
+  }>({
     fullName: false,
     email: false,
     role: false,
     username: false,
     password: false,
   });
-  const user: User = {
-    id: 0,
-    fullName: 'Bui Ngoc Huy',
-    username: 'buingochuy123',
-    password: '',
-    email: 'huybui@fpt.edu.vn',
-    role: Role.ADMIN,
-  };
+
+  const defaultValues = useMemo(
+    () => ({
+      fullName: user?.fullName ?? '',
+      username: user?.username ?? '',
+      password: user?.password ?? '',
+      email: user?.email ?? '',
+      role: user?.role as Role,
+    }),
+    [user],
+  );
+
   const methods = useForm<UserDTO>({
-    defaultValues: {
-      fullName: user.fullName,
-      username: user.username,
-      password: user.password,
-      email: user.email,
-      role: user.role,
-    },
+    defaultValues: defaultValues,
   });
 
   const onSubmit: SubmitHandler<UserDTO> = (data) => {
-    console.warn(data);
+    if (userId === undefined) return;
+    updateUser({
+      id: userId,
+      payload: {
+        fullName: data.fullName,
+        email: data.email,
+      },
+    });
   };
+
+  useEffect(() => {
+    if (isUpdateSuccess) {
+      toast.success('Cập nhật thông tin người dùng thành công');
+    }
+  }, [isUpdateSuccess]);
 
   const isEditAllFalse = Object.values(isEdit).every((value) => !value);
 
@@ -162,7 +183,7 @@ export function UserProfilePage() {
                 tài khoản này sẽ bị xóa vĩnh viễn.
               </Typography>
             </Box>
-            <ConfirmDeleteUserDialog>
+            <ConfirmDeleteUserDialog userId={user?.id}>
               <Button color='error' variant='outlined'>
                 Xóa tài khoản
               </Button>
