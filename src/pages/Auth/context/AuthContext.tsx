@@ -11,7 +11,7 @@ import { jwtDecode } from 'jwt-decode';
 import {
   useLoginAccount,
   UserDTO,
-} from '~/services/auth/mutation/useloginAccount';
+} from '~/services/auth/mutation/useLoginAccount';
 import { AccessTokenDecoded, Role, User } from '~/types';
 import { storage } from '~/utils';
 

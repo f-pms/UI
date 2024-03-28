@@ -1,155 +1,154 @@
-import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
 
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
-import Container from '@mui/material/Container';
-import CssBaseline from '@mui/material/CssBaseline';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Grid from '@mui/material/Grid';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import TextField from '@mui/material/TextField';
-import Typography from '@mui/material/Typography';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Stack } from '@mui/material';
 
 import { Path } from '~/constants';
-import withCallbackUrl, { ICallbackProps } from '~/hocs/withCallbackUrl';
 
 import { AuthContext } from '~/pages/Auth/context/AuthContext';
+import {
+  defaultUserFormData,
+  UserFormData,
+  userValidationSchema,
+} from '~/pages/Auth/helpers/loginForm';
 
-function Copyright<T>(props: T) {
-  return (
-    <Typography
-      align='center'
-      color='text.secondary'
-      variant='body2'
-      {...props}
-    >
-      {'Copyright © '}
-      <Typography color='inherit'>Your Website</Typography>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
+import { InputWithLabel } from '~/components';
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  Typography,
+} from '~/components/MuiComponents';
+
+interface ILoginFormProps {
+  onCallbackUrl: (url: string) => void;
 }
 
-const defaultTheme = createTheme();
+export function LoginForm(props: ILoginFormProps) {
+  const { onCallbackUrl } = props;
+  const { login, isError, user } = useContext(AuthContext);
+  const [errorState, setErrorState] = useState(false);
 
-type ISignUpProps = ICallbackProps;
+  const {
+    handleSubmit,
+    formState: { errors },
+    control,
+    watch,
+  } = useForm<UserFormData>({
+    defaultValues: defaultUserFormData,
+    resolver: yupResolver(userValidationSchema),
+  });
 
-function SignUp(props: ISignUpProps) {
-  const { login, register } = React.useContext(AuthContext);
-  const { handleCallback = () => {} } = props;
-  const handleSubmitUser = () => {
-    login();
-    handleCallback(Path.HOME);
+  const handleSubmitUser = (formData: UserFormData) => {
+    login(formData);
+    onCallbackUrl(Path.PRODUCTION_MONITORING);
   };
-  const handleSubmitAdmin = () => {
-    register();
-    handleCallback(Path.DASHBOARD);
-  };
+
+  useEffect(() => {
+    setErrorState(isError);
+  }, [isError]);
+
+  const watchedUsername = watch('username');
+  const watchedPassword = watch('password');
+
+  useEffect(() => {
+    setErrorState(false);
+  }, [watchedUsername, watchedPassword]);
+
+  useEffect(() => {
+    if (user) {
+      onCallbackUrl(Path.PRODUCTION_MONITORING);
+    }
+  }, [user, onCallbackUrl]);
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Container component='main' maxWidth='xs'>
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography component='h1' variant='h5'>
-            Sign up
-          </Typography>
-          <Box noValidate component='form' sx={{ mt: 3 }}>
-            <Grid container spacing={2}>
-              <Grid item sm={6} xs={12}>
-                <TextField
+    <Container
+      component='main'
+      maxWidth='xl'
+      sx={{
+        height: '100vh !important',
+        display: 'flex',
+        overflow: 'hidden',
+      }}
+    >
+      <Grid container alignItems='center' justifyContent='space-between'>
+        <Grid item xs={7}>
+          <Box
+            alt='login background'
+            component='img'
+            src={'/login_background.png'}
+            sx={{
+              width: '100%',
+            }}
+          />
+        </Grid>
+        <Grid item lg={5} md={4}>
+          <Box
+            sx={{
+              marginTop: 8,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              width: '100% !important',
+            }}
+          >
+            <Typography
+              color={'black'}
+              marginBottom={6}
+              sx={{
+                fontWeight: 600,
+              }}
+              variant='h3'
+            >
+              Đăng nhập
+            </Typography>
+            <Box component='form' sx={{ mt: 1 }} width={400}>
+              <Stack gap={2}>
+                <InputWithLabel
                   autoFocus
                   fullWidth
-                  required
-                  autoComplete='given-name'
-                  id='firstName'
-                  label='First Name'
-                  name='firstName'
+                  control={control}
+                  error={errors.username}
+                  name='username'
+                  placeholder='Tên đăng nhập'
+                  size='medium'
+                  type='text'
                 />
-              </Grid>
-              <Grid item sm={6} xs={12}>
-                <TextField
+                <InputWithLabel
                   fullWidth
-                  required
-                  autoComplete='family-name'
-                  id='lastName'
-                  label='Last Name'
-                  name='lastName'
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  fullWidth
-                  required
-                  autoComplete='email'
-                  id='email'
-                  label='Email Address'
-                  name='email'
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  fullWidth
-                  required
-                  autoComplete='new-password'
-                  id='password'
-                  label='Password'
+                  control={control}
+                  error={errors.password}
                   name='password'
+                  placeholder='Mật khẩu'
+                  size='medium'
                   type='password'
                 />
-              </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox color='primary' value='allowExtraEmails' />
-                  }
-                  label='I want to receive inspiration, marketing promotions and updates via email.'
-                />
-              </Grid>
-            </Grid>
-            <Button
-              fullWidth
-              sx={{ mt: 3, mb: 2 }}
-              type='button'
-              variant='contained'
-              onClick={handleSubmitUser}
-            >
-              Sign Up as User
-            </Button>
-            <Button
-              fullWidth
-              sx={{ mt: 3, mb: 2 }}
-              type='button'
-              variant='contained'
-              onClick={handleSubmitAdmin}
-            >
-              Sign Up as Admin
-            </Button>
-            <Grid container justifyContent='flex-end'>
-              <Grid item>
-                <Link to={Path.SIGN_IN}>Already have an account? Sign in</Link>
-              </Grid>
-            </Grid>
+              </Stack>
+
+              {errorState && (
+                <Typography
+                  color={'error'}
+                  sx={{ marginBlock: 1.5 }}
+                  textAlign={'center'}
+                >
+                  Đăng nhập thất bại
+                </Typography>
+              )}
+              <Button
+                fullWidth
+                sx={{ mt: 3, mb: 2, paddingBlock: 1.5 }}
+                type='button'
+                variant='contained'
+                onClick={handleSubmit(handleSubmitUser)}
+              >
+                Đăng nhập
+              </Button>
+            </Box>
           </Box>
-        </Box>
-        <Copyright sx={{ mt: 5 }} />
-      </Container>
-    </ThemeProvider>
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
-export const SignUpPage = withCallbackUrl(SignUp);
