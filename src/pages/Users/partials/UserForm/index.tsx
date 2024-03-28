@@ -2,7 +2,8 @@ import { useFormContext } from 'react-hook-form';
 
 import { Box, Stack } from '@mui/material';
 
-import { UserDTO } from '~/pages/Users/helpers/userForm';
+import { UserDTO } from '~/services/user/mutation/useCreateUser';
+
 import { PasswordTextField } from '~/pages/Users/partials/UserForm/PasswordTextField';
 import { UserRoleSelect } from '~/pages/Users/partials/UserForm/UserRoleSelect';
 

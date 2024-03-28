@@ -40,6 +40,13 @@ export const getDefaultMRTOptions = <TData extends MRT_RowData>(): Partial<
     toggleVisibility: 'Ẩn/Hiện',
     selectedCountOfRowCountRowsSelected:
       '{selectedCount}/{rowCount} hàng được chọn',
+    rowNumber: 'STT',
+    rowNumbers: 'STT',
+    unpin: 'Bỏ ghim',
+    unpinAll: 'Bỏ ghim tất cả',
+    pin: 'Ghim',
+    pinToLeft: 'Ghim trái',
+    pinToRight: 'Ghim phải',
   },
   muiTopToolbarProps: {
     sx: {

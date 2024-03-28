@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { SubmitHandler, useFormContext } from 'react-hook-form';
 
-import { GetHistoricalReportsParams } from '~/services/report/useQueryHistoricalReports';
+import { GetHistoricalReportsParams } from '~/services/report/queries/useQueryHistoricalReports';
 
 import {
   defaultFilterReportFormData,

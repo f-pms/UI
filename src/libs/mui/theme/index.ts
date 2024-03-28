@@ -84,6 +84,13 @@ export const getCustomizeTheme = (
           },
         },
       },
+      MuiFormControlLabel: {
+        styleOverrides: {
+          label: {
+            fontSize: '0.875rem',
+          },
+        },
+      },
     },
   });
 };

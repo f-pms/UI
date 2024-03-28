@@ -10,9 +10,9 @@ import {
   Typography,
 } from '@mui/material';
 
+import { UserDTO } from '~/services/user/mutation/useCreateUser';
 import { Role } from '~/types';
 
-import { UserDTO } from '~/pages/Users/helpers/userForm';
 import { USER_ROLES } from '~/pages/Users/mocks/userRoles';
 
 const ITEM_HEIGHT = 48;

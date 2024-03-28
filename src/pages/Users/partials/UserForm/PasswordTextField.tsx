@@ -12,7 +12,7 @@ import {
   Typography,
 } from '@mui/material';
 
-import { UserDTO } from '~/pages/Users/helpers/userForm';
+import { UserDTO } from '~/services/user/mutation/useCreateUser';
 
 import {
   VisibilityOffOutlinedIcon,

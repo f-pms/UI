@@ -155,6 +155,15 @@ export function HistoricalReportTable(props: IHistoricalReportTableProps) {
       );
     },
     displayColumnDefOptions: {
+      'mrt-row-numbers': {
+        muiTableHeadCellProps: {
+          align: 'center',
+        },
+        muiTableBodyCellProps: {
+          align: 'center',
+        },
+        size: 5,
+      },
       'mrt-row-actions': {
         size: 0,
         muiTableHeadCellProps: {

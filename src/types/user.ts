@@ -1,3 +1,5 @@
+import { Pagination } from '~/types/utils';
+
 export enum Role {
   USER = 'SUPERVISOR',
   ADMIN = 'ADMIN',
@@ -15,3 +17,5 @@ export interface User {
 export type LoginResponse = {
   token: string;
 };
+
+export interface UserList extends Pagination<User> {}

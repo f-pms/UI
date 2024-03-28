@@ -8,14 +8,6 @@ import {
   AlarmHistoryPage,
   AlarmManagementLayout,
 } from '~/pages/AlarmManagement';
-import {
-  CalendarPage,
-  ChartPage,
-  ComponentPageLayout,
-  TablePage,
-} from '~/pages/Components';
-import { DashboardPage } from '~/pages/DashboardPage';
-import { HomePage } from '~/pages/HomePage';
 import MonitoringPage, {
   ProductionPageLayout,
 } from '~/pages/ProductionManagement';
@@ -29,33 +21,6 @@ import {
 import { UserListPage, UserProfilePage } from '~/pages/Users';
 
 export const privateRoutes: (PrivateRouteObject & RouteObject)[] = [
-  {
-    index: true,
-    path: Path.HOME,
-    element: <HomePage />,
-    layout: <DefaultLayout />,
-    roles: [Role.ADMIN, Role.USER],
-  },
-  {
-    path: Path.COMPONENTS,
-    element: <ComponentPageLayout />,
-    layout: <DefaultLayout />,
-    roles: [Role.ADMIN, Role.USER],
-    children: [
-      {
-        path: 'calendar',
-        element: <CalendarPage />,
-      },
-      {
-        path: 'chart',
-        element: <ChartPage />,
-      },
-      {
-        path: 'table',
-        element: <TablePage />,
-      },
-    ],
-  },
   {
     path: Path.PRODUCTION,
     element: <ProductionPageLayout />,
@@ -115,12 +80,6 @@ export const privateRoutes: (PrivateRouteObject & RouteObject)[] = [
         element: <StatisticReportPage />,
       },
     ],
-  },
-  {
-    path: Path.DASHBOARD,
-    element: <DashboardPage />,
-    roles: [Role.ADMIN],
-    layout: <DefaultLayout />,
   },
   {
     path: Path.USER_LIST,

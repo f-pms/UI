@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   MaterialReactTable,
   MRT_ColumnDef,
@@ -6,24 +6,17 @@ import {
 } from 'material-react-table';
 import { useNavigate } from 'react-router-dom';
 
+import { useQueryUsers } from '~/services/user/queries/useQueryUsers';
 import { User } from '~/types';
 
-import { USERS } from '~/pages/Users/mocks/users';
 import { ConfirmDeleteUserDialog } from '~/pages/Users/partials/Dialogs/ConfirmDeleteUserDialog';
-import { CreateUserDialog } from '~/pages/Users/partials/Dialogs/CreateUserDialog';
 
-import { SoftChip } from '~/components';
+import { SoftButton, SoftChip } from '~/components';
 import {
   ContentPasteSearchOutlinedIcon,
   DeleteOutlineOutlinedIcon,
 } from '~/components/Icons';
-import {
-  ListItemIcon,
-  ListItemText,
-  MenuItem,
-  Stack,
-  Typography,
-} from '~/components/MuiComponents';
+import { Stack, Typography } from '~/components/MuiComponents';
 import { getDefaultMRTOptions } from '~/components/Table';
 
 const defaultMRTOptions = getDefaultMRTOptions<User>();
@@ -36,9 +29,19 @@ export function UserTable() {
     pageSize: 10,
   });
 
-  const handleViewDetail = (user: User, closeMenu: () => void) => {
+  const { data: users } = useQueryUsers({
+    page: pagination.pageIndex + 1,
+    size: pagination.pageSize,
+  });
+
+  useEffect(() => {
+    navigate({
+      search: `?page=${pagination.pageIndex + 1}&size=${pagination.pageSize}`,
+    });
+  }, [navigate, pagination]);
+
+  const handleViewDetail = (user: User) => {
     navigate(`/users/${user.id}`);
-    closeMenu();
   };
 
   const columns: MRT_ColumnDef<User>[] = useMemo(
@@ -68,13 +71,16 @@ export function UserTable() {
     initialState: {
       ...defaultMRTOptions.initialState,
     },
-    positionActionsColumn: 'first',
+    positionActionsColumn: 'last',
     columns,
-    data: USERS,
+    data: users?.content ?? [],
+    enableRowNumbers: true,
     enableRowActions: true,
     getRowId: (row) => row.id.toString(),
-    onPaginationChange: setPagination, //hoist pagination state to your state when it changes internally
-    state: { pagination }, //pass the pagination state to the table
+    manualPagination: true,
+    rowCount: users?.recordTotal,
+    onPaginationChange: setPagination,
+    state: { pagination },
     displayColumnDefOptions: {
       'mrt-row-actions': {
         muiTableHeadCellProps: {
@@ -85,27 +91,47 @@ export function UserTable() {
         },
         size: 0,
       },
+      'mrt-row-numbers': {
+        muiTableHeadCellProps: {
+          align: 'center',
+        },
+        muiTableBodyCellProps: {
+          align: 'center',
+        },
+        size: 5,
+      },
     },
-    renderRowActionMenuItems: ({ row, closeMenu }) => [
-      <MenuItem
-        key='edit'
-        onClick={() => handleViewDetail(row.original, closeMenu)}
-      >
-        <ListItemIcon>
-          <ContentPasteSearchOutlinedIcon sx={{ fontSize: 20 }} />
-        </ListItemIcon>
-        <ListItemText>Thông tin chi tiết</ListItemText>
-      </MenuItem>,
-      <CreateUserDialog key='create' closeMenu={closeMenu} />,
-      <ConfirmDeleteUserDialog key='delete' closeMenu={closeMenu}>
-        <MenuItem key='delete'>
-          <ListItemIcon>
-            <DeleteOutlineOutlinedIcon sx={{ fontSize: 20 }} />
-          </ListItemIcon>
-          <ListItemText>Xóa người dùng</ListItemText>
-        </MenuItem>
-      </ConfirmDeleteUserDialog>,
-    ],
+    renderRowActions: ({ row }) => {
+      return (
+        <Stack
+          alignItems='center'
+          direction='row'
+          justifyContent='center'
+          spacing={2}
+          sx={{ minWidth: '240px' }}
+        >
+          <SoftButton
+            color='primary'
+            size='small'
+            startIcon={<ContentPasteSearchOutlinedIcon />}
+            onClick={() => handleViewDetail(row.original)}
+          >
+            Xem chi tiết
+          </SoftButton>
+          {
+            <ConfirmDeleteUserDialog userId={row.original.id}>
+              <SoftButton
+                color='rose'
+                size='small'
+                startIcon={<DeleteOutlineOutlinedIcon />}
+              >
+                Xóa người dùng
+              </SoftButton>
+            </ConfirmDeleteUserDialog>
+          }
+        </Stack>
+      );
+    },
     renderTopToolbarCustomActions: () => {
       return (
         <Stack alignItems='center' direction='row' spacing={1}>
@@ -113,7 +139,7 @@ export function UserTable() {
             Tất cả:
           </Typography>
           <SoftChip
-            label={`${USERS.length} người dùng`}
+            label={`${users?.recordTotal} người dùng`}
             shape='square'
             size='small'
           />

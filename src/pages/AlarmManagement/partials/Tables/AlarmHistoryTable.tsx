@@ -107,8 +107,8 @@ export function AlarmHistoryTable(props: IAlarmHistoryTableProps) {
     data: solvedAlarms,
     enableRowActions: true,
     getRowId: (row) => row.id.toString(),
-    onPaginationChange: setPagination, //hoist pagination state to your state when it changes internally
-    state: { pagination }, //pass the pagination state to the table
+    onPaginationChange: setPagination,
+    state: { pagination },
     enableColumnPinning: true,
     renderRowActions: (row) => {
       return (
