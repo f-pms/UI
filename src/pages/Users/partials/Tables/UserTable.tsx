@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   MaterialReactTable,
   MRT_ColumnDef,
@@ -6,9 +6,9 @@ import {
 } from 'material-react-table';
 import { useNavigate } from 'react-router-dom';
 
+import { useQueryUsers } from '~/services/user/queries/useQueryUsers';
 import { User } from '~/types';
 
-import { USERS } from '~/pages/Users/mocks/users';
 import { ConfirmDeleteUserDialog } from '~/pages/Users/partials/Dialogs/ConfirmDeleteUserDialog';
 
 import { SoftButton, SoftChip } from '~/components';
@@ -28,6 +28,17 @@ export function UserTable() {
     pageIndex: 0,
     pageSize: 10,
   });
+
+  const { data: users } = useQueryUsers({
+    page: pagination.pageIndex + 1,
+    size: pagination.pageSize,
+  });
+
+  useEffect(() => {
+    navigate({
+      search: `?page=${pagination.pageIndex + 1}&size=${pagination.pageSize}`,
+    });
+  }, [navigate, pagination]);
 
   const handleViewDetail = (user: User) => {
     navigate(`/users/${user.id}`);
@@ -62,12 +73,14 @@ export function UserTable() {
     },
     positionActionsColumn: 'last',
     columns,
-    data: USERS,
+    data: users?.content ?? [],
     enableRowNumbers: true,
     enableRowActions: true,
     getRowId: (row) => row.id.toString(),
-    onPaginationChange: setPagination, //hoist pagination state to your state when it changes internally
-    state: { pagination }, //pass the pagination state to the table
+    manualPagination: true,
+    rowCount: users?.recordTotal,
+    onPaginationChange: setPagination,
+    state: { pagination },
     displayColumnDefOptions: {
       'mrt-row-actions': {
         muiTableHeadCellProps: {
@@ -77,6 +90,15 @@ export function UserTable() {
           align: 'center',
         },
         size: 0,
+      },
+      'mrt-row-numbers': {
+        muiTableHeadCellProps: {
+          align: 'center',
+        },
+        muiTableBodyCellProps: {
+          align: 'center',
+        },
+        size: 5,
       },
     },
     renderRowActions: ({ row }) => {
@@ -117,7 +139,7 @@ export function UserTable() {
             Tất cả:
           </Typography>
           <SoftChip
-            label={`${USERS.length} người dùng`}
+            label={`${users?.recordTotal} người dùng`}
             shape='square'
             size='small'
           />

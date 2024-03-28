@@ -16,7 +16,6 @@ import { AccessTokenDecoded, Role, User } from '~/types';
 import { storage } from '~/utils';
 
 import { UserFormData } from '~/pages/Auth/helpers/loginForm';
-import { USERS } from '~/pages/Users/mocks/users';
 
 export interface IAuthProviderProps {
   children: ReactNode;
@@ -25,7 +24,6 @@ export interface IAuthProviderProps {
 export type AuthContextType = {
   user: User | null;
   login: (userInformation: UserFormData) => void;
-  register: () => void;
   logout: () => void;
   isError: boolean;
   isAdmin: boolean;
@@ -34,7 +32,6 @@ export type AuthContextType = {
 export const AuthContext = createContext<AuthContextType>({
   user: null,
   login: () => {},
-  register: () => {},
   logout: () => {},
   isError: false,
   isAdmin: false,
@@ -85,15 +82,6 @@ export function AuthProvider({ children }: IAuthProviderProps) {
     [loginAccount],
   );
 
-  const register = () => {
-    const fakeUser: User = USERS[0];
-    storage.set(
-      'TOKEN',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJyb2xlIjoiQURNSU4ifQ._F60tRV98OYI8752zrPs66Tdhbfee_wUGsfb4kXt7qo',
-    );
-    setUser(fakeUser);
-  };
-
   const logout = () => {
     storage.remove('TOKEN');
     setUser(null);
@@ -102,7 +90,7 @@ export function AuthProvider({ children }: IAuthProviderProps) {
   const isAdmin = useMemo(() => user?.role === Role.ADMIN, [user]);
 
   const value = useMemo(
-    () => ({ user, login, register, logout, isError, isAdmin }),
+    () => ({ user, login, logout, isError, isAdmin }),
     [user, isError, login, isAdmin],
   );
 

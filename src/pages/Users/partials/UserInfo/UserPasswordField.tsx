@@ -27,7 +27,7 @@ export interface IUserPasswordFieldProps {
 
 export function UserPasswordField(props: IUserPasswordFieldProps) {
   const { isEdit, setIsEdit } = props;
-  const { getValues, setValue } = useFormContext<UserDTO>();
+  const { setValue } = useFormContext<UserDTO>();
   const [currentPassword, setCurrentPassword] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
@@ -66,8 +66,8 @@ export function UserPasswordField(props: IUserPasswordFieldProps) {
 
   const validationPassword = () => {
     const errors = [];
-    if (currentPassword !== getValues('password')) {
-      errors.push('Mật khẩu cũ không đúng');
+    if (currentPassword.length === 0) {
+      errors.push('Mật khẩu cũ không được để trống');
     }
     if (password !== confirmPassword) {
       errors.push('Mật khẩu không trùng khớp');
@@ -158,7 +158,7 @@ export function UserPasswordField(props: IUserPasswordFieldProps) {
         </Stack>
       ) : (
         <Typography style={{ flex: 1 }} variant='body2'>
-          {getValues('password')?.replace(/./g, '*')}
+          ********
         </Typography>
       )}
 

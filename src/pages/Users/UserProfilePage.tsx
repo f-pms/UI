@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -15,7 +15,6 @@ import {
 import { UserDTO } from '~/services/user/mutation/useCreateUser';
 import { useUpdateUser } from '~/services/user/mutation/useUpdateUser';
 import { useQueryUserById } from '~/services/user/queries/useQueryUserById';
-import { Role } from '~/types';
 
 import { ConfirmDeleteUserDialog } from '~/pages/Users/partials/Dialogs/ConfirmDeleteUserDialog';
 import { UserProfilePageHeading } from '~/pages/Users/partials/Headings/UserProfilePageHeading';
@@ -28,7 +27,9 @@ export interface IUserProfilePageProps {}
 
 export function UserProfilePage() {
   const { userId } = useParams();
-  const { data: user } = useQueryUserById(userId ?? 0, { enabled: !!userId });
+  const { data: user } = useQueryUserById(userId ?? 0, {
+    enabled: userId !== undefined,
+  });
   const { mutate: updateUser, isSuccess: isUpdateSuccess } = useUpdateUser();
 
   const [isEdit, setIsEdit] = useState<{
@@ -41,20 +42,15 @@ export function UserProfilePage() {
     password: false,
   });
 
-  const defaultValues = useMemo(
-    () => ({
-      fullName: user?.fullName ?? '',
-      username: user?.username ?? '',
-      password: user?.password ?? '',
-      email: user?.email ?? '',
-      role: user?.role as Role,
-    }),
-    [user],
-  );
+  const methods = useForm<UserDTO>();
 
-  const methods = useForm<UserDTO>({
-    defaultValues: defaultValues,
-  });
+  useEffect(() => {
+    if (user === undefined) return;
+    methods.setValue('fullName', user.fullName);
+    methods.setValue('email', user.email);
+    methods.setValue('role', user.role);
+    methods.setValue('username', user.username);
+  }, [methods, user]);
 
   const onSubmit: SubmitHandler<UserDTO> = (data) => {
     if (userId === undefined) return;

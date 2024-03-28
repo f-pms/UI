@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { Box } from '@mui/material';
 
 import { useDeleteUser } from '~/services/user/mutation/useDeleteUser';
+import { useQueryUsers } from '~/services/user/queries/useQueryUsers';
 
 import { AlertDialog } from '~/components';
 import { DeleteOutlineOutlinedIcon } from '~/components/Icons';
@@ -15,6 +17,12 @@ export interface IConfirmDeleteUserDialogProps {
 
 export function ConfirmDeleteUserDialog(props: IConfirmDeleteUserDialogProps) {
   const { children, userId } = props;
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const { refetch } = useQueryUsers({
+    page: Number(searchParams.get('page')) || 1,
+    size: Number(searchParams.get('size')) || 10,
+  });
   const { mutate: deleteUser, isSuccess: isDeleteSuccess } = useDeleteUser();
   const [open, setOpen] = useState(false);
 
@@ -30,7 +38,10 @@ export function ConfirmDeleteUserDialog(props: IConfirmDeleteUserDialogProps) {
     if (isDeleteSuccess) {
       toast.success('Xóa người dùng thành công');
       handleClose();
+      navigate('/users');
+      refetch();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDeleteSuccess]);
   return (
     <>

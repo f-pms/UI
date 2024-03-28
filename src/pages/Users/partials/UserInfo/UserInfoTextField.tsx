@@ -28,8 +28,12 @@ export interface IUserInfoTextFieldProps {
 
 export function UserInfoTextField(props: IUserInfoTextFieldProps) {
   const { isEdit, setIsEdit, name, label, disableEdit = false } = props;
-  const { getValues, setValue: setValueForm } = useFormContext<UserDTO>();
-  const [value, setValue] = useState<string>(() => getValues(name) ?? '');
+  const {
+    getValues,
+    setValue: setValueForm,
+    watch,
+  } = useFormContext<UserDTO>();
+  const [value, setValue] = useState<string>('');
   const [error, setError] = useState<FieldError>();
 
   const handleEdit = (key: keyof UserDTO) => {
@@ -125,7 +129,7 @@ export function UserInfoTextField(props: IUserInfoTextFieldProps) {
         </Box>
       ) : (
         <Typography style={{ flex: 1 }} variant='body2'>
-          {getValues(name)}
+          {watch(name)}
         </Typography>
       )}
       {button}

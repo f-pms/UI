@@ -1,5 +1,6 @@
 import { FormEvent, useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
+import { useSearchParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -14,6 +15,7 @@ import {
 } from '@mui/material';
 
 import { useCreateUser, UserDTO } from '~/services/user/mutation/useCreateUser';
+import { useQueryUsers } from '~/services/user/queries/useQueryUsers';
 
 import { defaultUser, userSchema } from '~/pages/Users/helpers/userForm';
 import { UserForm } from '~/pages/Users/partials/UserForm';
@@ -23,6 +25,11 @@ import { AddCircleOutlineOutlinedIcon } from '~/components/Icons';
 export interface ICreateUserDialogProps {}
 
 export function CreateUserDialog() {
+  const [searchParams] = useSearchParams();
+  const { refetch } = useQueryUsers({
+    page: Number(searchParams.get('page')) || 1,
+    size: Number(searchParams.get('size')) || 10,
+  });
   const { mutate: createUser, isSuccess: isCreateSuccess } = useCreateUser();
   const [open, setOpen] = useState(false);
   const methods = useForm<UserDTO>({
@@ -57,7 +64,7 @@ export function CreateUserDialog() {
   useEffect(() => {
     if (isCreateSuccess) {
       toast.success('Tạo người dùng mới thành công');
-      handleCloseDialog();
+      refetch();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isCreateSuccess]);
