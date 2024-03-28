@@ -1,8 +1,21 @@
-import { createContext, ReactNode, useEffect, useMemo, useState } from 'react';
+import {
+  createContext,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
+import { jwtDecode } from 'jwt-decode';
 
-import { User } from '~/types';
+import {
+  useLoginAccount,
+  UserDTO,
+} from '~/services/auth/mutation/useLoginAccount';
+import { AccessTokenDecoded, Role, User } from '~/types';
 import { storage } from '~/utils';
 
+import { UserFormData } from '~/pages/Auth/helpers/loginForm';
 import { USERS } from '~/pages/Users/mocks/users';
 
 export interface IAuthProviderProps {
@@ -11,9 +24,11 @@ export interface IAuthProviderProps {
 
 export type AuthContextType = {
   user: User | null;
-  login: () => void;
+  login: (userInformation: UserFormData) => void;
   register: () => void;
   logout: () => void;
+  isError: boolean;
+  isAdmin: boolean;
 };
 
 export const AuthContext = createContext<AuthContextType>({
@@ -21,25 +36,54 @@ export const AuthContext = createContext<AuthContextType>({
   login: () => {},
   register: () => {},
   logout: () => {},
+  isError: false,
+  isAdmin: false,
 });
 
 export function AuthProvider({ children }: IAuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
+  const { mutate: loginAccount, data, isSuccess, isError } = useLoginAccount();
+
+  const convertToUser = (userDecoded: AccessTokenDecoded) => {
+    return {
+      id: userDecoded.userId,
+      fullName: userDecoded.sub,
+      role: userDecoded.role,
+      email: userDecoded.email,
+    } as User;
+  };
+
   useEffect(() => {
     const token = storage.get('TOKEN');
+
     if (token) {
-      setUser(USERS[0]);
+      const userDecoded: AccessTokenDecoded = jwtDecode(token ?? '');
+      const currentUser = convertToUser(userDecoded);
+      setUser(currentUser);
     }
   }, []);
 
-  const login = () => {
-    const fakeUser: User = USERS[0];
-    storage.set(
-      'TOKEN',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJyb2xlIjoiVVNFUiIsImlkIjoiMDAxIn0.W8vbB7ySChWTt1ZWzqWLLPWsv7t0RO6jroI8WPUtI6k',
-    );
-    setUser(fakeUser);
-  };
+  useEffect(() => {
+    if (!data) return;
+
+    storage.set('TOKEN', data.token);
+    const userDecoded: AccessTokenDecoded = jwtDecode(data?.token ?? '');
+    const currentUser = convertToUser(userDecoded);
+    setUser(currentUser);
+  }, [isSuccess, data]);
+
+  const login = useCallback(
+    (userForm: UserFormData) => {
+      const { username, password } = userForm;
+      const userDTO: UserDTO = {
+        username,
+        password,
+      };
+
+      loginAccount(userDTO);
+    },
+    [loginAccount],
+  );
 
   const register = () => {
     const fakeUser: User = USERS[0];
@@ -55,7 +99,12 @@ export function AuthProvider({ children }: IAuthProviderProps) {
     setUser(null);
   };
 
-  const value = useMemo(() => ({ user, login, register, logout }), [user]);
+  const isAdmin = useMemo(() => user?.role === Role.ADMIN, [user]);
+
+  const value = useMemo(
+    () => ({ user, login, register, logout, isError, isAdmin }),
+    [user, isError, login, isAdmin],
+  );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

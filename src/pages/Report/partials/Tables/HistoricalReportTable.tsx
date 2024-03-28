@@ -1,4 +1,4 @@
-import { Dispatch, useMemo } from 'react';
+import { Dispatch, useContext, useMemo } from 'react';
 import {
   MaterialReactTable,
   MRT_ColumnDef,
@@ -9,6 +9,7 @@ import {
 import { useNavigate } from '~/libs/react-router-dom';
 import { HistoricalReport, HistoricalReportPagination, Shift } from '~/types';
 
+import { AuthContext } from '~/pages/Auth/context/AuthContext';
 import { REPORT_TYPE_LABELS } from '~/pages/Report/helpers/constants';
 
 import { SoftButton } from '~/components';
@@ -29,6 +30,7 @@ const defaultMRTOptions = getDefaultMRTOptions<HistoricalReport>();
 export function HistoricalReportTable(props: IHistoricalReportTableProps) {
   const { historicalReports, pagination, setPagination } = props;
   const navigate = useNavigate();
+  const { isAdmin } = useContext(AuthContext);
 
   const columns: MRT_ColumnDef<HistoricalReport>[] = useMemo(
     () => [
@@ -106,13 +108,19 @@ export function HistoricalReportTable(props: IHistoricalReportTableProps) {
             >
               Kết quả tìm kiếm:
             </Typography>
-            <SoftButton
-              color='primary'
-              size='small'
-              startIcon={<FileDownloadOutlinedIcon />}
-            >
-              {`${historicalReports?.recordTotal ?? 0} báo cáo`}
-            </SoftButton>
+            {isAdmin ? (
+              <SoftButton
+                color='primary'
+                size='small'
+                startIcon={<FileDownloadOutlinedIcon />}
+              >
+                {`${historicalReports?.recordTotal ?? 0} báo cáo`}
+              </SoftButton>
+            ) : (
+              <Typography color='primary' variant='body2'>
+                {`${historicalReports?.recordTotal ?? 0} báo cáo`}
+              </Typography>
+            )}
           </Stack>
         </Stack>
       );
@@ -134,13 +142,15 @@ export function HistoricalReportTable(props: IHistoricalReportTableProps) {
           >
             Xem báo cáo
           </SoftButton>
-          <SoftButton
-            color='primary'
-            size='small'
-            startIcon={<FileDownloadOutlinedIcon />}
-          >
-            Tải xuống
-          </SoftButton>
+          {isAdmin && (
+            <SoftButton
+              color='primary'
+              size='small'
+              startIcon={<FileDownloadOutlinedIcon />}
+            >
+              Tải xuống
+            </SoftButton>
+          )}
         </Stack>
       );
     },

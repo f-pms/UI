@@ -1,4 +1,5 @@
 import { Path, PATH_LABEL } from '~/constants';
+import { Role } from '~/types';
 import { SidebarItem } from '~/types/sidebar';
 
 import {
@@ -39,6 +40,7 @@ export const SIDEBAR_ITEMS: SidebarItem[] = [
         name: PATH_LABEL[Path.ALARM_CONFIG],
         path: Path.ALARM_CONFIG,
         icon: <SettingsInputComponentOutlinedIcon sx={{ fontSize: '20px' }} />,
+        requiredRoles: [Role.ADMIN],
       },
     ],
   },

@@ -1,5 +1,5 @@
 export enum Role {
-  USER = 'USER',
+  USER = 'SUPERVISOR',
   ADMIN = 'ADMIN',
 }
 
@@ -11,3 +11,7 @@ export interface User {
   email: string;
   role: Role;
 }
+
+export type LoginResponse = {
+  token: string;
+};
