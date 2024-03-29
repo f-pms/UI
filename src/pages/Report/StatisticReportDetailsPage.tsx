@@ -40,7 +40,7 @@ export function StatisticReportDetailsPage() {
     return ConvertOneDayChartData(reportChart ?? [], reportType);
   }, [reportChart, reportType]);
 
-  if (loadingReportData || loadingReportChart)
+  if (loadingReportData || loadingReportChart || !oneDayChartData)
     return (
       <Box alignItems='center' textAlign='center'>
         <CircularProgress color='primary' />
