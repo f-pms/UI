@@ -7,6 +7,10 @@ import {
 } from 'react';
 
 import {
+  defaultStatisticReportFilterParams,
+  StatisticReportFilterParams,
+} from '~/pages/Report/helpers/statisticReportForm';
+import {
   ELECTRICITY_CONSUMPTION_LIST,
   ElectricityConsumption,
 } from '~/pages/Report/mocks/statisticReport';
@@ -23,6 +27,8 @@ export type StatisticReportType = {
   setElectricityConsumptionList: Dispatch<
     SetStateAction<ElectricityConsumption[]>
   >;
+  params: StatisticReportFilterParams;
+  setParams: Dispatch<SetStateAction<StatisticReportFilterParams>>;
 };
 
 export const StatisticReportContext = createContext<StatisticReportType>({
@@ -30,6 +36,8 @@ export const StatisticReportContext = createContext<StatisticReportType>({
   setDate: () => {},
   electricityConsumptionList: [],
   setElectricityConsumptionList: () => {},
+  params: defaultStatisticReportFilterParams,
+  setParams: () => {},
 });
 
 interface IStatisticReportProviderProps {
@@ -43,6 +51,9 @@ export function StatisticReportProvider({
   const [electricityConsumptionList, setElectricityConsumptionList] = useState<
     ElectricityConsumption[]
   >(ELECTRICITY_CONSUMPTION_LIST);
+  const [params, setParams] = useState<StatisticReportFilterParams>(
+    defaultStatisticReportFilterParams,
+  );
 
   const value = useMemo(
     () => ({
@@ -50,8 +61,10 @@ export function StatisticReportProvider({
       setDate,
       electricityConsumptionList,
       setElectricityConsumptionList,
+      params,
+      setParams,
     }),
-    [date, electricityConsumptionList],
+    [date, electricityConsumptionList, params],
   );
   return (
     <StatisticReportContext.Provider value={value}>

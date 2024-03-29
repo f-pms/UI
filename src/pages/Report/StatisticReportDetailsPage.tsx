@@ -1,10 +1,14 @@
-import { Container, Grid } from '@mui/material';
+import { useMemo } from 'react';
+import { useParams } from 'react-router-dom';
 
-import {
-  DUMMY_REPORT_DETAILS_BAR_DATA_LIST,
-  DUMMY_REPORT_DETAILS_LINE_DATA,
-  DUMMY_REPORT_PIE_DATA,
-} from '~/pages/Report/mocks/chartDataset';
+import { Box, CircularProgress, Container, Grid } from '@mui/material';
+
+import { useQueryOneDayReportCharts } from '~/services/report/queries/useQueryReportCharts';
+import { useQueryReportDetailsById } from '~/services/report/queries/useQueryReportDetailsById';
+import { ReportKey } from '~/types';
+
+import { ConvertOneDayChartData } from '~/pages/Report/helpers/chartDataConverter';
+import { REPORT_TYPE_LABELS } from '~/pages/Report/helpers/constants';
 import { StatisticReportDetailsPageHeading } from '~/pages/Report/partials/Headings/StatisticReportDetailsPageHeading';
 
 import { GroupBarChart } from '~/components/Charts/GroupBarChart';
@@ -14,6 +18,35 @@ import { VerticalBarChart } from '~/components/Charts/VerticalBarChart';
 export interface IHistoricalReportStatisticsPageProps {}
 
 export function StatisticReportDetailsPage() {
+  const { reportId } = useParams();
+
+  const { data: reportData, isPending: loadingReportData } =
+    useQueryReportDetailsById(reportId ?? '', {
+      enabled: !!reportId,
+    });
+  const { data: reportChart, isPending: loadingReportChart } =
+    useQueryOneDayReportCharts(reportId ?? '');
+
+  const reportType = useMemo(
+    () => REPORT_TYPE_LABELS[reportData?.type.name as ReportKey]?.toLowerCase(),
+    [reportData?.type.name],
+  );
+
+  const oneDayChartData = useMemo(() => {
+    if (!reportChart) {
+      return undefined;
+    }
+
+    return ConvertOneDayChartData(reportChart ?? [], reportType);
+  }, [reportChart, reportType]);
+
+  if (loadingReportData || loadingReportChart)
+    return (
+      <Box alignItems='center' textAlign='center'>
+        <CircularProgress color='primary' />
+      </Box>
+    );
+
   return (
     <Container maxWidth='xl' sx={{ py: 2 }}>
       <StatisticReportDetailsPageHeading />
@@ -27,16 +60,16 @@ export function StatisticReportDetailsPage() {
         <Grid container item columnSpacing={5} xs={12}>
           <Grid item xs={4}>
             <PieChart
-              dataset={DUMMY_REPORT_PIE_DATA}
+              dataset={oneDayChartData?.pieChartTotalReport}
               height='100%'
-              title='Tổng chỉ số điện của công đoạn SX chế biến dăm'
+              title={`Tổng chỉ số điện của công đoạn SX ${reportType}`}
             />
           </Grid>
           <Grid item xs={8}>
             <VerticalBarChart
-              dataset={DUMMY_REPORT_DETAILS_LINE_DATA}
+              dataset={oneDayChartData?.barChartReportByShift}
               height='100%'
-              title='Tổng chỉ số điện của công đoạn SX chế biến dăm theo các khung giờ'
+              title={`Tổng chỉ số điện của công đoạn SX ${reportType} theo các khung giờ`}
             />
           </Grid>
         </Grid>
@@ -44,9 +77,9 @@ export function StatisticReportDetailsPage() {
         <Grid item xs={12}>
           <GroupBarChart
             isStacked
-            dataset={DUMMY_REPORT_DETAILS_BAR_DATA_LIST}
+            dataset={oneDayChartData?.stackedBarChartReportByDeviceList}
             legendTitle='Giờ hoạt động'
-            title='Tổng chỉ số điện của các thiết bị điện của công đoạn SX chế biến dăm'
+            title={`Tổng chỉ số điện của các thiết bị điện của công đoạn SX ${reportType}`}
           />
         </Grid>
       </Grid>

@@ -15,10 +15,15 @@ import {
   Typography,
 } from '@mui/material';
 
+import { QueryChartType } from '~/services/report/queries/useQueryReportCharts';
+import { propertyToDisableToday } from '~/utils/date';
+
 import { StatisticReportContext } from '~/pages/Report/context/StatisticReportContext';
+import { ConvertFormDataToQueryData } from '~/pages/Report/helpers/chartDataConverter';
 import {
   DateTypes,
   defaultStatisticReportFormData,
+  StatisticReportFormData,
   statisticReportValidationSchema,
   ViewTypes,
 } from '~/pages/Report/helpers/statisticReportForm';
@@ -49,7 +54,7 @@ const StatisticReportFilter = () => {
     defaultValues: defaultStatisticReportFormData,
     resolver: yupResolver(statisticReportValidationSchema),
   });
-  const { setDate } = useContext(StatisticReportContext);
+  const { setDate, setParams } = useContext(StatisticReportContext);
 
   const watchStepField = watch('stepField');
   const watchSelectedDateType = watch('selectedDateType');
@@ -57,7 +62,29 @@ const StatisticReportFilter = () => {
   const watchViewType = watch('viewType');
   const watchFixedDate = watch('fixedDate');
 
-  const onSubmit = () => {};
+  const onSubmit = (data: unknown) => {
+    const formatedData = data as StatisticReportFormData;
+    const lineChartParams = ConvertFormDataToQueryData(
+      formatedData,
+      QueryChartType.LINE,
+    );
+
+    const pieChartParams = ConvertFormDataToQueryData(
+      formatedData,
+      QueryChartType.PIE,
+    );
+
+    const barChartParams = ConvertFormDataToQueryData(
+      formatedData,
+      QueryChartType.BAR,
+    );
+
+    setParams({
+      lineChartParams,
+      pieChartParams,
+      barChartParams,
+    });
+  };
 
   const getFixedDate = useCallback(() => {
     const { viewType, stepField, selectedDateType, selectedDate } = watch();
@@ -208,7 +235,12 @@ const StatisticReportFilter = () => {
               control={control}
               name='selectedDate'
               render={({ field }) => (
-                <CustomSingleDatePicker width={230} {...field} disableFuture />
+                <CustomSingleDatePicker
+                  width={230}
+                  {...field}
+                  disableFuture
+                  maxDate={propertyToDisableToday()}
+                />
               )}
             />
           </FormControl>

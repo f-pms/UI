@@ -7,4 +7,7 @@ export const QUERY_KEYS = {
   HISTORICAL_REPORTS: 'historical-reports',
   REPORT_TYPES: 'report-types',
   USER: 'user',
+  ONE_DAY_REPORT_CHARTS: 'one-day-report-charts',
+  MULTI_DAY_REPORT_CHARTS: 'multi-day-report-charts',
+  MULTI_DAY_REPORT_SUMMARY: 'multi-day-report-summary',
 };
