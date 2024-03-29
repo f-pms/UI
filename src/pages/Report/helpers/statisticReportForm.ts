@@ -1,10 +1,11 @@
 import * as yup from 'yup';
 
-import { QueryChartType } from '~/services/report/queries/useQueryReportCharts';
+import {
+  GetMultiDayReportSummaryParams,
+  QueryChartType,
+} from '~/services/report/queries/useQueryReportCharts';
 
 import { ConvertFormDataToQueryData } from '~/pages/Report/helpers/chartDataConverter';
-
-import { GetMultiDayReportSummaryParams } from './../../../services/report/queries/useQueryReportChart';
 
 export enum DateTypes {
   START_DATE = 'Ngày bắt đầu',
