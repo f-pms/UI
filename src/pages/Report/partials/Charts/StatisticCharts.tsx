@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { Box, CircularProgress, Grid } from '@mui/material';
+import { Grid, Skeleton } from '@mui/material';
 
 import { useQueryGetMultiDayReportCharts } from '~/services/report/queries/useQueryReportCharts';
 
@@ -39,9 +39,7 @@ const StatisticCharts = () => {
       <Grid container item columnSpacing={5} xs={12}>
         <Grid item xs={4}>
           {pieChartDataLoading || !pieChartData ? (
-            <Box alignItems='center' textAlign='center'>
-              <CircularProgress color='primary' />
-            </Box>
+            <Skeleton height={540} variant='rounded' />
           ) : (
             <PieChart
               dataset={convertChartData(pieChartData, 'PIE') as ReportData}
@@ -52,9 +50,7 @@ const StatisticCharts = () => {
         </Grid>
         <Grid item xs={8}>
           {lineChartDataLoading || !lineChartData ? (
-            <Box alignItems='center' textAlign='center'>
-              <CircularProgress color='primary' />
-            </Box>
+            <Skeleton height={540} variant='rounded' />
           ) : (
             <LineChart
               dataset={convertChartData(lineChartData, 'LINE') as ReportData}
@@ -66,9 +62,7 @@ const StatisticCharts = () => {
       </Grid>
       <Grid item xs={12}>
         {barChartDataLoading || !barChartData ? (
-          <Box alignItems='center' textAlign='center'>
-            <CircularProgress color='primary' />
-          </Box>
+          <Skeleton height={540} variant='rounded' />
         ) : (
           <GroupBarChart
             isStacked
