@@ -65,5 +65,6 @@ export const SIDEBAR_ITEMS: SidebarItem[] = [
     name: PATH_LABEL[Path.USER_LIST],
     icon: <GroupOutlinedIcon sx={{ fontSize: '20px' }} />,
     path: Path.USER_LIST,
+    requiredRoles: [Role.ADMIN],
   },
 ];

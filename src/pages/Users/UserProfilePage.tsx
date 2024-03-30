@@ -15,6 +15,7 @@ import {
 import { UserDTO } from '~/services/user/mutation/useCreateUser';
 import { useUpdateUser } from '~/services/user/mutation/useUpdateUser';
 import { useQueryUserById } from '~/services/user/queries/useQueryUserById';
+import { translateUserRole } from '~/utils';
 
 import { ConfirmDeleteUserDialog } from '~/pages/Users/partials/Dialogs/ConfirmDeleteUserDialog';
 import { UserProfilePageHeading } from '~/pages/Users/partials/Headings/UserProfilePageHeading';
@@ -115,7 +116,7 @@ export function UserProfilePage() {
             </Typography>
             <Box style={{ flex: 1 }}>
               <SoftChip
-                label={methods.getValues('role')}
+                label={translateUserRole(methods.getValues('role'))}
                 shape='square'
                 size='small'
               />

@@ -2,12 +2,14 @@ import { useContext, useMemo } from 'react';
 
 import { Button, Stack } from '@mui/material';
 
+import { AuthContext } from '~/pages/Auth/context/AuthContext';
 import { StatisticReportContext } from '~/pages/Report/context/StatisticReportContext';
 
 import { SectionHeading } from '~/components';
 import { FileDownloadOutlinedIcon } from '~/components/Icons';
 
 export function StatisticReportPageHeading() {
+  const { isAdmin } = useContext(AuthContext);
   const { date } = useContext(StatisticReportContext);
 
   const hasDateInformation = useMemo(() => {
@@ -23,9 +25,14 @@ export function StatisticReportPageHeading() {
           justifyContent='space-between'
           spacing={2}
         >
-          <Button startIcon={<FileDownloadOutlinedIcon />} variant='contained'>
-            Tải báo cáo
-          </Button>
+          {isAdmin && (
+            <Button
+              startIcon={<FileDownloadOutlinedIcon />}
+              variant='contained'
+            >
+              Tải báo cáo
+            </Button>
+          )}
         </Stack>
       }
       description={
