@@ -1,11 +1,11 @@
-import { Dispatch, useContext, useMemo } from 'react';
+import { Dispatch, useContext } from 'react';
 
 import { Path } from '~/constants';
 import { SETTING_ITEMS } from '~/layouts/partials/Header/helpers/settingItems';
 import { ThemeCustomization } from '~/layouts/partials/Header/ThemeCustomization';
 import { UserSettingItem } from '~/layouts/partials/Header/UserSettingItem';
 import { useNavigate } from '~/libs/react-router-dom';
-import { Role } from '~/types';
+import { translateUserRole } from '~/utils';
 
 import { AuthContext } from '~/pages/Auth/context/AuthContext';
 
@@ -34,13 +34,6 @@ export function UserSettingMenu(props: IUserSettingMenuProps) {
     if (path) navigate(path);
   };
 
-  const translateUserRole = useMemo(() => {
-    if (user?.role === Role.ADMIN) {
-      return 'Quản lý';
-    }
-    return 'Giám sát viên';
-  }, [user?.role]);
-
   return (
     <Menu
       keepMounted
@@ -65,10 +58,12 @@ export function UserSettingMenu(props: IUserSettingMenuProps) {
         sx={{ width: 300, p: 2 }}
       >
         <Stack alignItems='center' direction='row' spacing={1}>
-          <Avatar>H</Avatar>
+          <Avatar>{user?.fullName[0].toUpperCase()}</Avatar>
           <Box sx={{ ml: 6 }}>
             <Typography variant='body1'>{user?.fullName}</Typography>
-            <Typography variant='caption'>{translateUserRole}</Typography>
+            <Typography variant='caption'>
+              {translateUserRole(user?.role)}
+            </Typography>
           </Box>
         </Stack>
         <SoftButton color={'primary'}>

@@ -12,6 +12,7 @@ import {
 
 import { UserDTO } from '~/services/user/mutation/useCreateUser';
 import { Role } from '~/types';
+import { translateUserRole } from '~/utils';
 
 import { USER_ROLES } from '~/pages/Users/mocks/userRoles';
 
@@ -53,7 +54,7 @@ export function UserRoleSelect() {
       >
         {USER_ROLES.map((item) => (
           <MenuItem key={item.id} value={item.name}>
-            {item.label}
+            {translateUserRole(item.label.toUpperCase() as Role)}
           </MenuItem>
         ))}
       </Select>

@@ -126,7 +126,7 @@ export function CreateUserDialog() {
                   variant='contained'
                   onClick={handleReset}
                 >
-                  Xóa hết
+                  Nhập lại
                 </Button>
                 <Button autoFocus type='submit' variant='contained'>
                   Tạo mới

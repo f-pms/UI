@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { format } from 'date-fns';
 import { vi } from 'date-fns/locale';
 import { useNavigate, useSearchParams } from 'react-router-dom';
@@ -6,6 +7,7 @@ import { Button, Stack } from '@mui/material';
 
 import { ReportDetails, ReportKey } from '~/types';
 
+import { AuthContext } from '~/pages/Auth/context/AuthContext';
 import { REPORT_TYPE_LABELS } from '~/pages/Report/helpers/constants';
 import { SHIFT_NAVIGATION_OPTIONS } from '~/pages/Report/helpers/shiftOption';
 
@@ -20,6 +22,7 @@ export interface IDetailsPageHeadingProps {
 }
 
 export function DetailsPageHeading({ report }: IDetailsPageHeadingProps) {
+  const { isAdmin } = useContext(AuthContext);
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const shiftText = SHIFT_NAVIGATION_OPTIONS.find(
@@ -34,9 +37,11 @@ export function DetailsPageHeading({ report }: IDetailsPageHeadingProps) {
           justifyContent='space-between'
           spacing={2}
         >
-          <Button startIcon={<FileDownloadOutlinedIcon />} variant='outlined'>
-            Tải báo cáo
-          </Button>
+          {isAdmin && (
+            <Button startIcon={<FileDownloadOutlinedIcon />} variant='outlined'>
+              Tải báo cáo
+            </Button>
+          )}
           <Button
             startIcon={<InsertChartOutlinedIcon />}
             variant='contained'

@@ -67,7 +67,7 @@ export const ConvertOneDayChartData = (
       id: 1,
       title: reportType,
       labelStep: deviceLabels.map(
-        (label) => `thiết bị ${label.replace('SUM_SPECIFIC_', '')}`,
+        (label) => `Thiết bị ${label.replace('SUM_SPECIFIC_', '')}`,
       ),
       data: [
         {
@@ -183,7 +183,7 @@ export const convertChartData = (
           title: 'Chỉ số điện chế biến dăm',
           labelStep: labelSteps,
           data: damDeviceLabels.map((deviceLabel) => ({
-            label: `thiết bị ${deviceLabel.replace('SUM_SPECIFIC_', '')}`,
+            label: `Thiết bị ${deviceLabel.replace('SUM_SPECIFIC_', '')}`,
             dataset: data.DAM[deviceLabel as keyof typeof data.DAM],
           })),
         },
@@ -192,7 +192,7 @@ export const convertChartData = (
           title: 'Chỉ số điện bán thành phần',
           labelStep: labelSteps,
           data: btpDeviceLabels.map((deviceLabel) => ({
-            label: `thiết bị ${deviceLabel.replace('SUM_SPECIFIC_', '')}`,
+            label: `Thiết bị ${deviceLabel.replace('SUM_SPECIFIC_', '')}`,
             dataset: data.BTP[deviceLabel as keyof typeof data.BTP],
           })),
         },

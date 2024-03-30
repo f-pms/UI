@@ -110,7 +110,7 @@ export function UserPasswordField(props: IUserPasswordFieldProps) {
             placeholder='Mật khẩu cũ'
             size='small'
             sx={{ fontSize: '14px', mt: 1, width: '300px' }}
-            type={showPassword ? 'text' : 'password'}
+            type={showCurrentPassword ? 'text' : 'password'}
             value={currentPassword}
             onChange={(e) => setCurrentPassword(e.target.value)}
           />
@@ -146,7 +146,7 @@ export function UserPasswordField(props: IUserPasswordFieldProps) {
             placeholder='Nhập lại mật khẩu'
             size='small'
             sx={{ fontSize: '14px', mt: 1, width: '300px' }}
-            type='password'
+            type={showConfirmPassword ? 'text' : 'password'}
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
