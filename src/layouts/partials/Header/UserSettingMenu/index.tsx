@@ -1,11 +1,10 @@
-import { Dispatch, useContext, useMemo } from 'react';
+import { Dispatch, useContext } from 'react';
 
 import { Path } from '~/constants';
 import { SETTING_ITEMS } from '~/layouts/partials/Header/helpers/settingItems';
 import { ThemeCustomization } from '~/layouts/partials/Header/ThemeCustomization';
 import { UserSettingItem } from '~/layouts/partials/Header/UserSettingItem';
 import { useNavigate } from '~/libs/react-router-dom';
-import { Role } from '~/types';
 import { translateUserRole } from '~/utils';
 
 import { AuthContext } from '~/pages/Auth/context/AuthContext';

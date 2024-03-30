@@ -54,7 +54,7 @@ export function UserRoleSelect() {
       >
         {USER_ROLES.map((item) => (
           <MenuItem key={item.id} value={item.name}>
-            {translateUserRole(item.label.toUpperCase() as keyof Role)}
+            {translateUserRole(item.label.toUpperCase() as Role)}
           </MenuItem>
         ))}
       </Select>
