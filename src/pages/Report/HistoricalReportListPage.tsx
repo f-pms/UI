@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
+import { is } from 'date-fns/locale';
 import { MRT_PaginationState } from 'material-react-table';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Skeleton } from '@mui/material';
 
 import {
   GetHistoricalReportsParams,
   useQueryHistoricalReports,
 } from '~/services/report/queries/useQueryHistoricalReports';
+import { useLoadingStore } from '~/stores';
 
 import {
   FilterReportFormData,
@@ -29,7 +32,8 @@ export interface IHistoricalReportListPageProps {}
 
 export function HistoricalReportListPage() {
   const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const setLoading = useLoadingStore((state) => state.setLoading);
 
   const [pagination, setPagination] = useState<MRT_PaginationState>({
     pageIndex: searchParams.get('page')
@@ -61,7 +65,8 @@ export function HistoricalReportListPage() {
     resolver: yupResolver(filterReportSchema),
   });
 
-  const { data: historicalReports } = useQueryHistoricalReports(params);
+  const { data: historicalReports, isLoading } =
+    useQueryHistoricalReports(params);
 
   useEffect(() => {
     setParams({
@@ -81,10 +86,12 @@ export function HistoricalReportListPage() {
     formattedParams.append('endDate', params.endDate.toISOString());
     formattedParams.append('sortBy', params.sortBy);
     formattedParams.append('order', params.order);
-    navigate({
-      search: formattedParams.toString(),
-    });
-  }, [navigate, params]);
+    setSearchParams(formattedParams);
+  }, [setSearchParams, params]);
+
+  useEffect(() => {
+    setLoading(isLoading);
+  }, [isLoading, setLoading]);
 
   return (
     <Container maxWidth='xl' sx={{ py: 2 }}>
@@ -104,11 +111,26 @@ export function HistoricalReportListPage() {
             >
               <HistoricalReportFilter params={params} setParams={setParams} />
             </DateRangeProvider>
-            <HistoricalReportTable
-              historicalReports={historicalReports}
-              pagination={pagination}
-              setPagination={setPagination}
-            />
+            {isLoading ? (
+              <Skeleton
+                animation='wave'
+                sx={{
+                  height: 680,
+                  width: '100%',
+                  bgcolor: 'white',
+                  border: '1px solid #e0e0e0',
+                  borderRadius: 1,
+                  ml: '40px',
+                }}
+                variant='rectangular'
+              />
+            ) : (
+              <HistoricalReportTable
+                historicalReports={historicalReports}
+                pagination={pagination}
+                setPagination={setPagination}
+              />
+            )}
           </Stack>
         </Paper>
       </FormProvider>
