@@ -1,5 +1,6 @@
 export * from './alarm';
 export * from './calendar';
+export * from './chart';
 export * from './color';
 export * from './report';
 export * from './route';
