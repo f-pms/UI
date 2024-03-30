@@ -1,7 +1,13 @@
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { Box, CircularProgress, Container, Grid } from '@mui/material';
+import {
+  Box,
+  CircularProgress,
+  Container,
+  Grid,
+  Skeleton,
+} from '@mui/material';
 
 import { useQueryOneDayReportCharts } from '~/services/report/queries/useQueryReportCharts';
 import { useQueryReportDetailsById } from '~/services/report/queries/useQueryReportDetailsById';
@@ -59,28 +65,40 @@ export function StatisticReportDetailsPage() {
       >
         <Grid container item columnSpacing={5} xs={12}>
           <Grid item xs={4}>
-            <PieChart
-              dataset={oneDayChartData?.pieChartTotalReport}
-              height='100%'
-              title={`Tổng chỉ số điện của công đoạn SX ${reportType}`}
-            />
+            {loadingReportChart || !oneDayChartData?.pieChartTotalReport ? (
+              <Skeleton height={540} variant='rounded' />
+            ) : (
+              <PieChart
+                dataset={oneDayChartData?.pieChartTotalReport}
+                height='100%'
+                title={`Tổng chỉ số điện của công đoạn SX ${reportType}`}
+              />
+            )}
           </Grid>
           <Grid item xs={8}>
-            <VerticalBarChart
-              dataset={oneDayChartData?.barChartReportByShift}
-              height='100%'
-              title={`Tổng chỉ số điện của công đoạn SX ${reportType} theo các khung giờ`}
-            />
+            {loadingReportChart || !oneDayChartData?.barChartReportByShift ? (
+              <Skeleton height={540} variant='rounded' />
+            ) : (
+              <VerticalBarChart
+                dataset={oneDayChartData?.barChartReportByShift}
+                height='100%'
+                title={`Tổng chỉ số điện của công đoạn SX ${reportType} theo các khung giờ`}
+              />
+            )}
           </Grid>
         </Grid>
 
         <Grid item xs={12}>
-          <GroupBarChart
-            isStacked
-            dataset={oneDayChartData?.stackedBarChartReportByDeviceList}
-            legendTitle='Giờ hoạt động'
-            title={`Tổng chỉ số điện của các thiết bị điện của công đoạn SX ${reportType}`}
-          />
+          {loadingReportChart || !oneDayChartData?.barChartReportByShift ? (
+            <Skeleton height={540} variant='rounded' />
+          ) : (
+            <GroupBarChart
+              isStacked
+              dataset={oneDayChartData?.stackedBarChartReportByDeviceList}
+              legendTitle='Giờ hoạt động'
+              title={`Tổng chỉ số điện của các thiết bị điện của công đoạn SX ${reportType}`}
+            />
+          )}
         </Grid>
       </Grid>
     </Container>
