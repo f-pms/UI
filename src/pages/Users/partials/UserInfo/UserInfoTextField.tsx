@@ -10,7 +10,9 @@ import {
   Typography,
 } from '@mui/material';
 
-import { UserDTO, userSchema } from '~/pages/Users/helpers/userForm';
+import { UserDTO } from '~/services/user/mutation/useCreateUser';
+
+import { userSchema } from '~/pages/Users/helpers/userForm';
 
 import { EditOutlinedIcon } from '~/components/Icons';
 
@@ -26,8 +28,12 @@ export interface IUserInfoTextFieldProps {
 
 export function UserInfoTextField(props: IUserInfoTextFieldProps) {
   const { isEdit, setIsEdit, name, label, disableEdit = false } = props;
-  const { getValues, setValue: setValueForm } = useFormContext<UserDTO>();
-  const [value, setValue] = useState<string>(() => getValues(name));
+  const {
+    getValues,
+    setValue: setValueForm,
+    watch,
+  } = useFormContext<UserDTO>();
+  const [value, setValue] = useState<string>('');
   const [error, setError] = useState<FieldError>();
 
   const handleEdit = (key: keyof UserDTO) => {
@@ -35,6 +41,7 @@ export function UserInfoTextField(props: IUserInfoTextFieldProps) {
       ...prev,
       [key]: true,
     }));
+    setError(undefined);
   };
 
   const handleSave = async (key: keyof UserDTO) => {
@@ -51,6 +58,7 @@ export function UserInfoTextField(props: IUserInfoTextFieldProps) {
   };
 
   const handleCancel = (key: keyof UserDTO) => {
+    setValue(getValues(name) ?? '');
     setIsEdit((prev) => ({
       ...prev,
       [key]: false,
@@ -121,7 +129,7 @@ export function UserInfoTextField(props: IUserInfoTextFieldProps) {
         </Box>
       ) : (
         <Typography style={{ flex: 1 }} variant='body2'>
-          {getValues(name)}
+          {watch(name)}
         </Typography>
       )}
       {button}

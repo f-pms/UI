@@ -22,7 +22,7 @@ export const SETTING_ITEMS = [
     icon: <SettingsSuggestOutlinedIcon fontSize='small' />,
   },
   {
-    label: 'Logout',
+    label: 'Đăng xuất',
     icon: <ExitToAppOutlinedIcon fontSize='small' />,
   },
 ];

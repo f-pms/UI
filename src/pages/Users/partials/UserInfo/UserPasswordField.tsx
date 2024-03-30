@@ -10,7 +10,7 @@ import {
   Typography,
 } from '@mui/material';
 
-import { UserDTO } from '~/pages/Users/helpers/userForm';
+import { UserDTO } from '~/services/user/mutation/useCreateUser';
 
 import {
   EditOutlinedIcon,
@@ -27,7 +27,7 @@ export interface IUserPasswordFieldProps {
 
 export function UserPasswordField(props: IUserPasswordFieldProps) {
   const { isEdit, setIsEdit } = props;
-  const { getValues, setValue } = useFormContext<UserDTO>();
+  const { setValue } = useFormContext<UserDTO>();
   const [currentPassword, setCurrentPassword] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
@@ -43,6 +43,9 @@ export function UserPasswordField(props: IUserPasswordFieldProps) {
       ...prev,
       [key]: true,
     }));
+    setCurrentPassword('');
+    setPassword('');
+    setConfirmPassword('');
   };
 
   const handleSave = async () => {
@@ -63,8 +66,8 @@ export function UserPasswordField(props: IUserPasswordFieldProps) {
 
   const validationPassword = () => {
     const errors = [];
-    if (currentPassword !== getValues('password')) {
-      errors.push('Mật khẩu cũ không đúng');
+    if (currentPassword.length === 0) {
+      errors.push('Mật khẩu cũ không được để trống');
     }
     if (password !== confirmPassword) {
       errors.push('Mật khẩu không trùng khớp');
@@ -107,7 +110,7 @@ export function UserPasswordField(props: IUserPasswordFieldProps) {
             placeholder='Mật khẩu cũ'
             size='small'
             sx={{ fontSize: '14px', mt: 1, width: '300px' }}
-            type={showPassword ? 'text' : 'password'}
+            type={showCurrentPassword ? 'text' : 'password'}
             value={currentPassword}
             onChange={(e) => setCurrentPassword(e.target.value)}
           />
@@ -143,7 +146,7 @@ export function UserPasswordField(props: IUserPasswordFieldProps) {
             placeholder='Nhập lại mật khẩu'
             size='small'
             sx={{ fontSize: '14px', mt: 1, width: '300px' }}
-            type='password'
+            type={showConfirmPassword ? 'text' : 'password'}
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
@@ -155,7 +158,7 @@ export function UserPasswordField(props: IUserPasswordFieldProps) {
         </Stack>
       ) : (
         <Typography style={{ flex: 1 }} variant='body2'>
-          {getValues('password').replace(/./g, '*')}
+          ********
         </Typography>
       )}
 

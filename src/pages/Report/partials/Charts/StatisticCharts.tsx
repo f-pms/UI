@@ -1,9 +1,14 @@
-import { Grid } from '@mui/material';
+import { useContext } from 'react';
 
+import { Box, CircularProgress, Grid } from '@mui/material';
+
+import { useQueryGetMultiDayReportCharts } from '~/services/report/queries/useQueryReportCharts';
+
+import { StatisticReportContext } from '~/pages/Report/context/StatisticReportContext';
+import { convertChartData } from '~/pages/Report/helpers/chartDataConverter';
 import {
-  DUMMY_REPORT_BAR_DATA_LIST,
-  DUMMY_REPORT_LINE_DATA,
-  DUMMY_REPORT_PIE_DATA,
+  ReportComplexBarData,
+  ReportData,
 } from '~/pages/Report/mocks/chartDataset';
 
 import { GroupBarChart } from '~/components/Charts/GroupBarChart';
@@ -11,6 +16,17 @@ import LineChart from '~/components/Charts/LineChart';
 import PieChart from '~/components/Charts/PieChart';
 
 const StatisticCharts = () => {
+  const { params } = useContext(StatisticReportContext);
+
+  const { data: pieChartData, isPending: pieChartDataLoading } =
+    useQueryGetMultiDayReportCharts(params.pieChartParams);
+
+  const { data: lineChartData, isPending: lineChartDataLoading } =
+    useQueryGetMultiDayReportCharts(params.lineChartParams);
+
+  const { data: barChartData, isPending: barChartDataLoading } =
+    useQueryGetMultiDayReportCharts(params.barChartParams);
+
   return (
     <Grid
       container
@@ -22,27 +38,47 @@ const StatisticCharts = () => {
     >
       <Grid container item columnSpacing={5} xs={12}>
         <Grid item xs={4}>
-          <PieChart
-            dataset={DUMMY_REPORT_PIE_DATA}
-            height='100%'
-            title='Tổng chỉ số điện của nhà máy'
-          />
+          {pieChartDataLoading || !pieChartData ? (
+            <Box alignItems='center' textAlign='center'>
+              <CircularProgress color='primary' />
+            </Box>
+          ) : (
+            <PieChart
+              dataset={convertChartData(pieChartData, 'PIE') as ReportData}
+              height='100%'
+              title='Tổng chỉ số điện của nhà máy'
+            />
+          )}
         </Grid>
         <Grid item xs={8}>
-          <LineChart
-            dataset={DUMMY_REPORT_LINE_DATA}
-            height='100%'
-            title='Tổng chỉ số điện của từng công đoạn sản xuất'
-          />
+          {lineChartDataLoading || !lineChartData ? (
+            <Box alignItems='center' textAlign='center'>
+              <CircularProgress color='primary' />
+            </Box>
+          ) : (
+            <LineChart
+              dataset={convertChartData(lineChartData, 'LINE') as ReportData}
+              height='100%'
+              title='Tổng chỉ số điện của từng công đoạn sản xuất'
+            />
+          )}
         </Grid>
       </Grid>
       <Grid item xs={12}>
-        <GroupBarChart
-          isStacked
-          dataset={DUMMY_REPORT_BAR_DATA_LIST}
-          legendTitle='Thiết bị điện'
-          title='Tổng chỉ số điện của các thiết bị điện theo công đoạn sản xuất'
-        />
+        {barChartDataLoading || !barChartData ? (
+          <Box alignItems='center' textAlign='center'>
+            <CircularProgress color='primary' />
+          </Box>
+        ) : (
+          <GroupBarChart
+            isStacked
+            dataset={
+              convertChartData(barChartData, 'BAR') as ReportComplexBarData[]
+            }
+            legendTitle='Thiết bị điện'
+            title='Tổng chỉ số điện của các thiết bị điện theo công đoạn sản xuất'
+          />
+        )}
       </Grid>
     </Grid>
   );

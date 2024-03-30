@@ -3,7 +3,7 @@ import { useParams, useSearchParams } from 'react-router-dom';
 
 import { CircularProgress } from '@mui/material';
 
-import { useQueryReportDetailsById } from '~/services/report/useQueryReportDetailsById';
+import { useQueryReportDetailsById } from '~/services/report/queries/useQueryReportDetailsById';
 import { ReportKey, Shift } from '~/types';
 
 import { UNITS } from '~/pages/Report/helpers/constants';

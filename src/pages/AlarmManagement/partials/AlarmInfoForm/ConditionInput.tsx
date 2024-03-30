@@ -21,6 +21,7 @@ export function ConditionInput() {
     getValues,
     formState: { errors },
     resetField,
+    clearErrors,
   } = useFormContext<AlarmFormData>();
   const [typeCondition, setTypeCondition] = useState<TypeCondition>(
     TypeCondition.RANGE,
@@ -78,6 +79,7 @@ export function ConditionInput() {
         {(typeCondition === TypeCondition.GREATER_THAN ||
           typeCondition === TypeCondition.RANGE) && (
           <InputWithLabel
+            clearErrors={clearErrors}
             control={control}
             name='info.min'
             placeholder='Giới hạn dưới'
@@ -87,6 +89,7 @@ export function ConditionInput() {
         {(typeCondition === TypeCondition.LESS_THAN ||
           typeCondition === TypeCondition.RANGE) && (
           <InputWithLabel
+            clearErrors={clearErrors}
             control={control}
             name='info.max'
             placeholder='Giới hạn trên'

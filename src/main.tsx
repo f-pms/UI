@@ -18,10 +18,6 @@ async function enableMocking() {
   if (import.meta.env.VITE_NODE_ENV !== 'mocking') {
     return;
   }
-
-  const { worker } = await import('~/libs/mock-server-worker');
-
-  return worker.start();
 }
 
 enableMocking().then(() => {

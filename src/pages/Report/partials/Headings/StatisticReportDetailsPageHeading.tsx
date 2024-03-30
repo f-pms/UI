@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { format } from 'date-fns';
 import { vi } from 'date-fns/locale';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -5,6 +6,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Button, Stack } from '@mui/material';
 
 import { Shift } from '~/types';
+
+import { AuthContext } from '~/pages/Auth/context/AuthContext';
 
 import { SectionHeading } from '~/components';
 import {
@@ -15,6 +18,7 @@ import {
 export interface IStatisticReportDetailsPageHeadingProps {}
 
 export function StatisticReportDetailsPageHeading() {
+  const { isAdmin } = useContext(AuthContext);
   const { reportId } = useParams();
   const navigate = useNavigate();
   return (
@@ -26,9 +30,11 @@ export function StatisticReportDetailsPageHeading() {
           justifyContent='space-between'
           spacing={2}
         >
-          <Button startIcon={<FileDownloadOutlinedIcon />} variant='outlined'>
-            Tải báo cáo
-          </Button>
+          {isAdmin && (
+            <Button startIcon={<FileDownloadOutlinedIcon />} variant='outlined'>
+              Tải báo cáo
+            </Button>
+          )}
           <Button
             startIcon={<InsertChartOutlinedIcon />}
             variant='contained'

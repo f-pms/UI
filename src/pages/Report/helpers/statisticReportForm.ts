@@ -1,5 +1,12 @@
 import * as yup from 'yup';
 
+import {
+  GetMultiDayReportSummaryParams,
+  QueryChartType,
+} from '~/services/report/queries/useQueryReportCharts';
+
+import { ConvertFormDataToQueryData } from '~/pages/Report/helpers/chartDataConverter';
+
 export enum DateTypes {
   START_DATE = 'Ngày bắt đầu',
   END_DATE = 'Ngày kết thúc',
@@ -20,11 +27,17 @@ export interface StatisticReportFormData {
   fixedDate?: Date;
 }
 
+export const defaultSelectedDate = new Date();
+defaultSelectedDate.setDate(defaultSelectedDate.getDate() - 1);
+export const defaultFixedDate = new Date();
+defaultFixedDate.setDate(defaultFixedDate.getDate() - 2);
+
 export const defaultStatisticReportFormData: StatisticReportFormData = {
   viewType: ViewTypes.BY_DAY,
   stepField: 2,
   selectedDateType: DateTypes.END_DATE,
-  selectedDate: new Date(),
+  selectedDate: defaultSelectedDate,
+  fixedDate: defaultFixedDate,
 };
 
 export const statisticReportValidationSchema = yup.object({
@@ -99,3 +112,24 @@ export const statisticReportValidationSchema = yup.object({
     },
   }),
 });
+
+export type StatisticReportFilterParams = {
+  lineChartParams: GetMultiDayReportSummaryParams;
+  pieChartParams: GetMultiDayReportSummaryParams;
+  barChartParams: GetMultiDayReportSummaryParams;
+};
+
+export const defaultStatisticReportFilterParams = {
+  lineChartParams: ConvertFormDataToQueryData(
+    defaultStatisticReportFormData,
+    QueryChartType.LINE,
+  ),
+  pieChartParams: ConvertFormDataToQueryData(
+    defaultStatisticReportFormData,
+    QueryChartType.PIE,
+  ),
+  barChartParams: ConvertFormDataToQueryData(
+    defaultStatisticReportFormData,
+    QueryChartType.BAR,
+  ),
+};
