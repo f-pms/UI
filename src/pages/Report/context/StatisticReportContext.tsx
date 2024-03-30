@@ -6,7 +6,11 @@ import {
   useState,
 } from 'react';
 
+import { format } from '~/libs/date-fns';
+
 import {
+  defaultFixedDate,
+  defaultSelectedDate,
   defaultStatisticReportFilterParams,
   StatisticReportFilterParams,
 } from '~/pages/Report/helpers/statisticReportForm';
@@ -47,7 +51,10 @@ interface IStatisticReportProviderProps {
 export function StatisticReportProvider({
   children,
 }: IStatisticReportProviderProps) {
-  const [date, setDate] = useState<DateInformation>({});
+  const [date, setDate] = useState<DateInformation>({
+    startDate: format(defaultFixedDate, 'dd/MM/yyyy'),
+    endDate: format(defaultSelectedDate, 'dd/MM/yyyy'),
+  });
   const [electricityConsumptionList, setElectricityConsumptionList] = useState<
     ElectricityConsumption[]
   >(ELECTRICITY_CONSUMPTION_LIST);

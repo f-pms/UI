@@ -62,6 +62,23 @@ const StatisticReportFilter = () => {
   const watchViewType = watch('viewType');
   const watchFixedDate = watch('fixedDate');
 
+  const updateDateState = () => {
+    const formatedSelectedDate = format(watchSelectedDate, 'dd/MM/yyyy');
+    const fixedSelectedDate = format(watchFixedDate ?? 0, 'dd/MM/yyyy');
+
+    if (watchSelectedDateType === DateTypes.START_DATE) {
+      setDate({
+        startDate: formatedSelectedDate,
+        endDate: watchFixedDate ? fixedSelectedDate : '',
+      });
+    } else {
+      setDate({
+        startDate: watchFixedDate ? fixedSelectedDate : '',
+        endDate: formatedSelectedDate,
+      });
+    }
+  };
+
   const onSubmit = (data: unknown) => {
     const formatedData = data as StatisticReportFormData;
     const lineChartParams = ConvertFormDataToQueryData(
@@ -84,6 +101,7 @@ const StatisticReportFilter = () => {
       pieChartParams,
       barChartParams,
     });
+    updateDateState();
   };
 
   const getFixedDate = useCallback(() => {
@@ -171,23 +189,6 @@ const StatisticReportFilter = () => {
     watchFixedDate,
     trigger,
   ]);
-
-  useEffect(() => {
-    const formatedSelectedDate = format(watchSelectedDate, 'dd/MM/yyyy');
-    const fixedSelectedDate = format(watchFixedDate ?? 0, 'dd/MM/yyyy');
-
-    if (watchSelectedDateType === DateTypes.START_DATE) {
-      setDate({
-        startDate: formatedSelectedDate,
-        endDate: watchFixedDate ? fixedSelectedDate : '',
-      });
-    } else {
-      setDate({
-        startDate: watchFixedDate ? fixedSelectedDate : '',
-        endDate: formatedSelectedDate,
-      });
-    }
-  }, [watchSelectedDate, watchFixedDate, watchSelectedDateType, setDate]);
 
   const getFormatedDate = () => {
     const formatedSelectedDate = format(watchSelectedDate, 'dd/MM/yyyy');

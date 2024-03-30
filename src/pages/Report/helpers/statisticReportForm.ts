@@ -27,9 +27,9 @@ export interface StatisticReportFormData {
   fixedDate?: Date;
 }
 
-const defaultSelectedDate = new Date();
+export const defaultSelectedDate = new Date();
 defaultSelectedDate.setDate(defaultSelectedDate.getDate() - 1);
-const defaultFixedDate = new Date();
+export const defaultFixedDate = new Date();
 defaultFixedDate.setDate(defaultFixedDate.getDate() - 2);
 
 export const defaultStatisticReportFormData: StatisticReportFormData = {
