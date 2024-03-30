@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { is } from 'date-fns/locale';
 import { MRT_PaginationState } from 'material-react-table';
 import { FormProvider, useForm } from 'react-hook-form';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Skeleton } from '@mui/material';
@@ -31,7 +30,6 @@ import { Container, Paper, Stack } from '~/components/MuiComponents';
 export interface IHistoricalReportListPageProps {}
 
 export function HistoricalReportListPage() {
-  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const setLoading = useLoadingStore((state) => state.setLoading);
 
