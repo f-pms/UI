@@ -1,8 +1,8 @@
 import _ from 'lodash';
 
 export function formatNumber(number: number, decimalPlaces: number) {
-  if (_.isNaN(number) || !_.isNumber(number)) {
-    return '';
+  if (_.isNaN(number) || !_.isNumber(number) || number < 0) {
+    return '0';
   }
 
   // 1. Convert to a string and ensure it's a number

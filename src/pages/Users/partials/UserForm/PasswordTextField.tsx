@@ -74,16 +74,15 @@ export function PasswordTextField() {
   }, [watchPassword]);
 
   return (
-    <Box>
-      <Typography
-        color='text.strong'
-        sx={{ fontWeight: 'bold' }}
-        variant='subtitle2'
-      >
-        Mật khẩu
-      </Typography>
-
-      <FormGroup sx={{ width: '100%', mt: 2 }}>
+    <Box mt={2}>
+      <FormGroup sx={{ width: '100%' }}>
+        <Typography
+          color='text.strong'
+          sx={{ fontWeight: 'bold' }}
+          variant='subtitle2'
+        >
+          Mật khẩu
+        </Typography>
         <Stack direction='row' spacing={2}>
           <FormControl
             error={!!validateErrors.length || !!errors.password}
@@ -101,7 +100,7 @@ export function PasswordTextField() {
               }
               placeholder='Mật khẩu'
               size='small'
-              sx={{ fontSize: '14px', mt: 1, width: '100%' }}
+              sx={{ fontSize: '14px', width: '100%' }}
               type={showPassword ? 'text' : 'password'}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -126,8 +125,8 @@ export function PasswordTextField() {
               }
               placeholder='Nhập lại mật khẩu'
               size='small'
-              sx={{ fontSize: '14px', mt: 1, width: '100%' }}
-              type='password'
+              sx={{ fontSize: '14px', width: '100%' }}
+              type={showConfirmPassword ? 'text' : 'password'}
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />

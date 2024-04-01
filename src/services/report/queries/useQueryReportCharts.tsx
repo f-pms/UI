@@ -5,7 +5,7 @@ import axiosClient from '~/libs/axios';
 import {
   MultiDateReportSummary,
   MultiDateReportSummaryChart,
-  OneDayChartByShift,
+  OneDayChartByShiftCharts,
 } from '~/types';
 
 export enum QueryDateType {
@@ -30,12 +30,15 @@ export type GetMultiDayReportSummaryParams = {
 
 const getOneDayReportCharts = async (reportId: string) => {
   return (await axiosClient.get(`reports/${reportId}/charts/one-day`))
-    .data as OneDayChartByShift[];
+    .data as OneDayChartByShiftCharts;
 };
 
 export const useQueryOneDayReportCharts = (
   reportId: string,
-  options?: Omit<UseQueryOptions<OneDayChartByShift[]>, 'queryKey' | 'queryFn'>,
+  options?: Omit<
+    UseQueryOptions<OneDayChartByShiftCharts>,
+    'queryKey' | 'queryFn'
+  >,
 ) => {
   return useQuery({
     ...options,
