@@ -20,7 +20,7 @@ export interface IStatisticReportDetailsPageHeadingProps {
 }
 
 export function StatisticReportDetailsPageHeading(
-  props: IStatisticReportDetailsPageHeadingProps,
+  props: Readonly<IStatisticReportDetailsPageHeadingProps>,
 ) {
   const { recordingDate } = props;
   const { isAdmin } = useContext(AuthContext);

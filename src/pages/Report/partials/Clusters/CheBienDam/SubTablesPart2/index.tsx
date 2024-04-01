@@ -10,7 +10,7 @@ export interface ISubTablesPart2Props {
   report: ReportDetails;
 }
 
-export function SubTablesPart2(props: ISubTablesPart2Props) {
+export function SubTablesPart2(props: Readonly<ISubTablesPart2Props>) {
   const { report } = props;
   const [searchParams] = useSearchParams();
   const shift = searchParams.get('shift') as Shift;
