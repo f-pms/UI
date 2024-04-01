@@ -1,34 +1,18 @@
-import * as React from 'react';
+import { useContext } from 'react';
+import _ from 'lodash';
 
-import { SelectChangeEvent } from '~/libs/mui';
+import { Paper, Typography } from '~/libs/mui';
+import { translateUserRole } from '~/utils';
 
-import { FormControl, MenuItem, Select } from '~/components/MuiComponents';
+import { AuthContext } from '~/pages/Auth/context/AuthContext';
 
 export default function SwitchRole() {
-  const [age, setAge] = React.useState('1');
-
-  const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value);
-  };
-
+  const { user } = useContext(AuthContext);
   return (
-    <FormControl size='small' sx={{ mr: 2, minWidth: 120, fontSize: '8px' }}>
-      <Select
-        id='switch-role'
-        sx={{ fontSize: '0.8rem' }}
-        value={age}
-        onChange={handleChange}
-      >
-        <MenuItem sx={{ fontSize: '0.8rem' }} value={1}>
-          Lê Xuân Đại (Quản lí)
-        </MenuItem>
-        <MenuItem sx={{ fontSize: '0.8rem' }} value={2}>
-          Lê Xuân Đại (Giám sát)
-        </MenuItem>
-        <MenuItem sx={{ fontSize: '0.8rem' }} value={3}>
-          Lê Xuân Đại (Thợ máy)
-        </MenuItem>
-      </Select>
-    </FormControl>
+    <Paper sx={{ py: 1, px: 2, mr: 2 }} variant='outlined'>
+      <Typography variant='body2'>{`${_.startCase(
+        user?.fullName,
+      )} - ${translateUserRole(user?.role)}`}</Typography>
+    </Paper>
   );
 }

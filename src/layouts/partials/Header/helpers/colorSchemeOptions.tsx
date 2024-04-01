@@ -7,28 +7,28 @@ export type ColorSchemeOption = {
 
 export const COLOR_SCHEME_OPTIONS: ColorSchemeOption[] = [
   {
-    label: 'Default',
+    label: 'Mặc định',
     value: 'blue',
   },
   {
-    label: 'Theme 1',
+    label: 'Chủ đề 1',
     value: 'zinc',
   },
   {
-    label: 'Theme 2',
+    label: 'Chủ đề 2',
     value: 'red',
   },
   {
-    label: 'Theme 3',
+    label: 'Chủ đề 3',
     value: 'green',
   },
   {
-    label: 'Theme 4',
+    label: 'Chủ đề 4',
     value: 'orange',
   },
 
   {
-    label: 'Theme 5',
+    label: 'Chủ đề 5',
     value: 'violet',
   },
 ];
