@@ -15,9 +15,13 @@ import {
   InsertChartOutlinedIcon,
 } from '~/components/Icons';
 
-export interface IStatisticReportDetailsPageHeadingProps {}
+export interface IStatisticReportDetailsPageHeadingProps {
+  recordingDate?: string;
+}
 
-export function StatisticReportDetailsPageHeading() {
+export function StatisticReportDetailsPageHeading({
+  recordingDate,
+}: IStatisticReportDetailsPageHeadingProps) {
   const { isAdmin } = useContext(AuthContext);
   const { reportId } = useParams();
   const navigate = useNavigate();
@@ -50,7 +54,7 @@ export function StatisticReportDetailsPageHeading() {
         </Stack>
       }
       description={`Thống kê chỉ số điện cụm sản xuất chế biến dăm: ${format(
-        new Date(),
+        new Date(recordingDate ?? ''),
         'PPPP',
         { locale: vi },
       )}`}

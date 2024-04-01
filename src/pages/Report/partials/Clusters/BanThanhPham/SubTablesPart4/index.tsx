@@ -23,7 +23,7 @@ export function SubTablePart4({ report }: ISubTablePart4Props) {
           {
             label: 'Tổng số điện sử dụng khí nén cho SX thành phẩm',
             coefficient: 50,
-            value: sum?.['SUM_DAM_CATEGORY_2.1'] ?? 0,
+            value: sum?.['SUM_BTP_CATEGORY_4.1'] ?? 0,
           },
         ]}
         title='Tổng số điện sử dụng cho công đoạn SX thành phẩm'
@@ -34,7 +34,7 @@ export function SubTablePart4({ report }: ISubTablePart4Props) {
           {
             label: 'Tổng số điện sử dụng khí nén cho SX bán thành phẩm',
             coefficient: 50,
-            value: sum?.['SUM_DAM_CATEGORY_2.1'] ?? 0,
+            value: sum?.['SUM_BTP_CATEGORY_4.2'] ?? 0,
           },
         ]}
         title='Tổng số điện sử dụng cho công đoạn SX bán thành phẩm'
