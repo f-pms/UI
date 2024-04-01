@@ -20,6 +20,11 @@ export type OneDayChartByShift = {
   SUM_SPECIFIC_16: number;
 };
 
+export type OneDayChartByShiftCharts = {
+  recordingDate: string;
+  data: OneDayChartByShift[];
+};
+
 export type MultiDateReportSummary = {
   SUM_TOTAL: number;
   SUM_OFFPEAK: number;

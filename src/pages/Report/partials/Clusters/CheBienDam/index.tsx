@@ -37,7 +37,7 @@ export function CheBienDamCluster({ report }: ICheBienDamClusterProps) {
       <ElectricalMeterReadingTable tableData={tableDataPart1} />
       <Box>
         <ElectricalMeterReadingTable tableData={tableDataPart2} />
-        <SubTablesPart2 />
+        <SubTablesPart2 report={report} />
       </Box>
       <StageTotalTable
         contents={`Tổng số điện sử dụng cho SX công đoạn chế biến dăm ${shiftText?.toLocaleLowerCase()} = Tổng số điện (14*) - Tổng số điện (16) - Tổng số điện (17) = `}

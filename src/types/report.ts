@@ -75,15 +75,23 @@ export type RowsMap = {
   [key in ROWS_MAP_KEYS]: number;
 };
 
+export type ReportSums = {
+  SUM_TOTAL: number;
+  SUM_OFFPEAK: number;
+  SUM_STANDARD: number;
+  SUM_PEAK: number;
+  'SUM_DAM_CATEGORY_2.1': number;
+  'SUM_DAM_CATEGORY_2.2': number;
+  'SUM_BTP_CATEGORY_4.1': number;
+  'SUM_BTP_CATEGORY_4.2': number;
+};
+
 export type ReportDetails = {
   id: number;
   recordingDate: string;
   type: ReportType;
   rowsMaps: RowsMap[];
-  sum: {
-    TONG1: number;
-    TONG2: number;
-  };
+  sums: ReportSums[];
 };
 
 export enum ROWS_MAP_KEYS {

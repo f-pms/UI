@@ -7,7 +7,8 @@ import {
 import { useNavigate } from 'react-router-dom';
 
 import { useQueryUsers } from '~/services/user/queries/useQueryUsers';
-import { User } from '~/types';
+import { Role, User } from '~/types';
+import { translateUserRole } from '~/utils';
 
 import { ConfirmDeleteUserDialog } from '~/pages/Users/partials/Dialogs/ConfirmDeleteUserDialog';
 
@@ -59,8 +60,9 @@ export function UserTable() {
         header: 'Email',
       },
       {
-        accessorKey: 'role',
+        id: 'role',
         header: 'Vai trò',
+        accessorFn: (row) => translateUserRole(row.role.toUpperCase() as Role),
       },
     ],
     [],

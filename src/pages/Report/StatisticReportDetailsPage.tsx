@@ -43,7 +43,7 @@ export function StatisticReportDetailsPage() {
       return undefined;
     }
 
-    return ConvertOneDayChartData(reportChart ?? [], reportType);
+    return ConvertOneDayChartData(reportChart.data ?? [], reportType);
   }, [reportChart, reportType]);
 
   if (loadingReportData || loadingReportChart || !oneDayChartData)
@@ -55,7 +55,9 @@ export function StatisticReportDetailsPage() {
 
   return (
     <Container maxWidth='xl' sx={{ py: 2 }}>
-      <StatisticReportDetailsPageHeading />
+      <StatisticReportDetailsPageHeading
+        recordingDate={reportChart?.recordingDate}
+      />
       <Grid
         container
         alignItems='flex-start'

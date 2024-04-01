@@ -1,4 +1,7 @@
 import { Dispatch, useContext, useMemo } from 'react';
+import { format } from 'date-fns';
+import { vi } from 'date-fns/locale';
+import _ from 'lodash';
 import {
   MaterialReactTable,
   MRT_ColumnDef,
@@ -40,8 +43,12 @@ export function HistoricalReportTable(props: IHistoricalReportTableProps) {
         accessorFn: (row) => REPORT_TYPE_LABELS[row.type.name],
       },
       {
-        accessorKey: 'recordingDate',
+        id: 'recordingDate',
         header: 'Ngày xuất báo cáo',
+        accessorFn: (row) =>
+          _.upperFirst(
+            format(new Date(row.recordingDate), 'PPP', { locale: vi }),
+          ),
       },
     ],
     [],
