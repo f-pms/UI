@@ -41,20 +41,20 @@ export function HistoricalReportDetailsPage() {
         <Total
           data={{
             [Shift.MORNING]: {
-              peakTimeValue: 100,
-              lowTimeValue: 200,
-              normalTimeValue: 300,
-              total: 600,
-              totalElectricalUsage: 1000,
-              totalOutput: 1000,
+              peakTimeValue: data.sums[0]?.SUM_PEAK ?? 0,
+              lowTimeValue: data.sums[0]?.SUM_OFFPEAK ?? 0,
+              normalTimeValue: data.sums[0]?.SUM_STANDARD ?? 0,
+              total: data.sums[0]?.SUM_TOTAL ?? 0,
+              totalElectricalUsage: 0,
+              totalOutput: 0,
             },
             [Shift.NIGHT]: {
-              peakTimeValue: 100,
-              lowTimeValue: 200,
-              normalTimeValue: 300,
-              total: 600,
-              totalElectricalUsage: 1000,
-              totalOutput: 1000,
+              peakTimeValue: data.sums[1]?.SUM_PEAK ?? 0,
+              lowTimeValue: data.sums[1]?.SUM_OFFPEAK ?? 0,
+              normalTimeValue: data.sums[1]?.SUM_STANDARD ?? 0,
+              total: data.sums[1]?.SUM_TOTAL ?? 0,
+              totalElectricalUsage: 0,
+              totalOutput: 0,
             },
           }}
           date={data.recordingDate}

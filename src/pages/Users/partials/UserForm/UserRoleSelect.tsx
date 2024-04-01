@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 import {
@@ -29,12 +29,17 @@ const MenuProps = {
 
 export interface IUserRoleSelectProps {}
 export function UserRoleSelect() {
-  const { getValues } = useFormContext<UserDTO>();
+  const { getValues, setValue, watch } = useFormContext<UserDTO>();
   const [role, setRole] = useState<Role>(() => getValues('role'));
+  const roleWatch = watch('role');
 
   const handleChange = (event: SelectChangeEvent) => {
-    setRole(event.target.value as Role);
+    setValue('role', event.target.value as Role);
   };
+
+  useEffect(() => {
+    setRole(roleWatch);
+  }, [roleWatch]);
 
   return (
     <FormControl sx={{ width: '100%' }}>
