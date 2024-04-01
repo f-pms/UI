@@ -66,16 +66,12 @@ export default function Total(props: ITotalProps) {
           rows={getRows(Shift.MORNING)}
           title={`I. Ca sáng (6h00-18h00): ${dateToText}`}
           total={data[Shift.MORNING].total}
-          totalElectricalUsage={data[Shift.MORNING].totalElectricalUsage}
-          totalOutput={data[Shift.MORNING].totalOutput}
         />
         <TotalTable
           headers={headers}
           rows={getRows(Shift.NIGHT)}
           title={`II. Ca tối (18h00-6h00): ${dateToText}`}
           total={data[Shift.NIGHT].total}
-          totalElectricalUsage={data[Shift.NIGHT].totalElectricalUsage}
-          totalOutput={data[Shift.NIGHT].totalOutput}
         />
       </Stack>
       <Box mt={5}>

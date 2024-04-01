@@ -19,8 +19,6 @@ export interface ITotalTableProps {
     name: string;
     value: number;
   }[];
-  totalOutput: number;
-  totalElectricalUsage: number;
   total: number;
 }
 

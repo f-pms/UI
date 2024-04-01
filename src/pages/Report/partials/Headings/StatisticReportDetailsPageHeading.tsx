@@ -19,9 +19,10 @@ export interface IStatisticReportDetailsPageHeadingProps {
   recordingDate?: string;
 }
 
-export function StatisticReportDetailsPageHeading({
-  recordingDate,
-}: IStatisticReportDetailsPageHeadingProps) {
+export function StatisticReportDetailsPageHeading(
+  props: IStatisticReportDetailsPageHeadingProps,
+) {
+  const { recordingDate } = props;
   const { isAdmin } = useContext(AuthContext);
   const { reportId } = useParams();
   const navigate = useNavigate();
