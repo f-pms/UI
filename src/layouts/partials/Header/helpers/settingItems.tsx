@@ -18,7 +18,7 @@ export const SETTING_ITEMS = [
     icon: <PersonOutlineOutlinedIcon fontSize='small' />,
   },
   {
-    label: 'Theme Customization',
+    label: 'Tùy chỉnh giao diện',
     icon: <SettingsSuggestOutlinedIcon fontSize='small' />,
   },
   {
