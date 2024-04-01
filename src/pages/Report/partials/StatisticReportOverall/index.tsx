@@ -2,8 +2,8 @@ import { useContext } from 'react';
 
 import {
   Box,
-  CircularProgress,
   Grid,
+  Skeleton,
   Stack,
   StackProps,
   styled,
@@ -47,7 +47,7 @@ const StatisticReportOverall = () => {
   if (reportSummaryLoading)
     return (
       <Box alignItems='center' textAlign='center'>
-        <CircularProgress color='primary' />
+        <Skeleton height={110} variant='rounded' />
       </Box>
     );
 

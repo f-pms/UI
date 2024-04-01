@@ -157,7 +157,7 @@ export const convertChartData = (
         labelStep: ['Chỉ số điện bán thành phẩm', 'Chỉ số điện chế biến dăm'],
         data: [
           {
-            label: '',
+            label: 'Chỉ số điện',
             dataset: [data.BTP.SUM_TOTAL[0], data.DAM.SUM_TOTAL[0]],
           },
         ],
