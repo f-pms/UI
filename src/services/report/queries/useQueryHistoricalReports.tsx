@@ -3,6 +3,7 @@ import { useQuery, UseQueryOptions } from '@tanstack/react-query';
 import { QUERY_KEYS } from '~/constants/queryKey';
 import axiosClient from '~/libs/axios';
 import { HistoricalReportPagination } from '~/types';
+import { toISOStringWithoutTimeZone } from '~/utils/date';
 
 import {
   ReportOrder,
@@ -24,8 +25,11 @@ const getHistoricalReports = async (params: GetHistoricalReportsParams) => {
   formattedParams.append('page', String(params.page));
   formattedParams.append('size', String(params.size));
   formattedParams.append('typeIds', params.typeIds.join(','));
-  formattedParams.append('startDate', params.startDate.toISOString());
-  formattedParams.append('endDate', params.endDate.toISOString());
+  formattedParams.append(
+    'startDate',
+    toISOStringWithoutTimeZone(params.startDate),
+  );
+  formattedParams.append('endDate', toISOStringWithoutTimeZone(params.endDate));
   formattedParams.append('sortBy', params.sortBy);
   formattedParams.append('order', params.order);
   return (
