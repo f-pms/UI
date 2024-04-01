@@ -2,7 +2,7 @@ import { array, date, object, ObjectSchema, string } from 'yup';
 
 export enum ReportSortBy {
   TYPE = 'TYPE',
-  RECORDING_DATE = 'NONE',
+  RECORDING_DATE = 'RECORDING_DATE',
 }
 
 export enum ReportOrder {

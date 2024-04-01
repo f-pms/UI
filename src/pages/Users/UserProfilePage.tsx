@@ -31,7 +31,11 @@ export function UserProfilePage() {
   const { data: user } = useQueryUserById(userId ?? 0, {
     enabled: userId !== undefined,
   });
-  const { mutate: updateUser, isSuccess: isUpdateSuccess } = useUpdateUser();
+  const {
+    mutate: updateUser,
+    isSuccess: isUpdateSuccess,
+    isError,
+  } = useUpdateUser();
 
   const [isEdit, setIsEdit] = useState<{
     [Key in keyof UserDTO]: boolean;
@@ -60,6 +64,7 @@ export function UserProfilePage() {
       payload: {
         fullName: data.fullName,
         email: data.email,
+        password: data.password,
       },
     });
   };
@@ -69,6 +74,12 @@ export function UserProfilePage() {
       toast.success('Cập nhật thông tin người dùng thành công');
     }
   }, [isUpdateSuccess]);
+
+  useEffect(() => {
+    if (isError) {
+      toast.error('Cập nhật thông tin người dùng thất bại');
+    }
+  }, [isError]);
 
   const isEditAllFalse = Object.values(isEdit).every((value) => !value);
 

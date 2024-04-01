@@ -25,8 +25,7 @@ export interface ITotalTableProps {
 }
 
 export function TotalTable(props: ITotalTableProps) {
-  const { title, headers, rows, totalOutput, totalElectricalUsage, total } =
-    props;
+  const { title, headers, rows, total } = props;
   return (
     <TableContainer component={Paper}>
       <Typography
@@ -73,10 +72,10 @@ export function TotalTable(props: ITotalTableProps) {
               {formatNumber(rows[0].value, 6)}
             </TableCell>
             <TableCell align='center' rowSpan={4} sx={{ fontSize: 12 }}>
-              {formatNumber(totalOutput, 6)}
+              Không có dữ liệu
             </TableCell>
             <TableCell align='center' rowSpan={4} sx={{ fontSize: 12 }}>
-              {formatNumber(totalElectricalUsage, 6)}
+              Không có dữ liệu
             </TableCell>
           </TableRow>
           {rows.slice(1).map((row) => (

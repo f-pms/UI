@@ -49,7 +49,7 @@ export function BanThanhPhamCluster({ report }: IBanThanhPhamClusterProps) {
       <ElectricalMeterReadingTable tableData={tableDataPart3} />
       <Box>
         <ElectricalMeterReadingTable tableData={tableDataPart4} />
-        <SubTablePart4 />
+        <SubTablePart4 report={report} />
       </Box>
       <StageTotalTable
         contents={`Tổng số điện sử dụng cho công đoạn SX bán thành phẩm (BTP) ${shiftText?.toLocaleLowerCase()} = Tổng số điện (14*) - Tổng số điện (15*) + Tổng số điện (16*) + Tổng số điện (17c) = `}

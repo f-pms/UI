@@ -30,7 +30,11 @@ export function CreateUserDialog() {
     page: Number(searchParams.get('page')) || 1,
     size: Number(searchParams.get('size')) || 10,
   });
-  const { mutate: createUser, isSuccess: isCreateSuccess } = useCreateUser();
+  const {
+    mutate: createUser,
+    isSuccess: isCreateSuccess,
+    isError: isCreateError,
+  } = useCreateUser();
   const [open, setOpen] = useState(false);
   const methods = useForm<UserDTO>({
     mode: 'onBlur',
@@ -65,9 +69,19 @@ export function CreateUserDialog() {
     if (isCreateSuccess) {
       toast.success('Tạo người dùng mới thành công');
       refetch();
+      handleReset();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isCreateSuccess]);
+
+  useEffect(() => {
+    if (isCreateError) {
+      toast.error(
+        'Tạo người dùng mới thất bại, vui lòng kiểm tra lại thông tin',
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isCreateError]);
 
   return (
     <>
