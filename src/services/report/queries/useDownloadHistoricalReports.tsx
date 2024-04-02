@@ -1,4 +1,6 @@
 import { storage } from '~/utils';
+import { toISOStringWithoutTimeZone } from '~/utils/date';
+const baseURL = import.meta.env.VITE_API_URL as string;
 
 import {
   ReportOrder,
@@ -25,10 +27,16 @@ export const downloadHistoricalReports = async (
     formattedParams.append('ids', params.ids.join(','));
   }
   if (params.startDate) {
-    formattedParams.append('startDate', params.startDate.toISOString());
+    formattedParams.append(
+      'startDate',
+      toISOStringWithoutTimeZone(params.startDate),
+    );
   }
   if (params.endDate) {
-    formattedParams.append('endDate', params.endDate.toISOString());
+    formattedParams.append(
+      'endDate',
+      toISOStringWithoutTimeZone(params.endDate),
+    );
   }
   if (params.sortBy) {
     formattedParams.append('sortBy', params.sortBy);
@@ -37,15 +45,24 @@ export const downloadHistoricalReports = async (
     formattedParams.append('order', params.order);
   }
 
-  const downloadWindow = window;
+  const token = storage.get('TOKEN');
 
-  if (downloadWindow && downloadWindow.document) {
-    const token = storage.get('TOKEN');
-    downloadWindow.document.cookie = `ACCESS_TOKEN=${token}; path=/`;
+  const headers = new Headers({
+    Authorization: `Bearer ${token}`,
+  });
 
-    downloadWindow.open(
-      'http://localhost:8080/reports/download?' + formattedParams.toString(),
-      '_blank',
-    );
-  }
+  fetch(`${baseURL}reports/download?` + formattedParams.toString(), {
+    headers,
+  })
+    .then((response) => response.blob())
+    .then((blob) => {
+      const desiredFileName = 'report.zip';
+
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = desiredFileName;
+      link.click();
+
+      link.onload = () => URL.revokeObjectURL(link.href);
+    });
 };
