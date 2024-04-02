@@ -19,10 +19,15 @@ export function ConfirmDeleteUserDialog(props: IConfirmDeleteUserDialogProps) {
   const { children, userId } = props;
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const { refetch } = useQueryUsers({
-    page: Number(searchParams.get('page')) || 1,
-    size: Number(searchParams.get('size')) || 10,
-  });
+  const { refetch } = useQueryUsers(
+    {
+      page: Number(searchParams.get('page')) || 1,
+      size: Number(searchParams.get('size')) || 10,
+    },
+    {
+      enabled: false,
+    },
+  );
   const { mutate: deleteUser, isSuccess: isDeleteSuccess } = useDeleteUser();
   const [open, setOpen] = useState(false);
 

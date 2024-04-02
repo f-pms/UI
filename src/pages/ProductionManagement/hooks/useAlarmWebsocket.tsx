@@ -14,9 +14,14 @@ import { AlarmHistoryStatus, AlarmSeverity, AlarmWebsocket } from '~/types';
 import AlarmToast from '~/pages/ProductionManagement/partials/AlarmToast';
 
 export const useAlarmWebsocket = () => {
-  const { refetch } = useQueryAlarmHistories({
-    status: AlarmHistoryStatus.SENT,
-  });
+  const { refetch } = useQueryAlarmHistories(
+    {
+      status: AlarmHistoryStatus.SENT,
+    },
+    {
+      enabled: false,
+    },
+  );
   const { subscribeOnly, ...ws } = useWebsocketStore();
   const [alarmMessage, setAlarmMessage] = useState<string>();
 
