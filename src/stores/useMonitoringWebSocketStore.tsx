@@ -41,8 +41,8 @@ export const useMonitoringWebSocketStore = create<State>(
     const client = new Client({
       brokerURL: websocketUrl,
       reconnectDelay: 4000,
-      connectHeaders:{
-        "Authorization":`Bearer ${token}`
+      connectHeaders: {
+        Authorization: `Bearer ${token}`,
       },
       onConnect: () => {
         set({
@@ -67,7 +67,10 @@ export const useMonitoringWebSocketStore = create<State>(
         }
       },
       onWebSocketError: (error) => {
-        console.error('Websocket connection cannot be established!', error.headers.message);
+        console.error(
+          'Websocket connection cannot be established!',
+          error.headers.message,
+        );
         if (get().retries + 1 > MAX_RETRIES_COUNT) {
           set({
             connectingStateTrigger: false,

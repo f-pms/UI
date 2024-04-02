@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { combine } from 'zustand/middleware';
 
 import { Client, IMessage, StompSubscription } from '@stomp/stompjs';
+
 import { storage } from '~/utils';
 
 const websocketUrl = import.meta.env.VITE_WEBSOCKET_URL as string;
@@ -38,8 +39,8 @@ export const useWebsocketStore = create<State>(
     const client = new Client({
       brokerURL: websocketUrl,
       reconnectDelay: 4000,
-      connectHeaders:{
-        "Authorization":`Bearer ${token}`
+      connectHeaders: {
+        Authorization: `Bearer ${token}`,
       },
       onConnect: () => {
         set({
@@ -48,7 +49,10 @@ export const useWebsocketStore = create<State>(
         });
       },
       onStompError: (error) => {
-        console.error('Websocket connection is corrupted!', error.headers.message);
+        console.error(
+          'Websocket connection is corrupted!',
+          error.headers.message,
+        );
         if (get().retries + 1 > MAX_RETRIES_COUNT) {
           set({
             connectingStateTrigger: false,
