@@ -152,7 +152,10 @@ export const convertChartData = (
         data: [
           {
             label: 'Chỉ số điện',
-            dataset: [data.BTP.SUM_TOTAL[0], data.DAM.SUM_TOTAL[0]],
+            dataset: [
+              data.BTP?.SUM_TOTAL?.[0] ?? 0,
+              data.DAM?.SUM_TOTAL?.[0] ?? 0,
+            ],
           },
         ],
       };

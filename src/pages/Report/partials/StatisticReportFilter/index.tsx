@@ -208,7 +208,7 @@ const StatisticReportFilter = () => {
   };
 
   return (
-    <Box marginBottom={4} textAlign='center'>
+    <Box marginBottom={2} textAlign='center'>
       <StyledFilterBox
         alignItems='center'
         flexDirection='row'

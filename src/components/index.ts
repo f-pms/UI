@@ -6,6 +6,7 @@ export * from './Buttons/CustomBorderButton';
 export * from './Buttons/SoftButton';
 export * from './Calendar';
 export * from './Checkbox';
+export * from './CustomSkeleton';
 export * from './InputWithLabel';
 export * from './RouteLink';
 export * from './SectionHeading';
