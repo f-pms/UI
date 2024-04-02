@@ -11,6 +11,7 @@ import {
   useQueryHistoricalReports,
 } from '~/services/report/queries/useQueryHistoricalReports';
 import { useLoadingStore } from '~/stores';
+import { toISOStringWithoutTimeZone } from '~/utils/date';
 
 import {
   FilterReportFormData,
@@ -80,8 +81,14 @@ export function HistoricalReportListPage() {
     formattedParams.append('page', String(params.page));
     formattedParams.append('size', String(params.size));
     formattedParams.append('typeIds', params.typeIds.join(','));
-    formattedParams.append('startDate', params.startDate.toISOString());
-    formattedParams.append('endDate', params.endDate.toISOString());
+    formattedParams.append(
+      'startDate',
+      toISOStringWithoutTimeZone(params.startDate),
+    );
+    formattedParams.append(
+      'endDate',
+      toISOStringWithoutTimeZone(params.endDate),
+    );
     formattedParams.append('sortBy', params.sortBy);
     formattedParams.append('order', params.order);
     setSearchParams(formattedParams);
