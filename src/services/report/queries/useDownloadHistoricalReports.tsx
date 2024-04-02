@@ -8,8 +8,8 @@ import {
 } from '~/pages/Report/helpers/filterReportFrom';
 
 export type DownloadHistoricalReportsParams = {
-  typeIds?: number[];
-  ids?: number[];
+  typeIds?: number[] | string[];
+  ids?: number[] | string[];
   startDate?: Date;
   endDate?: Date;
   sortBy?: ReportSortBy;
@@ -56,7 +56,7 @@ export const downloadHistoricalReports = async (
   })
     .then((response) => response.blob())
     .then((blob) => {
-      const desiredFileName = 'report.zip';
+      const desiredFileName = 'reports.zip';
 
       const link = document.createElement('a');
       link.href = URL.createObjectURL(blob);
