@@ -13,7 +13,7 @@ export type CustomizeThemeContextType = {
 };
 
 export const CustomizeThemeContext = createContext<CustomizeThemeContextType>({
-  themeColor: 'blue',
+  themeColor: 'green',
   onThemeColorChange: () => {},
   fontFamily: 'inter',
   onFontFamilyChange: () => {},
@@ -27,10 +27,10 @@ export function CustomizeThemeProvider({
   children,
 }: ICustomizeThemeProviderProps) {
   const [themeColor, setThemeColor] = useState<ColorScheme>(() => {
-    return (storage.get('COLOR_SCHEME') || 'blue') as ColorScheme;
+    return (storage.get('COLOR_SCHEME') ?? 'green') as ColorScheme;
   });
   const [fontFamily, setFontFamily] = useState<FontFamily>(() => {
-    return (storage.get('FONT_FAMILY') || 'inter') as FontFamily;
+    return (storage.get('FONT_FAMILY') ?? 'inter') as FontFamily;
   });
 
   const onThemeColorChange = (colorScheme: ColorScheme) => {

@@ -1,4 +1,5 @@
 import { Dispatch, useContext } from 'react';
+import _ from 'lodash';
 
 import { Path } from '~/constants';
 import { SETTING_ITEMS } from '~/layouts/partials/Header/helpers/settingItems';
@@ -16,6 +17,7 @@ import {
   Box,
   Menu,
   Stack,
+  Tooltip,
   Typography,
 } from '~/components/MuiComponents';
 
@@ -32,6 +34,11 @@ export function UserSettingMenu(props: IUserSettingMenuProps) {
   const handleCloseUserMenu = (path: string) => {
     setAnchorElUser(null);
     if (path) navigate(path);
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate(Path.SIGN_IN);
   };
 
   return (
@@ -60,15 +67,19 @@ export function UserSettingMenu(props: IUserSettingMenuProps) {
         <Stack alignItems='center' direction='row' spacing={1}>
           <Avatar>{user?.fullName[0].toUpperCase()}</Avatar>
           <Box sx={{ ml: 6 }}>
-            <Typography variant='body1'>{user?.fullName}</Typography>
+            <Typography variant='body1'>
+              {_.startCase(user?.fullName)}
+            </Typography>
             <Typography variant='caption'>
               {translateUserRole(user?.role)}
             </Typography>
           </Box>
         </Stack>
-        <SoftButton color={'primary'}>
-          <ExitToAppOutlinedIcon fontSize='small' />
-        </SoftButton>
+        <Tooltip title='Đăng xuất'>
+          <SoftButton color={'primary'} onClick={handleLogout}>
+            <ExitToAppOutlinedIcon fontSize='small' />
+          </SoftButton>
+        </Tooltip>
       </Stack>
       <UserSettingItem
         key={SETTING_ITEMS[0].label}
@@ -78,10 +89,7 @@ export function UserSettingMenu(props: IUserSettingMenuProps) {
       <ThemeCustomization setAnchorElUser={setAnchorElUser} />
       <UserSettingItem
         key={SETTING_ITEMS[2].label}
-        handleCloseUserMenu={() => {
-          logout();
-          navigate(Path.SIGN_IN);
-        }}
+        handleCloseUserMenu={handleLogout}
         setting={SETTING_ITEMS[2]}
       />
     </Menu>
