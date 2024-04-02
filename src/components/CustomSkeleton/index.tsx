@@ -9,7 +9,7 @@ export interface ICustomSkeletonProps {
   isEmpty?: boolean;
 }
 
-export function CustomSkeleton(props: ICustomSkeletonProps) {
+export function CustomSkeleton(props: Readonly<ICustomSkeletonProps>) {
   const { height, width, sx, isEmpty = false } = props;
   return (
     <Paper sx={{ position: 'relative' }}>
