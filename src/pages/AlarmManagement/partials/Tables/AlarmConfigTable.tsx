@@ -132,7 +132,7 @@ export function AlarmConfigTable(props: IAlarmConfigTableProps) {
             Tất cả:
           </Typography>
           <SoftChip
-            label={`${alarmConditions.length} cấu hình cảnh báo`}
+            label={`${alarmConditions?.length ?? 0} cấu hình cảnh báo`}
             shape='square'
             size='small'
           />
