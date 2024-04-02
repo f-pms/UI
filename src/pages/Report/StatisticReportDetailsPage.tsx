@@ -1,13 +1,7 @@
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 
-import {
-  Box,
-  CircularProgress,
-  Container,
-  Grid,
-  Skeleton,
-} from '@mui/material';
+import { Box, CircularProgress, Container, Grid } from '@mui/material';
 
 import { useQueryOneDayReportCharts } from '~/services/report/queries/useQueryReportCharts';
 import { useQueryReportDetailsById } from '~/services/report/queries/useQueryReportDetailsById';

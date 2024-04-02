@@ -12,7 +12,7 @@ import { LineChart } from '~/components/Charts/LineChart';
 
 export interface IStatisticLineChartProps {}
 
-export function StatisticLineChart(props: IStatisticLineChartProps) {
+export function StatisticLineChart() {
   const { params } = useContext(StatisticReportContext);
 
   const { data: lineChartData, isPending: lineChartDataLoading } =

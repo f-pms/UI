@@ -1,6 +1,4 @@
 import { useContext } from 'react';
-import { format } from 'date-fns';
-import { vi } from 'date-fns/locale';
 
 import {
   Box,
@@ -12,7 +10,6 @@ import {
   Typography,
 } from '@mui/material';
 
-import { useQueryMissingDateReports } from '~/services/report/queries/useQueryMissingDateReports';
 import { useQueryGetMultiDayReportSummary } from '~/services/report/queries/useQueryReportCharts';
 
 import { StatisticReportContext } from '~/pages/Report/context/StatisticReportContext';
@@ -42,10 +39,6 @@ const StatisticReportOverall = () => {
 
   const { data: reportSummary, isPending: reportSummaryLoading } =
     useQueryGetMultiDayReportSummary(params.pieChartParams);
-  const { data: missingDates } = useQueryMissingDateReports({
-    start: params.pieChartParams.start,
-    end: params.pieChartParams.end,
-  });
 
   const getPercentByIndex = (value: number, total: number) => {
     return (value / total) * 100;
@@ -59,137 +52,120 @@ const StatisticReportOverall = () => {
     );
 
   return (
-    <>
-      {/* <Stack alignItems='start' justifyContent='space-between' mb={2}>
-        <Typography component='p' variant='caption'>
-          *Công đoạn chế biến dăm thiếu dữ liệu:{' '}
-          {missingDates?.DAM.map((date) =>
-            format(new Date(date), 'P', { locale: vi }),
-          ).join(' - ')}
-        </Typography>
-        <Typography component='p' variant='caption'>
-          *Công đoạn bán thành phần thiếu dữ liệu:{' '}
-          {missingDates?.BTP.map((date) =>
-            format(new Date(date), 'P', { locale: vi }),
-          ).join(' - ')}
-        </Typography>
-      </Stack> */}
-
-      <StyledContainer container>
-        <Grid item xs={3}>
-          <StyledGridItem
-            alignItems={'center'}
-            direction='row'
-            displayBorder={true}
-            gap={3}
-            justifyContent={'center'}
-          >
-            <Stack>
-              <Typography variant='body2'>Giờ cao điểm</Typography>
-              <Typography
-                color={'black'}
-                sx={{
-                  fontWeight: 'bold',
-                }}
-                variant='h6'
-              >
-                {reportSummary?.SUM_PEAK} (KWh)
-              </Typography>
-            </Stack>
-            <CircularProgressWithLabel
-              value={getPercentByIndex(
-                reportSummary?.SUM_PEAK ?? 0,
-                reportSummary?.SUM_TOTAL ?? 1,
-              )}
-            />
-          </StyledGridItem>
-        </Grid>
-        <Grid item xs={3}>
-          <StyledGridItem
-            alignItems={'center'}
-            direction='row'
-            displayBorder={true}
-            gap={3}
-            justifyContent={'center'}
-          >
-            <Stack>
-              <Typography variant='body2'>Giờ thấp điểm</Typography>
-              <Typography
-                color={'black'}
-                sx={{
-                  fontWeight: 'bold',
-                }}
-                variant='h6'
-              >
-                {reportSummary?.SUM_OFFPEAK} (KWh)
-              </Typography>
-            </Stack>
-            <CircularProgressWithLabel
-              value={getPercentByIndex(
-                reportSummary?.SUM_OFFPEAK ?? 0,
-                reportSummary?.SUM_TOTAL ?? 1,
-              )}
-            />
-          </StyledGridItem>
-        </Grid>
-        <Grid item xs={3}>
-          <StyledGridItem
-            alignItems={'center'}
-            direction='row'
-            displayBorder={true}
-            gap={3}
-            justifyContent={'center'}
-          >
-            <Stack>
-              <Typography variant='body2'>Giờ bình thường</Typography>
-              <Typography
-                color={'black'}
-                sx={{
-                  fontWeight: 'bold',
-                }}
-                variant='h6'
-              >
-                {reportSummary?.SUM_STANDARD} (KWh)
-              </Typography>
-            </Stack>
-            <CircularProgressWithLabel
-              value={getPercentByIndex(
-                reportSummary?.SUM_STANDARD ?? 0,
-                reportSummary?.SUM_TOTAL ?? 1,
-              )}
-            />
-          </StyledGridItem>
-        </Grid>
-        <Grid item xs={3}>
-          <StyledGridItem
-            alignItems={'center'}
-            direction='row'
-            displayBorder={false}
-            gap={3}
-            justifyContent={'center'}
-          >
-            <Stack>
-              <Typography variant='body2'>Tổng chỉ số điện</Typography>
-              <Typography
-                color={'black'}
-                sx={{
-                  fontWeight: 'bold',
-                }}
-                variant='h6'
-              >
-                {reportSummary?.SUM_PEAK} (KWh)
-              </Typography>
-            </Stack>
-            <CircularProgressWithLabel
-              value={getPercentByIndex(
-                reportSummary?.SUM_TOTAL ?? 0,
-                reportSummary?.SUM_TOTAL ?? 1,
-              )}
-            />
-          </StyledGridItem>
-        </Grid>
-      </StyledContainer>
-    </>
+    <StyledContainer container>
+      <Grid item xs={3}>
+        <StyledGridItem
+          alignItems={'center'}
+          direction='row'
+          displayBorder={true}
+          gap={3}
+          justifyContent={'center'}
+        >
+          <Stack>
+            <Typography variant='body2'>Giờ cao điểm</Typography>
+            <Typography
+              color={'black'}
+              sx={{
+                fontWeight: 'bold',
+              }}
+              variant='h6'
+            >
+              {reportSummary?.SUM_PEAK} (KWh)
+            </Typography>
+          </Stack>
+          <CircularProgressWithLabel
+            value={getPercentByIndex(
+              reportSummary?.SUM_PEAK ?? 0,
+              reportSummary?.SUM_TOTAL ?? 1,
+            )}
+          />
+        </StyledGridItem>
+      </Grid>
+      <Grid item xs={3}>
+        <StyledGridItem
+          alignItems={'center'}
+          direction='row'
+          displayBorder={true}
+          gap={3}
+          justifyContent={'center'}
+        >
+          <Stack>
+            <Typography variant='body2'>Giờ thấp điểm</Typography>
+            <Typography
+              color={'black'}
+              sx={{
+                fontWeight: 'bold',
+              }}
+              variant='h6'
+            >
+              {reportSummary?.SUM_OFFPEAK} (KWh)
+            </Typography>
+          </Stack>
+          <CircularProgressWithLabel
+            value={getPercentByIndex(
+              reportSummary?.SUM_OFFPEAK ?? 0,
+              reportSummary?.SUM_TOTAL ?? 1,
+            )}
+          />
+        </StyledGridItem>
+      </Grid>
+      <Grid item xs={3}>
+        <StyledGridItem
+          alignItems={'center'}
+          direction='row'
+          displayBorder={true}
+          gap={3}
+          justifyContent={'center'}
+        >
+          <Stack>
+            <Typography variant='body2'>Giờ bình thường</Typography>
+            <Typography
+              color={'black'}
+              sx={{
+                fontWeight: 'bold',
+              }}
+              variant='h6'
+            >
+              {reportSummary?.SUM_STANDARD} (KWh)
+            </Typography>
+          </Stack>
+          <CircularProgressWithLabel
+            value={getPercentByIndex(
+              reportSummary?.SUM_STANDARD ?? 0,
+              reportSummary?.SUM_TOTAL ?? 1,
+            )}
+          />
+        </StyledGridItem>
+      </Grid>
+      <Grid item xs={3}>
+        <StyledGridItem
+          alignItems={'center'}
+          direction='row'
+          displayBorder={false}
+          gap={3}
+          justifyContent={'center'}
+        >
+          <Stack>
+            <Typography variant='body2'>Tổng chỉ số điện</Typography>
+            <Typography
+              color={'black'}
+              sx={{
+                fontWeight: 'bold',
+              }}
+              variant='h6'
+            >
+              {reportSummary?.SUM_PEAK} (KWh)
+            </Typography>
+          </Stack>
+          <CircularProgressWithLabel
+            value={getPercentByIndex(
+              reportSummary?.SUM_TOTAL ?? 0,
+              reportSummary?.SUM_TOTAL ?? 1,
+            )}
+          />
+        </StyledGridItem>
+      </Grid>
+    </StyledContainer>
   );
 };
 

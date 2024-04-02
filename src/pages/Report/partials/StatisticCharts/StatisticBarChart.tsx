@@ -12,7 +12,7 @@ import { GroupBarChart } from '~/components/Charts/GroupBarChart';
 
 export interface IStatisticBarChartProps {}
 
-export function StatisticBarChart(props: IStatisticBarChartProps) {
+export function StatisticBarChart() {
   const { params } = useContext(StatisticReportContext);
   const { data: barChartData, isPending: barChartDataLoading } =
     useQueryGetMultiDayReportCharts(params.barChartParams);

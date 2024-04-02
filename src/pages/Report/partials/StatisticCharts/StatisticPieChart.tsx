@@ -1,8 +1,6 @@
 import { useContext } from 'react';
 import _ from 'lodash';
 
-import { Skeleton } from '@mui/material';
-
 import { useQueryGetMultiDayReportCharts } from '~/services/report/queries/useQueryReportCharts';
 
 import { StatisticReportContext } from '~/pages/Report/context/StatisticReportContext';
@@ -14,7 +12,7 @@ import { PieChart } from '~/components/Charts/PieChart';
 
 export interface IStatisticPieChartProps {}
 
-export function StatisticPieChart(props: IStatisticPieChartProps) {
+export function StatisticPieChart() {
   const { params } = useContext(StatisticReportContext);
 
   const { data: pieChartData, isPending: pieChartDataLoading } =
