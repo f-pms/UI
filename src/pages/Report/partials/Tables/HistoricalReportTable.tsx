@@ -80,7 +80,7 @@ export function HistoricalReportTable(props: IHistoricalReportTableProps) {
     getRowId: (row) => row.id.toString(),
     enableColumnPinning: false,
     manualPagination: true,
-    rowCount: historicalReports?.recordTotal,
+    rowCount: historicalReports?.recordTotal ?? 0,
     onPaginationChange: setPagination,
     state: { pagination },
     renderTopToolbarCustomActions: ({ table }) => {

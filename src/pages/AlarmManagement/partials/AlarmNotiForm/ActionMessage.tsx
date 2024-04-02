@@ -20,7 +20,9 @@ export default function ActionMessage() {
     clearErrors,
   } = useFormContext<AlarmFormData>();
   const isUpdate = getValues('isUpdate');
-  const { refetch } = useQueryAlarmConditions();
+  const { refetch } = useQueryAlarmConditions({
+    enabled: false,
+  });
   const { mutate: updateAlarmMessage, isSuccess } = useUpdateAlarmMessage();
   const [preMessage, setPreMessage] = useState(
     () => getValues('noti.message') ?? '',

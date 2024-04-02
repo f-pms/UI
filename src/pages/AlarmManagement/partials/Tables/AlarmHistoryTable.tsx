@@ -124,7 +124,7 @@ export function AlarmHistoryTable(props: IAlarmHistoryTableProps) {
             Tất cả:
           </Typography>
           <SoftChip
-            label={`${solvedAlarms.length} cảnh báo`}
+            label={`${solvedAlarms?.length ?? 0} cảnh báo`}
             shape='square'
             size='small'
           />

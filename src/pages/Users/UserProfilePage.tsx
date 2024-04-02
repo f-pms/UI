@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -15,8 +15,10 @@ import {
 import { UserDTO } from '~/services/user/mutation/useCreateUser';
 import { useUpdateUser } from '~/services/user/mutation/useUpdateUser';
 import { useQueryUserById } from '~/services/user/queries/useQueryUserById';
+import { Role } from '~/types';
 import { translateUserRole } from '~/utils';
 
+import { AuthContext } from '~/pages/Auth/context/AuthContext';
 import { ConfirmDeleteUserDialog } from '~/pages/Users/partials/Dialogs/ConfirmDeleteUserDialog';
 import { UserProfilePageHeading } from '~/pages/Users/partials/Headings/UserProfilePageHeading';
 import { UserInfoTextField } from '~/pages/Users/partials/UserInfo/UserInfoTextField';
@@ -28,9 +30,12 @@ export interface IUserProfilePageProps {}
 
 export function UserProfilePage() {
   const { userId } = useParams();
-  const { data: user } = useQueryUserById(userId ?? 0, {
+  const { user: currentUser } = useContext(AuthContext);
+  const { data: user, refetch: refetchUser } = useQueryUserById(userId ?? 0, {
     enabled: userId !== undefined,
   });
+  const [oldPassword, setOldPassword] = useState<string | undefined>();
+
   const {
     mutate: updateUser,
     isSuccess: isUpdateSuccess,
@@ -48,37 +53,57 @@ export function UserProfilePage() {
   });
 
   const methods = useForm<UserDTO>();
-
-  useEffect(() => {
+  const setDefaultValues = useCallback(() => {
     if (user === undefined) return;
     methods.setValue('fullName', user.fullName);
     methods.setValue('email', user.email);
     methods.setValue('role', user.role);
     methods.setValue('username', user.username);
-  }, [methods, user]);
+    methods.setValue('password', undefined);
+    setOldPassword(undefined);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
+  useEffect(() => {
+    setDefaultValues();
+  }, [setDefaultValues]);
 
   const onSubmit: SubmitHandler<UserDTO> = (data) => {
     if (userId === undefined) return;
+    const payload = {
+      fullName: data.fullName,
+      email: data.email,
+      password: data.password,
+    };
     updateUser({
       id: userId,
-      payload: {
-        fullName: data.fullName,
-        email: data.email,
-        password: data.password,
-      },
+      payload:
+        currentUser?.role === Role.ADMIN
+          ? payload
+          : {
+              ...payload,
+              oldPassword: data.password ? oldPassword : undefined,
+            },
     });
   };
 
   useEffect(() => {
     if (isUpdateSuccess) {
       toast.success('Cập nhật thông tin người dùng thành công');
+      refetchUser();
+      setDefaultValues();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isUpdateSuccess]);
 
   useEffect(() => {
     if (isError) {
-      toast.error('Cập nhật thông tin người dùng thất bại');
+      toast.error(
+        'Cập nhật thông tin người dùng thất bại, vui lòng kiểm tra lại thông tin',
+      );
+      setDefaultValues();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isError]);
 
   const isEditAllFalse = Object.values(isEdit).every((value) => !value);
@@ -153,7 +178,12 @@ export function UserProfilePage() {
             setIsEdit={setIsEdit}
           />
           <Divider />
-          <UserPasswordField isEdit={isEdit} setIsEdit={setIsEdit} />
+          <UserPasswordField
+            isEdit={isEdit}
+            oldPassword={oldPassword}
+            setIsEdit={setIsEdit}
+            setOldPassword={setOldPassword}
+          />
 
           <Stack
             alignItems='center'
@@ -191,11 +221,13 @@ export function UserProfilePage() {
                 tài khoản này sẽ bị xóa vĩnh viễn.
               </Typography>
             </Box>
-            <ConfirmDeleteUserDialog userId={user?.id}>
-              <Button color='error' variant='outlined'>
-                Xóa tài khoản
-              </Button>
-            </ConfirmDeleteUserDialog>
+            {currentUser?.role === Role.ADMIN && (
+              <ConfirmDeleteUserDialog userId={user?.id}>
+                <Button color='error' variant='outlined'>
+                  Xóa tài khoản
+                </Button>
+              </ConfirmDeleteUserDialog>
+            )}
           </Stack>
         </FormProvider>
       </form>

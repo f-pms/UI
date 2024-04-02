@@ -3,7 +3,9 @@ import { useMutation } from '@tanstack/react-query';
 import axiosClient from '~/libs/axios';
 import { User } from '~/types';
 
-interface UserDTO extends Omit<User, 'id' | 'username' | 'role'> {}
+interface UserDTO extends Omit<User, 'id' | 'username' | 'role'> {
+  oldPassword?: string;
+}
 
 type UpdateUserParams = {
   id: number | string;

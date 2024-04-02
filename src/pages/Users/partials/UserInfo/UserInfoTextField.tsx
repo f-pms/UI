@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FieldError, useFormContext } from 'react-hook-form';
 
 import {
@@ -35,6 +35,7 @@ export function UserInfoTextField(props: IUserInfoTextFieldProps) {
   } = useFormContext<UserDTO>();
   const [value, setValue] = useState<string>('');
   const [error, setError] = useState<FieldError>();
+  const valueForm = watch(name);
 
   const handleEdit = (key: keyof UserDTO) => {
     setIsEdit((prev) => ({
@@ -64,6 +65,11 @@ export function UserInfoTextField(props: IUserInfoTextFieldProps) {
       [key]: false,
     }));
   };
+
+  useEffect(() => {
+    if (valueForm === undefined) return;
+    setValue(valueForm);
+  }, [valueForm]);
 
   let button;
 

@@ -56,7 +56,9 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
     isError: isUpdateInfoAlarmError,
     error,
   } = useUpdateAlarmCondition();
-  const { refetch } = useQueryAlarmConditions();
+  const { refetch } = useQueryAlarmConditions({
+    enabled: false,
+  });
 
   const defaultAlarmFormData: AlarmFormData = useMemo(() => {
     return {

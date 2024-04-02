@@ -23,7 +23,13 @@ axiosClient.interceptors.response.use(
     return response.data;
   },
   async (err) => {
-    console.error('Error: ', err);
+    console.error('Error: ', err.response.status);
+    if (err.response.status === 401) {
+      localStorage.removeItem('TOKEN');
+    }
+    if (err.response.status === 403) {
+      window.location.href = '/forbidden';
+    }
     return Promise.reject(err);
   },
 );

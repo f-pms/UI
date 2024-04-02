@@ -40,7 +40,9 @@ export const useUpdateAction = ({
   } = useUpdateAlarmAction();
   const { mutate: deleteAlarmAction, isSuccess: isDeleteSuccess } =
     useDeleteAlarmAction();
-  const { refetch } = useQueryAlarmConditions();
+  const { refetch } = useQueryAlarmConditions({
+    enabled: false,
+  });
   const [currentAction, setCurrentAction] = useState(
     () => getValues('noti.actions').find((a) => a.type == actionType) ?? null,
   );
