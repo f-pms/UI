@@ -37,7 +37,7 @@ export function StatisticReportPageHeading() {
       }
       description={
         hasDateInformation
-          ? `Thống kê chỉ số điện SX cho nhà máy 7 từ ${date.startDate} đến ${date.endDate}`
+          ? `Thống kê chỉ số điện SX của nhà máy từ ${date.startDate} đến ${date.endDate}`
           : ''
       }
       divider={true}

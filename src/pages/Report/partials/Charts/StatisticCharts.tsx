@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import _ from 'lodash';
 
 import { Grid, Skeleton } from '@mui/material';
 
@@ -27,6 +28,24 @@ const StatisticCharts = () => {
   const { data: barChartData, isPending: barChartDataLoading } =
     useQueryGetMultiDayReportCharts(params.barChartParams);
 
+  let dataPie;
+
+  if (pieChartData) {
+    dataPie = pieChartData.data;
+  }
+
+  let labelStepsLine, dataLine;
+  if (lineChartData) {
+    labelStepsLine = lineChartData.labelSteps;
+    dataLine = lineChartData.data;
+  }
+
+  let labelStepsBar, dataBar;
+  if (barChartData) {
+    labelStepsBar = barChartData.labelSteps;
+    dataBar = barChartData.data;
+  }
+
   return (
     <Grid
       container
@@ -38,7 +57,7 @@ const StatisticCharts = () => {
     >
       <Grid container item columnSpacing={5} xs={12}>
         <Grid item xs={4}>
-          {pieChartDataLoading || !pieChartData ? (
+          {pieChartDataLoading || !pieChartData || _.isEmpty(dataPie) ? (
             <Skeleton height={540} variant='rounded' />
           ) : (
             <PieChart
@@ -49,7 +68,10 @@ const StatisticCharts = () => {
           )}
         </Grid>
         <Grid item xs={8}>
-          {lineChartDataLoading || !lineChartData ? (
+          {lineChartDataLoading ||
+          !lineChartData ||
+          !labelStepsLine ||
+          _.isEmpty(dataLine) ? (
             <Skeleton height={540} variant='rounded' />
           ) : (
             <LineChart
@@ -61,7 +83,10 @@ const StatisticCharts = () => {
         </Grid>
       </Grid>
       <Grid item xs={12}>
-        {barChartDataLoading || !barChartData ? (
+        {barChartDataLoading ||
+        !barChartData ||
+        !labelStepsBar ||
+        _.isEmpty(dataBar) ? (
           <Skeleton height={540} variant='rounded' />
         ) : (
           <GroupBarChart
