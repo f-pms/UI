@@ -23,7 +23,7 @@ export function HistoricalReportDetailsPage() {
   const { reportId } = useParams();
   const [searchParams] = useSearchParams();
   const shift = (searchParams.get('shift') as Shift) ?? Shift.ALL_DAY;
-  const { data, isPending } = useQueryReportDetailsById(reportId ?? '', {
+  const { data, isLoading } = useQueryReportDetailsById(reportId ?? '', {
     enabled: !!reportId,
   });
 
@@ -74,10 +74,23 @@ export function HistoricalReportDetailsPage() {
     }
   }, [shift, data]);
 
-  if (isPending)
+  if (isLoading)
     return (
-      <Box alignItems='center' textAlign='center'>
-        <CircularProgress color='primary' />
+      <Box
+        alignItems='center'
+        position='relative'
+        sx={{ width: '100%', height: '100%' }}
+        textAlign='center'
+      >
+        <CircularProgress
+          color='primary'
+          sx={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%,-50%)',
+          }}
+        />
       </Box>
     );
 
