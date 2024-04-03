@@ -13,7 +13,7 @@ export const parseAndValidateDate = (dateText: string, format: string) => {
 };
 
 export const toISOStringWithoutTimeZone = (date: Date) => {
-  return format(date, "yyyy-MM-dd'T'HH:mm:ss.000'Z'");
+  return format(date, "yyyy-MM-dd'T'HH:mm:ss.000'+07:00'");
 };
 
 export const propertyToDisableToday = () => {

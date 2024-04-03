@@ -16,7 +16,7 @@ type LineChartProp = StackProps & {
   title: string;
 };
 
-const LineChart = ({ dataset, title, ...props }: LineChartProp) => {
+export const LineChart = ({ dataset, title, ...props }: LineChartProp) => {
   const data = useMemo(
     () => ({
       labels: dataset.labelStep,
@@ -72,5 +72,3 @@ const LineChart = ({ dataset, title, ...props }: LineChartProp) => {
     </ChartContainer>
   );
 };
-
-export default LineChart;
