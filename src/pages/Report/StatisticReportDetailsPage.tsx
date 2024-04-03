@@ -1,13 +1,7 @@
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 
-import {
-  Box,
-  CircularProgress,
-  Container,
-  Grid,
-  Skeleton,
-} from '@mui/material';
+import { Box, CircularProgress, Container, Grid } from '@mui/material';
 
 import { useQueryOneDayReportCharts } from '~/services/report/queries/useQueryReportCharts';
 import { useQueryReportDetailsById } from '~/services/report/queries/useQueryReportDetailsById';
@@ -17,8 +11,9 @@ import { ConvertOneDayChartData } from '~/pages/Report/helpers/chartDataConverte
 import { REPORT_TYPE_LABELS } from '~/pages/Report/helpers/constants';
 import { StatisticReportDetailsPageHeading } from '~/pages/Report/partials/Headings/StatisticReportDetailsPageHeading';
 
+import { CustomSkeleton } from '~/components';
 import { GroupBarChart } from '~/components/Charts/GroupBarChart';
-import PieChart from '~/components/Charts/PieChart';
+import { PieChart } from '~/components/Charts/PieChart';
 import { VerticalBarChart } from '~/components/Charts/VerticalBarChart';
 
 export interface IHistoricalReportStatisticsPageProps {}
@@ -68,7 +63,7 @@ export function StatisticReportDetailsPage() {
         <Grid container item columnSpacing={5} xs={12}>
           <Grid item xs={4}>
             {loadingReportChart || !oneDayChartData?.pieChartTotalReport ? (
-              <Skeleton height={540} variant='rounded' />
+              <CustomSkeleton height={540} />
             ) : (
               <PieChart
                 dataset={oneDayChartData?.pieChartTotalReport}
@@ -79,7 +74,7 @@ export function StatisticReportDetailsPage() {
           </Grid>
           <Grid item xs={8}>
             {loadingReportChart || !oneDayChartData?.barChartReportByShift ? (
-              <Skeleton height={540} variant='rounded' />
+              <CustomSkeleton height={540} />
             ) : (
               <VerticalBarChart
                 dataset={oneDayChartData?.barChartReportByShift}
@@ -92,7 +87,7 @@ export function StatisticReportDetailsPage() {
 
         <Grid item xs={12}>
           {loadingReportChart || !oneDayChartData?.barChartReportByShift ? (
-            <Skeleton height={540} variant='rounded' />
+            <CustomSkeleton height={540} />
           ) : (
             <GroupBarChart
               isStacked

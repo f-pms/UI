@@ -65,7 +65,7 @@ export function ThemeCustomization({
             })}
           >
             <Typography sx={{ pl: 0 }} variant='subtitle1'>
-              Theme Customization
+              Tùy chỉnh giao diện
             </Typography>
             <IconButton onClick={() => setOpened(false)}>
               <HighlightOffOutlinedIcon
@@ -87,10 +87,10 @@ export function ThemeCustomization({
                 </SoftButton>
                 <Box sx={{ ml: 2 }}>
                   <Typography sx={{ fontWeight: 'bold' }} variant='body2'>
-                    Color Scheme
+                    Bảng màu
                   </Typography>
                   <Typography variant='caption'>
-                    Choose your primary theme color
+                    Chọn màu chủ đạo cho giao diện
                   </Typography>
                 </Box>
               </Stack>
@@ -123,10 +123,10 @@ export function ThemeCustomization({
                 </SoftButton>
                 <Box sx={{ ml: 2 }}>
                   <Typography sx={{ fontWeight: 'bold' }} variant='body2'>
-                    Font Family
+                    Kiểu chữ
                   </Typography>
                   <Typography variant='caption'>
-                    Choose your font family
+                    Chọn kiểu chữ cho giao diện
                   </Typography>
                 </Box>
               </Stack>

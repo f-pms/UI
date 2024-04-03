@@ -208,7 +208,7 @@ const StatisticReportFilter = () => {
   };
 
   return (
-    <Box marginBottom={4} textAlign='center'>
+    <Box marginBottom={2} textAlign='center'>
       <StyledFilterBox
         alignItems='center'
         flexDirection='row'
@@ -312,7 +312,7 @@ const StatisticReportFilter = () => {
       </StyledFilterBox>
       {isValid && (
         <Typography variant='body2'>
-          Thống kê chỉ số điện SX cho nhà máy 7 từ{' '}
+          Thống kê chỉ số điện sản xuất từ{' '}
           <strong>{getFormatedDate().startDate}</strong> đến{' '}
           <strong>{getFormatedDate().endDate}</strong>
         </Typography>

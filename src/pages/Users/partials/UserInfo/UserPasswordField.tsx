@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 import {
@@ -11,6 +11,9 @@ import {
 } from '@mui/material';
 
 import { UserDTO } from '~/services/user/mutation/useCreateUser';
+import { Role } from '~/types';
+
+import { AuthContext } from '~/pages/Auth/context/AuthContext';
 
 import {
   EditOutlinedIcon,
@@ -23,28 +26,30 @@ export interface IUserPasswordFieldProps {
   setIsEdit: React.Dispatch<
     React.SetStateAction<{ [Key in keyof UserDTO]: boolean }>
   >;
+  oldPassword?: string;
+  setOldPassword: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 
 export function UserPasswordField(props: IUserPasswordFieldProps) {
-  const { isEdit, setIsEdit } = props;
-  const { setValue } = useFormContext<UserDTO>();
-  const [currentPassword, setCurrentPassword] = useState<string>('');
+  const { isEdit, setIsEdit, oldPassword, setOldPassword } = props;
+  const { user } = useContext(AuthContext);
+  const { setValue, watch } = useFormContext<UserDTO>();
+
   const [password, setPassword] = useState<string>('');
   const [confirmPassword, setConfirmPassword] = useState<string>('');
 
-  const [showCurrentPassword, setShowCurrentPassword] =
-    useState<boolean>(false);
+  const [showOldPassword, setShowOldPassword] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [showConfirmPassword, setShowConfirmPassword] =
     useState<boolean>(false);
+  const watchPassword = watch('password');
 
   const handleEdit = (key: keyof UserDTO) => {
     setIsEdit((prev) => ({
       ...prev,
       [key]: true,
     }));
-    setCurrentPassword('');
-    setPassword('');
+    setOldPassword('');
     setConfirmPassword('');
   };
 
@@ -62,11 +67,16 @@ export function UserPasswordField(props: IUserPasswordFieldProps) {
       ...prev,
       [key]: false,
     }));
+    setPassword(watchPassword ?? '');
   };
+
+  useEffect(() => {
+    setPassword(watchPassword ?? '');
+  }, [watchPassword]);
 
   const validationPassword = () => {
     const errors = [];
-    if (currentPassword.length === 0) {
+    if (user?.role !== Role.ADMIN && oldPassword?.length === 0) {
       errors.push('Mật khẩu cũ không được để trống');
     }
     if (password !== confirmPassword) {
@@ -95,25 +105,28 @@ export function UserPasswordField(props: IUserPasswordFieldProps) {
       </Typography>
       {isEdit.password ? (
         <Stack style={{ flex: 1 }}>
-          <OutlinedInput
-            endAdornment={
-              <IconButton
-                onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-              >
-                {!showCurrentPassword ? (
-                  <VisibilityOffOutlinedIcon sx={{ fontSize: '20px' }} />
-                ) : (
-                  <VisibilityOutlinedIcon sx={{ fontSize: '20px' }} />
-                )}
-              </IconButton>
-            }
-            placeholder='Mật khẩu cũ'
-            size='small'
-            sx={{ fontSize: '14px', mt: 1, width: '300px' }}
-            type={showCurrentPassword ? 'text' : 'password'}
-            value={currentPassword}
-            onChange={(e) => setCurrentPassword(e.target.value)}
-          />
+          {user?.role !== Role.ADMIN && (
+            <OutlinedInput
+              endAdornment={
+                <IconButton
+                  onClick={() => setShowOldPassword(!showOldPassword)}
+                >
+                  {!showOldPassword ? (
+                    <VisibilityOffOutlinedIcon sx={{ fontSize: '20px' }} />
+                  ) : (
+                    <VisibilityOutlinedIcon sx={{ fontSize: '20px' }} />
+                  )}
+                </IconButton>
+              }
+              placeholder='Mật khẩu cũ'
+              size='small'
+              sx={{ fontSize: '14px', mt: 1, width: '300px' }}
+              type={showOldPassword ? 'text' : 'password'}
+              value={oldPassword}
+              onChange={(e) => setOldPassword(e.target.value)}
+            />
+          )}
+
           <OutlinedInput
             endAdornment={
               <IconButton onClick={() => setShowPassword(!showPassword)}>

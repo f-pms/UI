@@ -22,7 +22,9 @@ export const useCreateAlarm = (defaultValue: AlarmFormData) => {
   const [isAdvanced, setIsAdvanced] = useState(false);
   const [openAlertChangeMode, setOpenAlertChangeMode] = useState(false);
   const { mutate: createAlarmCondition, isSuccess } = useCreateAlarmCondition();
-  const { refetch } = useQueryAlarmConditions();
+  const { refetch } = useQueryAlarmConditions({
+    enabled: false,
+  });
 
   const methods = useForm<AlarmFormData>({
     defaultValues: defaultValue,

@@ -36,10 +36,15 @@ export function CreateSensorAddressDialog(
 ) {
   const { open, setOpen } = props;
   const { getValues: getValueAlarmForm } = useFormContext<AlarmFormData>();
-  const { refetch } = useQuerySensorConfigurations({
-    blueprintType: getValueAlarmForm('info.station.type'),
-    blueprintName: getValueAlarmForm('info.station.value'),
-  });
+  const { refetch } = useQuerySensorConfigurations(
+    {
+      blueprintType: getValueAlarmForm('info.station.type'),
+      blueprintName: getValueAlarmForm('info.station.value'),
+    },
+    {
+      enabled: false,
+    },
+  );
   const { mutate: createAddress, isSuccess } = useCreateAddress();
   const {
     control,

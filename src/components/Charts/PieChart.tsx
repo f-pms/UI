@@ -16,7 +16,7 @@ type PieChartProps = StackProps & {
   title: string;
 };
 
-const PieChart = ({ dataset, title, ...props }: PieChartProps) => {
+export const PieChart = ({ dataset, title, ...props }: PieChartProps) => {
   const data = useMemo(
     () => ({
       labels: dataset.labelStep,
@@ -45,7 +45,7 @@ const PieChart = ({ dataset, title, ...props }: PieChartProps) => {
 
               return currentSum;
             }, 0);
-            const percentage = (value / sum) * 100;
+            const percentage = sum ? (value / sum) * 100 : 0;
             return `${percentage.toFixed(1)}%`;
           },
         },
@@ -72,5 +72,3 @@ const PieChart = ({ dataset, title, ...props }: PieChartProps) => {
     </ChartContainer>
   );
 };
-
-export default PieChart;

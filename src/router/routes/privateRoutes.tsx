@@ -84,13 +84,13 @@ export const privateRoutes: (PrivateRouteObject & RouteObject)[] = [
   {
     path: Path.USER_LIST,
     element: <UserListPage />,
-    roles: [Role.ADMIN],
-    layout: <DefaultLayout />,
-  },
-  {
-    path: Path.USER_PROFILE,
-    element: <UserProfilePage />,
     roles: [Role.ADMIN, Role.USER],
     layout: <DefaultLayout />,
+    children: [
+      {
+        path: ':userId',
+        element: <UserProfilePage />,
+      },
+    ],
   },
 ];

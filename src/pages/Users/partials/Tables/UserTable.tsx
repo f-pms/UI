@@ -30,7 +30,7 @@ export function UserTable() {
     pageSize: 10,
   });
 
-  const { data: users } = useQueryUsers({
+  const { data: users, isLoading } = useQueryUsers({
     page: pagination.pageIndex + 1,
     size: pagination.pageSize,
   });
@@ -80,7 +80,7 @@ export function UserTable() {
     enableRowActions: true,
     getRowId: (row) => row.id.toString(),
     manualPagination: true,
-    rowCount: users?.recordTotal,
+    rowCount: users?.recordTotal ?? 0,
     onPaginationChange: setPagination,
     state: { pagination },
     displayColumnDefOptions: {
@@ -141,7 +141,7 @@ export function UserTable() {
             Tất cả:
           </Typography>
           <SoftChip
-            label={`${users?.recordTotal} người dùng`}
+            label={`${users?.recordTotal ?? 0} người dùng`}
             shape='square'
             size='small'
           />
@@ -149,6 +149,8 @@ export function UserTable() {
       );
     },
   });
+
+  if (isLoading) return <div>Loading...</div>;
 
   return <MaterialReactTable table={table} />;
 }
