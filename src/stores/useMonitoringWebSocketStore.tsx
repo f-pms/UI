@@ -7,6 +7,7 @@ import {
   FigureValuesType,
   useMonitoringStore,
 } from '~/stores/useMonitoringStore';
+import { storage } from '~/utils';
 
 const websocketUrl = import.meta.env.VITE_WEBSOCKET_URL as string;
 export const MAX_RETRIES_COUNT = 6;
@@ -35,9 +36,14 @@ const defaultStoreValue = {
 
 export const useMonitoringWebSocketStore = create<State>(
   combine(defaultStoreValue, (set, get) => {
+    const token = storage.get('TOKEN');
+
     const client = new Client({
       brokerURL: websocketUrl,
       reconnectDelay: 4000,
+      connectHeaders: {
+        Authorization: `Bearer ${token}`,
+      },
       onConnect: () => {
         set({
           ...defaultStoreValue,
@@ -60,8 +66,11 @@ export const useMonitoringWebSocketStore = create<State>(
           });
         }
       },
-      onWebSocketError: () => {
-        console.error('Websocket connection cannot be established!');
+      onWebSocketError: (error) => {
+        console.error(
+          'Websocket connection cannot be established!',
+          error.headers.message,
+        );
         if (get().retries + 1 > MAX_RETRIES_COUNT) {
           set({
             connectingStateTrigger: false,

@@ -6,10 +6,13 @@ import {
   MaterialReactTable,
   MRT_ColumnDef,
   MRT_PaginationState,
+  MRT_Row,
   useMaterialReactTable,
 } from 'material-react-table';
 
 import { useNavigate } from '~/libs/react-router-dom';
+import { downloadHistoricalReports } from '~/services/report/queries/useDownloadHistoricalReports';
+import { GetHistoricalReportsParams } from '~/services/report/queries/useQueryHistoricalReports';
 import { HistoricalReport, HistoricalReportPagination, Shift } from '~/types';
 
 import { AuthContext } from '~/pages/Auth/context/AuthContext';
@@ -27,11 +30,12 @@ export interface IHistoricalReportTableProps {
   historicalReports?: HistoricalReportPagination;
   pagination: MRT_PaginationState;
   setPagination: Dispatch<React.SetStateAction<MRT_PaginationState>>;
+  params: GetHistoricalReportsParams;
 }
 
 const defaultMRTOptions = getDefaultMRTOptions<HistoricalReport>();
 export function HistoricalReportTable(props: IHistoricalReportTableProps) {
-  const { historicalReports, pagination, setPagination } = props;
+  const { historicalReports, pagination, setPagination, params } = props;
   const navigate = useNavigate();
   const { isAdmin } = useContext(AuthContext);
 
@@ -58,6 +62,31 @@ export function HistoricalReportTable(props: IHistoricalReportTableProps) {
     navigate({
       pathname: `/report/history/${id}`,
       search: `?shift=${Shift.ALL_DAY}`,
+    });
+  };
+
+  const handleDownloadAllReports = () => {
+    downloadHistoricalReports({
+      typeIds: params.typeIds,
+      startDate: params.startDate,
+      endDate: params.endDate,
+      sortBy: params.sortBy,
+      order: params.order,
+    });
+  };
+
+  const handleDownloadSelectedReports = (
+    selectedRows: MRT_Row<HistoricalReport>[],
+  ) => {
+    const ids = selectedRows.map((row) => row.original.id);
+    downloadHistoricalReports({
+      ids,
+    });
+  };
+
+  const handleDownloadReport = (id: number) => {
+    downloadHistoricalReports({
+      ids: [id],
     });
   };
 
@@ -99,6 +128,7 @@ export function HistoricalReportTable(props: IHistoricalReportTableProps) {
               opacity: selectedRows.length > 0 ? 1 : 0,
             }}
             variant='body2'
+            onClick={() => handleDownloadSelectedReports(selectedRows)}
           >
             {`Tải xuống ${selectedRows.length} báo cáo đã chọn`}
           </Link>
@@ -120,6 +150,7 @@ export function HistoricalReportTable(props: IHistoricalReportTableProps) {
                 color='primary'
                 size='small'
                 startIcon={<FileDownloadOutlinedIcon />}
+                onClick={handleDownloadAllReports}
               >
                 {`${historicalReports?.recordTotal ?? 0} báo cáo`}
               </SoftButton>
@@ -154,6 +185,7 @@ export function HistoricalReportTable(props: IHistoricalReportTableProps) {
               color='primary'
               size='small'
               startIcon={<FileDownloadOutlinedIcon />}
+              onClick={() => handleDownloadReport(row.original.id)}
             >
               Tải xuống
             </SoftButton>

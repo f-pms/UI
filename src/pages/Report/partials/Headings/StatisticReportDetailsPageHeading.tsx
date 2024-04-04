@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import { Button, Stack } from '@mui/material';
 
+import { downloadHistoricalReports } from '~/services/report/queries/useDownloadHistoricalReports';
 import { Shift } from '~/types';
 
 import { AuthContext } from '~/pages/Auth/context/AuthContext';
@@ -26,6 +27,14 @@ export function StatisticReportDetailsPageHeading(
   const { isAdmin } = useContext(AuthContext);
   const { reportId } = useParams();
   const navigate = useNavigate();
+
+  const handleDownloadReport = () => {
+    if (!reportId) return;
+    downloadHistoricalReports({
+      ids: [reportId],
+    });
+  };
+
   return (
     <SectionHeading
       actions={
@@ -36,7 +45,11 @@ export function StatisticReportDetailsPageHeading(
           spacing={2}
         >
           {isAdmin && (
-            <Button startIcon={<FileDownloadOutlinedIcon />} variant='outlined'>
+            <Button
+              startIcon={<FileDownloadOutlinedIcon />}
+              variant='outlined'
+              onClick={handleDownloadReport}
+            >
               Tải báo cáo
             </Button>
           )}

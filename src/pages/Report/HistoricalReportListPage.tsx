@@ -133,6 +133,7 @@ export function HistoricalReportListPage() {
               <HistoricalReportTable
                 historicalReports={historicalReports}
                 pagination={pagination}
+                params={params}
                 setPagination={setPagination}
               />
             )}
