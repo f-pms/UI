@@ -201,34 +201,35 @@ export function UserProfilePage() {
             </Button>
           </Stack>
 
-          <Stack
-            alignItems='center'
-            direction='row'
-            justifyContent='space-between'
-            mt={5}
-            pt={5}
-          >
-            <Box>
-              <Typography
-                color='text.strong'
-                fontWeight='bold'
-                variant='subtitle1'
-              >
-                Xóa tài khoản
-              </Typography>
-              <Typography variant='body2'>
-                Hành động này không thể hoàn tác. Tất cả thông tin liên quan đến
-                tài khoản này sẽ bị xóa vĩnh viễn.
-              </Typography>
-            </Box>
-            {currentUser?.role === Role.ADMIN && (
+          {currentUser?.role === Role.ADMIN && (
+            <Stack
+              alignItems='center'
+              direction='row'
+              justifyContent='space-between'
+              mt={5}
+              pt={5}
+            >
+              <Box>
+                <Typography
+                  color='text.strong'
+                  fontWeight='bold'
+                  variant='subtitle1'
+                >
+                  Xóa tài khoản
+                </Typography>
+                <Typography variant='body2'>
+                  Hành động này không thể hoàn tác. Tất cả thông tin liên quan
+                  đến tài khoản này sẽ bị xóa vĩnh viễn.
+                </Typography>
+              </Box>
+
               <ConfirmDeleteUserDialog userId={user?.id}>
                 <Button color='error' variant='outlined'>
                   Xóa tài khoản
                 </Button>
               </ConfirmDeleteUserDialog>
-            )}
-          </Stack>
+            </Stack>
+          )}
         </FormProvider>
       </form>
     </Container>

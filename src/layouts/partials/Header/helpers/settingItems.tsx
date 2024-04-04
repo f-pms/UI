@@ -1,4 +1,4 @@
-import { Path, PATH_LABEL } from '~/constants';
+import { Path } from '~/constants';
 
 import {
   ExitToAppOutlinedIcon,
@@ -13,7 +13,7 @@ export type SettingItem = {
 };
 export const SETTING_ITEMS = [
   {
-    label: PATH_LABEL[Path.USER_PROFILE],
+    label: 'Thông tin cá nhân',
     path: Path.USER_PROFILE,
     icon: <PersonOutlineOutlinedIcon fontSize='small' />,
   },
