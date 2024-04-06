@@ -144,12 +144,6 @@ export const convertChartData = (
   chartType: 'PIE' | 'LINE' | 'BAR',
 ): ReportData | ReportComplexBarData[] => {
   const { data, labelSteps } = chartData;
-  const btpDeviceLabels = Object.keys(data.BTP)
-    .filter((key) => key.includes('SUM_SPECIFIC_'))
-    .sort(compareDeviceName);
-  const damDeviceLabels = Object.keys(data.DAM)
-    .filter((key) => key.includes('SUM_SPECIFIC_'))
-    .sort(compareDeviceName);
 
   switch (chartType) {
     case 'PIE':
@@ -158,7 +152,10 @@ export const convertChartData = (
         data: [
           {
             label: 'Chỉ số điện',
-            dataset: [data.BTP.SUM_TOTAL[0], data.DAM.SUM_TOTAL[0]],
+            dataset: [
+              data.BTP?.SUM_TOTAL?.[0] ?? 0,
+              data.DAM?.SUM_TOTAL?.[0] ?? 0,
+            ],
           },
         ],
       };
@@ -176,7 +173,14 @@ export const convertChartData = (
           },
         ],
       };
-    case 'BAR':
+    case 'BAR': {
+      const btpDeviceLabels = Object.keys(data.BTP)
+        .filter((key) => key.includes('SUM_SPECIFIC_'))
+        .sort(compareDeviceName);
+      const damDeviceLabels = Object.keys(data.DAM)
+        .filter((key) => key.includes('SUM_SPECIFIC_'))
+        .sort(compareDeviceName);
+
       return [
         {
           id: 1,
@@ -197,5 +201,6 @@ export const convertChartData = (
           })),
         },
       ];
+    }
   }
 };

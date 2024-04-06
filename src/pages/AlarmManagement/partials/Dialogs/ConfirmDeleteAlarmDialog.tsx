@@ -23,7 +23,9 @@ export function ConfirmDeleteAlarmDialog(
 ) {
   const { alarm, closeMenu } = props;
   const { mutate, isSuccess, isError } = useDeleteAlarmCondition();
-  const { refetch } = useQueryAlarmConditions();
+  const { refetch } = useQueryAlarmConditions({
+    enabled: false,
+  });
   const [open, setOpen] = useState(false);
   const handleAgree = () => {
     mutate(alarm.id);

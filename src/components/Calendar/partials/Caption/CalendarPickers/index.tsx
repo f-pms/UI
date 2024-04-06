@@ -6,6 +6,7 @@ import { MonthCalendar, YearCalendar } from '@mui/x-date-pickers';
 import { format, setMonth } from '~/libs/date-fns';
 import { Menu, Stack, Typography, TypographyProps } from '~/libs/mui';
 import { useDayPicker, useNavigation } from '~/libs/react-day-picker';
+import { toISOStringWithoutTimeZone } from '~/utils/date';
 
 import { CalendarContext } from '~/components/Calendar/context/CalendarContext';
 import { ArrowDropDownIcon, ArrowDropUpIcon } from '~/components/Icons';
@@ -69,8 +70,11 @@ export function CalendarPickers(props: ICalendarPickersProps) {
   const onChange = (date: Date, type: PickerType) => {
     const month =
       type === PickerType.Month
-        ? new Date(date.toISOString())
-        : setMonth(new Date(date.toISOString()), currentMonth.getMonth());
+        ? new Date(toISOStringWithoutTimeZone(date))
+        : setMonth(
+            new Date(toISOStringWithoutTimeZone(date)),
+            currentMonth.getMonth(),
+          );
 
     goToMonth(month);
     goToWeek(month);

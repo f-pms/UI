@@ -2,7 +2,7 @@ import { Box, Divider, Stack, Typography } from '~/components/MuiComponents';
 
 export interface ISectionHeadingProps {
   header?: string;
-  description?: string;
+  description?: string | React.ReactNode;
   divider?: boolean;
   actions?: React.ReactNode;
 }
@@ -25,7 +25,7 @@ export function SectionHeading(props: ISectionHeadingProps) {
           >
             {header}
           </Typography>
-          <Typography color='text.primary' variant='body2'>
+          <Typography color='text.primary' component='div' variant='body2'>
             {description}
           </Typography>
         </Box>

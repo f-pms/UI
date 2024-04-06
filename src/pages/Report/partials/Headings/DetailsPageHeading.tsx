@@ -1,10 +1,11 @@
 import { useContext } from 'react';
 import { format } from 'date-fns';
 import { vi } from 'date-fns/locale';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
 import { Button, Stack } from '@mui/material';
 
+import { downloadHistoricalReports } from '~/services/report/queries/useDownloadHistoricalReports';
 import { ReportDetails, ReportKey } from '~/types';
 
 import { AuthContext } from '~/pages/Auth/context/AuthContext';
@@ -25,9 +26,17 @@ export function DetailsPageHeading({ report }: IDetailsPageHeadingProps) {
   const { isAdmin } = useContext(AuthContext);
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
+  const { reportId } = useParams();
   const shiftText = SHIFT_NAVIGATION_OPTIONS.find(
     (shift) => shift.value === searchParams.get('shift'),
   )?.label;
+
+  const handleDownloadReport = () => {
+    if (!reportId) return;
+    downloadHistoricalReports({
+      ids: [reportId],
+    });
+  };
   return (
     <SectionHeading
       actions={
@@ -38,7 +47,11 @@ export function DetailsPageHeading({ report }: IDetailsPageHeadingProps) {
           spacing={2}
         >
           {isAdmin && (
-            <Button startIcon={<FileDownloadOutlinedIcon />} variant='outlined'>
+            <Button
+              startIcon={<FileDownloadOutlinedIcon />}
+              variant='outlined'
+              onClick={handleDownloadReport}
+            >
               Tải báo cáo
             </Button>
           )}
