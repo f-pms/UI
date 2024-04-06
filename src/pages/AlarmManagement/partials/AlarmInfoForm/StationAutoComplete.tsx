@@ -42,6 +42,10 @@ export function StationAutoComplete() {
   const { data: blueprints } = useQueryBlueprints({
     blueprintType: BlueprintType.MONITORING,
   });
+  const { data: alarmBlueprints } = useQueryBlueprints({
+    blueprintType: BlueprintType.ALARM,
+  });
+
   const isUpdated = getValues('isUpdate');
 
   const options: Station[] = useMemo(() => {
@@ -60,7 +64,9 @@ export function StationAutoComplete() {
     return [
       ...(monitoringBlueprints ?? []),
       {
-        id: 100,
+        id:
+          (alarmBlueprints?.find((b) => b.name === getValues('info.type'))
+            ?.id as number) ?? 0,
         name:
           getValues('info.type') == AlarmType.PREDEFINED
             ? 'Cơ bản'
@@ -74,7 +80,7 @@ export function StationAutoComplete() {
       },
     ];
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [blueprints, getValues('info.type')]);
+  }, [blueprints, getValues('info.type'), alarmBlueprints]);
 
   return (
     <FormControl
