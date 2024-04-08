@@ -35,7 +35,7 @@ export function ConfirmDeleteAlarmDialog(
     if (isSuccess) {
       handleClose();
       refetch();
-      toast.success('Vô hiệu hóa cảnh báo thành công');
+      toast.success('Xóa cấu hình cành báo thành công');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess]);
@@ -43,7 +43,7 @@ export function ConfirmDeleteAlarmDialog(
   useEffect(() => {
     if (isError) {
       handleClose();
-      toast.error('Vô hiệu hóa cảnh báo thất bại');
+      toast.error('Xóa cấu hình cảnh báo thất bại');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isError]);
@@ -58,7 +58,7 @@ export function ConfirmDeleteAlarmDialog(
         <ListItemIcon>
           <NotificationsOffOutlinedIcon sx={{ fontSize: 20 }} />
         </ListItemIcon>
-        <ListItemText>Vô hiệu hóa cảnh báo</ListItemText>
+        <ListItemText>Xóa cấu hình cảnh báo</ListItemText>
       </MenuItem>
       <AlertDialog
         color='warning'
@@ -67,7 +67,7 @@ export function ConfirmDeleteAlarmDialog(
         handleClose={handleClose}
         icon={NotificationsOffOutlinedIcon}
         open={open}
-        title='Vô hiệu hóa cảnh báo?'
+        title='Xóa cấu hình cảnh báo?'
       />
     </>
   );

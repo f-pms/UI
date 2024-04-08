@@ -26,7 +26,7 @@ import {
 
 export interface IAddMethodProps {}
 
-export function AddNotiMethod() {
+export function NotiMethodSelect() {
   const {
     setValue,
     getValues,

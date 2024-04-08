@@ -65,15 +65,15 @@ export const useUpdateAction = ({
   }, [isCreateSuccess]);
 
   const handleDeleteAction = () => {
-    if (isUpdate) {
+    if (isUpdate && action?.id) {
       deleteAlarmAction({
         alarmConditionId: getValues('info.id'),
         actionId: action?.id ?? 0,
       });
-      refetch();
       setCurrentAction(null);
+    } else {
+      onRemoveAction(actionType);
     }
-    onRemoveAction(actionType);
   };
 
   const handleCreateAction = (recipients?: string[]) => {
