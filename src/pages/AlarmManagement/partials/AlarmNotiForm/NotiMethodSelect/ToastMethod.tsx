@@ -1,6 +1,6 @@
 import { AlarmActionType } from '~/types';
 
-import { MethodOption } from '~/pages/AlarmManagement/partials/AlarmNotiForm/MethodOption';
+import { SelectedMethodListItem } from '~/pages/AlarmManagement/partials/AlarmNotiForm/NotiMethodSelect/SelectedMethodListItem';
 
 export interface IToastMethodProps {
   onRemoveAction: (value: AlarmActionType) => void;
@@ -8,7 +8,7 @@ export interface IToastMethodProps {
 
 export function ToastMethod({ onRemoveAction }: IToastMethodProps) {
   return (
-    <MethodOption
+    <SelectedMethodListItem
       actionType={AlarmActionType.POPUP}
       description='Tất cả mọi người đều có thể xem cảnh báo'
       title='Hiện cảnh báo ở trang "Giám sát"'

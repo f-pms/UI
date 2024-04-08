@@ -6,7 +6,7 @@ import { AlarmActionType } from '~/types';
 import { areArraysEqual } from '~/utils/areArraysEqual';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
-import { useUpdateAction } from '~/pages/AlarmManagement/hooks/useUpdateAction';
+import { useAlarmAction } from '~/pages/AlarmManagement/hooks/useAlarmAction';
 
 import { SoftChip } from '~/components';
 import {
@@ -55,14 +55,14 @@ export interface ISendEmailMethodProps {
 
 export function SendEmailMethod({ onRemoveAction }: ISendEmailMethodProps) {
   const [personNames, setPersonNames] = useState<string[]>([]);
-  const { setValue, getValues } = useFormContext<AlarmFormData>();
+  const { setValue, getValues, clearErrors } = useFormContext<AlarmFormData>();
   const {
     handleCreateAction,
     handleDeleteAction,
     disabled,
     currentAction,
     handleUpdateAction,
-  } = useUpdateAction({
+  } = useAlarmAction({
     actionType: AlarmActionType.EMAIL,
     onRemoveAction,
   });
@@ -85,6 +85,10 @@ export function SendEmailMethod({ onRemoveAction }: ISendEmailMethodProps) {
       return action;
     });
     setValue('noti.actions', newActions);
+
+    if (users.length) {
+      clearErrors('noti.actions');
+    }
   };
 
   const users = useMemo(() => {

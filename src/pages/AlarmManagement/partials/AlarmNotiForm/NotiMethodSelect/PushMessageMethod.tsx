@@ -1,6 +1,6 @@
 import { AlarmActionType } from '~/types';
 
-import { MethodOption } from '~/pages/AlarmManagement/partials/AlarmNotiForm/MethodOption';
+import { SelectedMethodListItem } from '~/pages/AlarmManagement/partials/AlarmNotiForm/NotiMethodSelect/SelectedMethodListItem';
 
 export interface IToastMethodProps {
   onRemoveAction: (value: AlarmActionType) => void;
@@ -8,7 +8,7 @@ export interface IToastMethodProps {
 
 export function PushMessageMethod({ onRemoveAction }: IToastMethodProps) {
   return (
-    <MethodOption
+    <SelectedMethodListItem
       actionType={AlarmActionType.PUSH_MESSAGE}
       description='Tất cả mọi người đã cài đặt ứng dụng PMS-Mobile sẽ nhận được cảnh báo'
       title='Cảnh báo qua thiết bị di động'
