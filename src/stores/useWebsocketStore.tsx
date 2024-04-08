@@ -9,21 +9,26 @@ const websocketUrl = import.meta.env.VITE_WEBSOCKET_URL as string;
 export const MAX_RETRIES_COUNT = 6;
 
 type State = {
-  topics: Map<string, StompSubscription>;
-  connectingStateTrigger: boolean;
   isReady: boolean;
   isError: boolean;
+  topics: Map<string, StompSubscription>;
+  connectingStateTrigger: boolean;
   retries: number;
   resetRetries: () => void;
   isConnected: () => boolean;
   connect: () => void;
   disconnect: () => void;
+  reset: () => void;
   subscribe: (
     topic: string,
     subscribeCallback: (message: IMessage) => void,
   ) => void;
   isSubscribed: (topic: string) => boolean;
   unsubscribe: (topic: string) => void;
+};
+
+type GlobalThis = typeof globalThis & {
+  client: Client;
 };
 
 const defaultStoreValue = {
@@ -72,43 +77,52 @@ export const useWebsocketStore = create<State>(
       handleRetry();
     };
 
-    const token = storage.get('TOKEN');
-    const client = new Client({
-      brokerURL: websocketUrl,
-      reconnectDelay: 3000,
-      connectHeaders: {
-        Authorization: `Bearer ${token}`,
-      },
-      onConnect,
-      onStompError,
-      onWebSocketError,
-      onDisconnect: () => {
-        set(defaultStoreValue);
-      },
-    });
+    const init = () => {
+      const token = storage.get('TOKEN');
+      return new Client({
+        brokerURL: websocketUrl,
+        reconnectDelay: 3000,
+        connectHeaders: {
+          Authorization: `Bearer ${token}`,
+        },
+        onConnect,
+        onStompError,
+        onWebSocketError,
+        onDisconnect: () => {
+          set(defaultStoreValue);
+        },
+      });
+    };
+
+    (globalThis as GlobalThis).client = init();
 
     return {
       resetRetries: () => {
         set({ retries: 0 });
       },
       isConnected: () => {
-        return client.connected;
+        return (globalThis as GlobalThis).client.connected;
       },
       connect: () => {
-        client.activate();
+        (globalThis as GlobalThis).client.activate();
       },
       disconnect: () => {
-        client.deactivate();
+        (globalThis as GlobalThis).client.deactivate();
+      },
+      reset: () => {
+        (globalThis as GlobalThis).client.deactivate();
+        (globalThis as GlobalThis).client = init();
+        (globalThis as GlobalThis).client.activate();
       },
       subscribe: (
         topic: string,
         subscribeCallback: (message: IMessage) => void,
       ) => {
-        if (!client.connected) {
+        if (!(globalThis as GlobalThis).client.connected) {
           console.error('Websocket is not connected!');
           return;
         }
-        const subscription = client.subscribe(
+        const subscription = (globalThis as GlobalThis).client.subscribe(
           '/topic/' + topic,
           subscribeCallback,
         );

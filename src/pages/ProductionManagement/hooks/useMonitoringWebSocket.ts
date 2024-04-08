@@ -11,8 +11,6 @@ import {
   useWebsocketStore,
 } from '~/stores/useWebsocketStore';
 
-import useBlueprints from '~/pages/ProductionManagement/hooks/useBlueprints';
-
 export const useMonitoringWebsocket = () => {
   const {
     connectingStateTrigger,

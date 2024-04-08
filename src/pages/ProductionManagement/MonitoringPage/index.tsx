@@ -40,7 +40,7 @@ function MonitoringPage() {
   useEffect(() => {
     changeChannel('', tabInfo.channel);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isConnected]);
+  }, [isConnected, isConnected()]);
 
   let TabPanelComponent = <StationTabPanel ref={ref} value={tabValue} />;
   if (isBlueprintError) {
