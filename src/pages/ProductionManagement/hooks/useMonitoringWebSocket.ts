@@ -1,19 +1,38 @@
 import { useEffect } from 'react';
 
-import { useMonitoringStore } from '~/stores/useMonitoringStore';
+import { IMessage } from '@stomp/stompjs';
+
+import {
+  FigureValuesType,
+  useMonitoringStore,
+} from '~/stores/useMonitoringStore';
 import {
   MAX_RETRIES_COUNT,
-  useMonitoringWebSocketStore,
-} from '~/stores/useMonitoringWebSocketStore';
+  useWebsocketStore,
+} from '~/stores/useWebsocketStore';
 
-export default (tabValue: number, channel: string) => {
-  const { connectingStateTrigger, isError, retries, resetRetries, ...ws } =
-    useMonitoringWebSocketStore((state) => state);
+export const useMonitoringWebsocket = () => {
+  const {
+    connectingStateTrigger,
+    isError,
+    retries,
+    resetRetries,
+    connect,
+    disconnect,
+    unsubscribe,
+    subscribe,
+    isConnected,
+  } = useWebsocketStore((state) => state);
   const { updateFigures } = useMonitoringStore((state) => state);
+
+  const subscribeCallback = (message: IMessage) => {
+    const figureValues = JSON.parse(message.body) as FigureValuesType;
+    updateFigures(figureValues);
+  };
 
   useEffect(() => {
     if (isError && retries > MAX_RETRIES_COUNT) {
-      ws.disconnect();
+      disconnect();
       resetRetries();
     } else if (!isError) {
       resetRetries();
@@ -23,19 +42,21 @@ export default (tabValue: number, channel: string) => {
   }, [isError, retries]);
 
   useEffect(() => {
-    if (connectingStateTrigger && ws.isConnected()) {
-      ws.subscribeOnly(channel);
-      updateFigures({});
+    if (!isConnected()) {
+      connect();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [connectingStateTrigger, tabValue]);
-
-  useEffect(() => {
-    ws.connect();
-
-    return () => {
-      ws.disconnect();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const changeChannel = (oldChannel: string, newChannel: string) => {
+    if (connectingStateTrigger && isConnected()) {
+      if (oldChannel === newChannel) return;
+      if (oldChannel) unsubscribe(oldChannel);
+      if (newChannel) subscribe(newChannel, subscribeCallback);
+    }
+  };
+
+  return {
+    changeChannel,
+  };
 };
