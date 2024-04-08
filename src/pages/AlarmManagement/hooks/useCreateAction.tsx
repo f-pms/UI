@@ -47,14 +47,16 @@ export const useCreateAction = ({
       ]);
       setCurrentAction(data);
       refetch();
-      toast.success('Thêm phương phức cảnh báo thành công');
+      toast.success('Thêm phương phức cảnh báo thành công.');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isCreateSuccess]);
 
   useEffect(() => {
     if (isCreateError) {
-      toast.error('Thêm phương phức cảnh báo thất bại, vui lòng kiểm tra lại!');
+      toast.error(
+        'Thêm phương phức cảnh báo thất bại, vui lòng kiểm tra và thử lại.',
+      );
     }
   }, [isCreateError]);
 

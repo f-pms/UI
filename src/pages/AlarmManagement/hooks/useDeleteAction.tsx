@@ -19,8 +19,12 @@ export const useDeleteAction = ({
   setCurrentAction: (action: AlarmActionDTO | null) => void;
 }) => {
   const { getValues } = useFormContext<AlarmFormData>();
-  const { mutate: deleteAlarmAction, isSuccess: isDeleteSuccess } =
-    useDeleteAlarmAction();
+
+  const {
+    mutate: deleteAlarmAction,
+    isSuccess: isDeleteSuccess,
+    isError: isDeleteError,
+  } = useDeleteAlarmAction();
   const { refetch } = useQueryAlarmConditions({
     enabled: false,
   });
@@ -28,6 +32,12 @@ export const useDeleteAction = ({
   const handleDeleteAction = () => {
     const isUpdate = getValues('isUpdate');
     const action = getValues('noti.actions').find((a) => a.type == actionType);
+    const selectedOptions = getValues('noti.actions');
+
+    if (isUpdate && selectedOptions.length === 1) {
+      toast.error('Phải có ít nhất một phương thức cảnh báo');
+      return;
+    }
 
     if (isUpdate && action?.id) {
       deleteAlarmAction({
@@ -44,10 +54,18 @@ export const useDeleteAction = ({
     if (isDeleteSuccess) {
       onRemoveAction(actionType);
       refetch();
-      toast.success('Xóa phương phức cảnh báo thành công');
+      toast.success('Xóa phương phức cảnh báo thành công.');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDeleteSuccess]);
+
+  useEffect(() => {
+    if (isDeleteError) {
+      toast.error(
+        'Xóa phương phức cảnh báo thất bại, vui lòng kiểm tra và thử lại.',
+      );
+    }
+  }, [isDeleteError]);
 
   return {
     handleDeleteAction,

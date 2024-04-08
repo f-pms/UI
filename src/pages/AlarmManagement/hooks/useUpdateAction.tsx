@@ -32,11 +32,9 @@ export const useUpdateAction = ({
 
   const handleUpdateAction = (recipients?: string[]) => {
     const action = getValues('noti.actions').find((a) => a.type == actionType);
-    const alarmMessage = getValues('noti.message');
     const alarmId = getValues('info.id');
 
     const payload: UpdateAlarmActionDTO = {
-      message: alarmMessage,
       id: action?.id ?? 0,
       type: actionType,
       recipients: recipients ?? [],
@@ -53,7 +51,7 @@ export const useUpdateAction = ({
     if (isUpdateSuccess) {
       refetch();
       setCurrentAction(updateData);
-      toast.success('Cập nhật phương phức cảnh báo thành công');
+      toast.success('Cập nhật phương phức cảnh báo thành công.');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isUpdateSuccess]);
@@ -61,7 +59,7 @@ export const useUpdateAction = ({
   useEffect(() => {
     if (isUpdateError) {
       toast.error(
-        'Cập nhật phương phức cảnh báo thất bại, vui lòng kiểm tra lại!',
+        'Cập nhật phương phức cảnh báo thất bại, vui lòng kiểm tra và thử lại.',
       );
     }
   }, [isUpdateError]);

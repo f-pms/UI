@@ -12,7 +12,11 @@ export const useAlarmMessage = () => {
   const { refetch: refetchAlarmConditions } = useQueryAlarmConditions({
     enabled: false,
   });
-  const { mutate: updateAlarmMessage, isSuccess } = useUpdateAlarmMessage();
+  const {
+    mutate: updateAlarmMessage,
+    isSuccess,
+    isError,
+  } = useUpdateAlarmMessage();
 
   const [currentMessage, setCurrentMessage] = useState(
     () => getValues('noti.message') ?? '',
@@ -22,7 +26,7 @@ export const useAlarmMessage = () => {
   const onUpdate = () => {
     if (newMessage === '') {
       setError('noti.message', {
-        message: 'Nội dung cảnh báo không được để trống',
+        message: 'Nội dung cảnh báo không được phép để trống.',
       });
       return;
     }
@@ -32,12 +36,20 @@ export const useAlarmMessage = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      toast.success('Cập nhật nội dung cảnh báo thành công');
+      toast.success('Cập nhật nội dung cảnh báo thành công.');
       setCurrentMessage(newMessage);
       refetchAlarmConditions();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess]);
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(
+        'Cập nhật nội dung cảnh báo thất bại, vui lòng kiểm tra và thử lại.',
+      );
+    }
+  }, [isError]);
 
   const isUpdate = getValues('isUpdate');
   return { onUpdate, currentMessage, isUpdate };

@@ -21,7 +21,11 @@ export const useCreateAlarm = (defaultValue: AlarmFormData) => {
   const [activeStep, setActiveStep] = useState(0);
   const [isAdvanced, setIsAdvanced] = useState(false);
   const [openAlertChangeMode, setOpenAlertChangeMode] = useState(false);
-  const { mutate: createAlarmCondition, isSuccess } = useCreateAlarmCondition();
+  const {
+    mutate: createAlarmCondition,
+    isSuccess,
+    isError,
+  } = useCreateAlarmCondition();
   const { refetch } = useQueryAlarmConditions({
     enabled: false,
   });
@@ -89,10 +93,18 @@ export const useCreateAlarm = (defaultValue: AlarmFormData) => {
     if (isSuccess) {
       handleCloseDialog();
       refetch();
-      toast.success('Tạo cảnh báo thành công');
+      toast.success('Tạo cấu hình cảnh báo thành công.');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess]);
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(
+        'Tạo cấu hình cảnh báo thất bại, vui lòng kiểm tra và thử lại.',
+      );
+    }
+  }, [isError]);
 
   return {
     open,
