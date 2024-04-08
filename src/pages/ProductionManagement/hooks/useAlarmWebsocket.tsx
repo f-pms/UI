@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { isError } from 'lodash';
 import { enqueueSnackbar } from 'notistack';
 
 import { IMessage } from '@stomp/stompjs';
@@ -22,8 +21,17 @@ export const useAlarmWebsocket = () => {
       enabled: false,
     },
   );
-  const { subscribeOnly, ...ws } = useWebsocketStore();
-  const [alarmMessage, setAlarmMessage] = useState<string>();
+  const {
+    retries,
+    isError,
+    connectingStateTrigger,
+    connect,
+    disconnect,
+    isConnected,
+    resetRetries,
+    subscribe,
+    unsubscribe,
+  } = useWebsocketStore();
 
   const subscribeCallback = (message: IMessage) => {
     refetch();
@@ -46,41 +54,32 @@ export const useAlarmWebsocket = () => {
     );
   };
 
-  const subscribeOnlyAlarm = () => {
-    subscribeOnly('alarm', subscribeCallback);
-  };
-
   useEffect(() => {
-    if (ws.isError && ws.retries > MAX_RETRIES_COUNT) {
-      ws.disconnect();
-      ws.resetRetries();
+    if (isError && retries > MAX_RETRIES_COUNT) {
+      disconnect();
+      resetRetries();
     } else if (!isError) {
-      ws.resetRetries();
+      resetRetries();
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isError, ws.retries]);
+  }, [isError, retries]);
 
   useEffect(() => {
-    if (ws.connectingStateTrigger && ws.isConnected()) {
-      subscribeOnlyAlarm();
+    if (connectingStateTrigger && isConnected()) {
+      subscribe('alarm', subscribeCallback);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ws.isConnected, ws.connectingStateTrigger]);
+  }, [connectingStateTrigger, isConnected]);
 
   useEffect(() => {
-    ws.connect();
-    setAlarmMessage('');
+    if (!isConnected()) {
+      connect();
+    }
 
     return () => {
-      ws.disconnect();
+      unsubscribe('alarm');
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  return {
-    alarmMessage,
-    subscribeOnlyAlarm,
-    ...ws,
-  };
 };
