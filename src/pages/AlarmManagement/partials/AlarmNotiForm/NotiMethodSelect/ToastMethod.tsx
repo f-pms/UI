@@ -6,7 +6,7 @@ export interface IToastMethodProps {
   onRemoveAction: (value: AlarmActionType) => void;
 }
 
-export function ToastMethod({ onRemoveAction }: IToastMethodProps) {
+export function ToastMethod({ onRemoveAction }: Readonly<IToastMethodProps>) {
   return (
     <SelectedMethodListItem
       actionType={AlarmActionType.POPUP}

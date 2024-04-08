@@ -16,7 +16,7 @@ export interface INotiMethodMenuProps {
   setAnchorEl: (value: null | HTMLElement) => void;
 }
 
-export function NotiMethodMenu(props: INotiMethodMenuProps) {
+export function NotiMethodMenu(props: Readonly<INotiMethodMenuProps>) {
   const { anchorEl, setAnchorEl } = props;
   const open = Boolean(anchorEl);
 

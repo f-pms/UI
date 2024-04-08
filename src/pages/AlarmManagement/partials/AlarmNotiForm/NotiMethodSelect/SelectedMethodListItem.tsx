@@ -21,7 +21,7 @@ export interface IToastMethodProps {
   description: string;
 }
 
-export function SelectedMethodListItem(props: IToastMethodProps) {
+export function SelectedMethodListItem(props: Readonly<IToastMethodProps>) {
   const { onRemoveAction, actionType, title, description } = props;
 
   const { handleCreateAction, handleDeleteAction, disabled, isUpdate } =

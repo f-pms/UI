@@ -6,10 +6,7 @@ import { useQueryAlarmConditions } from '~/services/alarm-condition/queries/useQ
 import { Alarm } from '~/types';
 
 import { AlertDialog } from '~/components';
-import {
-  DeleteOutlineOutlinedIcon,
-  NotificationsOffOutlinedIcon,
-} from '~/components/Icons';
+import { DeleteOutlineOutlinedIcon } from '~/components/Icons';
 import {
   ListItemIcon,
   ListItemText,

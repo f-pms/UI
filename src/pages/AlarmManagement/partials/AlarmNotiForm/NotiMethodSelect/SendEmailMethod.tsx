@@ -53,7 +53,9 @@ export interface ISendEmailMethodProps {
   onRemoveAction: (value: AlarmActionType) => void;
 }
 
-export function SendEmailMethod({ onRemoveAction }: ISendEmailMethodProps) {
+export function SendEmailMethod({
+  onRemoveAction,
+}: Readonly<ISendEmailMethodProps>) {
   const [personNames, setPersonNames] = useState<string[]>([]);
   const { setValue, getValues, clearErrors } = useFormContext<AlarmFormData>();
   const {

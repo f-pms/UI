@@ -6,7 +6,9 @@ export interface IToastMethodProps {
   onRemoveAction: (value: AlarmActionType) => void;
 }
 
-export function PushMessageMethod({ onRemoveAction }: IToastMethodProps) {
+export function PushMessageMethod({
+  onRemoveAction,
+}: Readonly<IToastMethodProps>) {
   return (
     <SelectedMethodListItem
       actionType={AlarmActionType.PUSH_MESSAGE}
