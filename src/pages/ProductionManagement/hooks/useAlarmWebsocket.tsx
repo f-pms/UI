@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { enqueueSnackbar } from 'notistack';
 
 import { IMessage } from '@stomp/stompjs';
