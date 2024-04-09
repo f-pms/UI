@@ -1,7 +1,8 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-import { Box, CircularProgress, Container, Grid } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 
 import { useQueryOneDayReportCharts } from '~/services/report/queries/useQueryReportCharts';
 import { useQueryReportDetailsById } from '~/services/report/queries/useQueryReportDetailsById';
@@ -34,25 +35,33 @@ export function StatisticReportDetailsPage() {
   );
 
   const oneDayChartData = useMemo(() => {
-    if (!reportChart) {
+    if (loadingReportChart || !reportChart) {
       return undefined;
     }
 
     return ConvertOneDayChartData(reportChart.data ?? [], reportType);
-  }, [reportChart, reportType]);
+  }, [reportChart, reportType, loadingReportChart]);
 
-  if (loadingReportData || loadingReportChart || !oneDayChartData)
-    return (
-      <Box alignItems='center' textAlign='center'>
-        <CircularProgress color='primary' />
-      </Box>
-    );
+  useEffect(() => {
+    if (!loadingReportData && !loadingReportChart && !oneDayChartData) {
+      toast.error('Dữ liệu thống kê không có sẳn cho báo cáo này');
+    }
+  }, [loadingReportData, loadingReportChart, oneDayChartData]);
 
   return (
     <Container maxWidth='xl' sx={{ py: 2 }}>
-      <StatisticReportDetailsPageHeading
-        recordingDate={reportChart?.recordingDate}
-      />
+      {loadingReportData || !reportChart ? (
+        <CustomSkeleton
+          height={100}
+          isEmpty={!loadingReportData && !reportChart}
+          sx={{ marginBottom: 2 }}
+        />
+      ) : (
+        <StatisticReportDetailsPageHeading
+          recordingDate={reportChart?.recordingDate}
+        />
+      )}
+
       <Grid
         container
         alignItems='flex-start'
@@ -63,7 +72,12 @@ export function StatisticReportDetailsPage() {
         <Grid container item columnSpacing={5} xs={12}>
           <Grid item xs={4}>
             {loadingReportChart || !oneDayChartData?.pieChartTotalReport ? (
-              <CustomSkeleton height={540} />
+              <CustomSkeleton
+                height={540}
+                isEmpty={
+                  !loadingReportChart && !oneDayChartData?.pieChartTotalReport
+                }
+              />
             ) : (
               <PieChart
                 dataset={oneDayChartData?.pieChartTotalReport}
@@ -74,7 +88,12 @@ export function StatisticReportDetailsPage() {
           </Grid>
           <Grid item xs={8}>
             {loadingReportChart || !oneDayChartData?.barChartReportByShift ? (
-              <CustomSkeleton height={540} />
+              <CustomSkeleton
+                height={540}
+                isEmpty={
+                  !loadingReportChart && !oneDayChartData?.barChartReportByShift
+                }
+              />
             ) : (
               <VerticalBarChart
                 dataset={oneDayChartData?.barChartReportByShift}
@@ -87,7 +106,12 @@ export function StatisticReportDetailsPage() {
 
         <Grid item xs={12}>
           {loadingReportChart || !oneDayChartData?.barChartReportByShift ? (
-            <CustomSkeleton height={540} />
+            <CustomSkeleton
+              height={540}
+              isEmpty={
+                !loadingReportChart && !oneDayChartData?.barChartReportByShift
+              }
+            />
           ) : (
             <GroupBarChart
               isStacked
