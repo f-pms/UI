@@ -12,6 +12,7 @@ import {
   useLoginAccount,
   UserDTO,
 } from '~/services/auth/mutation/useLoginAccount';
+import { useWebsocketStore } from '~/stores/useWebsocketStore';
 import { AccessTokenDecoded, Role, User } from '~/types';
 import { storage } from '~/utils';
 
@@ -48,6 +49,7 @@ export function AuthProvider({ children }: IAuthProviderProps) {
     isError,
     error,
   } = useLoginAccount();
+  const { reset } = useWebsocketStore();
 
   const convertToUser = (userDecoded: AccessTokenDecoded) => {
     return {
@@ -72,6 +74,7 @@ export function AuthProvider({ children }: IAuthProviderProps) {
     if (!data) return;
 
     storage.set('TOKEN', data.token);
+    reset();
     const userDecoded: AccessTokenDecoded = jwtDecode(data?.token ?? '');
     const currentUser = convertToUser(userDecoded);
     setUser(currentUser);

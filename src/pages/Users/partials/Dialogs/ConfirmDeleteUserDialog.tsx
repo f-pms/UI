@@ -54,7 +54,7 @@ export function ConfirmDeleteUserDialog(props: IConfirmDeleteUserDialogProps) {
         {children}
       </Box>
       <AlertDialog
-        color='error'
+        color='warning'
         content='Hành động này không thể hoàn tác. Tất cả thông tin liên quan đến tài khoản này sẽ bị xóa vĩnh viễn. Bạn có chắc chắn muốn tiếp tục không?'
         handleAgree={handleAgree}
         handleClose={handleClose}

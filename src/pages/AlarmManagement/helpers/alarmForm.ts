@@ -185,7 +185,27 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
           recipients: array().of(string().required()).optional(),
         }),
       )
-      .required('Ít nhất phải chọn một phương thức cảnh báo'),
+      .required('Ít nhất phải chọn một phương thức cảnh báo')
+      .test({
+        name: 'custom',
+        message: 'Vui lòng chọn ít nhất 1 người nhận qua email.',
+        test: function (value) {
+          const isEmail = value.some(
+            (item: { type: AlarmActionType }) =>
+              item.type === AlarmActionType.EMAIL,
+          );
+          if (isEmail) {
+            const recipients = value.find(
+              (option) => option.type === AlarmActionType.EMAIL,
+            )?.recipients;
+
+            if (!recipients || recipients.length === 0) {
+              return false;
+            }
+          }
+          return true;
+        },
+      }),
   }),
   isUpdate: boolean().required(),
 });

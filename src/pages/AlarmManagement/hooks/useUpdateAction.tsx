@@ -1,12 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-import {
-  CreateAlarmActionDTO,
-  useCreateAlarmAction,
-} from '~/services/alarm-condition/mutation/useCreateAlarmAction';
-import { useDeleteAlarmAction } from '~/services/alarm-condition/mutation/useDeleteAlarmAction';
+import { AlarmActionDTO } from '~/services/alarm-condition/mutation/useCreateAlarmCondition';
 import {
   UpdateAlarmActionDTO,
   useUpdateAlarmAction,
@@ -18,120 +14,57 @@ import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 
 export const useUpdateAction = ({
   actionType,
-  onRemoveAction,
+  setCurrentAction,
 }: {
   actionType: AlarmActionType;
-  onRemoveAction: (value: AlarmActionType) => void;
+  setCurrentAction: (action: AlarmActionDTO | null) => void;
 }) => {
-  const { getValues, setValue } = useFormContext<AlarmFormData>();
-  const {
-    mutate: createAlarmAction,
-    data,
-    isSuccess: isCreateSuccess,
-    isError: isCreateError,
-    error: createError,
-  } = useCreateAlarmAction();
+  const { getValues } = useFormContext<AlarmFormData>();
   const {
     mutate: updateAlarmAction,
     isSuccess: isUpdateSuccess,
     data: updateData,
     isError: isUpdateError,
-    error: updateError,
   } = useUpdateAlarmAction();
-  const { mutate: deleteAlarmAction, isSuccess: isDeleteSuccess } =
-    useDeleteAlarmAction();
   const { refetch } = useQueryAlarmConditions({
     enabled: false,
   });
-  const [currentAction, setCurrentAction] = useState(
-    () => getValues('noti.actions').find((a) => a.type == actionType) ?? null,
-  );
 
-  const isUpdate = getValues('isUpdate');
-  const action = getValues('noti.actions').find((a) => a.type == actionType);
-  const disabled = !!action?.id;
-
-  useEffect(() => {
-    if (isCreateSuccess) {
-      setValue('noti.actions', [
-        ...getValues('noti.actions').filter((a) => a.type != actionType),
-        data,
-      ]);
-      setCurrentAction(data);
-      refetch();
-      toast.success('Thêm phương phức cảnh báo thành công');
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isCreateSuccess]);
-
-  const handleDeleteAction = () => {
-    if (isUpdate) {
-      deleteAlarmAction({
-        alarmConditionId: getValues('info.id'),
-        actionId: action?.id ?? 0,
-      });
-      refetch();
-      setCurrentAction(null);
-    }
-    onRemoveAction(actionType);
-  };
-
-  const handleCreateAction = (recipients?: string[]) => {
-    const payload: CreateAlarmActionDTO = {
-      message: getValues('noti.message'),
-      type: actionType,
-      recipients: recipients ?? [],
-    };
-    createAlarmAction({ alarmConditionId: getValues('info.id'), payload });
-  };
   const handleUpdateAction = (recipients?: string[]) => {
+    const action = getValues('noti.actions').find((a) => a.type == actionType);
+    const alarmId = getValues('info.id');
+
     const payload: UpdateAlarmActionDTO = {
-      message: getValues('noti.message'),
       id: action?.id ?? 0,
       type: actionType,
       recipients: recipients ?? [],
     };
+
     updateAlarmAction({
-      alarmConditionId: getValues('info.id'),
+      alarmConditionId: alarmId,
       alarmActionId: action?.id ?? 0,
       payload,
     });
   };
-  useEffect(() => {
-    if (isDeleteSuccess) {
-      onRemoveAction(actionType);
-      refetch();
-      toast.success('Xóa phương phức cảnh báo thành công');
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isDeleteSuccess]);
 
   useEffect(() => {
     if (isUpdateSuccess) {
       refetch();
       setCurrentAction(updateData);
-      toast.success('Cập nhật phương phức cảnh báo thành công');
+      toast.success('Cập nhật phương phức cảnh báo thành công.');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isUpdateSuccess]);
 
   useEffect(() => {
     if (isUpdateError) {
-      toast.error('Thất bại: ' + updateError?.message);
+      toast.error(
+        'Cập nhật phương phức cảnh báo thất bại, vui lòng kiểm tra và thử lại.',
+      );
     }
-  }, [updateError?.message, isUpdateError]);
-
-  useEffect(() => {
-    if (isCreateError) {
-      toast.error('Thất bại: ' + createError?.message);
-    }
-  }, [createError?.message, isCreateError]);
+  }, [isUpdateError]);
 
   return {
-    handleCreateAction,
-    handleDeleteAction,
     handleUpdateAction,
-    disabled,
-    currentAction,
   };
 };

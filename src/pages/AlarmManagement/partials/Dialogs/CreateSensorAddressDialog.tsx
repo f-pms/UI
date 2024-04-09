@@ -45,7 +45,7 @@ export function CreateSensorAddressDialog(
       enabled: false,
     },
   );
-  const { mutate: createAddress, isSuccess } = useCreateAddress();
+  const { mutate: createAddress, isSuccess, isError } = useCreateAddress();
   const {
     control,
     formState: { errors },
@@ -71,8 +71,6 @@ export function CreateSensorAddressDialog(
           blueprintId: blueprintId ?? 0,
           payload: {
             ...getValues(),
-            x: getValues('x'),
-            y: getValues('y'),
           },
         });
       }
@@ -91,6 +89,13 @@ export function CreateSensorAddressDialog(
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess]);
+
+  useEffect(() => {
+    if (isError) {
+      toast.error('Thêm địa chỉ biến thất bại, vui lòng kiểm tra và thử lại');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isError]);
 
   return (
     <Dialog
@@ -127,24 +132,6 @@ export function CreateSensorAddressDialog(
             placeholder='%DB1:1:REAL'
           />
         </Box>
-        <Stack direction='row' spacing={2} sx={{ mt: 2 }}>
-          <InputWithLabel
-            control={control}
-            error={errors.x}
-            label='Toa độ X'
-            name='x'
-            placeholder='00.00'
-            type='number'
-          />
-          <InputWithLabel
-            control={control}
-            error={errors.y}
-            label='Toa độ Y'
-            name='y'
-            placeholder='00.00'
-            type='number'
-          />
-        </Stack>
       </DialogContent>
       <DialogActions
         sx={{ px: 3, pb: 2, borderTop: 1, borderColor: 'divider' }}

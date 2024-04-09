@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useMonitoringWebSocketStore } from '~/stores/useMonitoringWebSocketStore';
+import { useWebsocketStore } from '~/stores/useWebsocketStore';
 
 import { DIAGRAMS } from '~/pages/ProductionManagement/helpers/diagrams';
 
@@ -27,7 +27,7 @@ export const StationTabPanel = React.forwardRef<
   HTMLDivElement,
   IStationTabPanelProps
 >(function StationTabPanel({ value }: IStationTabPanelProps, ref) {
-  const { isReady, isError } = useMonitoringWebSocketStore();
+  const { isReady, isError } = useWebsocketStore();
 
   const [expanded, setExpanded] = React.useState(false);
   const paperStyles = {
