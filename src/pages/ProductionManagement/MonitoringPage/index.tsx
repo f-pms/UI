@@ -1,9 +1,12 @@
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
+
+import { useWebsocketStore } from '~/stores/useWebsocketStore';
 
 import BlueprintsProvider from '~/pages/ProductionManagement/context/BlueprintContext';
+import { getTabItemByValue } from '~/pages/ProductionManagement/helpers/diagrams';
 import { useAlarmWebsocket } from '~/pages/ProductionManagement/hooks/useAlarmWebsocket';
 import useBlueprints from '~/pages/ProductionManagement/hooks/useBlueprints';
-import useMonitoringWebSocket from '~/pages/ProductionManagement/hooks/useMonitoringWebSocket';
+import { useMonitoringWebsocket } from '~/pages/ProductionManagement/hooks/useMonitoringWebSocket';
 import { useScrollToDiagram } from '~/pages/ProductionManagement/hooks/useScrollToDiagram';
 import AlarmCarousel from '~/pages/ProductionManagement/partials/AlarmCarousel';
 import PageHeading from '~/pages/ProductionManagement/partials/PageHeading';
@@ -21,15 +24,23 @@ import {
 function MonitoringPage() {
   const { tabValue, setTabValue, tabInfo, isBlueprintReady, isBlueprintError } =
     useBlueprints();
-  useMonitoringWebSocket(tabValue, tabInfo.channel);
+
+  const { isConnected } = useWebsocketStore();
+  const { changeChannel } = useMonitoringWebsocket();
   useAlarmWebsocket();
 
   const { ref, scrollToDiagram } = useScrollToDiagram();
 
   const handleChange = (_: React.SyntheticEvent | null, newValue: number) => {
+    changeChannel(tabInfo.channel, getTabItemByValue(newValue).channel);
     setTabValue(newValue);
     scrollToDiagram();
   };
+
+  useEffect(() => {
+    changeChannel('', tabInfo.channel);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isConnected, isConnected()]);
 
   let TabPanelComponent = <StationTabPanel ref={ref} value={tabValue} />;
   if (isBlueprintError) {
