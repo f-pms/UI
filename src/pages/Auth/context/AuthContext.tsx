@@ -28,6 +28,7 @@ export type AuthContextType = {
   logout: () => void;
   isError: boolean;
   isAdmin: boolean;
+  errorMessage: string;
 };
 
 export const AuthContext = createContext<AuthContextType>({
@@ -36,11 +37,18 @@ export const AuthContext = createContext<AuthContextType>({
   logout: () => {},
   isError: false,
   isAdmin: false,
+  errorMessage: '',
 });
 
 export function AuthProvider({ children }: IAuthProviderProps) {
   const [user, setUser] = useState<User | null>(null);
-  const { mutate: loginAccount, data, isSuccess, isError } = useLoginAccount();
+  const {
+    mutate: loginAccount,
+    data,
+    isSuccess,
+    isError,
+    error,
+  } = useLoginAccount();
   const { reset } = useWebsocketStore();
 
   const convertToUser = (userDecoded: AccessTokenDecoded) => {
@@ -92,9 +100,11 @@ export function AuthProvider({ children }: IAuthProviderProps) {
 
   const isAdmin = useMemo(() => user?.role === Role.ADMIN, [user]);
 
+  const errorMessage = useMemo(() => error?.message ?? '', [error?.message]);
+
   const value = useMemo(
-    () => ({ user, login, logout, isError, isAdmin }),
-    [user, isError, login, isAdmin],
+    () => ({ user, login, logout, isError, isAdmin, errorMessage }),
+    [user, isError, login, isAdmin, errorMessage],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

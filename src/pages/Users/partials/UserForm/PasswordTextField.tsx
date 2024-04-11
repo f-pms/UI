@@ -41,7 +41,11 @@ export function PasswordTextField() {
   const validationPassword = () => {
     if (!password.length) return setValidateErrors([]);
     const errors = [];
-    if (password !== confirmPassword) {
+    if (
+      password.length > 0 &&
+      confirmPassword.length > 0 &&
+      password !== confirmPassword
+    ) {
       errors.push('Mật khẩu không trùng khớp');
     }
     if (password === confirmPassword && password?.length < 8) {
@@ -134,7 +138,7 @@ export function PasswordTextField() {
         </Stack>
 
         {validateErrors.map((error) => (
-          <FormHelperText key={error} sx={{ ml: 0 }}>
+          <FormHelperText key={error} error sx={{ ml: 0 }}>
             {error}
           </FormHelperText>
         ))}
