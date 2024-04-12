@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
-import { FormHelperText, SelectChangeEvent } from '@mui/material';
+import { FormHelperText, SelectChangeEvent, Slider } from '@mui/material';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 import {
@@ -20,7 +20,6 @@ export function ConditionInput() {
     control,
     getValues,
     formState: { errors },
-    resetField,
     clearErrors,
   } = useFormContext<AlarmFormData>();
   const [typeCondition, setTypeCondition] = useState<TypeCondition>(
@@ -32,14 +31,8 @@ export function ConditionInput() {
   };
 
   useEffect(() => {
-    if (typeCondition === TypeCondition.LESS_THAN) {
-      setValue('info.min', undefined);
-    }
-    if (typeCondition === TypeCondition.GREATER_THAN) {
-      setValue('info.max', undefined);
-    }
     setValue('info.typeCondition', typeCondition);
-  }, [typeCondition, setValue, resetField]);
+  }, [setValue, typeCondition]);
 
   const min = useMemo(() => getValues('info.min'), [getValues]);
   const max = useMemo(() => getValues('info.max'), [getValues]);

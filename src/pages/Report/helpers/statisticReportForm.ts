@@ -44,12 +44,13 @@ export const statisticReportValidationSchema = yup.object({
   viewType: yup.mixed<ViewTypes>().required().oneOf(Object.values(ViewTypes)),
   stepField: yup
     .number()
-    .required('Number field is required')
+    .typeError('Số lượng bước nhảy không được phép để trống')
+    .required('Số lượng bước nhảy không được phép để trống')
     .test({
       name: 'Validate step for day',
       exclusive: false,
       params: {},
-      message: 'Chỉ được chọn từ 2 đến 12 ngày',
+      message: 'Số lượng bước nhảy chỉ được chọn từ 2 đến 12 ngày',
       test: function (value) {
         if (this.parent.viewType === ViewTypes.BY_DAY) {
           return value > 1 && value <= 12;
@@ -61,7 +62,7 @@ export const statisticReportValidationSchema = yup.object({
       name: 'Validate step for week',
       exclusive: false,
       params: {},
-      message: 'Chỉ được chọn từ 2 đến 10 tuần',
+      message: 'Số lượng bước nhảy chỉ được chọn từ 2 đến 10 tuần',
       test: function (value) {
         if (this.parent.viewType === ViewTypes.BY_WEEK) {
           return value > 1 && value <= 10;
@@ -73,7 +74,7 @@ export const statisticReportValidationSchema = yup.object({
       name: 'Validate step for month',
       exclusive: false,
       params: {},
-      message: 'Chỉ được chọn từ 2 đến 12 tháng',
+      message: 'Số lượng bước nhảy chỉ được chọn từ 2 đến 12 tháng',
       test: function (value) {
         if (this.parent.viewType === ViewTypes.BY_MONTH) {
           return value > 1 && value <= 24;
@@ -85,7 +86,7 @@ export const statisticReportValidationSchema = yup.object({
       name: 'Validate step for year',
       exclusive: false,
       params: {},
-      message: 'Chỉ được chọn từ 2 đến 5 năm',
+      message: 'Số lượng bước nhảy chỉ được chọn từ 2 đến 5 năm',
       test: function (value) {
         if (this.parent.viewType === ViewTypes.BY_YEAR) {
           return value > 1 && value <= 5;
