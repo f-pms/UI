@@ -1,7 +1,11 @@
 import { useContext } from 'react';
+import _ from 'lodash';
 import { SubmitHandler, useFormContext } from 'react-hook-form';
 
-import { GetHistoricalReportsParams } from '~/services/report/queries/useQueryHistoricalReports';
+import {
+  GetHistoricalReportsParams,
+  useQueryHistoricalReports,
+} from '~/services/report/queries/useQueryHistoricalReports';
 
 import {
   defaultFilterReportFormData,
@@ -21,7 +25,7 @@ import { Box, Button, Divider, Stack } from '~/components/MuiComponents';
 
 export interface IHistoricalReportFilterProps {
   params: GetHistoricalReportsParams;
-  setParams: (params: GetHistoricalReportsParams) => void;
+  setParams: React.Dispatch<React.SetStateAction<GetHistoricalReportsParams>>;
 }
 
 export function HistoricalReportFilter({
@@ -29,11 +33,17 @@ export function HistoricalReportFilter({
   setParams,
 }: IHistoricalReportFilterProps) {
   const { setRange } = useContext(DateRangeContext);
+  const { refetch } = useQueryHistoricalReports(params);
   const { reset, handleSubmit, getValues } =
     useFormContext<FilterReportFormData>();
 
   const onSubmit: SubmitHandler<FilterReportFormData> = () => {
-    setParams({ ...params, ...getValues() });
+    const newParams = { ...params, ...getValues() };
+    if (_.isEqual(newParams, params)) {
+      refetch();
+    } else {
+      setParams(newParams);
+    }
   };
   const onReset = () => {
     reset(defaultFilterReportFormData);
