@@ -1,0 +1,78 @@
+name: Release with a prebuilt image
+
+on:
+  workflow_dispatch:
+    inputs:
+      versionType:
+        type: choice
+        description: Make a choice
+        options:
+          - major
+          - minor
+          - patch
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.base_ref }}
+          fetch-depth: 0
+          ssh-key: ${{secrets.GIT_DEPLOY_SECRET}}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Bump version and tag
+        id: bump_version
+        uses: 'phips28/gh-action-bump-version@v11.0.0'
+        with:
+          tag-prefix: ''
+          target-branch: 'master'
+          minor-wording: 'minor'
+          major-wording: 'major'
+          patch-wording: 'patch'
+          version-type: ${{ github.event.inputs.versionType }}
+          skip-push: 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and push
+        env:
+          APP_VERSION: ${{ steps.version-getter.outputs.TAG_NAME }}
+        uses: docker/build-push-action@v5
+        with:
+          context: ./
+          file: ./Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/client-rms:${{ steps.bump_version.outputs.newTag }}
+      - name: Setup SSH Keys and known_hosts
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          ssh-add - <<< "${{ secrets.GIT_DEPLOY_SECRET }}"
+
+      # Your steps that use git commands
+      - name: Push Tag & commit
+        run: |
+          git config --global user.email "github_action@rms.com"
+          git config --global user.name "Github ACtion"
+          git push origin ${{ steps.bump_version.outputs.newTag }}
+          git push origin master --force
