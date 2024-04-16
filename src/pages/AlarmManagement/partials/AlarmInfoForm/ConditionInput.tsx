@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
-import { FormHelperText, SelectChangeEvent, Slider } from '@mui/material';
+import { FormHelperText, SelectChangeEvent } from '@mui/material';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 import {
