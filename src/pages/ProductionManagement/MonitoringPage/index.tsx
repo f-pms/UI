@@ -1,4 +1,6 @@
-import { Fragment, useEffect, useRef } from 'react';
+import { Fragment, useEffect } from 'react';
+
+import { useWebsocketStore } from '~/stores/useWebsocketStore';
 
 import BlueprintsProvider from '~/pages/ProductionManagement/context/BlueprintContext';
 import { useAlarmWebsocket } from '~/pages/ProductionManagement/hooks/useAlarmWebsocket';
@@ -19,12 +21,27 @@ import {
 } from '~/components/MuiComponents';
 
 function MonitoringPage() {
-  const { tabValue, setTabValue, tabInfo, isBlueprintReady, isBlueprintError } =
+  const { tabInfo, tabValue, setTabValue, isBlueprintReady, isBlueprintError } =
     useBlueprints();
-  const channelRef = useRef<string>('');
 
-  const { changeChannel, isConnected } = useMonitoringWebsocket();
+  // Use the useWebsocketStore hook to get WebSocket-related state and functions
+  const { isConnected, unsubscribeAll } = useWebsocketStore();
+
+  // Use the useMonitoringWebsocket hook to handle monitoring-related WebSocket messages
+  useMonitoringWebsocket(tabInfo);
+
+  // Use the useAlarmWebsocket hook to handle alarm-related WebSocket messages
   useAlarmWebsocket();
+
+  // Use the useEffect hook to unsubscribe from all WebSocket topics when the component is unmounted
+  useEffect(() => {
+    return () => {
+      if (isConnected()) {
+        unsubscribeAll();
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const { ref, scrollToDiagram } = useScrollToDiagram();
 
@@ -32,13 +49,6 @@ function MonitoringPage() {
     setTabValue(newValue);
     scrollToDiagram();
   };
-
-  useEffect(() => {
-    if (!tabInfo.channel || !isConnected()) return;
-    changeChannel(channelRef.current, tabInfo.channel);
-    channelRef.current = tabInfo.channel;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isConnected(), tabInfo.channel]);
 
   let TabPanelComponent = <StationTabPanel ref={ref} value={tabValue} />;
   if (isBlueprintError) {

@@ -19,6 +19,7 @@ import { CssBaseline, styled } from '~/libs/mui';
 import { Outlet, useLocation, useNavigate } from '~/libs/react-router-dom';
 
 import { CustomizeThemeProvider } from '~/pages/App/context/CustomizeThemeContext';
+import { useConnectWebsocket } from '~/pages/App/hooks/useConnectWebsocket';
 
 ChartJS.register(
   ArcElement,
@@ -36,6 +37,7 @@ ChartJS.register(
 export function App() {
   const location = useLocation();
   const navigate = useNavigate();
+  useConnectWebsocket();
 
   useEffect(() => {
     if (location.pathname == Path.ROOT) {
