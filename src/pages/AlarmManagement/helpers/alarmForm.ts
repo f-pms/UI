@@ -107,7 +107,7 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
       .max(3600, 'Độ trễ không được lớn hơn 3600 giây'),
     enabled: boolean().required(),
     min: number()
-      .typeError('Giá trị tối thiểu không được phép để trống')
+      .typeError('Giới hạn dưới không được phép để trống')
       .when('type', {
         is: AlarmType.CUSTOM,
         then: (schema) =>
@@ -116,7 +116,7 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
               name: 'max',
               exclusive: false,
               params: {},
-              message: 'Giá trị tối thiểu phải nhỏ hơn giá trị tối đa',
+              message: 'Giới hạn dưới phải nhỏ hơn giới hạn trên',
               test: function (value) {
                 if (this.parent.max && value) {
                   return value < this.parent.max;
@@ -128,7 +128,7 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
               name: 'typeCondition',
               exclusive: false,
               params: {},
-              message: 'Giá trị tối thiểu không được phép để trống',
+              message: 'Giới hạn dưới không được phép để trống',
               test: function (value) {
                 if (this.parent.typeCondition === TypeCondition.LESS_THAN) {
                   return true;
@@ -136,10 +136,10 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
                 return value !== undefined;
               },
             }),
-        otherwise: (schema) => schema.optional(),
+        otherwise: (schema) => schema.optional().nullable(),
       }),
     max: number()
-      .typeError('Giá trị tối đa không được phép để trống')
+      .typeError('Giới hạn trên không được phép để trống')
       .when('type', {
         is: AlarmType.CUSTOM,
         then: (schema) =>
@@ -148,7 +148,7 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
               name: 'min',
               exclusive: false,
               params: {},
-              message: 'Giá trị tối đa phải lớn hơn giá trị tối thiểu',
+              message: 'Giới hạn trên phải lớn hơn giới hạn dưới',
               test: function (value) {
                 if (this.parent.min && value) {
                   return value > this.parent.min;
@@ -160,7 +160,7 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
               name: 'typeCondition',
               exclusive: false,
               params: {},
-              message: 'Giá trị tối đa không được phép để trống',
+              message: 'Giới hạn trên không được phép để trống',
               test: function (value) {
                 if (this.parent.typeCondition === TypeCondition.GREATER_THAN) {
                   return true;
@@ -168,7 +168,7 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
                 return value !== undefined;
               },
             }),
-        otherwise: (schema) => schema.optional(),
+        otherwise: (schema) => schema.optional().nullable(),
       }),
     typeCondition: mixed<TypeCondition>().required(),
   }),

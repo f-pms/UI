@@ -106,7 +106,7 @@ const StatisticReportFilter = () => {
 
   const getFixedDate = useCallback(() => {
     const { viewType, stepField, selectedDateType, selectedDate } = watch();
-    let dayStep = stepField;
+    let dayStep = stepField ?? 0;
     let monthStep = 0;
     const fixedDate = new Date(selectedDate);
     let currentDay;

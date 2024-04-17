@@ -17,6 +17,7 @@ import {
 } from '~/pages/AlarmManagement/helpers/alarmForm';
 import { getTypeCondition } from '~/pages/AlarmManagement/helpers/getTypeCondition';
 import { AlarmInfoForm } from '~/pages/AlarmManagement/partials/AlarmInfoForm';
+import { TypeCondition } from '~/pages/AlarmManagement/partials/AlarmInfoForm/TypeConditionSelect';
 import { AlarmNotiForm } from '~/pages/AlarmManagement/partials/AlarmNotiForm';
 
 import { SoftChip } from '~/components';
@@ -129,11 +130,11 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
           timeDelay: data.info.timeDelay,
           checkInterval: data.info.checkInterval,
           min:
-            data.info.min === ''
+            data.info.typeCondition === TypeCondition.LESS_THAN
               ? undefined
               : parseFloat(data.info.min as string),
           max:
-            data.info.max === ''
+            data.info.typeCondition === TypeCondition.GREATER_THAN
               ? undefined
               : parseFloat(data.info.max as string),
         };
