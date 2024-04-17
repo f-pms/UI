@@ -29,6 +29,7 @@ axiosClient.interceptors.response.use(
     }
     if (err.response.status === 403) {
       window.location.href = '/forbidden';
+      localStorage.removeItem('TOKEN');
     }
     return Promise.reject(err);
   },
