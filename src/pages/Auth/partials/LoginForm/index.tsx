@@ -28,7 +28,7 @@ interface ILoginFormProps {
 
 export function LoginForm(props: ILoginFormProps) {
   const { onCallbackUrl } = props;
-  const { login, isError, user } = useContext(AuthContext);
+  const { login, isError, user, errorMessage } = useContext(AuthContext);
   const [errorState, setErrorState] = useState(false);
 
   const {
@@ -81,13 +81,13 @@ export function LoginForm(props: ILoginFormProps) {
             src={'/login_background.png'}
             sx={{
               width: '100%',
+              maxHeight: 650,
             }}
           />
         </Grid>
         <Grid item lg={5} md={4}>
           <Box
             sx={{
-              marginTop: 8,
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
@@ -133,7 +133,7 @@ export function LoginForm(props: ILoginFormProps) {
                   sx={{ marginBlock: 1.5 }}
                   textAlign={'center'}
                 >
-                  Đăng nhập thất bại
+                  {errorMessage}
                 </Typography>
               )}
               <Button

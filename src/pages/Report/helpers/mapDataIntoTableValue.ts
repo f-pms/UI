@@ -5,6 +5,7 @@ import {
   RowsMap,
   Shift,
 } from '~/types';
+import { formatNumber } from '~/utils';
 
 export const mapDataIntoTableValue = (
   defaultValues: ElectricalMeterReadingTableValues,
@@ -34,30 +35,34 @@ export const mapDataIntoTableValue = (
         const newValue2 = rowsMap?.[newValue2MapKey as keyof RowsMap] ?? 0;
         const newValue3 = rowsMap?.[newValue3MapKey as keyof RowsMap] ?? 0;
         const newValue4 = rowsMap?.[newValue4MapKey as keyof RowsMap] ?? 0;
-        rows[rowIndex].oldElectricValues[lineIndex] = oldValue;
-        rows[rowIndex].checkpointTotals[lineIndex] = newValue4 - oldValue;
+
+        rows[rowIndex].oldElectricValues[lineIndex] = formatNumber(oldValue, 6);
+        rows[rowIndex].checkpointTotals[lineIndex] = formatNumber(
+          newValue4 - oldValue,
+          6,
+        );
         rows[rowIndex].checkpoints[lineIndex] = {
           checkpoint1: {
-            newValue: newValue1,
-            total: newValue1 - oldValue,
+            newValue: formatNumber(newValue1, 6),
+            total: formatNumber(newValue1 - oldValue, 6),
           },
           checkpoint2: {
-            newValue: newValue2,
-            total: newValue2 - newValue1,
+            newValue: formatNumber(newValue2, 6),
+            total: formatNumber(newValue2 - newValue1, 6),
           },
           checkpoint3: {
-            newValue: newValue3,
-            total: newValue3 - newValue2,
+            newValue: formatNumber(newValue3, 6),
+            total: formatNumber(newValue3 - newValue2, 6),
           },
           checkpoint4: {
-            newValue: newValue4,
-            total: newValue4 - newValue3,
+            newValue: formatNumber(newValue4, 6),
+            total: formatNumber(newValue4 - newValue3, 6),
           },
         };
         total += newValue4 - oldValue;
       });
     });
-    return { ...defaultValues, rows, total };
+    return { ...defaultValues, rows, total: total * 1000000 };
   } catch (error) {
     return defaultValues;
   }

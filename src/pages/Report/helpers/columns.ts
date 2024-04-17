@@ -27,7 +27,7 @@ export const SHIFT_TIME: CheckpointTime = {
     checkpoint1: '6h00-9h30',
     checkpoint2: '9h30-13h00',
     checkpoint3: '13h00-17h00',
-    checkpoint4: '17h00-16h00',
+    checkpoint4: '17h00-18h00',
   },
   [Shift.NIGHT]: {
     checkpoint1: '18h00-20h00',
@@ -39,7 +39,7 @@ export const SHIFT_TIME: CheckpointTime = {
     checkpoint1: "6h00'-9h30'",
     checkpoint2: "9h30'-13h00'",
     checkpoint3: "13h00'-17h00'",
-    checkpoint4: "17h00'-16h00'",
+    checkpoint4: "17h00'-18h00'",
   },
 };
 
@@ -122,7 +122,7 @@ export const REPORT_TABLE_COLUMNS: ColumnReportTable[] = [
   },
   {
     id: 'equipments',
-    header: 'Tên thiết bị sử dụng láp đồng hồ',
+    header: 'Tên thiết bị sử dụng lắp đồng hồ',
     width: 240,
     accessorKey: 'equipments',
     isMultiRLineInRow: true,

@@ -6,7 +6,7 @@ import { useQueryAlarmConditions } from '~/services/alarm-condition/queries/useQ
 import { Alarm } from '~/types';
 
 import { AlertDialog } from '~/components';
-import { NotificationsOffOutlinedIcon } from '~/components/Icons';
+import { DeleteOutlineOutlinedIcon } from '~/components/Icons';
 import {
   ListItemIcon,
   ListItemText,
@@ -35,7 +35,7 @@ export function ConfirmDeleteAlarmDialog(
     if (isSuccess) {
       handleClose();
       refetch();
-      toast.success('Vô hiệu hóa cảnh báo thành công');
+      toast.success('Xóa cấu hình cành báo thành công.');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess]);
@@ -43,7 +43,9 @@ export function ConfirmDeleteAlarmDialog(
   useEffect(() => {
     if (isError) {
       handleClose();
-      toast.error('Vô hiệu hóa cảnh báo thất bại');
+      toast.error(
+        'Xóa cấu hình cảnh báo thất bại, vui lòng kiểm tra và thử lại.',
+      );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isError]);
@@ -56,18 +58,18 @@ export function ConfirmDeleteAlarmDialog(
     <>
       <MenuItem key='delete' onClick={() => setOpen(true)}>
         <ListItemIcon>
-          <NotificationsOffOutlinedIcon sx={{ fontSize: 20 }} />
+          <DeleteOutlineOutlinedIcon sx={{ fontSize: 20 }} />
         </ListItemIcon>
-        <ListItemText>Vô hiệu hóa cảnh báo</ListItemText>
+        <ListItemText>Xóa cấu hình cảnh báo</ListItemText>
       </MenuItem>
       <AlertDialog
         color='warning'
-        content='Cảnh báo sẽ không còn hiển thị trong hệ thống. Bạn có chắc chắn muốn tiếp tục không?'
+        content='Lịch sử cảnh báo của cấu hình này sẽ không còn hiển thị trong hệ thống. Bạn có chắc chắn muốn tiếp tục không?'
         handleAgree={handleAgree}
         handleClose={handleClose}
-        icon={NotificationsOffOutlinedIcon}
+        icon={DeleteOutlineOutlinedIcon}
         open={open}
-        title='Vô hiệu hóa cảnh báo?'
+        title='Xóa cấu hình cảnh báo?'
       />
     </>
   );

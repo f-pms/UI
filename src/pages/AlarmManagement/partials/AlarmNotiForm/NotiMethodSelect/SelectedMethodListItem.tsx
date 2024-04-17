@@ -1,6 +1,6 @@
 import { AlarmActionType } from '~/types';
 
-import { useNotiMethod } from '~/pages/AlarmManagement/hooks/useNotiMethod';
+import { useAlarmAction } from '~/pages/AlarmManagement/hooks/useAlarmAction';
 
 import {
   DeleteOutlineOutlinedIcon,
@@ -21,13 +21,15 @@ export interface IToastMethodProps {
   description: string;
 }
 
-export function MethodOption(props: IToastMethodProps) {
+export function SelectedMethodListItem(props: Readonly<IToastMethodProps>) {
   const { onRemoveAction, actionType, title, description } = props;
+
   const { handleCreateAction, handleDeleteAction, disabled, isUpdate } =
-    useNotiMethod({
+    useAlarmAction({
       onRemoveAction,
       actionType: actionType,
     });
+
   return (
     <Stack
       component='li'

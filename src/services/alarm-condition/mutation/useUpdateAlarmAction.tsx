@@ -3,7 +3,7 @@ import { useMutation, UseMutationOptions } from '@tanstack/react-query';
 import axiosClient from '~/libs/axios';
 import { AlarmAction } from '~/types';
 
-export interface UpdateAlarmActionDTO extends AlarmAction {}
+export interface UpdateAlarmActionDTO extends Omit<AlarmAction, 'message'> {}
 type UpdateAlarmActionParams = {
   alarmConditionId: number;
   alarmActionId: number;

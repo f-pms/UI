@@ -15,13 +15,18 @@ import {
   AlarmFormData,
   alarmSchema,
 } from '~/pages/AlarmManagement/helpers/alarmForm';
+import { TypeCondition } from '~/pages/AlarmManagement/partials/AlarmInfoForm/TypeConditionSelect';
 
 export const useCreateAlarm = (defaultValue: AlarmFormData) => {
   const [open, setOpen] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
   const [isAdvanced, setIsAdvanced] = useState(false);
   const [openAlertChangeMode, setOpenAlertChangeMode] = useState(false);
-  const { mutate: createAlarmCondition, isSuccess } = useCreateAlarmCondition();
+  const {
+    mutate: createAlarmCondition,
+    isSuccess,
+    isError,
+  } = useCreateAlarmCondition();
   const { refetch } = useQueryAlarmConditions({
     enabled: false,
   });
@@ -78,9 +83,13 @@ export const useCreateAlarm = (defaultValue: AlarmFormData) => {
       message: data.noti.message,
       actions: data.noti.actions,
       min:
-        data.info.min === '' ? undefined : parseFloat(data.info.min as string),
+        data.info.typeCondition === TypeCondition.LESS_THAN
+          ? undefined
+          : parseFloat(data.info.min as string),
       max:
-        data.info.max === '' ? undefined : parseFloat(data.info.max as string),
+        data.info.typeCondition === TypeCondition.GREATER_THAN
+          ? undefined
+          : parseFloat(data.info.max as string),
     };
     createAlarmCondition(payload);
   };
@@ -89,10 +98,18 @@ export const useCreateAlarm = (defaultValue: AlarmFormData) => {
     if (isSuccess) {
       handleCloseDialog();
       refetch();
-      toast.success('Tạo cảnh báo thành công');
+      toast.success('Tạo cấu hình cảnh báo thành công.');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess]);
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(
+        'Tạo cấu hình cảnh báo thất bại, vui lòng kiểm tra và thử lại.',
+      );
+    }
+  }, [isError]);
 
   return {
     open,

@@ -25,7 +25,7 @@ export const ORDER_OPTIONS: SortOption[] = [
     value: ReportOrder.ASC,
   },
   {
-    label: 'Sắp sếp giảm dần',
+    label: 'Sắp xếp giảm dần',
     value: ReportOrder.DESC,
   },
 ];
