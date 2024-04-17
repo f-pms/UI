@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Slide, ToastContainer } from 'react-toastify';
 
@@ -22,7 +21,7 @@ async function enableMocking() {
 
 enableMocking().then(() => {
   return ReactDOM.createRoot(document.getElementById('root')!).render(
-    <React.StrictMode>
+    <>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <QueryClientProvider client={queryClient}>
           <ReactQueryDevtools initialIsOpen={false} />
@@ -32,6 +31,6 @@ enableMocking().then(() => {
         </QueryClientProvider>
       </LocalizationProvider>
       <ToastContainer position='bottom-right' transition={Slide} />
-    </React.StrictMode>,
+    </>,
   );
 });

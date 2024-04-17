@@ -25,6 +25,7 @@ type State = {
   ) => void;
   isSubscribed: (topic: string) => boolean;
   unsubscribe: (topic: string) => void;
+  unsubscribeAll: () => void;
 };
 
 type GlobalThis = typeof globalThis & {
@@ -122,6 +123,7 @@ export const useWebsocketStore = create<State>(
           console.error('Websocket is not connected!');
           return;
         }
+
         const subscription = (globalThis as GlobalThis).client.subscribe(
           '/topic/' + topic,
           subscribeCallback,
@@ -148,6 +150,15 @@ export const useWebsocketStore = create<State>(
             return { topics };
           });
         }
+      },
+      unsubscribeAll: () => {
+        get().topics.forEach((subscription) => {
+          subscription.unsubscribe();
+        });
+        set({
+          topics: new Map(),
+          isReady: false,
+        });
       },
     };
   }),

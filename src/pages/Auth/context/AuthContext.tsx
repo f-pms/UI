@@ -78,6 +78,7 @@ export function AuthProvider({ children }: IAuthProviderProps) {
     const userDecoded: AccessTokenDecoded = jwtDecode(data?.token ?? '');
     const currentUser = convertToUser(userDecoded);
     setUser(currentUser);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess, data]);
 
   const login = useCallback(

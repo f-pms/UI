@@ -22,6 +22,7 @@ export const useMonitoringWebsocket = () => {
     unsubscribe,
     subscribe,
     isConnected,
+    unsubscribeAll,
   } = useWebsocketStore((state) => state);
   const { updateFigures } = useMonitoringStore((state) => state);
 
@@ -37,7 +38,6 @@ export const useMonitoringWebsocket = () => {
     } else if (!isError) {
       resetRetries();
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isError, retries]);
 
@@ -45,6 +45,11 @@ export const useMonitoringWebsocket = () => {
     if (!isConnected()) {
       connect();
     }
+    return () => {
+      if (isConnected()) {
+        unsubscribeAll();
+      }
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -58,5 +63,6 @@ export const useMonitoringWebsocket = () => {
 
   return {
     changeChannel,
+    isConnected,
   };
 };

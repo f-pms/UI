@@ -1,9 +1,6 @@
-import { Fragment, useEffect } from 'react';
-
-import { useWebsocketStore } from '~/stores/useWebsocketStore';
+import { Fragment, useEffect, useRef } from 'react';
 
 import BlueprintsProvider from '~/pages/ProductionManagement/context/BlueprintContext';
-import { getTabItemByValue } from '~/pages/ProductionManagement/helpers/diagrams';
 import { useAlarmWebsocket } from '~/pages/ProductionManagement/hooks/useAlarmWebsocket';
 import useBlueprints from '~/pages/ProductionManagement/hooks/useBlueprints';
 import { useMonitoringWebsocket } from '~/pages/ProductionManagement/hooks/useMonitoringWebSocket';
@@ -24,23 +21,24 @@ import {
 function MonitoringPage() {
   const { tabValue, setTabValue, tabInfo, isBlueprintReady, isBlueprintError } =
     useBlueprints();
+  const channelRef = useRef<string>('');
 
-  const { isConnected } = useWebsocketStore();
-  const { changeChannel } = useMonitoringWebsocket();
+  const { changeChannel, isConnected } = useMonitoringWebsocket();
   useAlarmWebsocket();
 
   const { ref, scrollToDiagram } = useScrollToDiagram();
 
   const handleChange = (_: React.SyntheticEvent | null, newValue: number) => {
-    changeChannel(tabInfo.channel, getTabItemByValue(newValue).channel);
     setTabValue(newValue);
     scrollToDiagram();
   };
 
   useEffect(() => {
-    changeChannel('', tabInfo.channel);
+    if (!tabInfo.channel || !isConnected()) return;
+    changeChannel(channelRef.current, tabInfo.channel);
+    channelRef.current = tabInfo.channel;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isConnected, isConnected()]);
+  }, [isConnected(), tabInfo.channel]);
 
   let TabPanelComponent = <StationTabPanel ref={ref} value={tabValue} />;
   if (isBlueprintError) {
