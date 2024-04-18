@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { Path } from '~/constants';
+
 const baseURL = import.meta.env.VITE_API_URL as string;
 
 const axiosClient = axios.create({
@@ -28,8 +30,8 @@ axiosClient.interceptors.response.use(
       localStorage.removeItem('TOKEN');
     }
     if (err.response.status === 403) {
-      window.location.href = '/forbidden';
       localStorage.removeItem('TOKEN');
+      window.location.href = Path.PRODUCTION_MONITORING;
     }
     return Promise.reject(err);
   },

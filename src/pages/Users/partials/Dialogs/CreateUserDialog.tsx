@@ -39,6 +39,7 @@ export function CreateUserDialog() {
     mutate: createUser,
     isSuccess: isCreateSuccess,
     isError: isCreateError,
+    error,
   } = useCreateUser();
   const [open, setOpen] = useState(false);
   const methods = useForm<UserDTO>({

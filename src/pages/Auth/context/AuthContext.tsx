@@ -14,6 +14,7 @@ import {
 } from '~/services/auth/mutation/useLoginAccount';
 import { useWebsocketStore } from '~/stores/useWebsocketStore';
 import { AccessTokenDecoded, Role, User } from '~/types';
+import { ErrorDataResponse } from '~/types/request';
 import { storage } from '~/utils';
 
 import { UserFormData } from '~/pages/Auth/helpers/loginForm';
@@ -78,7 +79,7 @@ export function AuthProvider({ children }: IAuthProviderProps) {
     const userDecoded: AccessTokenDecoded = jwtDecode(data?.token ?? '');
     const currentUser = convertToUser(userDecoded);
     setUser(currentUser);
-  }, [isSuccess, data]);
+  }, [isSuccess, data, reset]);
 
   const login = useCallback(
     (userForm: UserFormData) => {
@@ -100,7 +101,10 @@ export function AuthProvider({ children }: IAuthProviderProps) {
 
   const isAdmin = useMemo(() => user?.role === Role.ADMIN, [user]);
 
-  const errorMessage = useMemo(() => error?.message ?? '', [error?.message]);
+  const errorMessage = useMemo(
+    () => (error?.response?.data as ErrorDataResponse)?.error.data ?? '',
+    [error],
+  );
 
   const value = useMemo(
     () => ({ user, login, logout, isError, isAdmin, errorMessage }),
