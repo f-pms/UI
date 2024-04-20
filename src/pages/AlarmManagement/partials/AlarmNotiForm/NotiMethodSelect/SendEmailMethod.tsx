@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
 import { Checkbox, SelectChangeEvent, Tooltip } from '~/libs/mui';
+import { useQueryUsers } from '~/services/user/queries/useQueryUsers';
 import { AlarmActionType } from '~/types';
 import { areArraysEqual } from '~/utils/areArraysEqual';
 
@@ -35,20 +36,7 @@ const MenuProps = {
     },
   },
 };
-
-const names = [
-  'huybnse150819@fpt.edu.vn',
-  'huynnse150807@fpt.edu.vn',
-  'kienttse151340@fpt.edu.vn',
-  'dailxse150683@fpt.edu.vn',
-  'thinhltse151082@fpt.edu.vn',
-  'huybui479@gmail.com',
-  'nguyennhathuy.orit@gmail.com',
-  'kien123456k@gmail.com',
-  'lxdai0307@gmail.com',
-  'letienthinh0109@gmail.com',
-];
-
+const MAX_USER = 999;
 export interface ISendEmailMethodProps {
   onRemoveAction: (value: AlarmActionType) => void;
 }
@@ -56,8 +44,10 @@ export interface ISendEmailMethodProps {
 export function SendEmailMethod({
   onRemoveAction,
 }: Readonly<ISendEmailMethodProps>) {
-  const [personNames, setPersonNames] = useState<string[]>([]);
+  const [selectedEmails, setSelectedEmails] = useState<string[]>([]);
+  const { data: users } = useQueryUsers({ page: 1, size: MAX_USER });
   const { setValue, getValues, clearErrors } = useFormContext<AlarmFormData>();
+
   const {
     handleCreateAction,
     handleDeleteAction,
@@ -71,29 +61,29 @@ export function SendEmailMethod({
 
   const isUpdate = getValues('isUpdate');
   const isUpdateAction = useMemo(() => {
-    return !areArraysEqual(currentAction?.recipients ?? [], personNames);
-  }, [currentAction?.recipients, personNames]);
+    return !areArraysEqual(currentAction?.recipients ?? [], selectedEmails);
+  }, [currentAction?.recipients, selectedEmails]);
 
-  const handleChange = (event: SelectChangeEvent<typeof personNames>) => {
-    const users = event.target.value as string[];
+  const handleChange = (event: SelectChangeEvent<typeof selectedEmails>) => {
+    const newValues = event.target.value as string[];
 
-    setPersonNames(users);
+    setSelectedEmails(newValues);
 
     const actions = getValues('noti.actions');
     const newActions = actions.map((action) => {
       if (action.type === AlarmActionType.EMAIL) {
-        return { ...action, recipients: users };
+        return { ...action, recipients: newValues };
       }
       return action;
     });
     setValue('noti.actions', newActions);
 
-    if (users.length) {
+    if (newValues.length) {
       clearErrors('noti.actions');
     }
   };
 
-  const users = useMemo(() => {
+  const emails = useMemo(() => {
     return (
       getValues('noti.actions').find(
         (action) => action.type === AlarmActionType.EMAIL,
@@ -102,14 +92,14 @@ export function SendEmailMethod({
   }, [getValues]);
 
   useEffect(() => {
-    setPersonNames(users);
-  }, [users]);
+    setSelectedEmails(emails);
+  }, [emails]);
 
   const handleClickUpdate = () => {
     if (!disabled) {
-      handleCreateAction(personNames);
+      handleCreateAction(selectedEmails);
     } else {
-      handleUpdateAction(personNames);
+      handleUpdateAction(selectedEmails);
     }
   };
 
@@ -129,7 +119,7 @@ export function SendEmailMethod({
           endAdornment={
             <InputAdornment position='end'>
               <SoftChip
-                label={`${personNames.length} đã chọn`}
+                label={`${selectedEmails.length} đã chọn`}
                 shape='square'
                 size='small'
                 style={{ marginRight: '16px' }}
@@ -144,14 +134,24 @@ export function SendEmailMethod({
             />
           }
           renderValue={(selected) => selected.join(', ')}
-          value={personNames}
+          value={selectedEmails}
           onChange={handleChange}
         >
-          {names.map((name) => (
-            <MenuItem key={name} sx={{ py: 0 }} value={name}>
-              <Checkbox checked={personNames.indexOf(name) > -1} />
+          {users?.content?.map((user) => (
+            <MenuItem key={user.id} sx={{ py: 0 }} value={user.email}>
+              <Checkbox checked={selectedEmails.indexOf(user.email) > -1} />
               <ListItemText
-                primary={<Typography variant='body2'>{name}</Typography>}
+                primary={
+                  <Typography variant='body2'>{user.fullName}</Typography>
+                }
+                sx={{ width: '140px', flex: 'none' }}
+              />
+              <ListItemText
+                primary={
+                  <Typography color='text.secondary' variant='caption'>
+                    {user.email}
+                  </Typography>
+                }
               />
             </MenuItem>
           ))}
