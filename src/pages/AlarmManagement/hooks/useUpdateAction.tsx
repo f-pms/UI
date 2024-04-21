@@ -9,6 +9,7 @@ import {
 } from '~/services/alarm-condition/mutation/useUpdateAlarmAction';
 import { useQueryAlarmConditions } from '~/services/alarm-condition/queries/useQueryAlarmConditions';
 import { AlarmActionType } from '~/types';
+import { displayErrorMessage } from '~/utils/errorMessage';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 
@@ -25,6 +26,7 @@ export const useUpdateAction = ({
     isSuccess: isUpdateSuccess,
     data: updateData,
     isError: isUpdateError,
+    error,
   } = useUpdateAlarmAction();
   const { refetch } = useQueryAlarmConditions({
     enabled: false,
@@ -58,11 +60,9 @@ export const useUpdateAction = ({
 
   useEffect(() => {
     if (isUpdateError) {
-      toast.error(
-        'Cập nhật phương phức cảnh báo thất bại, vui lòng kiểm tra và thử lại.',
-      );
+      toast.error(displayErrorMessage(error));
     }
-  }, [isUpdateError]);
+  }, [isUpdateError, error]);
 
   return {
     handleUpdateAction,

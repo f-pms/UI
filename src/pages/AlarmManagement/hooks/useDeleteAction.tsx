@@ -6,6 +6,7 @@ import { AlarmActionDTO } from '~/services/alarm-condition/mutation/useCreateAla
 import { useDeleteAlarmAction } from '~/services/alarm-condition/mutation/useDeleteAlarmAction';
 import { useQueryAlarmConditions } from '~/services/alarm-condition/queries/useQueryAlarmConditions';
 import { AlarmActionType } from '~/types';
+import { displayErrorMessage } from '~/utils/errorMessage';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 
@@ -24,6 +25,7 @@ export const useDeleteAction = ({
     mutate: deleteAlarmAction,
     isSuccess: isDeleteSuccess,
     isError: isDeleteError,
+    error,
   } = useDeleteAlarmAction();
   const { refetch } = useQueryAlarmConditions({
     enabled: false,
@@ -61,11 +63,9 @@ export const useDeleteAction = ({
 
   useEffect(() => {
     if (isDeleteError) {
-      toast.error(
-        'Xóa phương phức cảnh báo thất bại, vui lòng kiểm tra và thử lại.',
-      );
+      toast.error(displayErrorMessage(error));
     }
-  }, [isDeleteError]);
+  }, [isDeleteError, error]);
 
   return {
     handleDeleteAction,

@@ -1,3 +1,5 @@
+import { AxiosError } from 'axios';
+
 import { useMutation, UseMutationOptions } from '@tanstack/react-query';
 
 import axiosClient from '~/libs/axios';
@@ -14,7 +16,7 @@ const loginAccount = async (user: UserDTO) => {
 
 export const useLoginAccount = (
   options?: Omit<
-    UseMutationOptions<LoginResponse, Error, UserDTO, unknown>,
+    UseMutationOptions<LoginResponse, AxiosError, UserDTO, unknown>,
     'mutationFn'
   >,
 ) => {

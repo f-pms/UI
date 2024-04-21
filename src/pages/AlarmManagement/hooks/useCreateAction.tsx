@@ -9,6 +9,7 @@ import {
 import { AlarmActionDTO } from '~/services/alarm-condition/mutation/useCreateAlarmCondition';
 import { useQueryAlarmConditions } from '~/services/alarm-condition/queries/useQueryAlarmConditions';
 import { AlarmActionType } from '~/types';
+import { displayErrorMessage } from '~/utils/errorMessage';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 
@@ -25,6 +26,7 @@ export const useCreateAction = ({
     data,
     isSuccess: isCreateSuccess,
     isError: isCreateError,
+    error,
   } = useCreateAlarmAction();
   const { refetch } = useQueryAlarmConditions({
     enabled: false,
@@ -54,11 +56,9 @@ export const useCreateAction = ({
 
   useEffect(() => {
     if (isCreateError) {
-      toast.error(
-        'Thêm phương phức cảnh báo thất bại, vui lòng kiểm tra và thử lại.',
-      );
+      toast.error(displayErrorMessage(error));
     }
-  }, [isCreateError]);
+  }, [isCreateError, error]);
 
   return {
     handleCreateAction,

@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { useDeleteAlarmCondition } from '~/services/alarm-condition/mutation/useDeleteAlarmCondition';
 import { useQueryAlarmConditions } from '~/services/alarm-condition/queries/useQueryAlarmConditions';
 import { Alarm } from '~/types';
+import { displayErrorMessage } from '~/utils/errorMessage';
 
 import { AlertDialog } from '~/components';
 import { DeleteOutlineOutlinedIcon } from '~/components/Icons';
@@ -22,7 +23,7 @@ export function ConfirmDeleteAlarmDialog(
   props: IConfirmDeleteAlarmDialogProps,
 ) {
   const { alarm, closeMenu } = props;
-  const { mutate, isSuccess, isError } = useDeleteAlarmCondition();
+  const { mutate, isSuccess, isError, error } = useDeleteAlarmCondition();
   const { refetch } = useQueryAlarmConditions({
     enabled: false,
   });
@@ -43,9 +44,7 @@ export function ConfirmDeleteAlarmDialog(
   useEffect(() => {
     if (isError) {
       handleClose();
-      toast.error(
-        'Xóa cấu hình cảnh báo thất bại, vui lòng kiểm tra và thử lại.',
-      );
+      toast.error(displayErrorMessage(error));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isError]);
