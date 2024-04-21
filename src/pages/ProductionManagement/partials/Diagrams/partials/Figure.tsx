@@ -39,7 +39,7 @@ export function Figure({
   };
 
   if (!figureValue) {
-    figureValue = 'xx.xx';
+    figureValue = '. . . . .';
   }
 
   return !isEditMode ? (
