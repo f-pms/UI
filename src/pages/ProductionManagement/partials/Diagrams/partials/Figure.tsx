@@ -35,10 +35,14 @@ export function Figure({
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(
-      `Data Block: ${db}\nOffset: ${offset}\nKiểu dữ liệu: ${dataType}`,
+      `Data Block: ${db}\nOffset: ${offset}\nKiểu dữ liệu: ${dataType}${dataType}`,
     );
     setIsCopied(true);
   };
+
+  if (!figureValue) {
+    figureValue = 'xx.xx';
+  }
 
   return !isEditMode ? (
     <text transform={transformString}>
