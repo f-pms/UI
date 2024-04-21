@@ -17,6 +17,7 @@ import { useUpdateUser } from '~/services/user/mutation/useUpdateUser';
 import { useQueryUserById } from '~/services/user/queries/useQueryUserById';
 import { Role } from '~/types';
 import { translateUserRole } from '~/utils';
+import { displayErrorMessage } from '~/utils/errorMessage';
 
 import { AuthContext } from '~/pages/Auth/context/AuthContext';
 import { ConfirmDeleteUserDialog } from '~/pages/Users/partials/Dialogs/ConfirmDeleteUserDialog';
@@ -40,6 +41,7 @@ export function UserProfilePage() {
     mutate: updateUser,
     isSuccess: isUpdateSuccess,
     isError,
+    error,
   } = useUpdateUser();
 
   const [isEdit, setIsEdit] = useState<{
@@ -98,9 +100,7 @@ export function UserProfilePage() {
 
   useEffect(() => {
     if (isError) {
-      toast.error(
-        'Cập nhật thông tin người dùng thất bại, vui lòng kiểm tra lại thông tin',
-      );
+      toast.error(displayErrorMessage(error));
       setDefaultValues();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

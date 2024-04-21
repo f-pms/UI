@@ -10,6 +10,7 @@ import {
 } from '~/services/alarm-condition/mutation/useUpdateAlarmCondition';
 import { useQueryAlarmConditions } from '~/services/alarm-condition/queries/useQueryAlarmConditions';
 import { Alarm, AlarmType } from '~/types';
+import { displayErrorMessage } from '~/utils/errorMessage';
 
 import {
   AlarmFormData,
@@ -152,9 +153,9 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
 
   useEffect(() => {
     if (isUpdateInfoAlarmError) {
-      toast.error('Cập nhật thông tin cảnh báo thất bại: ' + error?.message);
+      toast.error(displayErrorMessage(error));
     }
-  }, [error?.message, isUpdateInfoAlarmError]);
+  }, [isUpdateInfoAlarmError, error]);
 
   const steps: AlarmStep[] = [
     {

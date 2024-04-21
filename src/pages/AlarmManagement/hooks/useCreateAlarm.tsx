@@ -10,6 +10,7 @@ import {
 } from '~/services/alarm-condition/mutation/useCreateAlarmCondition';
 import { useQueryAlarmConditions } from '~/services/alarm-condition/queries/useQueryAlarmConditions';
 import { AlarmType } from '~/types';
+import { displayErrorMessage } from '~/utils/errorMessage';
 
 import {
   AlarmFormData,
@@ -26,6 +27,7 @@ export const useCreateAlarm = (defaultValue: AlarmFormData) => {
     mutate: createAlarmCondition,
     isSuccess,
     isError,
+    error,
   } = useCreateAlarmCondition();
   const { refetch } = useQueryAlarmConditions({
     enabled: false,
@@ -105,11 +107,9 @@ export const useCreateAlarm = (defaultValue: AlarmFormData) => {
 
   useEffect(() => {
     if (isError) {
-      toast.error(
-        'Tạo cấu hình cảnh báo thất bại, vui lòng kiểm tra và thử lại.',
-      );
+      toast.error(displayErrorMessage(error));
     }
-  }, [isError]);
+  }, [isError, error]);
 
   return {
     open,

@@ -14,8 +14,8 @@ import {
 } from '~/services/auth/mutation/useLoginAccount';
 import { useWebsocketStore } from '~/stores/useWebsocketStore';
 import { AccessTokenDecoded, Role, User } from '~/types';
-import { ErrorDataResponse } from '~/types/request';
 import { storage } from '~/utils';
+import { displayErrorMessage } from '~/utils/errorMessage';
 
 import { UserFormData } from '~/pages/Auth/helpers/loginForm';
 
@@ -101,10 +101,7 @@ export function AuthProvider({ children }: IAuthProviderProps) {
 
   const isAdmin = useMemo(() => user?.role === Role.ADMIN, [user]);
 
-  const errorMessage = useMemo(
-    () => (error?.response?.data as ErrorDataResponse)?.error.data ?? '',
-    [error],
-  );
+  const errorMessage = useMemo(() => displayErrorMessage(error), [error]);
 
   const value = useMemo(
     () => ({ user, login, logout, isError, isAdmin, errorMessage }),
