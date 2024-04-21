@@ -27,11 +27,12 @@ axiosClient.interceptors.response.use(
   async (err) => {
     console.error('Error: ', err.response.status);
     if (err.response.status === 401) {
+      window.location.href = '/sign-in';
       localStorage.removeItem('TOKEN');
     }
     if (err.response.status === 403) {
+      window.location.href = '/sign-in';
       localStorage.removeItem('TOKEN');
-      window.location.href = Path.PRODUCTION_MONITORING;
     }
     return Promise.reject(err);
   },
