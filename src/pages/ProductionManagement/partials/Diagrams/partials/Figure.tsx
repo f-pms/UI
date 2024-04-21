@@ -34,9 +34,7 @@ export function Figure({
   const transformString = `translate(${x} ${y})`;
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(
-      `Data Block: ${db}\nOffset: ${offset}\nKiểu dữ liệu: ${dataType}${dataType}`,
-    );
+    navigator.clipboard.writeText(`%DB${db}:${offset}:${dataType}`);
     setIsCopied(true);
   };
 
