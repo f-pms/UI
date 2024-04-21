@@ -28,13 +28,13 @@ export function Figure({
   figureValue,
   openUpdateFigureInfoDialog,
 }: FigureProps) {
-  const { x, y, db, offset, dataType } = figureInfo;
+  const { address, x, y, db, offset, dataType } = figureInfo;
   const { isEditMode } = useContext(BlueprintsContext);
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const transformString = `translate(${x} ${y})`;
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(`%DB${db}:${offset}:${dataType}`);
+    navigator.clipboard.writeText(address);
     setIsCopied(true);
   };
 
