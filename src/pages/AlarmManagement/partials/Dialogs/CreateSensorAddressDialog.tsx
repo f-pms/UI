@@ -6,6 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 
 import { useCreateAddress } from '~/services/sensorConfiguration/mutations/useCreateAddress';
 import { useQuerySensorConfigurations } from '~/services/sensorConfiguration/queries/useQuerySensorConfigurations';
+import { displayErrorMessage } from '~/utils/errorMessage';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 import {
@@ -45,7 +46,12 @@ export function CreateSensorAddressDialog(
       enabled: false,
     },
   );
-  const { mutate: createAddress, isSuccess, isError } = useCreateAddress();
+  const {
+    mutate: createAddress,
+    isSuccess,
+    isError,
+    error,
+  } = useCreateAddress();
   const {
     control,
     formState: { errors },
@@ -92,7 +98,7 @@ export function CreateSensorAddressDialog(
 
   useEffect(() => {
     if (isError) {
-      toast.error('Thêm địa chỉ biến thất bại, vui lòng kiểm tra và thử lại');
+      toast.error(displayErrorMessage(error));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isError]);

@@ -16,6 +16,7 @@ import {
 
 import { useCreateUser, UserDTO } from '~/services/user/mutation/useCreateUser';
 import { useQueryUsers } from '~/services/user/queries/useQueryUsers';
+import { displayErrorMessage } from '~/utils/errorMessage';
 
 import { defaultUser, userSchema } from '~/pages/Users/helpers/userForm';
 import { UserForm } from '~/pages/Users/partials/UserForm';
@@ -39,6 +40,7 @@ export function CreateUserDialog() {
     mutate: createUser,
     isSuccess: isCreateSuccess,
     isError: isCreateError,
+    error,
   } = useCreateUser();
   const [open, setOpen] = useState(false);
   const methods = useForm<UserDTO>({
@@ -81,12 +83,9 @@ export function CreateUserDialog() {
 
   useEffect(() => {
     if (isCreateError) {
-      toast.error(
-        'Tạo người dùng mới thất bại, vui lòng kiểm tra lại thông tin',
-      );
+      toast.error(displayErrorMessage(error));
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isCreateError]);
+  }, [isCreateError, error]);
 
   return (
     <>

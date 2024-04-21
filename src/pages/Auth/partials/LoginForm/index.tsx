@@ -139,9 +139,10 @@ export function LoginForm(props: ILoginFormProps) {
               <Button
                 fullWidth
                 sx={{ mt: 3, mb: 2, paddingBlock: 1.5 }}
-                type='button'
+                type='submit'
                 variant='contained'
                 onClick={handleSubmit(handleSubmitUser)}
+                onSubmit={handleSubmit(handleSubmitUser)}
               >
                 Đăng nhập
               </Button>

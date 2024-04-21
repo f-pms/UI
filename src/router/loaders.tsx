@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 import { Path } from '~/constants/path';
 import { jwtDecode } from '~/libs/jwt-decode';
 import { redirect } from '~/libs/react-router-dom';
@@ -17,7 +19,8 @@ export const privateRouteLoader = (roles: string[], pathname = '') => {
   const user: AccessTokenDecoded = jwtDecode(token);
   // If the user is not authorized to access the route, redirect them to the forbidden page
   if (user && !roles.includes(user.role)) {
-    return redirect(Path.FORBIDDEN);
+    toast.info('Trang không tồn tại.');
+    return redirect(Path.PRODUCTION_MONITORING);
   }
 
   // If the user is authorized, return null

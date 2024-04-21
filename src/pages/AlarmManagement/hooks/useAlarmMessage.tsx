@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 
 import { useUpdateAlarmMessage } from '~/services/alarm-condition/mutation/useUpdateAlarmMessage';
 import { useQueryAlarmConditions } from '~/services/alarm-condition/queries/useQueryAlarmConditions';
+import { displayErrorMessage } from '~/utils/errorMessage';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 
@@ -16,6 +17,7 @@ export const useAlarmMessage = () => {
     mutate: updateAlarmMessage,
     isSuccess,
     isError,
+    error,
   } = useUpdateAlarmMessage();
 
   const [currentMessage, setCurrentMessage] = useState(
@@ -45,11 +47,9 @@ export const useAlarmMessage = () => {
 
   useEffect(() => {
     if (isError) {
-      toast.error(
-        'Cập nhật nội dung cảnh báo thất bại, vui lòng kiểm tra và thử lại.',
-      );
+      toast.error(displayErrorMessage(error));
     }
-  }, [isError]);
+  }, [isError, error]);
 
   const isUpdate = getValues('isUpdate');
   return { onUpdate, currentMessage, isUpdate };

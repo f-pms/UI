@@ -164,7 +164,7 @@ export function UserPasswordField(props: IUserPasswordFieldProps) {
             onChange={(e) => setConfirmPassword(e.target.value)}
           />
           {validationPassword().map((error) => (
-            <FormHelperText key={error} sx={{ ml: 0 }}>
+            <FormHelperText key={error} error sx={{ ml: 0 }}>
               {error}
             </FormHelperText>
           ))}
