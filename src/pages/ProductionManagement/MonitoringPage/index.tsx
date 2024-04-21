@@ -3,7 +3,6 @@ import { Fragment, useEffect } from 'react';
 import { useWebsocketStore } from '~/stores/useWebsocketStore';
 
 import BlueprintsProvider from '~/pages/ProductionManagement/context/BlueprintContext';
-import { getTabItemByValue } from '~/pages/ProductionManagement/helpers/diagrams';
 import { useAlarmWebsocket } from '~/pages/ProductionManagement/hooks/useAlarmWebsocket';
 import useBlueprints from '~/pages/ProductionManagement/hooks/useBlueprints';
 import { useMonitoringWebsocket } from '~/pages/ProductionManagement/hooks/useMonitoringWebSocket';
@@ -22,25 +21,34 @@ import {
 } from '~/components/MuiComponents';
 
 function MonitoringPage() {
-  const { tabValue, setTabValue, tabInfo, isBlueprintReady, isBlueprintError } =
+  const { tabInfo, tabValue, setTabValue, isBlueprintReady, isBlueprintError } =
     useBlueprints();
 
-  const { isConnected } = useWebsocketStore();
-  const { changeChannel } = useMonitoringWebsocket();
+  // Use the useWebsocketStore hook to get WebSocket-related state and functions
+  const { isConnected, unsubscribeAll } = useWebsocketStore();
+
+  // Use the useMonitoringWebsocket hook to handle monitoring-related WebSocket messages
+  useMonitoringWebsocket(tabInfo);
+
+  // Use the useAlarmWebsocket hook to handle alarm-related WebSocket messages
   useAlarmWebsocket();
+
+  // Use the useEffect hook to unsubscribe from all WebSocket topics when the component is unmounted
+  useEffect(() => {
+    return () => {
+      if (isConnected()) {
+        unsubscribeAll();
+      }
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const { ref, scrollToDiagram } = useScrollToDiagram();
 
   const handleChange = (_: React.SyntheticEvent | null, newValue: number) => {
-    changeChannel(tabInfo.channel, getTabItemByValue(newValue).channel);
     setTabValue(newValue);
     scrollToDiagram();
   };
-
-  useEffect(() => {
-    changeChannel('', tabInfo.channel);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isConnected, isConnected()]);
 
   let TabPanelComponent = <StationTabPanel ref={ref} value={tabValue} />;
   if (isBlueprintError) {

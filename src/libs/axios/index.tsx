@@ -28,7 +28,7 @@ axiosClient.interceptors.response.use(
       localStorage.removeItem('TOKEN');
     }
     if (err.response.status === 403) {
-      window.location.href = '/forbidden';
+      window.location.href = '/sign-in';
       localStorage.removeItem('TOKEN');
     }
     return Promise.reject(err);
