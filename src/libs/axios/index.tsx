@@ -30,7 +30,6 @@ axiosClient.interceptors.response.use(
       localStorage.removeItem('TOKEN');
     }
     if (err.response.status === 403) {
-      window.location.href = '/sign-in';
       localStorage.removeItem('TOKEN');
       window.location.href = Path.PRODUCTION_MONITORING;
     }
