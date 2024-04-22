@@ -28,17 +28,19 @@ export function Figure({
   figureValue,
   openUpdateFigureInfoDialog,
 }: FigureProps) {
-  const { x, y, db, offset, dataType } = figureInfo;
+  const { address, x, y, db, offset, dataType } = figureInfo;
   const { isEditMode } = useContext(BlueprintsContext);
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const transformString = `translate(${x} ${y})`;
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(
-      `Data Block: ${db}\nOffset: ${offset}\nKiểu dữ liệu: ${dataType}`,
-    );
+    navigator.clipboard.writeText(address);
     setIsCopied(true);
   };
+
+  if (!figureValue) {
+    figureValue = '. . . . .';
+  }
 
   return !isEditMode ? (
     <text transform={transformString}>
