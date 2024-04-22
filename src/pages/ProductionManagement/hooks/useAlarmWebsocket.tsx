@@ -42,6 +42,7 @@ export const useAlarmWebsocket = () => {
       />,
       {
         preventDuplicate: false,
+        autoHideDuration: 10000,
       },
     );
   };

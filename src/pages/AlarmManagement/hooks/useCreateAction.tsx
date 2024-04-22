@@ -7,6 +7,7 @@ import {
   useCreateAlarmAction,
 } from '~/services/alarm-condition/mutation/useCreateAlarmAction';
 import { AlarmActionDTO } from '~/services/alarm-condition/mutation/useCreateAlarmCondition';
+import { useQueryAlarmConditionById } from '~/services/alarm-condition/queries/useQueryAlarmConditionById';
 import { useQueryAlarmConditions } from '~/services/alarm-condition/queries/useQueryAlarmConditions';
 import { AlarmActionType } from '~/types';
 import { displayErrorMessage } from '~/utils/errorMessage';
@@ -20,7 +21,7 @@ export const useCreateAction = ({
   actionType: AlarmActionType;
   setCurrentAction: (action: AlarmActionDTO | null) => void;
 }) => {
-  const { getValues, setValue } = useFormContext<AlarmFormData>();
+  const { getValues, setValue, trigger } = useFormContext<AlarmFormData>();
   const {
     mutate: createAlarmAction,
     data,
@@ -31,14 +32,23 @@ export const useCreateAction = ({
   const { refetch } = useQueryAlarmConditions({
     enabled: false,
   });
+  const { data: currentAlarm } = useQueryAlarmConditionById(
+    getValues('info.id'),
+    {
+      enabled: !!getValues('info.id'),
+    },
+  );
 
   const handleCreateAction = (recipients?: string[]) => {
-    const payload: CreateAlarmActionDTO = {
-      message: getValues('noti.message'),
-      type: actionType,
-      recipients: recipients ?? [],
-    };
-    createAlarmAction({ alarmConditionId: getValues('info.id'), payload });
+    trigger('noti.actions').then((isValid) => {
+      if (!isValid) return;
+      const payload: CreateAlarmActionDTO = {
+        message: currentAlarm?.actions[0]?.message ?? '',
+        type: actionType,
+        recipients: recipients ?? [],
+      };
+      createAlarmAction({ alarmConditionId: getValues('info.id'), payload });
+    });
   };
 
   useEffect(() => {

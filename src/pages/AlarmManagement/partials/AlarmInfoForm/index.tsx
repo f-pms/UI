@@ -27,6 +27,11 @@ export function AlarmInfoForm(props: IAlarmFormProps) {
         <StationAutoComplete />
         <SensorAutoComplete />
       </Stack>
+      {isAdvanced && (
+        <Box sx={{ mt: 2 }}>
+          <ConditionInput />
+        </Box>
+      )}
       <Stack
         alignItems='flex-start'
         direction='row'
@@ -37,11 +42,6 @@ export function AlarmInfoForm(props: IAlarmFormProps) {
         <CheckIntervalInput />
         <TimeDelayInput />
       </Stack>
-      {isAdvanced && (
-        <Box sx={{ mt: 4 }}>
-          <ConditionInput />
-        </Box>
-      )}
     </Box>
   );
 }
