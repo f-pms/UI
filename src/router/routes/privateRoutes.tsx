@@ -8,9 +8,7 @@ import {
   AlarmHistoryPage,
   AlarmManagementLayout,
 } from '~/pages/AlarmManagement';
-import MonitoringPage, {
-  ProductionPageLayout,
-} from '~/pages/ProductionManagement';
+import MonitoringPage from '~/pages/ProductionManagement/MonitoringPage';
 import {
   HistoricalReportDetailsPage,
   HistoricalReportListPage,
@@ -22,16 +20,10 @@ import { UserListPage, UserProfilePage } from '~/pages/Users';
 
 export const privateRoutes: (PrivateRouteObject & RouteObject)[] = [
   {
-    path: Path.PRODUCTION,
-    element: <ProductionPageLayout />,
+    path: Path.PRODUCTION_MONITORING,
+    element: <MonitoringPage />,
     layout: <DefaultLayout />,
     roles: [Role.ADMIN, Role.USER],
-    children: [
-      {
-        path: 'monitoring',
-        element: <MonitoringPage />,
-      },
-    ],
   },
   {
     path: Path.ALARM,
