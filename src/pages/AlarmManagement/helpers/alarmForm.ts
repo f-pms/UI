@@ -173,7 +173,9 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
     typeCondition: mixed<TypeCondition>().required(),
   }),
   noti: object({
-    message: string().required('Nội dung cảnh báo không được để trống'),
+    message: string()
+      .max(255, 'Nội dung cảnh báo không vượt quá 255 kí tự')
+      .required('Nội dung cảnh báo không được để trống'),
     actions: array()
       .min(1, 'Ít nhất phải chọn một phương thức cảnh báo')
       .of(

@@ -19,7 +19,7 @@ export const useDeleteAction = ({
   onRemoveAction: (value: AlarmActionType) => void;
   setCurrentAction: (action: AlarmActionDTO | null) => void;
 }) => {
-  const { getValues } = useFormContext<AlarmFormData>();
+  const { getValues, setError } = useFormContext<AlarmFormData>();
 
   const {
     mutate: deleteAlarmAction,
@@ -33,18 +33,21 @@ export const useDeleteAction = ({
 
   const handleDeleteAction = () => {
     const isUpdate = getValues('isUpdate');
-    const action = getValues('noti.actions').find((a) => a.type == actionType);
-    const selectedOptions = getValues('noti.actions');
-
-    if (isUpdate && selectedOptions.length === 1) {
-      toast.error('Phải có ít nhất một phương thức cảnh báo');
-      return;
-    }
+    const actions = getValues('noti.actions');
+    const action = actions.find((a) => a.type == actionType);
+    const numberCreatedActions = actions.filter((action) => action.id).length;
 
     if (isUpdate && action?.id) {
+      if (numberCreatedActions === 1) {
+        setError('noti.actions', {
+          message: 'Phải có ít nhất một phương thức cảnh báo',
+        });
+        return;
+      }
+
       deleteAlarmAction({
         alarmConditionId: getValues('info.id'),
-        actionId: action?.id ?? 0,
+        actionId: action.id,
       });
       setCurrentAction(null);
     } else {
