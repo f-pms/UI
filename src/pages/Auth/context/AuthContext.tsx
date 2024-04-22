@@ -15,6 +15,7 @@ import {
 import { useWebsocketStore } from '~/stores/useWebsocketStore';
 import { AccessTokenDecoded, Role, User } from '~/types';
 import { storage } from '~/utils';
+import { displayErrorMessage } from '~/utils/errorMessage';
 
 import { UserFormData } from '~/pages/Auth/helpers/loginForm';
 
@@ -78,8 +79,7 @@ export function AuthProvider({ children }: IAuthProviderProps) {
     const userDecoded: AccessTokenDecoded = jwtDecode(data?.token ?? '');
     const currentUser = convertToUser(userDecoded);
     setUser(currentUser);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSuccess, data]);
+  }, [isSuccess, data, reset]);
 
   const login = useCallback(
     (userForm: UserFormData) => {
@@ -101,7 +101,7 @@ export function AuthProvider({ children }: IAuthProviderProps) {
 
   const isAdmin = useMemo(() => user?.role === Role.ADMIN, [user]);
 
-  const errorMessage = useMemo(() => error?.message ?? '', [error?.message]);
+  const errorMessage = useMemo(() => displayErrorMessage(error), [error]);
 
   const value = useMemo(
     () => ({ user, login, logout, isError, isAdmin, errorMessage }),

@@ -72,11 +72,7 @@ export default function UpdateFigureInfoBasicForm({
     });
     handleClose();
     toast.success(
-      <Typography variant='body2'>
-        Cập nhật địa chỉ thành công!
-        <br />
-        Vui lòng tải lại trang để thấy dữ liệu mới nhất
-      </Typography>,
+      <Typography variant='body2'>Cập nhật địa chỉ thành công!</Typography>,
     );
   };
 
