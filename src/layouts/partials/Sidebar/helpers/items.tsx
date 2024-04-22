@@ -4,7 +4,6 @@ import { SidebarItem } from '~/types/sidebar';
 
 import {
   ArticleOutlinedIcon,
-  FactoryOutlinedIcon,
   GroupOutlinedIcon,
   InsertChartOutlinedIcon,
   ManageSearchOutlinedIcon,
@@ -15,16 +14,9 @@ import {
 
 export const SIDEBAR_ITEMS: SidebarItem[] = [
   {
-    name: PATH_LABEL[Path.PRODUCTION],
-    icon: <FactoryOutlinedIcon sx={{ fontSize: '20px' }} />,
-    path: Path.PRODUCTION,
-    children: [
-      {
-        name: PATH_LABEL[Path.PRODUCTION_MONITORING],
-        path: Path.PRODUCTION_MONITORING,
-        icon: <MonitorOutlinedIcon sx={{ fontSize: '20px' }} />,
-      },
-    ],
+    name: PATH_LABEL[Path.PRODUCTION_MONITORING],
+    path: Path.PRODUCTION_MONITORING,
+    icon: <MonitorOutlinedIcon sx={{ fontSize: '20px' }} />,
   },
   {
     name: PATH_LABEL[Path.ALARM],
