@@ -38,7 +38,7 @@ export function Figure({
     setIsCopied(true);
   };
 
-  if (!figureValue) {
+  if (figureValue === undefined) {
     figureValue = '. . . . .';
   }
 
