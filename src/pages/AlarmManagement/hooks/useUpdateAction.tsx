@@ -20,7 +20,7 @@ export const useUpdateAction = ({
   actionType: AlarmActionType;
   setCurrentAction: (action: AlarmActionDTO | null) => void;
 }) => {
-  const { getValues } = useFormContext<AlarmFormData>();
+  const { getValues, trigger } = useFormContext<AlarmFormData>();
   const {
     mutate: updateAlarmAction,
     isSuccess: isUpdateSuccess,
@@ -33,19 +33,25 @@ export const useUpdateAction = ({
   });
 
   const handleUpdateAction = (recipients?: string[]) => {
-    const action = getValues('noti.actions').find((a) => a.type == actionType);
-    const alarmId = getValues('info.id');
+    trigger('noti.actions').then((isValid) => {
+      if (!isValid) return;
 
-    const payload: UpdateAlarmActionDTO = {
-      id: action?.id ?? 0,
-      type: actionType,
-      recipients: recipients ?? [],
-    };
+      const action = getValues('noti.actions').find(
+        (a) => a.type == actionType,
+      );
+      const alarmId = getValues('info.id');
 
-    updateAlarmAction({
-      alarmConditionId: alarmId,
-      alarmActionId: action?.id ?? 0,
-      payload,
+      const payload: UpdateAlarmActionDTO = {
+        id: action?.id ?? 0,
+        type: actionType,
+        recipients: recipients ?? [],
+      };
+
+      updateAlarmAction({
+        alarmConditionId: alarmId,
+        alarmActionId: action?.id ?? 0,
+        payload,
+      });
     });
   };
 
