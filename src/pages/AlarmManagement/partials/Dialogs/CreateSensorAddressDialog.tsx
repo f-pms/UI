@@ -19,6 +19,7 @@ import { InputWithLabel } from '~/components';
 import {
   Box,
   Button,
+  CircularProgress,
   Dialog,
   DialogActions,
   DialogContent,
@@ -51,6 +52,7 @@ export function CreateSensorAddressDialog(
     isSuccess,
     isError,
     error,
+    isPending,
   } = useCreateAddress();
   const {
     control,
@@ -151,7 +153,15 @@ export function CreateSensorAddressDialog(
           <Button color='inherit' variant='outlined' onClick={handleClose}>
             Đóng
           </Button>
-          <Button autoFocus type='submit' variant='contained'>
+          <Button
+            autoFocus
+            disabled={isPending}
+            startIcon={
+              isPending && <CircularProgress color='secondary' size={15} />
+            }
+            type='submit'
+            variant='contained'
+          >
             Thêm địa chỉ
           </Button>
         </Stack>
