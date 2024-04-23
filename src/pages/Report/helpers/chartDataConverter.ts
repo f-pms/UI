@@ -3,9 +3,11 @@ import {
   QueryChartType,
   QueryDateType,
 } from '~/services/report/queries/useQueryReportCharts';
+import { ReportKey } from '~/types';
 import { MultiDateReportSummaryChart, OneDayChartByShift } from '~/types/chart';
 import { toISOStringWithoutTimeZone } from '~/utils/date';
 
+import { EQUIPMENTS_LABELS } from '~/pages/Report/helpers/constants';
 import {
   DateTypes,
   StatisticReportFormData,
@@ -27,6 +29,7 @@ function compareDeviceName(firstDevice: string, secondDevice: string) {
 export const ConvertOneDayChartData = (
   backendChart: OneDayChartByShift[],
   reportType: string,
+  reportKey: ReportKey,
 ) => {
   const [shift1, shift2] = backendChart;
 
@@ -67,7 +70,7 @@ export const ConvertOneDayChartData = (
       id: 1,
       title: reportType,
       labelStep: deviceLabels.map(
-        (label) => `Thiết bị ${label.replace('SUM_SPECIFIC_', '')}`,
+        (label) => EQUIPMENTS_LABELS?.[reportKey]?.[label as string] ?? '',
       ),
       data: [
         {
@@ -187,8 +190,8 @@ export const convertChartData = (
           title: 'Chỉ số điện chế biến dăm',
           labelStep: labelSteps,
           data: damDeviceLabels.map((deviceLabel) => ({
-            label: `Thiết bị ${deviceLabel.replace('SUM_SPECIFIC_', '')}`,
-            dataset: data.DAM[deviceLabel as keyof typeof data.DAM],
+            label: EQUIPMENTS_LABELS.DAM?.[deviceLabel as string] ?? '',
+            dataset: data.DAM?.[deviceLabel as keyof typeof data.DAM],
           })),
         },
         {
@@ -196,7 +199,7 @@ export const convertChartData = (
           title: 'Chỉ số điện bán thành phần',
           labelStep: labelSteps,
           data: btpDeviceLabels.map((deviceLabel) => ({
-            label: `Thiết bị ${deviceLabel.replace('SUM_SPECIFIC_', '')}`,
+            label: EQUIPMENTS_LABELS.BTP?.[deviceLabel as string] ?? '',
             dataset: data.BTP[deviceLabel as keyof typeof data.BTP],
           })),
         },

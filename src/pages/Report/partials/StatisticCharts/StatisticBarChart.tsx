@@ -33,7 +33,7 @@ export function StatisticBarChart() {
           dataset={
             convertChartData(barChartData, 'BAR') as ReportComplexBarData[]
           }
-          legendTitle='Thiết bị điện'
+          legendTitle='Tên thiết bị sử dụng lắp đồng hồ'
           title='Tổng chỉ số điện của các thiết bị điện theo công đoạn sản xuất'
         />
       )}

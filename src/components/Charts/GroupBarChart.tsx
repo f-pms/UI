@@ -1,9 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import { TooltipItem } from 'chart.js';
+import _ from 'lodash';
 import { Bar } from 'react-chartjs-2';
 
 import {
   Box,
+  Button,
+  Divider,
   FormControlLabel,
   Grid,
   Radio,
@@ -17,6 +20,10 @@ import { ReportComplexBarData } from '~/pages/Report/mocks/chartDataset';
 
 import { getColorNumber } from '~/components/Charts/chartColorsUtil';
 import ChartContainer from '~/components/Charts/ChartContainer';
+import {
+  VisibilityOffOutlinedIcon,
+  VisibilityOutlinedIcon,
+} from '~/components/Icons';
 
 import { formatNumber } from './../../utils/formatNumber';
 
@@ -25,6 +32,7 @@ type GroupBarChartProps = StackProps & {
   dataset: ReportComplexBarData[];
   isStacked?: boolean;
   legendTitle: string;
+  disableLabels?: boolean;
 };
 
 export const GroupBarChart = ({
@@ -32,6 +40,7 @@ export const GroupBarChart = ({
   dataset,
   title,
   legendTitle,
+  disableLabels = false,
   ...props
 }: GroupBarChartProps) => {
   const [reportType, setReportType] = useState(dataset[0].title);
@@ -84,13 +93,21 @@ export const GroupBarChart = ({
       scales: {
         x: {
           stacked: isStacked,
+          ticks: {
+            callback: function (index: number | string): string {
+              return disableLabels
+                ? ''
+                : visibleData.labelStep[parseInt(index as string)];
+            },
+          },
         },
         y: {
           stacked: isStacked,
         },
       },
+      maintainAspectRatio: false,
     }),
-    [isStacked],
+    [isStacked, disableLabels, visibleData.labelStep],
   );
 
   const handleChangeType = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -120,10 +137,18 @@ export const GroupBarChart = ({
     }
   };
 
+  const handleHideAll = () => {
+    setHiddenLabels(visibleData.data.map(({ label }) => label));
+  };
+
+  const handleShowAll = () => {
+    setHiddenLabels([]);
+  };
+
   return (
     <ChartContainer height={'auto'} title={title} {...props}>
       <Grid container columnSpacing={5} justifyContent='center'>
-        <Grid item xs={9}>
+        <Grid item sx={{ height: 'auto', minHeight: '580px' }} xs={9}>
           <Bar data={data} options={options} />
         </Grid>
         <Grid item xs={3}>
@@ -145,7 +170,11 @@ export const GroupBarChart = ({
                 <FormControlLabel
                   key={data.id}
                   control={<Radio />}
-                  label={<Typography variant='body2'>{data.title}</Typography>}
+                  label={
+                    <Typography variant='body2'>
+                      {_.capitalize(data.title)}
+                    </Typography>
+                  }
                   sx={{
                     width: 'fit-content',
                   }}
@@ -154,6 +183,7 @@ export const GroupBarChart = ({
               ))}
             </RadioGroup>
           </Stack>
+
           <Stack gap={1} mt={2}>
             <Typography
               color='text.strong'
@@ -163,21 +193,23 @@ export const GroupBarChart = ({
             >
               {legendTitle}
             </Typography>
+
             {visibleData.data.map(({ label }, index) => (
               <Stack
                 key={label}
-                alignItems={'flex-st1art'}
+                alignItems='center'
                 direction='row'
-                gap={1}
+                gap={2}
                 sx={{
                   cursor: 'pointer',
+                  my: '2px',
                 }}
                 onClick={() => handleLegendClick(label)}
               >
                 <Box
                   sx={{
                     background: getColorNumber(index + 1),
-                    height: 15,
+                    height: 16,
                     width: 55,
                   }}
                 />
@@ -187,13 +219,35 @@ export const GroupBarChart = ({
                       ? 'line-through'
                       : '',
                   }}
-                  variant='body2'
+                  variant='caption'
                   width={180}
                 >
                   {label}
                 </Typography>
               </Stack>
             ))}
+            <Divider sx={{ mb: 1 }} />
+
+            <Stack direction='row' px={1} spacing={2}>
+              <Button
+                size='small'
+                startIcon={<VisibilityOffOutlinedIcon />}
+                sx={{ width: '100%' }}
+                variant='outlined'
+                onClick={handleHideAll}
+              >
+                Ẩn tất cả
+              </Button>
+              <Button
+                size='small'
+                startIcon={<VisibilityOutlinedIcon />}
+                sx={{ width: '100%' }}
+                variant='contained'
+                onClick={handleShowAll}
+              >
+                Hiện tất cả
+              </Button>
+            </Stack>
           </Stack>
         </Grid>
       </Grid>
