@@ -85,14 +85,15 @@ export function DeleteSensorAddressDialog(
         <Typography
           color='text.strong'
           sx={{ fontWeight: 'bold' }}
-          variant='h6'
+          variant='body1'
         >
           Xóa địa chỉ biến &quot;{deletedSensorConfiguration?.address}&quot;
         </Typography>
       </DialogTitle>
       <DialogContent>
         <Typography variant='body2'>
-          Bạn có muốn xóa địa chỉ biến này không
+          Hành động này không thể hoàn tác. Bạn có chắc chắn muốn tiếp tục
+          không?
         </Typography>
       </DialogContent>
       <DialogActions
