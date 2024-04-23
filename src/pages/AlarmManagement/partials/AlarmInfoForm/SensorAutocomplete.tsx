@@ -1,16 +1,25 @@
 import { useState } from 'react';
 import _ from 'lodash';
 
-import { FormHelperText, OutlinedInput, TextField } from '~/libs/mui';
+import DeleteIcon from '@mui/icons-material/Delete';
+
+import {
+  FormHelperText,
+  IconButton,
+  OutlinedInput,
+  Stack,
+  TextField,
+} from '~/libs/mui';
 import { useFormContext } from '~/libs/react-hook-form';
 import { useQuerySensorConfigurations } from '~/services/sensorConfiguration/queries/useQuerySensorConfigurations';
+import { SensorConfiguration } from '~/types';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 import { CreateSensorAddressDialog } from '~/pages/AlarmManagement/partials/Dialogs/CreateSensorAddressDialog';
+import { DeleteSensorAddressDialog } from '~/pages/AlarmManagement/partials/Dialogs/DeleteSensorAddressDialog';
 
 import { Autocomplete } from '~/components';
 import { FormControl, Typography } from '~/components/MuiComponents';
-
 export interface IVariableAutoCompleteProps {}
 
 export function SensorAutoComplete() {
@@ -21,13 +30,23 @@ export function SensorAutoComplete() {
     clearErrors,
   } = useFormContext<AlarmFormData>();
   const [open, setOpen] = useState(false);
+  const [deletedSensorConfiguration, setDeletedSensorConfiguration] =
+    useState<SensorConfiguration>();
+
   const isUpdated = getValues('isUpdate');
   const isMonitoringType = getValues('info.station.type') === 'MONITORING';
 
-  const { data: sensorConfigs } = useQuerySensorConfigurations({
+  const { data: sensorConfigs, refetch } = useQuerySensorConfigurations({
     blueprintType: getValues('info.station')?.type ?? '',
     blueprintName: getValues('info.station')?.value ?? '',
   });
+
+  const onCloseDeleteSensorDialog = (refetchData?: boolean) => {
+    if (refetchData) {
+      refetch();
+    }
+    setDeletedSensorConfiguration(undefined);
+  };
 
   return (
     <>
@@ -91,11 +110,24 @@ export function SensorAutoComplete() {
             }
             options={sensorConfigs ?? []}
             renderInput={(params) => <TextField {...params} size='small' />}
-            renderOption={(props, option) => (
-              <Typography {...props} variant='body2'>
-                {option.address}
-              </Typography>
-            )}
+            renderOption={(props, option) => {
+              return (
+                <Stack flexDirection='row' justifyContent='space-between'>
+                  <Typography {...props} variant='body2'>
+                    {option.address}
+                  </Typography>
+                  {!option.attachedToAlarm && (
+                    <IconButton
+                      onClick={() => {
+                        setDeletedSensorConfiguration(option);
+                      }}
+                    >
+                      <DeleteIcon color='error' />
+                    </IconButton>
+                  )}
+                </Stack>
+              );
+            }}
             sx={{
               '& input': {
                 fontSize: '14px',
@@ -108,6 +140,11 @@ export function SensorAutoComplete() {
         </FormHelperText>
       </FormControl>
       <CreateSensorAddressDialog open={open} setOpen={setOpen} />
+      <DeleteSensorAddressDialog
+        deletedSensorConfiguration={deletedSensorConfiguration}
+        open={!!deletedSensorConfiguration}
+        onCloseDialog={onCloseDeleteSensorDialog}
+      />
     </>
   );
 }
