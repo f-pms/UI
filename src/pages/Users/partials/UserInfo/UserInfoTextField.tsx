@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { FieldError, useFormContext } from 'react-hook-form';
+import { FieldError } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 import {
   Box,
@@ -11,97 +12,100 @@ import {
 } from '@mui/material';
 
 import { UserDTO } from '~/services/user/mutation/useCreateUser';
+import { useUpdateUser } from '~/services/user/mutation/useUpdateUser';
+import { User } from '~/types';
+import { displayErrorMessage } from '~/utils/errorMessage';
 
 import { userSchema } from '~/pages/Users/helpers/userForm';
 
 import { EditOutlinedIcon } from '~/components/Icons';
 
 export interface IUserInfoTextFieldProps {
-  isEdit: { [Key in keyof UserDTO]: boolean };
-  setIsEdit: React.Dispatch<
-    React.SetStateAction<{ [Key in keyof UserDTO]: boolean }>
-  >;
   name: keyof UserDTO;
   label: string;
   disableEdit?: boolean;
+  userInfo?: User;
+  refetchUserInfo: () => void;
 }
 
 export function UserInfoTextField(props: IUserInfoTextFieldProps) {
-  const { isEdit, setIsEdit, name, label, disableEdit = false } = props;
-  const {
-    getValues,
-    setValue: setValueForm,
-    watch,
-  } = useFormContext<UserDTO>();
-  const [value, setValue] = useState<string>('');
+  const { name, label, disableEdit = false, userInfo, refetchUserInfo } = props;
+  const [isEdit, setIsEdit] = useState(false);
+  const [value, setValue] = useState('');
   const [error, setError] = useState<FieldError>();
-  const valueForm = watch(name);
 
-  const handleEdit = (key: keyof UserDTO) => {
-    setIsEdit((prev) => ({
-      ...prev,
-      [key]: true,
-    }));
+  const {
+    mutate: updateUser,
+    isSuccess: isUpdateSuccess,
+    isError: isUpdateError,
+    error: updateError,
+  } = useUpdateUser();
+
+  const handleEdit = () => {
+    setIsEdit(true);
+    setError(undefined);
+    setValue(userInfo?.[name] ?? '');
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
     setError(undefined);
   };
 
-  const handleSave = async (key: keyof UserDTO) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     try {
-      await userSchema.validateAt(key, { [key]: value });
-      setIsEdit((prev) => ({
-        ...prev,
-        [key]: false,
-      }));
-      setValueForm(name, value);
+      if (!userInfo?.id) return;
+      await userSchema.validateAt(name, { [name]: value });
+
+      updateUser({ id: userInfo.id, payload: { [name]: value } });
     } catch (error) {
       setError(error as FieldError);
     }
   };
 
-  const handleCancel = (key: keyof UserDTO) => {
-    setValue(getValues(name) ?? '');
-    setIsEdit((prev) => ({
-      ...prev,
-      [key]: false,
-    }));
-  };
+  useEffect(() => {
+    if (isUpdateError) {
+      toast.error(displayErrorMessage(updateError));
+    }
+  }, [isUpdateError, updateError]);
 
   useEffect(() => {
-    if (valueForm === undefined) return;
-    setValue(valueForm);
-  }, [valueForm]);
+    if (isUpdateSuccess) {
+      toast.success('Cập nhật thông tin người dùng thành công');
+      setIsEdit(false);
+      refetchUserInfo();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isUpdateSuccess]);
 
-  let button;
+  let actions;
 
   if (disableEdit) {
-    button = null;
-  } else if (isEdit[name]) {
-    button = (
+    actions = null;
+  } else if (isEdit) {
+    actions = (
       <Stack direction='row' spacing={1}>
         <Button
           color='inherit'
           size='small'
           variant='outlined'
-          onClick={() => handleCancel(name)}
+          onClick={() => setIsEdit(false)}
         >
           Hủy
         </Button>
-        <Button
-          size='small'
-          variant='outlined'
-          onClick={() => handleSave(name)}
-        >
+        <Button size='small' type='submit' variant='outlined'>
           Xong
         </Button>
       </Stack>
     );
   } else {
-    button = (
+    actions = (
       <Button
         size='small'
         startIcon={<EditOutlinedIcon />}
         variant='text'
-        onClick={() => handleEdit(name)}
+        onClick={handleEdit}
       >
         Chỉnh sửa
       </Button>
@@ -109,36 +113,38 @@ export function UserInfoTextField(props: IUserInfoTextFieldProps) {
   }
 
   return (
-    <Stack
-      alignItems='center'
-      direction='row'
-      px={2}
-      py={2}
-      spacing={2}
-      width='100%'
-    >
-      <Typography variant='body2' width={240}>
-        {label}
-      </Typography>
-      {isEdit[name] && !disableEdit ? (
-        <Box style={{ flex: 1 }}>
-          <OutlinedInput
-            name={name}
-            size='small'
-            sx={{ fontSize: '14px', mt: 1, width: '300px' }}
-            value={value}
-            onChange={(e) => setValue(e.target.value)}
-          />
-          <FormHelperText error={!!error} sx={{ ml: 0 }}>
-            {error?.message}
-          </FormHelperText>
-        </Box>
-      ) : (
-        <Typography style={{ flex: 1 }} variant='body2'>
-          {watch(name)}
+    <form onSubmit={handleSubmit}>
+      <Stack
+        alignItems='center'
+        direction='row'
+        px={2}
+        py={2}
+        spacing={2}
+        width='100%'
+      >
+        <Typography variant='body2' width={240}>
+          {label}
         </Typography>
-      )}
-      {button}
-    </Stack>
+        {isEdit && !disableEdit ? (
+          <Box style={{ flex: 1 }}>
+            <OutlinedInput
+              name={name}
+              size='small'
+              sx={{ fontSize: '14px', mt: 1, width: '300px' }}
+              value={value}
+              onChange={handleChange}
+            />
+            <FormHelperText error={!!error} sx={{ ml: 0 }}>
+              {error?.message}
+            </FormHelperText>
+          </Box>
+        ) : (
+          <Typography style={{ flex: 1 }} variant='body2'>
+            {userInfo?.[name]}
+          </Typography>
+        )}
+        {actions}
+      </Stack>
+    </form>
   );
 }

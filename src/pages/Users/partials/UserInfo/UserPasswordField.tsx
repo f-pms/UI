@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useFormContext } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 import {
   Button,
@@ -10,8 +10,9 @@ import {
   Typography,
 } from '@mui/material';
 
-import { UserDTO } from '~/services/user/mutation/useCreateUser';
-import { Role } from '~/types';
+import { useUpdateUser } from '~/services/user/mutation/useUpdateUser';
+import { Role, User } from '~/types';
+import { displayErrorMessage } from '~/utils/errorMessage';
 
 import { AuthContext } from '~/pages/Auth/context/AuthContext';
 
@@ -22,61 +23,70 @@ import {
 } from '~/components/Icons';
 
 export interface IUserPasswordFieldProps {
-  isEdit: { [Key in keyof UserDTO]: boolean };
-  setIsEdit: React.Dispatch<
-    React.SetStateAction<{ [Key in keyof UserDTO]: boolean }>
-  >;
-  oldPassword?: string;
-  setOldPassword: React.Dispatch<React.SetStateAction<string | undefined>>;
+  userInfo?: User;
+  refetchUserInfo: () => void;
 }
 
 export function UserPasswordField(props: IUserPasswordFieldProps) {
-  const { isEdit, setIsEdit, oldPassword, setOldPassword } = props;
-  const { user } = useContext(AuthContext);
-  const { setValue, watch } = useFormContext<UserDTO>();
+  const { userInfo, refetchUserInfo } = props;
+  const { user: currentUser } = useContext(AuthContext);
 
-  const [password, setPassword] = useState<string>('');
-  const [confirmPassword, setConfirmPassword] = useState<string>('');
+  const [isEdit, setIsEdit] = useState(false);
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [oldPassword, setOldPassword] = useState('');
 
   const [showOldPassword, setShowOldPassword] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [showConfirmPassword, setShowConfirmPassword] =
     useState<boolean>(false);
-  const watchPassword = watch('password');
 
-  const handleEdit = (key: keyof UserDTO) => {
-    setIsEdit((prev) => ({
-      ...prev,
-      [key]: true,
-    }));
+  const {
+    mutate: updateUser,
+    isSuccess: isUpdateSuccess,
+    isError: isUpdateError,
+    error: updateError,
+  } = useUpdateUser();
+
+  const handleEdit = () => {
+    setIsEdit(true);
     setOldPassword('');
     setConfirmPassword('');
   };
 
-  const handleSave = async () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (validationPassword().length > 0) return;
-    setValue('password', password);
-    setIsEdit((prev) => ({
-      ...prev,
-      password: false,
-    }));
-  };
 
-  const handleCancel = (key: keyof UserDTO) => {
-    setIsEdit((prev) => ({
-      ...prev,
-      [key]: false,
-    }));
-    setPassword(watchPassword ?? '');
+    const payload = {
+      password,
+      ...(currentUser?.role === Role.ADMIN ? {} : { oldPassword }),
+    };
+
+    updateUser({
+      id: userInfo?.id ?? 0,
+      payload,
+    });
   };
 
   useEffect(() => {
-    setPassword(watchPassword ?? '');
-  }, [watchPassword]);
+    if (isUpdateError) {
+      toast.error(displayErrorMessage(updateError));
+    }
+  }, [updateError, isUpdateError]);
+
+  useEffect(() => {
+    if (isUpdateSuccess) {
+      toast.success('Cập nhật thông tin người dùng thành công');
+      setIsEdit(false);
+      refetchUserInfo();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isUpdateSuccess]);
 
   const validationPassword = () => {
     const errors = [];
-    if (user?.role !== Role.ADMIN && oldPassword?.length === 0) {
+    if (currentUser?.role !== Role.ADMIN && oldPassword?.length === 0) {
       errors.push('Mật khẩu cũ không được để trống');
     }
     if (password !== confirmPassword) {
@@ -92,113 +102,115 @@ export function UserPasswordField(props: IUserPasswordFieldProps) {
   };
 
   return (
-    <Stack
-      alignItems='flex-start'
-      direction='row'
-      px={2}
-      py={3}
-      spacing={2}
-      width='100%'
-    >
-      <Typography variant='body2' width={240}>
-        Mật khẩu
-      </Typography>
-      {isEdit.password ? (
-        <Stack style={{ flex: 1 }}>
-          {user?.role !== Role.ADMIN && (
+    <form onSubmit={handleSubmit}>
+      <Stack
+        alignItems='flex-start'
+        direction='row'
+        px={2}
+        py={3}
+        spacing={2}
+        width='100%'
+      >
+        <Typography variant='body2' width={240}>
+          Mật khẩu
+        </Typography>
+        {isEdit ? (
+          <Stack style={{ flex: 1 }}>
+            {currentUser?.role !== Role.ADMIN && (
+              <OutlinedInput
+                endAdornment={
+                  <IconButton
+                    onClick={() => setShowOldPassword(!showOldPassword)}
+                  >
+                    {!showOldPassword ? (
+                      <VisibilityOffOutlinedIcon sx={{ fontSize: '20px' }} />
+                    ) : (
+                      <VisibilityOutlinedIcon sx={{ fontSize: '20px' }} />
+                    )}
+                  </IconButton>
+                }
+                placeholder='Mật khẩu cũ'
+                size='small'
+                sx={{ fontSize: '14px', mt: 1, width: '300px' }}
+                type={showOldPassword ? 'text' : 'password'}
+                value={oldPassword}
+                onChange={(e) => setOldPassword(e.target.value)}
+              />
+            )}
+
             <OutlinedInput
               endAdornment={
-                <IconButton
-                  onClick={() => setShowOldPassword(!showOldPassword)}
-                >
-                  {!showOldPassword ? (
+                <IconButton onClick={() => setShowPassword(!showPassword)}>
+                  {!showPassword ? (
                     <VisibilityOffOutlinedIcon sx={{ fontSize: '20px' }} />
                   ) : (
                     <VisibilityOutlinedIcon sx={{ fontSize: '20px' }} />
                   )}
                 </IconButton>
               }
-              placeholder='Mật khẩu cũ'
+              placeholder='Mật khẩu mới'
               size='small'
               sx={{ fontSize: '14px', mt: 1, width: '300px' }}
-              type={showOldPassword ? 'text' : 'password'}
-              value={oldPassword}
-              onChange={(e) => setOldPassword(e.target.value)}
+              type={showPassword ? 'text' : 'password'}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
-          )}
+            <OutlinedInput
+              endAdornment={
+                <IconButton
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                >
+                  {!showConfirmPassword ? (
+                    <VisibilityOffOutlinedIcon sx={{ fontSize: '20px' }} />
+                  ) : (
+                    <VisibilityOutlinedIcon sx={{ fontSize: '20px' }} />
+                  )}
+                </IconButton>
+              }
+              placeholder='Nhập lại mật khẩu'
+              size='small'
+              sx={{ fontSize: '14px', mt: 1, width: '300px' }}
+              type={showConfirmPassword ? 'text' : 'password'}
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            {validationPassword().map((error) => (
+              <FormHelperText key={error} error sx={{ ml: 0 }}>
+                {error}
+              </FormHelperText>
+            ))}
+          </Stack>
+        ) : (
+          <Typography style={{ flex: 1 }} variant='body2'>
+            ********
+          </Typography>
+        )}
 
-          <OutlinedInput
-            endAdornment={
-              <IconButton onClick={() => setShowPassword(!showPassword)}>
-                {!showPassword ? (
-                  <VisibilityOffOutlinedIcon sx={{ fontSize: '20px' }} />
-                ) : (
-                  <VisibilityOutlinedIcon sx={{ fontSize: '20px' }} />
-                )}
-              </IconButton>
-            }
-            placeholder='Mật khẩu mới'
-            size='small'
-            sx={{ fontSize: '14px', mt: 1, width: '300px' }}
-            type={showPassword ? 'text' : 'password'}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <OutlinedInput
-            endAdornment={
-              <IconButton
-                onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-              >
-                {!showConfirmPassword ? (
-                  <VisibilityOffOutlinedIcon sx={{ fontSize: '20px' }} />
-                ) : (
-                  <VisibilityOutlinedIcon sx={{ fontSize: '20px' }} />
-                )}
-              </IconButton>
-            }
-            placeholder='Nhập lại mật khẩu'
-            size='small'
-            sx={{ fontSize: '14px', mt: 1, width: '300px' }}
-            type={showConfirmPassword ? 'text' : 'password'}
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-          {validationPassword().map((error) => (
-            <FormHelperText key={error} error sx={{ ml: 0 }}>
-              {error}
-            </FormHelperText>
-          ))}
-        </Stack>
-      ) : (
-        <Typography style={{ flex: 1 }} variant='body2'>
-          ********
-        </Typography>
-      )}
-
-      {isEdit.password ? (
-        <Stack direction='row' spacing={1}>
+        {isEdit ? (
+          <Stack direction='row' spacing={1}>
+            <Button
+              color='inherit'
+              size='small'
+              variant='outlined'
+              onClick={() => setIsEdit(false)}
+            >
+              Hủy
+            </Button>
+            <Button size='small' type='submit' variant='outlined'>
+              Xong
+            </Button>
+          </Stack>
+        ) : (
           <Button
-            color='inherit'
             size='small'
-            variant='outlined'
-            onClick={() => handleCancel('password')}
+            startIcon={<EditOutlinedIcon />}
+            variant='text'
+            onClick={handleEdit}
           >
-            Hủy
+            Chỉnh sửa
           </Button>
-          <Button size='small' variant='outlined' onClick={handleSave}>
-            Xong
-          </Button>
-        </Stack>
-      ) : (
-        <Button
-          size='small'
-          startIcon={<EditOutlinedIcon />}
-          variant='text'
-          onClick={() => handleEdit('password')}
-        >
-          Chỉnh sửa
-        </Button>
-      )}
-    </Stack>
+        )}
+      </Stack>
+    </form>
   );
 }
