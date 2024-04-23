@@ -1,5 +1,5 @@
 import { storage } from '~/utils';
-import { toISOStringWithoutTimeZone } from '~/utils/date';
+import { convertDateRange } from '~/utils/date';
 const baseURL = import.meta.env.VITE_API_URL as string;
 
 import {
@@ -20,6 +20,8 @@ export const downloadHistoricalReports = async (
   params: DownloadHistoricalReportsParams,
 ) => {
   const formattedParams = new URLSearchParams();
+  const { start, end } = convertDateRange(params?.startDate, params?.endDate);
+
   if (params.typeIds) {
     formattedParams.append('typeIds', params.typeIds.join(','));
   }
@@ -27,14 +29,10 @@ export const downloadHistoricalReports = async (
     formattedParams.append('ids', params.ids.join(','));
   }
   if (params.startDate) {
-    const start = params.startDate;
-    start.setHours(0, 0, 0, 0);
-    formattedParams.append('startDate', toISOStringWithoutTimeZone(start));
+    formattedParams.append('startDate', start);
   }
   if (params.endDate) {
-    const end = params.endDate;
-    end.setHours(23, 59, 0, 0);
-    formattedParams.append('endDate', toISOStringWithoutTimeZone(end));
+    formattedParams.append('endDate', end);
   }
   if (params.sortBy) {
     formattedParams.append('sortBy', params.sortBy);

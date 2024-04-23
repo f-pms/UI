@@ -11,7 +11,7 @@ import {
   useQueryHistoricalReports,
 } from '~/services/report/queries/useQueryHistoricalReports';
 import { useLoadingStore } from '~/stores';
-import { toISOStringWithoutTimeZone } from '~/utils/date';
+import { convertDateRange } from '~/utils/date';
 
 import {
   FilterReportFormData,
@@ -78,16 +78,13 @@ export function HistoricalReportListPage() {
 
   useEffect(() => {
     const formattedParams = new URLSearchParams();
-    const start = params.startDate;
-    start.setHours(0, 0, 0, 0);
-    const end = params.endDate;
-    end.setHours(23, 59, 0, 0);
+    const { start, end } = convertDateRange(params.startDate, params.endDate);
 
     formattedParams.append('page', String(params.page));
     formattedParams.append('size', String(params.size));
     formattedParams.append('typeIds', params.typeIds.join(','));
-    formattedParams.append('startDate', toISOStringWithoutTimeZone(start));
-    formattedParams.append('endDate', toISOStringWithoutTimeZone(end));
+    formattedParams.append('startDate', start);
+    formattedParams.append('endDate', end);
     formattedParams.append('sortBy', params.sortBy);
     formattedParams.append('order', params.order);
     setSearchParams(formattedParams);
