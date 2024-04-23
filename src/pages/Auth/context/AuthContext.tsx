@@ -96,6 +96,9 @@ export function AuthProvider({ children }: IAuthProviderProps) {
 
   const logout = () => {
     storage.remove('TOKEN');
+    document.cookie =
+      'ACCESS_TOKEN' +
+      '=; Path=/api/reports/download; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     setUser(null);
   };
 
