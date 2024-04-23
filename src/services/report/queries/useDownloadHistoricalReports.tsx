@@ -44,25 +44,8 @@ export const downloadHistoricalReports = async (
   if (params.order) {
     formattedParams.append('order', params.order);
   }
-
-  const token = storage.get('TOKEN');
-
-  const headers = new Headers({
-    Authorization: `Bearer ${token}`,
-  });
-
-  fetch(`${baseURL}reports/download?` + formattedParams.toString(), {
-    headers,
-  })
-    .then((response) => response.blob())
-    .then((blob) => {
-      const desiredFileName = 'reports.zip';
-
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = desiredFileName;
-      link.click();
-
-      link.onload = () => URL.revokeObjectURL(link.href);
-    });
+  const link = document.createElement('a');
+  link.href = `${baseURL}/reports/download?` + formattedParams.toString();
+  document.body.appendChild(link);
+  link.click();
 };

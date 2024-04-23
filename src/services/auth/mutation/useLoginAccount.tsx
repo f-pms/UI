@@ -11,7 +11,8 @@ export type UserDTO = {
 };
 
 const loginAccount = async (user: UserDTO) => {
-  return (await axiosClient.post(`auth/login`, user)).data as LoginResponse;
+  return (await axiosClient.post(`auth/login`, user, { withCredentials: true }))
+    .data as LoginResponse;
 };
 
 export const useLoginAccount = (
