@@ -27,16 +27,14 @@ export const downloadHistoricalReports = async (
     formattedParams.append('ids', params.ids.join(','));
   }
   if (params.startDate) {
-    formattedParams.append(
-      'startDate',
-      toISOStringWithoutTimeZone(params.startDate),
-    );
+    const start = params.startDate;
+    start.setHours(0, 0, 0, 0);
+    formattedParams.append('startDate', toISOStringWithoutTimeZone(start));
   }
   if (params.endDate) {
-    formattedParams.append(
-      'endDate',
-      toISOStringWithoutTimeZone(params.endDate),
-    );
+    const end = params.endDate;
+    end.setHours(23, 59, 0, 0);
+    formattedParams.append('endDate', toISOStringWithoutTimeZone(end));
   }
   if (params.sortBy) {
     formattedParams.append('sortBy', params.sortBy);

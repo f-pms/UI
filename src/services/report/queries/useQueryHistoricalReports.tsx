@@ -22,14 +22,16 @@ export type GetHistoricalReportsParams = {
 
 const getHistoricalReports = async (params: GetHistoricalReportsParams) => {
   const formattedParams = new URLSearchParams();
+  const start = params.startDate;
+  start.setHours(0, 0, 0, 0);
+  const end = params.endDate;
+  end.setHours(23, 59, 0, 0);
+
   formattedParams.append('page', String(params.page));
   formattedParams.append('size', String(params.size));
   formattedParams.append('typeIds', params.typeIds.join(','));
-  formattedParams.append(
-    'startDate',
-    toISOStringWithoutTimeZone(params.startDate),
-  );
-  formattedParams.append('endDate', toISOStringWithoutTimeZone(params.endDate));
+  formattedParams.append('startDate', toISOStringWithoutTimeZone(start));
+  formattedParams.append('endDate', toISOStringWithoutTimeZone(end));
   formattedParams.append('sortBy', params.sortBy);
   formattedParams.append('order', params.order);
   return (

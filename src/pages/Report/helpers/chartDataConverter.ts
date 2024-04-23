@@ -70,7 +70,7 @@ export const ConvertOneDayChartData = (
       id: 1,
       title: reportType,
       labelStep: deviceLabels.map(
-        (label) => EQUIPMENTS_LABELS?.[reportKey]?.[label as string] ?? '',
+        (label) => EQUIPMENTS_LABELS?.[reportKey]?.[label] ?? '',
       ),
       data: [
         {
@@ -190,7 +190,7 @@ export const convertChartData = (
           title: 'Chỉ số điện chế biến dăm',
           labelStep: labelSteps,
           data: damDeviceLabels.map((deviceLabel) => ({
-            label: EQUIPMENTS_LABELS.DAM?.[deviceLabel as string] ?? '',
+            label: EQUIPMENTS_LABELS.DAM?.[deviceLabel] ?? '',
             dataset: data.DAM?.[deviceLabel as keyof typeof data.DAM],
           })),
         },
@@ -199,7 +199,7 @@ export const convertChartData = (
           title: 'Chỉ số điện bán thành phần',
           labelStep: labelSteps,
           data: btpDeviceLabels.map((deviceLabel) => ({
-            label: EQUIPMENTS_LABELS.BTP?.[deviceLabel as string] ?? '',
+            label: EQUIPMENTS_LABELS.BTP?.[deviceLabel] ?? '',
             dataset: data.BTP[deviceLabel as keyof typeof data.BTP],
           })),
         },
