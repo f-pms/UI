@@ -154,7 +154,7 @@ const StatisticReportOverall = () => {
               }}
               variant='h6'
             >
-              {reportSummary?.SUM_PEAK} (KWh)
+              {reportSummary?.SUM_TOTAL} (KWh)
             </Typography>
           </Stack>
           <CircularProgressWithLabel

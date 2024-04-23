@@ -39,8 +39,12 @@ export function StatisticReportDetailsPage() {
       return undefined;
     }
 
-    return ConvertOneDayChartData(reportChart.data ?? [], reportType);
-  }, [reportChart, reportType, loadingReportChart]);
+    return ConvertOneDayChartData(
+      reportChart.data ?? [],
+      reportType,
+      reportData?.type.name as ReportKey,
+    );
+  }, [loadingReportChart, reportChart, reportType, reportData?.type.name]);
 
   useEffect(() => {
     if (!loadingReportData && !loadingReportChart && !oneDayChartData) {
@@ -114,6 +118,7 @@ export function StatisticReportDetailsPage() {
             />
           ) : (
             <GroupBarChart
+              disableLabels
               isStacked
               dataset={oneDayChartData?.stackedBarChartReportByDeviceList}
               legendTitle='Giờ hoạt động'
