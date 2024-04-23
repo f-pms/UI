@@ -22,3 +22,19 @@ export const propertyToDisableToday = () => {
 
   return today;
 };
+
+export const convertDateRange = (startDate?: Date, endDate?: Date) => {
+  if (!startDate || !endDate) {
+    return {
+      start: toISOStringWithoutTimeZone(new Date()),
+      end: toISOStringWithoutTimeZone(new Date()),
+    };
+  }
+
+  startDate.setHours(0, 0, 0, 0);
+  endDate.setHours(23, 59, 0, 0);
+  return {
+    start: toISOStringWithoutTimeZone(startDate),
+    end: toISOStringWithoutTimeZone(endDate),
+  };
+};

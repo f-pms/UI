@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
@@ -7,6 +7,7 @@ import {
   FigureInfoType,
 } from '~/services/blueprint/queries/useQueryBlueprintById';
 import { useUpdateAddress } from '~/services/sensorConfiguration';
+import { displayErrorMessage } from '~/utils/errorMessage';
 
 import { BlueprintsContext } from '~/pages/ProductionManagement/context/BlueprintContext';
 
@@ -61,7 +62,13 @@ export default function UpdateFigureInfoBasicForm({
   });
 
   const { renderedBlueprintId } = useContext(BlueprintsContext);
-  const { mutate: updateAddress, isPending } = useUpdateAddress();
+  const {
+    mutate: updateAddress,
+    isPending,
+    isSuccess,
+    isError,
+    error,
+  } = useUpdateAddress();
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     updateAddress({
       id: figureInfo?.id ?? 0,
@@ -70,11 +77,22 @@ export default function UpdateFigureInfoBasicForm({
       offset: data.offset,
       dataType: data.dataType,
     });
-    handleClose();
-    toast.success(
-      <Typography variant='body2'>Cập nhật địa chỉ thành công!</Typography>,
-    );
   };
+
+  useEffect(() => {
+    if (isSuccess) {
+      handleClose();
+      toast.success(
+        <Typography variant='body2'>Cập nhật địa chỉ thành công!</Typography>,
+      );
+    }
+  }, [isSuccess, handleClose]);
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(displayErrorMessage(error));
+    }
+  }, [isError, error]);
 
   return (
     <Box

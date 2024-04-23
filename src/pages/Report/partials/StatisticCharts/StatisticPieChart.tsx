@@ -12,20 +12,26 @@ import { PieChart } from '~/components/Charts/PieChart';
 
 export interface IStatisticPieChartProps {}
 
+const CHART_HEIGHT = 540;
 export function StatisticPieChart() {
   const { params } = useContext(StatisticReportContext);
 
   const { data: pieChartData, isPending: pieChartDataLoading } =
     useQueryGetMultiDayReportCharts(params.pieChartParams);
 
-  if (pieChartData && _.isEmpty(pieChartData.data)) {
-    return <CustomSkeleton isEmpty height={540} />;
+  const isEmptyData =
+    pieChartData &&
+    _.isEmpty(pieChartData?.data?.DAM.SUM_TOTAL) &&
+    _.isEmpty(pieChartData?.data?.DAM.SUM_TOTAL);
+
+  if (isEmptyData) {
+    return <CustomSkeleton isEmpty height={CHART_HEIGHT} />;
   }
 
   return (
     <>
       {pieChartDataLoading || !pieChartData ? (
-        <CustomSkeleton height={540} />
+        <CustomSkeleton height={CHART_HEIGHT} />
       ) : (
         <PieChart
           dataset={convertChartData(pieChartData, 'PIE') as ReportData}
