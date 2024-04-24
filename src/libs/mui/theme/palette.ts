@@ -25,17 +25,17 @@ export const getPaletteColor = (color: ColorScheme) => {
       primary: '#52525b',
       strong: '#09090b',
     },
-    blue: theme.palette.augmentColor({
-      color: {
-        main: COLOR_SCHEME.blue.primary,
-      },
-      name: 'blue',
-    }),
     green: theme.palette.augmentColor({
       color: {
         main: COLOR_SCHEME.green.primary,
       },
       name: 'green',
+    }),
+    blue: theme.palette.augmentColor({
+      color: {
+        main: COLOR_SCHEME.blue.primary,
+      },
+      name: 'blue',
     }),
     orange: theme.palette.augmentColor({
       color: {

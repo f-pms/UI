@@ -1,6 +1,9 @@
-import { AppBar, Typography } from '~/components/MuiComponents';
+import { AppBar, Box, Stack, Typography } from '~/components/MuiComponents';
 
-export default function SidebarHeader() {
+export interface ISidebarHeaderProps {
+  collapsed?: boolean;
+}
+export default function SidebarHeader(props: ISidebarHeaderProps) {
   return (
     <AppBar
       position='sticky'
@@ -9,18 +12,35 @@ export default function SidebarHeader() {
         textAlign: 'center',
       }}
     >
-      <Typography
-        noWrap
-        sx={{
-          fontFamily: 'monospace',
-          fontWeight: 700,
-          letterSpacing: '.3rem',
-          lineHeight: '64px',
-        }}
-        variant='h6'
+      <Stack
+        alignItems='center'
+        direction='row'
+        height='64px'
+        justifyContent='center'
+        spacing={1}
       >
-        PMS
-      </Typography>
+        <Box
+          alt='logo'
+          component='img'
+          src={'/logo.png'}
+          sx={{
+            width: 'auto',
+            height: '24px',
+          }}
+        />
+        {props?.collapsed ? null : (
+          <Typography
+            noWrap
+            sx={{
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              fontSize: '24px',
+            }}
+          >
+            RMS
+          </Typography>
+        )}
+      </Stack>
     </AppBar>
   );
 }
