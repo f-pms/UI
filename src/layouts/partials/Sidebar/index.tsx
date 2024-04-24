@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { Sidebar as SideBarPro } from 'react-pro-sidebar';
 
 import SidebarHeader from '~/layouts/partials/Sidebar/SidebarHeader';
