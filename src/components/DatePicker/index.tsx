@@ -11,8 +11,24 @@ type CustomSingleDatePickerProps = DesktopDatePickerProps<Date> &
   };
 
 const CustomSingleDatePicker = forwardRef(
-  ({ helperText, width, ...props }: CustomSingleDatePickerProps, _) => {
+  (
+    {
+      helperText,
+      width,
+      onChange: changeFormDate,
+      ...props
+    }: CustomSingleDatePickerProps,
+    _,
+  ) => {
     const theme = useTheme();
+
+    const handleChange = (e: unknown) => {
+      if ((e as Date).toString() === 'Invalid Date') {
+        changeFormDate(null);
+      } else {
+        changeFormDate(e);
+      }
+    };
 
     return (
       <DesktopDatePicker
@@ -41,6 +57,7 @@ const CustomSingleDatePicker = forwardRef(
             } !important`,
           },
         }}
+        onChange={handleChange}
       />
     );
   },

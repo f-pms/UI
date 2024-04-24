@@ -95,7 +95,7 @@ export const statisticReportValidationSchema = yup.object({
       },
     }),
   selectedDateType: yup.string().required('View type is required'),
-  selectedDate: yup.date().required(),
+  selectedDate: yup.date().required('Ngày nhập không hợp lệ'),
   fixedDate: yup.date().test({
     name: 'Validate future fixed day',
     exclusive: false,
