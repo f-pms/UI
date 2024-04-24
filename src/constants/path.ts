@@ -32,7 +32,7 @@ export enum Path {
 }
 
 export const PATH_LABEL: Record<Path, string> = {
-  [Path.ROOT]: 'F-PMS',
+  [Path.ROOT]: 'RMS',
   [Path.LANDING_PAGE]: 'Landing Page',
   [Path.SIGN_IN]: 'Đăng nhập',
   [Path.NOT_FOUND]: 'Not Found',

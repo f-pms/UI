@@ -12,7 +12,7 @@ export function PushMessageMethod({
   return (
     <SelectedMethodListItem
       actionType={AlarmActionType.PUSH_MESSAGE}
-      description='Tất cả mọi người đã cài đặt ứng dụng PMS-Mobile sẽ nhận được cảnh báo'
+      description='Tất cả mọi người đã cài đặt ứng dụng RMS-Mobile sẽ nhận được cảnh báo'
       title='Cảnh báo qua thiết bị di động'
       onRemoveAction={onRemoveAction}
     />

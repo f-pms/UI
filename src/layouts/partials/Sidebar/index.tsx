@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Sidebar as SideBarPro } from 'react-pro-sidebar';
 
 import SidebarHeader from '~/layouts/partials/Sidebar/SidebarHeader';
@@ -33,7 +34,7 @@ export function SideBar(props: ISideBarProps) {
       onBackdropClick={() => setToggled(false)}
       onBreakPoint={setBroken}
     >
-      <SidebarHeader />
+      <SidebarHeader collapsed={collapsed} />
       <SidebarMenu collapsed={collapsed} />
     </SideBarPro>
   );

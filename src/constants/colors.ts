@@ -1,15 +1,15 @@
 export type ColorScheme = keyof typeof COLOR_SCHEME;
 
 export const COLOR_SCHEME = {
-  blue: {
-    name: 'blue',
-    primary: 'hsl(221.2, 83.2%, 53.3%)',
-    secondary: 'hsl(210, 40%, 96.1%)',
-  },
   green: {
     name: 'green',
     primary: 'hsl(142.1, 76.2%, 36.3%)',
     secondary: 'hsl(240, 4.8%, 95.9%)',
+  },
+  blue: {
+    name: 'blue',
+    primary: 'hsl(221.2, 83.2%, 53.3%)',
+    secondary: 'hsl(210, 40%, 96.1%)',
   },
   orange: {
     name: 'orange',

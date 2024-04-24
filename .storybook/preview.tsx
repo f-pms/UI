@@ -2,7 +2,7 @@ import React from 'react';
 import type { Preview } from '@storybook/react';
 import { CssBaseline, ThemeProvider, getCustomizeTheme } from '../src/libs/mui';
 
-const theme = getCustomizeTheme('blue', 'inter');
+const theme = getCustomizeTheme('green', 'inter');
 
 export const withMuiTheme = (Story) => (
   <ThemeProvider theme={theme}>
