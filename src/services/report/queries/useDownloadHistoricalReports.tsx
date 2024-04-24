@@ -40,7 +40,7 @@ export const downloadHistoricalReports = async (
     formattedParams.append('order', params.order);
   }
   const link = document.createElement('a');
-  link.href = `${baseURL}/reports/download?` + formattedParams.toString();
+  link.href = `${baseURL}reports/download?` + formattedParams.toString();
   document.body.appendChild(link);
   link.click();
 };
