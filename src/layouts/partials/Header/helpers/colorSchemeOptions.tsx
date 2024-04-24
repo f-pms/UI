@@ -8,7 +8,7 @@ export type ColorSchemeOption = {
 export const COLOR_SCHEME_OPTIONS: ColorSchemeOption[] = [
   {
     label: 'Mặc định',
-    value: 'blue',
+    value: 'green',
   },
   {
     label: 'Chủ đề 1',
@@ -20,7 +20,7 @@ export const COLOR_SCHEME_OPTIONS: ColorSchemeOption[] = [
   },
   {
     label: 'Chủ đề 3',
-    value: 'green',
+    value: 'blue',
   },
   {
     label: 'Chủ đề 4',

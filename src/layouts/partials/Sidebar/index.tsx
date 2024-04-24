@@ -33,7 +33,7 @@ export function SideBar(props: ISideBarProps) {
       onBackdropClick={() => setToggled(false)}
       onBreakPoint={setBroken}
     >
-      <SidebarHeader />
+      <SidebarHeader collapsed={collapsed} />
       <SidebarMenu collapsed={collapsed} />
     </SideBarPro>
   );
