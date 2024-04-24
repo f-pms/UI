@@ -3,17 +3,12 @@ import { vi } from 'date-fns/locale';
 import _ from 'lodash';
 
 import { ColorScheme } from '~/constants';
-import { AlarmHistory, AlarmSeverity } from '~/types/alarm';
+import { AlarmHistory } from '~/types/alarm';
 
 import { getBlueprintName } from '~/pages/ProductionManagement/helpers/getBlueprintName';
 import { useAlarmSeverity } from '~/pages/ProductionManagement/hooks/useAlarmSeverity';
 
 import { SoftChip } from '~/components';
-import {
-  ErrorOutlineOutlinedIcon,
-  NotificationImportantOutlinedIcon,
-  ReportProblemOutlinedIcon,
-} from '~/components/Icons';
 import {
   Box,
   Divider,
