@@ -18,8 +18,6 @@ export const useAlarmSeverity = (severity: AlarmSeverity) => {
       color = 'warning';
       break;
     case AlarmSeverity.URGENT:
-      icon = <ErrorOutlineOutlinedIcon sx={{ fontSize: '18px' }} />;
-      color = 'error';
       break;
     default:
       break;

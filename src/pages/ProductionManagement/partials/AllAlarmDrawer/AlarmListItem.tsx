@@ -1,6 +1,5 @@
 import { format } from 'date-fns';
 import { vi } from 'date-fns/locale';
-import _ from 'lodash';
 
 import { ColorScheme } from '~/constants';
 import { AlarmHistory } from '~/types/alarm';
