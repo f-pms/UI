@@ -1,24 +1,23 @@
 import { useState } from 'react';
 import _ from 'lodash';
 
-import DeleteIcon from '@mui/icons-material/Delete';
-
 import {
   FormHelperText,
   IconButton,
   OutlinedInput,
-  Stack,
   TextField,
 } from '~/libs/mui';
 import { useFormContext } from '~/libs/react-hook-form';
 import { useQuerySensorConfigurations } from '~/services/sensorConfiguration/queries/useQuerySensorConfigurations';
 import { SensorConfiguration } from '~/types';
+import { BlueprintType } from '~/types/blueprints';
 
 import { AlarmFormData } from '~/pages/AlarmManagement/helpers/alarmForm';
 import { CreateSensorAddressDialog } from '~/pages/AlarmManagement/partials/Dialogs/CreateSensorAddressDialog';
 import { DeleteSensorAddressDialog } from '~/pages/AlarmManagement/partials/Dialogs/DeleteSensorAddressDialog';
 
 import { Autocomplete } from '~/components';
+import { DeleteOutlineOutlinedIcon } from '~/components/Icons';
 import { FormControl, Typography } from '~/components/MuiComponents';
 export interface IVariableAutoCompleteProps {}
 
@@ -28,22 +27,24 @@ export function SensorAutoComplete() {
     getValues,
     formState: { errors },
     clearErrors,
+    setValue,
   } = useFormContext<AlarmFormData>();
   const [open, setOpen] = useState(false);
   const [deletedSensorConfiguration, setDeletedSensorConfiguration] =
     useState<SensorConfiguration>();
 
   const isUpdated = getValues('isUpdate');
-  const isMonitoringType = getValues('info.station.type') === 'MONITORING';
+  const selectedStation = getValues('info.station');
 
   const { data: sensorConfigs, refetch } = useQuerySensorConfigurations({
-    blueprintType: getValues('info.station')?.type ?? '',
-    blueprintName: getValues('info.station')?.value ?? '',
+    blueprintType: selectedStation?.type ?? '',
+    blueprintName: selectedStation?.value ?? '',
   });
 
   const onCloseDeleteSensorDialog = (refetchData?: boolean) => {
     if (refetchData) {
       refetch();
+      setValue('info.sensorConfig', null);
     }
     setDeletedSensorConfiguration(undefined);
   };
@@ -78,14 +79,14 @@ export function SensorAutoComplete() {
             control={control}
             defaultChecked={true}
             defaultValue={sensorConfigs?.[0]}
-            disabled={isUpdated || !getValues('info.station')}
+            disabled={isUpdated || !selectedStation}
             freeSolo={false}
             getOptionDisabled={(option) => option.attachedToAlarm}
             getOptionLabel={(option) => option.address}
             multiple={false}
             name='info.sensorConfig'
             noOptionsText={
-              !isMonitoringType ? (
+              selectedStation?.type === BlueprintType.ALARM ? (
                 <Typography variant='body2'>
                   Địa chỉ không tồn tại?{' '}
                   <Typography
@@ -112,20 +113,25 @@ export function SensorAutoComplete() {
             renderInput={(params) => <TextField {...params} size='small' />}
             renderOption={(props, option) => {
               return (
-                <Stack flexDirection='row' justifyContent='space-between'>
-                  <Typography {...props} variant='body2'>
+                <Typography {...props}>
+                  <Typography sx={{ flex: 1 }} variant='body2'>
                     {option.address}
                   </Typography>
-                  {!option.attachedToAlarm && (
-                    <IconButton
-                      onClick={() => {
-                        setDeletedSensorConfiguration(option);
-                      }}
-                    >
-                      <DeleteIcon color='error' />
-                    </IconButton>
-                  )}
-                </Stack>
+                  {!option.attachedToAlarm &&
+                    selectedStation?.type === BlueprintType.ALARM && (
+                      <IconButton
+                        size='small'
+                        onClick={() => {
+                          setDeletedSensorConfiguration(option);
+                        }}
+                      >
+                        <DeleteOutlineOutlinedIcon
+                          color='error'
+                          sx={{ fontSize: '20px' }}
+                        />
+                      </IconButton>
+                    )}
+                </Typography>
               );
             }}
             sx={{
