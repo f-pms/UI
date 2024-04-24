@@ -29,7 +29,7 @@ export function Figure({
   openUpdateFigureInfoDialog,
 }: FigureProps) {
   const { address, x, y, db, offset, dataType } = figureInfo;
-  const { isEditMode } = useContext(BlueprintsContext);
+  const { isEditMode, sentAlarms } = useContext(BlueprintsContext);
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const transformString = `translate(${x} ${y})`;
 
@@ -42,8 +42,12 @@ export function Figure({
     figureValue = '. . . . .';
   }
 
+  const isAlarm = sentAlarms?.some(
+    (alarm) => alarm.condition.sensorConfiguration.address === address,
+  );
+
   return !isEditMode ? (
-    <text transform={transformString}>
+    <text fill={isAlarm ? 'red' : 'black'} transform={transformString}>
       <tspan x='0' y='0'>
         {figureValue}
       </tspan>
@@ -97,7 +101,11 @@ export function Figure({
       }
       onOpen={() => setIsCopied(false)}
     >
-      <text style={{ cursor: 'pointer' }} transform={transformString}>
+      <text
+        fill={isAlarm ? 'red' : 'black'}
+        style={{ cursor: 'pointer' }}
+        transform={transformString}
+      >
         <tspan x='0' y='0'>
           {figureValue}
         </tspan>

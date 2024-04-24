@@ -1,8 +1,12 @@
 import { format } from 'date-fns';
 import { vi } from 'date-fns/locale';
+import _ from 'lodash';
 
 import { ColorScheme } from '~/constants';
 import { AlarmHistory, AlarmSeverity } from '~/types/alarm';
+
+import { getBlueprintName } from '~/pages/ProductionManagement/helpers/getBlueprintName';
+import { useAlarmSeverity } from '~/pages/ProductionManagement/hooks/useAlarmSeverity';
 
 import { SoftChip } from '~/components';
 import {
@@ -24,24 +28,7 @@ export interface IAlarmListItemProps {
 }
 
 export default function AlarmListItem({ alarm }: IAlarmListItemProps) {
-  let icon;
-  let color;
-  switch (alarm.condition.severity) {
-    case AlarmSeverity.LOW:
-      icon = <NotificationImportantOutlinedIcon sx={{ fontSize: '18px' }} />;
-      color = 'info';
-      break;
-    case AlarmSeverity.HIGH:
-      icon = <ReportProblemOutlinedIcon sx={{ fontSize: '18px' }} />;
-      color = 'warning';
-      break;
-    case AlarmSeverity.URGENT:
-      icon = <ErrorOutlineOutlinedIcon sx={{ fontSize: '18px' }} />;
-      color = 'error';
-      break;
-    default:
-      break;
-  }
+  const { color, icon } = useAlarmSeverity(alarm.condition.severity);
 
   return (
     <>
@@ -50,7 +37,10 @@ export default function AlarmListItem({ alarm }: IAlarmListItemProps) {
           <SoftChip color={color as ColorScheme} icon={icon} />
         </ListItemAvatar>
         <ListItemText
-          primary={`Main - ${alarm.condition.sensorConfiguration.address}`}
+          primary={`${getBlueprintName(alarm.blueprint?.name)} - ${
+            alarm.condition.sensorConfiguration.address
+          }`}
+          primaryTypographyProps={{ fontWeight: 'bold' }}
           secondary={
             <Box>
               <Typography variant='body2'>
@@ -58,7 +48,12 @@ export default function AlarmListItem({ alarm }: IAlarmListItemProps) {
                   ? alarm.condition.actions[0]?.message
                   : ''}
               </Typography>
-              <Typography variant='caption'>
+              <Typography
+                align='right'
+                component='p'
+                fontStyle='italic'
+                variant='caption'
+              >
                 {format(
                   new Date(alarm.triggeredAt),
                   'EEEE, dd/MM/yyyy HH:mm:ss',

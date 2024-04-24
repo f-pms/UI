@@ -84,8 +84,8 @@ export default function UpdateFigureInfoBasicForm({
       toast.success(
         <Typography variant='body2'>Cập nhật địa chỉ thành công!</Typography>,
       );
+      handleClose();
     }
-    handleClose();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isSuccess]);
 

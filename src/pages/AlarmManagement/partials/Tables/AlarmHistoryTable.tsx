@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { format } from 'date-fns';
 import { vi } from 'date-fns/locale';
+import _ from 'lodash';
 import {
   MaterialReactTable,
   type MRT_ColumnDef,
@@ -16,6 +17,7 @@ import { AlarmHistory } from '~/types';
 import AlarmHistoryDetailsDialog from '~/pages/AlarmManagement/partials/Dialogs/AlarmHistoryDetailsDialog';
 import { SeverityCell } from '~/pages/AlarmManagement/partials/Tables/SeverityCell';
 import TypeCell from '~/pages/AlarmManagement/partials/Tables/TypeCell';
+import { getBlueprintName } from '~/pages/ProductionManagement/helpers/getBlueprintName';
 
 import { SoftChip } from '~/components';
 import { getDefaultMRTOptions } from '~/components/Table';
@@ -67,8 +69,9 @@ export function AlarmHistoryTable(props: IAlarmHistoryTableProps) {
         header: 'Địa chỉ biến',
       },
       {
-        accessorKey: 'condition.blueprint.name',
+        id: 'blueprint',
         header: 'Trạm',
+        accessorFn: (row) => getBlueprintName(row.blueprint?.name),
       },
       {
         id: 'message',
