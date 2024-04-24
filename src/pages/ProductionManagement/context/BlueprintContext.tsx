@@ -1,6 +1,8 @@
 import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
 
+import { useQueryAlarmHistories } from '~/services/alarm-history/queries/useQueryAlarmHistories';
 import { IBlueprint } from '~/services/blueprint/queries/useQueryBlueprintById';
+import { AlarmHistory, AlarmHistoryStatus } from '~/types';
 
 export type BlueprintsContextType = {
   blueprints: IBlueprint[];
@@ -9,6 +11,7 @@ export type BlueprintsContextType = {
   updateRenderedBlueprintId: (id: number) => void;
   isEditMode: boolean;
   updateIsEditMode: (enabled: boolean) => void;
+  sentAlarms?: AlarmHistory[];
 };
 
 export const BlueprintsContext = createContext<BlueprintsContextType>({
@@ -18,6 +21,7 @@ export const BlueprintsContext = createContext<BlueprintsContextType>({
   updateRenderedBlueprintId: () => {},
   isEditMode: false,
   updateIsEditMode: () => {},
+  sentAlarms: [],
 });
 
 export interface IBlueprintsProviderProps {
@@ -38,6 +42,10 @@ export default function BlueprintsProvider({
 
   const updateIsEditMode = (enabled: boolean) => setIsEditMode(enabled);
 
+  const { data: sentAlarms } = useQueryAlarmHistories({
+    status: AlarmHistoryStatus.SENT,
+  });
+
   const value = useMemo(
     () => ({
       blueprints,
@@ -46,8 +54,9 @@ export default function BlueprintsProvider({
       updateRenderedBlueprintId,
       isEditMode,
       updateIsEditMode,
+      sentAlarms,
     }),
-    [blueprints, isEditMode, renderedBlueprintId],
+    [blueprints, isEditMode, renderedBlueprintId, sentAlarms],
   );
 
   return (

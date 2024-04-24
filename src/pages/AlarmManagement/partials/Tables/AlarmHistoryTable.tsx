@@ -16,6 +16,7 @@ import { AlarmHistory } from '~/types';
 import AlarmHistoryDetailsDialog from '~/pages/AlarmManagement/partials/Dialogs/AlarmHistoryDetailsDialog';
 import { SeverityCell } from '~/pages/AlarmManagement/partials/Tables/SeverityCell';
 import TypeCell from '~/pages/AlarmManagement/partials/Tables/TypeCell';
+import { getBlueprintName } from '~/pages/ProductionManagement/helpers/getBlueprintName';
 
 import { SoftChip } from '~/components';
 import { getDefaultMRTOptions } from '~/components/Table';
@@ -67,8 +68,9 @@ export function AlarmHistoryTable(props: IAlarmHistoryTableProps) {
         header: 'Địa chỉ biến',
       },
       {
-        accessorKey: 'condition.blueprint.name',
+        id: 'blueprint',
         header: 'Trạm',
+        accessorFn: (row) => getBlueprintName(row.blueprint?.name),
       },
       {
         id: 'message',

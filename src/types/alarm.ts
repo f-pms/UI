@@ -77,6 +77,7 @@ export interface AlarmHistory {
   sentAt: string;
   solvedAt: string;
   condition: Alarm;
+  blueprint: Blueprint;
 }
 
 export interface AlarmWebsocket {

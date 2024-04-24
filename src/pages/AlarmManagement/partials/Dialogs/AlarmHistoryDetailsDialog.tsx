@@ -24,6 +24,8 @@ import {
   AlarmType,
 } from '~/types';
 
+import { getBlueprintName } from '~/pages/ProductionManagement/helpers/getBlueprintName';
+
 import { SoftChip } from '~/components';
 import { ContentPasteSearchOutlinedIcon } from '~/components/Icons';
 import { List } from '~/components/MuiComponents';
@@ -35,7 +37,7 @@ export interface IAlarmHistoryDetailsDialogProps {
 export default function AlarmHistoryDetailsDialog(
   props: IAlarmHistoryDetailsDialogProps,
 ) {
-  const { condition, sentAt, solvedAt } = props.alarmHistory;
+  const { condition, sentAt, solvedAt, blueprint } = props.alarmHistory;
   const [open, setOpen] = useState(false);
 
   const getConditionText = () => {
@@ -117,7 +119,7 @@ export default function AlarmHistoryDetailsDialog(
               <Stack alignItems='flex-start' direction='row' sx={{ p: 2 }}>
                 <Typography
                   fontWeight='bold'
-                  sx={{ width: '240px' }}
+                  sx={{ width: '256px' }}
                   variant='body2'
                 >
                   Cảnh báo lúc
@@ -132,7 +134,7 @@ export default function AlarmHistoryDetailsDialog(
               <Stack alignItems='flex-start' direction='row' sx={{ p: 2 }}>
                 <Typography
                   fontWeight='bold'
-                  sx={{ width: '240px' }}
+                  sx={{ width: '256px' }}
                   variant='body2'
                 >
                   Kết thúc cảnh báo
@@ -175,7 +177,7 @@ export default function AlarmHistoryDetailsDialog(
                           <Typography sx={{ width: '226px' }} variant='body2'>
                             Nội dung cảnh báo:
                           </Typography>
-                          <Typography variant='body2'>
+                          <Typography sx={{ flex: 1 }} variant='body2'>
                             {item.message}
                           </Typography>
                         </Stack>
@@ -237,7 +239,7 @@ export default function AlarmHistoryDetailsDialog(
                   Trạm
                 </Typography>
                 <Typography variant='body2'>
-                  {condition.blueprint?.name}
+                  {getBlueprintName(blueprint?.name)}
                 </Typography>
               </Stack>
               <Stack alignItems='flex-start' direction='row' sx={{ p: 2 }}>

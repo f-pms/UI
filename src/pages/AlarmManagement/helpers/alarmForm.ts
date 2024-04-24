@@ -107,6 +107,7 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
       .max(3600, 'Độ trễ không được lớn hơn 3600 giây'),
     enabled: boolean().required(),
     min: number()
+      .transform((value) => (isNaN(value) ? undefined : value))
       .typeError('Giới hạn dưới không được phép để trống')
       .when('type', {
         is: AlarmType.CUSTOM,
@@ -133,12 +134,13 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
                 if (this.parent.typeCondition === TypeCondition.LESS_THAN) {
                   return true;
                 }
-                return value !== undefined;
+                return value !== undefined && value?.toString().length > 0;
               },
             }),
-        otherwise: (schema) => schema.optional().nullable(),
+        otherwise: (schema) => schema.nullable().optional(),
       }),
     max: number()
+      .transform((value) => (isNaN(value) ? undefined : value))
       .typeError('Giới hạn trên không được phép để trống')
       .when('type', {
         is: AlarmType.CUSTOM,
@@ -165,10 +167,10 @@ export const alarmSchema: ObjectSchema<AlarmFormData> = object().shape({
                 if (this.parent.typeCondition === TypeCondition.GREATER_THAN) {
                   return true;
                 }
-                return value !== undefined;
+                return value !== undefined && value?.toString().length > 0;
               },
             }),
-        otherwise: (schema) => schema.optional().nullable(),
+        otherwise: (schema) => schema.nullable().optional(),
       }),
     typeCondition: mixed<TypeCondition>().required(),
   }),

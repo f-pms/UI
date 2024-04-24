@@ -32,19 +32,27 @@ export function ConditionInput() {
 
   useEffect(() => {
     setValue('info.typeCondition', typeCondition);
-  }, [setValue, typeCondition]);
+    if (typeCondition == TypeCondition.LESS_THAN) {
+      setValue('info.min', '');
+    }
+    if (typeCondition == TypeCondition.GREATER_THAN) {
+      setValue('info.max', '');
+    }
+    clearErrors('info.min');
+    clearErrors('info.max');
+  }, [clearErrors, setValue, typeCondition]);
 
   const min = useMemo(() => getValues('info.min'), [getValues]);
   const max = useMemo(() => getValues('info.max'), [getValues]);
 
   useEffect(() => {
-    if (min && max) {
+    if (min?.toString().length && max?.toString().length) {
       setTypeCondition(TypeCondition.RANGE);
       setValue('info.typeCondition', TypeCondition.RANGE);
-    } else if (min) {
+    } else if (min?.toString().length) {
       setTypeCondition(TypeCondition.GREATER_THAN);
       setValue('info.typeCondition', TypeCondition.GREATER_THAN);
-    } else if (max) {
+    } else if (max?.toString().length) {
       setTypeCondition(TypeCondition.LESS_THAN);
       setValue('info.typeCondition', TypeCondition.GREATER_THAN);
     } else {
