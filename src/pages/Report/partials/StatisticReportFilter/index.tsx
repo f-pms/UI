@@ -191,7 +191,9 @@ const StatisticReportFilter = () => {
   ]);
 
   const getFormatedDate = () => {
-    const formatedSelectedDate = format(watchSelectedDate, 'dd/MM/yyyy');
+    const formatedSelectedDate = watchSelectedDate
+      ? format(watchSelectedDate, 'dd/MM/yyyy')
+      : '';
     const fixedSelectedDate = format(watchFixedDate ?? 0, 'dd/MM/yyyy');
 
     if (watchSelectedDateType === DateTypes.START_DATE) {
@@ -319,6 +321,9 @@ const StatisticReportFilter = () => {
       )}
       {!isValid && (
         <>
+          <Typography color='error' variant='body2'>
+            {errors.selectedDate?.message}
+          </Typography>
           <Typography color='error' variant='body2'>
             {errors.stepField?.message}
           </Typography>
