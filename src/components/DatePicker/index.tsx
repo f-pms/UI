@@ -15,7 +15,6 @@ const CustomSingleDatePicker = forwardRef(
     {
       helperText,
       width,
-      value,
       onChange: changeFormDate,
       ...props
     }: CustomSingleDatePickerProps,
@@ -58,7 +57,6 @@ const CustomSingleDatePicker = forwardRef(
             } !important`,
           },
         }}
-        value={value as Date}
         onChange={handleChange}
       />
     );
