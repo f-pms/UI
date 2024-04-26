@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { FigureInfoType } from '~/services/blueprint/queries/useQueryBlueprintById';
 
 import { BlueprintsContext } from '~/pages/ProductionManagement/context/BlueprintContext';
-import { OpenUpdateFigureInfoDialogProps } from '~/pages/ProductionManagement/partials/Figures';
+import { OpenAddressUpdateFormProps } from '~/pages/ProductionManagement/partials/Figures';
 
 import {
   ContentCopyRoundedIcon,
@@ -20,13 +20,13 @@ import {
 interface FigureProps {
   figureInfo: FigureInfoType;
   figureValue: string;
-  openUpdateFigureInfoDialog: (props: OpenUpdateFigureInfoDialogProps) => void;
+  openAddressUpdateForm: (props: OpenAddressUpdateFormProps) => void;
 }
 
 export function Figure({
   figureInfo,
   figureValue,
-  openUpdateFigureInfoDialog,
+  openAddressUpdateForm,
 }: FigureProps) {
   const { address, x, y, db, offset, dataType } = figureInfo;
   const { isEditMode, sentAlarms } = useContext(BlueprintsContext);
@@ -80,7 +80,7 @@ export function Figure({
               color='secondary'
               size='small'
               sx={{ marginLeft: 0.5 }}
-              onClick={() => openUpdateFigureInfoDialog(figureInfo)}
+              onClick={() => openAddressUpdateForm(figureInfo)}
             >
               <EditRoundedIcon fontSize='small' />
             </IconButton>

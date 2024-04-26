@@ -5,23 +5,23 @@ import { useTheme } from '@mui/material';
 import { SwipeableViews } from '~/libs/react-swipeable-views';
 import { FigureInfoType } from '~/services/blueprint/queries/useQueryBlueprintById';
 
-import UpdateFigureInfoAdvancedForm from '~/pages/ProductionManagement/partials/Figures/UpdateFigureInfoAdvancedForm';
-import UpdateFigureInfoBasicForm from '~/pages/ProductionManagement/partials/Figures/UpdateFigureInfoBasicForm';
+import UpdateFigureInfoAdvancedForm from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateAdvancedForm';
+import UpdateFigureInfoBasicForm from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateBasicForm';
 
 import { CustomTabPanel } from '~/components/CustomTabPanel';
 import { AppBar, Box, Dialog, Tab, Tabs } from '~/components/MuiComponents';
 
-interface UpdateFigureInfoDialogProps {
+interface AddressUpdateFormProps {
   figureInfo: FigureInfoType | undefined;
   open: boolean;
   handleClose: () => void;
 }
 
-export default function UpdateFigureInfoDialog({
+export default function AddressUpdateForm({
   figureInfo,
   open,
   handleClose,
-}: UpdateFigureInfoDialogProps) {
+}: AddressUpdateFormProps) {
   const theme = useTheme();
   const [tabIndex, setTabIndex] = useState(0);
 

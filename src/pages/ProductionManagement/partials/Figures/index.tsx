@@ -3,15 +3,15 @@ import { useState } from 'react';
 import { FigureInfoType } from '~/services/blueprint/queries/useQueryBlueprintById';
 import { FigureValuesType } from '~/stores/useMonitoringStore';
 
+import AddressUpdateForm from '~/pages/ProductionManagement/partials/AddressUpdateForm';
 import { Figure } from '~/pages/ProductionManagement/partials/Figures/Figure';
-import UpdateFigureInfoDialog from '~/pages/ProductionManagement/partials/Figures/UpdateFigureInfoDialog';
 
 export interface FiguresProps {
   figuresCoordinateList: FigureInfoType[];
   figureValues: FigureValuesType;
 }
 
-export interface OpenUpdateFigureInfoDialogProps extends FigureInfoType {}
+export interface OpenAddressUpdateFormProps extends FigureInfoType {}
 
 export function Figures({ figuresCoordinateList, figureValues }: FiguresProps) {
   const [updateFigureInfoFormOpen, setUpdateFigureInfoFormOpen] =
@@ -19,9 +19,7 @@ export function Figures({ figuresCoordinateList, figureValues }: FiguresProps) {
   const [selectedFigureInfo, setSelectedFigureInfo] =
     useState<FigureInfoType>();
 
-  const openUpdateFigureInfoDialog = (
-    props: OpenUpdateFigureInfoDialogProps,
-  ) => {
+  const openAddressUpdateForm = (props: OpenAddressUpdateFormProps) => {
     setSelectedFigureInfo(props);
     setUpdateFigureInfoFormOpen(true);
   };
@@ -35,11 +33,11 @@ export function Figures({ figuresCoordinateList, figureValues }: FiguresProps) {
             key={id}
             figureInfo={figuresCoordinate}
             figureValue={figureValues[id]}
-            openUpdateFigureInfoDialog={openUpdateFigureInfoDialog}
+            openAddressUpdateForm={openAddressUpdateForm}
           />
         );
       })}
-      <UpdateFigureInfoDialog
+      <AddressUpdateForm
         figureInfo={selectedFigureInfo}
         handleClose={() => setUpdateFigureInfoFormOpen(false)}
         open={updateFigureInfoFormOpen}

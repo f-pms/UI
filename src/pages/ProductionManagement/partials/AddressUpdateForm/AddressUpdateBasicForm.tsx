@@ -40,15 +40,15 @@ const dataTypeOptions = [
   },
 ];
 
-interface UpdateFigureInfoBasicFormProps {
+interface AddressUpdateBasicFormProps {
   handleClose: () => void;
   figureInfo: FigureInfoType | undefined;
 }
 
-export default function UpdateFigureInfoBasicForm({
+export default function AddressUpdateBasicForm({
   handleClose,
   figureInfo,
-}: UpdateFigureInfoBasicFormProps) {
+}: AddressUpdateBasicFormProps) {
   const {
     control,
     handleSubmit,

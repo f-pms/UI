@@ -9,15 +9,15 @@ import {
   DialogTitle,
 } from '~/components/MuiComponents';
 
-interface UpdateFigureInfoAdvancedFormProps {
+interface AddressUpdateAdvancedFormProps {
   handleClose: () => void;
   figureInfo: FigureInfoType | undefined;
 }
 
-export default function UpdateFigureInfoAdvancedForm({
+export default function AddressUpdateAdvancedForm({
   handleClose,
   figureInfo,
-}: UpdateFigureInfoAdvancedFormProps) {
+}: AddressUpdateAdvancedFormProps) {
   return (
     <Box marginX={3} marginY={2}>
       <DialogTitle>Cập nhật địa chỉ biến PLC</DialogTitle>
