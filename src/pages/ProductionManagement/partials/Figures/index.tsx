@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { FigureInfoType } from '~/services/blueprint/queries/useQueryBlueprintById';
 import { FigureValuesType } from '~/stores/useMonitoringStore';
 
-import { Figure } from '~/pages/ProductionManagement/partials/Diagrams/partials/Figure';
-import UpdateFigureInfoDialog from '~/pages/ProductionManagement/partials/Diagrams/partials/UpdateFigureInfoDialog';
+import { Figure } from '~/pages/ProductionManagement/partials/Figures/Figure';
+import UpdateFigureInfoDialog from '~/pages/ProductionManagement/partials/Figures/UpdateFigureInfoDialog';
 
 export interface FiguresProps {
   figuresCoordinateList: FigureInfoType[];

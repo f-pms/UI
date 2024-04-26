@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { FigureInfoType } from '~/services/blueprint/queries/useQueryBlueprintById';
 
 import { BlueprintsContext } from '~/pages/ProductionManagement/context/BlueprintContext';
-import { OpenUpdateFigureInfoDialogProps } from '~/pages/ProductionManagement/partials/Diagrams/partials/Figures';
+import { OpenUpdateFigureInfoDialogProps } from '~/pages/ProductionManagement/partials/Figures';
 
 import {
   ContentCopyRoundedIcon,

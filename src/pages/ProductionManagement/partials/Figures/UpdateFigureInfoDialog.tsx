@@ -5,8 +5,8 @@ import { useTheme } from '@mui/material';
 import { SwipeableViews } from '~/libs/react-swipeable-views';
 import { FigureInfoType } from '~/services/blueprint/queries/useQueryBlueprintById';
 
-import UpdateFigureInfoAdvancedForm from '~/pages/ProductionManagement/partials/Diagrams/partials/UpdateFigureInfoAdvancedForm';
-import UpdateFigureInfoBasicForm from '~/pages/ProductionManagement/partials/Diagrams/partials/UpdateFigureInfoBasicForm';
+import UpdateFigureInfoAdvancedForm from '~/pages/ProductionManagement/partials/Figures/UpdateFigureInfoAdvancedForm';
+import UpdateFigureInfoBasicForm from '~/pages/ProductionManagement/partials/Figures/UpdateFigureInfoBasicForm';
 
 import { CustomTabPanel } from '~/components/CustomTabPanel';
 import { AppBar, Box, Dialog, Tab, Tabs } from '~/components/MuiComponents';

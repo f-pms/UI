@@ -2,7 +2,7 @@ import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
 import { useCurrentBlueprintContext } from '~/pages/ProductionManagement/context/BlueprintContext';
 import AllMeterStaticDiagram from '~/pages/ProductionManagement/partials/Diagrams/AllMeter/AllMeterStaticDiagram';
-import { Figures } from '~/pages/ProductionManagement/partials/Diagrams/partials/Figures';
+import { Figures } from '~/pages/ProductionManagement/partials/Figures';
 
 import './styles.css';
 
