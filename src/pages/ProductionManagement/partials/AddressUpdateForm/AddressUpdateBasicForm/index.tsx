@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 import {
@@ -10,6 +10,10 @@ import { useUpdateAddress } from '~/services/sensorConfiguration';
 import { displayErrorMessage } from '~/utils/errorMessage';
 
 import { BlueprintsContext } from '~/pages/ProductionManagement/context/BlueprintContext';
+import { AddressUpdateBasicFormData } from '~/pages/ProductionManagement/helpers/addressUpdateForm';
+import DataBlockInput from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateBasicForm/DataBlockInput';
+import DataTypeInput from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateBasicForm/DataTypeInput';
+import OffsetInput from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateBasicForm/OffsetInput';
 
 import { TextField } from '~/components';
 import {
@@ -20,6 +24,7 @@ import {
   DialogContent,
   DialogTitle,
   MenuItem,
+  Stack,
   Typography,
 } from '~/components/MuiComponents';
 
@@ -49,11 +54,7 @@ export default function AddressUpdateBasicForm({
   handleClose,
   figureInfo,
 }: AddressUpdateBasicFormProps) {
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const methods = useForm<AddressUpdateBasicFormData>({
     defaultValues: {
       dataBlock: figureInfo?.db ?? 0,
       offset: figureInfo?.offset ?? 0,
@@ -96,15 +97,30 @@ export default function AddressUpdateBasicForm({
   }, [isError, error]);
 
   return (
-    <Box
-      component='form'
-      marginX={3}
-      marginY={2}
-      onSubmit={handleSubmit(onSubmit)}
-    >
-      <DialogTitle>Cập nhật địa chỉ biến PLC</DialogTitle>
-      <DialogContent>
-        <TextField
+    <FormProvider {...methods}>
+      <Box marginX={3} marginY={2}>
+        <DialogTitle>
+          <Typography
+            align='center'
+            color='text.strong'
+            sx={{ fontWeight: 'bold' }}
+            variant='h6'
+          >
+            Cập nhật địa chỉ biến PLC
+          </Typography>
+        </DialogTitle>
+        <DialogContent>
+          <Stack
+            alignItems='flex-start'
+            justifyContent='space-between'
+            spacing={2}
+            sx={{ mt: 2 }}
+          >
+            <DataBlockInput />
+            <OffsetInput />
+            <DataTypeInput />
+          </Stack>
+          {/* <TextField
           fullWidth
           InputLabelProps={{
             shrink: true,
@@ -172,24 +188,25 @@ export default function AddressUpdateBasicForm({
               {option.label}
             </MenuItem>
           ))}
-        </TextField>
-      </DialogContent>
-      <DialogActions>
-        <Button size='small' variant='outlined' onClick={handleClose}>
-          Đóng
-        </Button>
-        <Button
-          disabled={isPending}
-          size='small'
-          startIcon={
-            isPending && <CircularProgress color='secondary' size={15} />
-          }
-          type='submit'
-          variant='contained'
-        >
-          Cập nhật
-        </Button>
-      </DialogActions>
-    </Box>
+        </TextField> */}
+        </DialogContent>
+        <DialogActions>
+          <Button size='small' variant='outlined' onClick={handleClose}>
+            Đóng
+          </Button>
+          <Button
+            disabled={isPending}
+            size='small'
+            startIcon={
+              isPending && <CircularProgress color='secondary' size={15} />
+            }
+            type='submit'
+            variant='contained'
+          >
+            Cập nhật
+          </Button>
+        </DialogActions>
+      </Box>
+    </FormProvider>
   );
 }
