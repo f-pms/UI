@@ -10,6 +10,7 @@ import {
   GetHistoricalReportsParams,
   useQueryHistoricalReports,
 } from '~/services/report/queries/useQueryHistoricalReports';
+import { useQueryReportTypes } from '~/services/report/queries/useQueryReportTypes';
 import { useLoadingStore } from '~/stores';
 import { convertDateRange } from '~/utils/date';
 
@@ -30,9 +31,17 @@ import { Container, Paper, Stack } from '~/components/MuiComponents';
 
 export interface IHistoricalReportListPageProps {}
 
+const addOrSubtractDays = (date: Date, days: number) => {
+  const newDate = new Date(date);
+  newDate.setDate(date.getDate() + days);
+  return newDate;
+};
+
 export function HistoricalReportListPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const setLoading = useLoadingStore((state) => state.setLoading);
+
+  const { data: reportTypes } = useQueryReportTypes();
 
   const [pagination, setPagination] = useState<MRT_PaginationState>({
     pageIndex: searchParams.get('page')
@@ -41,26 +50,34 @@ export function HistoricalReportListPage() {
     pageSize: parseInt(searchParams.get('size') ?? '10'),
   });
 
-  const defaultFilterReportFormData = {
-    typeIds: searchParams.get('typeIds')?.split(',').map(Number) ?? [],
-    startDate: new Date(searchParams.get('startDate') ?? new Date()),
-    endDate: new Date(searchParams.get('endDate') ?? new Date()),
-    sortBy:
-      (searchParams.get('sortBy') as ReportSortBy) ??
-      ReportSortBy.RECORDING_DATE,
-    order: (searchParams.get('order') as ReportOrder) ?? ReportOrder.ASC,
+  const getDefaultFilterReportFormData = () => {
+    const currentDate = new Date();
+    return {
+      typeIds:
+        searchParams.get('typeIds')?.split(',').map(Number) ??
+        reportTypes?.map((type) => type.id) ??
+        [],
+      startDate: new Date(
+        searchParams.get('startDate') ?? addOrSubtractDays(currentDate, -1),
+      ),
+      endDate: new Date(searchParams.get('endDate') ?? currentDate),
+      sortBy:
+        (searchParams.get('sortBy') as ReportSortBy) ??
+        ReportSortBy.RECORDING_DATE,
+      order: (searchParams.get('order') as ReportOrder) ?? ReportOrder.ASC,
+    };
   };
 
   const [params, setParams] = useState<GetHistoricalReportsParams>(() => {
     return {
-      ...defaultFilterReportFormData,
+      ...getDefaultFilterReportFormData(),
       page: pagination.pageIndex + 1,
       size: pagination.pageSize,
     };
   });
 
   const methods = useForm<FilterReportFormData>({
-    defaultValues: defaultFilterReportFormData,
+    defaultValues: getDefaultFilterReportFormData(),
     resolver: yupResolver(filterReportSchema),
   });
 
@@ -79,7 +96,6 @@ export function HistoricalReportListPage() {
   useEffect(() => {
     const formattedParams = new URLSearchParams();
     const { start, end } = convertDateRange(params.startDate, params.endDate);
-
     formattedParams.append('page', String(params.page));
     formattedParams.append('size', String(params.size));
     formattedParams.append('typeIds', params.typeIds.join(','));
