@@ -86,12 +86,18 @@ export type ReportSums = {
   'SUM_BTP_CATEGORY_4.2': number;
 };
 
+export type ReportFactors = {
+  'FACTOR_BTP_CATEGORY_4.1': number;
+  'FACTOR_BTP_CATEGORY_4.2': number;
+};
+
 export type ReportDetails = {
   id: number;
   recordingDate: string;
   type: ReportType;
   rowsMaps: RowsMap[];
   sums: ReportSums[];
+  factors: ReportFactors[];
 };
 
 export enum ROWS_MAP_KEYS {
