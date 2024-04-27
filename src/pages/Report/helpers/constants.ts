@@ -31,13 +31,13 @@ export const EQUIPMENTS_LABELS: EquipmentLabelType = {
     SUM_SPECIFIC_7: 'Đồng hồ đo tổng tủ LV42',
     SUM_SPECIFIC_8: 'Năng lượng xanh Kim Tín 01',
     SUM_SPECIFIC_9: 'Đồng hồ đo tổng tủ LV72',
-    SUM_SPECIFIC_10:
+    SUM_SPECIFIC_11:
       'Tủ điều khiển kho chứa dăm và băng tải cấp dăm lên hệ thống rửa dăm 2100MC01 & 2100MC02',
-    SUM_SPECIFIC_11: 'Tủ điều khiển hệ thống xử lí nước trung tâm',
-    SUM_SPECIFIC_12:
+    SUM_SPECIFIC_12: 'Tủ điều khiển hệ thống xử lí nước trung tâm',
+    SUM_SPECIFIC_13:
       'Tủ nguồn UTCĐ, tủ C/S văn phòng xưởng, C/S nhà xưởng, thiết bị lạnh các phòng điện',
-    SUM_SPECIFIC_13: 'Hệ thống xử lý nước đầu nguồn',
-    SUM_SPECIFIC_14: 'Hệ thống xử lý nước thải bãi củi và nước thải SX',
-    SUM_SPECIFIC_15: 'Tủ điện cụm máy khí nén',
+    SUM_SPECIFIC_14: 'Hệ thống xử lý nước đầu nguồn',
+    SUM_SPECIFIC_15: 'Hệ thống xử lý nước thải bãi củi và nước thải SX',
+    SUM_SPECIFIC_16: 'Tủ điện cụm máy khí nén',
   },
 };

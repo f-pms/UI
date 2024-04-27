@@ -42,6 +42,7 @@ export function BanThanhPhamCluster({ report }: IBanThanhPhamClusterProps) {
     return mapDataIntoTableValue(TABLE_PART_4, report, shift, 16);
   }, [report, shift]);
 
+  const sum = shift === Shift.MORNING ? report.sums[0] : report.sums[1];
   return (
     <Stack spacing={4}>
       <ElectricalMeterReadingTable tableData={tableDataPart1} />
@@ -54,7 +55,12 @@ export function BanThanhPhamCluster({ report }: IBanThanhPhamClusterProps) {
       <StageTotalTable
         contents={`Tổng số điện sử dụng cho công đoạn SX bán thành phẩm (BTP) ${shiftText?.toLocaleLowerCase()} = Tổng số điện (14*) - Tổng số điện (15*) + Tổng số điện (16*) + Tổng số điện (17c) = `}
         title='V. Tổng số điện sử dụng cho công đoạn SX bán thành phẩm'
-        total={3000}
+        total={
+          tableDataPart1.total -
+          tableDataPart2.total +
+          tableDataPart3.total +
+          sum?.['SUM_BTP_CATEGORY_4.2']
+        }
       />
     </Stack>
   );
