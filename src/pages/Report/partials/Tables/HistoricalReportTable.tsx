@@ -90,6 +90,26 @@ export function HistoricalReportTable(props: IHistoricalReportTableProps) {
     });
   };
 
+  const renderDownloadButton = () => {
+    if (!isAdmin || historicalReports?.recordTotal === 0) {
+      return (
+        <Typography color='primary' variant='body2'>
+          {`${historicalReports?.recordTotal ?? 0} báo cáo`}
+        </Typography>
+      );
+    }
+    return (
+      <SoftButton
+        color='primary'
+        size='small'
+        startIcon={<FileDownloadOutlinedIcon />}
+        onClick={handleDownloadAllReports}
+      >
+        {`${historicalReports?.recordTotal ?? 0} báo cáo`}
+      </SoftButton>
+    );
+  };
+
   const table = useMaterialReactTable({
     ...defaultMRTOptions,
     initialState: {
@@ -145,20 +165,7 @@ export function HistoricalReportTable(props: IHistoricalReportTableProps) {
             >
               Kết quả tìm kiếm:
             </Typography>
-            {isAdmin ? (
-              <SoftButton
-                color='primary'
-                size='small'
-                startIcon={<FileDownloadOutlinedIcon />}
-                onClick={handleDownloadAllReports}
-              >
-                {`${historicalReports?.recordTotal ?? 0} báo cáo`}
-              </SoftButton>
-            ) : (
-              <Typography color='primary' variant='body2'>
-                {`${historicalReports?.recordTotal ?? 0} báo cáo`}
-              </Typography>
-            )}
+            {renderDownloadButton()}
           </Stack>
         </Stack>
       );
