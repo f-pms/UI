@@ -17,7 +17,6 @@ export default function OffsetInput() {
     <InputWithLabel
       clearErrors={clearErrors}
       control={control}
-      defaultValue={1}
       description='Offset'
       error={errors.offset}
       name='offset'

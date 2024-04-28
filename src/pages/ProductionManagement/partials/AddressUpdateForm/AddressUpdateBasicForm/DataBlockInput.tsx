@@ -17,7 +17,6 @@ export default function DataBlockInput() {
     <InputWithLabel
       clearErrors={clearErrors}
       control={control}
-      defaultValue={1}
       description='Data Block'
       error={errors.dataBlock}
       name='dataBlock'

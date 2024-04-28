@@ -5,8 +5,8 @@ import { useTheme } from '@mui/material';
 import { SwipeableViews } from '~/libs/react-swipeable-views';
 import { FigureInfoType } from '~/services/blueprint/queries/useQueryBlueprintById';
 
-import UpdateFigureInfoAdvancedForm from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateAdvancedForm';
-import UpdateFigureInfoBasicForm from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateBasicForm';
+import AddressUpdateAdvanceForm from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateAdvanceForm';
+import AddressUpdateBasicForm from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateBasicForm';
 
 import { CustomTabPanel } from '~/components/CustomTabPanel';
 import { AppBar, Box, Dialog, Tab, Tabs } from '~/components/MuiComponents';
@@ -60,13 +60,13 @@ export default function AddressUpdateForm({
           onChangeIndex={handleChangeIndex}
         >
           <CustomTabPanel dir={theme.direction} index={0} value={tabIndex}>
-            <UpdateFigureInfoBasicForm
+            <AddressUpdateBasicForm
               figureInfo={figureInfo}
               handleClose={handleClose}
             />
           </CustomTabPanel>
           <CustomTabPanel dir={theme.direction} index={1} value={tabIndex}>
-            <UpdateFigureInfoAdvancedForm
+            <AddressUpdateAdvanceForm
               figureInfo={figureInfo}
               handleClose={handleClose}
             />

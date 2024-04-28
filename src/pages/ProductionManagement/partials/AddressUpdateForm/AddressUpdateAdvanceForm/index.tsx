@@ -17,12 +17,10 @@ import { displayErrorMessage } from '~/utils/errorMessage';
 
 import { BlueprintsContext } from '~/pages/ProductionManagement/context/BlueprintContext';
 import {
-  AddressUpdateBasicFormData,
-  AddressUpdateBasicSchema,
+  AddressUpdateAdvanceFormData,
+  AddressUpdateAdvanceSchema,
 } from '~/pages/ProductionManagement/helpers/addressUpdateForm';
-import DataBlockInput from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateBasicForm/DataBlockInput';
-import DataTypeSelect from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateBasicForm/DataTypeSelect';
-import OffsetInput from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateBasicForm/OffsetInput';
+import AddressInput from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateAdvanceForm/AddressInput';
 
 import {
   Box,
@@ -34,27 +32,21 @@ import {
   Typography,
 } from '~/components/MuiComponents';
 
-interface AddressUpdateBasicFormProps {
+interface AddressUpdateAdvanceFormProps {
   handleClose: () => void;
   figureInfo: FigureInfoType | undefined;
 }
 
-export default function AddressUpdateBasicForm({
+export default function AddressUpdateAdvanceForm({
   handleClose,
   figureInfo,
-}: AddressUpdateBasicFormProps) {
-  const methods = useForm<AddressUpdateBasicFormData>({
+}: AddressUpdateAdvanceFormProps) {
+  const methods = useForm<AddressUpdateAdvanceFormData>({
     defaultValues: {
-      dataBlock: figureInfo?.db ?? 0,
-      offset: figureInfo?.offset ?? 0,
-      dataType: figureInfo?.dataType ?? DataTypeEnum.REAL,
+      address: figureInfo?.address ?? '%DB1:1:REAL',
     },
-    resolver: yupResolver(AddressUpdateBasicSchema),
+    resolver: yupResolver(AddressUpdateAdvanceSchema),
   });
-  const [dataType, setDataType] = useState<DataTypeEnum>(DataTypeEnum.REAL);
-  const handleChange = (event: SelectChangeEvent) => {
-    setDataType(event.target.value as DataTypeEnum);
-  };
 
   const { renderedBlueprintId } = useContext(BlueprintsContext);
   const {
@@ -68,9 +60,7 @@ export default function AddressUpdateBasicForm({
   const onSubmit = () => {
     const data = methods.getValues();
     const payload: UpdateAddressDTO = {
-      db: data.dataBlock,
-      offset: data.offset,
-      dataType: data.dataType,
+      address: data.address,
     };
 
     updateAddress({
@@ -82,7 +72,6 @@ export default function AddressUpdateBasicForm({
 
   useEffect(() => {
     if (isSuccess) {
-      const data = methods.getValues();
       toast.success('Cập nhật địa chỉ thành công!');
       handleClose();
     }
@@ -115,16 +104,9 @@ export default function AddressUpdateBasicForm({
           </Typography>
         </DialogTitle>
         <DialogContent>
-          <Stack
-            alignItems='flex-start'
-            justifyContent='space-between'
-            spacing={2}
-            sx={{ mt: 2 }}
-          >
-            <DataBlockInput />
-            <OffsetInput />
-            <DataTypeSelect dataType={dataType} handleChange={handleChange} />
-          </Stack>
+          <Box sx={{ mt: 2 }}>
+            <AddressInput />
+          </Box>
         </DialogContent>
         <DialogActions>
           <Stack

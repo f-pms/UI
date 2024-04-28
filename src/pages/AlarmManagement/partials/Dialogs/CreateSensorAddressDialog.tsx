@@ -129,7 +129,9 @@ export function CreateSensorAddressDialog(
           <b>&quot;Địa chỉ biến&quot;</b>, bạn có thể chọn địa chỉ biến này và
           tiếp tục cấu hình cảnh báo. <br />
           Địa chỉ biến được định nghĩa theo mẫu:{' '}
-          <b>%DB&#123;dbblock&#125;:&#123;offset&#125;:&#123;dataType&#125;</b>
+          <b>
+            %DB&#123;dataBlock&#125;:&#123;offset&#125;:&#123;dataType&#125;
+          </b>
         </Typography>
         <Box sx={{ mt: 2 }}>
           <InputWithLabel
