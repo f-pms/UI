@@ -3,6 +3,7 @@ import { FieldValues, FormProvider, UseFormReturn } from 'react-hook-form';
 import {
   Box,
   Button,
+  CircularProgress,
   DialogActions,
   DialogTitle,
   Stack,
@@ -14,6 +15,7 @@ export interface AddressUpdateFormWrapperProps<T extends FieldValues> {
   methods: UseFormReturn<T>;
   onSubmit: () => void;
   onClose: () => void;
+  isLoading: boolean;
 }
 
 export default function AddressUpdateFormWrapper<T extends FieldValues>({
@@ -21,6 +23,7 @@ export default function AddressUpdateFormWrapper<T extends FieldValues>({
   methods,
   onSubmit,
   onClose,
+  isLoading,
 }: AddressUpdateFormWrapperProps<T>) {
   return (
     <FormProvider {...methods}>
@@ -52,7 +55,14 @@ export default function AddressUpdateFormWrapper<T extends FieldValues>({
             <Button color='inherit' variant='outlined' onClick={onClose}>
               Đóng
             </Button>
-            <Button type='submit' variant='contained'>
+            <Button
+              disabled={isLoading}
+              startIcon={
+                isLoading && <CircularProgress color='secondary' size={15} />
+              }
+              type='submit'
+              variant='contained'
+            >
               Cập nhật
             </Button>
           </Stack>

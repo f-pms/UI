@@ -52,7 +52,7 @@ export default function AddressUpdateAdvanceForm({
   const {
     mutate: updateAddress,
     isSuccess,
-    // data: updateData,
+    isPending,
     isError,
     error,
   } = useUpdateAddress();
@@ -94,6 +94,7 @@ export default function AddressUpdateAdvanceForm({
 
   return (
     <AddressUpdateFormWrapper
+      isLoading={isPending}
       methods={methods}
       onClose={handleClose}
       onSubmit={onSubmit}

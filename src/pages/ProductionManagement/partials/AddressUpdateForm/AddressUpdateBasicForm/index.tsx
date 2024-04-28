@@ -61,6 +61,7 @@ export default function AddressUpdateBasicForm({
     mutate: updateAddress,
     isSuccess,
     data: updateData,
+    isPending,
     isError,
     error,
   } = useUpdateAddress();
@@ -102,6 +103,7 @@ export default function AddressUpdateBasicForm({
 
   return (
     <AddressUpdateFormWrapper
+      isLoading={isPending}
       methods={methods}
       onClose={handleClose}
       onSubmit={onSubmit}
