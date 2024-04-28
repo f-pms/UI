@@ -7,7 +7,6 @@ import { DIAGRAMS } from '~/pages/ProductionManagement/helpers/diagrams';
 import { CustomTabPanel } from '~/components/CustomTabPanel';
 import {
   ErrorOutlineOutlinedIcon,
-  FileDownloadOutlinedIcon,
   FullscreenExitOutlinedIcon,
   FullscreenOutlinedIcon,
 } from '~/components/Icons';
@@ -81,10 +80,6 @@ export const StationTabPanel = React.forwardRef<
             </Stack>
           )
         )}
-
-        <IconButton>
-          <FileDownloadOutlinedIcon />
-        </IconButton>
         <IconButton onClick={() => setExpanded(!expanded)}>
           {expanded ? (
             <FullscreenExitOutlinedIcon />
