@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 
 import { useQueryGetMultiDayReportSummary } from '~/services/report/queries/useQueryReportCharts';
+import { formatNumber } from '~/utils';
 
 import { StatisticReportContext } from '~/pages/Report/context/StatisticReportContext';
 
@@ -70,7 +71,7 @@ const StatisticReportOverall = () => {
               }}
               variant='h6'
             >
-              {reportSummary?.SUM_PEAK} (KWh)
+              {formatNumber(reportSummary?.SUM_PEAK ?? 0, 6)} (KWh)
             </Typography>
           </Stack>
           <CircularProgressWithLabel
@@ -98,7 +99,7 @@ const StatisticReportOverall = () => {
               }}
               variant='h6'
             >
-              {reportSummary?.SUM_OFFPEAK} (KWh)
+              {formatNumber(reportSummary?.SUM_OFFPEAK ?? 0, 6)} (KWh)
             </Typography>
           </Stack>
           <CircularProgressWithLabel
@@ -126,7 +127,7 @@ const StatisticReportOverall = () => {
               }}
               variant='h6'
             >
-              {reportSummary?.SUM_STANDARD} (KWh)
+              {formatNumber(reportSummary?.SUM_STANDARD ?? 0, 6)} (KWh)
             </Typography>
           </Stack>
           <CircularProgressWithLabel
@@ -154,7 +155,7 @@ const StatisticReportOverall = () => {
               }}
               variant='h6'
             >
-              {reportSummary?.SUM_TOTAL} (KWh)
+              {formatNumber(reportSummary?.SUM_TOTAL ?? 0, 6)} (KWh)
             </Typography>
           </Stack>
           <CircularProgressWithLabel
