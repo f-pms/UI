@@ -1,8 +1,8 @@
 import { useMonitoringStore } from '~/stores/useMonitoringStore';
 
 import { useCurrentBlueprintContext } from '~/pages/ProductionManagement/context/BlueprintContext';
-import { Figures } from '~/pages/ProductionManagement/partials/Diagrams/partials/Figures';
 import Tr32StaticDiagram from '~/pages/ProductionManagement/partials/Diagrams/TR32/Tr32StaticDiagram';
+import { Figures } from '~/pages/ProductionManagement/partials/Figures';
 
 import './styles.css';
 
