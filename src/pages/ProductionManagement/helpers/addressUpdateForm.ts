@@ -21,7 +21,7 @@ export const AddressUpdateBasicSchema: ObjectSchema<AddressUpdateBasicFormData> 
       .required('Data Block không được để trống'),
     offset: number()
       .typeError('Offset không được để trống')
-      .positive('Offset phải là số nguyên dương')
+      .positive('Offset phải là số dương')
       .required('Offset không được để trống'),
     dataType: mixed<DataTypeEnum>()
       .required('Kiểu dữ liệu không được để trống')
