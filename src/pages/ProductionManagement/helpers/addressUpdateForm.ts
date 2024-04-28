@@ -2,6 +2,8 @@ import { mixed, number, object, ObjectSchema, string } from 'yup';
 
 import { DataTypeEnum } from '~/services/blueprint/queries/useQueryBlueprintById';
 
+export const addressValidationRegex = /^%DB(\d+):(\d+(\.\d+)?):(\S+)$/;
+
 export interface AddressUpdateBasicFormData {
   dataBlock: number;
   offset: number;
@@ -31,6 +33,6 @@ export const AddressUpdateBasicSchema: ObjectSchema<AddressUpdateBasicFormData> 
 export const AddressUpdateAdvanceSchema: ObjectSchema<AddressUpdateAdvanceFormData> =
   object().shape({
     address: string()
-      .matches(/^%DB\d+:\d+(\.\d+)?:\S+$/, 'Địa chỉ phải có định dạng theo mẫu')
+      .matches(addressValidationRegex, 'Địa chỉ phải có định dạng theo mẫu')
       .required('Địa chỉ không được để trống'),
   });

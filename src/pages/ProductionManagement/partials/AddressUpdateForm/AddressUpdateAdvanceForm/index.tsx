@@ -4,7 +4,10 @@ import { toast } from 'react-toastify';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 
-import { FigureInfoType } from '~/services/blueprint/queries/useQueryBlueprintById';
+import {
+  DataTypeEnum,
+  FigureInfoType,
+} from '~/services/blueprint/queries/useQueryBlueprintById';
 import {
   UpdateAddressDTO,
   useUpdateAddress,
@@ -15,6 +18,7 @@ import { BlueprintsContext } from '~/pages/ProductionManagement/context/Blueprin
 import {
   AddressUpdateAdvanceFormData,
   AddressUpdateAdvanceSchema,
+  addressValidationRegex,
 } from '~/pages/ProductionManagement/helpers/addressUpdateForm';
 import AddressInput from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateAdvanceForm/AddressInput';
 import AddressUpdateFormWrapper from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateFormWrapper';
@@ -70,7 +74,12 @@ export default function AddressUpdateAdvanceForm({
   useEffect(() => {
     if (isSuccess) {
       toast.success('Cập nhật địa chỉ thành công!');
+      const match = submittedData.address.match(addressValidationRegex);
+      const [, dataBlock, offset, , dataType] = match!;
       figureInfo!.address = submittedData.address;
+      figureInfo!.db = parseInt(dataBlock);
+      figureInfo!.offset = parseFloat(offset);
+      figureInfo!.dataType = dataType as DataTypeEnum;
       handleClose();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
