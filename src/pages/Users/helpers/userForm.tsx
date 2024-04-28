@@ -9,7 +9,7 @@ export const userSchema: ObjectSchema<UserDTO> = object({
     .max(50, 'Tên tối đa có 50 kí tự')
     .required('Tên không được để trống'),
   username: string()
-    .min(6, 'Tên đăng nhập tối thiểu có 6 kí tự')
+    .min(2, 'Tên đăng nhập tối thiểu có 2 kí tự')
     .max(16, 'Tên đăng nhập tối đa có 16 kí tự')
     .required('Tên đăng nhập không được để trống')
     .matches(/^\w+$/, 'Tên đăng nhập chỉ chứa kí tự chữ, số và dấu gạch dưới'),

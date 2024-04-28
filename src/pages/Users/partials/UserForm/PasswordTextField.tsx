@@ -51,7 +51,7 @@ export function PasswordTextField() {
     if (password === confirmPassword && password?.length < 8) {
       errors.push('Mật khẩu phải có ít nhất 8 ký tự');
     }
-    if (password === confirmPassword && password?.length >= 20) {
+    if (password === confirmPassword && password?.length > 16) {
       errors.push('Mật khẩu không được quá 16 ký tự');
     }
     setValidateErrors(errors);

@@ -77,7 +77,7 @@ export const statisticReportValidationSchema = yup.object({
       message: 'Số lượng bước nhảy chỉ được chọn từ 2 đến 12 tháng',
       test: function (value) {
         if (this.parent.viewType === ViewTypes.BY_MONTH) {
-          return value > 1 && value <= 24;
+          return value > 1 && value <= 12;
         }
         return true;
       },

@@ -94,7 +94,7 @@ export function UserProfilePage() {
       <Divider />
       <UserPasswordField refetchUserInfo={refetchUserInfo} userInfo={user} />
 
-      {currentUser?.role === Role.ADMIN && (
+      {currentUser?.role === Role.ADMIN && currentUser?.id !== user?.id && (
         <Stack
           alignItems='center'
           direction='row'
