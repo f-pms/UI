@@ -19,7 +19,7 @@ export default function OffsetInput() {
       control={control}
       defaultValue={1}
       description='Offset'
-      error={errors.dataBlock}
+      error={errors.offset}
       name='offset'
       type='number'
     />

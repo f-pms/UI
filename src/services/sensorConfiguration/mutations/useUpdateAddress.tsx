@@ -1,57 +1,48 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, UseMutationOptions } from '@tanstack/react-query';
 
 import axiosClient from '~/libs/axios';
 import { DataTypeEnum } from '~/services/blueprint';
+import { SensorConfiguration } from '~/types';
 
-export interface IBlueprint {
-  id: number;
-  name: string;
-  description: string;
-  sensorConfigurations: FigureInfoType[];
-}
-
-export type FigureInfoType = {
-  id: string;
-  address: string;
-  db: number;
-  offset: number;
-  dataType: DataTypeEnum;
-  x: number;
-  y: number;
-};
-
-interface UseMutationProps extends UpdateAddressBody {
-  id: number;
-  blueprintId: number;
-}
-
-interface UpdateAddressBody {
+export interface UpdateAddressDTO {
   address?: string;
   db?: number;
   offset?: number;
   dataType?: DataTypeEnum;
 }
 
-const updateAddress = async ({
-  id,
-  blueprintId,
-  address,
-  db,
-  offset,
-  dataType,
-}: UseMutationProps) => {
-  const body: UpdateAddressBody = { address, db, offset, dataType };
-
-  return (
-    await axiosClient.put(
-      `blueprints/${blueprintId}/sensor-configurations/${id}`,
-      body,
-    )
-  ).data;
+type UpdateAddressParams = {
+  blueprintId: number;
+  sensorConfigurationId: number;
+  payload: UpdateAddressDTO;
 };
 
-export const useUpdateAddress = () => {
+const updateAddress = async ({
+  blueprintId,
+  sensorConfigurationId,
+  payload,
+}: UpdateAddressParams) => {
+  return (
+    await axiosClient.put(
+      `blueprints/${blueprintId}/sensor-configurations/${sensorConfigurationId}`,
+      payload,
+    )
+  ).data as SensorConfiguration;
+};
+
+export const useUpdateAddress = (
+  options?: Omit<
+    UseMutationOptions<
+      SensorConfiguration,
+      Error,
+      UpdateAddressParams,
+      unknown
+    >,
+    'mutationFn'
+  >,
+) => {
   return useMutation({
-    mutationFn: (props: UseMutationProps) => updateAddress(props),
+    ...options,
+    mutationFn: (props: UpdateAddressParams) => updateAddress(props),
   });
 };

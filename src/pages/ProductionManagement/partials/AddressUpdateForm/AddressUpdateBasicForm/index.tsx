@@ -1,49 +1,38 @@
-import { useContext, useEffect } from 'react';
-import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
+import { useContext, useEffect, useState } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
+
+import { yupResolver } from '@hookform/resolvers/yup';
+import { SelectChangeEvent } from '@mui/material';
 
 import {
   DataTypeEnum,
   FigureInfoType,
 } from '~/services/blueprint/queries/useQueryBlueprintById';
-import { useUpdateAddress } from '~/services/sensorConfiguration';
+import {
+  UpdateAddressDTO,
+  useUpdateAddress,
+} from '~/services/sensorConfiguration';
 import { displayErrorMessage } from '~/utils/errorMessage';
 
 import { BlueprintsContext } from '~/pages/ProductionManagement/context/BlueprintContext';
-import { AddressUpdateBasicFormData } from '~/pages/ProductionManagement/helpers/addressUpdateForm';
+import {
+  AddressUpdateBasicFormData,
+  AddressUpdateBasicSchema,
+} from '~/pages/ProductionManagement/helpers/addressUpdateForm';
 import DataBlockInput from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateBasicForm/DataBlockInput';
-import DataTypeInput from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateBasicForm/DataTypeInput';
+import DataTypeSelect from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateBasicForm/DataTypeSelect';
 import OffsetInput from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateBasicForm/OffsetInput';
 
-import { TextField } from '~/components';
 import {
   Box,
   Button,
-  CircularProgress,
   DialogActions,
   DialogContent,
   DialogTitle,
-  MenuItem,
   Stack,
   Typography,
 } from '~/components/MuiComponents';
-
-interface IFormInput {
-  dataBlock: number;
-  offset: number;
-  dataType: DataTypeEnum;
-}
-
-const dataTypeOptions = [
-  {
-    value: DataTypeEnum.REAL,
-    label: DataTypeEnum.REAL,
-  },
-  {
-    value: DataTypeEnum.INT,
-    label: DataTypeEnum.INT,
-  },
-];
 
 interface AddressUpdateBasicFormProps {
   handleClose: () => void;
@@ -60,31 +49,40 @@ export default function AddressUpdateBasicForm({
       offset: figureInfo?.offset ?? 0,
       dataType: figureInfo?.dataType ?? DataTypeEnum.REAL,
     },
+    resolver: yupResolver(AddressUpdateBasicSchema),
   });
+  const [dataType, setDataType] = useState<DataTypeEnum>(DataTypeEnum.REAL);
+  const handleChange = (event: SelectChangeEvent) => {
+    setDataType(event.target.value as DataTypeEnum);
+  };
 
   const { renderedBlueprintId } = useContext(BlueprintsContext);
   const {
     mutate: updateAddress,
-    isPending,
     isSuccess,
+    data: updateData,
     isError,
     error,
   } = useUpdateAddress();
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    updateAddress({
-      id: figureInfo?.id ?? 0,
-      blueprintId: renderedBlueprintId,
+
+  const onSubmit = () => {
+    const data = methods.getValues();
+    const payload: UpdateAddressDTO = {
       db: data.dataBlock,
       offset: data.offset,
       dataType: data.dataType,
+    };
+
+    updateAddress({
+      blueprintId: renderedBlueprintId,
+      sensorConfigurationId: figureInfo?.id ?? 0,
+      payload,
     });
   };
 
   useEffect(() => {
     if (isSuccess) {
-      toast.success(
-        <Typography variant='body2'>Cập nhật địa chỉ thành công!</Typography>,
-      );
+      toast.success('Cập nhật địa chỉ thành công!');
       handleClose();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -94,11 +92,17 @@ export default function AddressUpdateBasicForm({
     if (isError) {
       toast.error(displayErrorMessage(error));
     }
-  }, [isError, error]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isError]);
 
   return (
     <FormProvider {...methods}>
-      <Box marginX={3} marginY={2}>
+      <Box
+        component='form'
+        marginX={3}
+        marginY={2}
+        onSubmit={methods.handleSubmit(onSubmit)}
+      >
         <DialogTitle>
           <Typography
             align='center'
@@ -118,93 +122,24 @@ export default function AddressUpdateBasicForm({
           >
             <DataBlockInput />
             <OffsetInput />
-            <DataTypeInput />
+            <DataTypeSelect dataType={dataType} handleChange={handleChange} />
           </Stack>
-          {/* <TextField
-          fullWidth
-          InputLabelProps={{
-            shrink: true,
-          }}
-          control={control}
-          error={!!errors.dataBlock}
-          helperText={errors.dataBlock?.message}
-          id='dataBlock'
-          label='Data Block'
-          margin='dense'
-          name='dataBlock'
-          rules={{
-            required: 'Data Block không được trống',
-            pattern: {
-              value: /^(0|[1-9]\d*)$/,
-              message: 'Data Block phải là số nguyên không âm',
-            },
-          }}
-          size='small'
-          type='number'
-          variant='standard'
-        />
-        <TextField
-          fullWidth
-          InputLabelProps={{
-            shrink: true,
-          }}
-          control={control}
-          error={!!errors.offset}
-          helperText={errors.offset?.message}
-          id='offset'
-          label='Offset'
-          margin='dense'
-          name='offset'
-          rules={{
-            required: 'Offset không được trống',
-            pattern: {
-              value: /^(0|[1-9]\d*)$/,
-              message: 'Offset phải là số nguyên không âm',
-            },
-          }}
-          size='small'
-          type='number'
-          variant='standard'
-        />
-        <TextField
-          fullWidth
-          select
-          InputLabelProps={{
-            shrink: true,
-          }}
-          control={control}
-          error={!!errors.dataType}
-          helperText={errors.dataType?.message}
-          id='dataType'
-          label='Kiểu dữ liệu'
-          margin='dense'
-          name='dataType'
-          rules={{ required: true }}
-          size='small'
-          variant='standard'
-        >
-          {dataTypeOptions.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
-            </MenuItem>
-          ))}
-        </TextField> */}
         </DialogContent>
         <DialogActions>
-          <Button size='small' variant='outlined' onClick={handleClose}>
-            Đóng
-          </Button>
-          <Button
-            disabled={isPending}
-            size='small'
-            startIcon={
-              isPending && <CircularProgress color='secondary' size={15} />
-            }
-            type='submit'
-            variant='contained'
+          <Stack
+            alignItems='center'
+            direction='row'
+            justifyContent='flex-end'
+            spacing={1}
+            sx={{ width: '100%', p: 2 }}
           >
-            Cập nhật
-          </Button>
+            <Button color='inherit' variant='outlined' onClick={handleClose}>
+              Đóng
+            </Button>
+            <Button type='submit' variant='contained'>
+              Cập nhật
+            </Button>
+          </Stack>
         </DialogActions>
       </Box>
     </FormProvider>
