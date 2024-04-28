@@ -1,7 +1,6 @@
 import {
   ElectricalMeterReadingTableValues,
   ReportDetails,
-  ReportKey,
   RowsMap,
   Shift,
 } from '~/types';
@@ -19,17 +18,19 @@ export const mapDataIntoTableValue = (
     }
 
     const rowsMap = report.rowsMaps[shift === Shift.MORNING ? 0 : 1];
-    const reportKey = report.type.name as ReportKey;
+    const reportKey = report.type.name;
 
     const rows = defaultValues.rows;
     let total = 0;
+    let count = 0;
+
     defaultValues.rows.forEach((row, rowIndex) => {
       row.equipments.forEach((_, lineIndex) => {
-        const oldValueMapKey = `${reportKey}_${lineIndex + startLineIndex}_0`;
-        const newValue1MapKey = `${reportKey}_${lineIndex + startLineIndex}_1`;
-        const newValue2MapKey = `${reportKey}_${lineIndex + startLineIndex}_3`;
-        const newValue3MapKey = `${reportKey}_${lineIndex + startLineIndex}_5`;
-        const newValue4MapKey = `${reportKey}_${lineIndex + startLineIndex}_7`;
+        const oldValueMapKey = `${reportKey}_${count + startLineIndex}_0`;
+        const newValue1MapKey = `${reportKey}_${count + startLineIndex}_1`;
+        const newValue2MapKey = `${reportKey}_${count + startLineIndex}_3`;
+        const newValue3MapKey = `${reportKey}_${count + startLineIndex}_5`;
+        const newValue4MapKey = `${reportKey}_${count + startLineIndex}_7`;
         const oldValue = rowsMap?.[oldValueMapKey as keyof RowsMap] ?? 0;
         const newValue1 = rowsMap?.[newValue1MapKey as keyof RowsMap] ?? 0;
         const newValue2 = rowsMap?.[newValue2MapKey as keyof RowsMap] ?? 0;
@@ -60,6 +61,7 @@ export const mapDataIntoTableValue = (
           },
         };
         total += newValue4 - oldValue;
+        count += 1;
       });
     });
     return { ...defaultValues, rows, total: total * 1000000 };

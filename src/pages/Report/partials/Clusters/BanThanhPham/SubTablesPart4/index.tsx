@@ -16,6 +16,9 @@ export function SubTablePart4(props: Readonly<ISubTablePart4Props>) {
   const shift = searchParams.get('shift') as Shift;
 
   const sum = shift === Shift.MORNING ? report.sums[0] : report.sums[1];
+  const factor =
+    shift === Shift.MORNING ? report?.factors[0] : report?.factors[1];
+
   return (
     <Stack direction='row' mt={2} spacing={4}>
       <SubTable
@@ -23,7 +26,7 @@ export function SubTablePart4(props: Readonly<ISubTablePart4Props>) {
         rows={[
           {
             label: 'Tổng số điện sử dụng khí nén cho SX thành phẩm',
-            coefficient: 50,
+            coefficient: (factor?.['FACTOR_BTP_CATEGORY_4.1'] ?? 0) * 100,
             value: sum?.['SUM_BTP_CATEGORY_4.1'] ?? 0,
           },
         ]}
@@ -34,7 +37,7 @@ export function SubTablePart4(props: Readonly<ISubTablePart4Props>) {
         rows={[
           {
             label: 'Tổng số điện sử dụng khí nén cho SX bán thành phẩm',
-            coefficient: 50,
+            coefficient: (factor?.['FACTOR_BTP_CATEGORY_4.2'] ?? 0) * 100,
             value: sum?.['SUM_BTP_CATEGORY_4.2'] ?? 0,
           },
         ]}
