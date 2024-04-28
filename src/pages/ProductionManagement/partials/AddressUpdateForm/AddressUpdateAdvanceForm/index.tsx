@@ -1,14 +1,10 @@
-import { useContext, useEffect, useState } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+import { useContext, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 import { yupResolver } from '@hookform/resolvers/yup';
-import { SelectChangeEvent } from '@mui/material';
 
-import {
-  DataTypeEnum,
-  FigureInfoType,
-} from '~/services/blueprint/queries/useQueryBlueprintById';
+import { FigureInfoType } from '~/services/blueprint/queries/useQueryBlueprintById';
 import {
   UpdateAddressDTO,
   useUpdateAddress,
@@ -21,16 +17,9 @@ import {
   AddressUpdateAdvanceSchema,
 } from '~/pages/ProductionManagement/helpers/addressUpdateForm';
 import AddressInput from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateAdvanceForm/AddressInput';
+import AddressUpdateFormWrapper from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateFormWrapper';
 
-import {
-  Box,
-  Button,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  Stack,
-  Typography,
-} from '~/components/MuiComponents';
+import { Box, DialogContent } from '~/components/MuiComponents';
 
 interface AddressUpdateAdvanceFormProps {
   handleClose: () => void;
@@ -86,45 +75,16 @@ export default function AddressUpdateAdvanceForm({
   }, [isError]);
 
   return (
-    <FormProvider {...methods}>
-      <Box
-        component='form'
-        marginX={3}
-        marginY={2}
-        onSubmit={methods.handleSubmit(onSubmit)}
-      >
-        <DialogTitle>
-          <Typography
-            align='center'
-            color='text.strong'
-            sx={{ fontWeight: 'bold' }}
-            variant='h6'
-          >
-            Cập nhật địa chỉ biến PLC
-          </Typography>
-        </DialogTitle>
-        <DialogContent>
-          <Box sx={{ mt: 2 }}>
-            <AddressInput />
-          </Box>
-        </DialogContent>
-        <DialogActions>
-          <Stack
-            alignItems='center'
-            direction='row'
-            justifyContent='flex-end'
-            spacing={1}
-            sx={{ width: '100%', p: 2 }}
-          >
-            <Button color='inherit' variant='outlined' onClick={handleClose}>
-              Đóng
-            </Button>
-            <Button type='submit' variant='contained'>
-              Cập nhật
-            </Button>
-          </Stack>
-        </DialogActions>
-      </Box>
-    </FormProvider>
+    <AddressUpdateFormWrapper
+      methods={methods}
+      onClose={handleClose}
+      onSubmit={onSubmit}
+    >
+      <DialogContent>
+        <Box sx={{ mt: 2 }}>
+          <AddressInput />
+        </Box>
+      </DialogContent>
+    </AddressUpdateFormWrapper>
   );
 }

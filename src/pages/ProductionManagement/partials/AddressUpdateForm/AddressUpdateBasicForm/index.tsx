@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -23,16 +23,9 @@ import {
 import DataBlockInput from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateBasicForm/DataBlockInput';
 import DataTypeSelect from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateBasicForm/DataTypeSelect';
 import OffsetInput from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateBasicForm/OffsetInput';
+import AddressUpdateFormWrapper from '~/pages/ProductionManagement/partials/AddressUpdateForm/AddressUpdateFormWrapper';
 
-import {
-  Box,
-  Button,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  Stack,
-  Typography,
-} from '~/components/MuiComponents';
+import { DialogContent, Stack } from '~/components/MuiComponents';
 
 interface AddressUpdateBasicFormProps {
   handleClose: () => void;
@@ -82,7 +75,6 @@ export default function AddressUpdateBasicForm({
 
   useEffect(() => {
     if (isSuccess) {
-      const data = methods.getValues();
       toast.success('Cập nhật địa chỉ thành công!');
       handleClose();
     }
@@ -97,52 +89,23 @@ export default function AddressUpdateBasicForm({
   }, [isError]);
 
   return (
-    <FormProvider {...methods}>
-      <Box
-        component='form'
-        marginX={3}
-        marginY={2}
-        onSubmit={methods.handleSubmit(onSubmit)}
-      >
-        <DialogTitle>
-          <Typography
-            align='center'
-            color='text.strong'
-            sx={{ fontWeight: 'bold' }}
-            variant='h6'
-          >
-            Cập nhật địa chỉ biến PLC
-          </Typography>
-        </DialogTitle>
-        <DialogContent>
-          <Stack
-            alignItems='flex-start'
-            justifyContent='space-between'
-            spacing={2}
-            sx={{ mt: 2 }}
-          >
-            <DataBlockInput />
-            <OffsetInput />
-            <DataTypeSelect dataType={dataType} handleChange={handleChange} />
-          </Stack>
-        </DialogContent>
-        <DialogActions>
-          <Stack
-            alignItems='center'
-            direction='row'
-            justifyContent='flex-end'
-            spacing={1}
-            sx={{ width: '100%', p: 2 }}
-          >
-            <Button color='inherit' variant='outlined' onClick={handleClose}>
-              Đóng
-            </Button>
-            <Button type='submit' variant='contained'>
-              Cập nhật
-            </Button>
-          </Stack>
-        </DialogActions>
-      </Box>
-    </FormProvider>
+    <AddressUpdateFormWrapper
+      methods={methods}
+      onClose={handleClose}
+      onSubmit={onSubmit}
+    >
+      <DialogContent>
+        <Stack
+          alignItems='flex-start'
+          justifyContent='space-between'
+          spacing={2}
+          sx={{ mt: 2 }}
+        >
+          <DataBlockInput />
+          <OffsetInput />
+          <DataTypeSelect dataType={dataType} handleChange={handleChange} />
+        </Stack>
+      </DialogContent>
+    </AddressUpdateFormWrapper>
   );
 }
