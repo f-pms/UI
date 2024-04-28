@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
@@ -36,14 +36,21 @@ export default function AddressUpdateBasicForm({
   handleClose,
   figureInfo,
 }: AddressUpdateBasicFormProps) {
-  const methods = useForm<AddressUpdateBasicFormData>({
-    defaultValues: {
+  const defaultData = useMemo(
+    () => ({
       dataBlock: figureInfo?.db ?? 0,
       offset: figureInfo?.offset ?? 0,
       dataType: figureInfo?.dataType ?? DataTypeEnum.REAL,
-    },
+    }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  );
+  const methods = useForm<AddressUpdateBasicFormData>({
+    defaultValues: defaultData,
     resolver: yupResolver(AddressUpdateBasicSchema),
   });
+  const [submittedData, setSubmittedData] =
+    useState<AddressUpdateBasicFormData>(defaultData);
   const [dataType, setDataType] = useState<DataTypeEnum>(DataTypeEnum.REAL);
   const handleChange = (event: SelectChangeEvent) => {
     setDataType(event.target.value as DataTypeEnum);
@@ -53,7 +60,7 @@ export default function AddressUpdateBasicForm({
   const {
     mutate: updateAddress,
     isSuccess,
-    // data: updateData,
+    data: updateData,
     isError,
     error,
   } = useUpdateAddress();
@@ -65,6 +72,7 @@ export default function AddressUpdateBasicForm({
       offset: data.offset,
       dataType: data.dataType,
     };
+    setSubmittedData(data);
 
     updateAddress({
       blueprintId: renderedBlueprintId,
@@ -76,6 +84,10 @@ export default function AddressUpdateBasicForm({
   useEffect(() => {
     if (isSuccess) {
       toast.success('Cập nhật địa chỉ thành công!');
+      figureInfo!.address = updateData.address;
+      figureInfo!.db = submittedData.dataBlock;
+      figureInfo!.offset = submittedData.offset;
+      figureInfo!.dataType = submittedData.dataType;
       handleClose();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

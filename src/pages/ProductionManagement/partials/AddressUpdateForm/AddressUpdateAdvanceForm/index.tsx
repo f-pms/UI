@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
@@ -30,12 +30,19 @@ export default function AddressUpdateAdvanceForm({
   handleClose,
   figureInfo,
 }: AddressUpdateAdvanceFormProps) {
+  const defaultData = useMemo(
+    () => ({
+      address: figureInfo?.address ?? '',
+    }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [],
+  );
   const methods = useForm<AddressUpdateAdvanceFormData>({
-    defaultValues: {
-      address: figureInfo?.address ?? '%DB1:1:REAL',
-    },
+    defaultValues: defaultData,
     resolver: yupResolver(AddressUpdateAdvanceSchema),
   });
+  const [submittedData, setSubmittedData] =
+    useState<AddressUpdateAdvanceFormData>(defaultData);
 
   const { renderedBlueprintId } = useContext(BlueprintsContext);
   const {
@@ -51,6 +58,7 @@ export default function AddressUpdateAdvanceForm({
     const payload: UpdateAddressDTO = {
       address: data.address,
     };
+    setSubmittedData(data);
 
     updateAddress({
       blueprintId: renderedBlueprintId,
@@ -62,6 +70,7 @@ export default function AddressUpdateAdvanceForm({
   useEffect(() => {
     if (isSuccess) {
       toast.success('Cập nhật địa chỉ thành công!');
+      figureInfo!.address = submittedData.address;
       handleClose();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
