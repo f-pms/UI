@@ -23,11 +23,6 @@ export const useConnectWebsocket = () => {
     if (!isConnected()) {
       connect();
     }
-    return () => {
-      if (isConnected()) {
-        disconnect();
-      }
-    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 };
