@@ -29,6 +29,7 @@ export function CreateAlarmDialog() {
     handleAgreeChangeMode,
     handleSubmit,
     setOpenAlertChangeMode,
+    isPendingCreate,
   } = useCreateAlarm(defaultAlarmFormData);
 
   return (
@@ -55,6 +56,7 @@ export function CreateAlarmDialog() {
           handleNext={handleNext}
           handleSubmit={handleSubmit}
           isAdvanced={isAdvanced}
+          isPendingCreate={isPendingCreate}
           setOpenAlertChangeMode={setOpenAlertChangeMode}
         />
       </Dialog>

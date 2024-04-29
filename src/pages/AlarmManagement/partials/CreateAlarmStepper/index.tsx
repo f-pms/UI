@@ -1,6 +1,7 @@
 import {
   Box,
   Button,
+  CircularProgress,
   DialogActions,
   DialogContent,
   FormControlLabel,
@@ -22,6 +23,7 @@ export interface ICreateAlarmStepperProps {
   handleBack: () => void;
   handleSubmit: () => void;
   setOpenAlertChangeMode: (value: boolean) => void;
+  isPendingCreate: boolean;
 }
 
 export function CreateAlarmStepper(props: ICreateAlarmStepperProps) {
@@ -33,6 +35,7 @@ export function CreateAlarmStepper(props: ICreateAlarmStepperProps) {
     handleBack,
     handleSubmit,
     setOpenAlertChangeMode,
+    isPendingCreate,
   } = props;
   const steps: AlarmStep[] = [
     {
@@ -115,6 +118,12 @@ export function CreateAlarmStepper(props: ICreateAlarmStepperProps) {
               Trở lại
             </Button>
             <Button
+              disabled={activeStep === steps.length - 1 && isPendingCreate}
+              startIcon={
+                isPendingCreate && (
+                  <CircularProgress color='secondary' size={15} />
+                )
+              }
               variant='contained'
               onClick={
                 activeStep === steps.length - 1

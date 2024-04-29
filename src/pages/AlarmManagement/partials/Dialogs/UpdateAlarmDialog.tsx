@@ -26,6 +26,7 @@ import { EditOutlinedIcon } from '~/components/Icons';
 import {
   Box,
   Button,
+  CircularProgress,
   Dialog,
   DialogActions,
   DialogContent,
@@ -57,6 +58,7 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
     isSuccess: isUpdateInfoAlarmSuccess,
     isError: isUpdateInfoAlarmError,
     error,
+    isPending: isUpdatePending,
   } = useUpdateAlarmCondition();
   const { refetch } = useQueryAlarmConditions({
     enabled: false,
@@ -246,7 +248,16 @@ export default function UpdateAlarmDialog(props: IUpdateAlarmDialogProps) {
               )}
             </Stack>
             {activeStep < steps.length - 1 && (
-              <Button variant='contained' onClick={handleSubmit}>
+              <Button
+                disabled={isUpdatePending}
+                startIcon={
+                  isUpdatePending && (
+                    <CircularProgress color='secondary' size={15} />
+                  )
+                }
+                variant='contained'
+                onClick={handleSubmit}
+              >
                 Cập nhật
               </Button>
             )}

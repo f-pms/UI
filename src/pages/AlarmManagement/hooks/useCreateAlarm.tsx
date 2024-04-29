@@ -28,6 +28,7 @@ export const useCreateAlarm = (defaultValue: AlarmFormData) => {
     isSuccess,
     isError,
     error,
+    isPending: isPendingCreate,
   } = useCreateAlarmCondition();
   const { refetch } = useQueryAlarmConditions({
     enabled: false,
@@ -125,5 +126,6 @@ export const useCreateAlarm = (defaultValue: AlarmFormData) => {
     handleBack,
     handleAgreeChangeMode,
     handleSubmit,
+    isPendingCreate,
   };
 };

@@ -6,6 +6,7 @@ import { Box } from '@mui/material';
 
 import { useDeleteUser } from '~/services/user/mutation/useDeleteUser';
 import { useQueryUsers } from '~/services/user/queries/useQueryUsers';
+import { displayErrorMessage } from '~/utils/errorMessage';
 
 import { AlertDialog } from '~/components';
 import { DeleteOutlineOutlinedIcon } from '~/components/Icons';
@@ -28,7 +29,12 @@ export function ConfirmDeleteUserDialog(props: IConfirmDeleteUserDialogProps) {
       enabled: false,
     },
   );
-  const { mutate: deleteUser, isSuccess: isDeleteSuccess } = useDeleteUser();
+  const {
+    mutate: deleteUser,
+    isSuccess: isDeleteSuccess,
+    isError,
+    error,
+  } = useDeleteUser();
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {
@@ -48,6 +54,13 @@ export function ConfirmDeleteUserDialog(props: IConfirmDeleteUserDialogProps) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isDeleteSuccess]);
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(displayErrorMessage(error));
+      handleClose();
+    }
+  }, [isError, error]);
   return (
     <>
       <Box key='delete' onClick={() => setOpen(true)}>
