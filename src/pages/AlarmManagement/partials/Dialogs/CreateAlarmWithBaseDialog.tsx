@@ -26,6 +26,7 @@ export type AlarmStep = {
 
 export interface IAlarmConfigTableProps {
   alarm: Alarm;
+
   closeMenu: () => void;
 }
 
@@ -67,6 +68,7 @@ export function CreateAlarmWithBaseDialog(props: IAlarmConfigTableProps) {
     handleAgreeChangeMode,
     handleSubmit: submit,
     setOpenAlertChangeMode,
+    isPendingCreate,
   } = useCreateAlarm(defaultAlarmFormData);
 
   const handleCloseDialog = () => {
@@ -109,6 +111,7 @@ export function CreateAlarmWithBaseDialog(props: IAlarmConfigTableProps) {
           handleNext={handleNext}
           handleSubmit={handleSubmit}
           isAdvanced={isAdvanced}
+          isPendingCreate={isPendingCreate}
           setOpenAlertChangeMode={setOpenAlertChangeMode}
         />
       </Dialog>
