@@ -51,7 +51,8 @@ export function StatisticReportPageHeading() {
           alignItems='center'
           direction='row'
           justifyContent='space-between'
-          spacing={2}
+          spacing={4}
+          width='max-content'
         >
           {isAdmin && (
             <Button
@@ -87,7 +88,7 @@ export function StatisticReportPageHeading() {
 
           {missingDates?.BTP.length ? (
             <Typography component='p' fontStyle='italic' variant='caption'>
-              *Công đoạn bán thành phần thiếu dữ liệu:{' '}
+              *Công đoạn bán thành phẩm thiếu dữ liệu:{' '}
               {missingDates?.BTP.map((date) =>
                 format(new Date(date ?? new Date()), 'P', { locale: vi }),
               ).join(', ')}
