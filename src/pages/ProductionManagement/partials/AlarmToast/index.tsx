@@ -38,9 +38,7 @@ export default function AlarmToast({ alarm }: IAlarmToastProps) {
   return (
     <Alert severity={severity as AlertColor} sx={{ minWidth: '380px' }}>
       <AlertTitle>
-        <Typography sx={{ fontWeight: 'bold' }}>
-          {`Main - %DB100:0.0:BOOL`}
-        </Typography>
+        <Typography sx={{ fontWeight: 'bold' }}>Cảnh báo</Typography>
       </AlertTitle>
       <Box>
         <Typography variant='body2'>{alarm.message}</Typography>
