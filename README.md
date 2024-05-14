@@ -92,7 +92,7 @@ Visit <http://localhost:6006> in your browser to view the application.
 5. Tran Trung Kien
 
 ## References
-- [Document](https://github.com/f-pms/UI/blob/lxd/readme/docs/Report7_Final-Project-Report_Realtime-Monitoring-System-for-FSC-MDF-Factory.pdf)
+- [Document](https://github.com/f-pms/UI/blob/lxd/readme/docs/Report7_Final-Project-Report_Realtime-Monitoring-System-for-FSC-MDF-Factory.pdf?raw=true)
 
 ## Technologies
 
