@@ -14,6 +14,8 @@
   - [Features](#features)
     - [Monitoring](#monitoring)
     - [Alarm](#alarm)
+    - [Report](#report)
+    - [User Management](#user)
   - [Team Members](#team-members)
   - [Dependencies](#dependencies)
 
