@@ -1,7 +1,4 @@
 # PMS - Power Management System
-
-[PMS].
-
 ## Table of Contents
 
 - [PMS - Power Management System](#pms---power-management-system)
