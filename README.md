@@ -53,11 +53,22 @@ Visit <http://localhost:6006> in your browser to view the application.
 
 ### Monitoring
 
-We're developing a user-friendly feature suite for seamless factory machinery monitoring, including real-time visualization and data reflection, powered by our Precision Monitoring System (PMS) receiving data from Siemens S7-200 PLCs.
+- Ensuring a stable connection to the required PLC, handling a data stream of 500 - 600 parameters per second, and accurately displaying this information on the user interface. 
+- Each factory station screen must display the associated electrical schematic diagram and its parameters correctly. 
 
 ### Alarm
 
-Production parameter tables should contain changeable-color cell to reflect data
+- Allow users to create alarms to alert users of any unexpected events in the factory. 
+
+- Must support two types of alarms, one to check existing conditions in the PLC before and one to check custom conditions created by the user without the need to add/modify the PLC logic.
+
+### Report
+
+- Developing a comprehensive reporting feature with table-format data and charts for efficient decision-making.
+
+### User Management
+
+- Creating a set of user management functions that enable different levels of access and control within the application. 
 
 ## Team Members
 
