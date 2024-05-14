@@ -21,7 +21,8 @@
 
 ## About
 
-PMS is a group capstone project that serves as a solution for managing devices within the factory more efficiently and visually for FSC Company.
+The Web-Based Real-time Monitoring System offers a complete platform for factory operators to access real-time data, alarms, dynamic reports, and user-friendly interaction for monitoring energy consumption and production parameters at Kim Tin's MDF wooden board factory.
+
 
 ## Getting Started
 
