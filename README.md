@@ -57,13 +57,15 @@ Visit <http://localhost:6006> in your browser to view the application.
 ### Monitoring
 
 - Ensuring a stable connection to the required PLC, handling a data stream of 500 - 600 parameters per second, and accurately displaying this information on the user interface. 
-- Each factory station screen must display the associated electrical schematic diagram and its parameters correctly. 
+- Each factory station screen must display the associated electrical schematic diagram and its parameters correctly.
+  ![alt text](https://github.com/f-pms/UI/blob/lxd/readme/docs/screenshots/monitoring-page.png?raw=true)
 
 ### Alarm
 
 - Allow users to create alarms to alert users of any unexpected events in the factory. 
 
 - Must support two types of alarms, one to check existing conditions in the PLC before and one to check custom conditions created by the user without the need to add/modify the PLC logic.
+![alt text](https://github.com/f-pms/UI/blob/lxd/readme/docs/screenshots/alarm-trigger.png?raw=true)
 
 ### Report
 
